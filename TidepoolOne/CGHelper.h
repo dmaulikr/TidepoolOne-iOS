@@ -1,0 +1,32 @@
+//
+//  CGHelper.h
+//  TidepoolOne
+//
+//  Created by Mayank Sanganeria on 7/17/13.
+//  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface CGHelper : NSObject
+
+#pragma mark ConcentricArc
+
++(CGMutablePathRef)newConcentricArcPathAtPoint:(CGPoint)point withinnerRadius:(float)innerRadius outerRadius:(float)outerRadius startAngle:(float)startAngle endAngle:(float)endAngle CF_RETURNS_RETAINED;
++(void)fillConcentricArcAtPoint:(CGPoint)point withinnerRadius:(float)innerRadius outerRadius:(float)outerRadius startAngle:(float)startAngle endAngle:(float)endAngle color:(UIColor *)color;
++(void)strokeConcentricArcAtPoint:(CGPoint)point withinnerRadius:(float)innerRadius outerRadius:(float)outerRadius startAngle:(float)startAngle endAngle:(float)endAngle color:(UIColor *)color;
++(void)strokeConcentricArcAtPoint:(CGPoint)point withinnerRadius:(float)innerRadius outerRadius:(float)outerRadius startAngle:(float)startAngle endAngle:(float)endAngle width:(float)width color:(UIColor *)color;
+
+#pragma mark Arc
+
++(CGMutablePathRef)newArcPathAtPoint:(CGPoint)point withRadius:(float)radius startAngle:(float)startAngle endAngle:(float)endAngle CF_RETURNS_RETAINED;
++(void)fillArcAtPoint:(CGPoint)point withRadius:(float)radius startAngle:(float)startAngle endAngle:(float)endAngle color:(UIColor *)color;
++(void)strokeArcAtPoint:(CGPoint)point withRadius:(float)radius startAngle:(float)startAngle endAngle:(float)endAngle color:(UIColor *)color;
+#pragma mark Circle
+
++(CGMutablePathRef)newCirclePathAtPoint:(CGPoint)point withRadius:(float)radius CF_RETURNS_RETAINED;
++(void)fillCircleAtPoint:(CGPoint)point withRadius:(float)radius color:(UIColor *)color;
++(void)strokeCircleAtPoint:(CGPoint)point withRadius:(float)radius color:(UIColor *)color;
+#pragma mark Text
++(void)drawText:(NSString *)text atPoint:(CGPoint)point font:(UIFont *)font color:(UIColor *)color;
+@end

@@ -10,4 +10,5 @@
 
 @interface TPViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 @end

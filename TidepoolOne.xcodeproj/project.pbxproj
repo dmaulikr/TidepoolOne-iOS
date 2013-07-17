@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40FE9C691B2B410E9541EC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE9E0A1B4814CD7AD31BA9A /* libPods.a */; };
+		A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */; };
+		A80F7C3D17961CA900C08D9C /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
 		A82F6A3017947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A2E17947064003FC088 /* InfoPlist.strings */; };
 		A82F6A3217947064003FC088 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A3117947064003FC088 /* main.m */; };
 		A82F6A3617947064003FC088 /* TPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A3517947064003FC088 /* TPAppDelegate.m */; };
-		A82F6A3917947064003FC088 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A3717947064003FC088 /* Main_iPhone.storyboard */; };
-		A82F6A3C17947064003FC088 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A3A17947064003FC088 /* Main_iPad.storyboard */; };
-		A82F6A3F17947064003FC088 /* TPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A3E17947064003FC088 /* TPViewController.m */; };
 		A82F6A4117947064003FC088 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A4017947064003FC088 /* Images.xcassets */; };
 		A82F6A4817947064003FC088 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A4717947064003FC088 /* XCTest.framework */; };
 		A82F6A4917947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A4A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
 		A82F6A5217947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A5017947064003FC088 /* InfoPlist.strings */; };
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
+		A837CD451794BE470082B5BE /* TPOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A837CD441794BE470082B5BE /* TPOAuthClient.m */; };
+		A837CD461794BE470082B5BE /* TPOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A837CD441794BE470082B5BE /* TPOAuthClient.m */; };
+		A89742681797088B000CFD4F /* TPReactionTimeGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89742671797088B000CFD4F /* TPReactionTimeGameViewController.m */; };
+		A897426B1797134A000CFD4F /* TPReactionTimeGameCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A897426A1797134A000CFD4F /* TPReactionTimeGameCircleView.m */; };
+		A897426E17971534000CFD4F /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A897426D17971534000CFD4F /* CGHelper.m */; };
+		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
+		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
+		A897427517974F70000CFD4F /* TPUploadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A897427417974F70000CFD4F /* TPUploadQueue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		3BE9E0A1B4814CD7AD31BA9A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A80F7C3B17961CA900C08D9C /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
+		A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidepoolOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidepoolOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,16 +58,24 @@
 		A82F6A3317947064003FC088 /* TidepoolOne-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TidepoolOne-Prefix.pch"; sourceTree = "<group>"; };
 		A82F6A3417947064003FC088 /* TPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPAppDelegate.h; sourceTree = "<group>"; };
 		A82F6A3517947064003FC088 /* TPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPAppDelegate.m; sourceTree = "<group>"; };
-		A82F6A3817947064003FC088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		A82F6A3B17947064003FC088 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		A82F6A3D17947064003FC088 /* TPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPViewController.h; sourceTree = "<group>"; };
-		A82F6A3E17947064003FC088 /* TPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPViewController.m; sourceTree = "<group>"; };
 		A82F6A4017947064003FC088 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A82F6A4617947064003FC088 /* TidepoolOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TidepoolOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A4717947064003FC088 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A82F6A4F17947064003FC088 /* TidepoolOneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TidepoolOneTests-Info.plist"; sourceTree = "<group>"; };
 		A82F6A5117947064003FC088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
+		A837CD431794BE470082B5BE /* TPOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOAuthClient.h; sourceTree = "<group>"; };
+		A837CD441794BE470082B5BE /* TPOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOAuthClient.m; sourceTree = "<group>"; };
+		A89742661797088B000CFD4F /* TPReactionTimeGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeGameViewController.h; sourceTree = "<group>"; };
+		A89742671797088B000CFD4F /* TPReactionTimeGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPReactionTimeGameViewController.m; sourceTree = "<group>"; };
+		A89742691797134A000CFD4F /* TPReactionTimeGameCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeGameCircleView.h; sourceTree = "<group>"; };
+		A897426A1797134A000CFD4F /* TPReactionTimeGameCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPReactionTimeGameCircleView.m; sourceTree = "<group>"; };
+		A897426C17971534000CFD4F /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
+		A897426D17971534000CFD4F /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
+		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A897427317974F70000CFD4F /* TPUploadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUploadQueue.h; sourceTree = "<group>"; };
+		A897427417974F70000CFD4F /* TPUploadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUploadQueue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +83,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */,
+				A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */,
 				A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */,
 				A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */,
 				A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */,
+				40FE9C691B2B410E9541EC21 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,10 +108,13 @@
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
+				A897427117971BB7000CFD4F /* QuartzCore.framework */,
+				A897426F17971BAE000CFD4F /* AVFoundation.framework */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
 				A82F6A4D17947064003FC088 /* TidepoolOneTests */,
 				A82F6A2417947064003FC088 /* Frameworks */,
 				A82F6A2317947064003FC088 /* Products */,
+				0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +134,7 @@
 				A82F6A2717947064003FC088 /* CoreGraphics.framework */,
 				A82F6A2917947064003FC088 /* UIKit.framework */,
 				A82F6A4717947064003FC088 /* XCTest.framework */,
+				3BE9E0A1B4814CD7AD31BA9A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,12 +142,21 @@
 		A82F6A2B17947064003FC088 /* TidepoolOne */ = {
 			isa = PBXGroup;
 			children = (
+				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
+				A89742691797134A000CFD4F /* TPReactionTimeGameCircleView.h */,
+				A897426A1797134A000CFD4F /* TPReactionTimeGameCircleView.m */,
+				A89742661797088B000CFD4F /* TPReactionTimeGameViewController.h */,
+				A89742671797088B000CFD4F /* TPReactionTimeGameViewController.m */,
+				A897427317974F70000CFD4F /* TPUploadQueue.h */,
+				A897427417974F70000CFD4F /* TPUploadQueue.m */,
+				A897426C17971534000CFD4F /* CGHelper.h */,
+				A897426D17971534000CFD4F /* CGHelper.m */,
+				A80F7C3B17961CA900C08D9C /* TPLoginViewController.h */,
+				A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
-				A82F6A3717947064003FC088 /* Main_iPhone.storyboard */,
-				A82F6A3A17947064003FC088 /* Main_iPad.storyboard */,
-				A82F6A3D17947064003FC088 /* TPViewController.h */,
-				A82F6A3E17947064003FC088 /* TPViewController.m */,
+				A837CD431794BE470082B5BE /* TPOAuthClient.h */,
+				A837CD441794BE470082B5BE /* TPOAuthClient.m */,
 				A82F6A4017947064003FC088 /* Images.xcassets */,
 				A82F6A2C17947064003FC088 /* Supporting Files */,
 			);
@@ -162,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A82F6A5717947064003FC088 /* Build configuration list for PBXNativeTarget "TidepoolOne" */;
 			buildPhases = (
+				2A451622821940EAB7444D12 /* Check Pods Manifest.lock */,
 				A82F6A1E17947064003FC088 /* Sources */,
 				A82F6A1F17947064003FC088 /* Frameworks */,
 				A82F6A2017947064003FC088 /* Resources */,
+				B5B2ED9206A24E47A923BF65 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,6 +242,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Mayank Sanganeria";
 				TargetAttributes = {
+					A82F6A2117947064003FC088 = {
+						DevelopmentTeam = 232HCB982K;
+					};
 					A82F6A4517947064003FC088 = {
 						TestTargetID = A82F6A2117947064003FC088;
 					};
@@ -232,10 +274,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82F6A3C17947064003FC088 /* Main_iPad.storyboard in Resources */,
 				A82F6A4117947064003FC088 /* Images.xcassets in Resources */,
-				A82F6A3917947064003FC088 /* Main_iPhone.storyboard in Resources */,
 				A82F6A3017947064003FC088 /* InfoPlist.strings in Resources */,
+				A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,14 +290,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2A451622821940EAB7444D12 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5B2ED9206A24E47A923BF65 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A82F6A1E17947064003FC088 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A82F6A3F17947064003FC088 /* TPViewController.m in Sources */,
 				A82F6A3617947064003FC088 /* TPAppDelegate.m in Sources */,
+				A837CD451794BE470082B5BE /* TPOAuthClient.m in Sources */,
 				A82F6A3217947064003FC088 /* main.m in Sources */,
+				A80F7C3D17961CA900C08D9C /* TPLoginViewController.m in Sources */,
+				A89742681797088B000CFD4F /* TPReactionTimeGameViewController.m in Sources */,
+				A897426B1797134A000CFD4F /* TPReactionTimeGameCircleView.m in Sources */,
+				A897426E17971534000CFD4F /* CGHelper.m in Sources */,
+				A897427517974F70000CFD4F /* TPUploadQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +343,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A837CD461794BE470082B5BE /* TPOAuthClient.m in Sources */,
 				A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,22 +365,6 @@
 				A82F6A2F17947064003FC088 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		A82F6A3717947064003FC088 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A82F6A3817947064003FC088 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		A82F6A3A17947064003FC088 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A82F6A3B17947064003FC088 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		A82F6A5017947064003FC088 /* InfoPlist.strings */ = {
@@ -386,12 +450,15 @@
 		};
 		A82F6A5817947064003FC088 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -399,12 +466,15 @@
 		};
 		A82F6A5917947064003FC088 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -469,6 +539,7 @@
 				A82F6A5917947064003FC088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A82F6A5A17947064003FC088 /* Build configuration list for PBXNativeTarget "TidepoolOneTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +548,7 @@
 				A82F6A5C17947064003FC088 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
