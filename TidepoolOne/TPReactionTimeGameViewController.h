@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPReactionTimeGameCircleView.h"
 
-@interface TPReactionTimeGameViewController : UIViewController
+@interface TPReactionTimeGameViewController : UIViewController <TPReactionTimeGameCircleViewDelegateProtocol>
+
+@property NSDictionary *response;
 
 -(void)setupGameWithDefinitions:(NSDictionary *)dictionary;
+-(void)circleViewWasTapped;
 
 @end

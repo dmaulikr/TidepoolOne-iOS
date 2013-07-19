@@ -8,6 +8,8 @@
 
 #import "TPLoginViewController.h"
 #import "TPOAuthClient.h"
+#import "TPReactionTimeGameViewController.h"
+
 @interface TPLoginViewController ()
 {
     TPOAuthClient *_sharedClient;
@@ -46,8 +48,8 @@
                             @"password", @"response_type",
                             self.loginEmail.text, @"email",
                             self.loginPassword.text, @"password",
-                            @"773cc7e7690e0f541cfc81a9d6df50721c520086bfc63460b5339747b0531cbc", @"client_id",
-                            @"b2e891c55531e121b9367e16ea7dde7ad9071399b1e554ead9550ec1858bb782", @"client_secret",
+                            @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1", @"client_id",
+                            @"3e4da2177beee0d8ec458480526b3716047b3ff0df3362262183f6841253a706", @"client_secret",
                             nil];
     [_sharedClient postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
@@ -58,7 +60,8 @@
         [_sharedClient postPath:@"api/v1/users/-/games?def_id=reaction_time" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"success");
             NSDictionary *dict = responseObject;
-            NSLog([dict[@"stages"][2] description]);
+            TPReactionTimeGameViewController *gameVC = [self.tabBarController.viewControllers objectAtIndex:1];
+            gameVC.response = responseObject;
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"failure");
             NSLog([error description]);

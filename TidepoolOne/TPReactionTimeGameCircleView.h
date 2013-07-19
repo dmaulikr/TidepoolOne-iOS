@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+@protocol TPReactionTimeGameCircleViewDelegateProtocol
+
+-(void)circleViewWasTapped;
+
+@end
+
 @interface TPReactionTimeGameCircleView : UIView
 
--(void)circleTouched;
-
-@property (nonatomic, strong) NSMutableArray *sequence;
-
+@property (nonatomic, strong) UIColor *color;
+@property float radius;
+@property (nonatomic, weak) id<TPReactionTimeGameCircleViewDelegateProtocol> delegate;
+-(void)animateCirclePress;
 @end

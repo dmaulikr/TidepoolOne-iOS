@@ -142,6 +142,8 @@
 		A82F6A2B17947064003FC088 /* TidepoolOne */ = {
 			isa = PBXGroup;
 			children = (
+				A837CD431794BE470082B5BE /* TPOAuthClient.h */,
+				A837CD441794BE470082B5BE /* TPOAuthClient.m */,
 				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
 				A89742691797134A000CFD4F /* TPReactionTimeGameCircleView.h */,
 				A897426A1797134A000CFD4F /* TPReactionTimeGameCircleView.m */,
@@ -155,8 +157,6 @@
 				A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
-				A837CD431794BE470082B5BE /* TPOAuthClient.h */,
-				A837CD441794BE470082B5BE /* TPOAuthClient.m */,
 				A82F6A4017947064003FC088 /* Images.xcassets */,
 				A82F6A2C17947064003FC088 /* Supporting Files */,
 			);

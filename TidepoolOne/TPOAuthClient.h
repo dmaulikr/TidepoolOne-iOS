@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
+#import <AFNetworking/AFHTTPClient.h>
 
 @interface TPOAuthClient : AFHTTPClient
 
@@ -14,5 +14,7 @@
 - (id)initWithBaseURL:(NSURL *)url;
 
 @property (nonatomic, strong) NSString *oauthAccessToken;
+@property (nonatomic, strong) NSString *clientId;
+@property (nonatomic, strong) NSString *clientSecret;
 
 @end

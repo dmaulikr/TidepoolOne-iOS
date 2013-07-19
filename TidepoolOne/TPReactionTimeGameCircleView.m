@@ -15,12 +15,7 @@
 {
     CAShapeLayer *circleLayer;
     CAShapeLayer *concentricCircleLayer[REACTION_TIME_GAME_CONCENTRIC_CIRCLE_NUMBER];
-    NSTimer *colorChangeTimer;
-    NSDictionary *_colors;
     BOOL colorChangeTimerActive;
-    UIColor *previousColor;
-    int stage;
-    int sequenceNo;
 }
 @end
 
@@ -33,12 +28,6 @@
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
         colorChangeTimerActive = YES;
-        stage = 0;
-        sequenceNo = 0;
-        _colors = @{@"red":[UIColor redColor],
-                   @"green":[UIColor greenColor],
-                   @"yellow":[UIColor yellowColor],
-                   };
     }
     return self;
 }
@@ -47,10 +36,10 @@
 {
     // Drawing code
     circleLayer = [CAShapeLayer layer];
-    CGMutablePathRef path = [CGHelper newCirclePathAtPoint:self.center withRadius:60];
+    CGMutablePathRef path = [CGHelper newCirclePathAtPoint:self.center withRadius:self.radius];
     circleLayer.path = path;
     CGPathRelease(path);
-    circleLayer.fillColor = [UIColor redColor].CGColor;
+    circleLayer.fillColor = [self.color CGColor];
 
     for (int i=0;i<REACTION_TIME_GAME_CONCENTRIC_CIRCLE_NUMBER;i++) {
         concentricCircleLayer[i] = [CAShapeLayer layer];
@@ -59,36 +48,28 @@
         [self.layer addSublayer:concentricCircleLayer[i]];
     }
     [self.layer addSublayer:circleLayer];
-    [self nextCircleColor];
+
 }
 
 -(void)circleTouched
 {
-    switch (stage) {
-        case 0:{
-            if (circleLayer.fillColor != [_colors[@"red"] CGColor])
-                return;
-        }
-            break;
-        case 1:{
-//            if (circleLayer.fillColor != colors[0].CGColor || previousColor.CGColor != colors[1].CGColor)
-                return;
-        }
-            break;
-        default:
-            break;
-    }
+    [self.delegate circleViewWasTapped];
+}
+
+-(void)animateCirclePress
+{
     colorChangeTimerActive = NO;
     for (int i=0;i<REACTION_TIME_GAME_CONCENTRIC_CIRCLE_NUMBER;i++) {
         CABasicAnimation *growAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
         growAnimation.fromValue = (__bridge id)(concentricCircleLayer[i].path);
-        growAnimation.toValue = (__bridge id)([CGHelper newCirclePathAtPoint:self.center withRadius:60 + 15*i]);
+        growAnimation.toValue = (__bridge id)([CGHelper newCirclePathAtPoint:self.center withRadius:self.radius + self.radius*0.25*i]);
         growAnimation.duration = 0.25;
         growAnimation.autoreverses = YES;
         [concentricCircleLayer[i] addAnimation:growAnimation forKey:@"path"];
     }
     colorChangeTimerActive = YES;
 }
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -97,17 +78,13 @@
         if (CGPathContainsPoint(circleLayer.path, nil, touchPoint, NO)) {
             [self circleTouched];
         }
-    }
+    }    
 }
 
--(void)nextCircleColor
+-(void)setColor:(UIColor *)color
 {
-    if (colorChangeTimerActive) {
-        previousColor = [UIColor colorWithCGColor:circleLayer.fillColor];
-        circleLayer.fillColor = [_colors[self.sequence[sequenceNo][@"color"]] CGColor];
-        colorChangeTimer = [NSTimer scheduledTimerWithTimeInterval:[self.sequence[sequenceNo][@"interval"] floatValue]*0.001 target:self selector:@selector(nextCircleColor) userInfo:nil repeats:NO];
-        sequenceNo++;
-    }
+    _color = color;
+    circleLayer.fillColor = [color CGColor];
 }
 
 @end
