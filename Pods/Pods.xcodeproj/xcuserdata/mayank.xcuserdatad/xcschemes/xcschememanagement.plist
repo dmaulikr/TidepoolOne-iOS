@@ -14,6 +14,11 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Pods-InflectorKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0628BEDE3CDC4E10870D4606</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0C6D633AA2AD4750A2AB263B</key>
 		<dict>
 			<key>primary</key>
@@ -52,7 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>75E42D04412A43F48D403294</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>957B421DA34A45D6A26150FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>98AD439D2B824A839EDF146B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

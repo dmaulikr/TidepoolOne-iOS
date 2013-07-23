@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface TPLoginViewController : UIViewController
 
@@ -14,4 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *loginPassword;
 
 - (IBAction)loginButtonPressed:(id)sender;
+- (IBAction)fbLoginButtonPressed:(id)sender;
+- (IBAction)fitbitLoginButtonPressed:(id)sender;
+
 @end

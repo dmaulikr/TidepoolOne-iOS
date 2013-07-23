@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPTokenCachingStrategy.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface TPAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) TPTokenCachingStrategy *tokenCaching;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (void) closeSession;
+
 
 @end

@@ -7,8 +7,10 @@
 //
 
 #import "TPLoginViewController.h"
+#import "TPAppDelegate.h"
 #import "TPOAuthClient.h"
-#import "TPReactionTimeGameViewController.h"
+#import "TPServiceLoginViewController.h"
+#import "TPGameViewController.h"
 
 @interface TPLoginViewController ()
 {
@@ -30,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	// Do any additional setup after loading the view.    
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,8 +50,8 @@
                             @"password", @"response_type",
                             self.loginEmail.text, @"email",
                             self.loginPassword.text, @"password",
-                            @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1", @"client_id",
-                            @"3e4da2177beee0d8ec458480526b3716047b3ff0df3362262183f6841253a706", @"client_secret",
+                            _sharedClient.clientId, @"client_id",
+                            _sharedClient.clientSecret, @"client_secret",
                             nil];
     [_sharedClient postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
@@ -60,8 +62,8 @@
         [_sharedClient postPath:@"api/v1/users/-/games?def_id=reaction_time" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"success");
             NSDictionary *dict = responseObject;
-            TPReactionTimeGameViewController *gameVC = [self.tabBarController.viewControllers objectAtIndex:1];
-            gameVC.response = responseObject;
+            TPGameViewController *gameVC = [self.tabBarController.viewControllers objectAtIndex:1];
+            gameVC.response = responseObject[@"data"];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"failure");
             NSLog([error description]);
@@ -77,4 +79,18 @@
     [self resignFirstResponder];
     [self.view endEditing:YES];
 }
+
+- (IBAction)fbLoginButtonPressed:(id)sender {
+    TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate openSessionWithAllowLoginUI:YES];
+}
+
+- (IBAction)fitbitLoginButtonPressed:(id)sender {
+    TPServiceLoginViewController *loginView = [[TPServiceLoginViewController alloc] init];
+    [self presentViewController:loginView animated:YES completion:^{
+        NSLog(@"yeah");
+    }];
+}
+
+
 @end
