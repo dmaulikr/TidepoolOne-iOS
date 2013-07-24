@@ -57,17 +57,7 @@
         NSLog(@"success");
         _sharedClient.oauthAccessToken = [responseObject valueForKey:@"access_token"];
         _sharedClient.oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        [_sharedClient setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_sharedClient.oauthAccessToken]];
-        
-        [_sharedClient postPath:@"api/v1/users/-/games?def_id=reaction_time" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"success");
-            NSDictionary *dict = responseObject;
-            TPGameViewController *gameVC = [self.tabBarController.viewControllers objectAtIndex:1];
-            gameVC.response = responseObject[@"data"];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"failure");
-            NSLog([error description]);
-        }];
+        [_sharedClient setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_sharedClient.oauthAccessToken]];        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure");
         NSLog([error description]);

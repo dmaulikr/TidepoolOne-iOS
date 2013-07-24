@@ -11,8 +11,12 @@
 #import "TPReactionTimeStageViewController.h"
 #import "TPOAuthClient.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
+#import "TPReactionTimeResultViewController.h"
 
 @interface TPGameViewController ()
+{
+    TPOAuthClient *_oauthClient;
+}
 @end
 
 @implementation TPGameViewController
@@ -22,7 +26,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        _stage = 0;
     }
     return self;
 }
@@ -30,10 +33,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setupGameForCurrentStage];
+    _oauthClient = [TPOAuthClient sharedClient];
+    [self startNewGame];
 }
 
- 
+
+-(void)startNewGame
+{
+    _stage = 0;
+    if (self.childViewControllers.count) {
+        UIViewController *currentVC = self.childViewControllers[0];
+        [currentVC.view removeFromSuperview];
+        [currentVC removeFromParentViewController];
+    }
+    [_oauthClient postPath:@"api/v1/users/-/games?def_id=reaction_time" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"got game succesffully");
+        NSDictionary *dict = responseObject;
+        self.response = responseObject[@"data"];
+        [self setupGameForCurrentStage];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"error in getting game");
+        NSLog([error description]);
+    }];
+}
+
+
 -(void)setupGameForCurrentStage
 {
     self.gameId = self.response[@"id"];
@@ -90,6 +114,18 @@
     }
 }
 
+-(void)showResults
+{
+    NSString *resultType = self.result[@"type"];
+    if ([resultType isEqualToString:@"ReactionTimeResult"]) {
+        TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
+        resultVC.result = self.result;
+        [self addChildViewController:resultVC];
+        [self.view addSubview:resultVC.view];
+    }
+}
+
+
 #pragma mark polling and obtaining Results
 
 -(void)getResults
@@ -98,14 +134,11 @@
     [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", self.gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
-        if (state) {
-            if ([state isEqualToString:@"pending"]) {
-                [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
-            } else if ([state isEqualToString:@"done"]) {
-                NSLog(@"whooo");
-            } else {
-                NSLog([dataObject description]);
-            }
+        if ([state isEqualToString:@"pending"]) {
+            [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
+        } else {
+            self.result = dataObject[@"data"][0];
+            [self showResults];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"fail: %@", [error description]);
@@ -145,7 +178,7 @@
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
     oauthClient.parameterEncoding = AFJSONParameterEncoding;
     [oauthClient postPath:@"/api/v1/user_events" parameters:completeEvents success:^(AFHTTPRequestOperation *operation, id dataObject) {
-        NSLog(@"event logging:%@", [dataObject description]);
+//        NSLog(@"event logging:%@", [dataObject description]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@", [error description]);
     }];

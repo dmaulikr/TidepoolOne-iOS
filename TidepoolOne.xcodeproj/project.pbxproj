@@ -39,6 +39,7 @@
 		A8BD1DF0179DF2BB00A7E26C /* TPSurveyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */; };
 		A8BD1DF3179E0ACD00A7E26C /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */; };
 		A8BD1DF9179F075D00A7E26C /* TPSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF8179F075D00A7E26C /* TPSurveyViewController.m */; };
+		A8BD1DFF179F524000A7E26C /* TPReactionTimeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
 		A8BD1DF7179F075C00A7E26C /* TPSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyViewController.h; sourceTree = "<group>"; };
 		A8BD1DF8179F075D00A7E26C /* TPSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyViewController.m; sourceTree = "<group>"; };
+		A8BD1DFD179F524000A7E26C /* TPReactionTimeResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeResultViewController.h; sourceTree = "<group>"; };
+		A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPReactionTimeResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				A8BD1DEE179DF2BA00A7E26C /* TPSurveyView.h */,
 				A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */,
 				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
+				A8BD1DFD179F524000A7E26C /* TPReactionTimeResultViewController.h */,
+				A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */,
 				A8BD1DD7179D9C0300A7E26C /* TPServiceLoginViewController.h */,
 				A8BD1DD8179D9C0300A7E26C /* TPServiceLoginViewController.m */,
 				A80F7C3B17961CA900C08D9C /* TPLoginViewController.h */,
@@ -418,6 +423,7 @@
 				A8BD1DF0179DF2BB00A7E26C /* TPSurveyView.m in Sources */,
 				A8BD1DF3179E0ACD00A7E26C /* TPGameViewController.m in Sources */,
 				A8BD1DF9179F075D00A7E26C /* TPSurveyViewController.m in Sources */,
+				A8BD1DFF179F524000A7E26C /* TPReactionTimeResultViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Main_iPhone.storyboard">
-   </FileRef>
-   <FileRef
       location = "group:TidepoolOne.xcodeproj">
    </FileRef>
    <FileRef
