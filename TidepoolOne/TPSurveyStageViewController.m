@@ -1,20 +1,20 @@
 //
-//  TPSurveyViewController.m
+//  TPSurveyStageViewController.m
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 7/23/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "TPSurveyViewController.h"
+#import "TPSurveyStageViewController.h"
 
-@interface TPSurveyViewController ()
+@interface TPSurveyStageViewController ()
 {
     NSMutableArray *_surveyQuestions;
 }
 @end
 
-@implementation TPSurveyViewController
+@implementation TPSurveyStageViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -74,6 +74,7 @@
 -(void)logEventToServer:(NSDictionary *)event
 {
     NSMutableDictionary *completeEvents = [event mutableCopy];
+    [completeEvents setValue:@"survey" forKey:@"module"];
     [self.gameVC logEvent:completeEvents];
 }
 -(void)logTestStarted

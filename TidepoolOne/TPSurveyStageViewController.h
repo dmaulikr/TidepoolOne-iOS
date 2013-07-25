@@ -1,5 +1,5 @@
 //
-//  TPSurveyViewController.h
+//  TPSurveyStageViewController.h
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 7/23/13.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TPGameViewController.h"
 
-@interface TPSurveyViewController : UIViewController
+@interface TPSurveyStageViewController : UIViewController
 
 @property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) TPGameViewController *gameVC;

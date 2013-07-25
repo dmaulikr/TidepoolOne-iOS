@@ -30,6 +30,7 @@
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
 		A897427517974F70000CFD4F /* TPUploadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A897427417974F70000CFD4F /* TPUploadQueue.m */; };
+		A89B97D717A0B9C3006815A6 /* TPCustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A89B97D617A0B9C3006815A6 /* TPCustomScrollView.m */; };
 		A8BD1DD61799CEB400A7E26C /* TPTokenCachingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DD51799CEB400A7E26C /* TPTokenCachingStrategy.m */; };
 		A8BD1DD9179D9C0300A7E26C /* TPServiceLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DD8179D9C0300A7E26C /* TPServiceLoginViewController.m */; };
 		A8BD1DE0179DD43C00A7E26C /* reaction_time_disc_a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */; };
@@ -38,8 +39,12 @@
 		A8BD1DEA179DD60100A7E26C /* TPOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DE9179DD60100A7E26C /* TPOverlayView.m */; };
 		A8BD1DF0179DF2BB00A7E26C /* TPSurveyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */; };
 		A8BD1DF3179E0ACD00A7E26C /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */; };
-		A8BD1DF9179F075D00A7E26C /* TPSurveyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF8179F075D00A7E26C /* TPSurveyViewController.m */; };
+		A8BD1DF9179F075D00A7E26C /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF8179F075D00A7E26C /* TPSurveyStageViewController.m */; };
 		A8BD1DFF179F524000A7E26C /* TPReactionTimeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */; };
+		A8BD1E02179F74A200A7E26C /* TPReactionTimeGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1E01179F74A100A7E26C /* TPReactionTimeGameViewController.m */; };
+		A8BD1E05179F74B700A7E26C /* TPEmotionsGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1E04179F74B600A7E26C /* TPEmotionsGameViewController.m */; };
+		A8BD1E08179F780400A7E26C /* TPEmotionsCirclesStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1E07179F780400A7E26C /* TPEmotionsCirclesStageViewController.m */; };
+		A8BD1E0B17A0450700A7E26C /* TPCirclesDistanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1E0A17A0450700A7E26C /* TPCirclesDistanceView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +91,8 @@
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A897427317974F70000CFD4F /* TPUploadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUploadQueue.h; sourceTree = "<group>"; };
 		A897427417974F70000CFD4F /* TPUploadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUploadQueue.m; sourceTree = "<group>"; };
+		A89B97D517A0B9C3006815A6 /* TPCustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCustomScrollView.h; sourceTree = "<group>"; };
+		A89B97D617A0B9C3006815A6 /* TPCustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCustomScrollView.m; sourceTree = "<group>"; };
 		A8BD1DD41799CEB400A7E26C /* TPTokenCachingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTokenCachingStrategy.h; path = ../TPTokenCachingStrategy.h; sourceTree = "<group>"; };
 		A8BD1DD51799CEB400A7E26C /* TPTokenCachingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTokenCachingStrategy.m; path = ../TPTokenCachingStrategy.m; sourceTree = "<group>"; };
 		A8BD1DD7179D9C0300A7E26C /* TPServiceLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPServiceLoginViewController.h; sourceTree = "<group>"; };
@@ -100,10 +107,18 @@
 		A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyView.m; sourceTree = "<group>"; };
 		A8BD1DF1179E0ACD00A7E26C /* TPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGameViewController.h; sourceTree = "<group>"; };
 		A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
-		A8BD1DF7179F075C00A7E26C /* TPSurveyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyViewController.h; sourceTree = "<group>"; };
-		A8BD1DF8179F075D00A7E26C /* TPSurveyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyViewController.m; sourceTree = "<group>"; };
+		A8BD1DF7179F075C00A7E26C /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyStageViewController.h; sourceTree = "<group>"; };
+		A8BD1DF8179F075D00A7E26C /* TPSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyStageViewController.m; sourceTree = "<group>"; };
 		A8BD1DFD179F524000A7E26C /* TPReactionTimeResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeResultViewController.h; sourceTree = "<group>"; };
 		A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPReactionTimeResultViewController.m; sourceTree = "<group>"; };
+		A8BD1E00179F74A100A7E26C /* TPReactionTimeGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeGameViewController.h; sourceTree = "<group>"; };
+		A8BD1E01179F74A100A7E26C /* TPReactionTimeGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPReactionTimeGameViewController.m; sourceTree = "<group>"; };
+		A8BD1E03179F74B600A7E26C /* TPEmotionsGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEmotionsGameViewController.h; sourceTree = "<group>"; };
+		A8BD1E04179F74B600A7E26C /* TPEmotionsGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEmotionsGameViewController.m; sourceTree = "<group>"; };
+		A8BD1E06179F780300A7E26C /* TPEmotionsCirclesStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEmotionsCirclesStageViewController.h; sourceTree = "<group>"; };
+		A8BD1E07179F780400A7E26C /* TPEmotionsCirclesStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEmotionsCirclesStageViewController.m; sourceTree = "<group>"; };
+		A8BD1E0917A0450700A7E26C /* TPCirclesDistanceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCirclesDistanceView.h; sourceTree = "<group>"; };
+		A8BD1E0A17A0450700A7E26C /* TPCirclesDistanceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCirclesDistanceView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,11 +201,13 @@
 				A8BD1DD8179D9C0300A7E26C /* TPServiceLoginViewController.m */,
 				A80F7C3B17961CA900C08D9C /* TPLoginViewController.h */,
 				A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */,
-				A8BD1DF6179F032700A7E26C /* Reaction Time */,
-				A8BD1DF7179F075C00A7E26C /* TPSurveyViewController.h */,
-				A8BD1DF8179F075D00A7E26C /* TPSurveyViewController.m */,
+				A89B97D517A0B9C3006815A6 /* TPCustomScrollView.h */,
+				A89B97D617A0B9C3006815A6 /* TPCustomScrollView.m */,
+				A8BD1DF6179F032700A7E26C /* StageVC */,
+				A8BD1E0C17A0452C00A7E26C /* Views */,
 				A8BD1DF1179E0ACD00A7E26C /* TPGameViewController.h */,
 				A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */,
+				A89B97D417A099AE006815A6 /* GameVC */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
 				A82F6A4017947064003FC088 /* Images.xcassets */,
@@ -228,6 +245,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A89B97D417A099AE006815A6 /* GameVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8BD1E00179F74A100A7E26C /* TPReactionTimeGameViewController.h */,
+				A8BD1E01179F74A100A7E26C /* TPReactionTimeGameViewController.m */,
+				A8BD1E03179F74B600A7E26C /* TPEmotionsGameViewController.h */,
+				A8BD1E04179F74B600A7E26C /* TPEmotionsGameViewController.m */,
+			);
+			name = GameVC;
+			sourceTree = "<group>";
+		};
 		A8BD1DDA179DC0CA00A7E26C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,15 +287,28 @@
 			name = Helper;
 			sourceTree = "<group>";
 		};
-		A8BD1DF6179F032700A7E26C /* Reaction Time */ = {
+		A8BD1DF6179F032700A7E26C /* StageVC */ = {
 			isa = PBXGroup;
 			children = (
 				A89742691797134A000CFD4F /* TPReactionTimeStageCircleView.h */,
 				A897426A1797134A000CFD4F /* TPReactionTimeStageCircleView.m */,
 				A89742661797088B000CFD4F /* TPReactionTimeStageViewController.h */,
 				A89742671797088B000CFD4F /* TPReactionTimeStageViewController.m */,
+				A8BD1DF7179F075C00A7E26C /* TPSurveyStageViewController.h */,
+				A8BD1DF8179F075D00A7E26C /* TPSurveyStageViewController.m */,
+				A8BD1E06179F780300A7E26C /* TPEmotionsCirclesStageViewController.h */,
+				A8BD1E07179F780400A7E26C /* TPEmotionsCirclesStageViewController.m */,
 			);
-			name = "Reaction Time";
+			name = StageVC;
+			sourceTree = "<group>";
+		};
+		A8BD1E0C17A0452C00A7E26C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8BD1E0917A0450700A7E26C /* TPCirclesDistanceView.h */,
+				A8BD1E0A17A0450700A7E26C /* TPCirclesDistanceView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -422,8 +463,13 @@
 				A8BD1DEA179DD60100A7E26C /* TPOverlayView.m in Sources */,
 				A8BD1DF0179DF2BB00A7E26C /* TPSurveyView.m in Sources */,
 				A8BD1DF3179E0ACD00A7E26C /* TPGameViewController.m in Sources */,
-				A8BD1DF9179F075D00A7E26C /* TPSurveyViewController.m in Sources */,
+				A8BD1DF9179F075D00A7E26C /* TPSurveyStageViewController.m in Sources */,
 				A8BD1DFF179F524000A7E26C /* TPReactionTimeResultViewController.m in Sources */,
+				A8BD1E02179F74A200A7E26C /* TPReactionTimeGameViewController.m in Sources */,
+				A8BD1E05179F74B700A7E26C /* TPEmotionsGameViewController.m in Sources */,
+				A8BD1E08179F780400A7E26C /* TPEmotionsCirclesStageViewController.m in Sources */,
+				A8BD1E0B17A0450700A7E26C /* TPCirclesDistanceView.m in Sources */,
+				A89B97D717A0B9C3006815A6 /* TPCustomScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

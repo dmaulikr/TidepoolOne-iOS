@@ -7,15 +7,22 @@
 //
 
 #import "TPGameViewController.h"
-#import "TPSurveyViewController.h"
+#import "TPSurveyStageViewController.h"
 #import "TPReactionTimeStageViewController.h"
 #import "TPOAuthClient.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import "TPReactionTimeResultViewController.h"
+#import "TPEmotionsCirclesStageViewController.h"
 
 @interface TPGameViewController ()
 {
     TPOAuthClient *_oauthClient;
+    NSDictionary *_response;
+    NSArray *_results;
+    int _stage;
+    NSNumber *_gameId;
+    NSNumber *_userId;
+
 }
 @end
 
@@ -34,7 +41,6 @@
 {
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
-    [self startNewGame];
 }
 
 
@@ -46,10 +52,11 @@
         [currentVC.view removeFromSuperview];
         [currentVC removeFromParentViewController];
     }
-    [_oauthClient postPath:@"api/v1/users/-/games?def_id=reaction_time" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_oauthClient postPath:[NSString stringWithFormat:@"api/v1/users/-/games?def_id=%@", self.type] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"got game succesffully");
-        NSDictionary *dict = responseObject;
-        self.response = responseObject[@"data"];
+        
+        _response = responseObject[@"data"];
+//        _response = responseObject;
         [self setupGameForCurrentStage];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error in getting game");
@@ -60,22 +67,34 @@
 
 -(void)setupGameForCurrentStage
 {
-    self.gameId = self.response[@"id"];
-    self.userId = self.response[@"user_id"];
-    NSString *viewName = self.response[@"stages"][_stage][@"view_name"];
+    _gameId = _response[@"id"];
+    _userId = _response[@"user_id"];
+    NSString *viewName = _response[@"stages"][_stage][@"view_name"];
     if ([viewName isEqualToString:@"Survey"]) {
         [self createSurveyStage];
     } else if ([viewName isEqualToString:@"ReactionTime"]) {
         [self createReactionTimeStage];
+    } else if ([viewName isEqualToString:@"EmotionsCircles"]) {
+        [self createEmotionsCirclesStage];
     }
 
+}
+
+-(void)createEmotionsCirclesStage
+{
+    TPEmotionsCirclesStageViewController *emotionsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EmotionsCircles"];
+    emotionsVC.data = _response[@"stages"][_stage][@"circles"];
+    emotionsVC.gameVC = self;
+    
+    [self addChildViewController:emotionsVC];
+    [self.view addSubview:emotionsVC.view];
 }
 
 
 -(void)createSurveyStage
 {
-    TPSurveyViewController *surveyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"survey"];
-    surveyVC.data = self.response[@"stages"][_stage][@"data"];
+    TPSurveyStageViewController *surveyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"survey"];
+    surveyVC.data = _response[@"stages"][_stage][@"data"];
     surveyVC.gameVC = self;
     
     [self addChildViewController:surveyVC];
@@ -86,7 +105,7 @@
 -(void)createReactionTimeStage
 {
     TPReactionTimeStageViewController *reactionTimeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"reactiontime"];
-    reactionTimeVC.data = self.response[@"stages"][_stage];
+    reactionTimeVC.data = _response[@"stages"][_stage];
     reactionTimeVC.gameVC = self;
     
     [self addChildViewController:reactionTimeVC];
@@ -107,7 +126,7 @@
     [currentVC.view removeFromSuperview];
     [currentVC removeFromParentViewController];
     _stage++;
-    if (_stage < [self.response[@"stages"] count]) {
+    if (_stage < [_response[@"stages"] count]) {
         [self setupGameForCurrentStage];
     } else {
         [self getResults];
@@ -116,28 +135,29 @@
 
 -(void)showResults
 {
-    NSString *resultType = self.result[@"type"];
-    if ([resultType isEqualToString:@"ReactionTimeResult"]) {
-        TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
-        resultVC.result = self.result;
-        [self addChildViewController:resultVC];
-        [self.view addSubview:resultVC.view];
+    for (NSDictionary *result in _results) {
+        NSString *resultType = result[@"type"];
+        if ([resultType isEqualToString:@"ReactionTimeResult"]) {
+            TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
+            resultVC.result = result;
+            [self addChildViewController:resultVC];
+            [self.view addSubview:resultVC.view];
+        }
     }
 }
-
 
 #pragma mark polling and obtaining Results
 
 -(void)getResults
 {
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
-    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", self.gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
+    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
             [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else {
-            self.result = dataObject[@"data"][0];
+            _results = dataObject[@"data"];
             [self showResults];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -171,14 +191,14 @@
     NSMutableDictionary *completeEvents = [event mutableCopy];
     [completeEvents setValue:[NSNumber numberWithLongLong:[self epochTimeNow]]
                                         forKey:@"record_time"];
-    [completeEvents setValue:self.gameId forKey:@"game_id"];
-    [completeEvents setValue:self.userId forKey:@"user_id"];
-    [completeEvents setValue:[NSNumber numberWithInt:self.stage] forKey:@"stage"];
+    [completeEvents setValue:_gameId forKey:@"game_id"];
+//    [completeEvents setValue:_userId forKey:@"user_id"];
+    [completeEvents setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
 
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
     oauthClient.parameterEncoding = AFJSONParameterEncoding;
     [oauthClient postPath:@"/api/v1/user_events" parameters:completeEvents success:^(AFHTTPRequestOperation *operation, id dataObject) {
-//        NSLog(@"event logging:%@", [dataObject description]);
+        NSLog(@"event logging:%@", [dataObject description]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@", [error description]);
     }];

@@ -60,8 +60,9 @@
     } else if ([@"complex"isEqualToString:_data[@"sequence_type"]]) {
         imageName = @"reaction_time_disc_b.jpg";        
     }
-    TPOverlayView *overlayView = [[TPOverlayView alloc] initWithFrame:self.view.frame];
+    TPOverlayView *overlayView = [[TPOverlayView alloc] initWithFrame:self.view.bounds];
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    
     [overlayView addSubview:imgView];
     [overlayView setCompletionBlock:^{
         [self setupGameForCurrentStage];
@@ -80,7 +81,7 @@
 {
     _sequence = _data[@"sequence"];
     _sequenceType = _data[@"sequence_type"];
-    _sequenceNo = 0;
+    _sequenceNo = -1;
     _circleView.color = [UIColor lightGrayColor];
     [self logTestStarted];
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(nextCircleColor) userInfo:nil repeats:NO];
@@ -143,8 +144,9 @@
     NSMutableDictionary *completeEvents = [event mutableCopy];
     [completeEvents setValue:@"reaction_time" forKey:@"module"];
     [completeEvents setValue:_sequenceType forKey:@"sequence_type"];
-
-    [completeEvents setValue:[NSNumber numberWithDouble:_sequenceNo] forKey:@"sequence_no"];
+    if (_sequenceNo > -1) {
+        [completeEvents setValue:[NSNumber numberWithDouble:_sequenceNo] forKey:@"sequence_no"];
+    }
     [self.gameVC logEvent:completeEvents];
 }
 -(void)logTestStarted

@@ -11,11 +11,7 @@
 
 @interface TPGameViewController : UIViewController
 
-@property NSDictionary *response;
-@property NSDictionary *result;
-@property int stage;
-@property (nonatomic, strong) NSNumber *gameId;
-@property (nonatomic, strong) NSNumber *userId;
+@property NSString *type;
 
 -(void)startNewGame;
 -(void)currentStageDone;
