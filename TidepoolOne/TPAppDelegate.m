@@ -8,6 +8,7 @@
 
 #import "TPAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "TPLocalNotificationManager.h"
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
@@ -16,9 +17,31 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Handle launching from a notification
+    UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    if (localNotification) {
+        [[TPLocalNotificationManager sharedInstance] handleNotification:localNotification];
+    }
     return YES;
 }
-							
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    [[TPLocalNotificationManager sharedInstance] handleNotification:notification];    
+    
+//    UIApplicationState state = [application applicationState];
+//    if (state == UIApplicationStateActive) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Reminder"
+//                                                        message:notification.alertBody
+//                                                       delegate:self cancelButtonTitle:@"OK"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//    }
+//    
+//    // Set icon badge number to zero
+//    application.applicationIconBadgeNumber = 0;
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

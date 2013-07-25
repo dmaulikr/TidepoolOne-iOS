@@ -33,16 +33,59 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-	// Do any additional setup after loading the view.
     _circles = [NSMutableArray array];
     _mainCircles = [NSMutableArray array];
-    _scrollCircles = [NSMutableArray array];
+    [self createMainView];
+    [self logTestStarted];
+}
+
+
+-(void)createMainView
+{
+    _mainView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _mainView.clipsToBounds = YES;
+    _mainView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:_mainView];
     
+    for (int i=0; i < self.data.count; i++ ) {
+        NSMutableDictionary *circle = [NSMutableDictionary dictionary];
+        [circle setValue:self.data[i][@"trait1"] forKey:@"trait1"];
+        [_circles addObject:circle];
+        UIImage *img = [UIImage imageNamed:@"reaction_time_disc_a.jpg"];
+        UIImage *imgB = [UIImage imageNamed:@"reaction_time_disc_b.jpg"];
+        float theta = 2 * M_PI / self.data.count * i;
+        float r = 50;
+        float x = _mainView.center.x + r * cosf(theta);
+        float y = _mainView.center.y + r * sinf(theta);
+        TPCirclesDistanceView *circlesViewMain = [[TPCirclesDistanceView alloc] initWithFrame:CGRectMake(x, y, 50, 50)];
+        circlesViewMain.image = img;
+        circlesViewMain.delegate = self;
+        
+        [_mainCircles addObject:circlesViewMain];
+        [_mainView addSubview:circlesViewMain];
+        
+        UIImageView *centerCircle = [[UIImageView alloc] initWithFrame:CGRectMake(_mainView.center.x, _mainView.center.x, 50, 50)];
+        centerCircle.image = imgB;
+        [_mainView addSubview:centerCircle];
+        
+        UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+        doneButton.frame = CGRectMake(10, 10, 50, 30);
+        [doneButton addTarget:self action:@selector(doneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView addSubview:doneButton];
+    }
+}
+
+
+
+
+-(void)createScrollViewMainViewSplit
+{
+    _scrollCircles = [NSMutableArray array];
     float scrollViewHeight = 80;
     _scrollViewY = self.view.bounds.size.height - scrollViewHeight - 80;
     _scrollView = [[TPCustomScrollView alloc] initWithFrame:CGRectMake(0, _scrollViewY, self.view.bounds.size.width, scrollViewHeight)];
@@ -57,24 +100,21 @@
     for (int i=0; i < self.data.count; i++ ) {
         NSMutableDictionary *circle = [NSMutableDictionary dictionary];
         [circle setValue:self.data[i][@"trait"] forKey:@"trait1"];
-        [circle setValue:self.data[i][@"trait"] forKey:@"trait1"];
-        [circle setValue:self.data[i][@"trait"] forKey:@"trait1"];
-        [circle setValue:self.data[i][@"trait"] forKey:@"trait1"];
         [_circles addObject:circle];
         UIImage *img = [UIImage imageNamed:@"reaction_time_disc_a.jpg"];
         UIImage *imgB = [UIImage imageNamed:@"reaction_time_disc_b.jpg"];
-//        float theta = 2 * M_PI / self.data.count * i;
-//        float r = 50;
-//        float x = self.view.center.x + r * cosf(theta);
-//        float y = self.view.center.y + r * sinf(theta);
+        //        float theta = 2 * M_PI / self.data.count * i;
+        //        float r = 50;
+        //        float x = self.view.center.x + r * cosf(theta);
+        //        float y = self.view.center.y + r * sinf(theta);
         TPCirclesDistanceView *circlesViewMain = [[TPCirclesDistanceView alloc] initWithFrame:CGRectMake(55*i, _scrollViewY, 50, 50)];
         circlesViewMain.image = img;
         circlesViewMain.delegate = self;
-
+        
         TPCirclesDistanceView *circlesViewScroll = [[TPCirclesDistanceView alloc] initWithFrame:CGRectMake(75*i, 0, 50, 50)];
         circlesViewScroll.image = imgB;
         circlesViewScroll.delegate = self;
-
+        
         [_scrollCircles addObject:circlesViewScroll];
         [_mainCircles addObject:circlesViewMain];
         [_mainView addSubview:circlesViewMain];
@@ -89,10 +129,8 @@
         centerCircle.image = imgB;
         [_mainView addSubview:centerCircle];
     }
-    
-    
-    [self logTestStarted];
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -113,22 +151,24 @@
 -(void)moveCircle:(TPCirclesDistanceView *)circle toPoint:(CGPoint)point;
 {
     circle.center = point;
-    int index;
-    CGPoint pointOffset = point;
-    CGPoint scrollViewOffset = _scrollView.contentOffset;
-    TPCirclesDistanceView *otherCircle;
-    if ([_mainCircles containsObject:circle]) {
-        index = [_mainCircles indexOfObject:circle];
-        pointOffset.x += scrollViewOffset.x;
-        pointOffset.y -= _scrollViewY;
-        otherCircle = _scrollCircles[index];
-        otherCircle.center = pointOffset;
-    } else if ([_scrollCircles containsObject:circle]) {
-        pointOffset.x -= scrollViewOffset.x;
-        index = [_scrollCircles indexOfObject:circle];
-        pointOffset.y += _scrollViewY;
-        otherCircle = _mainCircles[index];
-        otherCircle.center = pointOffset;
+    if (_scrollView) {
+        int index;
+        CGPoint pointOffset = point;
+        CGPoint scrollViewOffset = _scrollView.contentOffset;
+        TPCirclesDistanceView *otherCircle;
+        if ([_mainCircles containsObject:circle]) {
+            index = [_mainCircles indexOfObject:circle];
+            pointOffset.x += scrollViewOffset.x;
+            pointOffset.y -= _scrollViewY;
+            otherCircle = _scrollCircles[index];
+            otherCircle.center = pointOffset;
+        } else if ([_scrollCircles containsObject:circle]) {
+            pointOffset.x -= scrollViewOffset.x;
+            index = [_scrollCircles indexOfObject:circle];
+            pointOffset.y += _scrollViewY;
+            otherCircle = _mainCircles[index];
+            otherCircle.center = pointOffset;
+        }
     }
 }
 
@@ -137,7 +177,7 @@
 -(void)logEventToServer:(NSDictionary *)event
 {
     NSMutableDictionary *completeEvents = [event mutableCopy];
-    [event setValue:@"emotions_circles" forKey:@"module"];    
+    [completeEvents setValue:@"emotions_circles" forKey:@"module"];
     [self.gameVC logEvent:completeEvents];
 }
 -(void)logTestStarted

@@ -95,6 +95,8 @@
         int steps = [surveyQuestion[@"steps"] intValue];
         float scaledValue = 1 + (slider.value * (steps - 1));
         [question setValue:[NSNumber numberWithInt:(int)(scaledValue + 0.5)] forKey:@"answer"];
+        // TODO: testing
+        [question setValue:@"triumph" forKey:@"answer"];
         [questions addObject:question];
     }
     

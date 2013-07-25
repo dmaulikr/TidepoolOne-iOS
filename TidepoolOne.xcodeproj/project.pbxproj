@@ -24,6 +24,8 @@
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
 		A837CD451794BE470082B5BE /* TPOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A837CD441794BE470082B5BE /* TPOAuthClient.m */; };
 		A837CD461794BE470082B5BE /* TPOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A837CD441794BE470082B5BE /* TPOAuthClient.m */; };
+		A86C2CBE17A1AC5E00A5290E /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A86C2CBD17A1AC5E00A5290E /* Singleton.m */; };
+		A86C2CC217A1AD1600A5290E /* TPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A86C2CC117A1AD1600A5290E /* TPLocalNotificationManager.m */; };
 		A89742681797088B000CFD4F /* TPReactionTimeStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89742671797088B000CFD4F /* TPReactionTimeStageViewController.m */; };
 		A897426B1797134A000CFD4F /* TPReactionTimeStageCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A897426A1797134A000CFD4F /* TPReactionTimeStageCircleView.m */; };
 		A897426E17971534000CFD4F /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A897426D17971534000CFD4F /* CGHelper.m */; };
@@ -37,7 +39,6 @@
 		A8BD1DE1179DD43C00A7E26C /* reaction_time_disc_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8BD1DDF179DD43C00A7E26C /* reaction_time_disc_b.jpg */; };
 		A8BD1DE4179DD45D00A7E26C /* NSObject+SEWebviewJSListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DE3179DD45D00A7E26C /* NSObject+SEWebviewJSListener.m */; };
 		A8BD1DEA179DD60100A7E26C /* TPOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DE9179DD60100A7E26C /* TPOverlayView.m */; };
-		A8BD1DF0179DF2BB00A7E26C /* TPSurveyView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */; };
 		A8BD1DF3179E0ACD00A7E26C /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */; };
 		A8BD1DF9179F075D00A7E26C /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DF8179F075D00A7E26C /* TPSurveyStageViewController.m */; };
 		A8BD1DFF179F524000A7E26C /* TPReactionTimeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */; };
@@ -81,6 +82,10 @@
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
 		A837CD431794BE470082B5BE /* TPOAuthClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOAuthClient.h; sourceTree = "<group>"; };
 		A837CD441794BE470082B5BE /* TPOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOAuthClient.m; sourceTree = "<group>"; };
+		A86C2CBC17A1AC5E00A5290E /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		A86C2CBD17A1AC5E00A5290E /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
+		A86C2CC017A1AD1600A5290E /* TPLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocalNotificationManager.h; sourceTree = "<group>"; };
+		A86C2CC117A1AD1600A5290E /* TPLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocalNotificationManager.m; sourceTree = "<group>"; };
 		A89742661797088B000CFD4F /* TPReactionTimeStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeStageViewController.h; sourceTree = "<group>"; };
 		A89742671797088B000CFD4F /* TPReactionTimeStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPReactionTimeStageViewController.m; sourceTree = "<group>"; };
 		A89742691797134A000CFD4F /* TPReactionTimeStageCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPReactionTimeStageCircleView.h; sourceTree = "<group>"; };
@@ -89,8 +94,8 @@
 		A897426D17971534000CFD4F /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
 		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A897427317974F70000CFD4F /* TPUploadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUploadQueue.h; sourceTree = "<group>"; };
-		A897427417974F70000CFD4F /* TPUploadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUploadQueue.m; sourceTree = "<group>"; };
+		A897427317974F70000CFD4F /* TPUploadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPUploadQueue.h; path = TidepoolOne/TPUploadQueue.h; sourceTree = "<group>"; };
+		A897427417974F70000CFD4F /* TPUploadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPUploadQueue.m; path = TidepoolOne/TPUploadQueue.m; sourceTree = "<group>"; };
 		A89B97D517A0B9C3006815A6 /* TPCustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCustomScrollView.h; sourceTree = "<group>"; };
 		A89B97D617A0B9C3006815A6 /* TPCustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCustomScrollView.m; sourceTree = "<group>"; };
 		A8BD1DD41799CEB400A7E26C /* TPTokenCachingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTokenCachingStrategy.h; path = ../TPTokenCachingStrategy.h; sourceTree = "<group>"; };
@@ -103,8 +108,6 @@
 		A8BD1DE3179DD45D00A7E26C /* NSObject+SEWebviewJSListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SEWebviewJSListener.m"; sourceTree = "<group>"; };
 		A8BD1DE8179DD60100A7E26C /* TPOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPOverlayView.h; sourceTree = "<group>"; };
 		A8BD1DE9179DD60100A7E26C /* TPOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOverlayView.m; sourceTree = "<group>"; };
-		A8BD1DEE179DF2BA00A7E26C /* TPSurveyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyView.h; sourceTree = "<group>"; };
-		A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyView.m; sourceTree = "<group>"; };
 		A8BD1DF1179E0ACD00A7E26C /* TPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGameViewController.h; sourceTree = "<group>"; };
 		A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
 		A8BD1DF7179F075C00A7E26C /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyStageViewController.h; sourceTree = "<group>"; };
@@ -153,6 +156,7 @@
 			children = (
 				A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */,
 				A8BD1DDF179DD43C00A7E26C /* reaction_time_disc_b.jpg */,
+				A86C2CBF17A1AC6400A5290E /* Singletons */,
 				A8BD1DDA179DC0CA00A7E26C /* Vendor */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
 				A82F6A4D17947064003FC088 /* TidepoolOneTests */,
@@ -188,25 +192,13 @@
 		A82F6A2B17947064003FC088 /* TidepoolOne */ = {
 			isa = PBXGroup;
 			children = (
-				A8BD1DE8179DD60100A7E26C /* TPOverlayView.h */,
-				A8BD1DE9179DD60100A7E26C /* TPOverlayView.m */,
 				A8BD1DF5179F030300A7E26C /* Helper */,
 				A8BD1DF4179F02FD00A7E26C /* Networking */,
-				A8BD1DEE179DF2BA00A7E26C /* TPSurveyView.h */,
-				A8BD1DEF179DF2BA00A7E26C /* TPSurveyView.m */,
 				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
-				A8BD1DFD179F524000A7E26C /* TPReactionTimeResultViewController.h */,
-				A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */,
-				A8BD1DD7179D9C0300A7E26C /* TPServiceLoginViewController.h */,
-				A8BD1DD8179D9C0300A7E26C /* TPServiceLoginViewController.m */,
-				A80F7C3B17961CA900C08D9C /* TPLoginViewController.h */,
-				A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */,
-				A89B97D517A0B9C3006815A6 /* TPCustomScrollView.h */,
-				A89B97D617A0B9C3006815A6 /* TPCustomScrollView.m */,
+				A86C2CC317A1AFFA00A5290E /* ResultVC */,
+				A86C2CC417A1B00A00A5290E /* LoginVC */,
 				A8BD1DF6179F032700A7E26C /* StageVC */,
 				A8BD1E0C17A0452C00A7E26C /* Views */,
-				A8BD1DF1179E0ACD00A7E26C /* TPGameViewController.h */,
-				A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */,
 				A89B97D417A099AE006815A6 /* GameVC */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
@@ -245,9 +237,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A86C2CBF17A1AC6400A5290E /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				A86C2CBC17A1AC5E00A5290E /* Singleton.h */,
+				A86C2CBD17A1AC5E00A5290E /* Singleton.m */,
+				A86C2CC017A1AD1600A5290E /* TPLocalNotificationManager.h */,
+				A86C2CC117A1AD1600A5290E /* TPLocalNotificationManager.m */,
+				A897427317974F70000CFD4F /* TPUploadQueue.h */,
+				A897427417974F70000CFD4F /* TPUploadQueue.m */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
+		A86C2CC317A1AFFA00A5290E /* ResultVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8BD1DFD179F524000A7E26C /* TPReactionTimeResultViewController.h */,
+				A8BD1DFE179F524000A7E26C /* TPReactionTimeResultViewController.m */,
+			);
+			name = ResultVC;
+			sourceTree = "<group>";
+		};
+		A86C2CC417A1B00A00A5290E /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8BD1DD7179D9C0300A7E26C /* TPServiceLoginViewController.h */,
+				A8BD1DD8179D9C0300A7E26C /* TPServiceLoginViewController.m */,
+				A80F7C3B17961CA900C08D9C /* TPLoginViewController.h */,
+				A80F7C3C17961CA900C08D9C /* TPLoginViewController.m */,
+			);
+			name = LoginVC;
+			sourceTree = "<group>";
+		};
 		A89B97D417A099AE006815A6 /* GameVC */ = {
 			isa = PBXGroup;
 			children = (
+				A8BD1DF1179E0ACD00A7E26C /* TPGameViewController.h */,
+				A8BD1DF2179E0ACD00A7E26C /* TPGameViewController.m */,
 				A8BD1E00179F74A100A7E26C /* TPReactionTimeGameViewController.h */,
 				A8BD1E01179F74A100A7E26C /* TPReactionTimeGameViewController.m */,
 				A8BD1E03179F74B600A7E26C /* TPEmotionsGameViewController.h */,
@@ -268,8 +295,6 @@
 		A8BD1DF4179F02FD00A7E26C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A897427317974F70000CFD4F /* TPUploadQueue.h */,
-				A897427417974F70000CFD4F /* TPUploadQueue.m */,
 				A837CD431794BE470082B5BE /* TPOAuthClient.h */,
 				A837CD441794BE470082B5BE /* TPOAuthClient.m */,
 				A8BD1DD41799CEB400A7E26C /* TPTokenCachingStrategy.h */,
@@ -290,8 +315,6 @@
 		A8BD1DF6179F032700A7E26C /* StageVC */ = {
 			isa = PBXGroup;
 			children = (
-				A89742691797134A000CFD4F /* TPReactionTimeStageCircleView.h */,
-				A897426A1797134A000CFD4F /* TPReactionTimeStageCircleView.m */,
 				A89742661797088B000CFD4F /* TPReactionTimeStageViewController.h */,
 				A89742671797088B000CFD4F /* TPReactionTimeStageViewController.m */,
 				A8BD1DF7179F075C00A7E26C /* TPSurveyStageViewController.h */,
@@ -305,8 +328,14 @@
 		A8BD1E0C17A0452C00A7E26C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A8BD1DE8179DD60100A7E26C /* TPOverlayView.h */,
+				A8BD1DE9179DD60100A7E26C /* TPOverlayView.m */,
+				A89742691797134A000CFD4F /* TPReactionTimeStageCircleView.h */,
+				A897426A1797134A000CFD4F /* TPReactionTimeStageCircleView.m */,
 				A8BD1E0917A0450700A7E26C /* TPCirclesDistanceView.h */,
 				A8BD1E0A17A0450700A7E26C /* TPCirclesDistanceView.m */,
+				A89B97D517A0B9C3006815A6 /* TPCustomScrollView.h */,
+				A89B97D617A0B9C3006815A6 /* TPCustomScrollView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -461,7 +490,6 @@
 				A8BD1DD9179D9C0300A7E26C /* TPServiceLoginViewController.m in Sources */,
 				A8BD1DE4179DD45D00A7E26C /* NSObject+SEWebviewJSListener.m in Sources */,
 				A8BD1DEA179DD60100A7E26C /* TPOverlayView.m in Sources */,
-				A8BD1DF0179DF2BB00A7E26C /* TPSurveyView.m in Sources */,
 				A8BD1DF3179E0ACD00A7E26C /* TPGameViewController.m in Sources */,
 				A8BD1DF9179F075D00A7E26C /* TPSurveyStageViewController.m in Sources */,
 				A8BD1DFF179F524000A7E26C /* TPReactionTimeResultViewController.m in Sources */,
@@ -470,6 +498,8 @@
 				A8BD1E08179F780400A7E26C /* TPEmotionsCirclesStageViewController.m in Sources */,
 				A8BD1E0B17A0450700A7E26C /* TPCirclesDistanceView.m in Sources */,
 				A89B97D717A0B9C3006815A6 /* TPCustomScrollView.m in Sources */,
+				A86C2CBE17A1AC5E00A5290E /* Singleton.m in Sources */,
+				A86C2CC217A1AD1600A5290E /* TPLocalNotificationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

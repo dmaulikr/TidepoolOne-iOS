@@ -11,8 +11,8 @@
 
 @interface TPUploadQueue()
 {
-    NSMutableArray *uploadQueue;
-    TPOAuthClient *oauthClient;
+    NSMutableArray *_uploadQueue;
+    TPOAuthClient *_oauthClient;
 }
 @end
 
@@ -22,8 +22,8 @@
 {
     self = [super init];
     if (self) {
-        oauthClient = [TPOAuthClient sharedClient];
-        uploadQueue = [NSMutableArray array];
+        _oauthClient = [TPOAuthClient sharedClient];
+        _uploadQueue = [NSMutableArray array];
     }
     return self;
 }
@@ -31,23 +31,24 @@
 
 -(void)add:(NSDictionary *)item
 {
-    [uploadQueue addObject:item];
+    [_uploadQueue addObject:item];
 }
 
 
 -(void)clear
 {
-    [uploadQueue removeAllObjects];
+    [_uploadQueue removeAllObjects];
 }
 
 -(void)performOperations
 {
-    if (uploadQueue.count) {
-        [oauthClient postPath:@"/test" parameters:uploadQueue[0] success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [uploadQueue removeObjectAtIndex:0];
+    if (_uploadQueue.count) {
+        [_oauthClient postPath:@"/test" parameters:_uploadQueue[0] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [_uploadQueue removeObjectAtIndex:0];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"unable to upload");
         }];
     }
 }
+
 @end

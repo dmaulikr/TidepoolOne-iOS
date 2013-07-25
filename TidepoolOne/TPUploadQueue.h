@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-//TODO: Make this a singleton object
-@interface TPUploadQueue : NSObject
+#import "Singleton.h"
+
+@interface TPUploadQueue : Singleton
 
 -(void)add:(NSDictionary *)item;
 -(void)clear;
