@@ -29,8 +29,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _surveyQuestions = [self.data mutableCopy];
-    NSLog([_surveyQuestions description]);
+    _surveyQuestions = [self.data[@"data"] mutableCopy];
     for (int i = 0;i<_surveyQuestions.count;i++) {
         NSMutableDictionary *question = [_surveyQuestions[i] mutableCopy];
         [_surveyQuestions replaceObjectAtIndex:i withObject:question];

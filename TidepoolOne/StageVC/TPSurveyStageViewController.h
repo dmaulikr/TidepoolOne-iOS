@@ -12,6 +12,4 @@
 
 @interface TPSurveyStageViewController : TPStageViewController
 
-@property (nonatomic, strong) TPGameViewController *gameVC;
-
 @end

@@ -13,8 +13,8 @@
 
 @interface TPEmotionsCirclesStageViewController : TPStageViewController <TPCirclesDistanceViewDelegate>
 
-@property (nonatomic, strong) TPGameViewController *gameVC;
 @property (nonatomic, strong) NSMutableArray *circles;
+
 - (IBAction)doneButtonPressed:(id)sender;
 
 -(bool)shouldAllowMoveCircle;

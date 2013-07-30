@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPGameViewController.h"
 
 @interface TPStageViewController : UIViewController
 
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSDictionary *data;
+@property (nonatomic, strong) TPGameViewController *gameVC;
 
 @end

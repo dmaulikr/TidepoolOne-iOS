@@ -70,49 +70,21 @@
     _gameId = _response[@"id"];
     _userId = _response[@"user_id"];
     NSString *viewName = _response[@"stages"][_stage][@"view_name"];
-    if ([viewName isEqualToString:@"Survey"]) {
-        [self createSurveyStage];
-    } else if ([viewName isEqualToString:@"ReactionTime"]) {
-        [self createReactionTimeStage];
-    } else if ([viewName isEqualToString:@"EmotionsCircles"]) {
-        [self createEmotionsCirclesStage];
-    }
+
+    NSDictionary *classDictionary = @{
+                                      @"Survey":[TPSurveyStageViewController class],
+                                      @"ReactionTime":[TPReactionTimeStageViewController class],
+                                      @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
+                                      };
+    Class stageClass = classDictionary[viewName];
+    TPStageViewController *stageVC = [[stageClass alloc] init];
+    stageVC.data = _response[@"stages"][_stage];
+    stageVC.gameVC = self;
+    [self addChildViewController:stageVC];
+    [self.view addSubview:stageVC.view];
+
 
 }
-
--(void)createEmotionsCirclesStage
-{
-    TPEmotionsCirclesStageViewController *emotionsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"EmotionsCircles"];
-    emotionsVC.data = _response[@"stages"][_stage][@"circles"];
-    emotionsVC.gameVC = self;
-    
-    [self addChildViewController:emotionsVC];
-    [self.view addSubview:emotionsVC.view];
-}
-
-
--(void)createSurveyStage
-{
-    TPSurveyStageViewController *surveyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"survey"];
-    surveyVC.data = _response[@"stages"][_stage][@"data"];
-    surveyVC.gameVC = self;
-    
-    [self addChildViewController:surveyVC];
-    [self.view addSubview:surveyVC.view];
-}
-
-
--(void)createReactionTimeStage
-{
-    TPReactionTimeStageViewController *reactionTimeVC = [self.storyboard instantiateViewControllerWithIdentifier:@"reactiontime"];
-    reactionTimeVC.data = _response[@"stages"][_stage];
-    reactionTimeVC.gameVC = self;
-    
-    [self addChildViewController:reactionTimeVC];
-    [self.view addSubview:reactionTimeVC.view];
-}
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -50,14 +50,14 @@
     _mainView.clipsToBounds = YES;
     _mainView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:_mainView];
-    
-    for (int i=0; i < self.data.count; i++ ) {
+    NSArray *circles = self.data[@"circles"];
+    for (int i=0; i < circles.count; i++ ) {
         NSMutableDictionary *circle = [NSMutableDictionary dictionary];
-        [circle setValue:self.data[i][@"trait1"] forKey:@"trait1"];
+        [circle setValue:circles[i][@"trait1"] forKey:@"trait1"];
         [_circles addObject:circle];
         UIImage *img = [UIImage imageNamed:@"reaction_time_disc_a.jpg"];
         UIImage *imgB = [UIImage imageNamed:@"reaction_time_disc_b.jpg"];
-        float theta = 2 * M_PI / self.data.count * i;
+        float theta = 2 * M_PI / circles.count * i;
         float r = 50;
         float x = _mainView.center.x + r * cosf(theta);
         float y = _mainView.center.y + r * sinf(theta);
@@ -96,17 +96,13 @@
     _mainView.clipsToBounds = YES;
     _mainView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:_mainView];
-    
-    for (int i=0; i < self.data.count; i++ ) {
+    NSArray *circles = self.data[@"circles"];
+    for (int i=0; i < circles.count; i++ ) {
         NSMutableDictionary *circle = [NSMutableDictionary dictionary];
-        [circle setValue:self.data[i][@"trait"] forKey:@"trait1"];
+        [circle setValue:circles[i][@"trait"] forKey:@"trait1"];
         [_circles addObject:circle];
         UIImage *img = [UIImage imageNamed:@"reaction_time_disc_a.jpg"];
         UIImage *imgB = [UIImage imageNamed:@"reaction_time_disc_b.jpg"];
-        //        float theta = 2 * M_PI / self.data.count * i;
-        //        float r = 50;
-        //        float x = self.view.center.x + r * cosf(theta);
-        //        float y = self.view.center.y + r * sinf(theta);
         TPCirclesDistanceView *circlesViewMain = [[TPCirclesDistanceView alloc] initWithFrame:CGRectMake(55*i, _scrollViewY, 50, 50)];
         circlesViewMain.image = img;
         circlesViewMain.delegate = self;
