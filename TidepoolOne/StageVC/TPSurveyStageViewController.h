@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "TPGameViewController.h"
+#import "TPStageViewController.h"
 
-@interface TPSurveyStageViewController : UIViewController
+@interface TPSurveyStageViewController : TPStageViewController
 
-@property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) TPGameViewController *gameVC;
 
 @end

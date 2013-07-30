@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPResultViewController.h"
 
-@interface TPReactionTimeResultViewController : UIViewController
+@interface TPReactionTimeResultViewController : TPResultViewController
 
-@property (nonatomic, strong) NSDictionary *result;
 @property (weak, nonatomic) IBOutlet UITextField *minimum;
 @property (weak, nonatomic) IBOutlet UITextField *maximum;
 - (IBAction)playAgainAction:(id)sender;

@@ -39,11 +39,11 @@
 
 -(void)retrieveDataFromServer
 {
-    [_oauthClient getPath:_dataSource parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        _data = responseObject;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error");
-    }];
+//    [_oauthClient getPath:_dataSource parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        _data = responseObject;
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"error");
+//    }];
 }
 
 

@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TPGameViewController.h"
+#import "TPStageViewController.h"
 #import "TPCirclesDistanceView.h"
 
-@interface TPEmotionsCirclesStageViewController : UIViewController <TPCirclesDistanceViewDelegate>
+@interface TPEmotionsCirclesStageViewController : TPStageViewController <TPCirclesDistanceViewDelegate>
 
-@property (nonatomic, strong) NSArray *data;
 @property (nonatomic, strong) TPGameViewController *gameVC;
 @property (nonatomic, strong) NSMutableArray *circles;
 - (IBAction)doneButtonPressed:(id)sender;
