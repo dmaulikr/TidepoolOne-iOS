@@ -14,7 +14,7 @@
 static BOOL kLocalCache = NO;
 
 // Local cache - unique file info
-static NSString* kFilename = @"TokenInfo.plist";
+static NSString* kFilename = @"GuessMyMoodTokenInfo.plist";
 
 // Remote cache - backend server
 // Replace <YOUR_BACKEND_SERVER> with your token caching endpoint.

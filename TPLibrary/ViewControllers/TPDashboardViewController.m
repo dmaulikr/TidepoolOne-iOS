@@ -7,7 +7,6 @@
 //
 
 #import "TPDashboardViewController.h"
-#import "TPReactionTimeResultWidgetViewController.h"
 
 @interface TPDashboardViewController ()
 
@@ -27,16 +26,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.tableView.allowsSelection = NO;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    TPReactionTimeResultWidgetViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeWidget"];
-    [self addChildViewController:resultVC];
-    [self.tableView reloadData];
+//    TPReactionTimeResultWidgetViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeWidget"];
+//    [self addChildViewController:resultVC];
+//    [self.tableView reloadData];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

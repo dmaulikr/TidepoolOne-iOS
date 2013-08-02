@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TPReactionTimeStageCircleView.h"
-#import "TPGameViewController.h"
+#import "TPStageViewController.h"
 
-@interface TPReactionTimeStageViewController : UIViewController <TPReactionTimeStageCircleViewDelegateProtocol>
-
-@property (nonatomic, strong) NSDictionary *data;
-@property (nonatomic, strong) TPGameViewController *gameVC;
+@interface TPReactionTimeStageViewController : TPStageViewController <TPReactionTimeStageCircleViewDelegateProtocol>
 
 -(void)circleViewWasTapped;
 

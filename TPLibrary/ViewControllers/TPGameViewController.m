@@ -7,12 +7,13 @@
 //
 
 #import "TPGameViewController.h"
-#import "TPSurveyStageViewController.h"
-#import "TPReactionTimeStageViewController.h"
 #import "TPOAuthClient.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
-#import "TPReactionTimeResultViewController.h"
+
+#import "TPReactionTimeStageViewController.h"
+#import "TPSurveyStageViewController.h"
 #import "TPEmotionsCirclesStageViewController.h"
+#import "TPSnoozerStageViewController.h"
 
 @interface TPGameViewController ()
 {
@@ -75,6 +76,7 @@
                                       @"Survey":[TPSurveyStageViewController class],
                                       @"ReactionTime":[TPReactionTimeStageViewController class],
                                       @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
+                                      @"snoozer":[TPSnoozerStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];
@@ -82,9 +84,8 @@
     stageVC.gameVC = self;
     [self addChildViewController:stageVC];
     [self.view addSubview:stageVC.view];
-
-
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -107,15 +108,15 @@
 
 -(void)showResults
 {
-    for (NSDictionary *result in _results) {
-        NSString *resultType = result[@"type"];
-        if ([resultType isEqualToString:@"ReactionTimeResult"]) {
-            TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
-            resultVC.result = result;
-            [self addChildViewController:resultVC];
-            [self.view addSubview:resultVC.view];
-        }
-    }
+//    for (NSDictionary *result in _results) {
+//        NSString *resultType = result[@"type"];
+//        if ([resultType isEqualToString:@"ReactionTimeResult"]) {
+//            TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
+//            resultVC.result = result;
+//            [self addChildViewController:resultVC];
+//            [self.view addSubview:resultVC.view];
+//        }
+//    }
 }
 
 #pragma mark polling and obtaining Results

@@ -55,9 +55,9 @@
 -(void)showInstructions
 {
     NSString *imageName;
-    if ([@"simple"isEqualToString:_data[@"sequence_type"]]) {
+    if ([@"simple"isEqualToString:self.data[@"sequence_type"]]) {
         imageName = @"reaction_time_disc_a.jpg";
-    } else if ([@"complex"isEqualToString:_data[@"sequence_type"]]) {
+    } else if ([@"complex"isEqualToString:self.data[@"sequence_type"]]) {
         imageName = @"reaction_time_disc_b.jpg";        
     }
     TPOverlayView *overlayView = [[TPOverlayView alloc] initWithFrame:self.view.bounds];
@@ -79,8 +79,8 @@
 
 -(void)setupGameForCurrentStage
 {
-    _sequence = _data[@"sequence"];
-    _sequenceType = _data[@"sequence_type"];
+    _sequence = self.data[@"sequence"];
+    _sequenceType = self.data[@"sequence_type"];
     _sequenceNo = -1;
     _circleView.color = [UIColor lightGrayColor];
     [self logTestStarted];
