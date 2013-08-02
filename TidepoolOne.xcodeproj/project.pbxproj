@@ -72,6 +72,7 @@
 		A87E703117AC2C83001605DF /* snoozer-clockringb2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A87E701917AC2C83001605DF /* snoozer-clockringb2~iphone.png */; };
 		A87E703217AC2C83001605DF /* snoozer-logo@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A87E701A17AC2C83001605DF /* snoozer-logo@2x~iphone.png */; };
 		A87E703317AC2C83001605DF /* snoozer-logo~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A87E701B17AC2C83001605DF /* snoozer-logo~iphone.png */; };
+		A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E703517AC3C60001605DF /* TPSnoozerClockView.m */; };
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
 		A8BD1DE0179DD43C00A7E26C /* reaction_time_disc_a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */; };
@@ -186,6 +187,8 @@
 		A87E701917AC2C83001605DF /* snoozer-clockringb2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clockringb2~iphone.png"; sourceTree = "<group>"; };
 		A87E701A17AC2C83001605DF /* snoozer-logo@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-logo@2x~iphone.png"; sourceTree = "<group>"; };
 		A87E701B17AC2C83001605DF /* snoozer-logo~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-logo~iphone.png"; sourceTree = "<group>"; };
+		A87E703417AC3C60001605DF /* TPSnoozerClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerClockView.h; sourceTree = "<group>"; };
+		A87E703517AC3C60001605DF /* TPSnoozerClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerClockView.m; sourceTree = "<group>"; };
 		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reaction_time_disc_a.jpg; sourceTree = "<group>"; };
@@ -483,6 +486,8 @@
 				A879A65F17A871220082A455 /* TPOverlayView.m */,
 				A879A66017A871220082A455 /* TPReactionTimeStageCircleView.h */,
 				A879A66117A871220082A455 /* TPReactionTimeStageCircleView.m */,
+				A87E703417AC3C60001605DF /* TPSnoozerClockView.h */,
+				A87E703517AC3C60001605DF /* TPSnoozerClockView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -678,6 +683,7 @@
 				A879A6C817A888C20082A455 /* TPWidgetViewController.m in Sources */,
 				A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.m in Sources */,
 				A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */,
+				A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,13 +7,16 @@
 //
 
 #import "TPStageViewController.h"
+#import "TPSnoozerClockView.h"
 
-@interface TPSnoozerStageViewController : TPStageViewController
+@interface TPSnoozerStageViewController : TPStageViewController <TPSnoozerClockViewDelegate>
 
 @property (assign) int numChoices;
 @property (assign) int numRows;
 @property (assign) int numColumns;
 @property (assign) NSTimeInterval maxTime;
 @property (assign) NSTimeInterval minTime;
+
+-(void)clockViewWasTouched:(TPSnoozerClockView *)clockView;
 
 @end

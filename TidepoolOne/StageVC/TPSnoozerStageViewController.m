@@ -40,9 +40,10 @@
     int boxWidth = self.view.bounds.size.width / self.numColumns;
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
-            UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
-            imgView.image = [UIImage imageNamed:@"snoozer-clock.png"];
-            [self.view addSubview:imgView];
+            TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
+            clockView.isRinging = YES;
+            clockView.delegate = self;
+            [self.view addSubview:clockView];
         }
     }
 }
@@ -52,5 +53,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)clockViewWasTouched:(TPSnoozerClockView *)clockView
+{
+    [clockView tappedCorrectly:NO];
+}
+
 
 @end
