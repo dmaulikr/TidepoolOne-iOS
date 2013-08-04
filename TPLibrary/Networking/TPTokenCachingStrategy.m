@@ -7,6 +7,8 @@
 //
 
 #import "TPTokenCachingStrategy.h"
+#import <AFNetworking/AFJSONRequestOperation.h>
+#import "TPOAuthClient.h"
 
 // Local vs. Remote flag
 // Set to local initially. You can change to the remote endpoint
@@ -221,8 +223,55 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
  * Helper method to write data.
  */
 - (void) writeDataRemotely:(NSDictionary *) data {
-    NSLog(@"Write - Data = %@", data);
+    NSLog([data description]);
+
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:kDateFormat];
+
+
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    [info setValue:@"mayank.ot@gmail.com" forKey:@"email"];
+    [info setValue:@"Mayank Sanganeria" forKey:@"name"];
+    [info setValue:@"http://google.com" forKey:@"image"];
+    
+    NSDate *expiresDate = data[@"com.facebook.sdk:TokenInformationExpirationDateKey"];
+    NSDate *refreshDate = data[@"com.facebook.sdk:TokenInformationRefreshDateKey"];
+    
+    NSMutableDictionary *credentials = [NSMutableDictionary dictionary];
+    [credentials setValue:data[@"com.facebook.sdk:TokenInformationTokenKey"] forKey:@"token"];
+    [credentials setValue:[dateFormatter stringFromDate:refreshDate] forKey:@"refresh_at"];
+    [credentials setValue:data[@"com.facebook.sdk:TokenInformationPermissionsKey"] forKey:@"permissions"];
+
+    [credentials setValue:[dateFormatter stringFromDate:expiresDate] forKey:@"expires_at"];
+    [credentials setValue:[NSNumber numberWithBool:YES] forKey:@"expires"];
+    
+    NSMutableDictionary *authHash = [NSMutableDictionary dictionary];
+    [authHash setValue:@"facebook" forKey:@"provider"];
+    [authHash setValue:@"221000190" forKey:@"uid"];
+    [authHash setValue:info forKey:@"info"];
+    [authHash setValue:credentials forKey:@"credentials"];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+//    [dict setObject:@"mayank.ot@gmail.com" forKey:@"user_id"];
+    [dict setObject:@"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1" forKey:@"client_id"];
+    [dict setObject:@"3e4da2177beee0d8ec458480526b3716047b3ff0df3362262183f6841253a706" forKey:@"client_secret"];
+    [dict setObject:@"password" forKey:@"grant_type"];
+    [dict setObject:@"password" forKey:@"response_type"];
+    [dict setObject:authHash forKey:@"auth_hash"];
+
+    NSLog([dateFormatter stringFromDate:refreshDate]);
+    NSLog([dateFormatter stringFromDate:expiresDate]);
+    
+    NSLog([dict description]);
+    
+    [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog([responseObject description]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog([error description]);
+    }];
+    
+    NSLog(@"Write - Data = %@", data);
+//    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:kDateFormat];
     NSError *error = nil;
     NSString *jsonDataString = @"";

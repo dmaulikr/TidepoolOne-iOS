@@ -33,6 +33,32 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Default.png"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    float kPadding = 5;
+    float kTextFieldHeight = 30;
+    TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, self.view.bounds.size.width - 2*kPadding, 100)];
+    topLabel.text = @"Create a free account";
+    [self.view addSubview:topLabel];
+
+    TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, 100, self.view.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
+    emailField.placeholder = @"Email address";
+    [self.view addSubview:emailField];
+    
+    self.loginEmail = emailField;
+    
+    TPTextField *passwordField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, 100 + kTextFieldHeight - 1, self.view.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
+    passwordField.placeholder = @"Password";
+    passwordField.secureTextEntry = YES;
+    [self.view addSubview:passwordField];
+
+    self.loginPassword = passwordField;
+    
 }
 
 - (void)didReceiveMemoryWarning

@@ -64,7 +64,9 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.delegate clockViewWasTouched:self];
+    BOOL correct = _isRinging;
+    [self tappedCorrectly:correct];
+    [self.delegate clockView:self  wasTouchedCorrectly:correct];
 }
 
 -(void)tappedCorrectly:(BOOL)correct
@@ -75,7 +77,7 @@
     } else {
         _imageView.image = [UIImage imageNamed:_incorrectClockImage];
     }
-    [self drawStaticClock];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(drawStaticClock) userInfo:nil repeats:NO];
 }
 
 @end

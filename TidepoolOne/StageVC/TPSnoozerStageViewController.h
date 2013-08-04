@@ -11,12 +11,13 @@
 
 @interface TPSnoozerStageViewController : TPStageViewController <TPSnoozerClockViewDelegate>
 
+@property (assign) int numChoicesTotal;
 @property (assign) int numChoices;
 @property (assign) int numRows;
 @property (assign) int numColumns;
 @property (assign) NSTimeInterval maxTime;
 @property (assign) NSTimeInterval minTime;
 
--(void)clockViewWasTouched:(TPSnoozerClockView *)clockView;
+-(void)clockView:(TPSnoozerClockView *)clockView wasTouchedCorrectly:(BOOL)correct;
 
 @end

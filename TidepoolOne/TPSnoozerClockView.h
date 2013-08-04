@@ -12,7 +12,7 @@
 
 @protocol TPSnoozerClockViewDelegate
 
--(void)clockViewWasTouched:(TPSnoozerClockView *)clockView;
+-(void)clockView:(TPSnoozerClockView *)clockView wasTouchedCorrectly:(BOOL)correct;
 
 @end
 
@@ -21,7 +21,5 @@
 
 @property (nonatomic, assign) BOOL isRinging;
 @property id<TPSnoozerClockViewDelegate> delegate;
-
--(void)tappedCorrectly:(BOOL)correct;
 
 @end

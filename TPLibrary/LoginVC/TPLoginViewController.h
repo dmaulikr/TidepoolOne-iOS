@@ -11,8 +11,8 @@
 
 @interface TPLoginViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UITextField *loginEmail;
-@property (weak, nonatomic) IBOutlet UITextField *loginPassword;
+@property (strong, nonatomic) IBOutlet UITextField *loginEmail;
+@property (strong, nonatomic) IBOutlet UITextField *loginPassword;
 
 - (IBAction)loginButtonPressed:(id)sender;
 - (IBAction)fbLoginButtonPressed:(id)sender;

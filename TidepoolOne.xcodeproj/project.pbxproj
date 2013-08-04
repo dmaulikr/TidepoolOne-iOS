@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		40FE9C691B2B410E9541EC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE9E0A1B4814CD7AD31BA9A /* libPods.a */; };
 		A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */; };
+		A819476417AE0633009959DA /* Karla-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A819476017AE0633009959DA /* Karla-Bold.ttf */; };
+		A819476517AE0633009959DA /* Karla-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A819476117AE0633009959DA /* Karla-BoldItalic.ttf */; };
+		A819476617AE0633009959DA /* Karla-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A819476217AE0633009959DA /* Karla-Italic.ttf */; };
+		A819476717AE0633009959DA /* Karla-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A819476317AE0633009959DA /* Karla-Regular.ttf */; };
+		A819476C17AE08AD009959DA /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A819476917AE08AD009959DA /* Default-568h@2x~iphone.png */; };
+		A819476D17AE08AD009959DA /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A819476A17AE08AD009959DA /* Default@2x~iphone.png */; };
+		A819476E17AE08AD009959DA /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A819476B17AE08AD009959DA /* Default~iphone.png */; };
+		A819477117AE09BB009959DA /* TPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477017AE09BB009959DA /* TPLabel.m */; };
+		A819477417AE0C07009959DA /* TPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477317AE0C07009959DA /* TPTextField.m */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
@@ -93,6 +102,17 @@
 		0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3BE9E0A1B4814CD7AD31BA9A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A819476017AE0633009959DA /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
+		A819476117AE0633009959DA /* Karla-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-BoldItalic.ttf"; sourceTree = "<group>"; };
+		A819476217AE0633009959DA /* Karla-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic.ttf"; sourceTree = "<group>"; };
+		A819476317AE0633009959DA /* Karla-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Regular.ttf"; sourceTree = "<group>"; };
+		A819476917AE08AD009959DA /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		A819476A17AE08AD009959DA /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
+		A819476B17AE08AD009959DA /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		A819476F17AE09BB009959DA /* TPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLabel.h; sourceTree = "<group>"; };
+		A819477017AE09BB009959DA /* TPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLabel.m; sourceTree = "<group>"; };
+		A819477217AE0C07009959DA /* TPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTextField.h; path = TidepoolOne/TPTextField.h; sourceTree = "<group>"; };
+		A819477317AE0C07009959DA /* TPTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTextField.m; path = TidepoolOne/TPTextField.m; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidepoolOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidepoolOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -158,7 +178,7 @@
 		A879A6B917A888C20082A455 /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
 		A879A6BA17A888C20082A455 /* TPStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPStageViewController.m; sourceTree = "<group>"; };
 		A879A6BB17A888C20082A455 /* TPWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWidgetViewController.h; sourceTree = "<group>"; };
-		A879A6BC17A888C20082A455 /* TPWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWidgetViewController.m; sourceTree = "<group>"; };
+		A879A6BC17A888C20082A455 /* TPWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPWidgetViewController.m; path = TPLibrary/ViewControllers/TPWidgetViewController.m; sourceTree = "<group>"; };
 		A87E6FFC17AB27B6001605DF /* TPSnoozerGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerGameViewController.h; path = GameVC/TPSnoozerGameViewController.h; sourceTree = "<group>"; };
 		A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSnoozerGameViewController.m; path = GameVC/TPSnoozerGameViewController.m; sourceTree = "<group>"; };
 		A87E6FFF17AB2916001605DF /* TPSnoozerStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerStageViewController.h; path = StageVC/TPSnoozerStageViewController.h; sourceTree = "<group>"; };
@@ -222,11 +242,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A819476817AE089E009959DA /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				A819476917AE08AD009959DA /* Default-568h@2x~iphone.png */,
+				A819476A17AE08AD009959DA /* Default@2x~iphone.png */,
+				A819476B17AE08AD009959DA /* Default~iphone.png */,
+				A819476017AE0633009959DA /* Karla-Bold.ttf */,
+				A819476117AE0633009959DA /* Karla-BoldItalic.ttf */,
+				A819476217AE0633009959DA /* Karla-Italic.ttf */,
+				A819476317AE0633009959DA /* Karla-Regular.ttf */,
+				A819476F17AE09BB009959DA /* TPLabel.h */,
+				A819477017AE09BB009959DA /* TPLabel.m */,
+				A819477217AE0C07009959DA /* TPTextField.h */,
+				A819477317AE0C07009959DA /* TPTextField.m */,
+			);
+			name = Design;
+			sourceTree = "<group>";
+		};
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
 				A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */,
 				A8BD1DDF179DD43C00A7E26C /* reaction_time_disc_b.jpg */,
+				A819476817AE089E009959DA /* Design */,
 				A87E700217AC2C83001605DF /* snoozer */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
 				A8BD1DDA179DC0CA00A7E26C /* Vendor */,
@@ -384,7 +423,6 @@
 				A879A6B917A888C20082A455 /* TPStageViewController.h */,
 				A879A6BA17A888C20082A455 /* TPStageViewController.m */,
 				A879A6BB17A888C20082A455 /* TPWidgetViewController.h */,
-				A879A6BC17A888C20082A455 /* TPWidgetViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -445,6 +483,7 @@
 		A8BD1DDA179DC0CA00A7E26C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A879A6BC17A888C20082A455 /* TPWidgetViewController.m */,
 				A879A64817A8704C0082A455 /* NSObject+SEWebviewJSListener.h */,
 				A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */,
 			);
@@ -603,6 +642,13 @@
 				A87E703117AC2C83001605DF /* snoozer-clockringb2~iphone.png in Resources */,
 				A87E703217AC2C83001605DF /* snoozer-logo@2x~iphone.png in Resources */,
 				A87E703317AC2C83001605DF /* snoozer-logo~iphone.png in Resources */,
+				A819476417AE0633009959DA /* Karla-Bold.ttf in Resources */,
+				A819476517AE0633009959DA /* Karla-BoldItalic.ttf in Resources */,
+				A819476617AE0633009959DA /* Karla-Italic.ttf in Resources */,
+				A819476717AE0633009959DA /* Karla-Regular.ttf in Resources */,
+				A819476C17AE08AD009959DA /* Default-568h@2x~iphone.png in Resources */,
+				A819476D17AE08AD009959DA /* Default@2x~iphone.png in Resources */,
+				A819476E17AE08AD009959DA /* Default~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +730,8 @@
 				A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.m in Sources */,
 				A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */,
 				A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */,
+				A819477117AE09BB009959DA /* TPLabel.m in Sources */,
+				A819477417AE0C07009959DA /* TPTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
