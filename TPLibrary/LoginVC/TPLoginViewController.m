@@ -33,22 +33,58 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _sharedClient = [TPOAuthClient sharedClient];
     UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"Default.png"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    UINavigationBar *navBar = [[UINavigationBar alloc] init];
+    navBar.frame = CGRectMake(0,0,self.view.bounds.size.width,44);
+    UINavigationItem *navItem = [UINavigationItem alloc];
+    navItem.title = @"Welcome To Tidepool";
+    _rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleDone target:self action:@selector(flip)];
+    navItem.rightBarButtonItem = _rightButton;
+    [navBar pushNavigationItem:navItem animated:NO];
+    [self.view addSubview:navBar];
     
+    self.currentView = self.loginView;
     [self.view addSubview:self.loginView];
-    
-//    [UIView transitionFromView:self.createAccountView toView:self.loginView duration:20.0 options:UIViewAnimationOptionTransitionFlipFromRight completion:^(BOOL finished) {}];
-    
 }
+
+-(void) setCurrentView:(UIView *)currentView
+{
+    _currentView = currentView;
+    if (currentView == self.loginView) {
+        self.rightButton.title = @"Create account";
+    } else {
+        self.rightButton.title = @"Login";        
+    }
+}
+
+-(void) flip
+{
+    UIView *newView;
+    UIViewAnimationOptions animationOptions;
+    if (self.currentView == self.loginView) {
+        newView = self.createAccountView;
+        animationOptions = UIViewAnimationOptionTransitionFlipFromLeft;
+    } else {
+        newView = self.loginView;
+        animationOptions = UIViewAnimationOptionTransitionFlipFromRight;
+    }
+    [UIView transitionFromView:self.currentView toView:newView duration:0.5 options:animationOptions completion:^(BOOL finished) {
+        self.currentView = newView;
+    }];
+    NSLog(@"fuck");
+}
+
+
 - (UIView *)createAccountView
 {
     if (!_createAccountView) {
-        _createAccountView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _createAccountView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 44)];
         float kPadding = 5;
         float kTextFieldHeight = 30;
         TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, _createAccountView.bounds.size.width - 2*kPadding, 100)];
@@ -94,7 +130,7 @@
 - (UIView *)loginView
 {
     if (!_loginView) {
-        _loginView = [[UIView alloc] initWithFrame:self.view.bounds];
+        _loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 44)];
         float kPadding = 5;
         float kTextFieldHeight = 30;
         TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, _loginView.bounds.size.width - 2*kPadding, 100)];
@@ -118,7 +154,7 @@
         facebookButton.frame = CGRectMake(kPadding, 200, 100, 20);
         [facebookButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
         [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [_createAccountView addSubview:facebookButton];
+        [_loginView addSubview:facebookButton];
 
         UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         loginButton.frame = CGRectMake(150, 200, 100, 20);
@@ -139,54 +175,16 @@
 }
 
 
--(void)login
-{
-    _sharedClient = [TPOAuthClient sharedClient];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"password", @"grant_type",
-                            @"password", @"response_type",
-                            self.loginEmail.text, @"email",
-                            self.loginPassword.text, @"password",
-                            _sharedClient.clientId, @"client_id",
-                            _sharedClient.clientSecret, @"client_secret",
-                            nil];
-    [_sharedClient postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success");
-        _sharedClient.oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        _sharedClient.oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        [_sharedClient setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_sharedClient.oauthAccessToken]];
-        [self dismissViewControllerAnimated:YES completion:^{}];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure");
-        NSLog([error description]);
-    }];
-}
-
 - (IBAction)createAccountButtonPressed:(id)sender
 {
-    _sharedClient = [TPOAuthClient sharedClient];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"password", @"grant_type",
-                            @"password", @"response_type",
-                            self.loginEmail.text, @"email",
-                            self.loginPassword.text, @"password",
-                            _sharedClient.clientId, @"client_id",
-                            _sharedClient.clientSecret, @"client_secret",
-                            nil];
-    [_sharedClient postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success");
-        _sharedClient.oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        _sharedClient.oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        [_sharedClient setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_sharedClient.oauthAccessToken]];
-        [self dismissViewControllerAnimated:YES completion:^{}];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure");
-        NSLog([error description]);
-    }];
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
-    [self login];
+    [_sharedClient loginWithUsername:self.loginEmail.text password:self.loginPassword.text withCompletingHandlersSuccess:^{
+        [self dismissViewControllerAnimated:YES completion:^{
+        }];
+    } andFailure:^{
+    }];
     [self resignFirstResponder];
     [self.view endEditing:YES];
 }

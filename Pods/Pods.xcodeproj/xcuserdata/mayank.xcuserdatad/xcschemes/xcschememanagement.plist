@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Pods-SSKeychain.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>Pods-TransformerKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -42,7 +47,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0B68DBB3A83D4269AEF65C2D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>0C6D633AA2AD4750A2AB263B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0F267DD8F2B3484C9B4D9640</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,6 +87,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>978C64EAD3B94CE29711D843</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>98AD439D2B824A839EDF146B</key>
 		<dict>
 			<key>primary</key>
@@ -83,6 +103,11 @@
 			<true/>
 		</dict>
 		<key>CAEA52F36B4449658AAE2F05</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E492A666A97A4C58A470C778</key>
 		<dict>
 			<key>primary</key>
 			<true/>

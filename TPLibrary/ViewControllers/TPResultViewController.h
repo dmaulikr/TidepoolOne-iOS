@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPGameViewController.h"
 
 @interface TPResultViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *result;
+@property (nonatomic, weak) NSDictionary *gameVC;
+
 
 @end

@@ -33,7 +33,38 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KdS-Xm-8Ql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1755" y="-919"/>
+            <point key="canvasLocation" x="-3295" y="625"/>
+        </scene>
+        <!--Profile View Controller - Profile-->
+        <scene sceneID="qMr-F0-nAa">
+            <objects>
+                <viewController id="1fV-Ow-74O" customClass="TPProfileViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M3E-C4-BK5">
+                        <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YK-jJ-chK">
+                                <items>
+                                    <navigationItem title="My Profile" id="YoT-WS-VBm">
+                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="e4T-9f-AJF"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1YK-jJ-chK" firstAttribute="top" secondItem="M3E-C4-BK5" secondAttribute="top" type="default" id="FCw-tD-zv6"/>
+                            <constraint firstItem="1YK-jJ-chK" firstAttribute="trailing" secondItem="M3E-C4-BK5" secondAttribute="trailing" type="default" id="Ul8-2k-lfE"/>
+                            <constraint firstItem="1YK-jJ-chK" firstAttribute="leading" secondItem="M3E-C4-BK5" secondAttribute="leading" type="default" id="omU-Il-rrf"/>
+                        </constraints>
+                        <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                        <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="3ou-yq-gKl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSB-qQ-Sgz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3313" y="1335"/>
         </scene>
         <!--Reaction Time Result Widget View Controller-->
         <scene sceneID="rdk-C5-pNg">
@@ -74,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2581" y="946"/>
+            <point key="canvasLocation" x="-3295" y="-42"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tPH-3m-UNI">
@@ -89,11 +120,12 @@
                     <connections>
                         <segue destination="OmI-K6-FCI" kind="relationship" relationship="viewControllers" id="p7g-Tz-zQ2"/>
                         <segue destination="O9v-Th-RMq" kind="relationship" relationship="viewControllers" id="oFf-FM-6BQ"/>
+                        <segue destination="1fV-Ow-74O" kind="relationship" relationship="viewControllers" id="aVf-x6-8JU"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj2-At-ZTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2682" y="186"/>
+            <point key="canvasLocation" x="-3960" y="398"/>
         </scene>
         <!--Reaction Time Result View Controller - Game-->
         <scene sceneID="qZ5-Hl-Aan">
@@ -177,6 +209,12 @@
         </class>
         <class className="TPGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
+        </class>
+        <class className="TPProfileViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="TPReactionTimeResultViewController" superclassName="TPResultViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPReactionTimeResultViewController.h"/>

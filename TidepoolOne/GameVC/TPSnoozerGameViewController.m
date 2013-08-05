@@ -8,6 +8,7 @@
 
 #import "TPSnoozerGameViewController.h"
 #import "TPLoginViewController.h"
+#import "TPOAuthClient.h"
 
 @interface TPSnoozerGameViewController ()
 
@@ -31,11 +32,11 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    TPLoginViewController *loginVC = [[TPLoginViewController alloc] init];
-    [self presentViewController:loginVC animated:YES completion:^{}];
-    // DEBUG
-//    self.type = @"snoozer";
-//    [self startNewGame];
+    [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
+        [self startNewGame];
+    } andFailure:^{
+    }];
+    self.type = @"snoozer";
 }
 
 - (void)didReceiveMemoryWarning

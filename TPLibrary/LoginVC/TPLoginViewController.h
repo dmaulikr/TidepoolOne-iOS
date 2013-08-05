@@ -15,6 +15,9 @@
 
 @interface TPLoginViewController : UIViewController
 
+@property (nonatomic, strong) UIBarButtonItem *rightButton;
+@property (nonatomic, strong) UIView *currentView;
+
 @property (strong, nonatomic) IBOutlet UITextField *loginEmail;
 @property (strong, nonatomic) IBOutlet UITextField *loginPassword;
 
