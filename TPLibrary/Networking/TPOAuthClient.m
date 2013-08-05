@@ -60,6 +60,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 
 -(void)savePassword:(NSString *)password forAccount:(NSString *)account
 {
+    [self deleteAllPasswords];
     [SSKeychain setPassword:password forService:kSSKeychainServiceName account:account];
 }
 
@@ -94,8 +95,6 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
         NSDictionary *account = accounts[0];
         NSString *username = account[@"acct"];
         NSString *password = [SSKeychain passwordForService:kSSKeychainServiceName account:username];
-        NSLog(username);
-        NSLog(password);
         [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
         return;
     } else {
@@ -104,6 +103,17 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
             [vc presentViewController:loginVC animated:YES completion:^{}];
         }
     }
+}
+
+-(void)deleteAllPasswords
+{
+    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+    for (NSDictionary *account in accounts) {
+        NSDictionary *account = accounts[0];
+        NSString *username = account[@"acct"];
+        [SSKeychain deletePasswordForService:kSSKeychainServiceName account:username];
+    }
+
 }
 
 @end

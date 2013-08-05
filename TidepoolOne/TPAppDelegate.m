@@ -9,6 +9,7 @@
 #import "TPAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "TPLocalNotificationManager.h"
+#import "TPOAuthClient.h"
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
@@ -17,6 +18,12 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Clear keychain on first run in case of reinstallation
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"]) {
+        // Delete values from keychain here
+        [[TPOAuthClient sharedClient] deleteAllPasswords];
+        [[NSUserDefaults standardUserDefaults] setValue:@"1strun" forKey:@"FirstRun"];
+    }
     // Handle launching from a notification
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotification) {
