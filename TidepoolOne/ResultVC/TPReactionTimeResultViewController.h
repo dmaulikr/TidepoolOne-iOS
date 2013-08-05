@@ -13,6 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *minimum;
 @property (weak, nonatomic) IBOutlet UITextField *maximum;
-- (IBAction)playAgainAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
 
 @end

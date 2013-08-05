@@ -12,7 +12,7 @@
 @interface TPResultViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *result;
-@property (nonatomic, weak) NSDictionary *gameVC;
-
+@property (nonatomic, weak) TPGameViewController *gameVC;
+@property (weak,nonatomic) UIButton *playAgainButton;
 
 @end

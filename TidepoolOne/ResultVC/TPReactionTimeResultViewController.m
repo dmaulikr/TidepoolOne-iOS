@@ -39,8 +39,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)playAgainAction:(id)sender {
-    TPGameViewController *gameVC = self.parentViewController;
-    [gameVC startNewGame];
-}
 @end

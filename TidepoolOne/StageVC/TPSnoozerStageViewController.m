@@ -45,6 +45,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     int boxHeight = self.view.bounds.size.height / self.numRows;
     int boxWidth = self.view.bounds.size.width / self.numColumns;
     for (int i=0; i<self.numColumns; i++) {

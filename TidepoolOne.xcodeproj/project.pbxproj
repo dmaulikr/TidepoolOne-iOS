@@ -25,6 +25,12 @@
 		A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */; };
 		A819478B17AF841E009959DA /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819478917AF841D009959DA /* TPProfileViewController.m */; };
 		A819478C17AF841E009959DA /* TPProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478A17AF841D009959DA /* TPProfileViewController.xib */; };
+		A819478E17B01A69009959DA /* TPReactionTimeResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478D17B01A69009959DA /* TPReactionTimeResultViewController.xib */; };
+		A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */; };
+		A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */; };
+		A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */; };
+		A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */; };
+		A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
@@ -130,6 +136,15 @@
 		A819478817AF841D009959DA /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
 		A819478917AF841D009959DA /* TPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewController.m; sourceTree = "<group>"; };
 		A819478A17AF841D009959DA /* TPProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileViewController.xib; sourceTree = "<group>"; };
+		A819478D17B01A69009959DA /* TPReactionTimeResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPReactionTimeResultViewController.xib; sourceTree = "<group>"; };
+		A819478F17B01FEF009959DA /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
+		A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
+		A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPResultsHistoryViewController.xib; sourceTree = "<group>"; };
+		A819479417B020F1009959DA /* TPSnoozerResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryViewController.h; sourceTree = "<group>"; };
+		A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryViewController.m; sourceTree = "<group>"; };
+		A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultsHistoryWidget.xib; sourceTree = "<group>"; };
+		A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryWidget.h; sourceTree = "<group>"; };
+		A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryWidget.m; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidepoolOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidepoolOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -195,7 +210,7 @@
 		A879A6B917A888C20082A455 /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
 		A879A6BA17A888C20082A455 /* TPStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPStageViewController.m; sourceTree = "<group>"; };
 		A879A6BB17A888C20082A455 /* TPWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWidgetViewController.h; sourceTree = "<group>"; };
-		A879A6BC17A888C20082A455 /* TPWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPWidgetViewController.m; path = TPLibrary/ViewControllers/TPWidgetViewController.m; sourceTree = "<group>"; };
+		A879A6BC17A888C20082A455 /* TPWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWidgetViewController.m; sourceTree = "<group>"; };
 		A87E6FFC17AB27B6001605DF /* TPSnoozerGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerGameViewController.h; path = GameVC/TPSnoozerGameViewController.h; sourceTree = "<group>"; };
 		A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSnoozerGameViewController.m; path = GameVC/TPSnoozerGameViewController.m; sourceTree = "<group>"; };
 		A87E6FFF17AB2916001605DF /* TPSnoozerStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerStageViewController.h; path = StageVC/TPSnoozerStageViewController.h; sourceTree = "<group>"; };
@@ -371,9 +386,15 @@
 			children = (
 				A879A64E17A870D70082A455 /* TPReactionTimeResultViewController.h */,
 				A879A64F17A870D70082A455 /* TPReactionTimeResultViewController.m */,
+				A819478D17B01A69009959DA /* TPReactionTimeResultViewController.xib */,
 				A819477517AE1323009959DA /* TPSnoozerResultViewController.h */,
 				A819477617AE1323009959DA /* TPSnoozerResultViewController.m */,
 				A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */,
+				A819479417B020F1009959DA /* TPSnoozerResultsHistoryViewController.h */,
+				A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */,
+				A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */,
+				A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */,
+				A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */,
 			);
 			name = ResultVC;
 			sourceTree = "<group>";
@@ -442,9 +463,13 @@
 				A879A6B617A888C20082A455 /* TPGameViewController.m */,
 				A879A6B717A888C20082A455 /* TPResultViewController.h */,
 				A879A6B817A888C20082A455 /* TPResultViewController.m */,
+				A819478F17B01FEF009959DA /* TPResultsHistoryViewController.h */,
+				A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */,
+				A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */,
 				A879A6B917A888C20082A455 /* TPStageViewController.h */,
 				A879A6BA17A888C20082A455 /* TPStageViewController.m */,
 				A879A6BB17A888C20082A455 /* TPWidgetViewController.h */,
+				A879A6BC17A888C20082A455 /* TPWidgetViewController.m */,
 				A819478817AF841D009959DA /* TPProfileViewController.h */,
 				A819478917AF841D009959DA /* TPProfileViewController.m */,
 				A819478A17AF841D009959DA /* TPProfileViewController.xib */,
@@ -508,7 +533,6 @@
 		A8BD1DDA179DC0CA00A7E26C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				A879A6BC17A888C20082A455 /* TPWidgetViewController.m */,
 				A879A64817A8704C0082A455 /* NSObject+SEWebviewJSListener.h */,
 				A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */,
 			);
@@ -680,6 +704,9 @@
 				A819477B17AE1382009959DA /* results-bg~iphone.png in Resources */,
 				A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */,
 				A819478C17AF841E009959DA /* TPProfileViewController.xib in Resources */,
+				A819478E17B01A69009959DA /* TPReactionTimeResultViewController.xib in Resources */,
+				A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */,
+				A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +793,9 @@
 				A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */,
 				A819477E17AF1177009959DA /* TPSnoozerHistoryView.m in Sources */,
 				A819478B17AF841E009959DA /* TPProfileViewController.m in Sources */,
+				A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */,
+				A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */,
+				A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -82,12 +82,10 @@
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];
+    stageVC.view.frame = self.view.frame;
     stageVC.data = _response[@"stages"][_stage];
     stageVC.gameVC = self;
-
-    [self addChildViewController:stageVC];
-    [self.view addSubview:stageVC.view];
-    [stageVC didMoveToParentViewController:self];
+    [self displayContentController:stageVC];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,9 +98,7 @@
 -(void)currentStageDone
 {
     UIViewController *currentVC = self.childViewControllers[0];
-    [currentVC willMoveToParentViewController:nil];
-    [currentVC.view removeFromSuperview];
-    [currentVC removeFromParentViewController];
+    [self hideContentController:currentVC];
     _stage++;
     if (_stage < [_response[@"stages"] count]) {
         [self setupGameForCurrentStage];
@@ -115,9 +111,9 @@
 {
     NSDictionary *classDictionary = @{
 //                                      @"SurveyResult":[TPSurveyResultViewController class],
-                                      @"ReactionTimeResult":[TPReactionTimeStageViewController class],
+//                                      @"ReactionTimeResult":[TPReactionTimeResultViewController class],
 //                                      @"EmotionsCirclesResult":[TPEmotionsCirclesStageViewController class],
-                                      @"SnoozerResult":[TPSnoozerStageViewController class],
+                                      @"SnoozerResult":[TPSnoozerResultViewController class],
                                       };
 
     for (NSDictionary *result in _results) {
@@ -128,12 +124,6 @@
         [self addChildViewController:resultVC];
         [self.view addSubview:resultVC.view];
         [resultVC didMoveToParentViewController:self];
-//        if ([resultType isEqualToString:@"SnoozerResult"]) {
-//            TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
-//            resultVC.result = result;
-//            [self addChildViewController:resultVC];
-//            [self.view addSubview:resultVC.view];
-//        }
     }
 }
 
@@ -173,6 +163,10 @@
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *data, NSError *error, id JSON) {
         NSLog(@"f:%@", [data description]);
+        //DEBUG
+        _results = @[@{@"type":@"SnoozerResult"}];
+        [self showResults];
+
     }];
     [oauthClient enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)op];
 }
@@ -199,6 +193,23 @@
 {
     NSNumber *epochTime = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]*1000];
     return epochTime.longLongValue;
+}
+
+#pragma mark Container View Controller methods
+
+- (void) displayContentController: (UIViewController*) content;
+{
+    [self addChildViewController:content];
+    content.view.frame = self.view.frame;
+    [self.view addSubview:content.view];
+    [content didMoveToParentViewController:self];
+}
+
+- (void) hideContentController: (UIViewController*) content
+{
+    [content willMoveToParentViewController:nil];
+    [content.view removeFromSuperview];
+    [content removeFromParentViewController];
 }
 
 @end
