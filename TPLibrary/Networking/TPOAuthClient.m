@@ -90,20 +90,20 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 -(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-//    if (accounts.count) {
-//        NSDictionary *account = accounts[0];
-//        NSString *username = account[@"acct"];
-//        NSString *password = [SSKeychain passwordForService:kSSKeychainServiceName account:username];
-//        NSLog(username);
-//        NSLog(password);
-//        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
-//        return;
-//    } else {
+    if (accounts.count) {
+        NSDictionary *account = accounts[0];
+        NSString *username = account[@"acct"];
+        NSString *password = [SSKeychain passwordForService:kSSKeychainServiceName account:username];
+        NSLog(username);
+        NSLog(password);
+        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
+        return;
+    } else {
         if (presentUI) {
             TPLoginViewController *loginVC = [[TPLoginViewController alloc] init];
             [vc presentViewController:loginVC animated:YES completion:^{}];
         }
-//    }
+    }
 }
 
 @end

@@ -51,6 +51,12 @@
     
     self.currentView = self.loginView;
     [self.view addSubview:self.loginView];
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];    
+    [self.view addGestureRecognizer:tap];
+
 }
 
 -(void) setCurrentView:(UIView *)currentView
@@ -201,5 +207,12 @@
     }];
 }
 
+-(void)dismissKeyboard {
+    [self.loginEmail resignFirstResponder];
+    [self.loginPassword resignFirstResponder];
+    [self.createAccountEmail resignFirstResponder];
+    [self.createAccountPassword resignFirstResponder];
+    [self.createAccountPassword2 resignFirstResponder];
+}
 
 @end
