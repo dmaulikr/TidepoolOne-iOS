@@ -10,4 +10,9 @@
 
 @interface TPLabel : UILabel
 
+@property (nonatomic, assign) BOOL centered;
+@property (nonatomic, assign) BOOL bold;
+@property (nonatomic, assign) BOOL italic;
+@property (nonatomic, assign) float fontSize;
+
 @end

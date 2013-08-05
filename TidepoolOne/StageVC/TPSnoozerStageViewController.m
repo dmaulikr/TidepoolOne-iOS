@@ -33,7 +33,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSLog([self.data description]);
-    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
+    //TODO: find better way
+    self.view.frame = CGRectOffset(self.view.frame, 0, -20.0);
+    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];    
     _clockViews = [NSMutableArray array];
     self.numRows = 2;
     self.numColumns = 2;

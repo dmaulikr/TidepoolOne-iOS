@@ -7,6 +7,7 @@
 //
 
 #import "TPSnoozerGameViewController.h"
+#import "TPLoginViewController.h"
 
 @interface TPSnoozerGameViewController ()
 
@@ -27,8 +28,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.type = @"snoozer";
-    [self startNewGame];
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    TPLoginViewController *loginVC = [[TPLoginViewController alloc] init];
+    [self presentViewController:loginVC animated:YES completion:^{}];
+    // DEBUG
+//    self.type = @"snoozer";
+//    [self startNewGame];
 }
 
 - (void)didReceiveMemoryWarning

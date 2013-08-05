@@ -14,6 +14,7 @@
 #import "TPSurveyStageViewController.h"
 #import "TPEmotionsCirclesStageViewController.h"
 #import "TPSnoozerStageViewController.h"
+#import "TPSnoozerResultViewController.h"
 
 @interface TPGameViewController ()
 {
@@ -42,6 +43,8 @@
 {
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
+    //DEBUG
+    [self showResults];
 }
 
 
@@ -82,8 +85,10 @@
     TPStageViewController *stageVC = [[stageClass alloc] init];
     stageVC.data = _response[@"stages"][_stage];
     stageVC.gameVC = self;
+    //TODO : fix adding and removing VC
     [self addChildViewController:stageVC];
     [self.view addSubview:stageVC.view];
+    [stageVC didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,6 +101,7 @@
 -(void)currentStageDone
 {
     UIViewController *currentVC = self.childViewControllers[0];
+    [currentVC willMoveToParentViewController:nil];
     [currentVC.view removeFromSuperview];
     [currentVC removeFromParentViewController];
     _stage++;
@@ -108,9 +114,13 @@
 
 -(void)showResults
 {
+    TPSnoozerResultViewController *resultVC = [[TPSnoozerResultViewController alloc] initWithNibName:@"TPSnoozerResultViewController" bundle:nil];
+    [self addChildViewController:resultVC];
+    [self.view addSubview:resultVC.view];
+    
 //    for (NSDictionary *result in _results) {
 //        NSString *resultType = result[@"type"];
-//        if ([resultType isEqualToString:@"ReactionTimeResult"]) {
+//        if ([resultType isEqualToString:@"SnoozerResult"]) {
 //            TPReactionTimeResultViewController *resultVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ReactionTimeResult"];
 //            resultVC.result = result;
 //            [self addChildViewController:resultVC];

@@ -12,6 +12,6 @@
 @interface TPStageViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *data;
-@property (nonatomic, strong) TPGameViewController *gameVC;
+@property (nonatomic, weak) TPGameViewController *gameVC;
 
 @end

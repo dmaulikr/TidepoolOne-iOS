@@ -12,6 +12,21 @@
 
 @implementation TPTextField
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Initialization code
+        self.font = [UIFont fontWithName:@"Karla-Regular" size:20.0];
+        self.textColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+        self.layer.borderWidth = 1;
+        self.layer.borderColor = [[UIColor whiteColor] CGColor];
+        
+    }
+    return self;
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];

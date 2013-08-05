@@ -9,9 +9,9 @@
 #import "TPOAuthClient.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 
-//NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
+NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"http://10.1.10.19:7004";
-NSString * const kBaseURLString = @"http://127.0.0.1:7004";
+//NSString * const kBaseURLString = @"http://127.0.0.1:7004";
 
 NSString * const kClientId = @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1";
 NSString * const kClientSecret = @"3e4da2177beee0d8ec458480526b3716047b3ff0df3362262183f6841253a706";
