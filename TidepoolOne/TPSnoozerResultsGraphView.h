@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPSnoozerResultsGraphView : UIScrollView
+@interface TPSnoozerResultsGraphView : UIView
 
 @property (nonatomic, strong) NSArray *results;
 

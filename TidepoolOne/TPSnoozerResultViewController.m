@@ -30,8 +30,12 @@
     self.title = @"Snoozer Results";
     if (self.navigationController) {
         self.navBar.hidden = YES;
+        self.bottomBar.hidden = YES;
         self.playAgainButton.hidden = YES;
         self.nextButton.hidden = YES;
+//        CGRect scrollRect = self.scrollView.frame;
+//        scrollRect.size.height += self.bottomBar.frame.size.height;
+        self.scrollView.bounds = self.view.bounds;
     }
     self.history = @[@220, @270, @230, @250];
 }

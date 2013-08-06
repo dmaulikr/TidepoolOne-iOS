@@ -22,5 +22,5 @@
 @property (nonatomic, weak) IBOutlet UIButton *nextButton;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UINavigationBar *navBar;
-
+@property (nonatomic, weak) IBOutlet UIView *bottomBar;
 @end

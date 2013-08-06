@@ -40,7 +40,7 @@
     self.numRows = 2;
     self.numColumns = 2;
     self.numChoices = 0;
-    self.numChoicesTotal = 10;
+    self.numChoicesTotal = 1;
 }
 
 - (void)viewDidAppear:(BOOL)animated

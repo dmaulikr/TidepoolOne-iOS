@@ -7,6 +7,15 @@
 //
 
 #import "TPSnoozerResultsGraphView.h"
+#import "TPGraphTooltipView.h"
+
+@interface TPSnoozerResultsGraphView()
+{
+    UIView *_tappedView;
+    int _tagOffset;
+    TPGraphTooltipView *_tooltipView;
+}
+@end
 
 @implementation TPSnoozerResultsGraphView
 
@@ -30,12 +39,12 @@
     return self;
 }
 
-
+//TODO : allocation happinging in drawing - fix
 
 - (void)drawRect:(CGRect)rect
 {
-    self.contentSize = CGSizeMake(1000, rect.size.height);
-    self.results = @[@234,@354,@654,@345,];
+    _tagOffset = 666;
+    self.results = @[@234,@235];
     self.backgroundColor = [UIColor redColor];
     UIImage *image = [UIImage imageNamed:@"snoozer-clock.png"];
     int imageSideSize = 30;
@@ -53,14 +62,17 @@
     CGFloat *dashPatternArray = malloc(numDashes*sizeof(CGFloat));
     dashPatternArray[0] = 10;    //drawn line
     dashPatternArray[1] = 7;    //empty space
-    
+
     // Drawing code
     for (int i=0;i<self.results.count;i++) {
         
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
-        if (i+1 == self.results.count) {
-            imageSideSize *= 2;
-        }
+        imageView.contentMode = UIViewContentModeScaleToFill;
+        imageView.userInteractionEnabled = YES;
+        imageView.tag = i + _tagOffset;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewWasTapped:)];
+        
+        [imageView addGestureRecognizer:tap];
         imageView.frame = CGRectMake(0, 0, imageSideSize, imageSideSize);
         float x = (i+0.35)*distanceBetweenClocks;
         float y = yStartScreen + ([_results[i] floatValue] - minValue) / yRangeResults * yRangeScreen;
@@ -89,10 +101,38 @@
         //add clocks
         imageView.center = CGPointMake(x, y);
         [self addSubview:imageView];
-    }
+    } 
     free(dashPatternArray);
     CGPathRelease(path);
+    
+    _tooltipView = [[TPGraphTooltipView alloc] initWithFrame:CGRectMake(0, 0, 93, 45)];
 }
 
+-(void)imageViewWasTapped:(UITapGestureRecognizer *)sender
+{
+    UIView *newlyTappedView = sender.view;
+    [self resizeView:_tappedView byFactor:0.5];
+    if (newlyTappedView != _tappedView) {
+        [self resizeView:newlyTappedView byFactor:2];
+        _tappedView = newlyTappedView;
+        _tooltipView.pointingAtView = _tappedView;
+        _tooltipView.date = [NSDate date];
+        _tooltipView.score = @"277";
+        [self addSubview:_tooltipView];
+    } else {
+        [_tooltipView removeFromSuperview];
+        _tappedView = nil;
+    }
+}
+
+-(void)resizeView:(UIView *)view byFactor:(float)factor
+{
+    CGPoint center = view.center;
+    CGRect frame = view.frame;
+    frame.size.height *= factor;
+    frame.size.width *= factor;
+    view.frame = frame;
+    view.center = center;
+}
 
 @end

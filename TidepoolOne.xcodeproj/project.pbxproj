@@ -83,6 +83,7 @@
 		A819480E17B07A13009959DA /* snoozer-clockringb2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947DA17B07A12009959DA /* snoozer-clockringb2~iphone.png */; };
 		A819480F17B07A13009959DA /* snoozer-logo@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947DB17B07A13009959DA /* snoozer-logo@2x~iphone.png */; };
 		A819481017B07A13009959DA /* snoozer-logo~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947DC17B07A13009959DA /* snoozer-logo~iphone.png */; };
+		A819481617B087CB009959DA /* TPGraphTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A819481517B087CB009959DA /* TPGraphTooltipView.m */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
@@ -151,6 +152,7 @@
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
 		A8BD1DE0179DD43C00A7E26C /* reaction_time_disc_a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */; };
 		A8BD1DE1179DD43C00A7E26C /* reaction_time_disc_b.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8BD1DDF179DD43C00A7E26C /* reaction_time_disc_b.jpg */; };
+		A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +251,8 @@
 		A81947DA17B07A12009959DA /* snoozer-clockringb2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockringb2~iphone.png"; path = "snoozer/snoozer-clockringb2~iphone.png"; sourceTree = "<group>"; };
 		A81947DB17B07A13009959DA /* snoozer-logo@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-logo@2x~iphone.png"; path = "snoozer/snoozer-logo@2x~iphone.png"; sourceTree = "<group>"; };
 		A81947DC17B07A13009959DA /* snoozer-logo~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-logo~iphone.png"; path = "snoozer/snoozer-logo~iphone.png"; sourceTree = "<group>"; };
+		A819481417B087CB009959DA /* TPGraphTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGraphTooltipView.h; sourceTree = "<group>"; };
+		A819481517B087CB009959DA /* TPGraphTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGraphTooltipView.m; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidepoolOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidepoolOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -349,6 +353,8 @@
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A8BD1DDE179DD43C00A7E26C /* reaction_time_disc_a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reaction_time_disc_a.jpg; sourceTree = "<group>"; };
 		A8BD1DDF179DD43C00A7E26C /* reaction_time_disc_b.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = reaction_time_disc_b.jpg; sourceTree = "<group>"; };
+		A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
+		A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,6 +653,8 @@
 				A819478817AF841D009959DA /* TPProfileViewController.h */,
 				A819478917AF841D009959DA /* TPProfileViewController.m */,
 				A819478A17AF841D009959DA /* TPProfileViewController.xib */,
+				A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */,
+				A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -742,6 +750,8 @@
 			children = (
 				A819479F17B05990009959DA /* TPSnoozerResultsGraphView.h */,
 				A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */,
+				A819481417B087CB009959DA /* TPGraphTooltipView.h */,
+				A819481517B087CB009959DA /* TPGraphTooltipView.m */,
 				A879A65A17A871220082A455 /* TPCirclesDistanceView.h */,
 				A879A65B17A871220082A455 /* TPCirclesDistanceView.m */,
 				A879A65C17A871220082A455 /* TPCustomScrollView.h */,
@@ -1022,6 +1032,8 @@
 				A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */,
 				A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */,
 				A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */,
+				A819481617B087CB009959DA /* TPGraphTooltipView.m in Sources */,
+				A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

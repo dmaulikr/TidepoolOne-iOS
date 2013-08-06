@@ -116,4 +116,9 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 
 }
 
+-(void)logout
+{
+    [self deleteAllPasswords];
+}
+
 @end

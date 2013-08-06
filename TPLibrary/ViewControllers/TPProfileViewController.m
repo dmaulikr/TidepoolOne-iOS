@@ -7,6 +7,7 @@
 //
 
 #import "TPProfileViewController.h"
+#import "TPSettingsViewController.h"
 
 @interface TPProfileViewController ()
 
@@ -27,12 +28,26 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"My Profile";
+    self.rightButton.target = self;
+    self.rightButton.action = @selector(showSettings);
+     
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)showSettings
+{
+    TPSettingsViewController *settingsVC = [[TPSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self.navigationController pushViewController:settingsVC animated:YES];
+}
+
+-(void)showProfileScreen
+{
 }
 
 @end
