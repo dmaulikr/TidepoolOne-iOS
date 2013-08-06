@@ -21,7 +21,6 @@
 		A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477617AE1323009959DA /* TPSnoozerResultViewController.m */; };
 		A819477A17AE1382009959DA /* results-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A819477817AE1382009959DA /* results-bg@2x~iphone.png */; };
 		A819477B17AE1382009959DA /* results-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A819477917AE1382009959DA /* results-bg~iphone.png */; };
-		A819477E17AF1177009959DA /* TPSnoozerHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477D17AF1177009959DA /* TPSnoozerHistoryView.m */; };
 		A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */; };
 		A819478B17AF841E009959DA /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819478917AF841D009959DA /* TPProfileViewController.m */; };
 		A819478C17AF841E009959DA /* TPProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478A17AF841D009959DA /* TPProfileViewController.xib */; };
@@ -31,6 +30,59 @@
 		A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */; };
 		A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */; };
 		A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */; };
+		A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */; };
+		A81947DD17B07A13009959DA /* btn-back-pressed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947A717B07A12009959DA /* btn-back-pressed@2x~iphone.png */; };
+		A81947DE17B07A13009959DA /* btn-back-pressed~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947A817B07A12009959DA /* btn-back-pressed~iphone.png */; };
+		A81947DF17B07A13009959DA /* btn-back@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947A917B07A12009959DA /* btn-back@2x~iphone.png */; };
+		A81947E017B07A13009959DA /* btn-back~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947AA17B07A12009959DA /* btn-back~iphone.png */; };
+		A81947E117B07A13009959DA /* tp-profile.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947AC17B07A12009959DA /* tp-profile.png */; };
+		A81947E217B07A13009959DA /* tp-profile2.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947AD17B07A12009959DA /* tp-profile2.png */; };
+		A81947E317B07A13009959DA /* btn-blue@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947AF17B07A12009959DA /* btn-blue@2x~iphone.png */; };
+		A81947E417B07A13009959DA /* btn-blue~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B017B07A12009959DA /* btn-blue~iphone.png */; };
+		A81947E517B07A13009959DA /* btn-diagonalbg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B117B07A12009959DA /* btn-diagonalbg@2x~iphone.png */; };
+		A81947E617B07A13009959DA /* btn-diagonalbg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B217B07A12009959DA /* btn-diagonalbg~iphone.png */; };
+		A81947E717B07A13009959DA /* btn-graph@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B317B07A12009959DA /* btn-graph@2x~iphone.png */; };
+		A81947E817B07A13009959DA /* btn-graph~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B417B07A12009959DA /* btn-graph~iphone.png */; };
+		A81947E917B07A13009959DA /* btn-redarrow@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B517B07A12009959DA /* btn-redarrow@2x~iphone.png */; };
+		A81947EA17B07A13009959DA /* btn-redarrow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B617B07A12009959DA /* btn-redarrow~iphone.png */; };
+		A81947EB17B07A13009959DA /* historychart-bubble@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B717B07A12009959DA /* historychart-bubble@2x~iphone.png */; };
+		A81947EC17B07A13009959DA /* historychart-bubble~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B817B07A12009959DA /* historychart-bubble~iphone.png */; };
+		A81947ED17B07A13009959DA /* historychart-clock-tap@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947B917B07A12009959DA /* historychart-clock-tap@2x~iphone.png */; };
+		A81947EE17B07A13009959DA /* historychart-clock-tap~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947BA17B07A12009959DA /* historychart-clock-tap~iphone.png */; };
+		A81947EF17B07A13009959DA /* historychart-clock@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947BB17B07A12009959DA /* historychart-clock@2x~iphone.png */; };
+		A81947F017B07A13009959DA /* historychart-clock~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947BC17B07A12009959DA /* historychart-clock~iphone.png */; };
+		A81947F117B07A13009959DA /* historychart-dottedline@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947BD17B07A12009959DA /* historychart-dottedline@2x~iphone.png */; };
+		A81947F217B07A13009959DA /* historychart-dottedline~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947BE17B07A12009959DA /* historychart-dottedline~iphone.png */; };
+		A81947F317B07A13009959DA /* historychart-timeline@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947BF17B07A12009959DA /* historychart-timeline@2x~iphone.png */; };
+		A81947F417B07A13009959DA /* historychart-timeline~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C017B07A12009959DA /* historychart-timeline~iphone.png */; };
+		A81947F517B07A13009959DA /* icon-alert@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C117B07A12009959DA /* icon-alert@2x~iphone.png */; };
+		A81947F617B07A13009959DA /* icon-alert~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C217B07A12009959DA /* icon-alert~iphone.png */; };
+		A81947F717B07A13009959DA /* icon-hit@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C317B07A12009959DA /* icon-hit@2x~iphone.png */; };
+		A81947F817B07A13009959DA /* icon-hit~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C417B07A12009959DA /* icon-hit~iphone.png */; };
+		A81947F917B07A13009959DA /* icon-missed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C517B07A12009959DA /* icon-missed@2x~iphone.png */; };
+		A81947FA17B07A13009959DA /* icon-missed~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C617B07A12009959DA /* icon-missed~iphone.png */; };
+		A81947FB17B07A13009959DA /* results-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C717B07A12009959DA /* results-bg@2x~iphone.png */; };
+		A81947FC17B07A13009959DA /* results-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C817B07A12009959DA /* results-bg~iphone.png */; };
+		A81947FD17B07A13009959DA /* tp-snoozer-results-detail_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947C917B07A12009959DA /* tp-snoozer-results-detail_blueprint.png */; };
+		A81947FE17B07A13009959DA /* tp-snoozer-results_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947CA17B07A12009959DA /* tp-snoozer-results_blueprint.png */; };
+		A81947FF17B07A13009959DA /* tp-snoozer-results_blueprint_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947CB17B07A12009959DA /* tp-snoozer-results_blueprint_v2.png */; };
+		A819480017B07A13009959DA /* snoozer-clock-correct@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947CC17B07A12009959DA /* snoozer-clock-correct@2x~iphone.png */; };
+		A819480117B07A13009959DA /* snoozer-clock-correct~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947CD17B07A12009959DA /* snoozer-clock-correct~iphone.png */; };
+		A819480217B07A13009959DA /* snoozer-clock-missed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947CE17B07A12009959DA /* snoozer-clock-missed@2x~iphone.png */; };
+		A819480317B07A13009959DA /* snoozer-clock-missed~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947CF17B07A12009959DA /* snoozer-clock-missed~iphone.png */; };
+		A819480417B07A13009959DA /* snoozer-clock@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D017B07A12009959DA /* snoozer-clock@2x~iphone.png */; };
+		A819480517B07A13009959DA /* snoozer-clockb@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D117B07A12009959DA /* snoozer-clockb@2x~iphone.png */; };
+		A819480617B07A13009959DA /* snoozer-clockb~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D217B07A12009959DA /* snoozer-clockb~iphone.png */; };
+		A819480717B07A13009959DA /* snoozer-clockring1@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D317B07A12009959DA /* snoozer-clockring1@2x~iphone.png */; };
+		A819480817B07A13009959DA /* snoozer-clockring1~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D417B07A12009959DA /* snoozer-clockring1~iphone.png */; };
+		A819480917B07A13009959DA /* snoozer-clockring2@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D517B07A12009959DA /* snoozer-clockring2@2x~iphone.png */; };
+		A819480A17B07A13009959DA /* snoozer-clockring2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D617B07A12009959DA /* snoozer-clockring2~iphone.png */; };
+		A819480B17B07A13009959DA /* snoozer-clockringb1@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D717B07A12009959DA /* snoozer-clockringb1@2x~iphone.png */; };
+		A819480C17B07A13009959DA /* snoozer-clockringb1~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D817B07A12009959DA /* snoozer-clockringb1~iphone.png */; };
+		A819480D17B07A13009959DA /* snoozer-clockringb2@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947D917B07A12009959DA /* snoozer-clockringb2@2x~iphone.png */; };
+		A819480E17B07A13009959DA /* snoozer-clockringb2~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947DA17B07A12009959DA /* snoozer-clockringb2~iphone.png */; };
+		A819480F17B07A13009959DA /* snoozer-logo@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947DB17B07A13009959DA /* snoozer-logo@2x~iphone.png */; };
+		A819481017B07A13009959DA /* snoozer-logo~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81947DC17B07A13009959DA /* snoozer-logo~iphone.png */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
@@ -130,8 +182,6 @@
 		A819477617AE1323009959DA /* TPSnoozerResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultViewController.m; sourceTree = "<group>"; };
 		A819477817AE1382009959DA /* results-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-bg@2x~iphone.png"; sourceTree = "<group>"; };
 		A819477917AE1382009959DA /* results-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-bg~iphone.png"; sourceTree = "<group>"; };
-		A819477C17AF1177009959DA /* TPSnoozerHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerHistoryView.h; sourceTree = "<group>"; };
-		A819477D17AF1177009959DA /* TPSnoozerHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerHistoryView.m; sourceTree = "<group>"; };
 		A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultViewController.xib; sourceTree = "<group>"; };
 		A819478817AF841D009959DA /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
 		A819478917AF841D009959DA /* TPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewController.m; sourceTree = "<group>"; };
@@ -145,6 +195,60 @@
 		A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultsHistoryWidget.xib; sourceTree = "<group>"; };
 		A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryWidget.h; sourceTree = "<group>"; };
 		A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryWidget.m; sourceTree = "<group>"; };
+		A819479F17B05990009959DA /* TPSnoozerResultsGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsGraphView.h; sourceTree = "<group>"; };
+		A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsGraphView.m; sourceTree = "<group>"; };
+		A81947A717B07A12009959DA /* btn-back-pressed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back-pressed@2x~iphone.png"; path = "snoozer/btn-back-pressed@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947A817B07A12009959DA /* btn-back-pressed~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back-pressed~iphone.png"; path = "snoozer/btn-back-pressed~iphone.png"; sourceTree = "<group>"; };
+		A81947A917B07A12009959DA /* btn-back@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back@2x~iphone.png"; path = "snoozer/btn-back@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947AA17B07A12009959DA /* btn-back~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn-back~iphone.png"; path = "snoozer/btn-back~iphone.png"; sourceTree = "<group>"; };
+		A81947AC17B07A12009959DA /* tp-profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-profile.png"; sourceTree = "<group>"; };
+		A81947AD17B07A12009959DA /* tp-profile2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-profile2.png"; sourceTree = "<group>"; };
+		A81947AF17B07A12009959DA /* btn-blue@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-blue@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947B017B07A12009959DA /* btn-blue~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-blue~iphone.png"; sourceTree = "<group>"; };
+		A81947B117B07A12009959DA /* btn-diagonalbg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-diagonalbg@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947B217B07A12009959DA /* btn-diagonalbg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-diagonalbg~iphone.png"; sourceTree = "<group>"; };
+		A81947B317B07A12009959DA /* btn-graph@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-graph@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947B417B07A12009959DA /* btn-graph~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-graph~iphone.png"; sourceTree = "<group>"; };
+		A81947B517B07A12009959DA /* btn-redarrow@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-redarrow@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947B617B07A12009959DA /* btn-redarrow~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-redarrow~iphone.png"; sourceTree = "<group>"; };
+		A81947B717B07A12009959DA /* historychart-bubble@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-bubble@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947B817B07A12009959DA /* historychart-bubble~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-bubble~iphone.png"; sourceTree = "<group>"; };
+		A81947B917B07A12009959DA /* historychart-clock-tap@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-clock-tap@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947BA17B07A12009959DA /* historychart-clock-tap~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-clock-tap~iphone.png"; sourceTree = "<group>"; };
+		A81947BB17B07A12009959DA /* historychart-clock@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-clock@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947BC17B07A12009959DA /* historychart-clock~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-clock~iphone.png"; sourceTree = "<group>"; };
+		A81947BD17B07A12009959DA /* historychart-dottedline@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-dottedline@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947BE17B07A12009959DA /* historychart-dottedline~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-dottedline~iphone.png"; sourceTree = "<group>"; };
+		A81947BF17B07A12009959DA /* historychart-timeline@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-timeline@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947C017B07A12009959DA /* historychart-timeline~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "historychart-timeline~iphone.png"; sourceTree = "<group>"; };
+		A81947C117B07A12009959DA /* icon-alert@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-alert@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947C217B07A12009959DA /* icon-alert~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-alert~iphone.png"; sourceTree = "<group>"; };
+		A81947C317B07A12009959DA /* icon-hit@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-hit@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947C417B07A12009959DA /* icon-hit~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-hit~iphone.png"; sourceTree = "<group>"; };
+		A81947C517B07A12009959DA /* icon-missed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-missed@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947C617B07A12009959DA /* icon-missed~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-missed~iphone.png"; sourceTree = "<group>"; };
+		A81947C717B07A12009959DA /* results-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-bg@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947C817B07A12009959DA /* results-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-bg~iphone.png"; sourceTree = "<group>"; };
+		A81947C917B07A12009959DA /* tp-snoozer-results-detail_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-results-detail_blueprint.png"; sourceTree = "<group>"; };
+		A81947CA17B07A12009959DA /* tp-snoozer-results_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-results_blueprint.png"; sourceTree = "<group>"; };
+		A81947CB17B07A12009959DA /* tp-snoozer-results_blueprint_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-results_blueprint_v2.png"; sourceTree = "<group>"; };
+		A81947CC17B07A12009959DA /* snoozer-clock-correct@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clock-correct@2x~iphone.png"; path = "snoozer/snoozer-clock-correct@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947CD17B07A12009959DA /* snoozer-clock-correct~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clock-correct~iphone.png"; path = "snoozer/snoozer-clock-correct~iphone.png"; sourceTree = "<group>"; };
+		A81947CE17B07A12009959DA /* snoozer-clock-missed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clock-missed@2x~iphone.png"; path = "snoozer/snoozer-clock-missed@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947CF17B07A12009959DA /* snoozer-clock-missed~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clock-missed~iphone.png"; path = "snoozer/snoozer-clock-missed~iphone.png"; sourceTree = "<group>"; };
+		A81947D017B07A12009959DA /* snoozer-clock@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clock@2x~iphone.png"; path = "snoozer/snoozer-clock@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947D117B07A12009959DA /* snoozer-clockb@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockb@2x~iphone.png"; path = "snoozer/snoozer-clockb@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947D217B07A12009959DA /* snoozer-clockb~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockb~iphone.png"; path = "snoozer/snoozer-clockb~iphone.png"; sourceTree = "<group>"; };
+		A81947D317B07A12009959DA /* snoozer-clockring1@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockring1@2x~iphone.png"; path = "snoozer/snoozer-clockring1@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947D417B07A12009959DA /* snoozer-clockring1~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockring1~iphone.png"; path = "snoozer/snoozer-clockring1~iphone.png"; sourceTree = "<group>"; };
+		A81947D517B07A12009959DA /* snoozer-clockring2@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockring2@2x~iphone.png"; path = "snoozer/snoozer-clockring2@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947D617B07A12009959DA /* snoozer-clockring2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockring2~iphone.png"; path = "snoozer/snoozer-clockring2~iphone.png"; sourceTree = "<group>"; };
+		A81947D717B07A12009959DA /* snoozer-clockringb1@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockringb1@2x~iphone.png"; path = "snoozer/snoozer-clockringb1@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947D817B07A12009959DA /* snoozer-clockringb1~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockringb1~iphone.png"; path = "snoozer/snoozer-clockringb1~iphone.png"; sourceTree = "<group>"; };
+		A81947D917B07A12009959DA /* snoozer-clockringb2@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockringb2@2x~iphone.png"; path = "snoozer/snoozer-clockringb2@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947DA17B07A12009959DA /* snoozer-clockringb2~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-clockringb2~iphone.png"; path = "snoozer/snoozer-clockringb2~iphone.png"; sourceTree = "<group>"; };
+		A81947DB17B07A13009959DA /* snoozer-logo@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-logo@2x~iphone.png"; path = "snoozer/snoozer-logo@2x~iphone.png"; sourceTree = "<group>"; };
+		A81947DC17B07A13009959DA /* snoozer-logo~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "snoozer-logo~iphone.png"; path = "snoozer/snoozer-logo~iphone.png"; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidepoolOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidepoolOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -277,6 +381,29 @@
 		A819476817AE089E009959DA /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				A81947A717B07A12009959DA /* btn-back-pressed@2x~iphone.png */,
+				A81947A817B07A12009959DA /* btn-back-pressed~iphone.png */,
+				A81947A917B07A12009959DA /* btn-back@2x~iphone.png */,
+				A81947AA17B07A12009959DA /* btn-back~iphone.png */,
+				A81947AB17B07A12009959DA /* Profile */,
+				A81947AE17B07A12009959DA /* results */,
+				A81947CC17B07A12009959DA /* snoozer-clock-correct@2x~iphone.png */,
+				A81947CD17B07A12009959DA /* snoozer-clock-correct~iphone.png */,
+				A81947CE17B07A12009959DA /* snoozer-clock-missed@2x~iphone.png */,
+				A81947CF17B07A12009959DA /* snoozer-clock-missed~iphone.png */,
+				A81947D017B07A12009959DA /* snoozer-clock@2x~iphone.png */,
+				A81947D117B07A12009959DA /* snoozer-clockb@2x~iphone.png */,
+				A81947D217B07A12009959DA /* snoozer-clockb~iphone.png */,
+				A81947D317B07A12009959DA /* snoozer-clockring1@2x~iphone.png */,
+				A81947D417B07A12009959DA /* snoozer-clockring1~iphone.png */,
+				A81947D517B07A12009959DA /* snoozer-clockring2@2x~iphone.png */,
+				A81947D617B07A12009959DA /* snoozer-clockring2~iphone.png */,
+				A81947D717B07A12009959DA /* snoozer-clockringb1@2x~iphone.png */,
+				A81947D817B07A12009959DA /* snoozer-clockringb1~iphone.png */,
+				A81947D917B07A12009959DA /* snoozer-clockringb2@2x~iphone.png */,
+				A81947DA17B07A12009959DA /* snoozer-clockringb2~iphone.png */,
+				A81947DB17B07A13009959DA /* snoozer-logo@2x~iphone.png */,
+				A81947DC17B07A13009959DA /* snoozer-logo~iphone.png */,
 				A819477817AE1382009959DA /* results-bg@2x~iphone.png */,
 				A819477917AE1382009959DA /* results-bg~iphone.png */,
 				A819476917AE08AD009959DA /* Default-568h@2x~iphone.png */,
@@ -292,6 +419,53 @@
 				A819477317AE0C07009959DA /* TPTextField.m */,
 			);
 			name = Design;
+			sourceTree = "<group>";
+		};
+		A81947AB17B07A12009959DA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A81947AC17B07A12009959DA /* tp-profile.png */,
+				A81947AD17B07A12009959DA /* tp-profile2.png */,
+			);
+			name = Profile;
+			path = snoozer/Profile;
+			sourceTree = "<group>";
+		};
+		A81947AE17B07A12009959DA /* results */ = {
+			isa = PBXGroup;
+			children = (
+				A81947AF17B07A12009959DA /* btn-blue@2x~iphone.png */,
+				A81947B017B07A12009959DA /* btn-blue~iphone.png */,
+				A81947B117B07A12009959DA /* btn-diagonalbg@2x~iphone.png */,
+				A81947B217B07A12009959DA /* btn-diagonalbg~iphone.png */,
+				A81947B317B07A12009959DA /* btn-graph@2x~iphone.png */,
+				A81947B417B07A12009959DA /* btn-graph~iphone.png */,
+				A81947B517B07A12009959DA /* btn-redarrow@2x~iphone.png */,
+				A81947B617B07A12009959DA /* btn-redarrow~iphone.png */,
+				A81947B717B07A12009959DA /* historychart-bubble@2x~iphone.png */,
+				A81947B817B07A12009959DA /* historychart-bubble~iphone.png */,
+				A81947B917B07A12009959DA /* historychart-clock-tap@2x~iphone.png */,
+				A81947BA17B07A12009959DA /* historychart-clock-tap~iphone.png */,
+				A81947BB17B07A12009959DA /* historychart-clock@2x~iphone.png */,
+				A81947BC17B07A12009959DA /* historychart-clock~iphone.png */,
+				A81947BD17B07A12009959DA /* historychart-dottedline@2x~iphone.png */,
+				A81947BE17B07A12009959DA /* historychart-dottedline~iphone.png */,
+				A81947BF17B07A12009959DA /* historychart-timeline@2x~iphone.png */,
+				A81947C017B07A12009959DA /* historychart-timeline~iphone.png */,
+				A81947C117B07A12009959DA /* icon-alert@2x~iphone.png */,
+				A81947C217B07A12009959DA /* icon-alert~iphone.png */,
+				A81947C317B07A12009959DA /* icon-hit@2x~iphone.png */,
+				A81947C417B07A12009959DA /* icon-hit~iphone.png */,
+				A81947C517B07A12009959DA /* icon-missed@2x~iphone.png */,
+				A81947C617B07A12009959DA /* icon-missed~iphone.png */,
+				A81947C717B07A12009959DA /* results-bg@2x~iphone.png */,
+				A81947C817B07A12009959DA /* results-bg~iphone.png */,
+				A81947C917B07A12009959DA /* tp-snoozer-results-detail_blueprint.png */,
+				A81947CA17B07A12009959DA /* tp-snoozer-results_blueprint.png */,
+				A81947CB17B07A12009959DA /* tp-snoozer-results_blueprint_v2.png */,
+			);
+			name = results;
+			path = snoozer/results;
 			sourceTree = "<group>";
 		};
 		A82F6A1917947064003FC088 = {
@@ -566,8 +740,8 @@
 		A8BD1E0C17A0452C00A7E26C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A819477C17AF1177009959DA /* TPSnoozerHistoryView.h */,
-				A819477D17AF1177009959DA /* TPSnoozerHistoryView.m */,
+				A819479F17B05990009959DA /* TPSnoozerResultsGraphView.h */,
+				A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */,
 				A879A65A17A871220082A455 /* TPCirclesDistanceView.h */,
 				A879A65B17A871220082A455 /* TPCirclesDistanceView.m */,
 				A879A65C17A871220082A455 /* TPCustomScrollView.h */,
@@ -707,6 +881,58 @@
 				A819478E17B01A69009959DA /* TPReactionTimeResultViewController.xib in Resources */,
 				A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */,
 				A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */,
+				A81947DD17B07A13009959DA /* btn-back-pressed@2x~iphone.png in Resources */,
+				A81947DE17B07A13009959DA /* btn-back-pressed~iphone.png in Resources */,
+				A81947DF17B07A13009959DA /* btn-back@2x~iphone.png in Resources */,
+				A81947E017B07A13009959DA /* btn-back~iphone.png in Resources */,
+				A81947E117B07A13009959DA /* tp-profile.png in Resources */,
+				A81947E217B07A13009959DA /* tp-profile2.png in Resources */,
+				A81947E317B07A13009959DA /* btn-blue@2x~iphone.png in Resources */,
+				A81947E417B07A13009959DA /* btn-blue~iphone.png in Resources */,
+				A81947E517B07A13009959DA /* btn-diagonalbg@2x~iphone.png in Resources */,
+				A81947E617B07A13009959DA /* btn-diagonalbg~iphone.png in Resources */,
+				A81947E717B07A13009959DA /* btn-graph@2x~iphone.png in Resources */,
+				A81947E817B07A13009959DA /* btn-graph~iphone.png in Resources */,
+				A81947E917B07A13009959DA /* btn-redarrow@2x~iphone.png in Resources */,
+				A81947EA17B07A13009959DA /* btn-redarrow~iphone.png in Resources */,
+				A81947EB17B07A13009959DA /* historychart-bubble@2x~iphone.png in Resources */,
+				A81947EC17B07A13009959DA /* historychart-bubble~iphone.png in Resources */,
+				A81947ED17B07A13009959DA /* historychart-clock-tap@2x~iphone.png in Resources */,
+				A81947EE17B07A13009959DA /* historychart-clock-tap~iphone.png in Resources */,
+				A81947EF17B07A13009959DA /* historychart-clock@2x~iphone.png in Resources */,
+				A81947F017B07A13009959DA /* historychart-clock~iphone.png in Resources */,
+				A81947F117B07A13009959DA /* historychart-dottedline@2x~iphone.png in Resources */,
+				A81947F217B07A13009959DA /* historychart-dottedline~iphone.png in Resources */,
+				A81947F317B07A13009959DA /* historychart-timeline@2x~iphone.png in Resources */,
+				A81947F417B07A13009959DA /* historychart-timeline~iphone.png in Resources */,
+				A81947F517B07A13009959DA /* icon-alert@2x~iphone.png in Resources */,
+				A81947F617B07A13009959DA /* icon-alert~iphone.png in Resources */,
+				A81947F717B07A13009959DA /* icon-hit@2x~iphone.png in Resources */,
+				A81947F817B07A13009959DA /* icon-hit~iphone.png in Resources */,
+				A81947F917B07A13009959DA /* icon-missed@2x~iphone.png in Resources */,
+				A81947FA17B07A13009959DA /* icon-missed~iphone.png in Resources */,
+				A81947FB17B07A13009959DA /* results-bg@2x~iphone.png in Resources */,
+				A81947FC17B07A13009959DA /* results-bg~iphone.png in Resources */,
+				A81947FD17B07A13009959DA /* tp-snoozer-results-detail_blueprint.png in Resources */,
+				A81947FE17B07A13009959DA /* tp-snoozer-results_blueprint.png in Resources */,
+				A81947FF17B07A13009959DA /* tp-snoozer-results_blueprint_v2.png in Resources */,
+				A819480017B07A13009959DA /* snoozer-clock-correct@2x~iphone.png in Resources */,
+				A819480117B07A13009959DA /* snoozer-clock-correct~iphone.png in Resources */,
+				A819480217B07A13009959DA /* snoozer-clock-missed@2x~iphone.png in Resources */,
+				A819480317B07A13009959DA /* snoozer-clock-missed~iphone.png in Resources */,
+				A819480417B07A13009959DA /* snoozer-clock@2x~iphone.png in Resources */,
+				A819480517B07A13009959DA /* snoozer-clockb@2x~iphone.png in Resources */,
+				A819480617B07A13009959DA /* snoozer-clockb~iphone.png in Resources */,
+				A819480717B07A13009959DA /* snoozer-clockring1@2x~iphone.png in Resources */,
+				A819480817B07A13009959DA /* snoozer-clockring1~iphone.png in Resources */,
+				A819480917B07A13009959DA /* snoozer-clockring2@2x~iphone.png in Resources */,
+				A819480A17B07A13009959DA /* snoozer-clockring2~iphone.png in Resources */,
+				A819480B17B07A13009959DA /* snoozer-clockringb1@2x~iphone.png in Resources */,
+				A819480C17B07A13009959DA /* snoozer-clockringb1~iphone.png in Resources */,
+				A819480D17B07A13009959DA /* snoozer-clockringb2@2x~iphone.png in Resources */,
+				A819480E17B07A13009959DA /* snoozer-clockringb2~iphone.png in Resources */,
+				A819480F17B07A13009959DA /* snoozer-logo@2x~iphone.png in Resources */,
+				A819481017B07A13009959DA /* snoozer-logo~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,11 +1017,11 @@
 				A819477117AE09BB009959DA /* TPLabel.m in Sources */,
 				A819477417AE0C07009959DA /* TPTextField.m in Sources */,
 				A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */,
-				A819477E17AF1177009959DA /* TPSnoozerHistoryView.m in Sources */,
 				A819478B17AF841E009959DA /* TPProfileViewController.m in Sources */,
 				A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */,
 				A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */,
 				A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */,
+				A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,9 @@
 
 #import "TPResultsHistoryViewController.h"
 
-@interface TPSnoozerResultsHistoryViewController : TPResultsHistoryViewController
+@interface TPSnoozerResultsHistoryViewController : UITableViewController
 
-
+@property (strong, nonatomic) NSArray *results;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightButton;
 
 @end

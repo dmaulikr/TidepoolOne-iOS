@@ -78,7 +78,7 @@
                                       @"Survey":[TPSurveyStageViewController class],
                                       @"ReactionTime":[TPReactionTimeStageViewController class],
                                       @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
-                                      @"snoozer":[TPSnoozerStageViewController class],
+                                      @"Snoozer":[TPSnoozerStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];

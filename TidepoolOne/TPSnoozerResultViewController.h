@@ -12,14 +12,15 @@
 
 @interface TPSnoozerResultViewController : TPResultViewController
 
-@property (nonatomic, strong) NSNumber *currentFastestTime;
-@property (nonatomic, strong) NSNumber *numberCorrect;
-@property (nonatomic, strong) NSNumber *numberWrong;
+@property (nonatomic, strong) IBOutlet UILabel *currentFastestTime;
+@property (nonatomic, strong) IBOutlet UILabel *numberCorrect;
+@property (nonatomic, strong) IBOutlet UILabel *numberWrong;
 @property (nonatomic, strong) NSArray *history;
-@property (nonatomic, weak) IBOutlet UIBarButtonItem *rightButton;
+
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UIButton *playAgainButton;
 @property (nonatomic, weak) IBOutlet UIButton *nextButton;
-
+@property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
+@property (nonatomic, weak) IBOutlet UINavigationBar *navBar;
 
 @end

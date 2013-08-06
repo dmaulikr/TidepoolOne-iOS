@@ -7,7 +7,6 @@
 //
 
 #import "TPSnoozerResultViewController.h"
-#import "TPSnoozerHistoryView.h"
 
 @interface TPSnoozerResultViewController ()
 
@@ -29,6 +28,11 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Snoozer Results";
+    if (self.navigationController) {
+        self.navBar.hidden = YES;
+        self.playAgainButton.hidden = YES;
+        self.nextButton.hidden = YES;
+    }
     self.history = @[@220, @270, @230, @250];
 }
 
@@ -39,11 +43,7 @@
     [[UIImage imageNamed:@"results-bg.png"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-    
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
-//    TPSnoozerHistoryView *historyView = [[TPSnoozerHistoryView alloc] initWithFrame:CGRectMake(kPadding, 250, bounds.size.width - 2 * kPadding, 150)];
-//    [self.view addSubview:historyView];
-    
 }
 
 - (void)didReceiveMemoryWarning

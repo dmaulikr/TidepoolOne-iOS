@@ -53,6 +53,7 @@
 
 -(void)drawStaticClock
 {
+    _imageView.transform = CGAffineTransformMakeRotation(0);    
     _imageView.image = [UIImage imageNamed:_staticClockImages[0]];
 }
 
@@ -60,6 +61,9 @@
 {
     _ringingState =  (_ringingState + 1) % _ringingClockImages.count;
     _imageView.image = [UIImage imageNamed:_ringingClockImages[_ringingState]];
+    if (_ringingState) {
+        _imageView.transform = CGAffineTransformMakeRotation(M_PI + 0.5 * M_PI_4 * ((rand()%3) - 2) - 3);
+    }
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -73,8 +77,10 @@
 {
     self.isRinging = NO;
     if (correct) {
+        _imageView.transform = CGAffineTransformMakeRotation(0);
         _imageView.image = [UIImage imageNamed:_correctClockImage];
     } else {
+        _imageView.transform = CGAffineTransformMakeRotation(0);        
         _imageView.image = [UIImage imageNamed:_incorrectClockImage];
     }
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(drawStaticClock) userInfo:nil repeats:NO];
