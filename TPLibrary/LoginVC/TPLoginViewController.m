@@ -57,6 +57,26 @@
                                                                           action:@selector(dismissKeyboard)];    
     [self.view addGestureRecognizer:tap];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookSessionChanged:) name:@"com.TidePool.TidepoolOne:FBSessionStateChangedNotification" object:nil];
+    
+}
+
+-(void)facebookSessionChanged:(id)sender
+{
+    FBSession *session = [sender object];
+    switch (session.state) {
+        case FBSessionStateOpen:
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+            break;
+        case FBSessionStateClosed:
+        case FBSessionStateClosedLoginFailed:
+            [FBSession.activeSession closeAndClearTokenInformation];
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an unknown error authorizing through facebook." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
+            break;
+        default:
+            break;
+    }
 }
 
 -(void) setCurrentView:(UIView *)currentView
@@ -183,6 +203,18 @@
 
 - (IBAction)createAccountButtonPressed:(id)sender
 {
+    if (![self.createAccountPassword.text isEqualToString:self.createAccountPassword2.text]) {
+        [[[UIAlertView alloc] initWithTitle:@"Password error" message:@"Passwords do not match" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
+        return;
+    } else if (self.createAccountPassword.text.length < 8) {
+        [[[UIAlertView alloc] initWithTitle:@"Password error" message:@"Passwords must be 8 or more characters in length" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
+        return;
+    }
+    [_sharedClient createAccountWithUsername:self.createAccountEmail.text password:self.createAccountPassword.text withCompletingHandlersSuccess:^{
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    } andFailure:^{
+        [[[UIAlertView alloc] initWithTitle:@"Server error" message:@"Error on the server" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
+    }];
 }
 
 - (IBAction)loginButtonPressed:(id)sender {

@@ -32,6 +32,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
+    //TODO: handle ok if facebook auth
     [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
         [self startNewGame];
     } andFailure:^{

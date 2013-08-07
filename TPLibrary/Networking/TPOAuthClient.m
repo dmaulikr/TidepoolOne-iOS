@@ -64,6 +64,28 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
     [SSKeychain setPassword:password forService:kSSKeychainServiceName account:account];
 }
 
+-(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
+//                            @"password", @"grant_type",
+//                            @"password", @"response_type",
+                            username, @"email",
+                            password, @"password",
+                            _clientId, @"client_id",
+                            _clientSecret, @"client_secret",
+                            nil];
+    [self postPath:@"api/v1/users" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"success");
+        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"failure");
+        NSLog([error description]);
+        failureBlock();
+    }];
+}
+
+
+
 -(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -76,7 +98,6 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
                             nil];
     [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
-        _oauthAccessToken = [responseObject valueForKey:@"access_token"];
         _oauthAccessToken = [responseObject valueForKey:@"access_token"];
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_oauthAccessToken]];
         [self savePassword:password forAccount:username];
@@ -118,6 +139,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 
 -(void)logout
 {
+    [self clearAuthorizationHeader];
     [self deleteAllPasswords];
 }
 

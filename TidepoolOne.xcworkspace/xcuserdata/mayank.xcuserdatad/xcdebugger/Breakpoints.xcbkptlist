@@ -33,32 +33,6 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "Pods/Facebook-iOS-SDK/src/FBSession.m"
-         timestampString = "396994400.077655"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1272"
-         endingLineNumber = "1272"
-         landmarkName = "-handleAuthorizationOpen:accessToken:loginType:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Pods/Facebook-iOS-SDK/src/FBAppCall.m"
-         timestampString = "396994536.631368"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "167"
-         endingLineNumber = "167"
-         landmarkName = "+handleOpenURL:sourceApplication:withSession:fallbackHandler:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "Pods/Facebook-iOS-SDK/src/FBAppCall.m"
          timestampString = "396999202.562609"
          startingColumnNumber = "9223372036854775807"

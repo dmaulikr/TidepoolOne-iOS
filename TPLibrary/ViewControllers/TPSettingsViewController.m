@@ -121,6 +121,7 @@
     NSString *action = self.rowsInSections[indexPath.section][indexPath.row];
     if ([action isEqualToString:@"Log Out"]) {
         [[TPOAuthClient sharedClient] logout];
+        self.tabBarController.selectedIndex = 0;
     } else if ([action isEqualToString:@"Log Out"]) {
     } else if ([action isEqualToString:@"Log Out"]) {
     } else if ([action isEqualToString:@"Log Out"]) {
