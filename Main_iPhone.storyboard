@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="sz6-Rj-x5v" kind="relationship" relationship="rootViewController" id="zZY-cN-13m"/>
+                        <segue destination="3cL-lO-zVo" kind="relationship" relationship="rootViewController" id="qoq-QF-UHp"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewW-vg-HrK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -22,24 +22,39 @@
             <point key="canvasLocation" x="-3666" y="1333"/>
         </scene>
         <!--Profile View Controller-->
-        <scene sceneID="erR-Ak-SAc">
+        <scene sceneID="Bo3-JK-Z8Q">
             <objects>
-                <viewController id="sz6-Rj-x5v" customClass="TPProfileViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lLD-bg-x2I">
+                <tableViewController id="3cL-lO-zVo" customClass="TPProfileViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="q4x-xg-BeW">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="OiE-pJ-Ml0">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="avb-ZQ-er0"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qVo-T1-loI">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="3cL-lO-zVo" id="bnu-iP-uS4"/>
+                            <outlet property="delegate" destination="3cL-lO-zVo" id="ShW-Ci-u0b"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="fQo-CL-3RZ">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="CDV-Kf-3je"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="rightButton" destination="avb-ZQ-er0" id="eUE-7Y-Jbc"/>
+                        <outlet property="rightButton" destination="CDV-Kf-3je" id="iLL-TG-HGR"/>
                     </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5d0-Fw-nsC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWG-kh-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3237" y="1332"/>
+            <point key="canvasLocation" x="-3239" y="1333"/>
         </scene>
         <!--Snoozer Game View Controller - Snoozer-->
         <scene sceneID="j3g-PE-fnc">
@@ -119,6 +134,26 @@
             <point key="canvasLocation" x="-3909" y="761"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="TPGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
+        </class>
+        <class className="TPProfileViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TPSnoozerGameViewController" superclassName="TPGameViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerGameViewController.h"/>
+        </class>
+        <class className="TPSnoozerResultsHistoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerResultsHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

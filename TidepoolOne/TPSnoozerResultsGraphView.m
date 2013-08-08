@@ -45,7 +45,6 @@
 {
     _tagOffset = 666;
     self.results = @[@234,@235];
-    self.backgroundColor = [UIColor redColor];
     UIImage *image = [UIImage imageNamed:@"snoozer-clock.png"];
     int imageSideSize = 30;
     int distanceBetweenClocks = rect.size.width / self.results.count;

@@ -29,7 +29,27 @@ NSString *const FBSessionStateChangedNotification =
     if (localNotification) {
         [[TPLocalNotificationManager sharedInstance] handleNotification:localNotification];
     }
+    
+    [[UINavigationBar appearance] setBackgroundColor:[UIColor yellowColor]];
+    [self customizeAppearance];
     return YES;
+}
+
+-(void)customizeAppearance
+{
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor blackColor],
+      UITextAttributeTextColor,
+      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
+      UITextAttributeTextShadowColor,
+      [NSValue valueWithUIOffset:UIOffsetMake(0, -0)],
+      UITextAttributeTextShadowOffset,
+      [UIFont fontWithName:@"Karla-Regular" size:20.0],
+      UITextAttributeFont,
+      nil]];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar.png"] forBarMetrics:UIBarMetricsDefault];
+//    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification

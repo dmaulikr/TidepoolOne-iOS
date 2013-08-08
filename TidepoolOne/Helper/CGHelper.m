@@ -90,6 +90,39 @@
     CGPathRelease(path);
 }
 
+#pragma mark Arc
+
++(CGMutablePathRef)newSlicePathAtPoint:(CGPoint)point withRadius:(float)radius startAngle:(float)startAngle endAngle:(float)endAngle
+{
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddArc(path, NULL, point.x, point.y, radius, startAngle, endAngle, 0);    
+    CGPathMoveToPoint(path, NULL, point.x + radius*cosf(startAngle), point.y + radius*sinf(startAngle));
+    CGPathAddLineToPoint(path, NULL, point.x, point.y);
+    CGPathAddLineToPoint(path, NULL, point.x + radius*cosf(endAngle), point.y + radius*sinf(endAngle));
+    return path;
+}
+
++(void)fillSliceAtPoint:(CGPoint)point withRadius:(float)radius startAngle:(float)startAngle endAngle:(float)endAngle color:(UIColor *)color
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGMutablePathRef path = [self newSlicePathAtPoint:point withRadius:radius startAngle:startAngle endAngle:endAngle];
+    [color setFill];
+    CGContextAddPath(context, path);
+    CGContextFillPath(context);
+    CGPathRelease(path);
+}
+
+
++(void)strokeSliceAtPoint:(CGPoint)point withRadius:(float)radius startAngle:(float)startAngle endAngle:(float)endAngle color:(UIColor *)color
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGMutablePathRef path = [self newSlicePathAtPoint:point withRadius:radius startAngle:startAngle endAngle:endAngle];
+    [color setStroke];
+    CGContextAddPath(context, path);
+    CGContextStrokePath(context);
+    CGPathRelease(path);
+}
+
 #pragma mark Circle
 
 

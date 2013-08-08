@@ -34,12 +34,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _sharedClient = [TPOAuthClient sharedClient];
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"Default.png"] drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Default.png"]];
     UINavigationBar *navBar = [[UINavigationBar alloc] init];
     navBar.frame = CGRectMake(0,0,self.view.bounds.size.width,44);
     UINavigationItem *navItem = [UINavigationItem alloc];

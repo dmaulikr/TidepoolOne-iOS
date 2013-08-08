@@ -14,6 +14,16 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
+		<key>Pods-AttributedMarkdown.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
+		<key>Pods-Bypass.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 		<key>Pods-Facebook-iOS-SDK.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -62,6 +72,26 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0FE800030FFD41259F0AA3B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1851EA86D8584BC684CCF6DD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1EB3AB6A461845E3BF0FBB51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>212FF5042C074D949463BD45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>219CEED0152A496E94FC75F1</key>
 		<dict>
 			<key>primary</key>
@@ -77,12 +107,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4E0B1EED081A4EBDA67335A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>51B5D0ED2FB84FB9957E0262</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>75E42D04412A43F48D403294</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>957B421DA34A45D6A26150FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96DA1B18E4B34611A2472DDB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,6 +142,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A0579342E2B04B37A2937D95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A8A2D6D4785D418FA4875B7B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BAECEC73EA824097B35B0EE8</key>
 		<dict>
 			<key>primary</key>
@@ -107,7 +162,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>CC22AE58B79544A3BAB47496</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E492A666A97A4C58A470C778</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E82BBB91659B4D58A76D86BF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED261DF75D1048F3A5D5CC90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>ED3DEE1302C542E6998F501C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8A3DB0560F344338D5C8F09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FDE39642EF284E289A6D4559</key>
 		<dict>
 			<key>primary</key>
 			<true/>
