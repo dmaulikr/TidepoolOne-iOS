@@ -13,6 +13,7 @@
 #import <AttributedMarkdown/markdown_lib.h>
 #import <AttributedMarkdown/markdown_peg.h>
 #import "TPPolarChartView.h"
+#import "TPProfileTableViewCell.h"
 
 @interface TPProfileViewController ()
 {
@@ -35,7 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    UINib *nib = [UINib nibWithNibName:@"TPProfileTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TPProfileTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
     [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -80,25 +82,69 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return !(!self.bulletPoints) + !(!self.paragraphs);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    switch (section) {
+        case 0:
+            return self.bulletPoints.count;
+        case 1:
+            return self.paragraphs.count;
+        default:
+            break;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    TPProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TPProfileTableViewCell" forIndexPath:indexPath];
     // Configure the cell...
+    switch (indexPath.section) {
+        case 0: {
+            cell.rightTextLabel.attributedText = [self parsedFromMarkdown:self.bulletPoints[indexPath.row]];
+            cell.centerTextLabel.hidden = YES;
+            cell.ribbonImageView.hidden = NO;
+            cell.rightTextLabel.hidden = NO;
+            return cell;
+        }
+            break;
+        case 1: {
+            cell.centerTextLabel.attributedText = [self parsedFromMarkdown:self.paragraphs[indexPath.row]];
+            cell.centerTextLabel.hidden = NO;
+            cell.ribbonImageView.hidden = YES;
+            cell.rightTextLabel.hidden = YES;
+            return cell;
+        }
+            break;
+        default:
+            break;
+    }
     
-//    TPPolarChartView *polar = [[TPPolarChartView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//    [cell.contentView addSubview:polar];
-//    self.data = @[@4,@5,@10,@3,@6];
-    return cell;
+    return nil;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *str;
+    switch (indexPath.section) {
+        case 0:{
+            str = self.bulletPoints[indexPath.row];
+            CGSize size = [str sizeWithFont:[UIFont fontWithName:@"Karla-Regular" size:16] constrainedToSize:CGSizeMake(self.tableView.bounds.size.width - 47, 999) lineBreakMode:NSLineBreakByWordWrapping];
+            return size.height + 40;
+        }
+            break;
+        case 1:{
+            str = self.paragraphs[indexPath.row];
+            CGSize size = [str sizeWithFont:[UIFont fontWithName:@"Karla-Regular" size:16] constrainedToSize:CGSizeMake(self.tableView.bounds.size.width - 20, 999) lineBreakMode:NSLineBreakByWordWrapping];
+            return size.height + 40;
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 /*
@@ -170,6 +216,11 @@
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",_personalityType[@"profile_description"][@"display_id"]]];
         
+        self.bulletPoints = _personalityType[@"profile_description"][@"bullet_description"];
+        NSMutableArray *paragraphs = [[_personalityType[@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
+        [paragraphs removeObject:@""];
+        self.paragraphs = paragraphs;
+        
         profileHeaderView.nameLabel.text = _personalityType[@"profile_description"][@"name"];
         profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",_personalityType[@"profile_description"][@"display_id"]]];
         profileHeaderView.personalityTypeLabel.text =  _personalityType[@"profile_description"][@"name"];
@@ -182,6 +233,7 @@
         }
         polarChartView.data = big5Values;
     }
+    [self.tableView reloadData];
 }
 
 -(void)parseResponse:(NSDictionary *)response
@@ -198,7 +250,7 @@
     UIFont *strongFont = [UIFont fontWithName:@"Karla-Bold" size:15.0];
     
     // create a color attribute for paragraph text
-    UIColor *emColor = [UIColor blueColor];
+    UIColor *emColor = [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];
     
     // create a dictionary to hold your custom attributes for any Markdown types
     NSDictionary *attributes = @{

@@ -12,5 +12,7 @@
 
 @property (strong, nonatomic) NSDictionary *personalityType;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightButton;
+@property (strong, nonatomic) NSArray *bulletPoints;
+@property (strong, nonatomic) NSArray *paragraphs;
 
 @end
