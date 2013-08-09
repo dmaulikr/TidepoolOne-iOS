@@ -12,6 +12,9 @@
 @interface TPStageViewController : UIViewController
 
 @property (nonatomic, strong) NSDictionary *data;
+@property (nonatomic, strong) NSString *type;
 @property (nonatomic, weak) TPGameViewController *gameVC;
+
+-(long long)epochTimeNow;
 
 @end

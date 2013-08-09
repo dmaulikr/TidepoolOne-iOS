@@ -14,6 +14,7 @@
     TPSnoozerClockView *_ringingClockView;
     int _correctTouches;
     int _incorrectTouches;
+    NSMutableArray *_eventArray;
 }
 @end
 
@@ -37,10 +38,12 @@
     self.view.frame = CGRectOffset(self.view.frame, 0, -20.0);
     self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];    
     _clockViews = [NSMutableArray array];
-    self.numRows = 2;
+    self.numRows = 3;
     self.numColumns = 2;
     self.numChoices = 0;
     self.numChoicesTotal = 1;
+    _eventArray = [NSMutableArray array];
+    self.type = @"snoozer";
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -53,31 +56,20 @@
             TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
             clockView.isRinging = NO;
             clockView.delegate = self;
+            clockView.timeline = @[@{@"delay":@100,@"colors":@[@"green"],},
+                                   @{@"delay":@2400,@"colors":@[@"red",@"green"],},
+                                   @{@"delay":@6400,@"colors":@[@"green"],},
+                                   @{@"delay":@9400,@"colors":@[@"green"],},
+                                   @{@"delay":@12400,@"colors":@[@"green"],},
+                                   @{@"delay":@15400,@"colors":@[@"red",@"green"],},
+                                   ];
+            clockView.correctColor = @"green";
+            clockView.correctColorSequence = @[@"red",@"green"];
+            clockView.tag = i+j+1;
             [self.view addSubview:clockView];
             [_clockViews addObject:clockView];
         }
     }
-    [self startGameTimer];
-}
-
--(void)startGameTimer
-{
-    if (_numChoices < _numChoicesTotal) {
-        [NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(makeRandomClockRing) userInfo:nil repeats:NO];
-        _numChoices++;
-    }
-}
-
--(void)makeRandomClockRing
-{
-    _ringingClockView.isRinging = NO;
-    TPSnoozerClockView *newRingingClock = _clockViews[rand()%_clockViews.count];
-    while (newRingingClock == _ringingClockView) {
-        newRingingClock = _clockViews[rand()%_clockViews.count];
-    }
-    _ringingClockView = newRingingClock;
-    _ringingClockView.isRinging = YES;
-    [self startGameTimer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -86,63 +78,73 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)clockView:(TPSnoozerClockView *)clockView wasTouchedCorrectly:(BOOL)correct
+-(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct
 {
     if (correct) {
-        _correctTouches++;
+        [self logCorrectClockClickedForClock:clockView];
     } else {
-        _incorrectTouches++;
+        [self logWrongClockClickedForClock:clockView];
     }
-    if (_numChoices == _numChoicesTotal) {
-        [self stageOver];
-    }
+}
+
+-(void)showedPossibleClockInClockView:(TPSnoozerClockView *)clockView
+{
+    [self logClockRingForClock:clockView];
 }
 
 -(void)stageOver
 {
     NSLog(@"correct:%i, incorrect:%i", _correctTouches, _incorrectTouches);
-    [self.gameVC currentStageDone];
+    [self.gameVC currentStageDoneWithEvents:_eventArray];
 }
 
 #pragma mark Logging functions
 
 -(void)logEventToServer:(NSDictionary *)event
 {
-    NSMutableDictionary *completeEvents = [event mutableCopy];
-    [completeEvents setValue:@"snoozer" forKey:@"module"];
-    [self.gameVC logEvent:completeEvents];
+    NSMutableDictionary *eventWithTime = [event mutableCopy];
+    [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
+    [_eventArray addObject:eventWithTime];
 }
--(void)logTestStarted
+-(void)logTestStartedForClock:(TPSnoozerClockView *)clockView
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"test_started" forKey:@"event_desc"];
+    [event setValue:@"level_started" forKey:@"event"];
     [self logEventToServer:event];
 }
 
--(void)logClockRing
-{
-    
-}
-
--(void)logCorrectClockClicked
+-(void)logClockRingForClock:(TPSnoozerClockView *)clockView
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"correct_circle_clicked" forKey:@"event_desc"];
+    [event setValue:@"shown" forKey:@"event"];
+    [event setValue:clockView.identifier forKey:@"item_id"];
     [self logEventToServer:event];
 }
 
--(void)logWrongClockClicked
+-(void)logCorrectClockClickedForClock:(TPSnoozerClockView *)clockView
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"wrong_circle_clicked" forKey:@"event_desc"];
+    [event setValue:@"correct" forKey:@"event"];
+    [event setValue:clockView.identifier forKey:@"item_id"];
     [self logEventToServer:event];
 }
 
--(void)logTestCompleted
+-(void)logWrongClockClickedForClock:(TPSnoozerClockView *)clockView
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"test_completed" forKey:@"event_desc"];
+    [event setValue:@"incorrect" forKey:@"event"];
+    [event setValue:clockView.identifier forKey:@"item_id"];
     [self logEventToServer:event];
+}
+
+-(void)logTestCompletedForClock:(TPSnoozerClockView *)clockView
+{
+    NSMutableDictionary *event = [NSMutableDictionary dictionary];
+    [event setValue:@"level_completed" forKey:@"event"];
+    [self logEventToServer:event];
+    [event setValue:@"level_summary" forKey:@"event"];
+    [self logEventToServer:event];
+    [self stageOver];
 }
 
 

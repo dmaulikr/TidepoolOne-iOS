@@ -30,7 +30,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Snoozer Results";
-    self.results = @[@"ass"];
+    self.results = @[@"Results"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"results-bg.png"]];

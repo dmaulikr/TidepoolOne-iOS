@@ -35,4 +35,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(long long)epochTimeNow
+{
+    NSNumber *epochTime = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]*1000];
+    return epochTime.longLongValue;
+}
+
+
 @end

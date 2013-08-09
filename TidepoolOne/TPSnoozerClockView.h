@@ -12,14 +12,24 @@
 
 @protocol TPSnoozerClockViewDelegate
 
--(void)clockView:(TPSnoozerClockView *)clockView wasTouchedCorrectly:(BOOL)correct;
+-(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct;
+-(void)showedPossibleClockInClockView:(TPSnoozerClockView *)clockView;
 
 @end
 
 
 @interface TPSnoozerClockView : UIView
 
+@property (nonatomic, strong) NSArray *timeline;
+@property (nonatomic, strong) NSArray *currentColorSequence;
+@property (nonatomic, strong) NSArray *correctColorSequence;
+@property (nonatomic, strong) NSString *currentColor;
+@property (nonatomic, strong) NSString *correctColor;
+@property (nonatomic, strong) NSString *identifier;
+
 @property (nonatomic, assign) BOOL isRinging;
 @property id<TPSnoozerClockViewDelegate> delegate;
+
+-(void)updatePicture;
 
 @end

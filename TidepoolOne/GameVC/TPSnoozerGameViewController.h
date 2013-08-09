@@ -10,4 +10,6 @@
 
 @interface TPSnoozerGameViewController : TPGameViewController
 
+-(void)currentStageDoneWithEvents:(NSArray *)events;
+
 @end

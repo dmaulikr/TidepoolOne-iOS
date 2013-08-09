@@ -46,4 +46,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)currentStageDoneWithEvents:(NSArray *)events
+{
+    
+}
+
 @end

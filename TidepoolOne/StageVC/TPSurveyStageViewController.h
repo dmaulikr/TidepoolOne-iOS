@@ -1,15 +1,15 @@
+////
+////  TPSurveyStageViewController.h
+////  TidepoolOne
+////
+////  Created by Mayank Sanganeria on 7/23/13.
+////  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
+////
 //
-//  TPSurveyStageViewController.h
-//  TidepoolOne
+//#import <UIKit/UIKit.h>
+//#import "TPGameViewController.h"
+//#import "TPStageViewController.h"
 //
-//  Created by Mayank Sanganeria on 7/23/13.
-//  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
+//@interface TPSurveyStageViewController : TPStageViewController
 //
-
-#import <UIKit/UIKit.h>
-#import "TPGameViewController.h"
-#import "TPStageViewController.h"
-
-@interface TPSurveyStageViewController : TPStageViewController
-
-@end
+//@end

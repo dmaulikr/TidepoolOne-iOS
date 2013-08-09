@@ -14,7 +14,7 @@
 @property NSString *type;
 
 -(void)startNewGame;
--(void)currentStageDone;
+-(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;
 
 @end

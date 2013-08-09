@@ -43,6 +43,8 @@
 		A82F6A4A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
 		A82F6A5217947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A5017947064003FC088 /* InfoPlist.strings */; };
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
+		A84E417E17B55EEB00016FB6 /* snoozer-clock-missed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E417C17B55EEB00016FB6 /* snoozer-clock-missed@2x~iphone.png */; };
+		A84E417F17B55EEB00016FB6 /* snoozer-clock-missed~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E417D17B55EEB00016FB6 /* snoozer-clock-missed~iphone.png */; };
 		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
 		A852855D17B329BC0057954F /* chartbg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852855C17B329BC0057954F /* chartbg@2x~iphone.png */; };
 		A852855F17B32ADB0057954F /* chartbg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852855E17B32ADB0057954F /* chartbg~iphone.png */; };
@@ -482,8 +484,6 @@
 		A8DD68C917B3122C0040BD90 /* tp-snoozer-results_blueprint_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672717B3122C0040BD90 /* tp-snoozer-results_blueprint_v2.png */; };
 		A8DD68CA17B3122C0040BD90 /* snoozer-clock-correct@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672817B3122C0040BD90 /* snoozer-clock-correct@2x~iphone.png */; };
 		A8DD68CB17B3122C0040BD90 /* snoozer-clock-correct~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672917B3122C0040BD90 /* snoozer-clock-correct~iphone.png */; };
-		A8DD68CC17B3122C0040BD90 /* snoozer-clock-missed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672A17B3122C0040BD90 /* snoozer-clock-missed@2x~iphone.png */; };
-		A8DD68CD17B3122C0040BD90 /* snoozer-clock-missed~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672B17B3122C0040BD90 /* snoozer-clock-missed~iphone.png */; };
 		A8DD68CE17B3122C0040BD90 /* snoozer-clock@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672C17B3122C0040BD90 /* snoozer-clock@2x~iphone.png */; };
 		A8DD68CF17B3122C0040BD90 /* snoozer-clockb@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672D17B3122C0040BD90 /* snoozer-clockb@2x~iphone.png */; };
 		A8DD68D017B3122C0040BD90 /* snoozer-clockb~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8DD672E17B3122C0040BD90 /* snoozer-clockb~iphone.png */; };
@@ -562,6 +562,8 @@
 		A82F6A4F17947064003FC088 /* TidepoolOneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TidepoolOneTests-Info.plist"; sourceTree = "<group>"; };
 		A82F6A5117947064003FC088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
+		A84E417C17B55EEB00016FB6 /* snoozer-clock-missed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock-missed@2x~iphone.png"; sourceTree = "<group>"; };
+		A84E417D17B55EEB00016FB6 /* snoozer-clock-missed~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock-missed~iphone.png"; sourceTree = "<group>"; };
 		A852855917B31DEF0057954F /* TPPolarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPolarChartView.h; sourceTree = "<group>"; };
 		A852855A17B31DEF0057954F /* TPPolarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPolarChartView.m; sourceTree = "<group>"; };
 		A852855C17B329BC0057954F /* chartbg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chartbg@2x~iphone.png"; sourceTree = "<group>"; };
@@ -1034,8 +1036,6 @@
 		A8DD672717B3122C0040BD90 /* tp-snoozer-results_blueprint_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-results_blueprint_v2.png"; sourceTree = "<group>"; };
 		A8DD672817B3122C0040BD90 /* snoozer-clock-correct@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock-correct@2x~iphone.png"; sourceTree = "<group>"; };
 		A8DD672917B3122C0040BD90 /* snoozer-clock-correct~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock-correct~iphone.png"; sourceTree = "<group>"; };
-		A8DD672A17B3122C0040BD90 /* snoozer-clock-missed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock-missed@2x~iphone.png"; sourceTree = "<group>"; };
-		A8DD672B17B3122C0040BD90 /* snoozer-clock-missed~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock-missed~iphone.png"; sourceTree = "<group>"; };
 		A8DD672C17B3122C0040BD90 /* snoozer-clock@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clock@2x~iphone.png"; sourceTree = "<group>"; };
 		A8DD672D17B3122C0040BD90 /* snoozer-clockb@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clockb@2x~iphone.png"; sourceTree = "<group>"; };
 		A8DD672E17B3122C0040BD90 /* snoozer-clockb~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "snoozer-clockb~iphone.png"; sourceTree = "<group>"; };
@@ -1148,8 +1148,8 @@
 				A852856517B401810057954F /* TPProfileTableViewCell.h */,
 				A852856617B401810057954F /* TPProfileTableViewCell.m */,
 				A86C2CC317A1AFFA00A5290E /* ResultVC */,
-				A8BD1DF6179F032700A7E26C /* StageVC */,
 				A8BD1E0C17A0452C00A7E26C /* Views */,
+				A8BD1DF6179F032700A7E26C /* StageVC */,
 				A89B97D417A099AE006815A6 /* GameVC */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
@@ -1370,8 +1370,8 @@
 				A8DD670817B3122C0040BD90 /* results */,
 				A8DD672817B3122C0040BD90 /* snoozer-clock-correct@2x~iphone.png */,
 				A8DD672917B3122C0040BD90 /* snoozer-clock-correct~iphone.png */,
-				A8DD672A17B3122C0040BD90 /* snoozer-clock-missed@2x~iphone.png */,
-				A8DD672B17B3122C0040BD90 /* snoozer-clock-missed~iphone.png */,
+				A84E417C17B55EEB00016FB6 /* snoozer-clock-missed@2x~iphone.png */,
+				A84E417D17B55EEB00016FB6 /* snoozer-clock-missed~iphone.png */,
 				A8DD672C17B3122C0040BD90 /* snoozer-clock@2x~iphone.png */,
 				A8DD672D17B3122C0040BD90 /* snoozer-clockb@2x~iphone.png */,
 				A8DD672E17B3122C0040BD90 /* snoozer-clockb~iphone.png */,
@@ -2327,8 +2327,6 @@
 				A8DD68C917B3122C0040BD90 /* tp-snoozer-results_blueprint_v2.png in Resources */,
 				A8DD68CA17B3122C0040BD90 /* snoozer-clock-correct@2x~iphone.png in Resources */,
 				A8DD68CB17B3122C0040BD90 /* snoozer-clock-correct~iphone.png in Resources */,
-				A8DD68CC17B3122C0040BD90 /* snoozer-clock-missed@2x~iphone.png in Resources */,
-				A8DD68CD17B3122C0040BD90 /* snoozer-clock-missed~iphone.png in Resources */,
 				A8DD68CE17B3122C0040BD90 /* snoozer-clock@2x~iphone.png in Resources */,
 				A8DD68CF17B3122C0040BD90 /* snoozer-clockb@2x~iphone.png in Resources */,
 				A8DD68D017B3122C0040BD90 /* snoozer-clockb~iphone.png in Resources */,
@@ -2348,6 +2346,8 @@
 				A852855D17B329BC0057954F /* chartbg@2x~iphone.png in Resources */,
 				A852855F17B32ADB0057954F /* chartbg~iphone.png in Resources */,
 				A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */,
+				A84E417E17B55EEB00016FB6 /* snoozer-clock-missed@2x~iphone.png in Resources */,
+				A84E417F17B55EEB00016FB6 /* snoozer-clock-missed~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

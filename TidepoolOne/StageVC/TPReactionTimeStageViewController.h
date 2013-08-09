@@ -1,17 +1,17 @@
+////
+////  TPReactionTimeStageViewController.h
+////  TidepoolOne
+////
+////  Created by Mayank Sanganeria on 7/17/13.
+////  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
+////
 //
-//  TPReactionTimeStageViewController.h
-//  TidepoolOne
+//#import <UIKit/UIKit.h>
+//#import "TPReactionTimeStageCircleView.h"
+//#import "TPStageViewController.h"
 //
-//  Created by Mayank Sanganeria on 7/17/13.
-//  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
+//@interface TPReactionTimeStageViewController : TPStageViewController <TPReactionTimeStageCircleViewDelegateProtocol>
 //
-
-#import <UIKit/UIKit.h>
-#import "TPReactionTimeStageCircleView.h"
-#import "TPStageViewController.h"
-
-@interface TPReactionTimeStageViewController : TPStageViewController <TPReactionTimeStageCircleViewDelegateProtocol>
-
--(void)circleViewWasTapped;
-
-@end
+//-(void)circleViewWasTapped;
+//
+//@end

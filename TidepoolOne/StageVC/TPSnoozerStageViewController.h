@@ -15,9 +15,10 @@
 @property (assign) int numChoices;
 @property (assign) int numRows;
 @property (assign) int numColumns;
+
 @property (assign) NSTimeInterval maxTime;
 @property (assign) NSTimeInterval minTime;
 
--(void)clockView:(TPSnoozerClockView *)clockView wasTouchedCorrectly:(BOOL)correct;
-
+-(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct;
+-(void)showedPossibleClockInClockView:(TPSnoozerClockView *)clockView;
 @end

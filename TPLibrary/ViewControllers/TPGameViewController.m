@@ -75,9 +75,9 @@
     NSString *viewName = _response[@"stages"][_stage][@"view_name"];
 
     NSDictionary *classDictionary = @{
-                                      @"Survey":[TPSurveyStageViewController class],
-                                      @"ReactionTime":[TPReactionTimeStageViewController class],
-                                      @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
+//                                      @"Survey":[TPSurveyStageViewController class],
+//                                      @"ReactionTime":[TPReactionTimeStageViewController class],
+//                                      @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
                                       @"Snoozer":[TPSnoozerStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
@@ -95,9 +95,13 @@
 }
 
 
--(void)currentStageDone
+-(void)currentStageDoneWithEvents:(NSArray *)events
 {
-    UIViewController *currentVC = self.childViewControllers[0];
+    TPStageViewController *currentVC = self.childViewControllers[0];
+    NSMutableDictionary *stageLog = [NSMutableDictionary dictionary];
+    [stageLog setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
+    [stageLog setValue:events forKey:@"events"];
+    [stageLog setValue:currentVC.type forKey:@"event_type"];
     [self hideContentController:currentVC];
     _stage++;
     if (_stage < [_response[@"stages"] count]) {
