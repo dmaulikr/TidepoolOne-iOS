@@ -265,7 +265,8 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     NSLog([dict description]);
     
     [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog([responseObject description]);
+        NSLog(@"boo:%@",[responseObject description]);
+        [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog([error description]);
     }];

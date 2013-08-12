@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
+		<key>Pods-GoogleAnalytics-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
 		<key>Pods-InflectorKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -53,6 +58,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0628BEDE3CDC4E10870D4606</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>076EAB2B4B4A4392ACBF40C7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,6 +107,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>323072ABB5084291AE2B81E4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>395DB99C0EF340848524B7F6</key>
 		<dict>
 			<key>primary</key>
@@ -117,6 +132,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>752AEF83E27E401DA0A6DE95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>75E42D04412A43F48D403294</key>
 		<dict>
 			<key>primary</key>
@@ -128,6 +148,11 @@
 			<true/>
 		</dict>
 		<key>96DA1B18E4B34611A2472DDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>976744717F5F42119B0E4A12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,6 +177,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BA3FD942643B45FC89A7D2C0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BAECEC73EA824097B35B0EE8</key>
 		<dict>
 			<key>primary</key>
@@ -163,6 +193,11 @@
 			<true/>
 		</dict>
 		<key>CC22AE58B79544A3BAB47496</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DECE9257B4374D9B992FA13C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

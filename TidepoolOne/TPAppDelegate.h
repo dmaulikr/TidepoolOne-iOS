@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) TPTokenCachingStrategy *tokenCaching;
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI;
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI completionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 - (void) closeSession;
 
 

@@ -99,8 +99,8 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
     [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
         _oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_oauthAccessToken]];
-        [self savePassword:password forAccount:username];
+        [self saveAndUseOauthToken:_oauthAccessToken];
+//        [self savePassword:password forAccount:username];
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure");
@@ -109,14 +109,20 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
     }];
 }
 
+-(void)saveAndUseOauthToken:(NSString *)token
+{
+    [self deleteAllPasswords];
+    [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
+    [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_oauthAccessToken]];
+}
+
 -(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
     if (accounts.count) {
-        NSDictionary *account = accounts[0];
-        NSString *username = account[@"acct"];
-        NSString *password = [SSKeychain passwordForService:kSSKeychainServiceName account:username];
-        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
+        NSString *token = [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
+        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
+        successBlock();
         return;
     } else {
         if (presentUI) {
@@ -125,6 +131,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
         }
     }
 }
+
 
 -(void)deleteAllPasswords
 {

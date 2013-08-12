@@ -29,15 +29,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    // Send a screen view to the first property.
+    id tracker1 = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
+    [tracker1 sendView:@"/SnoozerGame"];
+
 }
 - (void)viewDidAppear:(BOOL)animated
 {
+    self.type = @"snoozer";    
     //TODO: handle ok if facebook auth
     [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
         [self startNewGame];
     } andFailure:^{
     }];
-    self.type = @"snoozer";
 }
 
 - (void)didReceiveMemoryWarning

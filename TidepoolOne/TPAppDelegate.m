@@ -18,6 +18,17 @@ NSString *const FBSessionStateChangedNotification =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+//    [GAI sharedInstance].trackUncaughtExceptions = YES;
+//    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+//    [GAI sharedInstance].dispatchInterval = 20;
+//    // Optional: set debug to YES for extra debugging information.
+//    [GAI sharedInstance].debug = YES;
+//    // Create tracker instance.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
+
+    
     //Clear keychain on first run in case of reinstallation
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"]) {
         // Delete values from keychain here
@@ -32,6 +43,7 @@ NSString *const FBSessionStateChangedNotification =
     
     [[UINavigationBar appearance] setBackgroundColor:[UIColor yellowColor]];
     [self customizeAppearance];
+    
     return YES;
 }
 
@@ -136,7 +148,8 @@ NSString *const FBSessionStateChangedNotification =
 /*
  * Opens a Facebook session and optionally shows the login UX.
  */
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
+- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI completionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
     BOOL openSessionResult = NO;
     // Set up token strategy, if needed
     if (nil == _tokenCaching) {
@@ -171,6 +184,7 @@ NSString *const FBSessionStateChangedNotification =
                     [self sessionStateChanged:session
                                         state:state
                                         error:error];
+                    successBlock();
                 }];
         // Return the result - will be set to open immediately from the session
         // open call if a cached token was previously found.

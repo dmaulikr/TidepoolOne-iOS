@@ -322,6 +322,11 @@ DEALINGS IN THE SOFTWARE.
    limitations under the License.
 
 
+## GoogleAnalytics-iOS-SDK
+
+Copyright 2009 - 2012 Google, Inc. All rights reserved.
+
+
 ## SSKeychain
 
 Copyright (c) 2010-2013 Sam Soffes.

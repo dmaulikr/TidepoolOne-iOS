@@ -98,7 +98,6 @@
     [UIView transitionFromView:self.currentView toView:newView duration:0.5 options:animationOptions completion:^(BOOL finished) {
         self.currentView = newView;
     }];
-    NSLog(@"fuck");
 }
 
 
@@ -131,14 +130,16 @@
         self.createAccountPassword = passwordField;
         self.createAccountPassword2 = passwordField2;
         
-        UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        facebookButton.frame = CGRectMake(kPadding, 200, 100, 20);
+        UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
+        facebookButton.frame = CGRectMake(kPadding, 200, 200, 40);
         [facebookButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
         [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_createAccountView addSubview:facebookButton];
         
-        UIButton *createAccountButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        createAccountButton.frame = CGRectMake(150, 200, 100, 20);
+        UIButton *createAccountButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [createAccountButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
+        createAccountButton.frame = CGRectMake(250, 200, 100, 40);
         [createAccountButton setTitle:@"Create account" forState:UIControlStateNormal];
         [createAccountButton addTarget:self action:@selector(createAccountButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_createAccountView addSubview:createAccountButton];
@@ -171,14 +172,16 @@
         
         self.loginPassword = passwordField;
         
-        UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        facebookButton.frame = CGRectMake(kPadding, 200, 100, 20);
+        UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
+        facebookButton.frame = CGRectMake(kPadding, 200, 200, 40);
         [facebookButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
         [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_loginView addSubview:facebookButton];
 
-        UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        loginButton.frame = CGRectMake(150, 200, 100, 20);
+        UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [loginButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
+        loginButton.frame = CGRectMake(250, 200, 100, 40);
         [loginButton setTitle:@"Get started" forState:UIControlStateNormal];
         [loginButton addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_loginView addSubview:loginButton];
@@ -224,7 +227,10 @@
 
 - (IBAction)fbLoginButtonPressed:(id)sender {
     TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-    [delegate openSessionWithAllowLoginUI:YES];
+    [delegate openSessionWithAllowLoginUI:YES completionHandlersSuccess:^{
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    } andFailure:^{
+    }];
 }
 
 - (IBAction)fitbitLoginButtonPressed:(id)sender {
