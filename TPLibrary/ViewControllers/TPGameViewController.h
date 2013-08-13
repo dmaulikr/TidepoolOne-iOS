@@ -12,6 +12,7 @@
 @interface TPGameViewController : UIViewController
 
 @property NSString *type;
+@property (assign) int stage;
 
 -(void)startNewGame;
 -(void)currentStageDoneWithEvents:(NSArray *)events;

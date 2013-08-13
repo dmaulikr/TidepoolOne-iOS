@@ -12,7 +12,8 @@
 #import "TPLoginViewController.h"
 
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
-NSString * const kBaseURLString = @"http://10.1.10.24:7004";
+NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
+//NSString * const kBaseURLString = @"http://10.1.10.24:7004";
 //NSString * const kBaseURLString = @"http://127.0.0.1:7004";
 
 NSString * const kClientId = @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1";

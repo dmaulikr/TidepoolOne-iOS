@@ -66,12 +66,13 @@
         } else {
         _imageView.image = _imageDictionary[@"incorrect"];
         }
-        _showingResponseImage = NO;
         float factor = 1;
         [UIView animateWithDuration:0.2 animations:^{
             _imageView.transform = CGAffineTransformMakeScale(factor, factor)
             ;
         }];
+        _showingResponseImage = NO;
+        [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(setStaticClockFromTimer:) userInfo:@"green" repeats:NO];
     } else {
         if (_isRinging) {
             NSArray *animationImages = @[_imageDictionary[_currentColor],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-1",_currentColor]],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-2",_currentColor]]];

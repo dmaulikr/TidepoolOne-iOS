@@ -76,6 +76,8 @@
 		A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E703517AC3C60001605DF /* TPSnoozerClockView.m */; };
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
+		A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */; };
+		A89D96E017BAB36A000146E8 /* TPSnoozerInstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */; };
 		A8AAC4B117B9916000BB7E00 /* btn-back-pressed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AAC2CC17B9915E00BB7E00 /* btn-back-pressed@2x~iphone.png */; };
 		A8AAC4B217B9916000BB7E00 /* btn-back-pressed~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AAC2CD17B9915E00BB7E00 /* btn-back-pressed~iphone.png */; };
 		A8AAC4B317B9916000BB7E00 /* btn-back@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AAC2CE17B9915E00BB7E00 /* btn-back@2x~iphone.png */; };
@@ -682,6 +684,9 @@
 		A87E703517AC3C60001605DF /* TPSnoozerClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerClockView.m; sourceTree = "<group>"; };
 		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerInstructionViewController.h; sourceTree = "<group>"; };
+		A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerInstructionViewController.m; sourceTree = "<group>"; };
+		A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerInstructionViewController.xib; sourceTree = "<group>"; };
 		A8AAC2CC17B9915E00BB7E00 /* btn-back-pressed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-back-pressed@2x~iphone.png"; sourceTree = "<group>"; };
 		A8AAC2CD17B9915E00BB7E00 /* btn-back-pressed~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-back-pressed~iphone.png"; sourceTree = "<group>"; };
 		A8AAC2CE17B9915E00BB7E00 /* btn-back@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-back@2x~iphone.png"; sourceTree = "<group>"; };
@@ -2018,6 +2023,9 @@
 				A879A66117A871220082A455 /* TPReactionTimeStageCircleView.m */,
 				A87E703417AC3C60001605DF /* TPSnoozerClockView.h */,
 				A87E703517AC3C60001605DF /* TPSnoozerClockView.m */,
+				A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */,
+				A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */,
+				A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -2600,6 +2608,7 @@
 				A8AAC68B17B9916000BB7E00 /* titlebar@2x~iphone.png in Resources */,
 				A8AAC68C17B9916000BB7E00 /* titlebar~iphone.png in Resources */,
 				A8AAC68D17B9916000BB7E00 /* tp-snoozer-start_blueprint.png in Resources */,
+				A89D96E017BAB36A000146E8 /* TPSnoozerInstructionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2694,6 +2703,7 @@
 				A8DD649F17B1D4650040BD90 /* TPProfileViewHeader.m in Sources */,
 				A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */,
 				A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */,
+				A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

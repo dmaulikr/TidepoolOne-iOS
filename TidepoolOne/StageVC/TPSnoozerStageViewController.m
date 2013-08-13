@@ -7,6 +7,7 @@
 //
 
 #import "TPSnoozerStageViewController.h"
+#import "TPSnoozerInstructionViewController.h"
 
 @interface TPSnoozerStageViewController ()
 {
@@ -15,6 +16,7 @@
     int _correctTouches;
     int _incorrectTouches;
     NSMutableArray *_eventArray;
+    TPSnoozerInstructionViewController *_instructionVC;
 }
 @end
 
@@ -50,11 +52,43 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self showInstructionScreen];
+}
+
+-(void)showInstructionScreen
+{
+    _instructionVC = [[TPSnoozerInstructionViewController alloc] initWithNibName:@"TPSnoozerInstructionViewController" bundle:nil];
+    _instructionVC.view.frame = self.view.frame;
+    _instructionVC.stageVC = self;
+    _instructionVC.levelNumberLabel.text = [NSString stringWithFormat:@"%i", self.gameVC.stage+1];
+    _instructionVC.instructionsTitleLabel.text = @"title";
+    _instructionVC.instructionsDetailLabel.text = self.data[@"instructions"];
+    [UIView beginAnimations:@"curlup" context:nil];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:.5];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
+    [self.view addSubview:_instructionVC.view];
+    [UIView commitAnimations];
+
+}
+
+-(void)instructionDone
+{
+    [UIView beginAnimations:@"curlup" context:nil];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDuration:.5];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
+    [_instructionVC.view removeFromSuperview];
+    [UIView commitAnimations];
+    [self layoutClocks];
+    [self createTimerForStageEnd];
+}
+
+-(void)layoutClocks
+{
     int boxHeight = self.view.bounds.size.height / self.numRows;
     int boxWidth = self.view.bounds.size.width / self.numColumns;
-    
     NSArray *shuffledTimeline = [self shuffleArray:self.data[@"sequence"]];
-    
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
             TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
@@ -68,7 +102,6 @@
             [_clockViews addObject:clockView];
         }
     }
-    [self createTimerForStageEnd];
 }
 
 
