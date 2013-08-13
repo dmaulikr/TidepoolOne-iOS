@@ -52,25 +52,47 @@
     [super viewDidAppear:animated];
     int boxHeight = self.view.bounds.size.height / self.numRows;
     int boxWidth = self.view.bounds.size.width / self.numColumns;
+    
+    NSArray *shuffledTimeline = [self shuffleArray:self.data[@"sequence"]];
+    
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
             TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
             clockView.isRinging = NO;
             clockView.delegate = self;
-            clockView.timeline = @[@{@"delay":@100,@"colors":@[@"green"],},
-                                   @{@"delay":@2400,@"colors":@[@"red",@"green"],},
-                                   @{@"delay":@6400,@"colors":@[@"green"],},
-                                   @{@"delay":@9400,@"colors":@[@"green"],},
-                                   @{@"delay":@12400,@"colors":@[@"green"],},
-                                   @{@"delay":@15400,@"colors":@[@"red",@"green"],},
-                                   ];
-            clockView.correctColor = @"green";
-            clockView.correctColorSequence = @[@"red",@"green"];
+            clockView.timeline = shuffledTimeline[self.numRows*i+j];
+            clockView.correctColor = self.data[@"correct_color"];
+            clockView.correctColorSequence = self.data[@"correct_color_sequence"];
             clockView.tag = i+j+1;
             [self.view addSubview:clockView];
             [_clockViews addObject:clockView];
         }
     }
+    [self createTimerForStageEnd];
+}
+
+
+-(NSArray *)shuffleArray:(NSArray *)array
+{
+    NSMutableArray *shuffledArray = [array mutableCopy];
+    for (int i=0;i<shuffledArray.count;i++) {
+        [shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:(i+(arc4random()%(shuffledArray.count-i)))];
+    }
+    return shuffledArray;
+}
+
+
+-(void)createTimerForStageEnd
+{
+    NSNumber *maxTime = @0;
+    for (NSArray *clockSequence in self.data[@"sequence"]) {
+        for (NSDictionary *item in clockSequence) {
+            if ([maxTime intValue] < [item[@"delay"] intValue]) {
+                maxTime = item[@"delay"];
+            }
+        }
+    }
+    [NSTimer scheduledTimerWithTimeInterval:3.0 + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
 }
 
 - (void)didReceiveMemoryWarning

@@ -36,17 +36,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Logged In" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
+    
+    
     UINib *nib = [UINib nibWithNibName:@"TPProfileTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TPProfileTableViewCell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
-    [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self parseResponse:responseObject];
-        NSLog([responseObject description]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog([error description]);
-    }];
-    
+    [self loggedIn];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -101,6 +100,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TPProfileTableViewCell" forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;    
     // Configure the cell...
     switch (indexPath.section) {
         case 0: {
@@ -267,5 +267,20 @@
 
 }
 
+
+-(void)loggedIn
+{
+    [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self parseResponse:responseObject];
+        NSLog([responseObject description]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog([error description]);
+    }];
+}
+
+-(void)loggedOut
+{
+    self.personalityType = nil;
+}
 
 @end

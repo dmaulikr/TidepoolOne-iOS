@@ -114,6 +114,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",_oauthAccessToken]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];
 }
 
 -(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
@@ -146,6 +147,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 
 -(void)logout
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];    
     [self clearAuthorizationHeader];
     [self deleteAllPasswords];
 }

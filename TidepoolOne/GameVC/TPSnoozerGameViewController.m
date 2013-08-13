@@ -36,8 +36,7 @@
 }
 - (void)viewDidAppear:(BOOL)animated
 {
-    self.type = @"snoozer";    
-    //TODO: handle ok if facebook auth
+    self.type = @"snoozer";
     [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
         [self startNewGame];
     } andFailure:^{
@@ -48,11 +47,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)currentStageDoneWithEvents:(NSArray *)events
-{
-    
 }
 
 @end

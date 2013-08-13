@@ -28,7 +28,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.isRinging = YES;
+        self.isRinging = NO;
         self.currentColor = @"green";
         _ringingState = 0;
         _shownCounter = 0;
@@ -52,6 +52,7 @@
         _imageView.center = relativeCenter;
         [self addSubview:_imageView];
         _imageView.animationDuration = 0.25;
+        [self updatePicture];
     }
     return self;
 }
@@ -66,18 +67,28 @@
         _imageView.image = _imageDictionary[@"incorrect"];
         }
         _showingResponseImage = NO;
+        float factor = 1;
+        [UIView animateWithDuration:0.2 animations:^{
+            _imageView.transform = CGAffineTransformMakeScale(factor, factor)
+            ;
+        }];
     } else {
         if (_isRinging) {
             NSArray *animationImages = @[_imageDictionary[_currentColor],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-1",_currentColor]],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-2",_currentColor]]];
             _imageView.animationImages = animationImages;
             float factor = 1.4;
-            _imageView.transform = CGAffineTransformMakeScale(factor, factor);
+            [UIView animateWithDuration:0.2 animations:^{
+                _imageView.transform = CGAffineTransformMakeScale(factor, factor);
+            }];
             [_imageView startAnimating];
         } else {
             [_imageView stopAnimating];
-            float factor = 1;
-            _imageView.transform = CGAffineTransformMakeScale(factor, factor);
             _imageView.image = _imageDictionary[_currentColor];
+            float factor = 1;
+            [UIView animateWithDuration:0.2 animations:^{
+            _imageView.transform = CGAffineTransformMakeScale(factor, factor)
+                ;
+            }];
         }
     }
 }

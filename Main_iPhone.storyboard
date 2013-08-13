@@ -9,7 +9,7 @@
         <scene sceneID="8j8-ne-NmX">
             <objects>
                 <navigationController definesPresentationContext="YES" id="60S-k1-RCy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="Qpn-e9-Whp"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="tabicon-profile~iphone.png" id="Qpn-e9-Whp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D8a-ZT-Q6b">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Snoozer" id="E0S-zh-qJP"/>
+                    <tabBarItem key="tabBarItem" title="Snoozer" image="tabicon-focus~iphone.png" id="E0S-zh-qJP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,7 +101,7 @@
         <scene sceneID="umU-0m-Jde">
             <objects>
                 <navigationController definesPresentationContext="YES" id="gzV-xg-QCH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Results" id="a5V-GJ-Co3"/>
+                    <tabBarItem key="tabBarItem" title="Results" image="tabicon-results~iphone.png" id="a5V-GJ-Co3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q3J-ew-3V8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -134,6 +134,11 @@
             <point key="canvasLocation" x="-3909" y="761"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tabicon-focus~iphone.png" width="33" height="19"/>
+        <image name="tabicon-profile~iphone.png" width="33" height="23"/>
+        <image name="tabicon-results~iphone.png" width="33" height="23"/>
+    </resources>
     <classes>
         <class className="TPGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
