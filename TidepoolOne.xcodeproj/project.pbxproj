@@ -23,7 +23,6 @@
 		A819477B17AE1382009959DA /* results-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A819477917AE1382009959DA /* results-bg~iphone.png */; };
 		A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */; };
 		A819478C17AF841E009959DA /* TPProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478A17AF841D009959DA /* TPProfileViewController.xib */; };
-		A819478E17B01A69009959DA /* TPReactionTimeResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478D17B01A69009959DA /* TPReactionTimeResultViewController.xib */; };
 		A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */; };
 		A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */; };
 		A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */; };
@@ -48,16 +47,9 @@
 		A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A852856617B401810057954F /* TPProfileTableViewCell.m */; };
 		A879A64A17A8704C0082A455 /* NSObject+SEWebviewJSListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */; };
 		A879A64D17A870940082A455 /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64C17A870940082A455 /* CGHelper.m */; };
-		A879A65017A870D70082A455 /* TPReactionTimeResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64F17A870D70082A455 /* TPReactionTimeResultViewController.m */; };
-		A879A65717A870FB0082A455 /* TPEmotionsCirclesStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65217A870FA0082A455 /* TPEmotionsCirclesStageViewController.m */; };
-		A879A65817A870FB0082A455 /* TPReactionTimeStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65417A870FA0082A455 /* TPReactionTimeStageViewController.m */; };
 		A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */; };
 		A879A66217A871220082A455 /* TPCirclesDistanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65B17A871220082A455 /* TPCirclesDistanceView.m */; };
-		A879A66317A871220082A455 /* TPCustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65D17A871220082A455 /* TPCustomScrollView.m */; };
 		A879A66417A871220082A455 /* TPOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65F17A871220082A455 /* TPOverlayView.m */; };
-		A879A66517A871220082A455 /* TPReactionTimeStageCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A66117A871220082A455 /* TPReactionTimeStageCircleView.m */; };
-		A879A66A17A8713E0082A455 /* TPEmotionsGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A66717A8713E0082A455 /* TPEmotionsGameViewController.m */; };
-		A879A66B17A8713E0082A455 /* TPReactionTimeGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A66917A8713E0082A455 /* TPReactionTimeGameViewController.m */; };
 		A879A66E17A871730082A455 /* TPReactionTimeResultWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A66D17A871730082A455 /* TPReactionTimeResultWidgetViewController.m */; };
 		A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A317A888C20082A455 /* TPLoginViewController.m */; };
 		A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A517A888C20082A455 /* TPServiceLoginViewController.m */; };
@@ -66,11 +58,9 @@
 		A879A6C117A888C20082A455 /* TPUploadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AC17A888C20082A455 /* TPUploadQueue.m */; };
 		A879A6C217A888C20082A455 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AF17A888C20082A455 /* Singleton.m */; };
 		A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */; };
-		A879A6C417A888C20082A455 /* TPDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B417A888C20082A455 /* TPDashboardViewController.m */; };
 		A879A6C517A888C20082A455 /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B617A888C20082A455 /* TPGameViewController.m */; };
 		A879A6C617A888C20082A455 /* TPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B817A888C20082A455 /* TPResultViewController.m */; };
 		A879A6C717A888C20082A455 /* TPStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6BA17A888C20082A455 /* TPStageViewController.m */; };
-		A879A6C817A888C20082A455 /* TPWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6BC17A888C20082A455 /* TPWidgetViewController.m */; };
 		A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.m */; };
 		A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */; };
 		A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E703517AC3C60001605DF /* TPSnoozerClockView.m */; };
@@ -592,7 +582,6 @@
 		A819477917AE1382009959DA /* results-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "results-bg~iphone.png"; sourceTree = "<group>"; };
 		A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultViewController.xib; sourceTree = "<group>"; };
 		A819478A17AF841D009959DA /* TPProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileViewController.xib; sourceTree = "<group>"; };
-		A819478D17B01A69009959DA /* TPReactionTimeResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPReactionTimeResultViewController.xib; sourceTree = "<group>"; };
 		A819478F17B01FEF009959DA /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
 		A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
 		A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPResultsHistoryViewController.xib; sourceTree = "<group>"; };
@@ -630,26 +619,12 @@
 		A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SEWebviewJSListener.m"; path = "Vendor/NSObject+SEWebviewJSListener.m"; sourceTree = "<group>"; };
 		A879A64B17A870940082A455 /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGHelper.h; path = Helper/CGHelper.h; sourceTree = "<group>"; };
 		A879A64C17A870940082A455 /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGHelper.m; path = Helper/CGHelper.m; sourceTree = "<group>"; };
-		A879A64E17A870D70082A455 /* TPReactionTimeResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPReactionTimeResultViewController.h; path = ResultVC/TPReactionTimeResultViewController.h; sourceTree = "<group>"; };
-		A879A64F17A870D70082A455 /* TPReactionTimeResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPReactionTimeResultViewController.m; path = ResultVC/TPReactionTimeResultViewController.m; sourceTree = "<group>"; };
-		A879A65117A870FA0082A455 /* TPEmotionsCirclesStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEmotionsCirclesStageViewController.h; path = StageVC/TPEmotionsCirclesStageViewController.h; sourceTree = "<group>"; };
-		A879A65217A870FA0082A455 /* TPEmotionsCirclesStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEmotionsCirclesStageViewController.m; path = StageVC/TPEmotionsCirclesStageViewController.m; sourceTree = "<group>"; };
-		A879A65317A870FA0082A455 /* TPReactionTimeStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPReactionTimeStageViewController.h; path = StageVC/TPReactionTimeStageViewController.h; sourceTree = "<group>"; };
-		A879A65417A870FA0082A455 /* TPReactionTimeStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPReactionTimeStageViewController.m; path = StageVC/TPReactionTimeStageViewController.m; sourceTree = "<group>"; };
 		A879A65517A870FA0082A455 /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSurveyStageViewController.h; path = StageVC/TPSurveyStageViewController.h; sourceTree = "<group>"; };
 		A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSurveyStageViewController.m; path = StageVC/TPSurveyStageViewController.m; sourceTree = "<group>"; };
 		A879A65A17A871220082A455 /* TPCirclesDistanceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCirclesDistanceView.h; path = Views/TPCirclesDistanceView.h; sourceTree = "<group>"; };
 		A879A65B17A871220082A455 /* TPCirclesDistanceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPCirclesDistanceView.m; path = Views/TPCirclesDistanceView.m; sourceTree = "<group>"; };
-		A879A65C17A871220082A455 /* TPCustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCustomScrollView.h; path = Views/TPCustomScrollView.h; sourceTree = "<group>"; };
-		A879A65D17A871220082A455 /* TPCustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPCustomScrollView.m; path = Views/TPCustomScrollView.m; sourceTree = "<group>"; };
 		A879A65E17A871220082A455 /* TPOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPOverlayView.h; path = Views/TPOverlayView.h; sourceTree = "<group>"; };
 		A879A65F17A871220082A455 /* TPOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPOverlayView.m; path = Views/TPOverlayView.m; sourceTree = "<group>"; };
-		A879A66017A871220082A455 /* TPReactionTimeStageCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPReactionTimeStageCircleView.h; path = Views/TPReactionTimeStageCircleView.h; sourceTree = "<group>"; };
-		A879A66117A871220082A455 /* TPReactionTimeStageCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPReactionTimeStageCircleView.m; path = Views/TPReactionTimeStageCircleView.m; sourceTree = "<group>"; };
-		A879A66617A8713E0082A455 /* TPEmotionsGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEmotionsGameViewController.h; path = GameVC/TPEmotionsGameViewController.h; sourceTree = "<group>"; };
-		A879A66717A8713E0082A455 /* TPEmotionsGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEmotionsGameViewController.m; path = GameVC/TPEmotionsGameViewController.m; sourceTree = "<group>"; };
-		A879A66817A8713E0082A455 /* TPReactionTimeGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPReactionTimeGameViewController.h; path = GameVC/TPReactionTimeGameViewController.h; sourceTree = "<group>"; };
-		A879A66917A8713E0082A455 /* TPReactionTimeGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPReactionTimeGameViewController.m; path = GameVC/TPReactionTimeGameViewController.m; sourceTree = "<group>"; };
 		A879A66C17A871730082A455 /* TPReactionTimeResultWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPReactionTimeResultWidgetViewController.h; path = WidgetVC/TPReactionTimeResultWidgetViewController.h; sourceTree = "<group>"; };
 		A879A66D17A871730082A455 /* TPReactionTimeResultWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPReactionTimeResultWidgetViewController.m; path = WidgetVC/TPReactionTimeResultWidgetViewController.m; sourceTree = "<group>"; };
 		A879A6A217A888C20082A455 /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
@@ -666,16 +641,12 @@
 		A879A6AF17A888C20082A455 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		A879A6B017A888C20082A455 /* TPLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocalNotificationManager.h; sourceTree = "<group>"; };
 		A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocalNotificationManager.m; sourceTree = "<group>"; };
-		A879A6B317A888C20082A455 /* TPDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardViewController.h; sourceTree = "<group>"; };
-		A879A6B417A888C20082A455 /* TPDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardViewController.m; sourceTree = "<group>"; };
 		A879A6B517A888C20082A455 /* TPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGameViewController.h; sourceTree = "<group>"; };
 		A879A6B617A888C20082A455 /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
 		A879A6B717A888C20082A455 /* TPResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultViewController.h; sourceTree = "<group>"; };
 		A879A6B817A888C20082A455 /* TPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultViewController.m; sourceTree = "<group>"; };
 		A879A6B917A888C20082A455 /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
 		A879A6BA17A888C20082A455 /* TPStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPStageViewController.m; sourceTree = "<group>"; };
-		A879A6BB17A888C20082A455 /* TPWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWidgetViewController.h; sourceTree = "<group>"; };
-		A879A6BC17A888C20082A455 /* TPWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWidgetViewController.m; sourceTree = "<group>"; };
 		A87E6FFC17AB27B6001605DF /* TPSnoozerGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerGameViewController.h; path = GameVC/TPSnoozerGameViewController.h; sourceTree = "<group>"; };
 		A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSnoozerGameViewController.m; path = GameVC/TPSnoozerGameViewController.m; sourceTree = "<group>"; };
 		A87E6FFF17AB2916001605DF /* TPSnoozerStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerStageViewController.h; path = StageVC/TPSnoozerStageViewController.h; sourceTree = "<group>"; };
@@ -1311,9 +1282,6 @@
 		A86C2CC317A1AFFA00A5290E /* ResultVC */ = {
 			isa = PBXGroup;
 			children = (
-				A879A64E17A870D70082A455 /* TPReactionTimeResultViewController.h */,
-				A879A64F17A870D70082A455 /* TPReactionTimeResultViewController.m */,
-				A819478D17B01A69009959DA /* TPReactionTimeResultViewController.xib */,
 				A819477517AE1323009959DA /* TPSnoozerResultViewController.h */,
 				A819477617AE1323009959DA /* TPSnoozerResultViewController.m */,
 				A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */,
@@ -1384,8 +1352,6 @@
 		A879A6B217A888C20082A455 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A879A6B317A888C20082A455 /* TPDashboardViewController.h */,
-				A879A6B417A888C20082A455 /* TPDashboardViewController.m */,
 				A879A6B517A888C20082A455 /* TPGameViewController.h */,
 				A879A6B617A888C20082A455 /* TPGameViewController.m */,
 				A879A6B717A888C20082A455 /* TPResultViewController.h */,
@@ -1395,8 +1361,6 @@
 				A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */,
 				A879A6B917A888C20082A455 /* TPStageViewController.h */,
 				A879A6BA17A888C20082A455 /* TPStageViewController.m */,
-				A879A6BB17A888C20082A455 /* TPWidgetViewController.h */,
-				A879A6BC17A888C20082A455 /* TPWidgetViewController.m */,
 				A8DD649A17B1D2840040BD90 /* TPProfileViewController.h */,
 				A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */,
 				A819478A17AF841D009959DA /* TPProfileViewController.xib */,
@@ -1409,10 +1373,6 @@
 		A89B97D417A099AE006815A6 /* GameVC */ = {
 			isa = PBXGroup;
 			children = (
-				A879A66617A8713E0082A455 /* TPEmotionsGameViewController.h */,
-				A879A66717A8713E0082A455 /* TPEmotionsGameViewController.m */,
-				A879A66817A8713E0082A455 /* TPReactionTimeGameViewController.h */,
-				A879A66917A8713E0082A455 /* TPReactionTimeGameViewController.m */,
 				A87E6FFC17AB27B6001605DF /* TPSnoozerGameViewController.h */,
 				A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.m */,
 			);
@@ -1989,10 +1949,6 @@
 		A8BD1DF6179F032700A7E26C /* StageVC */ = {
 			isa = PBXGroup;
 			children = (
-				A879A65117A870FA0082A455 /* TPEmotionsCirclesStageViewController.h */,
-				A879A65217A870FA0082A455 /* TPEmotionsCirclesStageViewController.m */,
-				A879A65317A870FA0082A455 /* TPReactionTimeStageViewController.h */,
-				A879A65417A870FA0082A455 /* TPReactionTimeStageViewController.m */,
 				A87E6FFF17AB2916001605DF /* TPSnoozerStageViewController.h */,
 				A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */,
 				A879A65517A870FA0082A455 /* TPSurveyStageViewController.h */,
@@ -2015,12 +1971,8 @@
 				A819481517B087CB009959DA /* TPGraphTooltipView.m */,
 				A879A65A17A871220082A455 /* TPCirclesDistanceView.h */,
 				A879A65B17A871220082A455 /* TPCirclesDistanceView.m */,
-				A879A65C17A871220082A455 /* TPCustomScrollView.h */,
-				A879A65D17A871220082A455 /* TPCustomScrollView.m */,
 				A879A65E17A871220082A455 /* TPOverlayView.h */,
 				A879A65F17A871220082A455 /* TPOverlayView.m */,
-				A879A66017A871220082A455 /* TPReactionTimeStageCircleView.h */,
-				A879A66117A871220082A455 /* TPReactionTimeStageCircleView.m */,
 				A87E703417AC3C60001605DF /* TPSnoozerClockView.h */,
 				A87E703517AC3C60001605DF /* TPSnoozerClockView.m */,
 				A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */,
@@ -2126,7 +2078,6 @@
 				A819477B17AE1382009959DA /* results-bg~iphone.png in Resources */,
 				A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */,
 				A819478C17AF841E009959DA /* TPProfileViewController.xib in Resources */,
-				A819478E17B01A69009959DA /* TPReactionTimeResultViewController.xib in Resources */,
 				A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */,
 				A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */,
 				A8DD64A317B1DB260040BD90 /* TPProfileViewHeader.xib in Resources */,
@@ -2664,16 +2615,9 @@
 				A82F6A3217947064003FC088 /* main.m in Sources */,
 				A879A64A17A8704C0082A455 /* NSObject+SEWebviewJSListener.m in Sources */,
 				A879A64D17A870940082A455 /* CGHelper.m in Sources */,
-				A879A65017A870D70082A455 /* TPReactionTimeResultViewController.m in Sources */,
-				A879A65717A870FB0082A455 /* TPEmotionsCirclesStageViewController.m in Sources */,
-				A879A65817A870FB0082A455 /* TPReactionTimeStageViewController.m in Sources */,
 				A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */,
 				A879A66217A871220082A455 /* TPCirclesDistanceView.m in Sources */,
-				A879A66317A871220082A455 /* TPCustomScrollView.m in Sources */,
 				A879A66417A871220082A455 /* TPOverlayView.m in Sources */,
-				A879A66517A871220082A455 /* TPReactionTimeStageCircleView.m in Sources */,
-				A879A66A17A8713E0082A455 /* TPEmotionsGameViewController.m in Sources */,
-				A879A66B17A8713E0082A455 /* TPReactionTimeGameViewController.m in Sources */,
 				A879A66E17A871730082A455 /* TPReactionTimeResultWidgetViewController.m in Sources */,
 				A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */,
 				A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */,
@@ -2682,11 +2626,9 @@
 				A879A6C117A888C20082A455 /* TPUploadQueue.m in Sources */,
 				A879A6C217A888C20082A455 /* Singleton.m in Sources */,
 				A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */,
-				A879A6C417A888C20082A455 /* TPDashboardViewController.m in Sources */,
 				A879A6C517A888C20082A455 /* TPGameViewController.m in Sources */,
 				A879A6C617A888C20082A455 /* TPResultViewController.m in Sources */,
 				A879A6C717A888C20082A455 /* TPStageViewController.m in Sources */,
-				A879A6C817A888C20082A455 /* TPWidgetViewController.m in Sources */,
 				A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.m in Sources */,
 				A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */,
 				A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */,
