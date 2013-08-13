@@ -57,6 +57,41 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Initialization code
+        self.isRinging = NO;
+        self.currentColor = @"green";
+        _ringingState = 0;
+        _shownCounter = 0;
+        _imageDictionary = [NSMutableDictionary dictionary];
+        
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock.png"] forKey:@"green"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring1.png"] forKey:@"green-ringing-1"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring2.png"] forKey:@"green-ringing-2"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-correct.png"] forKey:@"correct"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-missed.png"] forKey:@"incorrect"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockb.png"] forKey:@"red"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb1.png"] forKey:@"red-ringing-1"];
+        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb2.png"] forKey:@"red-ringing-2"];
+        
+        _avgTimeToShow = 2000;
+        UIImage *image = _imageDictionary[@"green"];
+        _baseSize = image.size;
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _baseSize.width, _baseSize.width)];
+        relativeCenter.x = self.bounds.size.width/2;
+        relativeCenter.y = self.bounds.size.height/2;
+        _imageView.center = relativeCenter;
+        [self addSubview:_imageView];
+        _imageView.animationDuration = 0.25;
+        [self updatePicture];
+    }
+    return self;
+}
+
+
 -(void)updatePicture
 {
     if (_showingResponseImage) {
@@ -77,7 +112,7 @@
         if (_isRinging) {
             NSArray *animationImages = @[_imageDictionary[_currentColor],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-1",_currentColor]],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-2",_currentColor]]];
             _imageView.animationImages = animationImages;
-            float factor = 1.4;
+            float factor = 1.2;
             [UIView animateWithDuration:0.2 animations:^{
                 _imageView.transform = CGAffineTransformMakeScale(factor, factor);
             }];
@@ -86,7 +121,7 @@
             [_imageView stopAnimating];
             _imageView.image = _imageDictionary[_currentColor];
             float factor = 1;
-            [UIView animateWithDuration:0.2 animations:^{
+            [UIView animateWithDuration:0.1 animations:^{
             _imageView.transform = CGAffineTransformMakeScale(factor, factor)
                 ;
             }];

@@ -63,6 +63,10 @@
     _instructionVC.levelNumberLabel.text = [NSString stringWithFormat:@"%i", self.gameVC.stage+1];
     _instructionVC.instructionsTitleLabel.text = @"title";
     _instructionVC.instructionsDetailLabel.text = self.data[@"instructions"];
+    _instructionVC.clockViewLeft.currentColor = self.data[@"correct_color_sequence"][0];
+    _instructionVC.clockViewRight.currentColor = [self.data[@"correct_color_sequence"] lastObject];
+    [_instructionVC.clockViewLeft updatePicture];
+    [_instructionVC.clockViewRight updatePicture];
     [UIView beginAnimations:@"curlup" context:nil];
     [UIView setAnimationDelegate:self];
     [UIView setAnimationDuration:.5];

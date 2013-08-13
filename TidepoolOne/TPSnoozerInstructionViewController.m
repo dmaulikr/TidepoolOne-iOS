@@ -29,16 +29,6 @@
     // Do any additional setup after loading the view from its nib.
     [self.startButton addTarget:self.stageVC action:@selector(instructionDone) forControlEvents:UIControlEventTouchUpInside];
 }
-//
-//-(void)buttonPressed
-//{
-////    [UIView beginAnimations:@"curldown" context:nil];
-////    [UIView setAnimationDelegate:self];
-////    [UIView setAnimationDuration:.5];
-////    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
-////    [self.view removeFromSuperview];
-////    [UIView commitAnimations];
-//}
 
 - (void)didReceiveMemoryWarning
 {
