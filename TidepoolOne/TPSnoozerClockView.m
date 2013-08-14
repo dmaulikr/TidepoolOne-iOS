@@ -21,38 +21,15 @@
     BOOL _response;
     float _avgTimeToShow;
     int _shownCounter;
+    float _staticScale;
+    float _ringingScale;
 }
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        self.isRinging = NO;
-        self.currentColor = @"green";
-        _ringingState = 0;
-        _shownCounter = 0;
-        _imageDictionary = [NSMutableDictionary dictionary];
-
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock.png"] forKey:@"green"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring1.png"] forKey:@"green-ringing-1"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring2.png"] forKey:@"green-ringing-2"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-correct.png"] forKey:@"correct"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-missed.png"] forKey:@"incorrect"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockb.png"] forKey:@"red"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb1.png"] forKey:@"red-ringing-1"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb2.png"] forKey:@"red-ringing-2"];
-
-        _avgTimeToShow = 2000;
-        UIImage *image = _imageDictionary[@"green"];
-        _baseSize = image.size;
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _baseSize.width, _baseSize.width)];
-        relativeCenter.x = self.bounds.size.width/2;
-        relativeCenter.y = self.bounds.size.height/2;
-        _imageView.center = relativeCenter;
-        [self addSubview:_imageView];
-        _imageView.animationDuration = 0.25;
-        [self updatePicture];
+        [self commonInitIvars];
     }
     return self;
 }
@@ -62,33 +39,46 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        self.isRinging = NO;
-        self.currentColor = @"green";
-        _ringingState = 0;
-        _shownCounter = 0;
-        _imageDictionary = [NSMutableDictionary dictionary];
-        
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock.png"] forKey:@"green"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring1.png"] forKey:@"green-ringing-1"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring2.png"] forKey:@"green-ringing-2"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-correct.png"] forKey:@"correct"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-missed.png"] forKey:@"incorrect"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockb.png"] forKey:@"red"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb1.png"] forKey:@"red-ringing-1"];
-        [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb2.png"] forKey:@"red-ringing-2"];
-        
-        _avgTimeToShow = 2000;
-        UIImage *image = _imageDictionary[@"green"];
-        _baseSize = image.size;
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _baseSize.width, _baseSize.width)];
-        relativeCenter.x = self.bounds.size.width/2;
-        relativeCenter.y = self.bounds.size.height/2;
-        _imageView.center = relativeCenter;
-        [self addSubview:_imageView];
-        _imageView.animationDuration = 0.25;
-        [self updatePicture];
+        [self commonInitIvars];
     }
     return self;
+}
+
+-(void)commonInitIvars
+{
+    self.backgroundColor = [UIColor clearColor];
+    self.isRinging = NO;
+    self.currentColor = @"green";
+    _ringingState = 0;
+    _shownCounter = 0;
+    _staticScale = 0.75;
+    _ringingScale = 1.5;
+    _imageDictionary = [NSMutableDictionary dictionary];
+    
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock.png"] forKey:@"green"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring1.png"] forKey:@"green-ringing-1"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockring2.png"] forKey:@"green-ringing-2"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-correct.png"] forKey:@"correct"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clock-missed.png"] forKey:@"incorrect"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockb.png"] forKey:@"orange"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb1.png"] forKey:@"orange-ringing-1"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringb2.png"] forKey:@"orange-ringing-2"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockc.png"] forKey:@"yellow"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringc1.png"] forKey:@"yellow-ringing-1"];
+    [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringc2.png"] forKey:@"yellow-ringing-2"];
+    
+    
+    _avgTimeToShow = 2000;
+    UIImage *image = _imageDictionary[@"green"];
+    _baseSize = image.size;
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _baseSize.width, _baseSize.width)];
+    relativeCenter.x = self.bounds.size.width/2;
+    relativeCenter.y = self.bounds.size.height/2;
+    _imageView.center = relativeCenter;
+    [self addSubview:_imageView];
+    _imageView.transform = CGAffineTransformMakeScale(_staticScale, _staticScale);
+    _imageView.animationDuration = 0.25;
+    [self updatePicture];
 }
 
 
@@ -97,13 +87,12 @@
     if (_showingResponseImage) {
         [_imageView stopAnimating];
         if (_response) {
-        _imageView.image = _imageDictionary[@"correct"];
+            _imageView.image = _imageDictionary[@"correct"];
         } else {
-        _imageView.image = _imageDictionary[@"incorrect"];
+            _imageView.image = _imageDictionary[@"incorrect"];
         }
-        float factor = 1;
         [UIView animateWithDuration:0.2 animations:^{
-            _imageView.transform = CGAffineTransformMakeScale(factor, factor)
+            _imageView.transform = CGAffineTransformMakeScale(_staticScale, _staticScale);
             ;
         }];
         _showingResponseImage = NO;
@@ -112,17 +101,15 @@
         if (_isRinging) {
             NSArray *animationImages = @[_imageDictionary[_currentColor],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-1",_currentColor]],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-2",_currentColor]]];
             _imageView.animationImages = animationImages;
-            float factor = 1.2;
             [UIView animateWithDuration:0.2 animations:^{
-                _imageView.transform = CGAffineTransformMakeScale(factor, factor);
+                _imageView.transform = CGAffineTransformMakeScale(_ringingScale, _ringingScale);
             }];
             [_imageView startAnimating];
         } else {
             [_imageView stopAnimating];
             _imageView.image = _imageDictionary[_currentColor];
-            float factor = 1;
             [UIView animateWithDuration:0.1 animations:^{
-            _imageView.transform = CGAffineTransformMakeScale(factor, factor)
+                _imageView.transform = CGAffineTransformMakeScale(_staticScale, _staticScale);
                 ;
             }];
         }
@@ -148,7 +135,7 @@
 -(void)setTimeline:(NSArray *)timeline
 {
     _timeline = timeline;
-
+    
     for (int i=0;i<timeline.count;i++) {
         NSDictionary *item = timeline[i];
         [NSTimer scheduledTimerWithTimeInterval:0.001*[item[@"delay"] floatValue] target:self selector:@selector(setColorSequenceFromTimer:) userInfo:item[@"colors"] repeats:NO];
@@ -178,7 +165,7 @@
         [self.delegate showedPossibleClockInClockView:self];
         NSLog(@"yeah");
     }
-
+    
 }
 
 -(void)setStaticClockFromTimer:(NSTimer *)sender

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPServiceLoginViewController : UIViewController
+@interface TPServiceLoginViewController : UIViewController <UIWebViewDelegate>
 
 @end

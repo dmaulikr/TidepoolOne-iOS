@@ -8,6 +8,8 @@
 
 #import "TPSnoozerStageViewController.h"
 #import "TPSnoozerInstructionViewController.h"
+#import <AttributedMarkdown/markdown_lib.h>
+#import <AttributedMarkdown/markdown_peg.h>
 
 @interface TPSnoozerStageViewController ()
 {
@@ -62,7 +64,7 @@
     _instructionVC.stageVC = self;
     _instructionVC.levelNumberLabel.text = [NSString stringWithFormat:@"%i", self.gameVC.stage+1];
     _instructionVC.instructionsTitleLabel.text = @"title";
-    _instructionVC.instructionsDetailLabel.text = self.data[@"instructions"];
+    _instructionVC.instructionsDetailLabel.attributedText = [self parsedFromMarkdown:self.data[@"instructions"]];
     _instructionVC.clockViewLeft.currentColor = self.data[@"correct_color_sequence"][0];
     _instructionVC.clockViewRight.currentColor = [self.data[@"correct_color_sequence"] lastObject];
     [_instructionVC.clockViewLeft updatePicture];
@@ -86,6 +88,7 @@
     [UIView commitAnimations];
     [self layoutClocks];
     [self createTimerForStageEnd];
+    [self logTestStarted];
 }
 
 -(void)layoutClocks
@@ -129,7 +132,7 @@
             }
         }
     }
-    [NSTimer scheduledTimerWithTimeInterval:3.0 + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:1.0 + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -154,7 +157,7 @@
 
 -(void)stageOver
 {
-    NSLog(@"correct:%i, incorrect:%i", _correctTouches, _incorrectTouches);
+    [self logTestCompleted];
     [self.gameVC currentStageDoneWithEvents:_eventArray];
 }
 
@@ -166,7 +169,7 @@
     [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
     [_eventArray addObject:eventWithTime];
 }
--(void)logTestStartedForClock:(TPSnoozerClockView *)clockView
+-(void)logTestStarted
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"level_started" forKey:@"event"];
@@ -197,14 +200,38 @@
     [self logEventToServer:event];
 }
 
--(void)logTestCompletedForClock:(TPSnoozerClockView *)clockView
+-(void)logTestCompleted
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"level_completed" forKey:@"event"];
     [self logEventToServer:event];
     [event setValue:@"level_summary" forKey:@"event"];
     [self logEventToServer:event];
-    [self stageOver];
+}
+
+-(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
+{
+    // start with a raw markdown string
+    //    rawText = @"Hello, world. *This* is native Markdown.";
+    
+    // create a font attribute for emphasized text
+    UIFont *strongFont = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    
+    // create a color attribute for paragraph text
+    UIColor *emColor = [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];
+    
+    // create a dictionary to hold your custom attributes for any Markdown types
+    NSDictionary *attributes = @{
+                                 @(STRONG): @{NSFontAttributeName : strongFont,},
+                                 @(EMPH): @{NSForegroundColorAttributeName : emColor,}
+                                 };
+    // parse the markdown
+    NSAttributedString *prettyText = markdown_to_attr_string(rawText,0,attributes);
+    
+    return prettyText;
+    //    // assign it to a view object
+    //    myTextView.attributedText = prettyText;
+    
 }
 
 

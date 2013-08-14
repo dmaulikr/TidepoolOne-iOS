@@ -10,9 +10,6 @@
 #import "TPOAuthClient.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
 
-#import "TPReactionTimeStageViewController.h"
-#import "TPSurveyStageViewController.h"
-#import "TPEmotionsCirclesStageViewController.h"
 #import "TPSnoozerStageViewController.h"
 #import "TPSnoozerResultViewController.h"
 #import "TPResultViewController.h"
@@ -102,13 +99,28 @@
     [stageLog setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
     [stageLog setValue:events forKey:@"events"];
     [stageLog setValue:currentVC.type forKey:@"event_type"];
-    [self hideContentController:currentVC];
-    _stage++;
-    if (_stage < [_response[@"stages"] count]) {
-        [self setupGameForCurrentStage];
-    } else {
-        [self getResults];
-    }
+    NSLog([stageLog description]);
+// UNCOMMENT EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
+//    [_oauthClient postPath:[NSString stringWithFormat:@"/users/-/games/%@/event_log",_gameId] parameters:stageLog success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [self hideContentController:currentVC];
+//        _stage++;
+//        if (_stage < [_response[@"stages"] count]) {
+//            [self setupGameForCurrentStage];
+//        } else {
+//            [self getResults];
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog([error description]);
+//    }];
+// REMOVE EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
+        [self hideContentController:currentVC];
+        _stage++;
+        if (_stage < [_response[@"stages"] count]) {
+            [self setupGameForCurrentStage];
+        } else {
+            [self getResults];
+        }
+
 }
 
 -(void)showResults
