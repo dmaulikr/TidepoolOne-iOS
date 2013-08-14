@@ -31,6 +31,7 @@
 	// Do any additional setup after loading the view.
     self.title = @"Snoozer Results";
     self.results = @[@"Results"];
+    self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"results-bg.png"]];
@@ -69,12 +70,6 @@
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.45];
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-     TPSnoozerResultViewController *detailViewController = [[TPSnoozerResultViewController alloc] initWithNibName:nil bundle:nil];
-     [self.navigationController pushViewController:detailViewController animated:YES];
-}
-
 
 - (void)didReceiveMemoryWarning
 {

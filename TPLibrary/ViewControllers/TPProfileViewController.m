@@ -43,6 +43,7 @@
     
     UINib *nib = [UINib nibWithNibName:@"TPProfileTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TPProfileTableViewCell"];
+    self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
     [self loggedIn];
@@ -100,7 +101,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPProfileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TPProfileTableViewCell" forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;    
     // Configure the cell...
     switch (indexPath.section) {
         case 0: {
@@ -270,6 +270,7 @@
 
 -(void)loggedIn
 {
+    NSLog(@"called login");
     [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self parseResponse:responseObject];
         NSLog([responseObject description]);
@@ -280,6 +281,7 @@
 
 -(void)loggedOut
 {
+    NSLog(@"called logout");    
     self.personalityType = nil;
 }
 

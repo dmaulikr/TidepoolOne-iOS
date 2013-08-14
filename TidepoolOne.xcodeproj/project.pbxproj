@@ -45,7 +45,6 @@
 		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
 		A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A852856317B4016D0057954F /* TPProfileTableViewCell.xib */; };
 		A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A852856617B401810057954F /* TPProfileTableViewCell.m */; };
-		A879A64A17A8704C0082A455 /* NSObject+SEWebviewJSListener.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */; };
 		A879A64D17A870940082A455 /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64C17A870940082A455 /* CGHelper.m */; };
 		A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */; };
 		A879A66217A871220082A455 /* TPCirclesDistanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65B17A871220082A455 /* TPCirclesDistanceView.m */; };
@@ -614,8 +613,6 @@
 		A852856317B4016D0057954F /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
 		A852856517B401810057954F /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
 		A852856617B401810057954F /* TPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewCell.m; sourceTree = "<group>"; };
-		A879A64817A8704C0082A455 /* NSObject+SEWebviewJSListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SEWebviewJSListener.h"; path = "Vendor/NSObject+SEWebviewJSListener.h"; sourceTree = "<group>"; };
-		A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SEWebviewJSListener.m"; path = "Vendor/NSObject+SEWebviewJSListener.m"; sourceTree = "<group>"; };
 		A879A64B17A870940082A455 /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGHelper.h; path = Helper/CGHelper.h; sourceTree = "<group>"; };
 		A879A64C17A870940082A455 /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGHelper.m; path = Helper/CGHelper.m; sourceTree = "<group>"; };
 		A879A65517A870FA0082A455 /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSurveyStageViewController.h; path = StageVC/TPSurveyStageViewController.h; sourceTree = "<group>"; };
@@ -1194,7 +1191,6 @@
 			children = (
 				A819476817AE089E009959DA /* Design */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
-				A8BD1DDA179DC0CA00A7E26C /* Vendor */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
 				A82F6A4D17947064003FC088 /* TidepoolOneTests */,
 				A82F6A2417947064003FC088 /* Frameworks */,
@@ -1923,15 +1919,6 @@
 			path = "tab bar icons";
 			sourceTree = "<group>";
 		};
-		A8BD1DDA179DC0CA00A7E26C /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				A879A64817A8704C0082A455 /* NSObject+SEWebviewJSListener.h */,
-				A879A64917A8704C0082A455 /* NSObject+SEWebviewJSListener.m */,
-			);
-			name = Vendor;
-			sourceTree = "<group>";
-		};
 		A8BD1DF5179F030300A7E26C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -2608,7 +2595,6 @@
 			files = (
 				A82F6A3617947064003FC088 /* TPAppDelegate.m in Sources */,
 				A82F6A3217947064003FC088 /* main.m in Sources */,
-				A879A64A17A8704C0082A455 /* NSObject+SEWebviewJSListener.m in Sources */,
 				A879A64D17A870940082A455 /* CGHelper.m in Sources */,
 				A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */,
 				A879A66217A871220082A455 /* TPCirclesDistanceView.m in Sources */,
