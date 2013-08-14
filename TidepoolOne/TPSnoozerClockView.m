@@ -7,6 +7,7 @@
 //
 
 #import "TPSnoozerClockView.h"
+#import <AudioToolbox/AudioServices.h>
 
 @implementation TPSnoozerClockView
 {
@@ -121,6 +122,9 @@
     [_resetToStaticTimer invalidate];
     _resetToStaticTimer = nil;
     _response = [self tappedCorrectly];
+    if (!_response) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    }
     [self.delegate tappedClockView:self correctly:_response];
     _showingResponseImage = YES;
     self.isRinging = NO;

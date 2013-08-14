@@ -18,7 +18,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *fastestTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *animalLabel;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIImageView *animalBadgeImage;
 
 - (IBAction)changePage:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *detailLabel;

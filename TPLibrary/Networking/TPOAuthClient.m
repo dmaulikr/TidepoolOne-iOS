@@ -97,9 +97,8 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
                             nil];
     [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
-        _oauthAccessToken = [responseObject valueForKey:@"access_token"];
-        [self saveAndUseOauthToken:_oauthAccessToken];
-//        [self savePassword:password forAccount:username];
+        NSString *token = [responseObject valueForKey:@"access_token"];
+        [self saveAndUseOauthToken:token];
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"failure");
@@ -113,9 +112,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
     NSLog(@"called save oauth token");
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
-    NSLog(@"preLOGIN:%@", [self description]);
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
-    NSLog(@"postLOGIN:%@", [self description]);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];
 }
 
@@ -150,9 +147,7 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 -(void)logout
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
-    NSLog(@"preLOGOUT:%@", [self description]);
     [self clearAuthorizationHeader];
-    NSLog(@"postLOGOUT:%@", [self description]);
     [self deleteAllPasswords];
 }
 

@@ -56,6 +56,8 @@
     [dateFormatter setDateFormat:@"hh:mm a"];
     self.timeLabel.text = [dateFormatter stringFromDate:date];
     self.fastestTimeLabel.text = @"270";
+    self.animalLabel.text = @"DOLPHIN";
+    self.animalBadgeImage.image = [UIImage imageNamed:@"anim-badge-dolphin.png"];
 }
 
 -(void)setFastestTime:(NSNumber *)fastestTime

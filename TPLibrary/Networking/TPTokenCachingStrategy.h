@@ -7,7 +7,7 @@
 //
 
 #import "FBSessionTokenCachingStrategy.h"
-//#import <Face
+
 @interface TPTokenCachingStrategy : FBSessionTokenCachingStrategy
 
 @property (nonatomic, strong) NSString *thirdPartySessionId;
