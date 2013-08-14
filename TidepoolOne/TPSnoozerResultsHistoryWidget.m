@@ -8,6 +8,11 @@
 
 #import "TPSnoozerResultsHistoryWidget.h"
 
+@interface TPSnoozerResultsHistoryWidget()
+{
+    BOOL _pageControlUsed;
+}
+@end
 @implementation TPSnoozerResultsHistoryWidget
 
 - (id)initWithFrame:(CGRect)frame
@@ -15,6 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        [self commonInit];
     }
     return self;
 }
@@ -24,9 +30,22 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
+        [self commonInit];
     }
     return self;
 }
+
+-(void)commonInit
+{
+}
+
+-(void)awakeFromNib
+{
+    self.scrollView.contentSize = CGSizeMake(self.bounds.size.width*2, 109);
+    self.scrollView.delegate = self;
+    self.scrollView.scrollEnabled = YES;
+}
+
 
 -(void)setDate:(NSDate *)date
 {
@@ -54,4 +73,20 @@
 }
 */
 
+- (IBAction)changePage:(id)sender {
+    _pageControlUsed = YES;
+    CGFloat pageWidth = _scrollView.contentSize.width /_pageControl.numberOfPages;
+    CGFloat x = _pageControl.currentPage * pageWidth;
+    [_scrollView scrollRectToVisible:CGRectMake(x, 0, pageWidth, _scrollView.frame.size.height) animated:YES];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    _pageControlUsed = NO;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (!_pageControlUsed)
+        _pageControl.currentPage = lround(_scrollView.contentOffset.x /
+                                          (_scrollView.contentSize.width / _pageControl.numberOfPages));
+}
 @end
