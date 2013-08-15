@@ -39,6 +39,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>Pods-SSKeychain.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -87,6 +92,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>108534D34E0C467E93139631</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1851EA86D8584BC684CCF6DD</key>
 		<dict>
 			<key>primary</key>
@@ -107,6 +117,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>27D914B55BD54484829D211D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2F22DDDB067A485E8551CA9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>323072ABB5084291AE2B81E4</key>
 		<dict>
 			<key>primary</key>
@@ -117,12 +137,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3F78BE1286B0479B93708B59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4206272993594A00BAA70AA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4E0B1EED081A4EBDA67335A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4F0979E0D43E46968794DBAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,6 +207,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B8773F89E5B343618B002F4F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>BA3FD942643B45FC89A7D2C0</key>
 		<dict>
 			<key>primary</key>
@@ -223,6 +258,11 @@
 			<true/>
 		</dict>
 		<key>F8A3DB0560F344338D5C8F09</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD279A2058CD4BA8AF8627BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

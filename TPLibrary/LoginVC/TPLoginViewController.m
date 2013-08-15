@@ -11,6 +11,7 @@
 #import "TPOAuthClient.h"
 #import "TPServiceLoginViewController.h"
 #import "TPGameViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPLoginViewController ()
 {
@@ -41,7 +42,7 @@
     kTextFieldHeight = 35;
     kVerticalOffset = 195;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedLoginSignal) name:@"Logged In" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
     backgroundImage.image = [UIImage imageNamed:@"login.png"];
@@ -72,8 +73,7 @@
     FBSession *session = [sender object];
     switch (session.state) {
         case FBSessionStateOpen:
-            [self dismissViewControllerAnimated:YES completion:^{
-            }];
+            
             break;
         case FBSessionStateClosed:
             [FBSession.activeSession closeAndClearTokenInformation];            
@@ -213,7 +213,7 @@
         return;
     }
     [_sharedClient createAccountWithUsername:self.createAccountEmail.text password:self.createAccountPassword.text withCompletingHandlersSuccess:^{
-        [self dismissViewControllerAnimated:YES completion:^{}];
+//        [self dismissViewControllerAnimated:YES completion:^{}];
     } andFailure:^{
         [[[UIAlertView alloc] initWithTitle:@"Server error" message:@"Error on the server" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
     }];
@@ -221,8 +221,7 @@
 
 - (IBAction)loginButtonPressed:(id)sender {
     [_sharedClient loginWithUsername:self.loginEmail.text password:self.loginPassword.text withCompletingHandlersSuccess:^{
-        [self dismissViewControllerAnimated:YES completion:^{
-        }];
+//        [self dismissViewControllerAnimated:YES completion:^{}];
     } andFailure:^{
     }];
     [self resignFirstResponder];
@@ -232,7 +231,7 @@
 - (IBAction)fbLoginButtonPressed:(id)sender {
     TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate openSessionWithAllowLoginUI:YES completionHandlersSuccess:^{
-        [self dismissViewControllerAnimated:YES completion:^{}];
+//        [self dismissViewControllerAnimated:YES completion:^{}];
     } andFailure:^{
     }];
 }
@@ -272,10 +271,9 @@
     [view addSubview:imgView];
 }
 
--(void)receivedLoginSignal
+-(void)loggedInSignal
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-    }];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 @end

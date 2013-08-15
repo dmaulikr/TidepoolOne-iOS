@@ -130,7 +130,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    if (accounts.count) {
+    NSLog(@"Checking for accounts: %i %@", accounts.count, [accounts description]);
+    if (accounts.count > 0) {
+        NSLog(@"got into the inner loop only if accounts exist");
         NSString *token = [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
         successBlock();
@@ -147,11 +149,14 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)deleteAllPasswords
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+    NSLog(@"Checking for accounts pre deletion: %@", [accounts description]);
     for (NSDictionary *account in accounts) {
         NSDictionary *account = accounts[0];
         NSString *username = account[@"acct"];
         [SSKeychain deletePasswordForService:kSSKeychainServiceName account:username];
     }
+    accounts = [SSKeychain accountsForService:kSSKeychainServiceName];    
+    NSLog(@"Checking for accounts post deletion: %@", [accounts description]);
 
 }
 
@@ -167,8 +172,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)getUserInfo
 {
     [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"BOO:%@",[responseObject description]);
+//        NSLog(@"BOO:%@",[responseObject description]);
         self.user = responseObject[@"data"];
+        NSLog(@"GOT USER AT THIS POINT");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog([error description]);
@@ -193,6 +199,12 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)getTidepoolOauthTokenInExchangeForFacebookUserInfo:(NSDictionary *)user andFacebookToken:(NSDictionary *)token
 {
+    if (!token) {
+        NSLog(@"token empty");
+        return;
+    } else {
+        NSLog(@"token not empty");
+    }
     NSLog(@"Facebook Data:%@",[token description]);
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
@@ -227,7 +239,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [dict setObject:authHash forKey:@"auth_hash"];
     
     [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"boo:%@",[responseObject description]);
+//        NSLog(@"boo:%@",[responseObject description]);
         [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog([error description]);

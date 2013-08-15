@@ -43,7 +43,6 @@
     _oauthClient = [TPOAuthClient sharedClient];
 }
 
-
 -(void)startNewGame
 {
     _stage = 0;

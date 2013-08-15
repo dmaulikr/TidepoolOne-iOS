@@ -1,20 +1,18 @@
 //
-//  TPSnoozerGameViewController.m
+//  TPTabBarController.m
 //  TidepoolOne
 //
-//  Created by Mayank Sanganeria on 8/1/13.
+//  Created by Mayank Sanganeria on 8/15/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "TPSnoozerGameViewController.h"
-#import "TPLoginViewController.h"
-#import "TPOAuthClient.h"
+#import "TPTabBarController.h"
 
-@interface TPSnoozerGameViewController ()
+@interface TPTabBarController ()
 
 @end
 
-@implementation TPSnoozerGameViewController
+@implementation TPTabBarController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,32 +27,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    // Send a screen view to the first property.
-    id tracker1 = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
-    [tracker1 sendView:@"/SnoozerGame"];
-    
-}
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.type = @"snoozer";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
-    if ([[TPOAuthClient sharedClient] isLoggedIn]) {
-        [self startNewGame];
-    }
+    [self doLogin];
+}
+
+-(void)doLogin
+{
+    NSLog(@"Tab bar is to try and login");    
+    [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
+    } andFailure:^{
+    }];
 }
 
 -(void)loggedInSignal
 {
-    [self startNewGame];    
+    NSLog(@"Tab bar got logged in signal");
 }
 
 
 -(void)loggedOutSignal
 {
-
+    NSLog(@"Tab bar got logged out signal");
+    [self doLogin];
 }
-
 
 - (void)didReceiveMemoryWarning
 {

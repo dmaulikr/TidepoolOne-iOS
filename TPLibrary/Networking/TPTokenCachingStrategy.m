@@ -157,7 +157,11 @@ static NSString* kFBDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 /*
  * Helper method to write data.
  */
-- (void) writeDataRemotely:(NSDictionary *) data {    
+- (void) writeDataRemotely:(NSDictionary *) data {
+    // TODO: figure out what to do when empty dict as in logout
+    if (data.count < 1) {
+        return;
+    }
     [[TPOAuthClient sharedClient] authenticateWithFacebookToken:data];
 }
 

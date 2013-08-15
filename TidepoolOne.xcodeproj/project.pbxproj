@@ -492,6 +492,7 @@
 		A8AF12CA17BD7B5C005AB5A2 /* titlebar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AF112017BD7B5B005AB5A2 /* titlebar~iphone.png */; };
 		A8AF12CB17BD7B5C005AB5A2 /* tp-snoozer-start_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A8AF112117BD7B5B005AB5A2 /* tp-snoozer-start_blueprint.png */; };
 		A8AF12CE17BD7D70005AB5A2 /* TPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12CD17BD7D70005AB5A2 /* TPButton.m */; };
+		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
 		A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */; };
 		A8DD649C17B1D2850040BD90 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */; };
 		A8DD649F17B1D4650040BD90 /* TPProfileViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649E17B1D4650040BD90 /* TPProfileViewHeader.m */; };
@@ -511,7 +512,7 @@
 /* Begin PBXFileReference section */
 		0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3BE9E0A1B4814CD7AD31BA9A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A819476017AE0633009959DA /* Karla-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Bold.ttf"; sourceTree = "<group>"; };
 		A819476117AE0633009959DA /* Karla-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-BoldItalic.ttf"; sourceTree = "<group>"; };
 		A819476217AE0633009959DA /* Karla-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Karla-Italic.ttf"; sourceTree = "<group>"; };
@@ -1031,6 +1032,8 @@
 		A8AF112117BD7B5B005AB5A2 /* tp-snoozer-start_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-start_blueprint.png"; sourceTree = "<group>"; };
 		A8AF12CC17BD7D70005AB5A2 /* TPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPButton.h; sourceTree = "<group>"; };
 		A8AF12CD17BD7D70005AB5A2 /* TPButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPButton.m; sourceTree = "<group>"; };
+		A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
+		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
 		A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
 		A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
 		A8DD649A17B1D2840040BD90 /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
@@ -1086,6 +1089,7 @@
 				A819476817AE089E009959DA /* Design */,
 				A86C5C7517BC66B9001A22D4 /* UIKit Customization */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
+				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
 				A82F6A4D17947064003FC088 /* TidepoolOneTests */,
 				A82F6A2417947064003FC088 /* Frameworks */,
@@ -1122,7 +1126,6 @@
 			isa = PBXGroup;
 			children = (
 				A8BD1DF5179F030300A7E26C /* Helper */,
-				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
 				A852856317B4016D0057954F /* TPProfileTableViewCell.xib */,
 				A852856517B401810057954F /* TPProfileTableViewCell.h */,
 				A852856617B401810057954F /* TPProfileTableViewCell.m */,
@@ -1226,6 +1229,8 @@
 				A879A6A317A888C20082A455 /* TPLoginViewController.m */,
 				A879A6A417A888C20082A455 /* TPServiceLoginViewController.h */,
 				A879A6A517A888C20082A455 /* TPServiceLoginViewController.m */,
+				A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */,
+				A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */,
 			);
 			path = LoginVC;
 			sourceTree = "<group>";
@@ -2462,6 +2467,7 @@
 				A86C5C7817BC6953001A22D4 /* TPBarButtonItem.m in Sources */,
 				A8AF0F6C17BD5746005AB5A2 /* TPUser.m in Sources */,
 				A8AF12CE17BD7D70005AB5A2 /* TPButton.m in Sources */,
+				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
