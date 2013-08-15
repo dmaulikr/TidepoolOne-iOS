@@ -44,7 +44,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedLoginSignal) name:@"Logged In" object:nil];
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
-    backgroundImage.image = [UIImage imageNamed:@"Default.png"];
+    backgroundImage.image = [UIImage imageNamed:@"login.png"];
     [self.view addSubview:backgroundImage];
 
     UINavigationBar *navBar = [[UINavigationBar alloc] init];
@@ -126,27 +126,27 @@
         [self addFacebookLoginButtonToView:_createAccountView];
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _createAccountView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
-        emailField.placeholder = @"Email address";
+        emailField.placeholder = @"email address";
         [_createAccountView addSubview:emailField];
         
         self.createAccountEmail = emailField;
         
         TPTextField *passwordField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset + kTextFieldHeight - 1, _createAccountView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
-        passwordField.placeholder = @"Password";
+        passwordField.placeholder = @"password";
         passwordField.secureTextEntry = YES;
         [_createAccountView addSubview:passwordField];
 
         TPTextField *passwordField2 = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset + 2*(kTextFieldHeight - 1), _createAccountView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
-        passwordField2.placeholder = @"Password";
+        passwordField2.placeholder = @"confirm password";
         passwordField2.secureTextEntry = YES;
         [_createAccountView addSubview:passwordField2];
         
         self.createAccountPassword = passwordField;
         self.createAccountPassword2 = passwordField2;
 
-        UIButton *createAccountButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        TPButton *createAccountButton = [TPButton buttonWithType:UIButtonTypeCustom];
         [createAccountButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
-        createAccountButton.frame = CGRectMake(0, 0, 150, 40);
+        createAccountButton.frame = CGRectMake(0, 0, 300, 45);
         createAccountButton.center = CGPointMake(self.view.center.x, kVerticalOffset + 165);
         [createAccountButton setTitle:@"Create account" forState:UIControlStateNormal];
         [createAccountButton addTarget:self action:@selector(createAccountButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -167,13 +167,13 @@
         [_loginView addSubview:topLabel];
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _loginView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
-        emailField.placeholder = @"Email address";
+        emailField.placeholder = @"email address";
         [_loginView addSubview:emailField];
         
         self.loginEmail = emailField;
         
         TPTextField *passwordField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset + kTextFieldHeight - 1, _loginView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
-        passwordField.placeholder = @"Password";
+        passwordField.placeholder = @"password";
         passwordField.secureTextEntry = YES;
         [_loginView addSubview:passwordField];
         
@@ -181,9 +181,9 @@
         
         [self addFacebookLoginButtonToView:_loginView];
         
-        UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        TPButton *loginButton = [TPButton buttonWithType:UIButtonTypeCustom];
         [loginButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
-        loginButton.frame = CGRectMake(0, 0, 100, 40);
+        loginButton.frame = CGRectMake(0, 0, 300, 45);
         loginButton.center = CGPointMake(self.view.center.x, kVerticalOffset + 125);
 
         [loginButton setTitle:@"Get started" forState:UIControlStateNormal];
@@ -254,14 +254,22 @@
 
 -(void)addFacebookLoginButtonToView:(UIView *)view
 {    
-    UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
-    facebookButton.frame = CGRectMake(0, 0, 200, 40);
+    TPButton *facebookButton = [TPButton buttonWithType:UIButtonTypeCustom];
+    [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-facebook.png"] forState:UIControlStateNormal];
+    facebookButton.frame = CGRectMake(0, 0, 300, 45);
     facebookButton.center = CGPointMake(self.view.center.x, 100);
-    [facebookButton setTitle:@"Login with Facebook" forState:UIControlStateNormal];
+    [facebookButton setTitle:@"   Login with Facebook" forState:UIControlStateNormal];
     [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:facebookButton];
+    [self addOrGraphicToView:view];
+}
 
+-(void)addOrGraphicToView:(UIView *)view
+{
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 227, 37)];
+    imgView.center = CGPointMake(self.view.center.x, 160);
+    imgView.image = [UIImage imageNamed:@"or-graphic.png"];
+    [view addSubview:imgView];
 }
 
 -(void)receivedLoginSignal

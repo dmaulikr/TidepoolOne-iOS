@@ -17,5 +17,10 @@
 #import "TPLabelBold.h"
 #import "TPTextField.h"
 #import "TPBarButtonItem.h"
+#import "TPButton.h"
+
+
+#import "TPUser.h"
+#import "TPOAuthClient.h"
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #endif
