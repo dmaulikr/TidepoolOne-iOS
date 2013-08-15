@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.playAgainButton addTarget:self.gameVC action:@selector(startNewGame) forControlEvents:UIControlEventTouchUpInside];
+    [self.playAgainButton addTarget:self.gameVC action:@selector(getNewGame) forControlEvents:UIControlEventTouchUpInside];
 
 }
 

@@ -9,6 +9,7 @@
 #import "TPGameViewController.h"
 #import "TPOAuthClient.h"
 #import <AFNetworking/AFJSONRequestOperation.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #import "TPSnoozerStageViewController.h"
 #import "TPSnoozerResultViewController.h"
@@ -17,12 +18,10 @@
 @interface TPGameViewController ()
 {
     TPOAuthClient *_oauthClient;
-    NSDictionary *_response;
     NSArray *_results;
     int _stage;
     NSNumber *_gameId;
     NSNumber *_userId;
-
 }
 @end
 
@@ -43,7 +42,16 @@
     _oauthClient = [TPOAuthClient sharedClient];
 }
 
--(void)startNewGame
+-(void)setGameObject:(id)gameObject
+{
+    _gameObject = gameObject;
+    if (_gameObject) {
+        [self setupNewGame];
+    }
+}
+
+
+-(void)setupNewGame
 {
     _stage = 0;
     if (self.childViewControllers.count) {
@@ -51,24 +59,31 @@
         [currentVC.view removeFromSuperview];
         [currentVC removeFromParentViewController];
     }
+    [self setupGameForCurrentStage];
+}
+
+-(void)getNewGame
+{
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading new game";
     [_oauthClient postPath:[NSString stringWithFormat:@"api/v1/users/-/games?def_id=%@", self.type] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"got game succesffully");
-        
-        _response = responseObject[@"data"];
-//        _response = responseObject;
-        [self setupGameForCurrentStage];
+        [hud hide:YES];
+        self.gameObject = responseObject[@"data"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [hud hide:YES];
         NSLog(@"error in getting game");
         NSLog([error description]);
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to get game" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     }];
 }
 
 
 -(void)setupGameForCurrentStage
 {
-    _gameId = _response[@"id"];
-    _userId = _response[@"user_id"];
-    NSString *viewName = _response[@"stages"][_stage][@"view_name"];
+    _gameId = self.gameObject[@"id"];
+    _userId = self.gameObject[@"user_id"];
+    NSString *viewName = self.gameObject[@"stages"][_stage][@"view_name"];
 
     NSDictionary *classDictionary = @{
 //                                      @"Survey":[TPSurveyStageViewController class],
@@ -79,7 +94,7 @@
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];
     stageVC.view.frame = self.view.frame;
-    stageVC.data = _response[@"stages"][_stage];
+    stageVC.data = self.gameObject[@"stages"][_stage];
     stageVC.gameVC = self;
     [self displayContentController:stageVC];
 }
@@ -103,7 +118,7 @@
 //    [_oauthClient postPath:[NSString stringWithFormat:@"/users/-/games/%@/event_log",_gameId] parameters:stageLog success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        [self hideContentController:currentVC];
 //        _stage++;
-//        if (_stage < [_response[@"stages"] count]) {
+//        if (_stage < [self.gameObject[@"stages"] count]) {
 //            [self setupGameForCurrentStage];
 //        } else {
 //            [self getResults];
@@ -114,7 +129,7 @@
 // REMOVE EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
         [self hideContentController:currentVC];
         _stage++;
-        if (_stage < [_response[@"stages"] count]) {
+        if (_stage < [self.gameObject[@"stages"] count]) {
             [self setupGameForCurrentStage];
         } else {
             [self getResults];
@@ -124,6 +139,7 @@
 
 -(void)showResults
 {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSDictionary *classDictionary = @{
 //                                      @"SurveyResult":[TPSurveyResultViewController class],
 //                                      @"ReactionTimeResult":[TPReactionTimeResultViewController class],
@@ -146,18 +162,26 @@
 
 -(void)getResults
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Calculating results";
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
     [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
-            [NSTimer scheduledTimerWithTimeInterval:0.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
+            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:YES];
         } else {
             _results = dataObject[@"data"];
+            [hud hide:YES];
             [self showResults];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"fail: %@", [error description]);
+        [hud hide:YES];
+        NSLog(@"error in getting game");
+        NSLog([error description]);
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to get game" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+
     }];
 }
 

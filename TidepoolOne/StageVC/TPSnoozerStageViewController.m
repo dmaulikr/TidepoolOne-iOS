@@ -41,7 +41,7 @@
     NSLog([self.data description]);
     //TODO: find better way
     self.view.frame = CGRectOffset(self.view.frame, 0, -20.0);
-    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];    
+    self.view.backgroundColor = [UIColor clearColor];
     _clockViews = [NSMutableArray array];
     self.numRows = 3;
     self.numColumns = 2;

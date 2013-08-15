@@ -7,9 +7,11 @@
 //
 
 #import "TPGameViewController.h"
+#import "TPSnoozerGame.h"
 
 @interface TPSnoozerGameViewController : TPGameViewController
 
+@property (strong, nonatomic) TPSnoozerGame *gameObject;
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 
 @end

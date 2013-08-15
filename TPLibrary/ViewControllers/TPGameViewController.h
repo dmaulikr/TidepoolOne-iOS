@@ -11,11 +11,11 @@
 
 @interface TPGameViewController : UIViewController
 
+@property (strong, nonatomic) id gameObject;
 @property NSString *type;
 @property (assign) int stage;
 
--(void)startNewGame;
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;
-
+-(void)getNewGame;
 @end

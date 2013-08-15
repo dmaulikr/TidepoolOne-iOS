@@ -28,25 +28,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
 	// Do any additional setup after loading the view.
     // Send a screen view to the first property.
     id tracker1 = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
     [tracker1 sendView:@"/SnoozerGame"];
-    
-}
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.type = @"snoozer";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
+    self.type = @"snoozer";
     if ([[TPOAuthClient sharedClient] isLoggedIn]) {
-        [self startNewGame];
+        [self getNewGame];
     }
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
 }
 
 -(void)loggedInSignal
 {
-    [self startNewGame];    
+    [self getNewGame];
 }
 
 
