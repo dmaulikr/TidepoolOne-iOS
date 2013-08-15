@@ -156,7 +156,6 @@ NSString *const FBSessionStateChangedNotification =
         _tokenCaching = [[TPTokenCachingStrategy alloc] init];
         // Hard-code for demo purposes, should be set to
         // a unique value that identifies the user of the app.
-        [_tokenCaching setThirdPartySessionId:@"213465780"];
     }
     // Initialize a session object with the tokenCacheStrategy
     FBSession *session = [[FBSession alloc] initWithAppID:nil

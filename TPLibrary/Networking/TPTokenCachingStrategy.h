@@ -10,6 +10,4 @@
 
 @interface TPTokenCachingStrategy : FBSessionTokenCachingStrategy
 
-@property (nonatomic, strong) NSString *thirdPartySessionId;
-
 @end
