@@ -17,12 +17,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Initialization code
-        self.font = [UIFont fontWithName:@"Karla-Regular" size:20.0];
-        self.textColor = [UIColor whiteColor];
-        self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-        self.layer.borderWidth = 1;
-        self.layer.borderColor = [[UIColor whiteColor] CGColor];
-        
+        [self commonInit];
     }
     return self;
 }
@@ -32,28 +27,28 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.font = [UIFont fontWithName:@"Karla-Regular" size:20.0];
-        self.textColor = [UIColor whiteColor];
-        self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
-        self.layer.borderWidth = 1;
-        self.layer.borderColor = [[UIColor whiteColor] CGColor];
-
+        [self commonInit];
     }
     return self;
 }
+
+-(void)commonInit
+{
+    self.font = [UIFont fontWithName:@"Karla-Regular" size:20.0];
+    self.textColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.2];
+    self.layer.borderWidth = 1;
+    self.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    self.leftView = paddingView;
+    self.leftViewMode = UITextFieldViewModeAlways;
+}
+
 
 - (void) drawPlaceholderInRect:(CGRect)rect {
     [[UIColor whiteColor] setFill];
     [[self placeholder] drawInRect:rect withFont:self.font];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end
