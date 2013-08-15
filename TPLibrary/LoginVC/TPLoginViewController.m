@@ -19,6 +19,7 @@
     float kPadding;
     float kTextFieldHeight;
     float kVerticalOffset;
+    MBProgressHUD *_progressView;
 }
 @end
 
@@ -43,6 +44,7 @@
     kVerticalOffset = 195;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleError) name:@"OAuthClient error" object:nil];
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
     backgroundImage.image = [UIImage imageNamed:@"login.png"];
@@ -81,6 +83,7 @@
         case FBSessionStateClosedLoginFailed:
             [FBSession.activeSession closeAndClearTokenInformation];
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an unknown error authorizing through facebook." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
+            [self handleError];
             break;
         default:
             break;
@@ -220,19 +223,24 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
+    _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _progressView.labelText = @"Logging In";
     [_sharedClient loginWithUsername:self.loginEmail.text password:self.loginPassword.text withCompletingHandlersSuccess:^{
-//        [self dismissViewControllerAnimated:YES completion:^{}];
     } andFailure:^{
+        [self handleError];
     }];
     [self resignFirstResponder];
     [self.view endEditing:YES];
 }
 
 - (IBAction)fbLoginButtonPressed:(id)sender {
+    _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _progressView.labelText = @"Logging In";
     TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate openSessionWithAllowLoginUI:YES completionHandlersSuccess:^{
-//        [self dismissViewControllerAnimated:YES completion:^{}];
+        NSLog(@"fb login complete");
     } andFailure:^{
+        [self handleError];
     }];
 }
 
@@ -271,8 +279,14 @@
     [view addSubview:imgView];
 }
 
+-(void)handleError
+{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
 -(void)loggedInSignal
 {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

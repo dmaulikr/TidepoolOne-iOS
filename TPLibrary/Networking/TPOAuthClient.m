@@ -81,8 +81,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         NSLog(@"success");
         [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure");
-        NSLog([error description]);
+        [self handleError:error withOptionalMessage:@"An error occured while creating the account. Please try again."];
         failureBlock();
     }];
 }
@@ -105,8 +104,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         [self saveAndUseOauthToken:token];
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"failure");
-        NSLog([error description]);
+        [self handleError:error withOptionalMessage:@"An error occured while logging in. Please try again."];
         failureBlock();
     }];
 }
@@ -174,10 +172,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 //        NSLog(@"BOO:%@",[responseObject description]);
         self.user = responseObject[@"data"];
-        NSLog(@"GOT USER AT THIS POINT");
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog([error description]);
+        [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
     }];
 }
 
@@ -192,6 +189,8 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
              if (!error) {
                  NSLog([user description]);
                  [self getTidepoolOauthTokenInExchangeForFacebookUserInfo:user andFacebookToken:token];
+             } else {
+                 [self handleError:error withOptionalMessage:@"Facebook account authorization not done."];
              }
          }];
     }
@@ -242,8 +241,18 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 //        NSLog(@"boo:%@",[responseObject description]);
         [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog([error description]);
+        [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];
     }];
+}
+
+-(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message
+{
+    NSString *errorMessage = [error localizedDescription];
+    if (errorMessage) {
+        message = errorMessage;
+    }
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
 }
 
 @end
