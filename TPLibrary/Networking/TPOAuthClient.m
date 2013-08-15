@@ -218,6 +218,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [info setValue:user[@"email"] forKey:@"email"];
     [info setValue:[NSString stringWithFormat:@"%@ %@",user[@"first_name"],user[@"last_name"]] forKey:@"name"];
     [info setValue:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", user[@"id"]] forKey:@"image"];
+    [info setValue:[NSString stringWithFormat:@"%@ %@",user[@"first_name"],user[@"last_name"]] forKey:@"location"];
+    [info setValue:user[@"gender"] forKey:@"gender"];
+    
     [credentials setValue:token[@"com.facebook.sdk:TokenInformationTokenKey"] forKey:@"token"];
     [credentials setValue:[dateFormatter stringFromDate:refreshDate] forKey:@"refresh_at"];
     [credentials setValue:token[@"com.facebook.sdk:TokenInformationPermissionsKey"] forKey:@"permissions"];
