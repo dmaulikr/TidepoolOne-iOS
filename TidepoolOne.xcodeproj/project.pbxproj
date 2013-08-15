@@ -1284,7 +1284,6 @@
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
-				A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */,
 				A819476817AE089E009959DA /* Design */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
@@ -1307,6 +1306,7 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */,
 				A897427117971BB7000CFD4F /* QuartzCore.framework */,
 				A897426F17971BAE000CFD4F /* AVFoundation.framework */,
 				A82F6A2517947064003FC088 /* Foundation.framework */,
