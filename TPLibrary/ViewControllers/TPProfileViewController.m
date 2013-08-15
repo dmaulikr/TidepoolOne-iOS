@@ -14,6 +14,7 @@
 #import <AttributedMarkdown/markdown_peg.h>
 #import "TPPolarChartView.h"
 #import "TPProfileTableViewCell.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPProfileViewController ()
 {
@@ -206,11 +207,14 @@
 {
     self.user = _oauthClient.user;
     if (!self.user) {
-        NSLog(@"force get user");
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading...";
         [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [hud hide:YES];
             self.user = responseObject[@"data"];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog([error description]);
+            [hud hide:YES];
+            [[[UIAlertView alloc] initWithTitle:@"error" message:@"Unable to get user information" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
         }];
     }
 }
