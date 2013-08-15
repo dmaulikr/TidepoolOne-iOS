@@ -316,124 +316,6 @@
 		A86C5B6D17BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A86C595C17BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.jpg */; };
 		A86C5B6E17BC4268001A22D4 /* bg-the-workhorse@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A86C595D17BC4268001A22D4 /* bg-the-workhorse@2x~iphone.jpg */; };
 		A86C5B6F17BC4268001A22D4 /* bg-the-workhorse~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A86C595E17BC4268001A22D4 /* bg-the-workhorse~iphone.jpg */; };
-		A86C5B7017BC4268001A22D4 /* bg-the-algorithmist@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596017BC4268001A22D4 /* bg-the-algorithmist@2x~iphone.png */; };
-		A86C5B7117BC4268001A22D4 /* bg-the-algorithmist~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596117BC4268001A22D4 /* bg-the-algorithmist~iphone.png */; };
-		A86C5B7217BC4268001A22D4 /* bg-the-analyst@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596217BC4268001A22D4 /* bg-the-analyst@2x~iphone.png */; };
-		A86C5B7317BC4268001A22D4 /* bg-the-analyst~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596317BC4268001A22D4 /* bg-the-analyst~iphone.png */; };
-		A86C5B7417BC4268001A22D4 /* bg-the-anchor@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596417BC4268001A22D4 /* bg-the-anchor@2x~iphone.png */; };
-		A86C5B7517BC4268001A22D4 /* bg-the-anchor~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596517BC4268001A22D4 /* bg-the-anchor~iphone.png */; };
-		A86C5B7617BC4268001A22D4 /* bg-the-architect@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596617BC4268001A22D4 /* bg-the-architect@2x~iphone.png */; };
-		A86C5B7717BC4268001A22D4 /* bg-the-architect~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596717BC4268001A22D4 /* bg-the-architect~iphone.png */; };
-		A86C5B7817BC4268001A22D4 /* bg-the-brainstorm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596817BC4268001A22D4 /* bg-the-brainstorm@2x~iphone.png */; };
-		A86C5B7917BC4268001A22D4 /* bg-the-brainstorm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596917BC4268001A22D4 /* bg-the-brainstorm~iphone.png */; };
-		A86C5B7A17BC4268001A22D4 /* bg-the-bullet-train@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596A17BC4268001A22D4 /* bg-the-bullet-train@2x~iphone.png */; };
-		A86C5B7B17BC4268001A22D4 /* bg-the-bullet-train~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596B17BC4268001A22D4 /* bg-the-bullet-train~iphone.png */; };
-		A86C5B7C17BC4268001A22D4 /* bg-the-calculator@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596C17BC4268001A22D4 /* bg-the-calculator@2x~iphone.png */; };
-		A86C5B7D17BC4268001A22D4 /* bg-the-calculator~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596D17BC4268001A22D4 /* bg-the-calculator~iphone.png */; };
-		A86C5B7E17BC4268001A22D4 /* bg-the-charger@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596E17BC4268001A22D4 /* bg-the-charger@2x~iphone.png */; };
-		A86C5B7F17BC4268001A22D4 /* bg-the-charger~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C596F17BC4268001A22D4 /* bg-the-charger~iphone.png */; };
-		A86C5B8017BC4268001A22D4 /* bg-the-chess-master@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597017BC4268001A22D4 /* bg-the-chess-master@2x~iphone.png */; };
-		A86C5B8117BC4268001A22D4 /* bg-the-chess-master~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597117BC4268001A22D4 /* bg-the-chess-master~iphone.png */; };
-		A86C5B8217BC4268001A22D4 /* bg-the-chief-executive@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597217BC4268001A22D4 /* bg-the-chief-executive@2x~iphone.png */; };
-		A86C5B8317BC4268001A22D4 /* bg-the-chief-executive~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597317BC4268001A22D4 /* bg-the-chief-executive~iphone.png */; };
-		A86C5B8417BC4268001A22D4 /* bg-the-clicker@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597417BC4268001A22D4 /* bg-the-clicker@2x~iphone.png */; };
-		A86C5B8517BC4268001A22D4 /* bg-the-clicker~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597517BC4268001A22D4 /* bg-the-clicker~iphone.png */; };
-		A86C5B8617BC4268001A22D4 /* bg-the-connector@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597617BC4268001A22D4 /* bg-the-connector@2x~iphone.png */; };
-		A86C5B8717BC4268001A22D4 /* bg-the-connector~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597717BC4268001A22D4 /* bg-the-connector~iphone.png */; };
-		A86C5B8817BC4268001A22D4 /* bg-the-connoisseur@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597817BC4268001A22D4 /* bg-the-connoisseur@2x~iphone.png */; };
-		A86C5B8917BC4268001A22D4 /* bg-the-connoisseur~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597917BC4268001A22D4 /* bg-the-connoisseur~iphone.png */; };
-		A86C5B8A17BC4268001A22D4 /* bg-the-cool-cat@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597A17BC4268001A22D4 /* bg-the-cool-cat@2x~iphone.png */; };
-		A86C5B8B17BC4268001A22D4 /* bg-the-cool-cat~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597B17BC4268001A22D4 /* bg-the-cool-cat~iphone.png */; };
-		A86C5B8C17BC4268001A22D4 /* bg-the-decider@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597C17BC4268001A22D4 /* bg-the-decider@2x~iphone.png */; };
-		A86C5B8D17BC4268001A22D4 /* bg-the-decider~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597D17BC4268001A22D4 /* bg-the-decider~iphone.png */; };
-		A86C5B8E17BC4268001A22D4 /* bg-the-detailer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597E17BC4268001A22D4 /* bg-the-detailer@2x~iphone.png */; };
-		A86C5B8F17BC4268001A22D4 /* bg-the-detailer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C597F17BC4268001A22D4 /* bg-the-detailer~iphone.png */; };
-		A86C5B9017BC4268001A22D4 /* bg-the-different-drummer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598017BC4268001A22D4 /* bg-the-different-drummer@2x~iphone.png */; };
-		A86C5B9117BC4268001A22D4 /* bg-the-different-drummer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598117BC4268001A22D4 /* bg-the-different-drummer~iphone.png */; };
-		A86C5B9217BC4268001A22D4 /* bg-the-director@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598217BC4268001A22D4 /* bg-the-director@2x~iphone.png */; };
-		A86C5B9317BC4268001A22D4 /* bg-the-director~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598317BC4268001A22D4 /* bg-the-director~iphone.png */; };
-		A86C5B9417BC4268001A22D4 /* bg-the-drum-machine@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598417BC4268001A22D4 /* bg-the-drum-machine@2x~iphone.png */; };
-		A86C5B9517BC4268001A22D4 /* bg-the-drum-machine~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598517BC4268001A22D4 /* bg-the-drum-machine~iphone.png */; };
-		A86C5B9617BC4268001A22D4 /* bg-the-dynamo@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598617BC4268001A22D4 /* bg-the-dynamo@2x~iphone.png */; };
-		A86C5B9717BC4268001A22D4 /* bg-the-dynamo~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598717BC4268001A22D4 /* bg-the-dynamo~iphone.png */; };
-		A86C5B9817BC4268001A22D4 /* bg-the-entrepreneur@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598817BC4268001A22D4 /* bg-the-entrepreneur@2x~iphone.png */; };
-		A86C5B9917BC4268001A22D4 /* bg-the-entrepreneur~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598917BC4268001A22D4 /* bg-the-entrepreneur~iphone.png */; };
-		A86C5B9A17BC4268001A22D4 /* bg-the-examiner@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598A17BC4268001A22D4 /* bg-the-examiner@2x~iphone.png */; };
-		A86C5B9B17BC4268001A22D4 /* bg-the-examiner~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598B17BC4268001A22D4 /* bg-the-examiner~iphone.png */; };
-		A86C5B9C17BC4268001A22D4 /* bg-the-explorer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598C17BC4268001A22D4 /* bg-the-explorer@2x~iphone.png */; };
-		A86C5B9D17BC4268001A22D4 /* bg-the-explorer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598D17BC4268001A22D4 /* bg-the-explorer~iphone.png */; };
-		A86C5B9E17BC4268001A22D4 /* bg-the-eye-of-the-storm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598E17BC4268001A22D4 /* bg-the-eye-of-the-storm@2x~iphone.png */; };
-		A86C5B9F17BC4268001A22D4 /* bg-the-eye-of-the-storm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C598F17BC4268001A22D4 /* bg-the-eye-of-the-storm~iphone.png */; };
-		A86C5BA017BC4268001A22D4 /* bg-the-free-spirit@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599017BC4268001A22D4 /* bg-the-free-spirit@2x~iphone.png */; };
-		A86C5BA117BC4268001A22D4 /* bg-the-free-spirit~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599117BC4268001A22D4 /* bg-the-free-spirit~iphone.png */; };
-		A86C5BA217BC4268001A22D4 /* bg-the-free-verse-poet@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599217BC4268001A22D4 /* bg-the-free-verse-poet@2x~iphone.png */; };
-		A86C5BA317BC4268001A22D4 /* bg-the-free-verse-poet~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599317BC4268001A22D4 /* bg-the-free-verse-poet~iphone.png */; };
-		A86C5BA417BC4268001A22D4 /* bg-the-ghostwriter@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599417BC4268001A22D4 /* bg-the-ghostwriter@2x~iphone.png */; };
-		A86C5BA517BC4268001A22D4 /* bg-the-ghostwriter~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599517BC4268001A22D4 /* bg-the-ghostwriter~iphone.png */; };
-		A86C5BA617BC4268001A22D4 /* bg-the-giver@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599617BC4268001A22D4 /* bg-the-giver@2x~iphone.png */; };
-		A86C5BA717BC4268001A22D4 /* bg-the-giver~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599717BC4268001A22D4 /* bg-the-giver~iphone.png */; };
-		A86C5BA817BC4268001A22D4 /* bg-the-go-getter@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599817BC4268001A22D4 /* bg-the-go-getter@2x~iphone.png */; };
-		A86C5BA917BC4268001A22D4 /* bg-the-go-getter~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599917BC4268001A22D4 /* bg-the-go-getter~iphone.png */; };
-		A86C5BAA17BC4268001A22D4 /* bg-the-host@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599A17BC4268001A22D4 /* bg-the-host@2x~iphone.png */; };
-		A86C5BAB17BC4268001A22D4 /* bg-the-host~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599B17BC4268001A22D4 /* bg-the-host~iphone.png */; };
-		A86C5BAC17BC4268001A22D4 /* bg-the-igniter@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599C17BC4268001A22D4 /* bg-the-igniter@2x~iphone.png */; };
-		A86C5BAD17BC4268001A22D4 /* bg-the-igniter~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599D17BC4268001A22D4 /* bg-the-igniter~iphone.png */; };
-		A86C5BAE17BC4268001A22D4 /* bg-the-impulse-planner@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599E17BC4268001A22D4 /* bg-the-impulse-planner@2x~iphone.png */; };
-		A86C5BAF17BC4268001A22D4 /* bg-the-impulse-planner~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C599F17BC4268001A22D4 /* bg-the-impulse-planner~iphone.png */; };
-		A86C5BB017BC4268001A22D4 /* bg-the-laser-beam@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A017BC4268001A22D4 /* bg-the-laser-beam@2x~iphone.png */; };
-		A86C5BB117BC4268001A22D4 /* bg-the-laser-beam~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A117BC4268001A22D4 /* bg-the-laser-beam~iphone.png */; };
-		A86C5BB217BC4268001A22D4 /* bg-the-lone-ranger@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A217BC4268001A22D4 /* bg-the-lone-ranger@2x~iphone.png */; };
-		A86C5BB317BC4268001A22D4 /* bg-the-lone-ranger~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A317BC4268001A22D4 /* bg-the-lone-ranger~iphone.png */; };
-		A86C5BB417BC4268001A22D4 /* bg-the-loyalist@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A417BC4268001A22D4 /* bg-the-loyalist@2x~iphone.png */; };
-		A86C5BB517BC4268001A22D4 /* bg-the-loyalist~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A517BC4268001A22D4 /* bg-the-loyalist~iphone.png */; };
-		A86C5BB617BC4268001A22D4 /* bg-the-maverick@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A617BC4268001A22D4 /* bg-the-maverick@2x~iphone.png */; };
-		A86C5BB717BC4268001A22D4 /* bg-the-maverick~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A717BC4268001A22D4 /* bg-the-maverick~iphone.png */; };
-		A86C5BB817BC4268001A22D4 /* bg-the-microwave@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A817BC4268001A22D4 /* bg-the-microwave@2x~iphone.png */; };
-		A86C5BB917BC4268001A22D4 /* bg-the-microwave~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59A917BC4268001A22D4 /* bg-the-microwave~iphone.png */; };
-		A86C5BBA17BC4268001A22D4 /* bg-the-pablo-picasso@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59AA17BC4268001A22D4 /* bg-the-pablo-picasso@2x~iphone.png */; };
-		A86C5BBB17BC4268001A22D4 /* bg-the-pablo-picasso~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59AB17BC4268001A22D4 /* bg-the-pablo-picasso~iphone.png */; };
-		A86C5BBC17BC4268001A22D4 /* bg-the-painters-palette@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59AC17BC4268001A22D4 /* bg-the-painters-palette@2x~iphone.png */; };
-		A86C5BBD17BC4268001A22D4 /* bg-the-painters-palette~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59AD17BC4268001A22D4 /* bg-the-painters-palette~iphone.png */; };
-		A86C5BBE17BC4268001A22D4 /* bg-the-paradox@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59AE17BC4268001A22D4 /* bg-the-paradox@2x~iphone.png */; };
-		A86C5BBF17BC4268001A22D4 /* bg-the-paradox~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59AF17BC4268001A22D4 /* bg-the-paradox~iphone.png */; };
-		A86C5BC017BC4268001A22D4 /* bg-the-pillar-of-strength@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B017BC4268001A22D4 /* bg-the-pillar-of-strength@2x~iphone.png */; };
-		A86C5BC117BC4268001A22D4 /* bg-the-pillar-of-strength~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B117BC4268001A22D4 /* bg-the-pillar-of-strength~iphone.png */; };
-		A86C5BC217BC4268001A22D4 /* bg-the-power-tool@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B217BC4268001A22D4 /* bg-the-power-tool@2x~iphone.png */; };
-		A86C5BC317BC4268001A22D4 /* bg-the-power-tool~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B317BC4268001A22D4 /* bg-the-power-tool~iphone.png */; };
-		A86C5BC417BC4268001A22D4 /* bg-the-private-investigator@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B417BC4268001A22D4 /* bg-the-private-investigator@2x~iphone.png */; };
-		A86C5BC517BC4268001A22D4 /* bg-the-private-investigator~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B517BC4268001A22D4 /* bg-the-private-investigator~iphone.png */; };
-		A86C5BC617BC4268001A22D4 /* bg-the-producer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B617BC4268001A22D4 /* bg-the-producer@2x~iphone.png */; };
-		A86C5BC717BC4268001A22D4 /* bg-the-producer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B717BC4268001A22D4 /* bg-the-producer~iphone.png */; };
-		A86C5BC817BC4268001A22D4 /* bg-the-rock@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B817BC4268001A22D4 /* bg-the-rock@2x~iphone.png */; };
-		A86C5BC917BC4268001A22D4 /* bg-the-rock~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59B917BC4268001A22D4 /* bg-the-rock~iphone.png */; };
-		A86C5BCA17BC4268001A22D4 /* bg-the-scientist@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59BA17BC4268001A22D4 /* bg-the-scientist@2x~iphone.png */; };
-		A86C5BCB17BC4268001A22D4 /* bg-the-scientist~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59BB17BC4268001A22D4 /* bg-the-scientist~iphone.png */; };
-		A86C5BCC17BC4268001A22D4 /* bg-the-scrutinizer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59BC17BC4268001A22D4 /* bg-the-scrutinizer@2x~iphone.png */; };
-		A86C5BCD17BC4268001A22D4 /* bg-the-scrutinizer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59BD17BC4268001A22D4 /* bg-the-scrutinizer~iphone.png */; };
-		A86C5BCE17BC4268001A22D4 /* bg-the-shelter@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59BE17BC4268001A22D4 /* bg-the-shelter@2x~iphone.png */; };
-		A86C5BCF17BC4268001A22D4 /* bg-the-shelter~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59BF17BC4268001A22D4 /* bg-the-shelter~iphone.png */; };
-		A86C5BD017BC4268001A22D4 /* bg-the-soloist@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C017BC4268001A22D4 /* bg-the-soloist@2x~iphone.png */; };
-		A86C5BD117BC4268001A22D4 /* bg-the-soloist~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C117BC4268001A22D4 /* bg-the-soloist~iphone.png */; };
-		A86C5BD217BC4268001A22D4 /* bg-the-sparkler@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C217BC4268001A22D4 /* bg-the-sparkler@2x~iphone.png */; };
-		A86C5BD317BC4268001A22D4 /* bg-the-sparkler~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C317BC4268001A22D4 /* bg-the-sparkler~iphone.png */; };
-		A86C5BD417BC4268001A22D4 /* bg-the-super-sleuth@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C417BC4268001A22D4 /* bg-the-super-sleuth@2x~iphone.png */; };
-		A86C5BD517BC4268001A22D4 /* bg-the-super-sleuth~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C517BC4268001A22D4 /* bg-the-super-sleuth~iphone.png */; };
-		A86C5BD617BC4268001A22D4 /* bg-the-swiss-army-knife@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C617BC4268001A22D4 /* bg-the-swiss-army-knife@2x~iphone.png */; };
-		A86C5BD717BC4268001A22D4 /* bg-the-swiss-army-knife~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C717BC4268001A22D4 /* bg-the-swiss-army-knife~iphone.png */; };
-		A86C5BD817BC4268001A22D4 /* bg-the-team-player@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C817BC4268001A22D4 /* bg-the-team-player@2x~iphone.png */; };
-		A86C5BD917BC4268001A22D4 /* bg-the-team-player~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59C917BC4268001A22D4 /* bg-the-team-player~iphone.png */; };
-		A86C5BDA17BC4268001A22D4 /* bg-the-trailblazer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59CA17BC4268001A22D4 /* bg-the-trailblazer@2x~iphone.png */; };
-		A86C5BDB17BC4268001A22D4 /* bg-the-trailblazer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59CB17BC4268001A22D4 /* bg-the-trailblazer~iphone.png */; };
-		A86C5BDC17BC4268001A22D4 /* bg-the-trendsetter@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59CC17BC4268001A22D4 /* bg-the-trendsetter@2x~iphone.png */; };
-		A86C5BDD17BC4268001A22D4 /* bg-the-trendsetter~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59CD17BC4268001A22D4 /* bg-the-trendsetter~iphone.png */; };
-		A86C5BDE17BC4268001A22D4 /* bg-the-tried-and-true@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59CE17BC4268001A22D4 /* bg-the-tried-and-true@2x~iphone.png */; };
-		A86C5BDF17BC4268001A22D4 /* bg-the-tried-and-true~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59CF17BC4268001A22D4 /* bg-the-tried-and-true~iphone.png */; };
-		A86C5BE017BC4268001A22D4 /* bg-the-true-blue@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D017BC4268001A22D4 /* bg-the-true-blue@2x~iphone.png */; };
-		A86C5BE117BC4268001A22D4 /* bg-the-true-blue~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D117BC4268001A22D4 /* bg-the-true-blue~iphone.png */; };
-		A86C5BE217BC4268001A22D4 /* bg-the-well-oiled-machine@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D217BC4268001A22D4 /* bg-the-well-oiled-machine@2x~iphone.png */; };
-		A86C5BE317BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D317BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.png */; };
-		A86C5BE417BC4268001A22D4 /* bg-the-workhorse@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D417BC4268001A22D4 /* bg-the-workhorse@2x~iphone.png */; };
-		A86C5BE517BC4268001A22D4 /* bg-the-workhorse~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D517BC4268001A22D4 /* bg-the-workhorse~iphone.png */; };
 		A86C5BE617BC4268001A22D4 /* playsnoozer-alert@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D617BC4268001A22D4 /* playsnoozer-alert@2x~iphone.png */; };
 		A86C5BE717BC4268001A22D4 /* playsnoozer-alert~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D717BC4268001A22D4 /* playsnoozer-alert~iphone.png */; };
 		A86C5BE817BC4268001A22D4 /* profile-header@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86C59D817BC4268001A22D4 /* profile-header@2x~iphone.png */; };
@@ -592,6 +474,7 @@
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
 		A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */; };
 		A89D96E017BAB36A000146E8 /* TPSnoozerInstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */; };
+		A8AF0F6C17BD5746005AB5A2 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF0F6B17BD5746005AB5A2 /* TPUser.m */; };
 		A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */; };
 		A8DD649C17B1D2850040BD90 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */; };
 		A8DD649F17B1D4650040BD90 /* TPProfileViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649E17B1D4650040BD90 /* TPProfileViewHeader.m */; };
@@ -933,124 +816,6 @@
 		A86C595C17BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-the-well-oiled-machine~iphone.jpg"; sourceTree = "<group>"; };
 		A86C595D17BC4268001A22D4 /* bg-the-workhorse@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-the-workhorse@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A86C595E17BC4268001A22D4 /* bg-the-workhorse~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-the-workhorse~iphone.jpg"; sourceTree = "<group>"; };
-		A86C596017BC4268001A22D4 /* bg-the-algorithmist@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-algorithmist@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596117BC4268001A22D4 /* bg-the-algorithmist~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-algorithmist~iphone.png"; sourceTree = "<group>"; };
-		A86C596217BC4268001A22D4 /* bg-the-analyst@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-analyst@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596317BC4268001A22D4 /* bg-the-analyst~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-analyst~iphone.png"; sourceTree = "<group>"; };
-		A86C596417BC4268001A22D4 /* bg-the-anchor@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-anchor@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596517BC4268001A22D4 /* bg-the-anchor~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-anchor~iphone.png"; sourceTree = "<group>"; };
-		A86C596617BC4268001A22D4 /* bg-the-architect@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-architect@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596717BC4268001A22D4 /* bg-the-architect~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-architect~iphone.png"; sourceTree = "<group>"; };
-		A86C596817BC4268001A22D4 /* bg-the-brainstorm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-brainstorm@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596917BC4268001A22D4 /* bg-the-brainstorm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-brainstorm~iphone.png"; sourceTree = "<group>"; };
-		A86C596A17BC4268001A22D4 /* bg-the-bullet-train@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-bullet-train@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596B17BC4268001A22D4 /* bg-the-bullet-train~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-bullet-train~iphone.png"; sourceTree = "<group>"; };
-		A86C596C17BC4268001A22D4 /* bg-the-calculator@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-calculator@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596D17BC4268001A22D4 /* bg-the-calculator~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-calculator~iphone.png"; sourceTree = "<group>"; };
-		A86C596E17BC4268001A22D4 /* bg-the-charger@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-charger@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C596F17BC4268001A22D4 /* bg-the-charger~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-charger~iphone.png"; sourceTree = "<group>"; };
-		A86C597017BC4268001A22D4 /* bg-the-chess-master@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-chess-master@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597117BC4268001A22D4 /* bg-the-chess-master~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-chess-master~iphone.png"; sourceTree = "<group>"; };
-		A86C597217BC4268001A22D4 /* bg-the-chief-executive@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-chief-executive@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597317BC4268001A22D4 /* bg-the-chief-executive~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-chief-executive~iphone.png"; sourceTree = "<group>"; };
-		A86C597417BC4268001A22D4 /* bg-the-clicker@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-clicker@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597517BC4268001A22D4 /* bg-the-clicker~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-clicker~iphone.png"; sourceTree = "<group>"; };
-		A86C597617BC4268001A22D4 /* bg-the-connector@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-connector@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597717BC4268001A22D4 /* bg-the-connector~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-connector~iphone.png"; sourceTree = "<group>"; };
-		A86C597817BC4268001A22D4 /* bg-the-connoisseur@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-connoisseur@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597917BC4268001A22D4 /* bg-the-connoisseur~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-connoisseur~iphone.png"; sourceTree = "<group>"; };
-		A86C597A17BC4268001A22D4 /* bg-the-cool-cat@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-cool-cat@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597B17BC4268001A22D4 /* bg-the-cool-cat~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-cool-cat~iphone.png"; sourceTree = "<group>"; };
-		A86C597C17BC4268001A22D4 /* bg-the-decider@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-decider@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597D17BC4268001A22D4 /* bg-the-decider~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-decider~iphone.png"; sourceTree = "<group>"; };
-		A86C597E17BC4268001A22D4 /* bg-the-detailer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-detailer@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C597F17BC4268001A22D4 /* bg-the-detailer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-detailer~iphone.png"; sourceTree = "<group>"; };
-		A86C598017BC4268001A22D4 /* bg-the-different-drummer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-different-drummer@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598117BC4268001A22D4 /* bg-the-different-drummer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-different-drummer~iphone.png"; sourceTree = "<group>"; };
-		A86C598217BC4268001A22D4 /* bg-the-director@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-director@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598317BC4268001A22D4 /* bg-the-director~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-director~iphone.png"; sourceTree = "<group>"; };
-		A86C598417BC4268001A22D4 /* bg-the-drum-machine@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-drum-machine@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598517BC4268001A22D4 /* bg-the-drum-machine~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-drum-machine~iphone.png"; sourceTree = "<group>"; };
-		A86C598617BC4268001A22D4 /* bg-the-dynamo@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-dynamo@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598717BC4268001A22D4 /* bg-the-dynamo~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-dynamo~iphone.png"; sourceTree = "<group>"; };
-		A86C598817BC4268001A22D4 /* bg-the-entrepreneur@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-entrepreneur@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598917BC4268001A22D4 /* bg-the-entrepreneur~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-entrepreneur~iphone.png"; sourceTree = "<group>"; };
-		A86C598A17BC4268001A22D4 /* bg-the-examiner@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-examiner@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598B17BC4268001A22D4 /* bg-the-examiner~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-examiner~iphone.png"; sourceTree = "<group>"; };
-		A86C598C17BC4268001A22D4 /* bg-the-explorer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-explorer@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598D17BC4268001A22D4 /* bg-the-explorer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-explorer~iphone.png"; sourceTree = "<group>"; };
-		A86C598E17BC4268001A22D4 /* bg-the-eye-of-the-storm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-eye-of-the-storm@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C598F17BC4268001A22D4 /* bg-the-eye-of-the-storm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-eye-of-the-storm~iphone.png"; sourceTree = "<group>"; };
-		A86C599017BC4268001A22D4 /* bg-the-free-spirit@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-free-spirit@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599117BC4268001A22D4 /* bg-the-free-spirit~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-free-spirit~iphone.png"; sourceTree = "<group>"; };
-		A86C599217BC4268001A22D4 /* bg-the-free-verse-poet@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-free-verse-poet@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599317BC4268001A22D4 /* bg-the-free-verse-poet~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-free-verse-poet~iphone.png"; sourceTree = "<group>"; };
-		A86C599417BC4268001A22D4 /* bg-the-ghostwriter@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-ghostwriter@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599517BC4268001A22D4 /* bg-the-ghostwriter~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-ghostwriter~iphone.png"; sourceTree = "<group>"; };
-		A86C599617BC4268001A22D4 /* bg-the-giver@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-giver@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599717BC4268001A22D4 /* bg-the-giver~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-giver~iphone.png"; sourceTree = "<group>"; };
-		A86C599817BC4268001A22D4 /* bg-the-go-getter@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-go-getter@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599917BC4268001A22D4 /* bg-the-go-getter~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-go-getter~iphone.png"; sourceTree = "<group>"; };
-		A86C599A17BC4268001A22D4 /* bg-the-host@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-host@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599B17BC4268001A22D4 /* bg-the-host~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-host~iphone.png"; sourceTree = "<group>"; };
-		A86C599C17BC4268001A22D4 /* bg-the-igniter@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-igniter@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599D17BC4268001A22D4 /* bg-the-igniter~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-igniter~iphone.png"; sourceTree = "<group>"; };
-		A86C599E17BC4268001A22D4 /* bg-the-impulse-planner@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-impulse-planner@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C599F17BC4268001A22D4 /* bg-the-impulse-planner~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-impulse-planner~iphone.png"; sourceTree = "<group>"; };
-		A86C59A017BC4268001A22D4 /* bg-the-laser-beam@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-laser-beam@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59A117BC4268001A22D4 /* bg-the-laser-beam~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-laser-beam~iphone.png"; sourceTree = "<group>"; };
-		A86C59A217BC4268001A22D4 /* bg-the-lone-ranger@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-lone-ranger@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59A317BC4268001A22D4 /* bg-the-lone-ranger~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-lone-ranger~iphone.png"; sourceTree = "<group>"; };
-		A86C59A417BC4268001A22D4 /* bg-the-loyalist@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-loyalist@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59A517BC4268001A22D4 /* bg-the-loyalist~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-loyalist~iphone.png"; sourceTree = "<group>"; };
-		A86C59A617BC4268001A22D4 /* bg-the-maverick@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-maverick@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59A717BC4268001A22D4 /* bg-the-maverick~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-maverick~iphone.png"; sourceTree = "<group>"; };
-		A86C59A817BC4268001A22D4 /* bg-the-microwave@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-microwave@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59A917BC4268001A22D4 /* bg-the-microwave~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-microwave~iphone.png"; sourceTree = "<group>"; };
-		A86C59AA17BC4268001A22D4 /* bg-the-pablo-picasso@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-pablo-picasso@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59AB17BC4268001A22D4 /* bg-the-pablo-picasso~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-pablo-picasso~iphone.png"; sourceTree = "<group>"; };
-		A86C59AC17BC4268001A22D4 /* bg-the-painters-palette@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-painters-palette@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59AD17BC4268001A22D4 /* bg-the-painters-palette~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-painters-palette~iphone.png"; sourceTree = "<group>"; };
-		A86C59AE17BC4268001A22D4 /* bg-the-paradox@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-paradox@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59AF17BC4268001A22D4 /* bg-the-paradox~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-paradox~iphone.png"; sourceTree = "<group>"; };
-		A86C59B017BC4268001A22D4 /* bg-the-pillar-of-strength@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-pillar-of-strength@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59B117BC4268001A22D4 /* bg-the-pillar-of-strength~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-pillar-of-strength~iphone.png"; sourceTree = "<group>"; };
-		A86C59B217BC4268001A22D4 /* bg-the-power-tool@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-power-tool@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59B317BC4268001A22D4 /* bg-the-power-tool~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-power-tool~iphone.png"; sourceTree = "<group>"; };
-		A86C59B417BC4268001A22D4 /* bg-the-private-investigator@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-private-investigator@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59B517BC4268001A22D4 /* bg-the-private-investigator~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-private-investigator~iphone.png"; sourceTree = "<group>"; };
-		A86C59B617BC4268001A22D4 /* bg-the-producer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-producer@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59B717BC4268001A22D4 /* bg-the-producer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-producer~iphone.png"; sourceTree = "<group>"; };
-		A86C59B817BC4268001A22D4 /* bg-the-rock@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-rock@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59B917BC4268001A22D4 /* bg-the-rock~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-rock~iphone.png"; sourceTree = "<group>"; };
-		A86C59BA17BC4268001A22D4 /* bg-the-scientist@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-scientist@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59BB17BC4268001A22D4 /* bg-the-scientist~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-scientist~iphone.png"; sourceTree = "<group>"; };
-		A86C59BC17BC4268001A22D4 /* bg-the-scrutinizer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-scrutinizer@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59BD17BC4268001A22D4 /* bg-the-scrutinizer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-scrutinizer~iphone.png"; sourceTree = "<group>"; };
-		A86C59BE17BC4268001A22D4 /* bg-the-shelter@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-shelter@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59BF17BC4268001A22D4 /* bg-the-shelter~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-shelter~iphone.png"; sourceTree = "<group>"; };
-		A86C59C017BC4268001A22D4 /* bg-the-soloist@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-soloist@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59C117BC4268001A22D4 /* bg-the-soloist~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-soloist~iphone.png"; sourceTree = "<group>"; };
-		A86C59C217BC4268001A22D4 /* bg-the-sparkler@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-sparkler@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59C317BC4268001A22D4 /* bg-the-sparkler~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-sparkler~iphone.png"; sourceTree = "<group>"; };
-		A86C59C417BC4268001A22D4 /* bg-the-super-sleuth@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-super-sleuth@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59C517BC4268001A22D4 /* bg-the-super-sleuth~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-super-sleuth~iphone.png"; sourceTree = "<group>"; };
-		A86C59C617BC4268001A22D4 /* bg-the-swiss-army-knife@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-swiss-army-knife@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59C717BC4268001A22D4 /* bg-the-swiss-army-knife~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-swiss-army-knife~iphone.png"; sourceTree = "<group>"; };
-		A86C59C817BC4268001A22D4 /* bg-the-team-player@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-team-player@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59C917BC4268001A22D4 /* bg-the-team-player~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-team-player~iphone.png"; sourceTree = "<group>"; };
-		A86C59CA17BC4268001A22D4 /* bg-the-trailblazer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-trailblazer@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59CB17BC4268001A22D4 /* bg-the-trailblazer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-trailblazer~iphone.png"; sourceTree = "<group>"; };
-		A86C59CC17BC4268001A22D4 /* bg-the-trendsetter@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-trendsetter@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59CD17BC4268001A22D4 /* bg-the-trendsetter~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-trendsetter~iphone.png"; sourceTree = "<group>"; };
-		A86C59CE17BC4268001A22D4 /* bg-the-tried-and-true@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-tried-and-true@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59CF17BC4268001A22D4 /* bg-the-tried-and-true~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-tried-and-true~iphone.png"; sourceTree = "<group>"; };
-		A86C59D017BC4268001A22D4 /* bg-the-true-blue@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-true-blue@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59D117BC4268001A22D4 /* bg-the-true-blue~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-true-blue~iphone.png"; sourceTree = "<group>"; };
-		A86C59D217BC4268001A22D4 /* bg-the-well-oiled-machine@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-well-oiled-machine@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59D317BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-well-oiled-machine~iphone.png"; sourceTree = "<group>"; };
-		A86C59D417BC4268001A22D4 /* bg-the-workhorse@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-workhorse@2x~iphone.png"; sourceTree = "<group>"; };
-		A86C59D517BC4268001A22D4 /* bg-the-workhorse~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-the-workhorse~iphone.png"; sourceTree = "<group>"; };
 		A86C59D617BC4268001A22D4 /* playsnoozer-alert@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playsnoozer-alert@2x~iphone.png"; sourceTree = "<group>"; };
 		A86C59D717BC4268001A22D4 /* playsnoozer-alert~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playsnoozer-alert~iphone.png"; sourceTree = "<group>"; };
 		A86C59D817BC4268001A22D4 /* profile-header@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile-header@2x~iphone.png"; sourceTree = "<group>"; };
@@ -1229,6 +994,8 @@
 		A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerInstructionViewController.h; sourceTree = "<group>"; };
 		A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerInstructionViewController.m; sourceTree = "<group>"; };
 		A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerInstructionViewController.xib; sourceTree = "<group>"; };
+		A8AF0F6A17BD5746005AB5A2 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
+		A8AF0F6B17BD5746005AB5A2 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
 		A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
 		A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
 		A8DD649A17B1D2840040BD90 /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
@@ -1448,7 +1215,6 @@
 				A86C58E617BC4267001A22D4 /* icon-ribbon@2x~iphone.png */,
 				A86C58E717BC4267001A22D4 /* icon-ribbon~iphone.png */,
 				A86C58E817BC4267001A22D4 /* personality backgrounds */,
-				A86C595F17BC4268001A22D4 /* personality backgrounds copy */,
 				A86C59D617BC4268001A22D4 /* playsnoozer-alert@2x~iphone.png */,
 				A86C59D717BC4268001A22D4 /* playsnoozer-alert~iphone.png */,
 				A86C59D817BC4268001A22D4 /* profile-header@2x~iphone.png */,
@@ -1742,131 +1508,6 @@
 			path = "personality backgrounds";
 			sourceTree = "<group>";
 		};
-		A86C595F17BC4268001A22D4 /* personality backgrounds copy */ = {
-			isa = PBXGroup;
-			children = (
-				A86C596017BC4268001A22D4 /* bg-the-algorithmist@2x~iphone.png */,
-				A86C596117BC4268001A22D4 /* bg-the-algorithmist~iphone.png */,
-				A86C596217BC4268001A22D4 /* bg-the-analyst@2x~iphone.png */,
-				A86C596317BC4268001A22D4 /* bg-the-analyst~iphone.png */,
-				A86C596417BC4268001A22D4 /* bg-the-anchor@2x~iphone.png */,
-				A86C596517BC4268001A22D4 /* bg-the-anchor~iphone.png */,
-				A86C596617BC4268001A22D4 /* bg-the-architect@2x~iphone.png */,
-				A86C596717BC4268001A22D4 /* bg-the-architect~iphone.png */,
-				A86C596817BC4268001A22D4 /* bg-the-brainstorm@2x~iphone.png */,
-				A86C596917BC4268001A22D4 /* bg-the-brainstorm~iphone.png */,
-				A86C596A17BC4268001A22D4 /* bg-the-bullet-train@2x~iphone.png */,
-				A86C596B17BC4268001A22D4 /* bg-the-bullet-train~iphone.png */,
-				A86C596C17BC4268001A22D4 /* bg-the-calculator@2x~iphone.png */,
-				A86C596D17BC4268001A22D4 /* bg-the-calculator~iphone.png */,
-				A86C596E17BC4268001A22D4 /* bg-the-charger@2x~iphone.png */,
-				A86C596F17BC4268001A22D4 /* bg-the-charger~iphone.png */,
-				A86C597017BC4268001A22D4 /* bg-the-chess-master@2x~iphone.png */,
-				A86C597117BC4268001A22D4 /* bg-the-chess-master~iphone.png */,
-				A86C597217BC4268001A22D4 /* bg-the-chief-executive@2x~iphone.png */,
-				A86C597317BC4268001A22D4 /* bg-the-chief-executive~iphone.png */,
-				A86C597417BC4268001A22D4 /* bg-the-clicker@2x~iphone.png */,
-				A86C597517BC4268001A22D4 /* bg-the-clicker~iphone.png */,
-				A86C597617BC4268001A22D4 /* bg-the-connector@2x~iphone.png */,
-				A86C597717BC4268001A22D4 /* bg-the-connector~iphone.png */,
-				A86C597817BC4268001A22D4 /* bg-the-connoisseur@2x~iphone.png */,
-				A86C597917BC4268001A22D4 /* bg-the-connoisseur~iphone.png */,
-				A86C597A17BC4268001A22D4 /* bg-the-cool-cat@2x~iphone.png */,
-				A86C597B17BC4268001A22D4 /* bg-the-cool-cat~iphone.png */,
-				A86C597C17BC4268001A22D4 /* bg-the-decider@2x~iphone.png */,
-				A86C597D17BC4268001A22D4 /* bg-the-decider~iphone.png */,
-				A86C597E17BC4268001A22D4 /* bg-the-detailer@2x~iphone.png */,
-				A86C597F17BC4268001A22D4 /* bg-the-detailer~iphone.png */,
-				A86C598017BC4268001A22D4 /* bg-the-different-drummer@2x~iphone.png */,
-				A86C598117BC4268001A22D4 /* bg-the-different-drummer~iphone.png */,
-				A86C598217BC4268001A22D4 /* bg-the-director@2x~iphone.png */,
-				A86C598317BC4268001A22D4 /* bg-the-director~iphone.png */,
-				A86C598417BC4268001A22D4 /* bg-the-drum-machine@2x~iphone.png */,
-				A86C598517BC4268001A22D4 /* bg-the-drum-machine~iphone.png */,
-				A86C598617BC4268001A22D4 /* bg-the-dynamo@2x~iphone.png */,
-				A86C598717BC4268001A22D4 /* bg-the-dynamo~iphone.png */,
-				A86C598817BC4268001A22D4 /* bg-the-entrepreneur@2x~iphone.png */,
-				A86C598917BC4268001A22D4 /* bg-the-entrepreneur~iphone.png */,
-				A86C598A17BC4268001A22D4 /* bg-the-examiner@2x~iphone.png */,
-				A86C598B17BC4268001A22D4 /* bg-the-examiner~iphone.png */,
-				A86C598C17BC4268001A22D4 /* bg-the-explorer@2x~iphone.png */,
-				A86C598D17BC4268001A22D4 /* bg-the-explorer~iphone.png */,
-				A86C598E17BC4268001A22D4 /* bg-the-eye-of-the-storm@2x~iphone.png */,
-				A86C598F17BC4268001A22D4 /* bg-the-eye-of-the-storm~iphone.png */,
-				A86C599017BC4268001A22D4 /* bg-the-free-spirit@2x~iphone.png */,
-				A86C599117BC4268001A22D4 /* bg-the-free-spirit~iphone.png */,
-				A86C599217BC4268001A22D4 /* bg-the-free-verse-poet@2x~iphone.png */,
-				A86C599317BC4268001A22D4 /* bg-the-free-verse-poet~iphone.png */,
-				A86C599417BC4268001A22D4 /* bg-the-ghostwriter@2x~iphone.png */,
-				A86C599517BC4268001A22D4 /* bg-the-ghostwriter~iphone.png */,
-				A86C599617BC4268001A22D4 /* bg-the-giver@2x~iphone.png */,
-				A86C599717BC4268001A22D4 /* bg-the-giver~iphone.png */,
-				A86C599817BC4268001A22D4 /* bg-the-go-getter@2x~iphone.png */,
-				A86C599917BC4268001A22D4 /* bg-the-go-getter~iphone.png */,
-				A86C599A17BC4268001A22D4 /* bg-the-host@2x~iphone.png */,
-				A86C599B17BC4268001A22D4 /* bg-the-host~iphone.png */,
-				A86C599C17BC4268001A22D4 /* bg-the-igniter@2x~iphone.png */,
-				A86C599D17BC4268001A22D4 /* bg-the-igniter~iphone.png */,
-				A86C599E17BC4268001A22D4 /* bg-the-impulse-planner@2x~iphone.png */,
-				A86C599F17BC4268001A22D4 /* bg-the-impulse-planner~iphone.png */,
-				A86C59A017BC4268001A22D4 /* bg-the-laser-beam@2x~iphone.png */,
-				A86C59A117BC4268001A22D4 /* bg-the-laser-beam~iphone.png */,
-				A86C59A217BC4268001A22D4 /* bg-the-lone-ranger@2x~iphone.png */,
-				A86C59A317BC4268001A22D4 /* bg-the-lone-ranger~iphone.png */,
-				A86C59A417BC4268001A22D4 /* bg-the-loyalist@2x~iphone.png */,
-				A86C59A517BC4268001A22D4 /* bg-the-loyalist~iphone.png */,
-				A86C59A617BC4268001A22D4 /* bg-the-maverick@2x~iphone.png */,
-				A86C59A717BC4268001A22D4 /* bg-the-maverick~iphone.png */,
-				A86C59A817BC4268001A22D4 /* bg-the-microwave@2x~iphone.png */,
-				A86C59A917BC4268001A22D4 /* bg-the-microwave~iphone.png */,
-				A86C59AA17BC4268001A22D4 /* bg-the-pablo-picasso@2x~iphone.png */,
-				A86C59AB17BC4268001A22D4 /* bg-the-pablo-picasso~iphone.png */,
-				A86C59AC17BC4268001A22D4 /* bg-the-painters-palette@2x~iphone.png */,
-				A86C59AD17BC4268001A22D4 /* bg-the-painters-palette~iphone.png */,
-				A86C59AE17BC4268001A22D4 /* bg-the-paradox@2x~iphone.png */,
-				A86C59AF17BC4268001A22D4 /* bg-the-paradox~iphone.png */,
-				A86C59B017BC4268001A22D4 /* bg-the-pillar-of-strength@2x~iphone.png */,
-				A86C59B117BC4268001A22D4 /* bg-the-pillar-of-strength~iphone.png */,
-				A86C59B217BC4268001A22D4 /* bg-the-power-tool@2x~iphone.png */,
-				A86C59B317BC4268001A22D4 /* bg-the-power-tool~iphone.png */,
-				A86C59B417BC4268001A22D4 /* bg-the-private-investigator@2x~iphone.png */,
-				A86C59B517BC4268001A22D4 /* bg-the-private-investigator~iphone.png */,
-				A86C59B617BC4268001A22D4 /* bg-the-producer@2x~iphone.png */,
-				A86C59B717BC4268001A22D4 /* bg-the-producer~iphone.png */,
-				A86C59B817BC4268001A22D4 /* bg-the-rock@2x~iphone.png */,
-				A86C59B917BC4268001A22D4 /* bg-the-rock~iphone.png */,
-				A86C59BA17BC4268001A22D4 /* bg-the-scientist@2x~iphone.png */,
-				A86C59BB17BC4268001A22D4 /* bg-the-scientist~iphone.png */,
-				A86C59BC17BC4268001A22D4 /* bg-the-scrutinizer@2x~iphone.png */,
-				A86C59BD17BC4268001A22D4 /* bg-the-scrutinizer~iphone.png */,
-				A86C59BE17BC4268001A22D4 /* bg-the-shelter@2x~iphone.png */,
-				A86C59BF17BC4268001A22D4 /* bg-the-shelter~iphone.png */,
-				A86C59C017BC4268001A22D4 /* bg-the-soloist@2x~iphone.png */,
-				A86C59C117BC4268001A22D4 /* bg-the-soloist~iphone.png */,
-				A86C59C217BC4268001A22D4 /* bg-the-sparkler@2x~iphone.png */,
-				A86C59C317BC4268001A22D4 /* bg-the-sparkler~iphone.png */,
-				A86C59C417BC4268001A22D4 /* bg-the-super-sleuth@2x~iphone.png */,
-				A86C59C517BC4268001A22D4 /* bg-the-super-sleuth~iphone.png */,
-				A86C59C617BC4268001A22D4 /* bg-the-swiss-army-knife@2x~iphone.png */,
-				A86C59C717BC4268001A22D4 /* bg-the-swiss-army-knife~iphone.png */,
-				A86C59C817BC4268001A22D4 /* bg-the-team-player@2x~iphone.png */,
-				A86C59C917BC4268001A22D4 /* bg-the-team-player~iphone.png */,
-				A86C59CA17BC4268001A22D4 /* bg-the-trailblazer@2x~iphone.png */,
-				A86C59CB17BC4268001A22D4 /* bg-the-trailblazer~iphone.png */,
-				A86C59CC17BC4268001A22D4 /* bg-the-trendsetter@2x~iphone.png */,
-				A86C59CD17BC4268001A22D4 /* bg-the-trendsetter~iphone.png */,
-				A86C59CE17BC4268001A22D4 /* bg-the-tried-and-true@2x~iphone.png */,
-				A86C59CF17BC4268001A22D4 /* bg-the-tried-and-true~iphone.png */,
-				A86C59D017BC4268001A22D4 /* bg-the-true-blue@2x~iphone.png */,
-				A86C59D117BC4268001A22D4 /* bg-the-true-blue~iphone.png */,
-				A86C59D217BC4268001A22D4 /* bg-the-well-oiled-machine@2x~iphone.png */,
-				A86C59D317BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.png */,
-				A86C59D417BC4268001A22D4 /* bg-the-workhorse@2x~iphone.png */,
-				A86C59D517BC4268001A22D4 /* bg-the-workhorse~iphone.png */,
-			);
-			path = "personality backgrounds copy";
-			sourceTree = "<group>";
-		};
 		A86C59DA17BC4268001A22D4 /* settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -2022,6 +1663,7 @@
 		A879A6A017A888C20082A455 /* TPLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				A8AF0F6917BD5735005AB5A2 /* Models */,
 				A879A6A117A888C20082A455 /* LoginVC */,
 				A879A6A617A888C20082A455 /* Networking */,
 				A879A6AD17A888C20082A455 /* Singletons */,
@@ -2093,6 +1735,15 @@
 				A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.mm */,
 			);
 			name = GameVC;
+			sourceTree = "<group>";
+		};
+		A8AF0F6917BD5735005AB5A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8AF0F6A17BD5746005AB5A2 /* TPUser.h */,
+				A8AF0F6B17BD5746005AB5A2 /* TPUser.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		A8BD1DF5179F030300A7E26C /* Helper */ = {
@@ -2512,124 +2163,6 @@
 				A86C5B6D17BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.jpg in Resources */,
 				A86C5B6E17BC4268001A22D4 /* bg-the-workhorse@2x~iphone.jpg in Resources */,
 				A86C5B6F17BC4268001A22D4 /* bg-the-workhorse~iphone.jpg in Resources */,
-				A86C5B7017BC4268001A22D4 /* bg-the-algorithmist@2x~iphone.png in Resources */,
-				A86C5B7117BC4268001A22D4 /* bg-the-algorithmist~iphone.png in Resources */,
-				A86C5B7217BC4268001A22D4 /* bg-the-analyst@2x~iphone.png in Resources */,
-				A86C5B7317BC4268001A22D4 /* bg-the-analyst~iphone.png in Resources */,
-				A86C5B7417BC4268001A22D4 /* bg-the-anchor@2x~iphone.png in Resources */,
-				A86C5B7517BC4268001A22D4 /* bg-the-anchor~iphone.png in Resources */,
-				A86C5B7617BC4268001A22D4 /* bg-the-architect@2x~iphone.png in Resources */,
-				A86C5B7717BC4268001A22D4 /* bg-the-architect~iphone.png in Resources */,
-				A86C5B7817BC4268001A22D4 /* bg-the-brainstorm@2x~iphone.png in Resources */,
-				A86C5B7917BC4268001A22D4 /* bg-the-brainstorm~iphone.png in Resources */,
-				A86C5B7A17BC4268001A22D4 /* bg-the-bullet-train@2x~iphone.png in Resources */,
-				A86C5B7B17BC4268001A22D4 /* bg-the-bullet-train~iphone.png in Resources */,
-				A86C5B7C17BC4268001A22D4 /* bg-the-calculator@2x~iphone.png in Resources */,
-				A86C5B7D17BC4268001A22D4 /* bg-the-calculator~iphone.png in Resources */,
-				A86C5B7E17BC4268001A22D4 /* bg-the-charger@2x~iphone.png in Resources */,
-				A86C5B7F17BC4268001A22D4 /* bg-the-charger~iphone.png in Resources */,
-				A86C5B8017BC4268001A22D4 /* bg-the-chess-master@2x~iphone.png in Resources */,
-				A86C5B8117BC4268001A22D4 /* bg-the-chess-master~iphone.png in Resources */,
-				A86C5B8217BC4268001A22D4 /* bg-the-chief-executive@2x~iphone.png in Resources */,
-				A86C5B8317BC4268001A22D4 /* bg-the-chief-executive~iphone.png in Resources */,
-				A86C5B8417BC4268001A22D4 /* bg-the-clicker@2x~iphone.png in Resources */,
-				A86C5B8517BC4268001A22D4 /* bg-the-clicker~iphone.png in Resources */,
-				A86C5B8617BC4268001A22D4 /* bg-the-connector@2x~iphone.png in Resources */,
-				A86C5B8717BC4268001A22D4 /* bg-the-connector~iphone.png in Resources */,
-				A86C5B8817BC4268001A22D4 /* bg-the-connoisseur@2x~iphone.png in Resources */,
-				A86C5B8917BC4268001A22D4 /* bg-the-connoisseur~iphone.png in Resources */,
-				A86C5B8A17BC4268001A22D4 /* bg-the-cool-cat@2x~iphone.png in Resources */,
-				A86C5B8B17BC4268001A22D4 /* bg-the-cool-cat~iphone.png in Resources */,
-				A86C5B8C17BC4268001A22D4 /* bg-the-decider@2x~iphone.png in Resources */,
-				A86C5B8D17BC4268001A22D4 /* bg-the-decider~iphone.png in Resources */,
-				A86C5B8E17BC4268001A22D4 /* bg-the-detailer@2x~iphone.png in Resources */,
-				A86C5B8F17BC4268001A22D4 /* bg-the-detailer~iphone.png in Resources */,
-				A86C5B9017BC4268001A22D4 /* bg-the-different-drummer@2x~iphone.png in Resources */,
-				A86C5B9117BC4268001A22D4 /* bg-the-different-drummer~iphone.png in Resources */,
-				A86C5B9217BC4268001A22D4 /* bg-the-director@2x~iphone.png in Resources */,
-				A86C5B9317BC4268001A22D4 /* bg-the-director~iphone.png in Resources */,
-				A86C5B9417BC4268001A22D4 /* bg-the-drum-machine@2x~iphone.png in Resources */,
-				A86C5B9517BC4268001A22D4 /* bg-the-drum-machine~iphone.png in Resources */,
-				A86C5B9617BC4268001A22D4 /* bg-the-dynamo@2x~iphone.png in Resources */,
-				A86C5B9717BC4268001A22D4 /* bg-the-dynamo~iphone.png in Resources */,
-				A86C5B9817BC4268001A22D4 /* bg-the-entrepreneur@2x~iphone.png in Resources */,
-				A86C5B9917BC4268001A22D4 /* bg-the-entrepreneur~iphone.png in Resources */,
-				A86C5B9A17BC4268001A22D4 /* bg-the-examiner@2x~iphone.png in Resources */,
-				A86C5B9B17BC4268001A22D4 /* bg-the-examiner~iphone.png in Resources */,
-				A86C5B9C17BC4268001A22D4 /* bg-the-explorer@2x~iphone.png in Resources */,
-				A86C5B9D17BC4268001A22D4 /* bg-the-explorer~iphone.png in Resources */,
-				A86C5B9E17BC4268001A22D4 /* bg-the-eye-of-the-storm@2x~iphone.png in Resources */,
-				A86C5B9F17BC4268001A22D4 /* bg-the-eye-of-the-storm~iphone.png in Resources */,
-				A86C5BA017BC4268001A22D4 /* bg-the-free-spirit@2x~iphone.png in Resources */,
-				A86C5BA117BC4268001A22D4 /* bg-the-free-spirit~iphone.png in Resources */,
-				A86C5BA217BC4268001A22D4 /* bg-the-free-verse-poet@2x~iphone.png in Resources */,
-				A86C5BA317BC4268001A22D4 /* bg-the-free-verse-poet~iphone.png in Resources */,
-				A86C5BA417BC4268001A22D4 /* bg-the-ghostwriter@2x~iphone.png in Resources */,
-				A86C5BA517BC4268001A22D4 /* bg-the-ghostwriter~iphone.png in Resources */,
-				A86C5BA617BC4268001A22D4 /* bg-the-giver@2x~iphone.png in Resources */,
-				A86C5BA717BC4268001A22D4 /* bg-the-giver~iphone.png in Resources */,
-				A86C5BA817BC4268001A22D4 /* bg-the-go-getter@2x~iphone.png in Resources */,
-				A86C5BA917BC4268001A22D4 /* bg-the-go-getter~iphone.png in Resources */,
-				A86C5BAA17BC4268001A22D4 /* bg-the-host@2x~iphone.png in Resources */,
-				A86C5BAB17BC4268001A22D4 /* bg-the-host~iphone.png in Resources */,
-				A86C5BAC17BC4268001A22D4 /* bg-the-igniter@2x~iphone.png in Resources */,
-				A86C5BAD17BC4268001A22D4 /* bg-the-igniter~iphone.png in Resources */,
-				A86C5BAE17BC4268001A22D4 /* bg-the-impulse-planner@2x~iphone.png in Resources */,
-				A86C5BAF17BC4268001A22D4 /* bg-the-impulse-planner~iphone.png in Resources */,
-				A86C5BB017BC4268001A22D4 /* bg-the-laser-beam@2x~iphone.png in Resources */,
-				A86C5BB117BC4268001A22D4 /* bg-the-laser-beam~iphone.png in Resources */,
-				A86C5BB217BC4268001A22D4 /* bg-the-lone-ranger@2x~iphone.png in Resources */,
-				A86C5BB317BC4268001A22D4 /* bg-the-lone-ranger~iphone.png in Resources */,
-				A86C5BB417BC4268001A22D4 /* bg-the-loyalist@2x~iphone.png in Resources */,
-				A86C5BB517BC4268001A22D4 /* bg-the-loyalist~iphone.png in Resources */,
-				A86C5BB617BC4268001A22D4 /* bg-the-maverick@2x~iphone.png in Resources */,
-				A86C5BB717BC4268001A22D4 /* bg-the-maverick~iphone.png in Resources */,
-				A86C5BB817BC4268001A22D4 /* bg-the-microwave@2x~iphone.png in Resources */,
-				A86C5BB917BC4268001A22D4 /* bg-the-microwave~iphone.png in Resources */,
-				A86C5BBA17BC4268001A22D4 /* bg-the-pablo-picasso@2x~iphone.png in Resources */,
-				A86C5BBB17BC4268001A22D4 /* bg-the-pablo-picasso~iphone.png in Resources */,
-				A86C5BBC17BC4268001A22D4 /* bg-the-painters-palette@2x~iphone.png in Resources */,
-				A86C5BBD17BC4268001A22D4 /* bg-the-painters-palette~iphone.png in Resources */,
-				A86C5BBE17BC4268001A22D4 /* bg-the-paradox@2x~iphone.png in Resources */,
-				A86C5BBF17BC4268001A22D4 /* bg-the-paradox~iphone.png in Resources */,
-				A86C5BC017BC4268001A22D4 /* bg-the-pillar-of-strength@2x~iphone.png in Resources */,
-				A86C5BC117BC4268001A22D4 /* bg-the-pillar-of-strength~iphone.png in Resources */,
-				A86C5BC217BC4268001A22D4 /* bg-the-power-tool@2x~iphone.png in Resources */,
-				A86C5BC317BC4268001A22D4 /* bg-the-power-tool~iphone.png in Resources */,
-				A86C5BC417BC4268001A22D4 /* bg-the-private-investigator@2x~iphone.png in Resources */,
-				A86C5BC517BC4268001A22D4 /* bg-the-private-investigator~iphone.png in Resources */,
-				A86C5BC617BC4268001A22D4 /* bg-the-producer@2x~iphone.png in Resources */,
-				A86C5BC717BC4268001A22D4 /* bg-the-producer~iphone.png in Resources */,
-				A86C5BC817BC4268001A22D4 /* bg-the-rock@2x~iphone.png in Resources */,
-				A86C5BC917BC4268001A22D4 /* bg-the-rock~iphone.png in Resources */,
-				A86C5BCA17BC4268001A22D4 /* bg-the-scientist@2x~iphone.png in Resources */,
-				A86C5BCB17BC4268001A22D4 /* bg-the-scientist~iphone.png in Resources */,
-				A86C5BCC17BC4268001A22D4 /* bg-the-scrutinizer@2x~iphone.png in Resources */,
-				A86C5BCD17BC4268001A22D4 /* bg-the-scrutinizer~iphone.png in Resources */,
-				A86C5BCE17BC4268001A22D4 /* bg-the-shelter@2x~iphone.png in Resources */,
-				A86C5BCF17BC4268001A22D4 /* bg-the-shelter~iphone.png in Resources */,
-				A86C5BD017BC4268001A22D4 /* bg-the-soloist@2x~iphone.png in Resources */,
-				A86C5BD117BC4268001A22D4 /* bg-the-soloist~iphone.png in Resources */,
-				A86C5BD217BC4268001A22D4 /* bg-the-sparkler@2x~iphone.png in Resources */,
-				A86C5BD317BC4268001A22D4 /* bg-the-sparkler~iphone.png in Resources */,
-				A86C5BD417BC4268001A22D4 /* bg-the-super-sleuth@2x~iphone.png in Resources */,
-				A86C5BD517BC4268001A22D4 /* bg-the-super-sleuth~iphone.png in Resources */,
-				A86C5BD617BC4268001A22D4 /* bg-the-swiss-army-knife@2x~iphone.png in Resources */,
-				A86C5BD717BC4268001A22D4 /* bg-the-swiss-army-knife~iphone.png in Resources */,
-				A86C5BD817BC4268001A22D4 /* bg-the-team-player@2x~iphone.png in Resources */,
-				A86C5BD917BC4268001A22D4 /* bg-the-team-player~iphone.png in Resources */,
-				A86C5BDA17BC4268001A22D4 /* bg-the-trailblazer@2x~iphone.png in Resources */,
-				A86C5BDB17BC4268001A22D4 /* bg-the-trailblazer~iphone.png in Resources */,
-				A86C5BDC17BC4268001A22D4 /* bg-the-trendsetter@2x~iphone.png in Resources */,
-				A86C5BDD17BC4268001A22D4 /* bg-the-trendsetter~iphone.png in Resources */,
-				A86C5BDE17BC4268001A22D4 /* bg-the-tried-and-true@2x~iphone.png in Resources */,
-				A86C5BDF17BC4268001A22D4 /* bg-the-tried-and-true~iphone.png in Resources */,
-				A86C5BE017BC4268001A22D4 /* bg-the-true-blue@2x~iphone.png in Resources */,
-				A86C5BE117BC4268001A22D4 /* bg-the-true-blue~iphone.png in Resources */,
-				A86C5BE217BC4268001A22D4 /* bg-the-well-oiled-machine@2x~iphone.png in Resources */,
-				A86C5BE317BC4268001A22D4 /* bg-the-well-oiled-machine~iphone.png in Resources */,
-				A86C5BE417BC4268001A22D4 /* bg-the-workhorse@2x~iphone.png in Resources */,
-				A86C5BE517BC4268001A22D4 /* bg-the-workhorse~iphone.png in Resources */,
 				A86C5BE617BC4268001A22D4 /* playsnoozer-alert@2x~iphone.png in Resources */,
 				A86C5BE717BC4268001A22D4 /* playsnoozer-alert~iphone.png in Resources */,
 				A86C5BE817BC4268001A22D4 /* profile-header@2x~iphone.png in Resources */,
@@ -2850,6 +2383,7 @@
 				A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */,
 				A86C5C7417BC667D001A22D4 /* TPLabelBold.m in Sources */,
 				A86C5C7817BC6953001A22D4 /* TPBarButtonItem.m in Sources */,
+				A8AF0F6C17BD5746005AB5A2 /* TPUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

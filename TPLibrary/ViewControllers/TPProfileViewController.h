@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPUser.h"
 
 @interface TPProfileViewController : UITableViewController
 
-@property (strong, nonatomic) NSDictionary *personalityType;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *rightButton;
+@property (strong, nonatomic) TPUser *user;
+@property (weak, nonatomic) IBOutlet TPBarButtonItem *rightButton;
 @property (strong, nonatomic) NSArray *bulletPoints;
 @property (strong, nonatomic) NSArray *paragraphs;
 

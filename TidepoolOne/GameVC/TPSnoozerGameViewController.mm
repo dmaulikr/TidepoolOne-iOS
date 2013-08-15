@@ -30,17 +30,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     // Send a screen view to the first property.
-    id tracker1 = [[GAI sharedInstance] trackerWithTrackingId:@"UA-XXXX-Y"];
+    id tracker1 = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
     [tracker1 sendView:@"/SnoozerGame"];
-
+    
 }
 - (void)viewDidAppear:(BOOL)animated
 {
     self.type = @"snoozer";
-    [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
-        [self startNewGame];
-    } andFailure:^{
-    }];
+    if (![[TPOAuthClient sharedClient] isLoggedIn]) {
+        NSLog(@"SnoozerGame considers not logged in");
+        [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
+            [self startNewGame];
+        } andFailure:^{
+        }];        
+    } else {
+        [self startNewGame];        
+        NSLog(@"SnoozerGame considers logged in");
+    }
 }
 
 - (void)didReceiveMemoryWarning

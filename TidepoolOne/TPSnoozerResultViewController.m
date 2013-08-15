@@ -7,6 +7,7 @@
 //
 
 #import "TPSnoozerResultViewController.h"
+#import "TPLocalNotificationManager.h"
 
 @interface TPSnoozerResultViewController ()
 
@@ -38,6 +39,8 @@
         self.scrollView.bounds = self.view.bounds;
     }
     self.history = @[@220, @270, @230, @250];
+    
+    [[TPLocalNotificationManager sharedInstance] createNotification];
 }
 
 -(void)viewDidAppear:(BOOL)animated

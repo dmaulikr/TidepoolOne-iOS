@@ -17,9 +17,9 @@ static BOOL kLocalCache = NO;
 
 // Local cache - unique file info
 static NSString* kFilename = @"GuessMyMoodTokenInfo.plist";
-
 // Remote cache - date format
-static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
+static NSString* kFBDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
+
 
 @interface TPTokenCachingStrategy()
 @property (nonatomic, strong) NSString *tokenFilePath;
@@ -129,7 +129,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 - (NSMutableDictionary *) dictionaryDateParse: (NSDictionary *) data {
     // Date format for date checks
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:kDateFormat];
+    [dateFormatter setDateFormat:kFBDateFormat];
     // Dictionary to return
     NSMutableDictionary *resultDictionary = [[NSMutableDictionary alloc] init];
     // Enumerate through the input dictionary
@@ -157,60 +157,16 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 /*
  * Helper method to write data.
  */
-- (void) writeDataRemotely:(NSDictionary *) data {
-    NSLog([data description]);
-
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:kDateFormat];
-
-
-    NSMutableDictionary *info = [NSMutableDictionary dictionary];
-    [info setValue:@"mayank.ot@gmail.com" forKey:@"email"];
-    [info setValue:@"Mayank Sanganeria" forKey:@"name"];
-    [info setValue:@"http://google.com" forKey:@"image"];
-    
-    NSDate *expiresDate = data[@"com.facebook.sdk:TokenInformationExpirationDateKey"];
-    NSDate *refreshDate = data[@"com.facebook.sdk:TokenInformationRefreshDateKey"];
-    
-    NSMutableDictionary *credentials = [NSMutableDictionary dictionary];
-    [credentials setValue:data[@"com.facebook.sdk:TokenInformationTokenKey"] forKey:@"token"];
-    [credentials setValue:[dateFormatter stringFromDate:refreshDate] forKey:@"refresh_at"];
-    [credentials setValue:data[@"com.facebook.sdk:TokenInformationPermissionsKey"] forKey:@"permissions"];
-
-    [credentials setValue:[dateFormatter stringFromDate:expiresDate] forKey:@"expires_at"];
-    [credentials setValue:[NSNumber numberWithBool:YES] forKey:@"expires"];
-    
-    NSMutableDictionary *authHash = [NSMutableDictionary dictionary];
-    [authHash setValue:@"facebook" forKey:@"provider"];
-    [authHash setValue:@"221000190" forKey:@"uid"];
-    [authHash setValue:info forKey:@"info"];
-    [authHash setValue:credentials forKey:@"credentials"];
-    
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-//    [dict setObject:@"mayank.ot@gmail.com" forKey:@"user_id"];
-    [dict setObject:@"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1" forKey:@"client_id"];
-    [dict setObject:@"3e4da2177beee0d8ec458480526b3716047b3ff0df3362262183f6841253a706" forKey:@"client_secret"];
-    [dict setObject:@"password" forKey:@"grant_type"];
-    [dict setObject:@"password" forKey:@"response_type"];
-    [dict setObject:authHash forKey:@"auth_hash"];
-
-    NSLog([dateFormatter stringFromDate:refreshDate]);
-    NSLog([dateFormatter stringFromDate:expiresDate]);
-    
-    NSLog([dict description]);
-    
-    [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"boo:%@",[responseObject description]);
-        [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog([error description]);
-    }];    
+- (void) writeDataRemotely:(NSDictionary *) data {    
+    [[TPOAuthClient sharedClient] authenticateWithFacebookToken:data];
 }
 
 /*
  * Helper method to read data.
  */
 - (NSDictionary *) readDataRemotely {
+    //TODO: fix this
+    return nil;
 }
 
 @end

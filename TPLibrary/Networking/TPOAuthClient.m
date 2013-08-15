@@ -19,6 +19,10 @@ NSString * const kClientSecret = @"3e4da2177beee0d8ec458480526b3716047b3ff0df336
 
 NSString * const kSSKeychainServiceName = @"Tidepool";
 
+// Remote cache - date format - same as in TPTokenCaching
+static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
+
+
 @interface TPOAuthClient()
 {
     NSString *_clientId;
@@ -113,7 +117,14 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];
+    [self getUserInfo];
+}
+
+-(BOOL)isLoggedIn
+{
+    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+    NSLog(@"Accounts in isLoggedIn function: %@", [accounts description]);
+    return accounts.count;
 }
 
 -(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
@@ -146,9 +157,81 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 
 -(void)logout
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
+    NSLog(@"Loggin out OauthClient");
+    [[FBSession activeSession] closeAndClearTokenInformation];
     [self clearAuthorizationHeader];
     [self deleteAllPasswords];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
+}
+
+-(void)getUserInfo
+{
+    [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"BOO:%@",[responseObject description]);
+        self.user = responseObject[@"data"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog([error description]);
+    }];
+}
+
+
+-(void)authenticateWithFacebookToken:(NSDictionary *)token
+{
+    if (FBSession.activeSession.isOpen) {
+        [[FBRequest requestForMe] startWithCompletionHandler:
+         ^(FBRequestConnection *connection,
+           NSDictionary<FBGraphUser> *user,
+           NSError *error) {
+             if (!error) {
+                 NSLog([user description]);
+                 [self getTidepoolOauthTokenInExchangeForFacebookUserInfo:user andFacebookToken:token];
+             }
+         }];
+    }
+}
+
+-(void)getTidepoolOauthTokenInExchangeForFacebookUserInfo:(NSDictionary *)user andFacebookToken:(NSDictionary *)token
+{
+    NSLog(@"Facebook Data:%@",[token description]);
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:kDateFormat];
+    
+    //Facebook Token Data mapping
+    NSDate *expiresDate = token[@"com.facebook.sdk:TokenInformationExpirationDateKey"];
+    NSDate *refreshDate = token[@"com.facebook.sdk:TokenInformationRefreshDateKey"];
+    NSMutableDictionary *credentials = [NSMutableDictionary dictionary];
+    
+    NSMutableDictionary *info = [NSMutableDictionary dictionary];
+    [info setValue:user[@"email"] forKey:@"email"];
+    [info setValue:[NSString stringWithFormat:@"%@ %@",user[@"first_name"],user[@"last_name"]] forKey:@"name"];
+    [info setValue:[NSString stringWithFormat:@"http://graph.facebook.com/%@/picture", user[@"id"]] forKey:@"image"];
+    [credentials setValue:token[@"com.facebook.sdk:TokenInformationTokenKey"] forKey:@"token"];
+    [credentials setValue:[dateFormatter stringFromDate:refreshDate] forKey:@"refresh_at"];
+    [credentials setValue:token[@"com.facebook.sdk:TokenInformationPermissionsKey"] forKey:@"permissions"];
+    [credentials setValue:[dateFormatter stringFromDate:expiresDate] forKey:@"expires_at"];
+    [credentials setValue:[NSNumber numberWithBool:YES] forKey:@"expires"];
+    
+    NSMutableDictionary *authHash = [NSMutableDictionary dictionary];
+    [authHash setValue:@"facebook" forKey:@"provider"];
+    [authHash setValue:user[@"id"] forKey:@"uid"];
+    [authHash setValue:info forKey:@"info"];
+    [authHash setValue:credentials forKey:@"credentials"];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:_clientId forKey:@"client_id"];
+    [dict setObject:_clientSecret forKey:@"client_secret"];
+    [dict setObject:@"password" forKey:@"grant_type"];
+    [dict setObject:@"password" forKey:@"response_type"];
+    [dict setObject:authHash forKey:@"auth_hash"];
+    
+    [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"boo:%@",[responseObject description]);
+        [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog([error description]);
+    }];
 }
 
 @end

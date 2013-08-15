@@ -66,7 +66,7 @@ NSString *const FBSessionStateChangedNotification =
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
 {
-    [[TPLocalNotificationManager sharedInstance] handleNotification:notification];    
+    [[TPLocalNotificationManager sharedInstance] handleNotification:notification];
     
 //    UIApplicationState state = [application applicationState];
 //    if (state == UIApplicationStateActive) {
@@ -159,7 +159,7 @@ NSString *const FBSessionStateChangedNotification =
     }
     // Initialize a session object with the tokenCacheStrategy
     FBSession *session = [[FBSession alloc] initWithAppID:nil
-                                              permissions:@[@"basic_info", @"publish_actions"]
+                                              permissions:@[@"basic_info", @"email", @"publish_actions"]
                                           urlSchemeSuffix:nil
                                        tokenCacheStrategy:_tokenCaching];
     session.accessTokenData;

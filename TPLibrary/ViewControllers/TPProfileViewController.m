@@ -47,11 +47,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
     [self loggedIn];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.title = @"My Profile";
     self.rightButton.target = self;
     self.rightButton.action = @selector(showSettings);
@@ -148,98 +143,37 @@
     return 0;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
-}
-
 -(void)showSettings
 {
     TPSettingsViewController *settingsVC = [[TPSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
--(void)showProfileScreen
+-(void)setUser:(TPUser *)user
 {
-}
-
--(void)setPersonalityType:(NSDictionary *)personalityType
-{
-    _personalityType = personalityType;
-    if (_personalityType) {
+    _user = user;
+    if (_user) {
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
-        _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",_personalityType[@"profile_description"][@"display_id"]]];
+        _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",_user[@"personality"][@"profile_description"][@"display_id"]]];
         
-        self.bulletPoints = _personalityType[@"profile_description"][@"bullet_description"];
-        NSMutableArray *paragraphs = [[_personalityType[@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
+        self.bulletPoints = _user[@"personality"][@"profile_description"][@"bullet_description"];
+        NSMutableArray *paragraphs = [[_user[@"personality"][@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
         [paragraphs removeObject:@""];
         self.paragraphs = paragraphs;
-        
-        profileHeaderView.nameLabel.text = _personalityType[@"profile_description"][@"name"];
-        profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",_personalityType[@"profile_description"][@"display_id"]]];
-        profileHeaderView.personalityTypeLabel.text =  _personalityType[@"profile_description"][@"name"];
-        profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:_personalityType[@"profile_description"][@"one_liner"]];
+
+        profileHeaderView.nameLabel.text = _user[@"personality"][@"profile_description"][@"name"];
+        profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",_user[@"personality"][@"profile_description"][@"display_id"]]];
+        profileHeaderView.personalityTypeLabel.text =  _user[@"personality"][@"profile_description"][@"name"];
+        profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:_user[@"personality"][@"profile_description"][@"one_liner"]];
         TPPolarChartView *polarChartView = profileHeaderView.chartView;
         NSMutableArray *big5Values = [NSMutableArray array];
         NSArray *keys = @[@"openness",@"conscientiousness",@"extraversion",@"agreeableness",@"neuroticism",];
         for (NSString *key in keys) {
-            [big5Values addObject:_personalityType[@"big5_score"][key]];
+            [big5Values addObject:_user[@"personality"][@"big5_score"][key]];
         }
         polarChartView.data = big5Values;
     }
     [self.tableView reloadData];
-}
-
--(void)parseResponse:(NSDictionary *)response
-{
-    self.personalityType = response[@"data"][@"personality"];
 }
 
 -(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
@@ -270,19 +204,20 @@
 
 -(void)loggedIn
 {
-    NSLog(@"called login");
-    [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self parseResponse:responseObject];
-        NSLog([responseObject description]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog([error description]);
-    }];
+    self.user = _oauthClient.user;
+    if (!self.user) {
+        NSLog(@"force get user");
+        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.user = responseObject[@"data"];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog([error description]);
+        }];
+    }
 }
 
 -(void)loggedOut
 {
-    NSLog(@"called logout");    
-    self.personalityType = nil;
+    self.user = nil;
 }
 
 @end

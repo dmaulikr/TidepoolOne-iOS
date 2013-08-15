@@ -122,6 +122,7 @@
     if ([action isEqualToString:@"Log Out"]) {
         [[TPOAuthClient sharedClient] logout];
         self.tabBarController.selectedIndex = 0;
+        [self.navigationController popViewControllerAnimated:YES];        
     } else if ([action isEqualToString:@"Log Out"]) {
     } else if ([action isEqualToString:@"Log Out"]) {
     } else if ([action isEqualToString:@"Log Out"]) {

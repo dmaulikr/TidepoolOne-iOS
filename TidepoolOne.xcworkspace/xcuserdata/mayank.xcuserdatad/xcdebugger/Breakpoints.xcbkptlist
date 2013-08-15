@@ -7,13 +7,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "TPLibrary/ViewControllers/TPProfileViewController.m"
-         timestampString = "398208170.416934"
+         filePath = "TPLibrary/Singletons/TPLocalNotificationManager.m"
+         timestampString = "398226896.385533"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "274"
-         endingLineNumber = "274"
-         landmarkName = "-loggedIn"
+         startingLineNumber = "15"
+         endingLineNumber = "15"
+         landmarkName = "-handleNotification:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -21,12 +21,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TPLibrary/ViewControllers/TPProfileViewController.m"
-         timestampString = "398208170.416934"
+         timestampString = "398286219.29498"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
-         landmarkName = "-loggedOut"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
+         landmarkName = "-setUser:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "TPLibrary/Networking/TPOAuthClient.m"
+         timestampString = "398293535.552959"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
+         landmarkName = "-getUserInfo"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

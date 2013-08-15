@@ -69,26 +69,29 @@
     _instructionVC.clockViewRight.currentColor = [self.data[@"correct_color_sequence"] lastObject];
     [_instructionVC.clockViewLeft updatePicture];
     [_instructionVC.clockViewRight updatePicture];
-    [UIView beginAnimations:@"curlup" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:.5];
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
-    [self.view addSubview:_instructionVC.view];
-    [UIView commitAnimations];
+    if (self.gameVC.stage > 0) {
+        [self.view addSubview:_instructionVC.view];
+        _instructionVC.view.alpha = 0.0;
+        [UIView animateWithDuration:10.5 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+            _instructionVC.view.alpha = 1.0;
+        } completion:^(BOOL finished) {
+        }];
+    } else {
+        [self.view addSubview:_instructionVC.view];        
+    }
 
 }
 
 -(void)instructionDone
 {
-    [UIView beginAnimations:@"curlup" context:nil];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:.5];
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.view cache:YES];
-    [_instructionVC.view removeFromSuperview];
-    [UIView commitAnimations];
-    [self layoutClocks];
-    [self createTimerForStageEnd];
-    [self logTestStarted];
+    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        _instructionVC.view.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [self layoutClocks];        
+        [_instructionVC.view removeFromSuperview];
+        [self createTimerForStageEnd];
+        [self logTestStarted];
+    }];
 }
 
 -(void)layoutClocks

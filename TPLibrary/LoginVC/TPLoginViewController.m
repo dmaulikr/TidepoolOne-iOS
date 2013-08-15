@@ -41,6 +41,8 @@
     kTextFieldHeight = 35;
     kVerticalOffset = 195;
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedLoginSignal) name:@"Logged In" object:nil];
+    
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
     backgroundImage.image = [UIImage imageNamed:@"Default.png"];
     [self.view addSubview:backgroundImage];
@@ -74,6 +76,8 @@
             }];
             break;
         case FBSessionStateClosed:
+            [FBSession.activeSession closeAndClearTokenInformation];            
+            break;
         case FBSessionStateClosedLoginFailed:
             [FBSession.activeSession closeAndClearTokenInformation];
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an unknown error authorizing through facebook." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
@@ -249,7 +253,7 @@
 }
 
 -(void)addFacebookLoginButtonToView:(UIView *)view
-{
+{    
     UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
     facebookButton.frame = CGRectMake(0, 0, 200, 40);
@@ -258,6 +262,12 @@
     [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:facebookButton];
 
+}
+
+-(void)receivedLoginSignal
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 @end
