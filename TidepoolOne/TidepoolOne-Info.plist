@@ -34,16 +34,23 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>FacebookAppID</key>
+	<string>563322970345672</string>
 	<key>FacebookAppIDProduction</key>
 	<string>470347313045508</string>
 	<key>FacebookAppIDTest</key>
-	<string>563322970345672</string>
-	<key>FacebookAppID</key>
 	<string>563322970345672</string>
 	<key>FacebookDisplayName</key>
 	<string>TidePool</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Karla-Regular.ttf</string>
+		<string>Karla-Bold.ttf</string>
+		<string>Karla-Italic.ttf</string>
+		<string>Karla-BoldItalic.ttf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main_iPhone</string>
 	<key>UIMainStoryboardFile~ipad</key>
@@ -55,7 +62,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
@@ -64,13 +70,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Karla-Regular.ttf</string>
-		<string>Karla-Bold.ttf</string>
-		<string>Karla-Italic.ttf</string>
-		<string>Karla-BoldItalic.ttf</string>
 	</array>
 </dict>
 </plist>

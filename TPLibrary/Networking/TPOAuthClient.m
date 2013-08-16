@@ -116,7 +116,17 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
-    [self getUserInfo];
+    [self getUserInfoFromServer];
+}
+
+-(void)saveUserInfo
+{
+    [[NSUserDefaults standardUserDefaults] setObject:self.user forKey:@"TidepoolUser"];
+}
+
+-(TPUser *)getUserInfo
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"];
 }
 
 -(BOOL)isLoggedIn
@@ -134,6 +144,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         NSLog(@"got into the inner loop only if accounts exist");
         NSString *token = [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
+        self.user = [self getUserInfo];
         successBlock();
         return;
     } else {
@@ -168,10 +179,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
 }
 
--(void)getUserInfo
+-(void)getUserInfoFromServer
 {
     [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"BOO:%@",[responseObject description]);
         self.user = responseObject[@"data"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

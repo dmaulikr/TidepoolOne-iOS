@@ -12,6 +12,8 @@
 #import "TPServiceLoginViewController.h"
 #import "TPGameViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "TPPersonalityGameViewController.h"
+
 
 @interface TPLoginViewController ()
 {
@@ -43,7 +45,6 @@
     kTextFieldHeight = 35;
     kVerticalOffset = 195;
 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleError) name:@"OAuthClient error" object:nil];
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.view.bounds];
@@ -282,12 +283,6 @@
 -(void)handleError
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-}
-
--(void)loggedInSignal
-{
-    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 @end

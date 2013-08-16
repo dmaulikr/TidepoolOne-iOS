@@ -7,9 +7,13 @@
 //
 
 #import "TPTabBarController.h"
+#import "TPLoginViewController.h"
 
 @interface TPTabBarController ()
-
+{
+    TPOAuthClient *_oauthClient;
+    TPLoginViewController *_loginVC;
+}
 @end
 
 @implementation TPTabBarController
@@ -29,13 +33,19 @@
 	// Do any additional setup after loading the view.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     [self doLogin];
 }
 
 -(void)doLogin
 {
-    NSLog(@"Tab bar is to try and login");    
+    NSLog(@"Tab bar is to try and login");
     [[TPOAuthClient sharedClient] loginAndPresentUI:YES onViewController:self withCompletingHandlersSuccess:^{
+            NSLog(@"Tab bar user %@",[[[TPOAuthClient sharedClient] user] description]);
     } andFailure:^{
     }];
 }
@@ -43,6 +53,9 @@
 -(void)loggedInSignal
 {
     NSLog(@"Tab bar got logged in signal");
+    [_loginVC dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 

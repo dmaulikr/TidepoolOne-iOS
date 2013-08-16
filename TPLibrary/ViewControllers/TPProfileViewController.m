@@ -153,7 +153,7 @@
 -(void)setUser:(TPUser *)user
 {
     _user = user;
-    if (_user) {
+    if (_user && !(_user == [NSNull null])) {
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",_user[@"personality"][@"profile_description"][@"display_id"]]];
         

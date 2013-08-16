@@ -20,11 +20,17 @@
 
 -(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
+
+
 -(void)saveAndUseOauthToken:(NSString *)token;
 
+
 -(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
 -(void)deleteAllPasswords;
+
 -(void)logout;
 
 -(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
