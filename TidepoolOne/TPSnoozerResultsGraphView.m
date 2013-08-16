@@ -44,7 +44,6 @@
 - (void)drawRect:(CGRect)rect
 {
     _tagOffset = 666;
-    self.results = @[@233, @268, @345, @109];
     NSArray *images = @[[UIImage imageNamed:@"historychart-circle1.png"],[UIImage imageNamed:@"historychart-circle2.png"],[UIImage imageNamed:@"historychart-circle3.png"],[UIImage imageNamed:@"historychart-circle4.png"],];
     int imageSideSize = 30;
     int distanceBetweenClocks = rect.size.width / self.results.count;

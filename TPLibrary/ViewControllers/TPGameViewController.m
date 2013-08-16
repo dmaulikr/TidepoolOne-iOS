@@ -115,18 +115,7 @@
     [stageLog setValue:currentVC.type forKey:@"event_type"];
     NSLog([stageLog description]);
 // UNCOMMENT EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
-//    [_oauthClient postPath:[NSString stringWithFormat:@"/users/-/games/%@/event_log",_gameId] parameters:stageLog success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [self hideContentController:currentVC];
-//        _stage++;
-//        if (_stage < [self.gameObject[@"stages"] count]) {
-//            [self setupGameForCurrentStage];
-//        } else {
-//            [self getResults];
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog([error description]);
-//    }];
-// REMOVE EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
+    [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log",_gameId] parameters:@{@"event_log":stageLog} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self hideContentController:currentVC];
         _stage++;
         if (_stage < [self.gameObject[@"stages"] count]) {
@@ -134,7 +123,9 @@
         } else {
             [self getResults];
         }
-
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog([error description]);
+    }];
 }
 
 -(void)showResults
@@ -144,7 +135,7 @@
 //                                      @"SurveyResult":[TPSurveyResultViewController class],
 //                                      @"ReactionTimeResult":[TPReactionTimeResultViewController class],
 //                                      @"EmotionsCirclesResult":[TPEmotionsCirclesStageViewController class],
-                                      @"SnoozerResult":[TPSnoozerResultViewController class],
+                                      @"SpeedArchetypeResult":[TPSnoozerResultViewController class],
                                       };
 
     for (NSDictionary *result in _results) {
@@ -154,6 +145,7 @@
         resultVC.gameVC = self;
         [self addChildViewController:resultVC];
         [self.view addSubview:resultVC.view];
+        resultVC.result = result;        
         [resultVC didMoveToParentViewController:self];
     }
 }
@@ -169,7 +161,7 @@
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
-            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:YES];
+            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else {
             _results = dataObject[@"data"];
             [hud hide:YES];
@@ -202,10 +194,6 @@
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *data, NSError *error, id JSON) {
         NSLog(@"f:%@", [data description]);
-        //DEBUG
-        _results = @[@{@"type":@"SnoozerResult"}];
-        [self showResults];
-
     }];
     [oauthClient enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)op];
 }
@@ -216,7 +204,6 @@
     [completeEvents setValue:[NSNumber numberWithLongLong:[self epochTimeNow]]
                                         forKey:@"record_time"];
     [completeEvents setValue:_gameId forKey:@"game_id"];
-//    [completeEvents setValue:_userId forKey:@"user_id"];
     [completeEvents setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
 
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];

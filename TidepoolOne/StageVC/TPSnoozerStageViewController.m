@@ -72,7 +72,7 @@
     if (self.gameVC.stage > 0) {
         [self.view addSubview:_instructionVC.view];
         _instructionVC.view.alpha = 0.0;
-        [UIView animateWithDuration:10.5 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
             _instructionVC.view.alpha = 1.0;
         } completion:^(BOOL finished) {
         }];
@@ -107,7 +107,7 @@
             clockView.timeline = shuffledTimeline[self.numRows*i+j];
             clockView.correctColor = self.data[@"correct_color"];
             clockView.correctColorSequence = self.data[@"correct_color_sequence"];
-            clockView.tag = i+j+1;
+            clockView.tag = self.numRows*i+j+1;
             [self.view addSubview:clockView];
             [_clockViews addObject:clockView];
         }
@@ -153,6 +153,11 @@
     }
 }
 
+-(void)showedRingingClockInClockView:(TPSnoozerClockView *)clockView
+{
+    [self logClockRingForClock:clockView];
+}
+
 -(void)showedPossibleClockInClockView:(TPSnoozerClockView *)clockView
 {
     [self logClockRingForClock:clockView];
@@ -170,13 +175,13 @@
 {
     NSMutableDictionary *eventWithTime = [event mutableCopy];
     [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
-    [eventWithTime setValue:@"simple" forKey:@"sequence_type"];
     [_eventArray addObject:eventWithTime];
 }
 -(void)logTestStarted
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"level_started" forKey:@"event"];
+    [event setValue:self.data[@"game_type"] forKey:@"sequence_type"];
     [self logEventToServer:event];
 }
 
@@ -185,10 +190,12 @@
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"shown" forKey:@"event"];
     [event setValue:clockView.identifier forKey:@"item_id"];
-    if ([clockView.currentColorSequence isEqualToArray:clockView.correctColorSequence]) {
+    if ([clockView isTarget]) {
         [event setValue:@"target" forKey:@"type"];
+        NSLog(@"ring target");
     } else {
         [event setValue:@"decoy" forKey:@"type"];
+        NSLog(@"ring decoy");
     }
     [event setValue:clockView.currentColor forKey:@"color"];
     [self logEventToServer:event];

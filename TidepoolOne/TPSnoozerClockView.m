@@ -122,7 +122,7 @@
 {
     [_resetToStaticTimer invalidate];
     _resetToStaticTimer = nil;
-    _response = [self tappedCorrectly];
+    _response = [self isTarget];
     if (!_response) {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
@@ -132,7 +132,7 @@
     [self updatePicture];
 }
 
--(BOOL)tappedCorrectly
+-(BOOL)isTarget
 {
     return _isRinging && ([_currentColor isEqualToString:_correctColor]) && ([_currentColorSequence isEqualToArray:_correctColorSequence]);
 }
@@ -164,13 +164,9 @@
     self.isRinging = YES;
     self.currentColor = color;
     [self updatePicture];
-    if ([self tappedCorrectly]) {
-        _shownCounter++;
-        self.identifier = [NSString stringWithFormat:@"%i_%i",self.tag,_shownCounter];
-        [self.delegate showedPossibleClockInClockView:self];
-        NSLog(@"yeah");
-    }
-    
+    self.identifier = [NSString stringWithFormat:@"%i_%i",self.tag,_shownCounter];
+    [self.delegate showedRingingClockInClockView:self];
+    _shownCounter++;
 }
 
 -(void)setStaticClockFromTimer:(NSTimer *)sender

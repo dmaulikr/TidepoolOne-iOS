@@ -12,9 +12,13 @@
 
 @interface TPSnoozerResultViewController : TPResultViewController
 
+
+@property (nonatomic, strong) NSDictionary *result;
 @property (nonatomic, strong) IBOutlet UILabel *currentFastestTime;
 @property (nonatomic, strong) IBOutlet UILabel *blurbLabel;
 @property (nonatomic, strong) NSArray *history;
+@property (weak, nonatomic) IBOutlet TPLabel *animalLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *animalBadgeImage;
 
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UIButton *playAgainButton;

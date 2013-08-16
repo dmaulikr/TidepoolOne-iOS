@@ -9,6 +9,7 @@
 #import "TPSnoozerResultsHistoryViewController.h"
 #import "TPSnoozerResultsHistoryWidget.h"
 #import "TPSnoozerResultViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPSnoozerResultsHistoryViewController ()
 
@@ -30,12 +31,33 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Snoozer Results";
-    self.results = @[@"Results"];
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"results-bg.png"]];
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"results: %@", [responseObject[@"data"] description]);
+        self.results = responseObject[@"data"];
+        [hud hide:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fail: %@", [error description]);
+        [hud hide:YES];
+    }];
+    
 }
+
+-(void)setResults:(NSArray *)results
+{
+    _results = results;
+    if (_results) {
+        
+    }
+    [self.tableView reloadData];
+}
+
 
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -59,11 +81,14 @@
     }
     
     view.frame = cell.contentView.frame;
-    view.date = [NSDate date];
-    view.fastestTime = @345;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+    view.date = [dateFormatter dateFromString:self.results[indexPath.row][@"time_played"]];
+    view.fastestTime = self.results[indexPath.row][@"fastest_time"];
+    view.animalLabel.text = self.results[indexPath.row][@"speed_archetype"];
+    view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
     [cell.contentView addSubview:view];
-    // Configure the cell...
-    
+    view.detailLabel.text = self.results[indexPath.row][@"description"];
     return cell;
 }
 

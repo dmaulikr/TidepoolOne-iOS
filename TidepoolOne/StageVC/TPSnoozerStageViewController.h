@@ -20,6 +20,6 @@
 @property (assign) NSTimeInterval minTime;
 
 -(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct;
--(void)showedPossibleClockInClockView:(TPSnoozerClockView *)clockView;
+-(void)showedRingingClockInClockView:(TPSnoozerClockView *)clockView;
 -(void)instructionDone;
 @end

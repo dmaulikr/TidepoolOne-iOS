@@ -13,7 +13,7 @@
 @protocol TPSnoozerClockViewDelegate
 
 -(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct;
--(void)showedPossibleClockInClockView:(TPSnoozerClockView *)clockView;
+-(void)showedRingingClockInClockView:(TPSnoozerClockView *)clockView;
 
 @end
 
@@ -31,5 +31,6 @@
 @property id<TPSnoozerClockViewDelegate> delegate;
 
 -(void)updatePicture;
+-(BOOL)isTarget;
 
 @end
