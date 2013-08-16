@@ -22,23 +22,23 @@
                                  ];
         CGRect bubbleFrame = frame;
         bubbleFrame.size.height *= 0.8;
-        self.scoreLabel = [[TPLabel alloc] initWithFrame:CGRectMake(0, 0, bubbleFrame.size.width/2, bubbleFrame.size.height)];
-        self.dateLabel = [[TPLabel alloc] initWithFrame:CGRectMake(bubbleFrame.size.width/2, 0, bubbleFrame.size.width/2, bubbleFrame.size.height/2)];
-        self.timeLabel = [[TPLabel alloc] initWithFrame:CGRectMake(bubbleFrame.size.width/2, bubbleFrame.size.height/2, bubbleFrame.size.width/2, bubbleFrame.size.height/2)];
-        
-        self.scoreLabel.textColor = [UIColor whiteColor];
-        self.dateLabel.textColor = [UIColor whiteColor];
-        self.timeLabel.textColor = [UIColor whiteColor];
-        
-        self.scoreLabel.fontSize = 20;
-        self.dateLabel.fontSize = 10;
-        self.timeLabel.fontSize = 10;
+        self.levelLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0, bubbleFrame.size.width, 0.3*bubbleFrame.size.height)];
+        self.scoreLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0.2*bubbleFrame.size.height, bubbleFrame.size.width, 0.8*bubbleFrame.size.height)];
 
+        
+        self.levelLabel.textColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
+        self.scoreLabel.textColor = [UIColor whiteColor];
+
+        self.levelLabel.fontSize = 10;
+        self.scoreLabel.fontSize = 25;
+        
+        self.levelLabel.centered = YES;
         self.scoreLabel.centered = YES;        
         
+        self.levelLabel.text = @"Level 4";
+        
         [self addSubview:self.scoreLabel];
-        [self addSubview:self.dateLabel];
-        [self addSubview:self.timeLabel];
+        [self addSubview:self.levelLabel];
     }
     return self;
 }
@@ -51,20 +51,20 @@
     self.center = point;
 }
 
--(void)setDate:(NSDate *)date
-{
-    _date = date;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"MM/dd/yy"];
-    self.dateLabel.text = [dateFormatter stringFromDate:date];
-    [dateFormatter setDateFormat:@"hh:mm a"];
-    self.timeLabel.text = [dateFormatter stringFromDate:date];
-}
+//-(void)setDate:(NSDate *)date
+//{
+//    _date = date;
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"MM/dd/yy"];
+//    self.dateLabel.text = [dateFormatter stringFromDate:date];
+//    [dateFormatter setDateFormat:@"hh:mm a"];
+//    self.timeLabel.text = [dateFormatter stringFromDate:date];
+//}
 
 -(void)setScore:(NSString *)score
 {
     _score = score;
-    self.scoreLabel.text = score;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%@ms", score];
 }
 
 /*

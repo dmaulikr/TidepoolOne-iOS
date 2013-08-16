@@ -15,8 +15,7 @@
 @property (nonatomic, weak) NSString *score;
 @property (nonatomic, weak) UIView *pointingAtView;
 
-@property (nonatomic, strong) TPLabel *scoreLabel;
-@property (nonatomic, strong) TPLabel *dateLabel;
-@property (nonatomic, strong) TPLabel *timeLabel;
+@property (nonatomic, strong) TPLabelBold *scoreLabel;
+@property (nonatomic, strong) TPLabelBold *levelLabel;
 
 @end

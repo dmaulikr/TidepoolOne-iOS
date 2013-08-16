@@ -44,8 +44,8 @@
 - (void)drawRect:(CGRect)rect
 {
     _tagOffset = 666;
-    self.results = @[@234,@235];
-    UIImage *image = [UIImage imageNamed:@"snoozer-clock.png"];
+    self.results = @[@233, @268, @345, @109];
+    NSArray *images = @[[UIImage imageNamed:@"historychart-circle1.png"],[UIImage imageNamed:@"historychart-circle2.png"],[UIImage imageNamed:@"historychart-circle3.png"],[UIImage imageNamed:@"historychart-circle4.png"],];
     int imageSideSize = 30;
     int distanceBetweenClocks = rect.size.width / self.results.count;
     float yStartScreen = 0.2*rect.size.height;
@@ -65,7 +65,7 @@
     // Drawing code
     for (int i=0;i<self.results.count;i++) {
         
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:images[i]];
         imageView.contentMode = UIViewContentModeScaleToFill;
         imageView.userInteractionEnabled = YES;
         imageView.tag = i + _tagOffset;
@@ -73,7 +73,7 @@
         
         [imageView addGestureRecognizer:tap];
         imageView.frame = CGRectMake(0, 0, imageSideSize, imageSideSize);
-        float x = (i+0.35)*distanceBetweenClocks;
+        float x = (i+0.475)*distanceBetweenClocks;
         float y = yStartScreen + ([_results[i] floatValue] - minValue) / yRangeResults * yRangeScreen;
         //add path between clocks
         if (i==0) {
@@ -81,7 +81,7 @@
         } else {
             CGPathAddLineToPoint(path, nil, x, y);
         }
-        CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:108/255.0 green:187/255.0 blue:168/255.0 alpha:1] CGColor]);
+        CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:85/255.0 green:85/255.0 blue:85/255.0 alpha:1] CGColor]);
         CGContextAddPath(context, path);
         CGContextSetLineWidth(context, 5.0);
         CGContextStrokePath(context);
@@ -112,11 +112,12 @@
     UIView *newlyTappedView = sender.view;
     [self resizeView:_tappedView byFactor:0.5];
     if (newlyTappedView != _tappedView) {
-        [self resizeView:newlyTappedView byFactor:2];
         _tappedView = newlyTappedView;
         _tooltipView.pointingAtView = _tappedView;
-        _tooltipView.date = [NSDate date];
-        _tooltipView.score = @"277";
+        [self resizeView:newlyTappedView byFactor:2];
+        int index = _tappedView.tag - _tagOffset;
+        _tooltipView.score = self.results[index];
+        _tooltipView.levelLabel = [NSString stringWithFormat:@"LEVEL %i", index+1];
         [self addSubview:_tooltipView];
     } else {
         [_tooltipView removeFromSuperview];
