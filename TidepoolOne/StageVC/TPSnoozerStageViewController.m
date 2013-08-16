@@ -170,6 +170,7 @@
 {
     NSMutableDictionary *eventWithTime = [event mutableCopy];
     [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
+    [eventWithTime setValue:@"simple" forKey:@"sequence_type"];
     [_eventArray addObject:eventWithTime];
 }
 -(void)logTestStarted
@@ -184,6 +185,12 @@
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"shown" forKey:@"event"];
     [event setValue:clockView.identifier forKey:@"item_id"];
+    if ([clockView.currentColorSequence isEqualToArray:clockView.correctColorSequence]) {
+        [event setValue:@"target" forKey:@"type"];
+    } else {
+        [event setValue:@"decoy" forKey:@"type"];
+    }
+    [event setValue:clockView.currentColor forKey:@"color"];
     [self logEventToServer:event];
 }
 
