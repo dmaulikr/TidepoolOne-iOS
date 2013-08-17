@@ -9,6 +9,7 @@
 #import "TPTabBarController.h"
 #import "TPLoginViewController.h"
 #import "TPPersonalityGameViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPTabBarController ()
 {
@@ -62,9 +63,36 @@
 {
     NSLog(@"Tab bar got logged in signal");
     NSLog(@"checking client %i", _oauthClient.isLoggedIn);
-    [_loginVC dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"oauth %@", [_oauthClient description]);
-        NSLog(@"oauth user %@", [_oauthClient.user description]);
+    
+    if (_loginVC) {
+        [_loginVC dismissViewControllerAnimated:YES completion:^{
+            [self showPersonalityGame];
+        }];
+    } else {
+        [self showPersonalityGame];        
+    }
+}
+
+-(void)showPersonalityGame
+{
+    if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading Personality...";
+        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [hud hide:YES];
+            _oauthClient.user = responseObject[@"data"];
+            NSDictionary *personality = _oauthClient.user[@"personality"];
+            if (!personality || personality == [NSNull null]) {
+                _personalityVC = [[TPPersonalityGameViewController alloc] init];
+                [self presentViewController:_personalityVC animated:YES completion:^{
+                }];
+                _loginVC = nil;
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [hud hide:YES];
+            [[[UIAlertView alloc] initWithTitle:@"error" message:@"Unable to get user information" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        }];
+    } else {
         NSDictionary *personality = _oauthClient.user[@"personality"];
         if (!personality || personality == [NSNull null]) {
             _personalityVC = [[TPPersonalityGameViewController alloc] init];
@@ -72,7 +100,7 @@
             }];
             _loginVC = nil;
         }
-    }];
+    }
 }
 
 

@@ -24,6 +24,8 @@
 
 -(NSString *)oauthToken;
 
+-(void)getUserInfoFromServer;
+
 -(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;

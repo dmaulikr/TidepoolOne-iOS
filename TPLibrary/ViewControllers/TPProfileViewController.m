@@ -139,10 +139,15 @@
             NSMutableArray *paragraphs = [[personality[@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
             [paragraphs removeObject:@""];
             self.paragraphs = paragraphs;
-
-            profileHeaderView.nameLabel.text = _user[@"name"];
+            
+            NSString *name = [_user valueForKey:@"name"];
+            if (name != [NSNull null]) {
+                profileHeaderView.nameLabel.text = _user[@"name"];
+            } else {
+                profileHeaderView.nameLabel.text = _user[@"email"];
+            }
             profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
-            profileHeaderView.personalityTypeLabel.text =  personality[@"profile_description"][@"name"];
+            profileHeaderView.personalityTypeLabel.text = personality[@"profile_description"][@"name"];
             profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
             TPPolarChartView *polarChartView = profileHeaderView.chartView;
             NSMutableArray *big5Values = [NSMutableArray array];
