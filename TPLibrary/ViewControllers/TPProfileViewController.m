@@ -129,26 +129,29 @@
 -(void)setUser:(TPUser *)user
 {
     _user = user;
-    if (_user && !(_user == [NSNull null])) {
-        TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
-        _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",_user[@"personality"][@"profile_description"][@"display_id"]]];
-        
-        self.bulletPoints = _user[@"personality"][@"profile_description"][@"bullet_description"];
-        NSMutableArray *paragraphs = [[_user[@"personality"][@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
-        [paragraphs removeObject:@""];
-        self.paragraphs = paragraphs;
+    if (_user) {
+        NSDictionary *personality = _user[@"personality"];
+        if (personality != [NSNull null]) {
+            TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
+            _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
+            
+            self.bulletPoints = personality[@"profile_description"][@"bullet_description"];
+            NSMutableArray *paragraphs = [[personality[@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
+            [paragraphs removeObject:@""];
+            self.paragraphs = paragraphs;
 
-        profileHeaderView.nameLabel.text = _user[@"personality"][@"profile_description"][@"name"];
-        profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",_user[@"personality"][@"profile_description"][@"display_id"]]];
-        profileHeaderView.personalityTypeLabel.text =  _user[@"personality"][@"profile_description"][@"name"];
-        profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:_user[@"personality"][@"profile_description"][@"one_liner"]];
-        TPPolarChartView *polarChartView = profileHeaderView.chartView;
-        NSMutableArray *big5Values = [NSMutableArray array];
-        NSArray *keys = @[@"openness",@"conscientiousness",@"extraversion",@"agreeableness",@"neuroticism",];
-        for (NSString *key in keys) {
-            [big5Values addObject:_user[@"personality"][@"big5_score"][key]];
+            profileHeaderView.nameLabel.text = _user[@"name"];
+            profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
+            profileHeaderView.personalityTypeLabel.text =  personality[@"profile_description"][@"name"];
+            profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
+            TPPolarChartView *polarChartView = profileHeaderView.chartView;
+            NSMutableArray *big5Values = [NSMutableArray array];
+            NSArray *keys = @[@"openness",@"conscientiousness",@"extraversion",@"agreeableness",@"neuroticism",];
+            for (NSString *key in keys) {
+                [big5Values addObject:personality[@"big5_score"][key]];
+            }
+            polarChartView.data = big5Values;
         }
-        polarChartView.data = big5Values;
     }
     [self.tableView reloadData];
 }

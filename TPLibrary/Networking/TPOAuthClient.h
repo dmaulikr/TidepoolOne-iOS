@@ -22,6 +22,7 @@
 -(BOOL)loginPassively;
 -(void)saveAndUseOauthToken:(NSString *)token;
 
+-(NSString *)oauthToken;
 
 -(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 

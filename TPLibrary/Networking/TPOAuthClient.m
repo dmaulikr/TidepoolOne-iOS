@@ -104,6 +104,11 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
+-(NSString *)oauthToken
+{
+    return [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
+}
+
 -(void)saveAndUseOauthToken:(NSString *)token
 {
     NSLog(@"called save oauth token");
@@ -143,8 +148,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     NSLog(@"Checking for accounts: %i %@", accounts.count, [accounts description]);
     if (accounts.count > 0) {
         NSLog(@"got into the inner loop only if accounts exist");
-        NSString *token = [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
-        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
+        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",[self oauthToken]]];
         self.user = [self getUserInfo];
         self.isLoggedIn = 1;
         return 1;

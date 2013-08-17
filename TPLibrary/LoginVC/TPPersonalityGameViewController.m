@@ -11,7 +11,8 @@
 @interface TPPersonalityGameViewController ()
 {
     UIWebView *_webView;
-    UILabel *_messageLabel;
+    TPLabel *_messageLabel;
+    TPOAuthClient *_oauthClient;
 }
 @end
 
@@ -30,14 +31,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    label.text = @"FUCK";
-    [self.view addSubview:label];
-    
+    _oauthClient = [TPOAuthClient sharedClient];
     [self.view setBackgroundColor:[UIColor redColor]];
-    _messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
-//    _messageLabel.centered = YES;
+    _messageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    _messageLabel.centered = YES;
     [self.view addSubview:_messageLabel];
     
     TPButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 100)];
@@ -76,13 +73,13 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 -(void)startNewPersonalityGame
 {
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://tide-dev.herokuapp.com/#gameForUser/b035b21b813bc54290b7f4b39ea93dbeff6be3f207923fbb3321d2894a359344"]];
+    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
+    request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tide-dev.herokuapp.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
     [_webView loadRequest:request];
     _webView.delegate = self;
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [self.view addSubview:_webView];
     } completion:^(BOOL finished) {}];
-
 }
 
 -(void)personalityGameFinishedSuccessfully
