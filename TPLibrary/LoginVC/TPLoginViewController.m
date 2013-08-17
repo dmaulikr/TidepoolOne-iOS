@@ -69,6 +69,30 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookSessionChanged:) name:@"com.TidePool.TidepoolOne:FBSessionStateChangedNotification" object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void)keyboardWillShow {
+    // Animate the current view out of the way
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.view.frame = CGRectOffset(self.view.frame, 0, -160);
+    }];
+}
+
+-(void)keyboardWillHide {
+    // Animate the current view back to its original position
+    [UIView animateWithDuration:0.3f animations:^ {
+        self.view.frame = CGRectOffset(self.view.frame, 0, 160);
+    }];
+    
 }
 
 -(void)facebookSessionChanged:(id)sender
@@ -131,6 +155,9 @@
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _createAccountView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
         emailField.placeholder = @"email address";
+        emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        
+
         [_createAccountView addSubview:emailField];
         
         self.createAccountEmail = emailField;
@@ -172,6 +199,7 @@
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _loginView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
         emailField.placeholder = @"email address";
+        emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;        
         [_loginView addSubview:emailField];
         
         self.loginEmail = emailField;

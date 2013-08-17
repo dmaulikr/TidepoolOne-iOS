@@ -564,7 +564,7 @@
 		A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsGraphView.m; sourceTree = "<group>"; };
 		A819481417B087CB009959DA /* TPGraphTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGraphTooltipView.h; sourceTree = "<group>"; };
 		A819481517B087CB009959DA /* TPGraphTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGraphTooltipView.m; sourceTree = "<group>"; };
-		A82F6A2217947064003FC088 /* TidepoolOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidepoolOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A82F6A2217947064003FC088 /* Tidepool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tidepool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A82F6A2917947064003FC088 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1156,7 +1156,7 @@
 		A82F6A2317947064003FC088 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A82F6A2217947064003FC088 /* TidepoolOne.app */,
+				A82F6A2217947064003FC088 /* Tidepool.app */,
 				A82F6A4617947064003FC088 /* TidepoolOneTests.xctest */,
 			);
 			name = Products;
@@ -1954,7 +1954,7 @@
 			);
 			name = Tidepool;
 			productName = TidepoolOne;
-			productReference = A82F6A2217947064003FC088 /* TidepoolOne.app */;
+			productReference = A82F6A2217947064003FC088 /* Tidepool.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A82F6A4517947064003FC088 /* TidepoolOneTests */ = {
