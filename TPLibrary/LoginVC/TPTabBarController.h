@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPPersonalityGameViewController.h"
 
-@interface TPTabBarController : UITabBarController
+@interface TPTabBarController : UITabBarController<TPPersonalityGameViewControllerDelegate>
+
+-(void)personalityGameIsDone:(id)sender;
 
 @end

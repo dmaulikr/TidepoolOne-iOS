@@ -156,7 +156,7 @@
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _createAccountView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
         emailField.placeholder = @"email address";
         emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
-        
+        emailField.autocorrectionType = UITextAutocorrectionTypeNo;        
 
         [_createAccountView addSubview:emailField];
         
@@ -199,7 +199,8 @@
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _loginView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
         emailField.placeholder = @"email address";
-        emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;        
+        emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        emailField.autocorrectionType = UITextAutocorrectionTypeNo;
         [_loginView addSubview:emailField];
         
         self.loginEmail = emailField;
@@ -244,9 +245,12 @@
         [[[UIAlertView alloc] initWithTitle:@"Password error" message:@"Passwords must be 8 or more characters in length" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
         return;
     }
+    _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    _progressView.labelText = @"Creating User...";
     [_sharedClient createAccountWithUsername:self.createAccountEmail.text password:self.createAccountPassword.text withCompletingHandlersSuccess:^{
-//        [self dismissViewControllerAnimated:YES completion:^{}];
+        [_progressView hide:YES];        
     } andFailure:^{
+        [_progressView hide:YES];
         [[[UIAlertView alloc] initWithTitle:@"Server error" message:@"Error on the server" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
     }];
 }

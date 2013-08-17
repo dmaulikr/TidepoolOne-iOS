@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TPPersonalityGameViewControllerDelegate
+
+-(void)personalityGameIsDone:(id)sender;
+
+@end
+
 @interface TPPersonalityGameViewController : UIViewController
+
+@property (nonatomic, weak) id<TPPersonalityGameViewControllerDelegate> delegate;
 
 @end

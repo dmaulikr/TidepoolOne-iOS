@@ -96,8 +96,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 {
     [_oauthClient getUserInfoFromServer];
     [_webView removeFromSuperview];
-    [self dismissViewControllerAnimated:YES completion:^{
-    }];
+    [self.delegate personalityGameIsDone:self];
 }
 
 -(void)personalityGameThrewError

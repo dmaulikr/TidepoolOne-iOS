@@ -98,16 +98,26 @@
             _personalityVC = [[TPPersonalityGameViewController alloc] init];
             [self presentViewController:_personalityVC animated:YES completion:^{
             }];
+            _personalityVC.delegate = self;
             _loginVC = nil;
         }
     }
 }
 
 
+
 -(void)loggedOutSignal
 {
     NSLog(@"Tab bar got logged out signal");
     [self doLogin];
+}
+
+-(void)personalityGameIsDone:(id)sender
+{
+    UIViewController *vc = sender;
+    [sender dismissViewControllerAnimated:YES completion:^{
+        self.selectedIndex = 2;
+    }];
 }
 
 - (void)didReceiveMemoryWarning
