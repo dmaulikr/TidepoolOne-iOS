@@ -11,17 +11,15 @@
 
 @interface TPOAuthClient : AFHTTPClient
 
-@property (strong, nonatomic) TPUser *user;
+@property (strong, nonatomic) NSDictionary *user;
+@property (assign, nonatomic) BOOL isLoggedIn;
+@property (assign, nonatomic) BOOL hasOauthToken;
+
 
 + (TPOAuthClient *)sharedClient;
 - (id)initWithBaseURL:(NSURL *)url;
 
--(BOOL)isLoggedIn;
-
--(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
-
-
-
+-(BOOL)loginPassively;
 -(void)saveAndUseOauthToken:(NSString *)token;
 
 

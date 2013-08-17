@@ -62,12 +62,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     return self;
 }
 
--(void)savePassword:(NSString *)password forAccount:(NSString *)account
-{
-    [self deleteAllPasswords];
-    [SSKeychain setPassword:password forService:kSSKeychainServiceName account:account];
-}
-
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -124,19 +118,26 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [[NSUserDefaults standardUserDefaults] setObject:self.user forKey:@"TidepoolUser"];
 }
 
+-(void)setUser:(TPUser *)user
+{
+    _user = user;
+    NSLog(@"changed user to %@", [user description]);
+}
+
 -(TPUser *)getUserInfo
 {
+    NSLog(@"debug:%@", [[[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"] description]);
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"];
 }
 
--(BOOL)isLoggedIn
+-(BOOL)hasOauthToken
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    NSLog(@"Accounts in isLoggedIn function: %@", [accounts description]);
+    NSLog(@"Checking num of saved oauth tokens: %i", accounts.count);
     return accounts.count;
 }
 
--(void)loginAndPresentUI:(bool)presentUI onViewController:(UIViewController *)vc withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+-(BOOL)loginPassively
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
     NSLog(@"Checking for accounts: %i %@", accounts.count, [accounts description]);
@@ -145,16 +146,22 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         NSString *token = [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
         self.user = [self getUserInfo];
-        successBlock();
-        return;
-    } else {
-        if (presentUI) {
-            TPLoginViewController *loginVC = [[TPLoginViewController alloc] init];
-            [vc presentViewController:loginVC animated:YES completion:^{}];
-        }
+        self.isLoggedIn = 1;
+        return 1;
     }
+    return 0;
 }
 
+-(void)setIsLoggedIn:(BOOL)isLoggedIn
+{
+    _isLoggedIn = isLoggedIn;
+    if (isLoggedIn) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
+    }
+    
+}
 
 -(void)deleteAllPasswords
 {
@@ -176,14 +183,15 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [[FBSession activeSession] closeAndClearTokenInformation];
     [self clearAuthorizationHeader];
     [self deleteAllPasswords];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
+    self.isLoggedIn = 0;
 }
 
 -(void)getUserInfoFromServer
 {
     [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.user = responseObject[@"data"];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];        
+        self.isLoggedIn = 1;
+        [self saveUserInfo];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
     }];
@@ -252,7 +260,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [dict setObject:authHash forKey:@"auth_hash"];
     
     [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"boo:%@",[responseObject description]);
         [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];

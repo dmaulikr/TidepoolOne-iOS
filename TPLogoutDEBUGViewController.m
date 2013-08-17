@@ -32,7 +32,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [[TPOAuthClient sharedClient] logout];    
+    self.tabBarController.selectedIndex = 0;
+    [[TPOAuthClient sharedClient] logout];
     
 }
 

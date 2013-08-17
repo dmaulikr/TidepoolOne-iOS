@@ -41,32 +41,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Logged In" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
     
-    
-    UINib *nib = [UINib nibWithNibName:@"TPProfileTableViewCell" bundle:nil];
-    [self.tableView registerNib:nib forCellReuseIdentifier:@"TPProfileTableViewCell"];
-    self.tableView.allowsSelection = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _oauthClient = [TPOAuthClient sharedClient];
-    [self loggedIn];
-    self.title = @"My Profile";
-    self.rightButton.target = self;
-    self.rightButton.action = @selector(showSettings);
-    
-    
-    _imageView = [[UIImageView alloc] init];
-    _imageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.tableView.backgroundView = _imageView;
-
-    
-    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPProfileViewHeader" owner:nil options:nil];
-    NSLog([nibItems description]);
-    TPProfileViewHeader *profileHeaderView;
-    for (id item in nibItems) {
-        if ([item isKindOfClass:[TPProfileViewHeader class]]) {
-            profileHeaderView = item;
-        }
-    }
-    self.tableView.tableHeaderView = profileHeaderView;
+    [self setupView];
+    [self loggedIn]; //by calling this here - we don't have to repopulate every time viewDidAppear - it is called when loaded and on every user change
 }
 - (void)didReceiveMemoryWarning
 {
@@ -206,7 +182,7 @@
 -(void)loggedIn
 {
     self.user = _oauthClient.user;
-    if (!self.user) {
+    if (!self.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
         [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -217,6 +193,34 @@
             [[[UIAlertView alloc] initWithTitle:@"error" message:@"Unable to get user information" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
         }];
     }
+}
+
+-(void)setupView
+{
+    UINib *nib = [UINib nibWithNibName:@"TPProfileTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"TPProfileTableViewCell"];
+    self.tableView.allowsSelection = NO;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _oauthClient = [TPOAuthClient sharedClient];
+    self.title = @"My Profile";
+    self.rightButton.target = self;
+    self.rightButton.action = @selector(showSettings);
+    
+    
+    _imageView = [[UIImageView alloc] init];
+    _imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.tableView.backgroundView = _imageView;
+    
+    
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPProfileViewHeader" owner:nil options:nil];
+    NSLog([nibItems description]);
+    TPProfileViewHeader *profileHeaderView;
+    for (id item in nibItems) {
+        if ([item isKindOfClass:[TPProfileViewHeader class]]) {
+            profileHeaderView = item;
+        }
+    }
+    self.tableView.tableHeaderView = profileHeaderView;
 }
 
 -(void)loggedOut
