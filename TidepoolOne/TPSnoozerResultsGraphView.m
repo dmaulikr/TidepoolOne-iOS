@@ -63,43 +63,44 @@
 
     // Drawing code
     for (int i=0;i<self.results.count;i++) {
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:images[i]];
-        imageView.contentMode = UIViewContentModeScaleToFill;
-        imageView.userInteractionEnabled = YES;
-        imageView.tag = i + _tagOffset;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewWasTapped:)];
-        
-        [imageView addGestureRecognizer:tap];
-        imageView.frame = CGRectMake(0, 0, imageSideSize, imageSideSize);
-        float x = (i+0.475)*distanceBetweenClocks;
-        float y = yStartScreen + ([_results[i] floatValue] - minValue) / yRangeResults * yRangeScreen;
-        //add path between clocks
-        if (i==0) {
-            CGPathMoveToPoint(path, nil, x, y);
-        } else {
-            CGPathAddLineToPoint(path, nil, x, y);
+        if (![self.results[i] isEqualToNumber:@0]) { // sentinel value for no responses recorded
+            UIImageView *imageView = [[UIImageView alloc] initWithImage:images[i]];
+            imageView.contentMode = UIViewContentModeScaleToFill;
+            imageView.userInteractionEnabled = YES;
+            imageView.tag = i + _tagOffset;
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageViewWasTapped:)];
+            
+            [imageView addGestureRecognizer:tap];
+            imageView.frame = CGRectMake(0, 0, imageSideSize, imageSideSize);
+            float x = (i+0.475)*distanceBetweenClocks;
+            float y = yStartScreen + ([_results[i] floatValue] - minValue) / yRangeResults * yRangeScreen;
+            //add path between clocks
+            if (i==0) {
+                CGPathMoveToPoint(path, nil, x, y);
+            } else {
+                CGPathAddLineToPoint(path, nil, x, y);
+            }
+            CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:85/255.0 green:85/255.0 blue:85/255.0 alpha:1] CGColor]);
+            CGContextAddPath(context, path);
+            CGContextSetLineWidth(context, 5.0);
+            CGContextStrokePath(context);
+            //add horizontal lines
+            CGMutablePathRef linePath = CGPathCreateMutable();
+            CGPathMoveToPoint(linePath,nil, x, yStartScreen);
+            CGPathAddLineToPoint(linePath, nil, x, yStartScreen + yRangeScreen);
+            //create stupid array
+            CGPathRef dashLinePath;
+            dashLinePath = CGPathCreateCopyByDashingPath(linePath, nil, 0, dashPatternArray, numDashes);
+            CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:145/255.0 green:150/255.0 blue:150/255.0 alpha:1.0].CGColor);
+            CGContextAddPath(context, dashLinePath);
+            CGContextStrokePath(context);
+            CGPathRelease(linePath);
+            CGPathRelease(dashLinePath);
+            //add clocks
+            imageView.center = CGPointMake(x, y);
+            [self addSubview:imageView];
         }
-        CGContextSetStrokeColorWithColor(context, [[UIColor colorWithRed:85/255.0 green:85/255.0 blue:85/255.0 alpha:1] CGColor]);
-        CGContextAddPath(context, path);
-        CGContextSetLineWidth(context, 5.0);
-        CGContextStrokePath(context);
-        //add horizontal lines
-        CGMutablePathRef linePath = CGPathCreateMutable();
-        CGPathMoveToPoint(linePath,nil, x, yStartScreen);
-        CGPathAddLineToPoint(linePath, nil, x, yStartScreen + yRangeScreen);
-        //create stupid array
-        CGPathRef dashLinePath;
-        dashLinePath = CGPathCreateCopyByDashingPath(linePath, nil, 0, dashPatternArray, numDashes);
-        CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:145/255.0 green:150/255.0 blue:150/255.0 alpha:1.0].CGColor);
-        CGContextAddPath(context, dashLinePath);
-        CGContextStrokePath(context);
-        CGPathRelease(linePath);
-        CGPathRelease(dashLinePath);
-        //add clocks
-        imageView.center = CGPointMake(x, y);
-        [self addSubview:imageView];
-    } 
+    }
     free(dashPatternArray);
     CGPathRelease(path);
     
