@@ -32,7 +32,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _oauthClient = [TPOAuthClient sharedClient];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height +20)]; // for status bar
     imageView.image = [UIImage imageNamed:@"Default.png"];
     [self.view addSubview:imageView];
     _messageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
@@ -51,7 +51,14 @@
     [button setTitle:@"Logout" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(logoutButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
+    [self startNewPersonalityGame];
 
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height+20); //for status bar
 }
 
 - (void)didReceiveMemoryWarning
