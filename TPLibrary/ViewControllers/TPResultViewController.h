@@ -14,5 +14,5 @@
 @property (nonatomic, strong) NSDictionary *result;
 @property (nonatomic, weak) TPGameViewController *gameVC;
 @property (weak,nonatomic) UIButton *playAgainButton;
-
+@property (weak,nonatomic) UIButton *learnMoreButton;
 @end

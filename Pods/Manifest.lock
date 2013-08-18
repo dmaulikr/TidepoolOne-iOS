@@ -5,6 +5,7 @@ PODS:
   - GoogleAnalytics-iOS-SDK (2.0beta4)
   - MBProgressHUD (0.7)
   - SSKeychain (1.2.0)
+  - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -13,6 +14,7 @@ DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK
   - MBProgressHUD
   - SSKeychain
+  - SVPullToRefresh
 
 EXTERNAL SOURCES:
   AttributedMarkdown:
@@ -25,5 +27,6 @@ SPEC CHECKSUMS:
   GoogleAnalytics-iOS-SDK: ae8e58e771b6dec84c0047154cc0e550a15e6f54
   MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
   SSKeychain: 2fe90c92034129d9615a508529b601a520f297d1
+  SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
 
 COCOAPODS: 0.23.0

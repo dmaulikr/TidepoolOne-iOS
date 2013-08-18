@@ -36,10 +36,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
     self.type = @"snoozer";
-    if ([[TPOAuthClient sharedClient] isLoggedIn]) {
-        [self getNewGame];
-    }
-
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -57,6 +53,10 @@
 
 }
 
+-(void)learnMore
+{
+    [self performSegueWithIdentifier:@"learnMoreSegue" sender:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -49,6 +49,11 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>Pods-SVPullToRefresh.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>Pods-TPKeyboardAvoiding.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -172,12 +177,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>47DAE2250B924D74907A0F95</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D736EF49237456AA6ADD20E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4E0B1EED081A4EBDA67335A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E4E4A7C3ADA401BB36ED6B9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -272,6 +287,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>ACFA20DCE1E447998FEA49F4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AD391D2F6BE1415BBE6CF6CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B1861D8692BD4F97ACEEDF51</key>
 		<dict>
 			<key>primary</key>
@@ -297,12 +322,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BD70878F91A746C3AE071478</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>CAEA52F36B4449658AAE2F05</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>CC22AE58B79544A3BAB47496</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D5A252F2F5CF4D11A4017110</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D674AB1DFC78462BBAA96644</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -333,6 +373,11 @@
 			<true/>
 		</dict>
 		<key>ED3DEE1302C542E6998F501C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF1445EBAEDB4212B0E04480</key>
 		<dict>
 			<key>primary</key>
 			<true/>

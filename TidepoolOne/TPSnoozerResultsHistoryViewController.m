@@ -10,6 +10,7 @@
 #import "TPSnoozerResultsHistoryWidget.h"
 #import "TPSnoozerResultViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <SVPullToRefresh/UIScrollView+SVPullToRefresh.h>
 
 @interface TPSnoozerResultsHistoryViewController ()
 
@@ -36,22 +37,29 @@
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"results-bg.png"]];
     
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading...";
+    __block TPSnoozerResultsHistoryViewController *wself = self;
+    [self.tableView addPullToRefreshWithActionHandler:^{
+        [wself downloadResults];
+    }];
+    [self.tableView triggerPullToRefresh];
+}
+
+
+-(void)downloadResults
+{
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"results: %@", [responseObject[@"data"] description]);
         self.results = responseObject[@"data"];
-        [hud hide:YES];
+        [self.tableView.pullToRefreshView stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
-        [hud hide:YES];
+        [self.tableView.pullToRefreshView stopAnimating];
     }];
-    
 }
 
 -(void)setResults:(NSArray *)results
 {
-    _results = results;
+    _results = [[results reverseObjectEnumerator] allObjects];
     if (_results) {
         
     }
@@ -87,6 +95,8 @@
     view.fastestTime = self.results[indexPath.row][@"fastest_time"];
     view.animalLabel.text = self.results[indexPath.row][@"speed_archetype"];
     view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
+    [[cell.contentView subviews]
+     makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell.contentView addSubview:view];
     view.detailLabel.text = self.results[indexPath.row][@"description"];
     return cell;
