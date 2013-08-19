@@ -30,25 +30,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    float kPadding = 10;
 	// Do any additional setup after loading the view.
     _oauthClient = [TPOAuthClient sharedClient];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height +20)]; // for status bar
     imageView.image = [UIImage imageNamed:@"Default.png"];
     [self.view addSubview:imageView];
-    _messageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 200)];
+    _messageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, self.view.bounds.size.width - kPadding, 350)];
     _messageLabel.text = @"Starting personality Game";
+    _messageLabel.numberOfLines = 0;
     _messageLabel.centered = YES;
     [self.view addSubview:_messageLabel];
     
-    TPButton *button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 100)];
-    button.center = CGPointMake(self.view.bounds.size.width/2, 300);
+    TPButton *button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
+    button.center = CGPointMake(self.view.bounds.size.width/4, 350);
+    [button setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
     [button setTitle:@"Play again" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(startNewPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 100)];
-    button.center = CGPointMake(self.view.bounds.size.width/2, 450);
+    button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
+    button.center = CGPointMake(3*self.view.bounds.size.width/4, 350);
     [button setTitle:@"Logout" forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(logoutButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     [self startNewPersonalityGame];
