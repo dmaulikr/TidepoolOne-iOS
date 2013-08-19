@@ -211,8 +211,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
     self.title = @"My Profile";
-    self.rightButton.target = self;
-    self.rightButton.action = @selector(showSettings);
+//    self.rightButton.target = self;
+//    self.rightButton.action = @selector(showSettings);
     
     
     _imageView = [[UIImageView alloc] init];

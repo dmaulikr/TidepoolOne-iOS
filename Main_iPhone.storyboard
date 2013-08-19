@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="4488.2" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" useAutolayout="YES" initialViewController="pwW-tx-6Ai">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pwW-tx-6Ai">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <development version="4600" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3715.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--LogoutDEBUG View Controller - Logout-->
@@ -109,7 +109,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fQo-CL-3RZ">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem"/>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem">
+                            <connections>
+                                <segue destination="rXC-h6-Lg5" kind="push" id="ORU-yc-1mS"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="rightButton" destination="CDV-Kf-3je" id="iLL-TG-HGR"/>
@@ -118,6 +122,157 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWG-kh-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3239" y="1333"/>
+        </scene>
+        <!--Profile Edit View Controller - Edit Profile-->
+        <scene sceneID="ZZe-U3-T6D">
+            <objects>
+                <viewController id="rXC-h6-Lg5" customClass="TPProfileEditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lTi-IT-blf">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sds-Lg-f8V">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4go-8m-CJg" customClass="TPLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="bqn-aG-6vI"/>
+                                            <constraint firstAttribute="height" constant="21" id="sNT-Vx-3kX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Handedness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="365-1s-pch" customClass="TPLabel">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="124" id="WcG-Wo-KUo"/>
+                                            <constraint firstAttribute="height" constant="21" id="mjP-GW-VOE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzB-Uh-6u2">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="iA2-TV-WeF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="male~iphone.png">
+                                            <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="genderButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="nBU-Q2-riI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ec-TV-L89">
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="lefthand~iphone.png">
+                                            <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="4Ch-ph-S22"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GHV-MB-EhR">
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="righthand~iphone.png">
+                                            <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="ppL-pE-thP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QtA-II-hYo">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="111" id="661-0O-9uz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" title="Button" image="mixedhand~iphone.png">
+                                            <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="handButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="H4r-Z9-pbp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwc-SR-gsX">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="85" id="7lR-xW-EHd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                        <state key="normal" image="female~iphone.png">
+                                            <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="genderButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="tA8-12-y1g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QtA-II-hYo" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="190" id="6Md-gf-wYQ"/>
+                                    <constraint firstItem="365-1s-pch" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="179" id="C3V-M5-UDq"/>
+                                    <constraint firstItem="365-1s-pch" firstAttribute="leading" secondItem="4go-8m-CJg" secondAttribute="leading" type="default" id="FVY-ks-TUE"/>
+                                    <constraint firstAttribute="trailing" secondItem="QtA-II-hYo" secondAttribute="trailing" constant="19" id="Gl9-pZ-7ds"/>
+                                    <constraint firstItem="wzB-Uh-6u2" firstAttribute="top" secondItem="4go-8m-CJg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hj9-44-pkX"/>
+                                    <constraint firstItem="365-1s-pch" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="10" id="Iqk-eV-euS"/>
+                                    <constraint firstItem="4go-8m-CJg" firstAttribute="top" secondItem="6ec-TV-L89" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lxn-9J-Gcs"/>
+                                    <constraint firstItem="Wwc-SR-gsX" firstAttribute="top" secondItem="wzB-Uh-6u2" secondAttribute="top" type="default" id="OYU-bT-GoR"/>
+                                    <constraint firstItem="QtA-II-hYo" firstAttribute="top" secondItem="GHV-MB-EhR" secondAttribute="top" type="default" id="PY0-Am-PyZ"/>
+                                    <constraint firstItem="6ec-TV-L89" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="18" id="RBt-77-Wxe"/>
+                                    <constraint firstAttribute="bottom" secondItem="wzB-Uh-6u2" secondAttribute="bottom" constant="-53" id="S44-j5-fIE"/>
+                                    <constraint firstItem="GHV-MB-EhR" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="104" id="TlT-bl-gPe"/>
+                                    <constraint firstItem="GHV-MB-EhR" firstAttribute="baseline" secondItem="6ec-TV-L89" secondAttribute="baseline" type="default" id="Zkr-Ys-MSE"/>
+                                    <constraint firstItem="6ec-TV-L89" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="211" id="fsP-vj-yFh"/>
+                                    <constraint firstItem="wzB-Uh-6u2" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="62" id="hWj-HE-kWs"/>
+                                    <constraint firstItem="Wwc-SR-gsX" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="151" id="oT0-7p-XFP"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Sds-Lg-f8V" firstAttribute="bottom" secondItem="lTi-IT-blf" secondAttribute="bottom" type="default" id="EgF-9P-RBZ"/>
+                            <constraint firstItem="Sds-Lg-f8V" firstAttribute="top" secondItem="lTi-IT-blf" secondAttribute="top" type="default" id="FNb-wa-hQc"/>
+                            <constraint firstItem="Sds-Lg-f8V" firstAttribute="leading" secondItem="lTi-IT-blf" secondAttribute="leading" type="default" id="K0u-8a-PL9"/>
+                            <constraint firstItem="Sds-Lg-f8V" firstAttribute="trailing" secondItem="lTi-IT-blf" secondAttribute="trailing" type="default" id="toI-O9-Vmu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="i5j-d2-sn9">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="IQ9-L2-Qs2">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="rXC-h6-Lg5" id="LEj-ff-xW8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="femaleButton" destination="Wwc-SR-gsX" id="lUI-JR-8IG"/>
+                        <outlet property="leftHandButton" destination="6ec-TV-L89" id="gKE-wo-MdT"/>
+                        <outlet property="maleButton" destination="wzB-Uh-6u2" id="2aq-Yv-cuF"/>
+                        <outlet property="mixedHandButton" destination="QtA-II-hYo" id="JZu-ld-7EY"/>
+                        <outlet property="rightHandButton" destination="GHV-MB-EhR" id="tv8-XK-F4R"/>
+                        <outlet property="scrollView" destination="Sds-Lg-f8V" id="BNn-RB-dAo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="At2-q5-qqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2854" y="1333"/>
         </scene>
         <!--Snoozer Game View Controller - Focus-->
         <scene sceneID="j3g-PE-fnc">
@@ -199,10 +354,73 @@
         </scene>
     </scenes>
     <resources>
+        <image name="female~iphone.png" width="94" height="130"/>
+        <image name="lefthand~iphone.png" width="85" height="130"/>
+        <image name="male~iphone.png" width="94" height="130"/>
+        <image name="mixedhand~iphone.png" width="111" height="130"/>
+        <image name="righthand~iphone.png" width="85" height="130"/>
         <image name="tabicon-focus.png" width="33" height="19"/>
         <image name="tabicon-profile.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TPBarButtonItem" superclassName="UIBarButtonItem">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPBarButtonItem.h"/>
+        </class>
+        <class className="TPGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
+        </class>
+        <class className="TPLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabel.h"/>
+        </class>
+        <class className="TPLogoutDEBUGViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLogoutDEBUGViewController.h"/>
+        </class>
+        <class className="TPProfileEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="genderButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="handButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="outlet" name="age" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="education" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="email" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="femaleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="gender" candidateClass="NSString"/>
+                <relationship kind="outlet" name="handedness" candidateClass="NSString"/>
+                <relationship kind="outlet" name="leftHandButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="maleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mixedHandButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="name" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="rightHandButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="TPProfileViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="TPBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TPSnoozerGameViewController" superclassName="TPGameViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerGameViewController.h"/>
+        </class>
+        <class className="TPSnoozerResultsHistoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerResultsHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TPTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPTabBarController.h"/>
+        </class>
+        <class className="TPTextField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPTextField.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
