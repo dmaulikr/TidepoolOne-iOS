@@ -24,6 +24,11 @@
     int _shownCounter;
     float _staticScale;
     float _ringingScale;
+    
+    NSMutableArray *_timerArray;
+    NSMutableArray *_timerDatesArray;
+    
+    NSDate *_pauseTime;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -48,6 +53,8 @@
 -(void)commonInitIvars
 {
     self.backgroundColor = [UIColor clearColor];
+    _timerArray = [NSMutableArray array];
+    _timerDatesArray = [NSMutableArray array];
     self.isRinging = NO;
     self.currentColor = @"green";
     _ringingState = 0;
@@ -97,7 +104,9 @@
             ;
         }];
         _showingResponseImage = NO;
-        [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(setStaticClockFromTimer:) userInfo:@"green" repeats:NO];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(setStaticClockFromTimer:) userInfo:@"green" repeats:NO];
+        [_timerArray addObject:timer];
+        [_timerDatesArray addObject:timer.fireDate];
     } else {
         if (_isRinging) {
             NSArray *animationImages = @[_imageDictionary[_currentColor],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-1",_currentColor]],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-2",_currentColor]]];
@@ -143,7 +152,11 @@
     
     for (int i=0;i<timeline.count;i++) {
         NSDictionary *item = timeline[i];
-        [NSTimer scheduledTimerWithTimeInterval:0.001*[item[@"delay"] floatValue] target:self selector:@selector(setColorSequenceFromTimer:) userInfo:item[@"colors"] repeats:NO];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.001*[item[@"delay"] floatValue] target:self selector:@selector(setColorSequenceFromTimer:) userInfo:item[@"colors"] repeats:NO];
+        [_timerArray addObject:timer];
+        [_timerDatesArray addObject:timer.fireDate];
+
+        
     }
 }
 
@@ -153,7 +166,10 @@
     self.currentColorSequence = colors;
     for (int i=0;i<colors.count;i++) {
         NSString *color = colors[i];
-        [NSTimer scheduledTimerWithTimeInterval:0.001*i*_avgTimeToShow/colors.count target:self selector:@selector(setRingingColorFromTimer:) userInfo:color repeats:NO];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.001*i*_avgTimeToShow/colors.count target:self selector:@selector(setRingingColorFromTimer:) userInfo:color repeats:NO];
+        [_timerArray addObject:timer];
+        [_timerDatesArray addObject:timer.fireDate];
+
     }
     _resetToStaticTimer = [NSTimer scheduledTimerWithTimeInterval:0.001*_avgTimeToShow target:self selector:@selector(setStaticClockFromTimer:) userInfo:@"green" repeats:NO];
 }
@@ -175,6 +191,23 @@
     self.isRinging = NO;
     self.currentColor = color;
     [self updatePicture];
+}
+-(void)pause
+{
+    for (NSTimer *timer in _timerArray) {
+        timer.fireDate = [[NSDate date] dateByAddingTimeInterval:100000];
+    }
+    _pauseTime = [NSDate date];
+}
+-(void)resume
+{
+    NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];
+    for (int i=0;i <_timerArray.count;i++) {
+        NSTimer *timer = _timerArray[i];
+        NSDate *oldDate = _timerDatesArray[i];
+        timer.fireDate = [oldDate dateByAddingTimeInterval:difference];
+    }
+    _pauseTime = nil;
 }
 
 @end

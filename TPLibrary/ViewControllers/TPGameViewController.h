@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 @interface TPGameViewController : UIViewController
 
 @property (strong, nonatomic) id gameObject;

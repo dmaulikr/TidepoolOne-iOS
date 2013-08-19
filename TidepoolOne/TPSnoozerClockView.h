@@ -32,5 +32,8 @@
 
 -(void)updatePicture;
 -(BOOL)isTarget;
+-(void)pause;
+-(void)resume;
+
 
 @end

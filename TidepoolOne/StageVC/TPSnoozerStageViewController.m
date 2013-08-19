@@ -18,7 +18,12 @@
     int _correctTouches;
     int _incorrectTouches;
     NSMutableArray *_eventArray;
+    NSTimer *_timer;
+    NSDate *_timerDate;
     TPSnoozerInstructionViewController *_instructionVC;
+    NSDate *_pauseTime;
+    NSDateFormatter *_debugFormatter;
+    BOOL _stageDone;
 }
 @end
 
@@ -38,7 +43,6 @@
     [super viewDidLoad];
 
 	// Do any additional setup after loading the view.
-    NSLog([self.data description]);
     //TODO: find better way
     self.view.frame = CGRectOffset(self.view.frame, 0, -20.0);
     self.view.backgroundColor = [UIColor clearColor];
@@ -49,16 +53,65 @@
     self.numChoicesTotal = 1;
     _eventArray = [NSMutableArray array];
     self.type = @"snoozer";
+    _debugFormatter = [[NSDateFormatter alloc] init];
+    [_debugFormatter setDateStyle:NSDateFormatterLongStyle];
+    _stageDone = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self showInstructionScreen];
+    if (_instructionVC) {
+        NSLog(@"instructionVC on appear so returning");
+        return;
+    }
+    
+    if (_pauseTime) {
+        NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];
+        for (TPSnoozerClockView *clockView in _clockViews) {
+            [clockView resume];
+        }
+        NSLog(@"time appear: %@", [[NSDate date] description]);
+        NSLog(@"time diff: %f", difference);
+        NSDate *oldDate = _timerDate;
+        NSDate *newDate = [oldDate dateByAddingTimeInterval:difference];
+
+        _timer.fireDate = newDate;
+        NSLog(@"TIMER NEW DATE: %@", [_timer.fireDate description]);
+        _timerDate = newDate;
+        _pauseTime = nil;
+    } else {
+        [self showInstructionScreen];
+    }
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    if (_instructionVC) {
+        NSLog(@"instructionVC on disappear so returning");        
+        return;
+    }
+    if (_stageDone) {
+        return;
+    }
+    _pauseTime = [NSDate date];
+    NSLog(@"time disappear: %@", [_pauseTime description]);
+//    [_timer invalidate];
+//    _timer = nil;
+    NSLog(@"original fire date: %@", [_timer.fireDate description]);    
+    _timer.fireDate = [[NSDate date] dateByAddingTimeInterval:10000];
+    NSLog(@"sentinel fire date: %@", [_timer.fireDate description]);
+    for (TPSnoozerClockView *clockView in _clockViews) {
+        [clockView pause];
+    }
 }
 
 -(void)showInstructionScreen
 {
+    if (_instructionVC) {
+        return;
+    }
     _instructionVC = [[TPSnoozerInstructionViewController alloc] initWithNibName:@"TPSnoozerInstructionViewController" bundle:nil];
     _instructionVC.view.frame = self.view.frame;
     _instructionVC.stageVC = self;
@@ -91,6 +144,7 @@
         [_instructionVC.view removeFromSuperview];
         [self createTimerForStageEnd];
         [self logTestStarted];
+        _instructionVC = nil;
     }];
 }
 
@@ -135,7 +189,8 @@
             }
         }
     }
-    [NSTimer scheduledTimerWithTimeInterval:1.0 + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
+    _timerDate = _timer.fireDate;
 }
 
 - (void)didReceiveMemoryWarning
@@ -165,8 +220,14 @@
 
 -(void)stageOver
 {
+    //TODO: hack, fix
+    if (_pauseTime) {
+        return;
+    }
+    NSLog(@"FIRED AT: %@ scheduled for:", [NSDate date]);
     [self logTestCompleted];
     [self.gameVC currentStageDoneWithEvents:_eventArray];
+    _stageDone = YES;
 }
 
 #pragma mark Logging functions
