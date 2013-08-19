@@ -228,21 +228,21 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QtA-II-hYo" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="190" id="6Md-gf-wYQ"/>
-                                    <constraint firstItem="365-1s-pch" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="179" id="C3V-M5-UDq"/>
                                     <constraint firstItem="365-1s-pch" firstAttribute="leading" secondItem="4go-8m-CJg" secondAttribute="leading" type="default" id="FVY-ks-TUE"/>
                                     <constraint firstAttribute="trailing" secondItem="QtA-II-hYo" secondAttribute="trailing" constant="19" id="Gl9-pZ-7ds"/>
                                     <constraint firstItem="wzB-Uh-6u2" firstAttribute="top" secondItem="4go-8m-CJg" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hj9-44-pkX"/>
                                     <constraint firstItem="365-1s-pch" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="10" id="Iqk-eV-euS"/>
                                     <constraint firstItem="4go-8m-CJg" firstAttribute="top" secondItem="6ec-TV-L89" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lxn-9J-Gcs"/>
-                                    <constraint firstItem="Wwc-SR-gsX" firstAttribute="top" secondItem="wzB-Uh-6u2" secondAttribute="top" type="default" id="OYU-bT-GoR"/>
+                                    <constraint firstItem="Wwc-SR-gsX" firstAttribute="top" secondItem="wzB-Uh-6u2" secondAttribute="top" type="user" id="OYU-bT-GoR"/>
                                     <constraint firstItem="QtA-II-hYo" firstAttribute="top" secondItem="GHV-MB-EhR" secondAttribute="top" type="default" id="PY0-Am-PyZ"/>
                                     <constraint firstItem="6ec-TV-L89" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="18" id="RBt-77-Wxe"/>
-                                    <constraint firstAttribute="bottom" secondItem="wzB-Uh-6u2" secondAttribute="bottom" constant="-53" id="S44-j5-fIE"/>
                                     <constraint firstItem="GHV-MB-EhR" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="104" id="TlT-bl-gPe"/>
+                                    <constraint firstItem="365-1s-pch" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="299" id="WWD-c8-lym"/>
                                     <constraint firstItem="GHV-MB-EhR" firstAttribute="baseline" secondItem="6ec-TV-L89" secondAttribute="baseline" type="default" id="Zkr-Ys-MSE"/>
-                                    <constraint firstItem="6ec-TV-L89" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="211" id="fsP-vj-yFh"/>
+                                    <constraint firstAttribute="bottom" secondItem="6ec-TV-L89" secondAttribute="bottom" constant="-6" id="gpn-Gw-cd5"/>
                                     <constraint firstItem="wzB-Uh-6u2" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="62" id="hWj-HE-kWs"/>
                                     <constraint firstItem="Wwc-SR-gsX" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="151" id="oT0-7p-XFP"/>
+                                    <constraint firstItem="6ec-TV-L89" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="331" id="ufp-51-p9n"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -363,6 +363,64 @@
         <image name="tabicon-profile.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="TPBarButtonItem" superclassName="UIBarButtonItem">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPBarButtonItem.h"/>
+        </class>
+        <class className="TPGameViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
+        </class>
+        <class className="TPLabel" superclassName="UILabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabel.h"/>
+        </class>
+        <class className="TPLogoutDEBUGViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLogoutDEBUGViewController.h"/>
+        </class>
+        <class className="TPProfileEditViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileEditViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="genderButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="handButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="saveButtonPressed:"/>
+                <relationship kind="outlet" name="age" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="education" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="email" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="femaleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="gender" candidateClass="NSString"/>
+                <relationship kind="outlet" name="handedness" candidateClass="NSString"/>
+                <relationship kind="outlet" name="leftHandButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="maleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="mixedHandButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="name" candidateClass="TPTextField"/>
+                <relationship kind="outlet" name="rightHandButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="TPProfileViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="TPBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TPSnoozerGameViewController" superclassName="TPGameViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerGameViewController.h"/>
+        </class>
+        <class className="TPSnoozerResultsHistoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerResultsHistoryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="rightButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="TPTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPTabBarController.h"/>
+        </class>
+        <class className="TPTextField" superclassName="UITextField">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPTextField.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

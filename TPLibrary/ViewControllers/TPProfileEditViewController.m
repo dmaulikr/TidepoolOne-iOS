@@ -8,7 +8,7 @@
 
 #import "TPProfileEditViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-
+#import <QuartzCore/QuartzCore.h>
 @interface TPProfileEditViewController ()
 {
     TPOAuthClient *_oauthClient;
@@ -31,6 +31,7 @@
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
+    
     [_maleButton setImage:[UIImage imageNamed:@"male.png"] forState:UIControlStateNormal];
     [_maleButton setImage:[UIImage imageNamed:@"male-pressed.png"] forState:UIControlStateSelected];
     [_femaleButton setImage:[UIImage imageNamed:@"female.png"] forState:UIControlStateNormal];
@@ -44,42 +45,63 @@
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
-    self.view.backgroundColor = [UIColor colorWithWhite:125.0/255.0 alpha:1.0];
+    self.view.backgroundColor = [UIColor colorWithWhite:245.0/255.0 alpha:1.0];
     float kPadding = 10;
     float leftMargin = 120;
     float leftMarginLabel = 10;
+    float labelHeight = 25;
     float labelWidth = 100;
     float textFieldHeight = 25;
-    float textFieldWidth = 170;
+    float textFieldWidth = 270;
+    float labelDistApart = textFieldHeight + 2*kPadding + labelHeight;
     TPLabel *nameLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding, labelWidth, textFieldHeight)];
     nameLabel.text = @"Name";
     [self.scrollView addSubview:nameLabel];
-    self.name = [[TPTextField alloc] initWithFrame:CGRectMake(leftMargin, kPadding, textFieldWidth, textFieldHeight)];
+    self.name = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding, textFieldWidth, textFieldHeight)];
     [self.scrollView addSubview:self.name];
+    self.name.textColor = [UIColor blackColor];
     
-    TPLabel *emailLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + (textFieldHeight + kPadding), labelWidth, textFieldHeight)];
+    TPLabel *emailLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelDistApart, labelWidth, textFieldHeight)];
     emailLabel.text = @"Email";
     [self.scrollView addSubview:emailLabel];
-    self.email = [[TPTextField alloc] initWithFrame:CGRectMake(leftMargin, kPadding + (textFieldHeight + kPadding), textFieldWidth, textFieldHeight)];
+    self.email = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 1*labelDistApart, textFieldWidth, textFieldHeight)];
     [self.scrollView addSubview:self.email];
+    self.email.textColor = [UIColor blackColor];
     
-    TPLabel *ageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 2*(textFieldHeight + kPadding), labelWidth, textFieldHeight)];
+    TPLabel *ageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 2*(labelDistApart), labelWidth, textFieldHeight)];
     ageLabel.text = @"Age";
     [self.scrollView addSubview:ageLabel];
-    self.age = [[TPTextField alloc] initWithFrame:CGRectMake(leftMargin, kPadding + 2*(textFieldHeight + kPadding), textFieldWidth, textFieldHeight)];
+    self.age = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 2*labelDistApart, textFieldWidth, textFieldHeight)];
     self.age.keyboardType = UIKeyboardTypeNumberPad;
     [self.scrollView addSubview:self.age];
+    self.age.textColor = [UIColor blackColor];
     
-    TPLabel *educationLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 3*(textFieldHeight + kPadding), labelWidth, textFieldHeight)];
+    TPLabel *educationLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 3*(labelDistApart), labelWidth, textFieldHeight)];
     educationLabel.text = @"Education";
     [self.scrollView addSubview:educationLabel];
-    self.education = [[TPTextField alloc] initWithFrame:CGRectMake(leftMargin, kPadding + 3*(textFieldHeight + kPadding), textFieldWidth, textFieldHeight)];
+    self.education = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 3*labelDistApart, textFieldWidth, textFieldHeight)];
     [self.scrollView addSubview:self.education];
-
-    self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + kPadding);
-    self.scrollView.scrollEnabled = YES;
+    self.education.textColor = [UIColor blackColor];
+    
+    [self customizeFields:@[self.name,self.email,self.age,self.education]];
     
     [self loadData];
+}
+
+-(void)customizeFields:(NSArray *)fields
+{
+    for (TPTextField *field in fields) {
+        field.textColor = [UIColor blackColor];
+        field.layer.borderColor = [[UIColor blackColor] CGColor];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + 100);
+    
+    [self loadData];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -179,7 +201,11 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.scrollView animated:YES];
     hud.labelText = @"Saving...";
     [_oauthClient putPath:@"api/v1/users/-/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [hud hide:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"Done";
+        [hud hide:YES afterDelay:2.0];
+        [_oauthClient getUserInfoFromServer];
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
         [_oauthClient handleError:error withOptionalMessage:@"There was an error saving data. Please try again."];
