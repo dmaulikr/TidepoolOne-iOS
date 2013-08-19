@@ -16,6 +16,8 @@
     TPOAuthClient *_oauthClient;
     TPLoginViewController *_loginVC;
     TPPersonalityGameViewController *_personalityVC;
+    UIImageView *_tooltipView;
+    NSTimer *_tooltipTimer;
 }
 @end
 
@@ -117,7 +119,35 @@
     UIViewController *vc = sender;
     [sender dismissViewControllerAnimated:YES completion:^{
         self.selectedIndex = 2;
+        [self showTooltip];
     }];
+}
+
+-(void)showTooltip
+{
+    UIImage *image = [UIImage imageNamed:@"playsnoozer-alertb.png"];
+    // TODO : calculate position correctly... 
+    _tooltipView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - self.tabBar.bounds.size.height - image.size.height, image.size.width, image.size.height)];
+    _tooltipView.image = image;
+    [self.view addSubview:_tooltipView];
+    _tooltipTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(dismissTooltip) userInfo:nil repeats:NO];
+}
+
+-(void)dismissTooltip
+{
+    [_tooltipTimer invalidate];
+    _tooltipTimer = nil;
+    [UIView animateWithDuration:1.0 animations:^{
+        _tooltipView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [_tooltipView removeFromSuperview];
+        _tooltipView = nil;
+    }];
+}
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    [self dismissTooltip];
 }
 
 - (void)didReceiveMemoryWarning
