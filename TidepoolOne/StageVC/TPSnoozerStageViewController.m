@@ -24,6 +24,7 @@
     NSDate *_pauseTime;
     NSDateFormatter *_debugFormatter;
     BOOL _stageDone;
+    BOOL _instructionDone;
 }
 @end
 
@@ -56,15 +57,16 @@
     _debugFormatter = [[NSDateFormatter alloc] init];
     [_debugFormatter setDateStyle:NSDateFormatterLongStyle];
     _stageDone = NO;
+    _instructionDone = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (_instructionVC) {
-        NSLog(@"instructionVC on appear so returning");
-        return;
-    }
+//    if (_instructionVC) {
+//        NSLog(@"instructionVC on appear so returning");
+//        return;
+//    }
     
     if (_pauseTime) {
         NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];
@@ -88,8 +90,8 @@
 -(void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
-    if (_instructionVC) {
-        NSLog(@"instructionVC on disappear so returning");        
+    if (!_instructionDone) {
+        NSLog(@"instruction not done on disappear so returning");
         return;
     }
     if (_stageDone) {
@@ -137,13 +139,14 @@
 
 -(void)instructionDone
 {
-    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+    _instructionDone = YES;
+    [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
         _instructionVC.view.alpha = 0.0;
     } completion:^(BOOL finished) {
-        [self layoutClocks];        
-        [_instructionVC.view removeFromSuperview];
+        [self layoutClocks];
         [self createTimerForStageEnd];
         [self logTestStarted];
+        [_instructionVC.view removeFromSuperview];
         _instructionVC = nil;
     }];
 }
