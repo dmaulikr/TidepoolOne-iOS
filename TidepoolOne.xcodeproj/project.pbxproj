@@ -507,6 +507,8 @@
 		A893FB3917C1FEC700A176DB /* titlebar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A893F98D17C1FEC700A176DB /* titlebar~iphone.png */; };
 		A893FB3A17C1FEC700A176DB /* tp-snoozer-start_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A893F98E17C1FEC700A176DB /* tp-snoozer-start_blueprint.png */; };
 		A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */; };
+		A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */; };
+		A893FB4217C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */; };
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
 		A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */; };
@@ -1069,6 +1071,9 @@
 		A893F98E17C1FEC700A176DB /* tp-snoozer-start_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-start_blueprint.png"; sourceTree = "<group>"; };
 		A893FB3B17C28E2B00A176DB /* TPProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileEditViewController.h; sourceTree = "<group>"; };
 		A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileEditViewController.m; sourceTree = "<group>"; };
+		A893FB3E17C2B33900A176DB /* TPSnoozerSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerSurveyStageViewController.h; sourceTree = "<group>"; };
+		A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerSurveyStageViewController.m; sourceTree = "<group>"; };
+		A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerSurveyStageViewController.xib; sourceTree = "<group>"; };
 		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerInstructionViewController.h; sourceTree = "<group>"; };
@@ -1918,6 +1923,9 @@
 				A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */,
 				A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */,
 				A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */,
+				A893FB3E17C2B33900A176DB /* TPSnoozerSurveyStageViewController.h */,
+				A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */,
+				A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */,
 				A879A65517A870FA0082A455 /* TPSurveyStageViewController.h */,
 				A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */,
 			);
@@ -2485,6 +2493,7 @@
 				A893FB3817C1FEC700A176DB /* titlebar@2x~iphone.png in Resources */,
 				A893FB3917C1FEC700A176DB /* titlebar~iphone.png in Resources */,
 				A893FB3A17C1FEC700A176DB /* tp-snoozer-start_blueprint.png in Resources */,
+				A893FB4217C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2578,6 +2587,7 @@
 				A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */,
 				A816448E17BEE7F600EE6E76 /* TPLogoutDEBUGViewController.m in Sources */,
 				A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */,
+				A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

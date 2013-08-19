@@ -14,6 +14,7 @@
 
 #import "TPSnoozerResultViewController.h"
 #import "TPResultViewController.h"
+#import "TPSnoozerSurveyStageViewController.h"
 
 @interface TPGameViewController ()
 {
@@ -72,9 +73,7 @@
         self.gameObject = responseObject[@"data"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
-        NSLog(@"error in getting game");
-        NSLog([error description]);
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to get game" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        [_oauthClient handleError:error withOptionalMessage:@"Unable to get game"];
     }];
 }
 
@@ -90,6 +89,7 @@
 //                                      @"ReactionTime":[TPReactionTimeStageViewController class],
 //                                      @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
                                       @"Snoozer":[TPSnoozerStageViewController class],
+                                      @"SnoozerSurvey":[TPSnoozerSurveyStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];
@@ -170,10 +170,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"fail: %@", [error description]);
         [hud hide:YES];
-        NSLog(@"error in getting game");
         NSLog([error description]);
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Unable to get game" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-
+        [_oauthClient handleError:error withOptionalMessage:@"Unable to get game results"];
     }];
 }
 

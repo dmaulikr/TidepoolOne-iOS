@@ -36,6 +36,6 @@
 
 -(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
 
-
+-(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
 
 @end

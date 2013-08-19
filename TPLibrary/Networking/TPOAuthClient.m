@@ -13,7 +13,7 @@
 
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
-//NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
+//NSString * const kBaseURLString = @"http://10.1.10.24:7004";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 
 NSString * const kClientId = @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1";
@@ -273,6 +273,13 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message
 {
+    int httpErrorCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+    if (httpErrorCode == 401) {
+        [[[UIAlertView alloc] initWithTitle:@"Authentication Error" message:@"Please login again" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
+        [self logout];
+        return;
+    }
     NSString *errorMessage = [error localizedDescription];
     if (errorMessage) {
         message = errorMessage;

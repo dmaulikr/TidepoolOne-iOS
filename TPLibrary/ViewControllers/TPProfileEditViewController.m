@@ -182,7 +182,7 @@
         [hud hide:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error saving data. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        [_oauthClient handleError:error withOptionalMessage:@"There was an error saving data. Please try again."];
     }];
 }
 @end

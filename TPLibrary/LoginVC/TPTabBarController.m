@@ -92,7 +92,7 @@
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [hud hide:YES];
-            [[[UIAlertView alloc] initWithTitle:@"error" message:@"Unable to get user information" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
         }];
     } else {
         NSDictionary *personality = _oauthClient.user[@"personality"];
