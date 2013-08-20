@@ -93,7 +93,7 @@
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
     view.date = [dateFormatter dateFromString:self.results[indexPath.row][@"time_played"]];
     view.fastestTime = self.results[indexPath.row][@"fastest_time"];
-    view.animalLabel.text = self.results[indexPath.row][@"speed_archetype"];
+    view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
     view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
     [[cell.contentView subviews]
      makeObjectsPerformSelector:@selector(removeFromSuperview)];
