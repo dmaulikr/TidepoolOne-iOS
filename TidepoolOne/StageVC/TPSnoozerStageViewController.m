@@ -118,7 +118,6 @@
     _instructionVC.view.frame = self.view.frame;
     _instructionVC.stageVC = self;
     _instructionVC.levelNumberLabel.text = [NSString stringWithFormat:@"%i", self.gameVC.stage+1];
-    _instructionVC.instructionsTitleLabel.text = @"title";
     _instructionVC.instructionsDetailLabel.attributedText = [self parsedFromMarkdown:self.data[@"instructions"]];
     _instructionVC.clockViewLeft.currentColor = self.data[@"correct_color_sequence"][0];
     _instructionVC.clockViewRight.currentColor = [self.data[@"correct_color_sequence"] lastObject];

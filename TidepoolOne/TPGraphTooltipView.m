@@ -22,15 +22,14 @@
                                  ];
         CGRect bubbleFrame = frame;
         bubbleFrame.size.height *= 0.8;
-        self.levelLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0, bubbleFrame.size.width, 0.3*bubbleFrame.size.height)];
+        self.levelLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 4, bubbleFrame.size.width, 0.3*bubbleFrame.size.height)];
         self.scoreLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0.2*bubbleFrame.size.height, bubbleFrame.size.width, 0.8*bubbleFrame.size.height)];
 
-        
         self.levelLabel.textColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
         self.scoreLabel.textColor = [UIColor whiteColor];
 
         self.levelLabel.fontSize = 10;
-        self.scoreLabel.fontSize = 25;
+        self.scoreLabel.fontSize = 20;
         
         self.levelLabel.centered = YES;
         self.scoreLabel.centered = YES;        

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *animalBadgeImage;
 
 - (IBAction)changePage:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (weak, nonatomic) IBOutlet UITextView *detailLabel;
 
 @end
