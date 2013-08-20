@@ -132,8 +132,15 @@
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {
-    [_oauthClient logout];
-    [self.navigationController popViewControllerAnimated:YES];
+    [[[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are you sure you want to log out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [_oauthClient logout];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 -(void)dismissKeyboard {

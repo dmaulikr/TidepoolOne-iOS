@@ -147,7 +147,7 @@
                 profileHeaderView.nameLabel.text = _user[@"email"];
             }
             profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
-            profileHeaderView.personalityTypeLabel.text = personality[@"profile_description"][@"name"];
+            profileHeaderView.personalityTypeLabel.text = [personality[@"profile_description"][@"name"] uppercaseString];
             profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
             TPPolarChartView *polarChartView = profileHeaderView.chartView;
             NSMutableArray *big5Values = [NSMutableArray array];
