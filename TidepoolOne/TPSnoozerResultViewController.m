@@ -12,6 +12,7 @@
 @interface TPSnoozerResultViewController ()
 {
     NSDictionary *_result;
+    BOOL _firstTimeHackFix;
 }
 @end
 
@@ -34,6 +35,7 @@
     self.history = @[@220, @270, @230, @250];
     self.gameLevelHistoryView.results = self.history;
     [[TPLocalNotificationManager sharedInstance] createNotification];
+    _firstTimeHackFix = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -41,16 +43,19 @@
     [super viewDidAppear:animated];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"results-bg.png"]];
     //hack
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        if (screenSize.height > 480.0f) {
-            /*Do iPhone 5 stuff here.*/
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+20);
+    if (!_firstTimeHackFix) {
+        _firstTimeHackFix = YES;
+        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+            if (screenSize.height > 480.0f) {
+                /*Do iPhone 5 stuff here.*/
+                self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+20);
+            } else {
+                /*Do iPhone Classic stuff here.*/
+            }
         } else {
-            /*Do iPhone Classic stuff here.*/
+            /*Do iPad stuff here.*/
         }
-    } else {
-        /*Do iPad stuff here.*/
     }
 }
 

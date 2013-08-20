@@ -277,7 +277,7 @@
             </objects>
             <point key="canvasLocation" x="-2854" y="1333"/>
         </scene>
-        <!--Snoozer Game View Controller - Focus-->
+        <!--Snoozer Game View Controller - Speed-->
         <scene sceneID="j3g-PE-fnc">
             <objects>
                 <viewController id="OmI-K6-FCI" customClass="TPSnoozerGameViewController" sceneMemberID="viewController">
@@ -286,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Focus" image="tabicon-focus.png" id="E0S-zh-qJP"/>
+                    <tabBarItem key="tabBarItem" title="Speed" image="tabicon-focus.png" id="E0S-zh-qJP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
