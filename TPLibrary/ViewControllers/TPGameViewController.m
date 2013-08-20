@@ -54,7 +54,7 @@
 
 -(void)setupNewGame
 {
-    _stage = 0;
+    _stage = 4;
     if (self.childViewControllers.count) {
         UIViewController *currentVC = self.childViewControllers[0];
         [currentVC.view removeFromSuperview];
@@ -94,8 +94,8 @@
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];
-    stageVC.view.frame = self.view.frame;
     stageVC.data = self.gameObject[@"stages"][_stage];
+    stageVC.view.frame = self.view.frame;
     stageVC.gameVC = self;
     [self displayContentController:stageVC];
 }

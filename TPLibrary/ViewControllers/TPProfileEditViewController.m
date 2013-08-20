@@ -9,6 +9,7 @@
 #import "TPProfileEditViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <QuartzCore/QuartzCore.h>
+
 @interface TPProfileEditViewController ()
 {
     TPOAuthClient *_oauthClient;

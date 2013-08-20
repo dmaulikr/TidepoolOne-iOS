@@ -43,12 +43,12 @@
 
 -(void)parseData
 {
-    for (NSDictionary *item in self.data) {
+    for (NSDictionary *item in self.data[@"data"]) {
         NSString *questionType = item[@"topic"];
         if ([questionType isEqualToString:@"activity"]) {
-            self.activityQuestion = item[@"question"];
+            self.activityQuestion.text = item[@"question"];
         } else if ([questionType isEqualToString:@"sleep"]) {
-            self.sleepQuestion = item[@"question"];
+            self.sleepQuestion.text = item[@"question"];
         }
     }
 }
