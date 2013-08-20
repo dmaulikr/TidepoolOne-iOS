@@ -286,7 +286,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Speed" image="tabicon-focus.png" id="E0S-zh-qJP"/>
+                    <tabBarItem key="tabBarItem" title="Speed" image="tabicon-speed~iphone.png" id="E0S-zh-qJP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -362,9 +362,9 @@
         <image name="male~iphone.png" width="94" height="130"/>
         <image name="mixedhand~iphone.png" width="111" height="130"/>
         <image name="righthand~iphone.png" width="85" height="130"/>
-        <image name="tabicon-focus.png" width="33" height="19"/>
         <image name="tabicon-profile.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>
+        <image name="tabicon-speed~iphone.png" width="33" height="23"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
