@@ -60,6 +60,7 @@
         [currentVC.view removeFromSuperview];
         [currentVC removeFromParentViewController];
     }
+    
     [self setupGameForCurrentStage];
 }
 
@@ -123,6 +124,7 @@
             [self setupGameForCurrentStage];
         } else {
             [self getResults];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog([error description]);

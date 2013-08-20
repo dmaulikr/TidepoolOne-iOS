@@ -42,8 +42,23 @@
         [wself downloadResults];
     }];
     [self.tableView triggerPullToRefresh];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Logged In" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
+    
+    //hack, more to model
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"New Game Finished" object:nil];
 }
 
+-(void)loggedIn
+{
+    [self.tableView triggerPullToRefresh];
+}
+
+-(void)loggedOut
+{
+    self.results = nil;
+    [self.tableView reloadData];
+}
 
 -(void)downloadResults
 {
