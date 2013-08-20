@@ -54,7 +54,7 @@
 
 -(void)setupNewGame
 {
-    _stage = 4;
+    _stage = 0;
     if (self.childViewControllers.count) {
         UIViewController *currentVC = self.childViewControllers[0];
         [currentVC.view removeFromSuperview];
