@@ -33,7 +33,7 @@
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
-    
+
     [_maleButton setImage:[UIImage imageNamed:@"male.png"] forState:UIControlStateNormal];
     [_maleButton setImage:[UIImage imageNamed:@"male-pressed.png"] forState:UIControlStateSelected];
     [_femaleButton setImage:[UIImage imageNamed:@"female.png"] forState:UIControlStateNormal];
@@ -46,7 +46,6 @@
     [_mixedHandButton setImage:[UIImage imageNamed:@"mixedhand-pressed.png"] forState:UIControlStateSelected];
     
     _ageChanged = NO;
-    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     self.view.backgroundColor = [UIColor colorWithWhite:245.0/255.0 alpha:1.0];
@@ -64,7 +63,7 @@
     self.name = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding, textFieldWidth, textFieldHeight)];
     [self.scrollView addSubview:self.name];
     self.name.textColor = [UIColor blackColor];
-    
+
     TPLabel *emailLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelDistApart, labelWidth, textFieldHeight)];
     emailLabel.text = @"Email";
     [self.scrollView addSubview:emailLabel];
@@ -88,10 +87,8 @@
     self.education = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 3*labelDistApart, textFieldWidth, textFieldHeight)];
     [self.scrollView addSubview:self.education];
     self.education.textColor = [UIColor blackColor];
-    
+
     [self customizeFields:@[self.name,self.email,self.age,self.education]];
-    
-    [self loadData];
 }
 
 -(void)customizeFields:(NSArray *)fields
@@ -105,7 +102,6 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + 100);
-    
     [self loadData];
 
 }
@@ -150,7 +146,9 @@
 -(void)loadData
 {
     NSDictionary *user = _oauthClient.user;
-    self.name.text = user[@"name"];
+    if (user[@"name"] != [NSNull null]) {
+        self.name.text = user[@"name"];
+    }
     self.email.text = user[@"email"];
     if (user[@"date_of_birth"] != [NSNull null]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -161,9 +159,15 @@
     }
 
 
-    self.education.text = user[@"education"];
-    self.handedness = user[@"handedness"];
-    self.gender = user[@"gender"];
+    if (user[@"education"] != [NSNull null]) {
+        self.education.text = user[@"education"];
+    }
+    if (user[@"handedness"] != [NSNull null]) {
+        self.handedness = user[@"handedness"];
+    }
+    if (user[@"gender"] != [NSNull null]) {
+        self.gender = user[@"gender"];
+    }
 }
 
 -(void)setHandedness:(NSString *)handedness
