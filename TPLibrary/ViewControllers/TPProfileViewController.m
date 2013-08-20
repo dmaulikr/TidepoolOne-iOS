@@ -141,7 +141,7 @@
             self.paragraphs = paragraphs;
             
             NSString *name = [_user valueForKey:@"name"];
-            if (name != [NSNull null]) {
+            if (name != [NSNull null] && [name length] != 0 && name) {
                 profileHeaderView.nameLabel.text = _user[@"name"];
             } else {
                 profileHeaderView.nameLabel.text = _user[@"email"];

@@ -93,7 +93,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fQo-CL-3RZ">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem">
                             <connections>
                                 <segue destination="rXC-h6-Lg5" kind="push" id="ORU-yc-1mS"/>
                             </connections>

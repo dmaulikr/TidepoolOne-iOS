@@ -121,7 +121,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">ANIMAL</string>
-								<object class="NSColor" key="IBUITextColor" id="558433042">
+								<object class="NSColor" key="IBUITextColor" id="192542943">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MC4yOTgwMzkyMTU3IDAuMzQxMTc2NDcwNiAwLjQxMTc2NDcwNTkAA</bytes>
 								</object>
@@ -154,7 +154,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">MS</string>
-								<reference key="IBUITextColor" ref="558433042"/>
+								<reference key="IBUITextColor" ref="192542943"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<float key="IBUIMinimumFontSize">35</float>
@@ -184,7 +184,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">MILLISECONDS</string>
-								<reference key="IBUITextColor" ref="558433042"/>
+								<reference key="IBUITextColor" ref="192542943"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<float key="IBUIMinimumFontSize">9</float>
@@ -199,12 +199,12 @@
 								<string key="NSFrame">{{30, 9}, {91, 91}}</string>
 								<reference key="NSSuperview" ref="476856870"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="177807314"/>
+								<reference key="NSNextKeyView" ref="743212000"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<object class="IBUITextView" id="177807314">
+							<object class="IBUITextView" id="743212000">
 								<reference key="NSNextResponder" ref="476856870"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{330, 10}, {290, 90}}</string>
@@ -272,13 +272,20 @@
 						<string key="NSFrame">{{141, 124}, {38, 36}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUINumberOfPages">2</int>
+						<object class="NSColor" key="IBUIPageIndicatorTintColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC43NTAzNDIxNTMzAA</bytes>
+						</object>
+						<object class="NSColor" key="IBUICurrentPageIndicatorTintColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC4zODM1ODIzNDQ5AA</bytes>
+						</object>
 					</object>
 				</array>
 				<string key="NSFrameSize">{320, 150}</string>
@@ -359,7 +366,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">detailLabel</string>
 						<reference key="source" ref="191373211"/>
-						<reference key="destination" ref="177807314"/>
+						<reference key="destination" ref="743212000"/>
 					</object>
 					<int key="connectionID">270</int>
 				</object>
@@ -426,7 +433,7 @@
 							<reference ref="60257061"/>
 							<reference ref="120287843"/>
 							<reference ref="995301588"/>
-							<reference ref="177807314"/>
+							<reference ref="743212000"/>
 						</array>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -469,7 +476,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">269</int>
-						<reference key="object" ref="177807314"/>
+						<reference key="object" ref="743212000"/>
 						<reference key="parent" ref="476856870"/>
 					</object>
 				</array>
