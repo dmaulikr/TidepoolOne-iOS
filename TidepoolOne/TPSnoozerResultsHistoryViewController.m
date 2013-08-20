@@ -106,7 +106,17 @@
     view.frame = cell.contentView.frame;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
-    view.date = [dateFormatter dateFromString:self.results[indexPath.row][@"time_played"]];
+    NSLocale *locale = [[NSLocale alloc]
+                        initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:locale];
+    // below is hack for pre-iOS 7
+    NSMutableString *dateString = [self.results[indexPath.row][@"time_played"] mutableCopy];
+    if ([dateString characterAtIndex:26] == ':') {
+        [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
+    }
+                            
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    view.date = date;
     view.fastestTime = self.results[indexPath.row][@"fastest_time"];
     view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
     view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];

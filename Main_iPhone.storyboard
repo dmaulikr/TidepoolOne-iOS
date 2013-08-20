@@ -316,23 +316,28 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="524-06-A8g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="149" type="user" id="03Q-Jk-IJc"/>
+                                    <constraint firstAttribute="bottom" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="163" type="user" id="5jn-Ir-eed"/>
                                     <constraint firstItem="xdt-uX-BWK" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="68" id="705-cA-hHc"/>
                                     <constraint firstItem="524-06-A8g" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="149" id="7DF-4M-Mqm"/>
                                     <constraint firstItem="RFc-JV-jDO" firstAttribute="leading" secondItem="aMS-w3-p8E" secondAttribute="leading" constant="47" id="Dvd-Sd-T23"/>
                                     <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" type="default" id="GBf-gU-xkd"/>
-                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="centerX" secondItem="aMS-w3-p8E" secondAttribute="centerX" type="default" id="K1z-Pg-jfH"/>
-                                    <constraint firstAttribute="bottom" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="163" id="Xaf-FC-32P"/>
+                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="294" type="user" id="Ged-gu-Bf4"/>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="68" type="user" id="VUg-Sj-HjZ"/>
+                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="aMS-w3-p8E" secondAttribute="centerX" type="default" id="jvQ-OB-e6c"/>
                                     <constraint firstItem="RFc-JV-jDO" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" id="kef-2d-UIM"/>
                                     <constraint firstItem="524-06-A8g" firstAttribute="centerX" secondItem="xdt-uX-BWK" secondAttribute="centerX" type="default" id="kgZ-bn-RxA"/>
+                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" type="user" id="kwF-U5-YDT"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="aMS-w3-p8E" firstAttribute="leading" secondItem="dIS-1N-fZX" secondAttribute="leading" type="default" id="TFl-eT-vDJ"/>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="bottom" secondItem="dIS-1N-fZX" secondAttribute="bottom" type="default" id="kuM-cF-WS1"/>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="top" secondItem="dIS-1N-fZX" secondAttribute="top" type="default" id="qpv-Q2-67c"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="bottom" secondItem="dIS-1N-fZX" secondAttribute="bottom" type="user" id="kuM-cF-WS1"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="top" secondItem="dIS-1N-fZX" secondAttribute="top" type="user" id="qpv-Q2-67c"/>
                             <constraint firstItem="aMS-w3-p8E" firstAttribute="trailing" secondItem="dIS-1N-fZX" secondAttribute="trailing" type="default" id="zzN-03-vYM"/>
                         </constraints>
                     </view>
