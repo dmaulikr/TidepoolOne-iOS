@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A82F6A2117947064003FC088"
                BuildableName = "Tidepool.app"
-               BlueprintName = "Tidepool"
+               BlueprintName = "TidePool"
                ReferencedContainer = "container:TidepoolOne.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A82F6A2117947064003FC088"
             BuildableName = "Tidepool.app"
-            BlueprintName = "Tidepool"
+            BlueprintName = "TidePool"
             ReferencedContainer = "container:TidepoolOne.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A82F6A2117947064003FC088"
             BuildableName = "Tidepool.app"
-            BlueprintName = "Tidepool"
+            BlueprintName = "TidePool"
             ReferencedContainer = "container:TidepoolOne.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -81,7 +81,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A82F6A2117947064003FC088"
             BuildableName = "Tidepool.app"
-            BlueprintName = "Tidepool"
+            BlueprintName = "TidePool"
             ReferencedContainer = "container:TidepoolOne.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

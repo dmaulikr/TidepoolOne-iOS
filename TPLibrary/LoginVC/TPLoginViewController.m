@@ -41,9 +41,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _sharedClient = [TPOAuthClient sharedClient];
-    kPadding = 5;
-    kTextFieldHeight = 35;
-    kVerticalOffset = 195;
+    kPadding = 10;
+    kTextFieldHeight = 40;
+    kVerticalOffset = 175;
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleError) name:@"OAuthClient error" object:nil];
     
@@ -54,14 +54,14 @@
     UINavigationBar *navBar = [[UINavigationBar alloc] init];
     navBar.frame = CGRectMake(0,0,self.view.bounds.size.width,44);
     UINavigationItem *navItem = [UINavigationItem alloc];
-    navItem.title = @"Welcome";
+    navItem.title = @"TidePool";
     _rightButton = [[TPBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleDone target:self action:@selector(flip)];
     navItem.rightBarButtonItem = _rightButton;
     [navBar pushNavigationItem:navItem animated:NO];
     [self.view addSubview:navBar];
     
-    self.currentView = self.loginView;
-    [self.view addSubview:self.loginView];
+    self.currentView = self.createAccountView;
+    [self.view addSubview:self.createAccountView];
     
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -119,9 +119,9 @@
 {
     _currentView = currentView;
     if (currentView == self.loginView) {
-        self.rightButton.title = @"Create";
+        self.rightButton.title = @"Sign up";
     } else {
-        self.rightButton.title = @"Login";        
+        self.rightButton.title = @"Log in";
     }
 }
 
@@ -146,7 +146,7 @@
 {
     if (!_createAccountView) {
         _createAccountView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 44)];
-        TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, _createAccountView.bounds.size.width - 2*kPadding, 100)];
+        TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, _createAccountView.bounds.size.width - 2*kPadding, kVerticalOffset - 95)];
         topLabel.text = @"Create a free account";
         topLabel.centered = YES;
         [_createAccountView addSubview:topLabel];
@@ -192,7 +192,7 @@
 {
     if (!_loginView) {
         _loginView = [[UIView alloc] initWithFrame:CGRectMake(0, 44, self.view.bounds.size.width, self.view.bounds.size.height - 44)];
-        TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, _loginView.bounds.size.width - 2*kPadding, 100)];
+        TPLabel *topLabel = [[TPLabel alloc] initWithFrame:CGRectMake(kPadding, 0, _loginView.bounds.size.width - 2*kPadding, kVerticalOffset - 95)];
         topLabel.text = @"Welcome back!";
         topLabel.centered = YES;
         [_loginView addSubview:topLabel];
@@ -297,8 +297,8 @@
     TPButton *facebookButton = [TPButton buttonWithType:UIButtonTypeCustom];
     [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-facebook.png"] forState:UIControlStateNormal];
     facebookButton.frame = CGRectMake(0, 0, 300, 45);
-    facebookButton.center = CGPointMake(self.view.center.x, 100);
-    [facebookButton setTitle:@"   Login with Facebook" forState:UIControlStateNormal];
+    facebookButton.center = CGPointMake(self.view.center.x, kVerticalOffset - 95);
+    [facebookButton setTitle:@"   Log in with Facebook" forState:UIControlStateNormal];
     [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:facebookButton];
     [self addOrGraphicToView:view];
@@ -307,7 +307,7 @@
 -(void)addOrGraphicToView:(UIView *)view
 {
     UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 227, 37)];
-    imgView.center = CGPointMake(self.view.center.x, 160);
+    imgView.center = CGPointMake(self.view.center.x, kVerticalOffset - 35);
     imgView.image = [UIImage imageNamed:@"or-graphic.png"];
     [view addSubview:imgView];
 }

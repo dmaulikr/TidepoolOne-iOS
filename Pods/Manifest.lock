@@ -1,5 +1,4 @@
 PODS:
-  - ActionSheetPicker2 (0.1)
   - AFNetworking (1.3.1)
   - AttributedMarkdown (0.9.0)
   - Facebook-iOS-SDK (3.5.3)
@@ -9,7 +8,6 @@ PODS:
   - SVPullToRefresh (0.4.1)
 
 DEPENDENCIES:
-  - ActionSheetPicker2
   - AFNetworking
   - AttributedMarkdown (from `https://github.com/dreamwieber/AttributedMarkdown.git`)
   - Facebook-iOS-SDK
@@ -23,7 +21,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/dreamwieber/AttributedMarkdown.git
 
 SPEC CHECKSUMS:
-  ActionSheetPicker2: 1a097a29ab437ea47356f3477e7a47e175a90445
   AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
   AttributedMarkdown: dec3931152ba5afc06f083214745bce896c11bd9
   Facebook-iOS-SDK: c11e851555d8cb8b55853ec2990b01d9e343d09e

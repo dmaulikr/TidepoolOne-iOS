@@ -22,10 +22,9 @@
     if (localNotif == nil)
         return;
     localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow:86400]; // 24 hours
-    localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow:15]; // TODO: test
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
     
-    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Play snooooozer", nil)];
+    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Play Snoozer so we can track your circadian rhythms!", nil)];
     localNotif.alertAction = NSLocalizedString(@"View Details", nil);
     
     localNotif.soundName = UILocalNotificationDefaultSoundName;

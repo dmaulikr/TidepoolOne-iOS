@@ -7,4 +7,3 @@ pod 'AttributedMarkdown', :git => 'https://github.com/dreamwieber/AttributedMark
 pod 'GoogleAnalytics-iOS-SDK'
 pod 'MBProgressHUD'
 pod 'SVPullToRefresh'
-pod 'ActionSheetPicker2'

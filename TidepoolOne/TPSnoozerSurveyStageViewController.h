@@ -9,7 +9,12 @@
 #import "TPStageViewController.h"
 
 @interface TPSnoozerSurveyStageViewController : TPStageViewController
-@property (weak, nonatomic) IBOutlet UITextField *hoursTextField;
-@property (weak, nonatomic) IBOutlet UITextField *stepsTextField;
+@property (weak, nonatomic) IBOutlet UILabel *sleepQuestion;
+@property (weak, nonatomic) IBOutlet UISlider *sleepSlider;
+@property (weak, nonatomic) IBOutlet UILabel *activityQuestion;
+@property (weak, nonatomic) IBOutlet UISlider *activitySlider;
 
+- (IBAction)submitStage:(id)sender;
+- (IBAction)sleepMoved:(id)sender;
+- (IBAction)activityMoved:(id)sender;
 @end

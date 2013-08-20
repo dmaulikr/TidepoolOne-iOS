@@ -71,6 +71,7 @@
         NSLog(@"got game succesffully");
         [hud hide:YES];
         self.gameObject = responseObject[@"data"];
+        NSLog([self.gameObject description]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game"];
@@ -89,7 +90,7 @@
 //                                      @"ReactionTime":[TPReactionTimeStageViewController class],
 //                                      @"EmotionsCircles":[TPEmotionsCirclesStageViewController class],
                                       @"Snoozer":[TPSnoozerStageViewController class],
-                                      @"SnoozerSurvey":[TPSnoozerSurveyStageViewController class],
+                                      @"Survey":[TPSnoozerSurveyStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] init];
@@ -142,11 +143,13 @@
         NSString *resultType = result[@"type"];
         Class stageClass = classDictionary[resultType];
         TPResultViewController *resultVC = [[stageClass alloc] init];
-        resultVC.gameVC = self;
-        [self addChildViewController:resultVC];
-        [self.view addSubview:resultVC.view];
-        resultVC.result = result;        
-        [resultVC didMoveToParentViewController:self];
+        if (resultVC) {
+            resultVC.gameVC = self;
+            [self addChildViewController:resultVC];
+            [self.view addSubview:resultVC.view];
+            resultVC.result = result;        
+            [resultVC didMoveToParentViewController:self];
+        }
     }
 }
 
