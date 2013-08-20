@@ -163,7 +163,7 @@ NSString *const FBSessionStateChangedNotification =
     }
     // Initialize a session object with the tokenCacheStrategy
     FBSession *session = [[FBSession alloc] initWithAppID:nil
-                                              permissions:@[@"basic_info", @"email", @"publish_actions"]
+                                              permissions:@[@"basic_info", @"email"]
                                           urlSchemeSuffix:nil
                                        tokenCacheStrategy:_tokenCaching];
     session.accessTokenData;
