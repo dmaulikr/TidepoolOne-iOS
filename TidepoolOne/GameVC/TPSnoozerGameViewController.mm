@@ -45,7 +45,7 @@
 
 -(void)loggedInSignal
 {
-    [self getNewGame];
+//    [self getNewGame];
 }
 
 
@@ -65,4 +65,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+}
+
+- (IBAction)playButtonPressed:(id)sender {
+    [self getNewGame];
+    self.gameStartView.hidden = YES;
+}
 @end

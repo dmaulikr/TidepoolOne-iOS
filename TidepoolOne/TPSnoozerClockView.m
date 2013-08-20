@@ -111,7 +111,7 @@
         if (_isRinging) {
             NSArray *animationImages = @[_imageDictionary[_currentColor],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-1",_currentColor]],_imageDictionary[[NSString stringWithFormat:@"%@-ringing-2",_currentColor]]];
             _imageView.animationImages = animationImages;
-            [UIView animateWithDuration:1.2 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 _imageView.transform = CGAffineTransformMakeScale(_ringingScale, _ringingScale);
             } completion:^(BOOL finished) {
             }];
@@ -119,7 +119,7 @@
         } else {
             [_imageView stopAnimating];
             _imageView.image = _imageDictionary[_currentColor];
-            [UIView animateWithDuration:1.2 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            [UIView animateWithDuration:0.1 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 _imageView.transform = CGAffineTransformMakeScale(_staticScale, _staticScale);
             } completion:^(BOOL finished) {
             }];

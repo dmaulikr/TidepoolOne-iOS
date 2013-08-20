@@ -117,7 +117,7 @@
         [self resizeView:newlyTappedView byFactor:2];
         int index = _tappedView.tag - _tagOffset;
         _tooltipView.score = self.results[index];
-        _tooltipView.levelLabel = [NSString stringWithFormat:@"LEVEL %i", index+1];
+        _tooltipView.levelLabel.text = [NSString stringWithFormat:@"LEVEL %i", index+1];
         [self addSubview:_tooltipView];
     } else {
         [_tooltipView removeFromSuperview];

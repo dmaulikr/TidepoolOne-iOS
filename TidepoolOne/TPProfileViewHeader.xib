@@ -111,11 +111,11 @@
 								<reference key="IBUITextColor" ref="948186839"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="704568769">
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="829225021">
 									<int key="type">1</int>
 									<double key="pointSize">13</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="922780064">
+								<object class="NSFont" key="IBUIFont" id="452515595">
 									<string key="NSName">Helvetica</string>
 									<double key="NSSize">13</double>
 									<int key="NSfFlags">16</int>
@@ -141,8 +141,8 @@
 								<float key="IBUIMinimumFontSize">6</float>
 								<bool key="IBUIAdjustsLetterSpacingToFitWidth">YES</bool>
 								<int key="IBUINumberOfLines">0</int>
-								<reference key="IBUIFontDescription" ref="704568769"/>
-								<reference key="IBUIFont" ref="922780064"/>
+								<reference key="IBUIFontDescription" ref="829225021"/>
+								<reference key="IBUIFont" ref="452515595"/>
 								<double key="preferredMaxLayoutWidth">210</double>
 							</object>
 						</array>

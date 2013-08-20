@@ -47,7 +47,7 @@
 {
     _pointingAtView = pointingAtView;
     CGPoint point = pointingAtView.center;
-    point.y -= (pointingAtView.bounds.size.height + self.bounds.size.height)/2.0;
+    point.y -= 0.7*(pointingAtView.bounds.size.height + self.bounds.size.height);
     self.center = point;
 }
 

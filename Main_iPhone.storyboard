@@ -240,10 +240,10 @@
                                     <constraint firstItem="QtA-II-hYo" firstAttribute="top" secondItem="GHV-MB-EhR" secondAttribute="top" type="default" id="PY0-Am-PyZ"/>
                                     <constraint firstItem="6ec-TV-L89" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="18" id="RBt-77-Wxe"/>
                                     <constraint firstItem="GHV-MB-EhR" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="104" id="TlT-bl-gPe"/>
-                                    <constraint firstItem="GHV-MB-EhR" firstAttribute="baseline" secondItem="6ec-TV-L89" secondAttribute="baseline" type="default" id="Zkr-Ys-MSE"/>
                                     <constraint firstAttribute="bottom" secondItem="6ec-TV-L89" secondAttribute="bottom" constant="-6" id="gpn-Gw-cd5"/>
                                     <constraint firstItem="wzB-Uh-6u2" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="62" id="hWj-HE-kWs"/>
                                     <constraint firstItem="365-1s-pch" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="299" id="hrc-1M-aaq"/>
+                                    <constraint firstItem="6ec-TV-L89" firstAttribute="top" secondItem="GHV-MB-EhR" secondAttribute="top" type="default" id="kjj-9y-EZb"/>
                                     <constraint firstItem="Wwc-SR-gsX" firstAttribute="leading" secondItem="Sds-Lg-f8V" secondAttribute="leading" constant="151" id="oT0-7p-XFP"/>
                                     <constraint firstItem="6ec-TV-L89" firstAttribute="top" secondItem="Sds-Lg-f8V" secondAttribute="top" constant="331" id="ufp-51-p9n"/>
                                 </constraints>
@@ -284,9 +284,62 @@
                     <view key="view" contentMode="scaleToFill" id="dIS-1N-fZX">
                         <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Play to discover the peaks and valleys of your circadian rhythm." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="58" id="9HQ-av-YJR"/>
+                                            <constraint firstAttribute="width" constant="275" id="Hy7-1R-Lc8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-logo~iphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-clock~iphone.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="102" id="G4R-FQ-stz"/>
+                                            <constraint firstAttribute="height" constant="42" type="user" id="cUz-zj-Kaj"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Play" backgroundImage="btn-red~iphone.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playButtonPressed:" destination="OmI-K6-FCI" eventType="touchUpInside" id="vH2-bM-GD0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="68" id="705-cA-hHc"/>
+                                    <constraint firstItem="524-06-A8g" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="149" id="7DF-4M-Mqm"/>
+                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="leading" secondItem="aMS-w3-p8E" secondAttribute="leading" constant="47" id="Dvd-Sd-T23"/>
+                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" type="default" id="GBf-gU-xkd"/>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="centerX" secondItem="aMS-w3-p8E" secondAttribute="centerX" type="default" id="K1z-Pg-jfH"/>
+                                    <constraint firstAttribute="bottom" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="163" id="Xaf-FC-32P"/>
+                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" id="kef-2d-UIM"/>
+                                    <constraint firstItem="524-06-A8g" firstAttribute="centerX" secondItem="xdt-uX-BWK" secondAttribute="centerX" type="default" id="kgZ-bn-RxA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="leading" secondItem="dIS-1N-fZX" secondAttribute="leading" type="default" id="TFl-eT-vDJ"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="bottom" secondItem="dIS-1N-fZX" secondAttribute="bottom" type="default" id="kuM-cF-WS1"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="top" secondItem="dIS-1N-fZX" secondAttribute="top" type="default" id="qpv-Q2-67c"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="trailing" secondItem="dIS-1N-fZX" secondAttribute="trailing" type="default" id="zzN-03-vYM"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Speed" image="tabicon-speed~iphone.png" id="E0S-zh-qJP"/>
+                    <connections>
+                        <outlet property="gameStartView" destination="aMS-w3-p8E" id="D85-xW-42f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -357,11 +410,14 @@
     </scenes>
     <resources>
         <image name="btn-blue~iphone.png" width="126" height="45"/>
+        <image name="btn-red~iphone.png" width="126" height="45"/>
         <image name="female~iphone.png" width="94" height="130"/>
         <image name="lefthand~iphone.png" width="85" height="130"/>
         <image name="male~iphone.png" width="94" height="130"/>
         <image name="mixedhand~iphone.png" width="111" height="130"/>
         <image name="righthand~iphone.png" width="85" height="130"/>
+        <image name="snoozer-clock~iphone.png" width="113" height="117"/>
+        <image name="snoozer-logo~iphone.png" width="201" height="55"/>
         <image name="tabicon-profile.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>
         <image name="tabicon-speed~iphone.png" width="33" height="23"/>
@@ -373,11 +429,17 @@
         <class className="TPBarButtonItem" superclassName="UIBarButtonItem">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPBarButtonItem.h"/>
         </class>
+        <class className="TPButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPButton.h"/>
+        </class>
         <class className="TPGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
         </class>
         <class className="TPLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabel.h"/>
+        </class>
+        <class className="TPLabelBold" superclassName="TPLabel">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabelBold.h"/>
         </class>
         <class className="TPProfileEditViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileEditViewController.h"/>
@@ -408,6 +470,10 @@
         </class>
         <class className="TPSnoozerGameViewController" superclassName="TPGameViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerGameViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playButtonPressed:"/>
+                <relationship kind="outlet" name="gameStartView" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="TPSnoozerResultsHistoryViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerResultsHistoryViewController.h"/>
