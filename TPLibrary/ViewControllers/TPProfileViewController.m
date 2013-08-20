@@ -126,7 +126,7 @@
     [self.navigationController pushViewController:settingsVC animated:YES];
 }
 
--(void)setUser:(TPUser *)user
+-(void)setUser:(NSDictionary *)user
 {
     _user = user;
     if (_user) {

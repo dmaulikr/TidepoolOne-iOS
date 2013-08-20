@@ -124,13 +124,13 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [[NSUserDefaults standardUserDefaults] setObject:self.user forKey:@"TidepoolUser"];
 }
 
--(void)setUser:(TPUser *)user
+-(void)setUser:(NSDictionary *)user
 {
     _user = user;
     NSLog(@"changed user to %@", [user description]);
 }
 
--(TPUser *)getUserInfo
+-(NSDictionary *)getUserInfo
 {
     NSLog(@"debug:%@", [[[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"] description]);
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"];

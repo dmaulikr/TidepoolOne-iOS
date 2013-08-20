@@ -40,6 +40,18 @@
 {
     [super viewDidAppear:animated];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"results-bg.png"]];
+    //hack
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        if (screenSize.height > 480.0f) {
+            /*Do iPhone 5 stuff here.*/
+            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+20);
+        } else {
+            /*Do iPhone Classic stuff here.*/
+        }
+    } else {
+        /*Do iPad stuff here.*/
+    }
 }
 
 - (void)didReceiveMemoryWarning

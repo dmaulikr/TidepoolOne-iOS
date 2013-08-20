@@ -11,7 +11,7 @@
 
 @interface TPProfileViewController : UITableViewController
 
-@property (strong, nonatomic) TPUser *user;
+@property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet TPBarButtonItem *rightButton;
 @property (strong, nonatomic) NSArray *bulletPoints;
 @property (strong, nonatomic) NSArray *paragraphs;
