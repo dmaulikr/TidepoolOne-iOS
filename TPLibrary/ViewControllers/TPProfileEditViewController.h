@@ -29,5 +29,6 @@
 
 - (IBAction)handButtonPressed:(UIButton *)sender;
 - (IBAction)genderButtonPressed:(UIButton *)sender;
+- (IBAction)logoutButtonPressed:(id)sender;
 
 @end

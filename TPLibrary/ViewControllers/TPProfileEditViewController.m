@@ -12,6 +12,7 @@
 @interface TPProfileEditViewController ()
 {
     TPOAuthClient *_oauthClient;
+    BOOL _ageChanged;
 }
 @end
 
@@ -42,6 +43,8 @@
     [_leftHandButton setImage:[UIImage imageNamed:@"lefthand-pressed.png"] forState:UIControlStateSelected];
     [_mixedHandButton setImage:[UIImage imageNamed:@"mixedhand.png"] forState:UIControlStateNormal];
     [_mixedHandButton setImage:[UIImage imageNamed:@"mixedhand-pressed.png"] forState:UIControlStateSelected];
+    
+    _ageChanged = NO;
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
@@ -75,6 +78,8 @@
     self.age.keyboardType = UIKeyboardTypeNumberPad;
     [self.scrollView addSubview:self.age];
     self.age.textColor = [UIColor blackColor];
+    
+    [self.age addTarget:self action:@selector(changedAge) forControlEvents:UIControlEventEditingChanged];
     
     TPLabel *educationLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 3*(labelDistApart), labelWidth, textFieldHeight)];
     educationLabel.text = @"Education";
@@ -113,11 +118,11 @@
 - (IBAction)handButtonPressed:(UIButton *)sender {
     //this sucks, but I gotta ship today
     if (sender == _rightHandButton) {
-        self.handedness = @"Right";
+        self.handedness = @"right";
     } else if (sender == _leftHandButton) {
-        self.handedness = @"Left";
+        self.handedness = @"left";
     } else if (sender == _mixedHandButton) {
-        self.handedness = @"Mixed";
+        self.handedness = @"mixed";
     }
 }
 - (IBAction)genderButtonPressed:(UIButton *)sender {
@@ -127,6 +132,11 @@
     } else if (sender == _femaleButton) {
         self.gender = @"female";
     }
+}
+
+- (IBAction)logoutButtonPressed:(id)sender {
+    [_oauthClient logout];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)dismissKeyboard {
@@ -143,10 +153,10 @@
     self.email.text = user[@"email"];
     if (user[@"date_of_birth"] != [NSNull null]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"mm/dd/yyyy"];
+        [dateFormatter setDateFormat:@"yyyy-mm-dd"];
         NSDate *dob = [dateFormatter dateFromString:user[@"date_of_birth"]];
         long long age = [[NSDate date] timeIntervalSinceDate:dob] / 3.15569e7;
-    self.age.text = [NSString stringWithFormat:@"@",age];
+    self.age.text = [NSString stringWithFormat:@"%lld",age];
     }
 
 
@@ -163,11 +173,11 @@
     _leftHandButton.selected = NO;
     _mixedHandButton.selected = NO;
     
-    if ([_handedness isEqualToString:@"Right"]) {
+    if ([_handedness isEqualToString:@"right"]) {
         _rightHandButton.selected = YES;
-    } else if ([_handedness isEqualToString:@"Left"]) {
+    } else if ([_handedness isEqualToString:@"left"]) {
         _leftHandButton.selected = YES;
-    } else if ([_handedness isEqualToString:@"Mixed"]) {
+    } else if ([_handedness isEqualToString:@"mixed"]) {
         _mixedHandButton.selected = YES;
     }
 }
@@ -186,6 +196,11 @@
     }
 }
 
+-(void)changedAge
+{
+    _ageChanged = YES;
+}
+
 - (IBAction)saveButtonPressed:(id)sender {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.name.text forKey:@"name"];
@@ -193,7 +208,9 @@
     int age = [[[NSCalendar currentCalendar]
                 components:NSYearCalendarUnit fromDate:[NSDate date]]
                year] - self.age.text.intValue;
-    [params setValue:[NSString stringWithFormat:@"01/01/%i",age] forKey:@"age"];
+    if (_ageChanged) {
+        [params setValue:[NSString stringWithFormat:@"01/01/%i",age] forKey:@"date_of_birth"];
+    }
     [params setValue:self.education.text forKey:@"education"];
     [params setValue:self.handedness forKey:@"handedness"];
     [params setValue:self.gender forKey:@"gender"];

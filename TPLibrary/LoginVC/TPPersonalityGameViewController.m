@@ -43,18 +43,18 @@
     [self.view addSubview:_messageLabel];
     
     TPButton *button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
-    button.center = CGPointMake(self.view.bounds.size.width/4, 350);
+    button.center = CGPointMake(self.view.bounds.size.width/4, 250);
     [button setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
     [button setTitle:@"Play again" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(startNewPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
     button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
-    button.center = CGPointMake(3*self.view.bounds.size.width/4, 350);
+    button.center = CGPointMake(3*self.view.bounds.size.width/4, 250);
     [button setTitle:@"Logout" forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(logoutButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];
+    [self.view addSubview:button];    
     [self startNewPersonalityGame];
 
 }
@@ -105,6 +105,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 
 -(void)personalityGameFinishedSuccessfully
 {
+    _messageLabel.text = @"Personality Game finished successfully";
     [_oauthClient getUserInfoFromServer];
     [_webView removeFromSuperview];
     [self.delegate personalityGameIsDone:self];
@@ -113,9 +114,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 -(void)personalityGameThrewError
 {
     _messageLabel.text = @"There was an error. Please try again";
-    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
-        [_webView removeFromSuperview];
-    } completion:^(BOOL finished) {}];
+    [_webView removeFromSuperview];
 }
 
 -(void)logoutButtonPressed
