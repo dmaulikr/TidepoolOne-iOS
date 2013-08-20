@@ -89,6 +89,7 @@
     self.education.textColor = [UIColor blackColor];
 
     [self customizeFields:@[self.name,self.email,self.age,self.education]];
+    
 }
 
 -(void)customizeFields:(NSArray *)fields

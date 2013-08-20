@@ -20,6 +20,17 @@
     return self;
 }
 
+-(id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Initialization code
+        [self commonInit];
+    }
+    return self;
+    
+}
+
 -(void)commonInit
 {
     [self setBackgroundImage:[UIImage imageNamed:@"btn-rect.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];

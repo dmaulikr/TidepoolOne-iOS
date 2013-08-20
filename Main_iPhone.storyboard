@@ -93,14 +93,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fQo-CL-3RZ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem">
+                            <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="rXC-h6-Lg5" kind="push" id="ORU-yc-1mS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="rightButton" destination="CDV-Kf-3je" id="iLL-TG-HGR"/>
+                        <outlet property="rightButton" destination="CDV-Kf-3je" id="ves-E7-1yG"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWG-kh-Djy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -258,7 +259,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="i5j-d2-sn9">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="IQ9-L2-Qs2">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="IQ9-L2-Qs2" customClass="TPBarButtonItem">
+                            <color key="tintColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="saveButtonPressed:" destination="rXC-h6-Lg5" id="LEj-ff-xW8"/>
                             </connections>

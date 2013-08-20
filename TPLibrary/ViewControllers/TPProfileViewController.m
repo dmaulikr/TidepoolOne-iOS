@@ -229,6 +229,10 @@
         }
     }
     self.tableView.tableHeaderView = profileHeaderView;
+    
+    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    [backButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"btn-back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    self.navigationItem.backBarButtonItem = backButtonItem;
 }
 
 -(void)loggedOut
