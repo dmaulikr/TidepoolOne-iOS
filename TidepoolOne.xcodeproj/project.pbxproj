@@ -472,6 +472,7 @@
 		A83E994317C41482008C555A /* titlebar@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A83E979617C41482008C555A /* titlebar@2x~iphone.png */; };
 		A83E994417C41482008C555A /* titlebar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A83E979717C41482008C555A /* titlebar~iphone.png */; };
 		A83E994517C41482008C555A /* tp-snoozer-start_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A83E979817C41482008C555A /* tp-snoozer-start_blueprint.png */; };
+		A83E994817C45D75008C555A /* TPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A83E994717C45D75008C555A /* TPTextView.m */; };
 		A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */; };
 		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
 		A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A852856317B4016D0057954F /* TPProfileTableViewCell.xib */; };
@@ -1013,6 +1014,8 @@
 		A83E979617C41482008C555A /* titlebar@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar@2x~iphone.png"; sourceTree = "<group>"; };
 		A83E979717C41482008C555A /* titlebar~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar~iphone.png"; sourceTree = "<group>"; };
 		A83E979817C41482008C555A /* tp-snoozer-start_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-start_blueprint.png"; sourceTree = "<group>"; };
+		A83E994617C45D75008C555A /* TPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTextView.h; sourceTree = "<group>"; };
+		A83E994717C45D75008C555A /* TPTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTextView.m; sourceTree = "<group>"; };
 		A83FA5ED17BD970200638F61 /* TPSnoozerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerGame.h; sourceTree = "<group>"; };
 		A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerGame.m; sourceTree = "<group>"; };
 		A852855917B31DEF0057954F /* TPPolarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPolarChartView.h; sourceTree = "<group>"; };
@@ -1780,6 +1783,8 @@
 		A86C5C7517BC66B9001A22D4 /* UIKit Customization */ = {
 			isa = PBXGroup;
 			children = (
+				A83E994617C45D75008C555A /* TPTextView.h */,
+				A83E994717C45D75008C555A /* TPTextView.m */,
 				A819476F17AE09BB009959DA /* TPLabel.h */,
 				A819477017AE09BB009959DA /* TPLabel.m */,
 				A819477217AE0C07009959DA /* TPTextField.h */,
@@ -2588,6 +2593,7 @@
 				A816448E17BEE7F600EE6E76 /* TPLogoutDEBUGViewController.m in Sources */,
 				A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */,
 				A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */,
+				A83E994817C45D75008C555A /* TPTextView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2715,7 +2721,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2733,7 +2739,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

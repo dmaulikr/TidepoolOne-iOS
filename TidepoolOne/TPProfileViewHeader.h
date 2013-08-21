@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *personalityTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *blurbLabel;
+@property (weak, nonatomic) IBOutlet UITextView *blurbLabel;
 @property (weak, nonatomic) IBOutlet UIView *chartView;
 
 @end

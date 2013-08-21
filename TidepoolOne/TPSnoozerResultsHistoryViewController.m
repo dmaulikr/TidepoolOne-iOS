@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"Snoozer Results";
+    self.title = @"Results";
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
@@ -68,6 +68,7 @@
         [self.tableView.pullToRefreshView stopAnimating];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
+        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         [self.tableView.pullToRefreshView stopAnimating];
     }];
 }
@@ -123,7 +124,7 @@
     [[cell.contentView subviews]
      makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell.contentView addSubview:view];
-    view.detailLabel.text = self.results[indexPath.row][@"description"];
+    view.detailLabel.text = [self.results[indexPath.row][@"bullet_description"] componentsJoinedByString:@" "];
     return cell;
 }
 

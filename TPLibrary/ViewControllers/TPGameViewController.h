@@ -17,4 +17,10 @@
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;
 -(void)getNewGame;
+
+
+- (void) displayContentController: (UIViewController*) content;
+- (void) hideContentController: (UIViewController*) content;
+
+
 @end

@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"Snoozer Results";
+    self.title = @"Results";
     self.history = @[@220, @270, @230, @250];
     self.gameLevelHistoryView.results = self.history;
     [[TPLocalNotificationManager sharedInstance] createNotification];
@@ -70,7 +70,7 @@
     _result = result;
     if (_result) {
         self.currentFastestTime.text = result[@"fastest_time"];
-        self.blurbLabel.text = result[@"description"];
+        self.blurbLabel.text = [result[@"bullet_description"] componentsJoinedByString:@" "];
         self.animalLabel.text = [result[@"speed_archetype"] uppercaseString];
         self.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@",result[@"speed_archetype"]]];
         NSMutableArray *historyMutable = [result[@"calculations"][@"stage_data"] mutableCopy];

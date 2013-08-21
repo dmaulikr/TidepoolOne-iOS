@@ -117,8 +117,11 @@
     [stageLog setValue:currentVC.type forKey:@"event_type"];
     NSLog([stageLog description]);
 // UNCOMMENT EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading next stage...";
     [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log",_gameId] parameters:@{@"event_log":stageLog} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self hideContentController:currentVC];
+        [hud hide:YES];
         _stage++;
         if (_stage < [self.gameObject[@"stages"] count]) {
             [self setupGameForCurrentStage];
@@ -127,7 +130,9 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog([error description]);
+        [hud hide:YES];
+        [_oauthClient handleError:error withOptionalMessage:@"There was an error with the game, please play again."];
+        [self getNewGame];
     }];
 }
 
@@ -173,9 +178,7 @@
             [self showResults];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"fail: %@", [error description]);
         [hud hide:YES];
-        NSLog([error description]);
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game results"];
     }];
 }

@@ -51,7 +51,10 @@
 
 -(void)loggedOutSignal
 {
-
+    for (UIViewController *child in super.childViewControllers) {
+        [super hideContentController:child];
+    }
+    self.gameStartView.hidden = NO;
 }
 
 -(void)learnMore

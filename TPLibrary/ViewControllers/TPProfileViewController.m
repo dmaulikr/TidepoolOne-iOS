@@ -158,6 +158,19 @@
             polarChartView.data = big5Values;
         }
     }
+    if (!user) {
+        TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
+//        _imageView.image = nil;
+        
+        self.bulletPoints = nil;
+        self.paragraphs = nil;
+        profileHeaderView.nameLabel.text = nil;
+//        profileHeaderView.badgeImageView.image = nil;
+        profileHeaderView.personalityTypeLabel.text = nil;
+        profileHeaderView.blurbLabel.attributedText = nil;
+        TPPolarChartView *polarChartView = profileHeaderView.chartView;
+        polarChartView.data = nil;
+    }
     [self.tableView reloadData];
 }
 

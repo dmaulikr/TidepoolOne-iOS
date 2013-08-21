@@ -11,8 +11,9 @@
 #import <SSKeychain/SSKeychain.h>
 #import "TPLoginViewController.h"
 
+NSString * const kBaseURLString = @"https://alpha.tidepool.co";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
-NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"http://10.1.10.24:7004";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 
@@ -150,7 +151,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     if (accounts.count > 0) {
         NSLog(@"got into the inner loop only if accounts exist");
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",[self oauthToken]]];
-        self.user = [self getUserInfo];
+//        self.user = [self getUserInfo];
         self.isLoggedIn = 1;
         return 1;
     }
@@ -196,7 +197,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.user = responseObject[@"data"];
         self.isLoggedIn = 1;
-        [self saveUserInfo];
+//        [self saveUserInfo];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
     }];
