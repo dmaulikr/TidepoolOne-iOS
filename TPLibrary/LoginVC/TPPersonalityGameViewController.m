@@ -7,12 +7,14 @@
 //
 
 #import "TPPersonalityGameViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPPersonalityGameViewController ()
 {
     UIWebView *_webView;
     TPLabel *_messageLabel;
     TPOAuthClient *_oauthClient;
+    MBProgressHUD *_loadingGameHud;
 }
 @end
 
@@ -86,9 +88,18 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         if (done) {
             [self personalityGameFinishedSuccessfully];
         } else {
+            _messageLabel.text = @"Unknown error. This should not happen. Peace out.";
             [self personalityGameThrewError];
         }
         return NO;
+    } else if ([requestString hasPrefix:@"ioslog"]) {
+        [_loadingGameHud hide:YES];
+        _loadingGameHud = nil;
+        NSLog(requestString);
+    } else if ([requestString hasPrefix:@"ioserr"]) {
+        NSLog(requestString);
+        _messageLabel.text = [[requestString componentsSeparatedByString:@"ioserr://"] objectAtIndex:1];
+        [self personalityGameThrewError];
     }
     return YES;
 }
@@ -96,13 +107,28 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 -(void)startNewPersonalityGame
 {
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    _webView.scrollView.bounces = NO;
     NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
 //    request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tide-dev.herokuapp.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
     [_webView loadRequest:request];
     _webView.delegate = self;
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [self.view addSubview:_webView];
-    } completion:^(BOOL finished) {}];
+    } completion:^(BOOL finished) {
+//        _loadingGameHud = [MBProgressHUD showHUDAddedTo:_webView animated:YES];
+//        _loadingGameHud.labelText = @"Loading personality game...";
+    }];
+    
+    // useful for debugging
+//    [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(testJS) userInfo:nil repeats:NO];
+    
+}
+
+
+-(void)testJS
+{
+    NSString *jsString = @"var iframe = document.createElement('IFRAME');var src = 'ioslog://yepps';iframe.setAttribute('src', src);document.documentElement.appendChild(iframe);";
+    NSLog([_webView stringByEvaluatingJavaScriptFromString:jsString]);
 }
 
 -(void)personalityGameFinishedSuccessfully
@@ -111,11 +137,11 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     [_oauthClient getUserInfoFromServer];
     [_webView removeFromSuperview];
     [self.delegate personalityGameIsDone:self];
+    [self removeFromParentViewController];  //NOTE: this is to ensure that the personality game dismisses itself no matter what - even if the tabbar is unable to do so...
 }
 
 -(void)personalityGameThrewError
 {
-    _messageLabel.text = @"There was an error. Please try again";
     [_webView removeFromSuperview];
 }
 

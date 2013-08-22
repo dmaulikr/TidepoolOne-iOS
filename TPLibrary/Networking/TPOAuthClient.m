@@ -11,10 +11,10 @@
 #import <SSKeychain/SSKeychain.h>
 #import "TPLoginViewController.h"
 
-NSString * const kBaseURLString = @"https://alpha.tidepool.co";
+//NSString * const kBaseURLString = @"https://alpha.tidepool.co";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
-//NSString * const kBaseURLString = @"http://10.1.10.24:7004";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"http://10.1.10.11:7004";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 
 NSString * const kClientId = @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1";
@@ -67,16 +67,21 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
-//                            @"password", @"grant_type",
-//                            @"password", @"response_type",
+                            @"password", @"grant_type",
+                            @"password", @"response_type",
                             username, @"email",
                             password, @"password",
+                            password, @"password_confirmation",
                             _clientId, @"client_id",
                             _clientSecret, @"client_secret",
                             nil];
-    [self postPath:@"api/v1/users" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"success");
-        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
+        NSString *token = [responseObject valueForKey:@"access_token"];
+        [self saveAndUseOauthToken:token];
+        self.user = responseObject[@"user"];
+        self.isLoggedIn = 1;
+//        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"An error occured while creating the account. Please try again."];
         failureBlock();
@@ -99,6 +104,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         NSLog(@"success");
         NSString *token = [responseObject valueForKey:@"access_token"];
         [self saveAndUseOauthToken:token];
+        self.isLoggedIn = YES;
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"An error occured while logging in. Please try again."];
@@ -117,7 +123,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
-    [self getUserInfoFromServer];
 }
 
 -(void)saveUserInfo
@@ -265,11 +270,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [dict setObject:@"password" forKey:@"response_type"];
     [dict setObject:authHash forKey:@"auth_hash"];
     
-    [[TPOAuthClient sharedClient] postPath:@"/oauth/authorize" parameters:dict success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[TPOAuthClient sharedClient] saveAndUseOauthToken:responseObject[@"access_token"]];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];
-    }];
+    [self loginFacebookWithTokenInfo:dict];
 }
 
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message
@@ -287,6 +288,17 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }
     [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
+}
+-(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo
+{
+    [self postPath:@"/oauth/authorize" parameters:facebookInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"facebook exchange oatuh: %@", [responseObject description]);
+        [self saveAndUseOauthToken:responseObject[@"access_token"]];
+        self.user = responseObject[@"user"];
+        self.isLoggedIn = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];
+    }];
 }
 
 @end

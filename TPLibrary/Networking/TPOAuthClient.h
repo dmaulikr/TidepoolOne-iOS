@@ -30,6 +30,8 @@
 
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
+-(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo;
+
 -(void)deleteAllPasswords;
 
 -(void)logout;
@@ -37,5 +39,7 @@
 -(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
 
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
+
+-(void)getTidepoolOauthTokenInExchangeForFacebookUserInfo:(NSDictionary *)user andFacebookToken:(NSDictionary *)token;
 
 @end

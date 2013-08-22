@@ -117,7 +117,7 @@
 -(void)personalityGameIsDone:(id)sender
 {
     UIViewController *vc = sender;
-    [sender dismissViewControllerAnimated:YES completion:^{
+    [vc dismissViewControllerAnimated:YES completion:^{
         self.selectedIndex = 2;
         [self showTooltip];
     }];
