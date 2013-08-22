@@ -155,6 +155,7 @@
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _createAccountView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
         emailField.placeholder = @"email address";
+        emailField.keyboardType = UIKeyboardTypeEmailAddress;
         emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         emailField.autocorrectionType = UITextAutocorrectionTypeNo;        
 
@@ -199,6 +200,7 @@
         
         TPTextField *emailField = [[TPTextField alloc] initWithFrame:CGRectMake(kPadding, kVerticalOffset, _loginView.bounds.size.width - 2 * kPadding, kTextFieldHeight)];
         emailField.placeholder = @"email address";
+        emailField.keyboardType = UIKeyboardTypeEmailAddress;        
         emailField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         emailField.autocorrectionType = UITextAutocorrectionTypeNo;
         [_loginView addSubview:emailField];
