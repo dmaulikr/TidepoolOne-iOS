@@ -279,7 +279,7 @@
             </objects>
             <point key="canvasLocation" x="-2854" y="1333"/>
         </scene>
-        <!--Snoozer Game View Controller - Speed-->
+        <!--Snoozer Game View Controller - Games-->
         <scene sceneID="j3g-PE-fnc">
             <objects>
                 <viewController id="OmI-K6-FCI" customClass="TPSnoozerGameViewController" sceneMemberID="viewController">
@@ -342,7 +342,7 @@
                             <constraint firstItem="aMS-w3-p8E" firstAttribute="trailing" secondItem="dIS-1N-fZX" secondAttribute="trailing" type="default" id="zzN-03-vYM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Speed" image="tabicon-speed~iphone.png" id="E0S-zh-qJP"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="tabicon-speed~iphone.png" id="E0S-zh-qJP"/>
                     <connections>
                         <outlet property="gameStartView" destination="aMS-w3-p8E" id="D85-xW-42f"/>
                     </connections>
@@ -377,11 +377,11 @@
             </objects>
             <point key="canvasLocation" x="-2875" y="595"/>
         </scene>
-        <!--Navigation Controller - Results-->
+        <!--Navigation Controller - Dashboard-->
         <scene sceneID="umU-0m-Jde">
             <objects>
                 <navigationController definesPresentationContext="YES" id="gzV-xg-QCH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Results" image="tabicon-results.png" id="a5V-GJ-Co3"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="tabicon-results.png" id="a5V-GJ-Co3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q3J-ew-3V8">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -428,72 +428,6 @@
         <image name="tabicon-results.png" width="33" height="23"/>
         <image name="tabicon-speed~iphone.png" width="33" height="23"/>
     </resources>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="TPBarButtonItem" superclassName="UIBarButtonItem">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPBarButtonItem.h"/>
-        </class>
-        <class className="TPButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPButton.h"/>
-        </class>
-        <class className="TPGameViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
-        </class>
-        <class className="TPLabel" superclassName="UILabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabel.h"/>
-        </class>
-        <class className="TPLabelBold" superclassName="TPLabel">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabelBold.h"/>
-        </class>
-        <class className="TPProfileEditViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileEditViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="genderButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="handButtonPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="logoutButtonPressed:"/>
-                <relationship kind="action" name="saveButtonPressed:"/>
-                <relationship kind="outlet" name="age" candidateClass="TPTextField"/>
-                <relationship kind="outlet" name="education" candidateClass="TPTextField"/>
-                <relationship kind="outlet" name="email" candidateClass="TPTextField"/>
-                <relationship kind="outlet" name="femaleButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="gender" candidateClass="NSString"/>
-                <relationship kind="outlet" name="handedness" candidateClass="NSString"/>
-                <relationship kind="outlet" name="leftHandButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="maleButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mixedHandButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="name" candidateClass="TPTextField"/>
-                <relationship kind="outlet" name="rightHandButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="TPProfileViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPProfileViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="rightButton" candidateClass="TPBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="TPSnoozerGameViewController" superclassName="TPGameViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerGameViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playButtonPressed:"/>
-                <relationship kind="outlet" name="gameStartView" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="TPSnoozerResultsHistoryViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPSnoozerResultsHistoryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="rightButton" candidateClass="UIBarButtonItem"/>
-            </relationships>
-        </class>
-        <class className="TPTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPTabBarController.h"/>
-        </class>
-        <class className="TPTextField" superclassName="UITextField">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPTextField.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

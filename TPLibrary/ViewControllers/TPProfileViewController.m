@@ -223,7 +223,7 @@
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
-    self.title = @"My Profile";
+    self.title = @"Profile";
 //    self.rightButton.target = self;
 //    self.rightButton.action = @selector(showSettings);
     
