@@ -15,6 +15,7 @@
     TPLabel *_messageLabel;
     TPOAuthClient *_oauthClient;
     MBProgressHUD *_loadingGameHud;
+    NSTimer *_timeoutTimer;
 }
 @end
 
@@ -104,6 +105,24 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     return YES;
 }
 
+-(void)webViewTimedOut
+{
+    _messageLabel.text = @"Request timed out. Network too slow";
+    [_webView removeFromSuperview];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [_timeoutTimer invalidate];
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    // webView connected
+    _timeoutTimer = [NSTimer scheduledTimerWithTimeInterval:20.0 target:self selector:@selector(webViewTimedOut) userInfo:nil repeats:NO];
+}
+
+
 -(void)startNewPersonalityGame
 {
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
@@ -115,8 +134,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [self.view addSubview:_webView];
     } completion:^(BOOL finished) {
-//        _loadingGameHud = [MBProgressHUD showHUDAddedTo:_webView animated:YES];
-//        _loadingGameHud.labelText = @"Loading personality game...";
+        _loadingGameHud = [MBProgressHUD showHUDAddedTo:_webView animated:YES];
+        _loadingGameHud.labelText = @"Loading personality game...";
     }];
     
     // useful for debugging
