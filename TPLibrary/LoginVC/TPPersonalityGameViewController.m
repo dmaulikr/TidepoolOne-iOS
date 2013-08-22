@@ -154,9 +154,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 {
     _messageLabel.text = @"Personality Game finished successfully";
     [_oauthClient getUserInfoFromServer];
-    [_webView removeFromSuperview];
     [self.delegate personalityGameIsDone:self];
-    [self removeFromParentViewController];  //NOTE: this is to ensure that the personality game dismisses itself no matter what - even if the tabbar is unable to do so...
 }
 
 -(void)personalityGameThrewError
