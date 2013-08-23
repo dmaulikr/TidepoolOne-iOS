@@ -127,32 +127,17 @@
     if (_stage < [self.gameObject[@"stages"] count]) {
         [self setupGameForCurrentStage];
     } else {
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Submitting performance...";
         [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
             [bself getResults];
+            [hud hide:YES];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [hud hide:YES];
             [_oauthClient handleError:error withOptionalMessage:@"Couldn't submit events to server"];
         }];
     }
-    //end--------
-// everything below this line for sending events on a stage by stage way
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//    hud.labelText = @"Loading next stage...";
-//    [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log",_gameId] parameters:@{@"event_log":stageLog} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        [self hideContentController:currentVC];
-//        [hud hide:YES];
-//        _stage++;
-//        if (_stage < [self.gameObject[@"stages"] count]) {
-//            [self setupGameForCurrentStage];
-//        } else {
-//            [self getResults];
-//            [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
-//        }
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [hud hide:YES];
-//        [_oauthClient handleError:error withOptionalMessage:@"There was an error with the game, please play again."];
-//        [self getNewGame];
-//    }];
 }
 
 -(void)showResults
