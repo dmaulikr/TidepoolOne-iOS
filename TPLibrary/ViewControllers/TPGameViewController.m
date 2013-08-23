@@ -132,7 +132,6 @@
         [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
             [bself getResults];
             [hud hide:YES];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [hud hide:YES];
             [_oauthClient handleError:error withOptionalMessage:@"Couldn't submit events to server"];
@@ -142,6 +141,7 @@
 
 -(void)showResults
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"Got New Game Results" object:nil];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSDictionary *classDictionary = @{
 //                                      @"SurveyResult":[TPSurveyResultViewController class],

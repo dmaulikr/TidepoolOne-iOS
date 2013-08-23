@@ -77,7 +77,6 @@
 
 -(void)showPersonalityGame
 {
-    return;
     if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading Personality...";

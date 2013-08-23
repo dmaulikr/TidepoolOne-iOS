@@ -301,4 +301,19 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
+-(NSDate *)dateFromString:(NSString *)stringDate
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:kDateFormat];
+    NSLocale *locale = [[NSLocale alloc]
+                        initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:locale];
+    // below is hack for pre-iOS 7
+    NSMutableString *dateString = [stringDate mutableCopy];
+    if ([dateString characterAtIndex:26] == ':') {
+        [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
+    }
+    return [dateFormatter dateFromString:dateString];
+}
+
 @end

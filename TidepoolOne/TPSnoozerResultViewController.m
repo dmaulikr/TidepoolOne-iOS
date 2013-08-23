@@ -69,7 +69,7 @@
 {
     _result = result;
     if (_result) {
-        self.currentFastestTime.text = result[@"fastest_time"];
+        self.currentFastestTime.text = result[@"average_time"];
         self.blurbLabel.text = [result[@"bullet_description"] componentsJoinedByString:@" "];
         self.animalLabel.text = [result[@"speed_archetype"] uppercaseString];
         self.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@",result[@"speed_archetype"]]];

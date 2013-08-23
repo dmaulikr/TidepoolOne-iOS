@@ -219,7 +219,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @[@"Bullets",@"Details"][section];
+    return @[@"Highlights",@"Details"][section];
 }
 
 -(void)setupView

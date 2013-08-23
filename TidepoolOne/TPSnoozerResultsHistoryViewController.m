@@ -9,11 +9,15 @@
 #import "TPSnoozerResultsHistoryViewController.h"
 #import "TPSnoozerResultsHistoryWidget.h"
 #import "TPSnoozerResultViewController.h"
+#import "TPDashboardHeaderView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SVPullToRefresh/UIScrollView+SVPullToRefresh.h>
 
 @interface TPSnoozerResultsHistoryViewController ()
-
+{
+    TPDashboardHeaderView *_dashboardHeaderView;
+    
+}
 @end
 
 @implementation TPSnoozerResultsHistoryViewController
@@ -31,11 +35,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.title = @"Results";
+    self.title = @"Dashboard";
     self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"results-bg.png"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
+
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPDashboardHeaderView" owner:nil options:nil];
+    NSLog([nibItems description]);
+    for (id item in nibItems) {
+        if ([item isKindOfClass:[TPDashboardHeaderView class]]) {
+            _dashboardHeaderView = item;
+        }
+    }
+    self.tableView.tableHeaderView = _dashboardHeaderView;
     
     __block TPSnoozerResultsHistoryViewController *wself = self;
     [self.tableView addPullToRefreshWithActionHandler:^{
@@ -46,7 +59,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
     
     //hack, more to model
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"New Game Finished" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Got New Game Results" object:nil];
 }
 
 -(void)loggedIn
@@ -77,7 +90,23 @@
 {
     _results = [[results reverseObjectEnumerator] allObjects];
     if (_results) {
-        
+        int dailyBest = 1000000;
+        int allTimeBest = 1000000;
+        NSDate *now = [NSDate date];
+        for (NSDictionary *item in results) {
+            NSDate *gameDate = [[TPOAuthClient sharedClient] dateFromString:item[@"time_played"]];
+            int avgTime = [item[@"average_time"] intValue];
+            if (avgTime != 0) {
+                if (avgTime < allTimeBest) {
+                    allTimeBest = avgTime;
+                }
+                if (avgTime < dailyBest && [self isSameDayWithDate1:gameDate date2:now]) {
+                    dailyBest = avgTime;
+                }
+            }
+        }
+        _dashboardHeaderView.dailyBestLabel.text = [NSString stringWithFormat:@"%i", dailyBest];
+        _dashboardHeaderView.allTimeBestLabel.text = [NSString stringWithFormat:@"%i", allTimeBest];
     }
     [self.tableView reloadData];
 }
@@ -118,7 +147,7 @@
                             
     NSDate *date = [dateFormatter dateFromString:dateString];
     view.date = date;
-    view.fastestTime = self.results[indexPath.row][@"fastest_time"];
+    view.fastestTime = self.results[indexPath.row][@"average_time"];
     view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
     view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
     [[cell.contentView subviews]
@@ -150,43 +179,17 @@
     return self.results.count;
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+- (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day]   == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
+}
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
 
 @end
