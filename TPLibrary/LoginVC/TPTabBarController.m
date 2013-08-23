@@ -77,6 +77,7 @@
 
 -(void)showPersonalityGame
 {
+    return;
     if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading Personality...";
@@ -116,6 +117,7 @@
 
 -(void)personalityGameIsDone:(id)sender
 {
+    NSLog(@"personality done delegate method called on tabbar");
     UIViewController *vc = sender;
     [vc dismissViewControllerAnimated:YES completion:^{
         self.selectedIndex = 2;

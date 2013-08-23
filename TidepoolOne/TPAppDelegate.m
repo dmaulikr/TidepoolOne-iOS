@@ -11,6 +11,7 @@
 #import "TPLocalNotificationManager.h"
 #import "TPOAuthClient.h"
 #import <TestFlightSDK/TestFlight.h>
+#import <JSONKit/JSONKit.h>
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
@@ -31,6 +32,9 @@ NSString *const FBSessionStateChangedNotification =
 //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 //    [TestFlight takeOff:@"f9c7e27c-d774-4e7b-a6aa-b5f5e9551123"];
     
+    NSString *jsonTest = @"[{\"string\":\"test\"}]";
+    NSArray *obj = [jsonTest objectFromJSONString];
+    NSLog(@"obj:%@",obj);
     //Clear keychain on first run in case of reinstallation
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"]) {
         // Delete values from keychain here

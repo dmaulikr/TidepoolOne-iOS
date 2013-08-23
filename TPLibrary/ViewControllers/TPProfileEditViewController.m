@@ -15,6 +15,7 @@
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
     NSArray *_educationOptions;
+    BOOL _viewDidLayout;
 }
 @end
 
@@ -33,8 +34,8 @@
 {
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
-	// Do any additional setup after loading the view.
-
+	// Do any additional setup after loading the view.    
+    
     [_maleButton setImage:[UIImage imageNamed:@"male.png"] forState:UIControlStateNormal];
     [_maleButton setImage:[UIImage imageNamed:@"male-pressed.png"] forState:UIControlStateSelected];
     [_femaleButton setImage:[UIImage imageNamed:@"female.png"] forState:UIControlStateNormal];
@@ -60,42 +61,45 @@
     float labelDistApart = textFieldHeight + 2*kPadding + labelHeight;
     TPLabel *nameLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding, labelWidth, textFieldHeight)];
     nameLabel.text = @"Name";
-    [self.scrollView addSubview:nameLabel];
     self.name = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding, textFieldWidth, textFieldHeight)];
-    [self.scrollView addSubview:self.name];
     self.name.textColor = [UIColor blackColor];
 
     TPLabel *emailLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelDistApart, labelWidth, textFieldHeight)];
     emailLabel.text = @"Email";
-    [self.scrollView addSubview:emailLabel];
     self.email = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 1*labelDistApart, textFieldWidth, textFieldHeight)];
-    [self.scrollView addSubview:self.email];
     self.email.textColor = [UIColor blackColor];
     
     TPLabel *ageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 2*(labelDistApart), labelWidth, textFieldHeight)];
     ageLabel.text = @"Age";
-    [self.scrollView addSubview:ageLabel];
     self.age = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 2*labelDistApart, textFieldWidth, textFieldHeight)];
     self.age.keyboardType = UIKeyboardTypeNumberPad;
-    [self.scrollView addSubview:self.age];
     self.age.textColor = [UIColor blackColor];
     
     [self.age addTarget:self action:@selector(changedAge) forControlEvents:UIControlEventEditingChanged];
     
     TPLabel *educationLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 3*(labelDistApart), labelWidth, textFieldHeight)];
     educationLabel.text = @"Education";
-    [self.scrollView addSubview:educationLabel];
     self.education = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 3*labelDistApart, textFieldWidth, textFieldHeight)];
     self.education.delegate = self;
-    [self.scrollView addSubview:self.education];
     self.education.textColor = [UIColor blackColor];
     UIPickerView *pickerView = [UIPickerView new];
     pickerView.showsSelectionIndicator = YES;
     pickerView.delegate = self;
     self.education.inputView = pickerView;
     [self customizeFields:@[self.name,self.email,self.age,self.education]];
-    
 
+
+    [_scrollContentView addSubview:nameLabel];
+    [_scrollContentView addSubview:self.name];
+    [_scrollContentView addSubview:emailLabel];
+    [_scrollContentView addSubview:self.email];
+    [_scrollContentView addSubview:ageLabel];
+    [_scrollContentView addSubview:self.age];
+    [_scrollContentView addSubview:educationLabel];
+    [_scrollContentView addSubview:self.education];
+    
+    
+    
     _educationOptions = @[
                           @"High School - Freshman (9)",
                           @"High School - Sophomore (10)",
@@ -108,6 +112,7 @@
                           @"College - Ph.D.",
                           @"Prefer not to answer",
                           ];
+    _viewDidLayout = NO;
 }
 
 -(void)customizeFields:(NSArray *)fields
@@ -120,9 +125,14 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + 100);
+    if (!_viewDidLayout) {
+        _viewDidLayout = YES;
+//        self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + 100);
+        _scrollContentView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 750);
+        [self.scrollView addSubview:_scrollContentView];
+        [self.scrollView setContentSize:_scrollContentView.bounds.size];
+    }
     [self loadData];
-
 }
 
 - (void)didReceiveMemoryWarning

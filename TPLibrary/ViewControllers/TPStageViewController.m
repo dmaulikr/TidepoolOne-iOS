@@ -41,5 +41,10 @@
     return epochTime.longLongValue;
 }
 
+-(void)setType:(NSString *)type
+{
+    _type = type;
+    
+}
 
 @end

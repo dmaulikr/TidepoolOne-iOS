@@ -17,6 +17,7 @@
 @property (strong, nonatomic) IBOutlet NSString *handedness;
 @property (strong, nonatomic) IBOutlet NSString *gender;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *scrollContentView;
 
 - (IBAction)saveButtonPressed:(id)sender;
 

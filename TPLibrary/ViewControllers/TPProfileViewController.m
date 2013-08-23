@@ -183,7 +183,8 @@
     UIFont *strongFont = [UIFont fontWithName:@"Karla-Bold" size:15.0];
     
     // create a color attribute for paragraph text
-    UIColor *emColor = [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];
+    UIColor *emColor = [UIColor blackColor];
+//    [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];
     
     // create a dictionary to hold your custom attributes for any Markdown types
     NSDictionary *attributes = @{
@@ -214,6 +215,11 @@
             [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
         }];
     }
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @[@"Bullets",@"Details"][section];
 }
 
 -(void)setupView

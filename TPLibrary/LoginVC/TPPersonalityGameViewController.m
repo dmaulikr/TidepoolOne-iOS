@@ -8,6 +8,7 @@
 
 #import "TPPersonalityGameViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import <JSONKit/JSONKit.h>
 
 @interface TPPersonalityGameViewController ()
 {
@@ -83,24 +84,25 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     
     NSLog(@"FromWebView: %@", requestString);
     
-    if ([requestString hasPrefix:@"iosaction"]) {
-        NSString* logString = [[requestString componentsSeparatedByString:@"iosaction://"] objectAtIndex:1];
-        BOOL done = logString.boolValue;
-        if (done) {
+    if ([requestString hasPrefix:@"ios"]) {
+        NSString* jsonString = [[requestString componentsSeparatedByString:@"ios://"] objectAtIndex:1];
+        NSDictionary *jsonMessage = [jsonString objectFromJSONString];
+        NSString *messageType = jsonMessage[@"type"];
+        if ([messageType isEqualToString:@"started"]) {
+            [_loadingGameHud hide:YES];
+            _loadingGameHud = nil;
+        } else if ([messageType isEqualToString:@"finished"]) {
             [self personalityGameFinishedSuccessfully];
-        } else {
-            _messageLabel.text = @"Unknown error. This should not happen. Peace out.";
+        } else if ([messageType isEqualToString:@"log"]) {
+            NSLog([NSString stringWithFormat:@"WEB.LOG:%@",jsonMessage[@"logMsg"]]);
+        } else if ([messageType isEqualToString:@"error"]) {
+            _messageLabel.text = jsonMessage[@"usrMsg"];
+            NSLog([NSString stringWithFormat:@"WEB.ERROR:%@",jsonMessage[@"logMsg"]]);
             [self personalityGameThrewError];
+        } else if ([messageType isEqualToString:@"warn"]) {
+            NSLog([NSString stringWithFormat:@"WEB.WARN:%@",jsonMessage[@"logMsg"]]);
         }
         return NO;
-    } else if ([requestString hasPrefix:@"ioslog"]) {
-        [_loadingGameHud hide:YES];
-        _loadingGameHud = nil;
-        NSLog(requestString);
-    } else if ([requestString hasPrefix:@"ioserr"]) {
-        NSLog(requestString);
-        _messageLabel.text = [[requestString componentsSeparatedByString:@"ioserr://"] objectAtIndex:1];
-        [self personalityGameThrewError];
     }
     return YES;
 }

@@ -23,6 +23,7 @@
     int _stage;
     NSNumber *_gameId;
     NSNumber *_userId;
+    NSMutableArray *_eventsForEachStageArray;
 }
 @end
 
@@ -55,6 +56,7 @@
 -(void)setupNewGame
 {
     _stage = 0;
+    _eventsForEachStageArray = [NSMutableArray array];
     if (self.childViewControllers.count) {
         UIViewController *currentVC = self.childViewControllers[0];
         [currentVC.view removeFromSuperview];
@@ -116,24 +118,41 @@
     [stageLog setValue:events forKey:@"events"];
     [stageLog setValue:currentVC.type forKey:@"event_type"];
     NSLog([stageLog description]);
-// UNCOMMENT EVERYTHING BELOW IN THIS FUNCTION ONCE NEW EVENT SYSTEM WORKS
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading next stage...";
-    [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log",_gameId] parameters:@{@"event_log":stageLog} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self hideContentController:currentVC];
-        [hud hide:YES];
-        _stage++;
-        if (_stage < [self.gameObject[@"stages"] count]) {
-            [self setupGameForCurrentStage];
-        } else {
-            [self getResults];
+    //start------wrap events into global array
+    [_eventsForEachStageArray addObject:stageLog];
+    //next stage
+    [self hideContentController:currentVC];
+    _stage++;
+    __block typeof(self) bself = self;
+    if (_stage < [self.gameObject[@"stages"] count]) {
+        [self setupGameForCurrentStage];
+    } else {
+        [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
+            [bself getResults];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [hud hide:YES];
-        [_oauthClient handleError:error withOptionalMessage:@"There was an error with the game, please play again."];
-        [self getNewGame];
-    }];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [_oauthClient handleError:error withOptionalMessage:@"Couldn't submit events to server"];
+        }];
+    }
+    //end--------
+// everything below this line for sending events on a stage by stage way
+//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    hud.labelText = @"Loading next stage...";
+//    [_oauthClient putPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/event_log",_gameId] parameters:@{@"event_log":stageLog} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [self hideContentController:currentVC];
+//        [hud hide:YES];
+//        _stage++;
+//        if (_stage < [self.gameObject[@"stages"] count]) {
+//            [self setupGameForCurrentStage];
+//        } else {
+//            [self getResults];
+//            [[NSNotificationCenter defaultCenter] postNotificationName:@"New Game Finished" object:nil];
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [hud hide:YES];
+//        [_oauthClient handleError:error withOptionalMessage:@"There was an error with the game, please play again."];
+//        [self getNewGame];
+//    }];
 }
 
 -(void)showResults
@@ -167,6 +186,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Calculating results";
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
+//    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
     [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
