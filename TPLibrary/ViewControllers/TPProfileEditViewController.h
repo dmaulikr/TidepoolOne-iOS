@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPProfileEditViewController : UIViewController <UIAlertViewDelegate>
+@interface TPProfileEditViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (strong, nonatomic) IBOutlet TPTextField *name;
 @property (strong, nonatomic) IBOutlet TPTextField *email;

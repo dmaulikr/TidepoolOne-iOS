@@ -14,6 +14,7 @@
 {
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
+    NSArray *_educationOptions;
 }
 @end
 
@@ -85,11 +86,28 @@
     educationLabel.text = @"Education";
     [self.scrollView addSubview:educationLabel];
     self.education = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 3*labelDistApart, textFieldWidth, textFieldHeight)];
+    self.education.delegate = self;
     [self.scrollView addSubview:self.education];
     self.education.textColor = [UIColor blackColor];
-
+    UIPickerView *pickerView = [UIPickerView new];
+    pickerView.showsSelectionIndicator = YES;
+    pickerView.delegate = self;
+    self.education.inputView = pickerView;
     [self customizeFields:@[self.name,self.email,self.age,self.education]];
     
+
+    _educationOptions = @[
+                          @"High School - Freshman (9)",
+                          @"High School - Sophomore (10)",
+                          @"High School - Junior (11)",
+                          @"High School - Senior (12)",
+                          @"College - Less than 2 yrs",
+                          @"College - Associates",
+                          @"College - Bachelor's",
+                          @"College - Master's",
+                          @"College - Ph.D.",
+                          @"Prefer not to answer",
+                          ];
 }
 
 -(void)customizeFields:(NSArray *)fields
@@ -241,4 +259,22 @@
         [_oauthClient handleError:error withOptionalMessage:@"There was an error saving data. Please try again."];
     }];
 }
+
+#pragma mark PickerViewDelegate methods
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _educationOptions.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _educationOptions[row];
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    self.education.text = _educationOptions[row];
+}
+
 @end
