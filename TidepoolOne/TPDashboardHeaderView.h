@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPBarGraphView.h"
 
 @interface TPDashboardHeaderView : UIView
 
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
+@property (weak, nonatomic) IBOutlet TPBarGraphView *barGraphView;
+
 @end

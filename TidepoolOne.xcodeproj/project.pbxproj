@@ -490,6 +490,7 @@
 		A8680BDA17C813E700FA0AA8 /* dash-widget~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCF17C813E700FA0AA8 /* dash-widget~iphone.png */; };
 		A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */; };
 		A8680BDF17C8168800FA0AA8 /* TPDashboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */; };
+		A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */; };
 		A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */; };
 		A86C5C7417BC667D001A22D4 /* TPLabelBold.m in Sources */ = {isa = PBXBuildFile; fileRef = A86C5C7317BC667D001A22D4 /* TPLabelBold.m */; };
 		A86C5C7817BC6953001A22D4 /* TPBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A86C5C7717BC6953001A22D4 /* TPBarButtonItem.m */; };
@@ -1050,6 +1051,8 @@
 		A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardHeaderView.h; sourceTree = "<group>"; };
 		A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardHeaderView.m; sourceTree = "<group>"; };
 		A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPDashboardHeaderView.xib; sourceTree = "<group>"; };
+		A8680BE017C8368500FA0AA8 /* TPBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPBarGraphView.h; path = ../TPLibrary/ViewControllers/TPBarGraphView.h; sourceTree = "<group>"; };
+		A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPBarGraphView.m; path = ../TPLibrary/ViewControllers/TPBarGraphView.m; sourceTree = "<group>"; };
 		A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A86C5C7217BC667D001A22D4 /* TPLabelBold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLabelBold.h; sourceTree = "<group>"; };
 		A86C5C7317BC667D001A22D4 /* TPLabelBold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLabelBold.m; sourceTree = "<group>"; };
@@ -1995,6 +1998,8 @@
 		A8BD1E0C17A0452C00A7E26C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A8680BE017C8368500FA0AA8 /* TPBarGraphView.h */,
+				A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */,
 				A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */,
 				A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */,
 				A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */,
@@ -2665,6 +2670,7 @@
 				A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */,
 				A83E994817C45D75008C555A /* TPTextView.m in Sources */,
 				A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */,
+				A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
