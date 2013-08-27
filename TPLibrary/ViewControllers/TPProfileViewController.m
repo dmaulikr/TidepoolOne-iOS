@@ -258,6 +258,7 @@
         [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [hud hide:YES];
             self.user = responseObject[@"data"];
+            _oauthClient.user = self.user;
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [hud hide:YES];
             [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];

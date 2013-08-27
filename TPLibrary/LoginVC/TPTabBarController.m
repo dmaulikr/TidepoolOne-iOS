@@ -78,7 +78,7 @@
 {
     if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Checking Personality...";
+        hud.labelText = @"Loading...";
         [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [hud hide:YES];
             _oauthClient.user = responseObject[@"data"];

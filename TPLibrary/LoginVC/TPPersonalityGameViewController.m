@@ -88,10 +88,10 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         NSString* jsonString = [[requestString componentsSeparatedByString:@"ios://"] objectAtIndex:1];
         NSDictionary *jsonMessage = [jsonString objectFromJSONString];
         NSString *messageType = jsonMessage[@"type"];
-        if ([messageType isEqualToString:@"started"]) {
+        if ([messageType isEqualToString:@"start"]) {
             [_loadingGameHud hide:YES];
             _loadingGameHud = nil;
-        } else if ([messageType isEqualToString:@"finished"]) {
+        } else if ([messageType isEqualToString:@"finish"]) {
             [self personalityGameFinishedSuccessfully];
         } else if ([messageType isEqualToString:@"log"]) {
             NSLog([NSString stringWithFormat:@"WEB.LOG:%@",jsonMessage[@"logMsg"]]);
