@@ -55,7 +55,7 @@
     float leftMargin = 120;
     float leftMarginLabel = 10;
     float labelHeight = 25;
-    float labelWidth = 100;
+    float labelWidth = 150;
     float textFieldHeight = 25;
     float textFieldWidth = 270;
     float labelDistApart = textFieldHeight + 2*kPadding + labelHeight;
@@ -88,7 +88,83 @@
     self.education.inputView = pickerView;
     [self customizeFields:@[self.name,self.email,self.age,self.education]];
 
+    
+    TPLabel *handednessLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 4*(labelDistApart), labelWidth, textFieldHeight)];
+    handednessLabel.text = @"Handedness";
 
+    float handButtonsY = kPadding + 4*(labelDistApart) + 3*kPadding;
+    UIImage *image;
+    UIImage *imageSelected;
+    image = [UIImage imageNamed:@"lefthand.png"];
+    imageSelected = [UIImage imageNamed:@"lefthand-pressed.png"];
+    self.leftHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.leftHandButton setImage:image forState:UIControlStateNormal];
+    [self.leftHandButton setImage:imageSelected forState:UIControlStateSelected];
+    self.leftHandButton.frame = CGRectMake(0, handButtonsY, image.size.width, image.size.height);
+    self.leftHandButton.center = CGPointMake(self.view.bounds.size.width/5,self.leftHandButton.center.y);
+    [self.leftHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollContentView addSubview:self.leftHandButton];
+
+    image = [UIImage imageNamed:@"righthand.png"];
+    imageSelected = [UIImage imageNamed:@"righthand-pressed.png"];
+    self.rightHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.rightHandButton setImage:image forState:UIControlStateNormal];
+    [self.rightHandButton setImage:imageSelected forState:UIControlStateSelected];
+    self.rightHandButton.frame = CGRectMake(0, handButtonsY, image.size.width, image.size.height);
+    self.rightHandButton.center = CGPointMake(0.45*self.view.bounds.size.width,self.rightHandButton.center.y);
+    [self.rightHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollContentView addSubview:self.rightHandButton];
+
+    image = [UIImage imageNamed:@"mixedhand.png"];
+    imageSelected = [UIImage imageNamed:@"mixedhand-pressed.png"];
+    self.mixedHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.mixedHandButton setImage:image forState:UIControlStateNormal];
+    [self.mixedHandButton setImage:imageSelected forState:UIControlStateSelected];
+    self.mixedHandButton.frame = CGRectMake(0, handButtonsY, image.size.width, image.size.height);
+    self.mixedHandButton.center = CGPointMake(3*self.view.bounds.size.width/4,self.mixedHandButton.center.y);
+    [self.mixedHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollContentView addSubview:self.mixedHandButton];
+    
+
+
+    TPLabel *genderLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, handButtonsY + self.leftHandButton.bounds.size.height + kPadding, labelWidth, textFieldHeight)];
+    genderLabel.text = @"Gender";
+    
+    float genderButtonsY = handButtonsY + self.leftHandButton.bounds.size.height + kPadding + labelHeight + kPadding;
+    image = [UIImage imageNamed:@"male.png"];
+    imageSelected = [UIImage imageNamed:@"male-pressed.png"];
+    self.maleButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.maleButton setImage:image forState:UIControlStateNormal];
+    [self.maleButton setImage:imageSelected forState:UIControlStateSelected];
+    self.maleButton.frame = CGRectMake(0, genderButtonsY, image.size.width, image.size.height);
+    self.maleButton.center = CGPointMake(self.view.bounds.size.width/3,self.maleButton.center.y);
+    [self.maleButton addTarget:self action:@selector(genderButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollContentView addSubview:self.maleButton];
+    
+    image = [UIImage imageNamed:@"female.png"];
+    imageSelected = [UIImage imageNamed:@"female-pressed.png"];
+    self.femaleButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [self.femaleButton setImage:image forState:UIControlStateNormal];
+    [self.femaleButton setImage:imageSelected forState:UIControlStateSelected];
+    self.femaleButton.frame = CGRectMake(0, genderButtonsY, image.size.width, image.size.height);
+    self.femaleButton.center = CGPointMake(2*self.view.bounds.size.width/3,self.femaleButton.center.y);
+    [self.femaleButton addTarget:self action:@selector(genderButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_scrollContentView addSubview:self.femaleButton];
+    
+
+    
+    TPButton *logoutButton = [[TPButton alloc] initWithFrame:CGRectZero];
+    logoutButton.frame = CGRectMake(120, genderButtonsY + self.maleButton.bounds.size.height + 3*kPadding, 130, 40);
+    logoutButton.center = CGPointMake(self.view.bounds.size.width/2, logoutButton.center.y);
+    [logoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    [logoutButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    
+    
+    
+    
     [_scrollContentView addSubview:nameLabel];
     [_scrollContentView addSubview:self.name];
     [_scrollContentView addSubview:emailLabel];
@@ -97,6 +173,9 @@
     [_scrollContentView addSubview:self.age];
     [_scrollContentView addSubview:educationLabel];
     [_scrollContentView addSubview:self.education];
+    [_scrollContentView addSubview:handednessLabel];
+    [_scrollContentView addSubview:genderLabel];
+    [_scrollContentView addSubview:logoutButton];
     
     
     

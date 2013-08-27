@@ -119,136 +119,9 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sds-Lg-f8V">
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXp-Sf-vrg">
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tx-5S-ceT">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="75" id="f1m-Xt-kLM"/>
-                                                    <constraint firstAttribute="height" constant="44" id="lei-99-Rgo"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Logout" backgroundImage="btn-blue~iphone.png">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="logoutButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="qUC-7n-ExO"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Handedness" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3MJ-A7-ZDH" customClass="TPLabel">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="124" id="NGr-cm-DgV"/>
-                                                    <constraint firstAttribute="height" constant="21" id="R0f-xX-fjA"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="713-hP-faN">
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="lefthand~iphone.png">
-                                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="handButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="kxz-fS-Xqn"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9t-iT-TsY">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="85" id="gSA-Yt-7dd"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="male~iphone.png">
-                                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="genderButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="jsQ-Xi-8ls"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Xi-xN-5vT">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="85" id="sTy-g2-FMQ"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="female~iphone.png">
-                                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="genderButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="gAJ-AT-8PX"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmE-7B-Wv3">
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="111" id="882-kB-aSh"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" title="Button" image="mixedhand~iphone.png">
-                                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="handButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="SLl-To-KhB"/>
-                                                </connections>
-                                            </button>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzx-it-VlU" customClass="TPLabel">
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="21" id="65b-5I-Th4"/>
-                                                    <constraint firstAttribute="width" constant="80" id="Jqs-pz-6WL"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4g-MY-yJx">
-                                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
-                                                <state key="normal" image="righthand~iphone.png">
-                                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <state key="highlighted">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="handButtonPressed:" destination="rXC-h6-Lg5" eventType="touchUpInside" id="nxi-dM-Raz"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="6Xi-xN-5vT" firstAttribute="top" secondItem="f9t-iT-TsY" secondAttribute="top" type="user" id="5md-ie-RII"/>
-                                            <constraint firstItem="FmE-7B-Wv3" firstAttribute="top" secondItem="i4g-MY-yJx" secondAttribute="top" type="default" id="B0k-fA-8Nb"/>
-                                            <constraint firstItem="Fzx-it-VlU" firstAttribute="top" secondItem="713-hP-faN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BNB-Pp-Y3R"/>
-                                            <constraint firstItem="713-hP-faN" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="17" id="GiG-lA-qL3"/>
-                                            <constraint firstItem="3MJ-A7-ZDH" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="9" id="Jzm-bP-W4I"/>
-                                            <constraint firstItem="3MJ-A7-ZDH" firstAttribute="leading" secondItem="Fzx-it-VlU" secondAttribute="leading" type="default" id="NXC-xK-O6y"/>
-                                            <constraint firstItem="3MJ-A7-ZDH" firstAttribute="top" secondItem="ZXp-Sf-vrg" secondAttribute="top" constant="115" id="TBr-6e-9uQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="5tx-5S-ceT" secondAttribute="bottom" constant="383" id="cg1-dU-i7G"/>
-                                            <constraint firstItem="5tx-5S-ceT" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="122" id="el7-GN-65V"/>
-                                            <constraint firstAttribute="trailing" secondItem="FmE-7B-Wv3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="exA-Pn-JKF"/>
-                                            <constraint firstItem="713-hP-faN" firstAttribute="baseline" secondItem="i4g-MY-yJx" secondAttribute="baseline" type="default" id="gi5-zb-SAO"/>
                                             <constraint firstAttribute="height" constant="900" id="gxk-eO-1iu"/>
-                                            <constraint firstItem="f9t-iT-TsY" firstAttribute="top" secondItem="ZXp-Sf-vrg" secondAttribute="top" constant="320" id="jYb-Yl-8R9"/>
-                                            <constraint firstItem="6Xi-xN-5vT" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="150" id="pkM-Zx-Mxm"/>
-                                            <constraint firstItem="i4g-MY-yJx" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="103" id="tFt-5I-smO"/>
-                                            <constraint firstItem="713-hP-faN" firstAttribute="top" secondItem="ZXp-Sf-vrg" secondAttribute="top" constant="150" id="uD4-eD-Ihp"/>
-                                            <constraint firstItem="f9t-iT-TsY" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="61" id="v16-uw-8TM"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -422,13 +295,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="btn-blue~iphone.png" width="126" height="45"/>
         <image name="btn-red~iphone.png" width="126" height="45"/>
-        <image name="female~iphone.png" width="94" height="130"/>
-        <image name="lefthand~iphone.png" width="85" height="130"/>
-        <image name="male~iphone.png" width="94" height="130"/>
-        <image name="mixedhand~iphone.png" width="111" height="130"/>
-        <image name="righthand~iphone.png" width="85" height="130"/>
         <image name="snoozer-clock~iphone.png" width="113" height="117"/>
         <image name="snoozer-logo~iphone.png" width="201" height="55"/>
         <image name="tabicon-game~iphone.png" width="33" height="23"/>
