@@ -115,6 +115,8 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    _dashboardHeaderView.scrollView.contentSize = CGSizeMake(790, 192);
+    _dashboardHeaderView.scrollView.scrollEnabled = YES;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
 @property (weak, nonatomic) IBOutlet TPBarGraphView *barGraphView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
