@@ -328,15 +328,15 @@
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="524-06-A8g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="149" type="user" id="03Q-Jk-IJc"/>
-                                    <constraint firstAttribute="bottom" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="163" type="user" id="5jn-Ir-eed"/>
-                                    <constraint firstItem="524-06-A8g" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="149" id="7DF-4M-Mqm"/>
                                     <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" type="default" id="GBf-gU-xkd"/>
-                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="294" type="user" id="Ged-gu-Bf4"/>
-                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="centerX" secondItem="aMS-w3-p8E" secondAttribute="centerX" type="default" id="MOW-Yr-LkT"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="88" type="user" id="ROY-Na-cuH"/>
+                                    <constraint firstItem="524-06-A8g" firstAttribute="centerX" secondItem="aMS-w3-p8E" secondAttribute="centerX" type="default" id="ZCm-n0-ePZ"/>
+                                    <constraint firstItem="524-06-A8g" firstAttribute="centerY" secondItem="aMS-w3-p8E" secondAttribute="centerY" type="default" id="iNG-Ev-2xj"/>
                                     <constraint firstItem="RFc-JV-jDO" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" id="kef-2d-UIM"/>
                                     <constraint firstItem="524-06-A8g" firstAttribute="centerX" secondItem="xdt-uX-BWK" secondAttribute="centerX" type="default" id="kgZ-bn-RxA"/>
                                     <constraint firstItem="RFc-JV-jDO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" type="user" id="kwF-U5-YDT"/>
                                     <constraint firstItem="xdt-uX-BWK" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="67" id="lab-f9-zvl"/>
+                                    <constraint firstAttribute="bottom" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="88" id="vZf-XC-g2z"/>
                                     <constraint firstItem="RFc-JV-jDO" firstAttribute="centerX" secondItem="xdt-uX-BWK" secondAttribute="centerX" type="default" id="wyu-0g-4Kr"/>
                                 </constraints>
                             </view>

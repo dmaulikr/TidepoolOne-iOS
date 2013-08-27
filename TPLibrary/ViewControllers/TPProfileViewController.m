@@ -43,8 +43,17 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
     
     [self setupView];
+    [self constructStartNewGameView];
     [self loggedIn]; //by calling this here - we don't have to repopulate every time viewDidAppear - it is called when loaded and on every user change
+
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -140,7 +149,6 @@
     }
     if (hasData) {
         [_startNewGameView removeFromSuperview];
-        _startNewGameView = nil;
         
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
@@ -167,32 +175,7 @@
         }
         polarChartView.data = big5Values;
     } else {
-        _startNewGameView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        _startNewGameView.image = [UIImage imageNamed:@"personality-placeholderbg.jpg"];
-        _startNewGameView.contentMode = UIViewContentModeScaleAspectFill;
-        _startNewGameView.userInteractionEnabled = YES;
-        UIButton *startPersonalityGameButton = [[TPButton alloc] initWithFrame:CGRectZero];
-        [startPersonalityGameButton.titleLabel setFont:[UIFont fontWithName:startPersonalityGameButton.titleLabel.font.fontName size:startPersonalityGameButton.titleLabel.font.pointSize + 10]];
-        UIImage *buttonImage = [UIImage imageNamed:@"btn-pers-playnow.png"];
-        startPersonalityGameButton.bounds = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
-        startPersonalityGameButton.center = self.view.center;
-        [startPersonalityGameButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-//        [startPersonalityGameButton addTarget:self action:@selector(testFn) forControlEvents:UIControlEventTouchUpInside];
-        
-        [startPersonalityGameButton addTarget:self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
-        [startPersonalityGameButton setTitle:@"New\nGame" forState:UIControlStateNormal];
-        startPersonalityGameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-        startPersonalityGameButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
-        [_startNewGameView addSubview:startPersonalityGameButton];
-        [self.view addSubview:_startNewGameView];
-        
-        float padding = 10;
-        UILabel *textLabel = [[TPLabel alloc] initWithFrame:CGRectMake(padding, 0, self.view.bounds.size.width - 2*padding, 200)];
-        textLabel.text = @"Discover your unique personality from 60 unique personality types.";
-        [_startNewGameView addSubview:textLabel];
-        textLabel.textColor = [UIColor whiteColor];
-        textLabel.textAlignment = NSTextAlignmentCenter;
-        textLabel.numberOfLines = 0;
+        _startNewGameView.hidden = NO;
         
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
         //        _imageView.image = nil;
@@ -209,11 +192,35 @@
     [self.tableView reloadData];
 }
 
--(void)testFn
+-(void)constructStartNewGameView
 {
-    NSLog(@"TTEEESSST");
+    _startNewGameView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    _startNewGameView.image = [UIImage imageNamed:@"personality-placeholderbg.jpg"];
+    _startNewGameView.contentMode = UIViewContentModeScaleAspectFill;
+    _startNewGameView.userInteractionEnabled = YES;
+    UIButton *startPersonalityGameButton = [[TPButton alloc] initWithFrame:CGRectZero];
+    [startPersonalityGameButton.titleLabel setFont:[UIFont fontWithName:startPersonalityGameButton.titleLabel.font.fontName size:startPersonalityGameButton.titleLabel.font.pointSize + 10]];
+    UIImage *buttonImage = [UIImage imageNamed:@"btn-pers-playnow.png"];
+    startPersonalityGameButton.bounds = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    startPersonalityGameButton.center = self.view.center;
+    [startPersonalityGameButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    
+    [startPersonalityGameButton addTarget:self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
+    [startPersonalityGameButton setTitle:@"New\nGame" forState:UIControlStateNormal];
+    startPersonalityGameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    startPersonalityGameButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    [_startNewGameView addSubview:startPersonalityGameButton];
+    [self.view addSubview:_startNewGameView];
+    
+    float padding = 10;
+    UILabel *textLabel = [[TPLabel alloc] initWithFrame:CGRectMake(padding, 0, self.view.bounds.size.width - 2*padding, 200)];
+    textLabel.text = @"Discover your unique personality from 60 unique personality types.";
+    [_startNewGameView addSubview:textLabel];
+    textLabel.textColor = [UIColor whiteColor];
+    textLabel.textAlignment = NSTextAlignmentCenter;
+    textLabel.numberOfLines = 0;
+    startPersonalityGameButton.center = CGPointMake(startPersonalityGameButton.center.x, textLabel.center.y + textLabel.bounds.size.height/2 + 50);
 }
-
 -(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
 {
     // start with a raw markdown string
