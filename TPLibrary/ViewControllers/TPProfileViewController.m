@@ -20,6 +20,7 @@
 {
     TPOAuthClient *_oauthClient;
     UIImageView *_imageView;
+    UIImageView *_startNewGameView;    
 }
 @end
 
@@ -128,44 +129,64 @@
 
 -(void)setUser:(NSDictionary *)user
 {
+    BOOL hasData = NO;
+    NSDictionary *personality;
     _user = user;
     if (_user) {
-        NSDictionary *personality = _user[@"personality"];
-        if (personality != [NSNull null]) {
-            TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
-            _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
-            
-            self.bulletPoints = personality[@"profile_description"][@"bullet_description"];
-            NSMutableArray *paragraphs = [[personality[@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
-            [paragraphs removeObject:@""];
-            self.paragraphs = paragraphs;
-            
-            NSString *name = [_user valueForKey:@"name"];
-            if (name != [NSNull null] && [name length] != 0 && name) {
-                profileHeaderView.nameLabel.text = _user[@"name"];
-            } else {
-                profileHeaderView.nameLabel.text = _user[@"email"];
-            }
-            profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
-            profileHeaderView.personalityTypeLabel.text = [personality[@"profile_description"][@"name"] uppercaseString];
-            profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
-            TPPolarChartView *polarChartView = profileHeaderView.chartView;
-            NSMutableArray *big5Values = [NSMutableArray array];
-            NSArray *keys = @[@"openness",@"conscientiousness",@"extraversion",@"agreeableness",@"neuroticism",];
-            for (NSString *key in keys) {
-                [big5Values addObject:personality[@"big5_score"][key]];
-            }
-            polarChartView.data = big5Values;
+        personality = _user[@"personality"];
+        if (personality && (personality != [NSNull null])) {
+            hasData = YES;
         }
     }
-    if (!user) {
+    if (hasData) {
+        [_startNewGameView removeFromSuperview];
+        _startNewGameView = nil;
+        
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
-//        _imageView.image = nil;
+        _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
+        
+        self.bulletPoints = personality[@"profile_description"][@"bullet_description"];
+        NSMutableArray *paragraphs = [[personality[@"profile_description"][@"description"]  componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]] mutableCopy];
+        [paragraphs removeObject:@""];
+        self.paragraphs = paragraphs;
+        
+        NSString *name = [_user valueForKey:@"name"];
+        if (name != [NSNull null] && [name length] != 0 && name) {
+            profileHeaderView.nameLabel.text = _user[@"name"];
+        } else {
+            profileHeaderView.nameLabel.text = _user[@"email"];
+        }
+        profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
+        profileHeaderView.personalityTypeLabel.text = [personality[@"profile_description"][@"name"] uppercaseString];
+        profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
+        TPPolarChartView *polarChartView = profileHeaderView.chartView;
+        NSMutableArray *big5Values = [NSMutableArray array];
+        NSArray *keys = @[@"openness",@"conscientiousness",@"extraversion",@"agreeableness",@"neuroticism",];
+        for (NSString *key in keys) {
+            [big5Values addObject:personality[@"big5_score"][key]];
+        }
+        polarChartView.data = big5Values;
+    } else {
+        _startNewGameView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+        _startNewGameView.image = [UIImage imageNamed:@"bg-the-algorithmist.jpg"];
+        _startNewGameView.contentMode = UIViewContentModeScaleAspectFill;
+        _startNewGameView.userInteractionEnabled = YES;
+        UIButton *startPersonalityGameButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 30)];
+        [startPersonalityGameButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
+//        [startPersonalityGameButton addTarget:self action:@selector(testFn) forControlEvents:UIControlEventTouchUpInside];
+        
+        [startPersonalityGameButton addTarget:self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
+        [startPersonalityGameButton setTitle:@"New Game" forState:UIControlStateNormal];
+        [_startNewGameView addSubview:startPersonalityGameButton];
+        [self.view addSubview:_startNewGameView];
+        
+        TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
+        //        _imageView.image = nil;
         
         self.bulletPoints = nil;
         self.paragraphs = nil;
         profileHeaderView.nameLabel.text = nil;
-//        profileHeaderView.badgeImageView.image = nil;
+        //        profileHeaderView.badgeImageView.image = nil;
         profileHeaderView.personalityTypeLabel.text = nil;
         profileHeaderView.blurbLabel.attributedText = nil;
         TPPolarChartView *polarChartView = profileHeaderView.chartView;
@@ -174,30 +195,35 @@
     [self.tableView reloadData];
 }
 
+-(void)testFn
+{
+    NSLog(@"TTEEESSST");
+}
+
 -(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
 {
     // start with a raw markdown string
-//    rawText = @"Hello, world. *This* is native Markdown.";
+    //    rawText = @"Hello, world. *This* is native Markdown.";
     
     // create a font attribute for emphasized text
     UIFont *strongFont = [UIFont fontWithName:@"Karla-Bold" size:15.0];
     
     // create a color attribute for paragraph text
     UIColor *emColor = [UIColor blackColor];
-//    [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];
+    //    [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];
     
     // create a dictionary to hold your custom attributes for any Markdown types
     NSDictionary *attributes = @{
                                  @(STRONG): @{NSFontAttributeName : strongFont,},
                                  @(EMPH): @{NSForegroundColorAttributeName : emColor,}
-                                 };    
+                                 };
     // parse the markdown
     NSAttributedString *prettyText = markdown_to_attr_string(rawText,0,attributes);
     
     return prettyText;
-//    // assign it to a view object
-//    myTextView.attributedText = prettyText;
-
+    //    // assign it to a view object
+    //    myTextView.attributedText = prettyText;
+    
 }
 
 
@@ -230,8 +256,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
     self.title = @"Profile";
-//    self.rightButton.target = self;
-//    self.rightButton.action = @selector(showSettings);
+    //    self.rightButton.target = self;
+    //    self.rightButton.action = @selector(showSettings);
     
     
     _imageView = [[UIImageView alloc] init];

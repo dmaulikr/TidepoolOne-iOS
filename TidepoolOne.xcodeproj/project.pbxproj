@@ -478,6 +478,8 @@
 		A84E11D117CC4229007642C1 /* titlebar@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E102017CC4229007642C1 /* titlebar@2x~iphone.png */; };
 		A84E11D217CC4229007642C1 /* titlebar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E102117CC4229007642C1 /* titlebar~iphone.png */; };
 		A84E11D317CC4229007642C1 /* tp-snoozer-start_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A84E102217CC4229007642C1 /* tp-snoozer-start_blueprint.png */; };
+		A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */; };
+		A84E11DC17CC530A007642C1 /* TPWalkthroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84E11DA17CC530A007642C1 /* TPWalkthroughViewController.xib */; };
 		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
 		A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A852856317B4016D0057954F /* TPProfileTableViewCell.xib */; };
 		A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A852856617B401810057954F /* TPProfileTableViewCell.m */; };
@@ -1040,6 +1042,9 @@
 		A84E102017CC4229007642C1 /* titlebar@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar@2x~iphone.png"; sourceTree = "<group>"; };
 		A84E102117CC4229007642C1 /* titlebar~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar~iphone.png"; sourceTree = "<group>"; };
 		A84E102217CC4229007642C1 /* tp-snoozer-start_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-start_blueprint.png"; sourceTree = "<group>"; };
+		A84E11D817CC530A007642C1 /* TPWalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWalkthroughViewController.h; sourceTree = "<group>"; };
+		A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWalkthroughViewController.m; sourceTree = "<group>"; };
+		A84E11DA17CC530A007642C1 /* TPWalkthroughViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPWalkthroughViewController.xib; sourceTree = "<group>"; };
 		A852855917B31DEF0057954F /* TPPolarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPolarChartView.h; sourceTree = "<group>"; };
 		A852855A17B31DEF0057954F /* TPPolarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPolarChartView.m; sourceTree = "<group>"; };
 		A852856317B4016D0057954F /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -1234,6 +1239,7 @@
 		A82F6A2B17947064003FC088 /* TidepoolOne */ = {
 			isa = PBXGroup;
 			children = (
+				A84E11D517CC490A007642C1 /* Walkthrough */,
 				A8BD1DF5179F030300A7E26C /* Helper */,
 				A852856317B4016D0057954F /* TPProfileTableViewCell.xib */,
 				A852856517B401810057954F /* TPProfileTableViewCell.h */,
@@ -1799,6 +1805,16 @@
 				A84E101F17CC4229007642C1 /* tabicon-speed~iphone.png */,
 			);
 			path = "tab bar icons";
+			sourceTree = "<group>";
+		};
+		A84E11D517CC490A007642C1 /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				A84E11D817CC530A007642C1 /* TPWalkthroughViewController.h */,
+				A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */,
+				A84E11DA17CC530A007642C1 /* TPWalkthroughViewController.xib */,
+			);
+			name = Walkthrough;
 			sourceTree = "<group>";
 		};
 		A8680BC317C813E700FA0AA8 /* dashboard */ = {
@@ -2590,6 +2606,7 @@
 				A84E11D117CC4229007642C1 /* titlebar@2x~iphone.png in Resources */,
 				A84E11D217CC4229007642C1 /* titlebar~iphone.png in Resources */,
 				A84E11D317CC4229007642C1 /* tp-snoozer-start_blueprint.png in Resources */,
+				A84E11DC17CC530A007642C1 /* TPWalkthroughViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2687,6 +2704,7 @@
 				A83E994817C45D75008C555A /* TPTextView.m in Sources */,
 				A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */,
 				A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */,
+				A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

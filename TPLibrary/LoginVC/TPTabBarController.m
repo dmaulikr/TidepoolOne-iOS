@@ -41,6 +41,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -70,8 +71,6 @@
         [_loginVC dismissViewControllerAnimated:YES completion:^{
             [self showPersonalityGame];
         }];
-    } else {
-        [self showPersonalityGame];        
     }
 }
 
@@ -79,7 +78,7 @@
 {
     if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Loading Personality...";
+        hud.labelText = @"Checking Personality...";
         [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             [hud hide:YES];
             _oauthClient.user = responseObject[@"data"];

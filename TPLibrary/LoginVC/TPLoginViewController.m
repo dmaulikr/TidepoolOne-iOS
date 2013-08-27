@@ -13,7 +13,7 @@
 #import "TPGameViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "TPPersonalityGameViewController.h"
-
+#import "TPWalkthroughViewController.h"
 
 @interface TPLoginViewController ()
 {
@@ -78,6 +78,9 @@
                                              selector:@selector(keyboardWillHide)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
+    
+    
+//    [self showWalkthrough];
 }
 
 -(void)keyboardWillShow {
@@ -317,6 +320,18 @@
 -(void)handleError
 {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
+
+-(void)showWalkthrough
+{
+    // Create the walkthrough view controller
+    TPWalkthroughViewController *walkthrough = [[TPWalkthroughViewController alloc] init];
+    walkthrough.view.frame = self.view.frame;
+    
+    // Add the walkthrough view to your view controller's view
+    [self addChildViewController:walkthrough];
+    [self.view addSubview:walkthrough.view];
+    
 }
 
 @end
