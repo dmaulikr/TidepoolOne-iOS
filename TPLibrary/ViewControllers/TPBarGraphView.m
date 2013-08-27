@@ -86,7 +86,6 @@
         tappedView.backgroundColor = _selectedColor;
         _selectedView = tappedView;
     }
-    
 }
 
 

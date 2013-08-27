@@ -15,6 +15,7 @@
 #import "TPSnoozerResultViewController.h"
 #import "TPResultViewController.h"
 #import "TPSnoozerSurveyStageViewController.h"
+#import "TPTabBarController.h"
 
 @interface TPGameViewController ()
 {
