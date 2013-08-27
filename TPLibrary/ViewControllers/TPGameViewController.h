@@ -13,6 +13,7 @@
 @property (strong, nonatomic) id gameObject;
 @property NSString *type;
 @property (assign) int stage;
+@property (weak, nonatomic) IBOutlet UIView *gameStartView;
 
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;

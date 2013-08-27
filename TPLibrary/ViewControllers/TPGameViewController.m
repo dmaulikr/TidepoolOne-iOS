@@ -58,6 +58,7 @@
 {
     _stage = 0;
     _eventsForEachStageArray = [NSMutableArray array];
+    self.gameStartView.hidden = YES;
     if (self.childViewControllers.count) {
         UIViewController *currentVC = self.childViewControllers[0];
         [currentVC.view removeFromSuperview];

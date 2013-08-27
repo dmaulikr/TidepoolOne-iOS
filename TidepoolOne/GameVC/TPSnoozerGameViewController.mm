@@ -74,6 +74,5 @@
 
 - (IBAction)playButtonPressed:(id)sender {
     [self getNewGame];
-    self.gameStartView.hidden = YES;
 }
 @end
