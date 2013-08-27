@@ -75,10 +75,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (BOOL)webView:(UIWebView *)webView2
-shouldStartLoadWithRequest:(NSURLRequest *)request
- navigationType:(UIWebViewNavigationType)navigationType {
-    
+- (BOOL)webView:(UIWebView *)webView2 shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
     
@@ -94,13 +92,16 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
         } else if ([messageType isEqualToString:@"finish"]) {
             [self personalityGameFinishedSuccessfully];
         } else if ([messageType isEqualToString:@"log"]) {
-            NSLog([NSString stringWithFormat:@"WEB.LOG:%@",jsonMessage[@"logMsg"]]);
+            NSLog([NSString stringWithFormat:@"WEB.LOG (message):%@",jsonMessage[@"message"]]);
+            NSLog([NSString stringWithFormat:@"WEB.LOG (details):%@",jsonMessage[@"details"]]);
         } else if ([messageType isEqualToString:@"error"]) {
-            _messageLabel.text = jsonMessage[@"usrMsg"];
-            NSLog([NSString stringWithFormat:@"WEB.ERROR:%@",jsonMessage[@"logMsg"]]);
+            _messageLabel.text = jsonMessage[@"message"];
+            NSLog([NSString stringWithFormat:@"WEB.ERROR (message):%@",jsonMessage[@"message"]]);
+            NSLog([NSString stringWithFormat:@"WEB.ERROR (details):%@",jsonMessage[@"details"]]);
             [self personalityGameThrewError];
         } else if ([messageType isEqualToString:@"warn"]) {
-            NSLog([NSString stringWithFormat:@"WEB.WARN:%@",jsonMessage[@"logMsg"]]);
+            NSLog([NSString stringWithFormat:@"WEB.WARN (message):%@",jsonMessage[@"message"]]);
+            NSLog([NSString stringWithFormat:@"WEB.WARN (details):%@",jsonMessage[@"details"]]);
         }
         return NO;
     }
@@ -129,8 +130,8 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
 {
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     _webView.scrollView.bounces = NO;
-    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
-//    request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://tide-dev.herokuapp.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
+//    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
     [_webView loadRequest:request];
     _webView.delegate = self;
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
