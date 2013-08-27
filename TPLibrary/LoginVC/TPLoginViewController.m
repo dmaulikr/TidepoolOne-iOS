@@ -15,6 +15,7 @@
 #import "TPPersonalityGameViewController.h"
 #import "TPWalkthroughViewController.h"
 
+
 @interface TPLoginViewController ()
 {
     TPOAuthClient *_sharedClient;
@@ -79,8 +80,13 @@
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
     
-    
-//    [self showWalkthrough];
+
+    //Show walkthrough on first run
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"WalkthroughShown"]) {
+        // Delete values from keychain here
+        [self showWalkthrough];
+        [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"WalkthroughShown"];
+    }
 }
 
 -(void)keyboardWillShow {
@@ -326,12 +332,10 @@
 {
     // Create the walkthrough view controller
     TPWalkthroughViewController *walkthrough = [[TPWalkthroughViewController alloc] init];
-    walkthrough.view.frame = self.view.frame;
-    
-    // Add the walkthrough view to your view controller's view
+    walkthrough.view.frame = self.view.bounds;
     [self addChildViewController:walkthrough];
+    [walkthrough didMoveToParentViewController:self];
     [self.view addSubview:walkthrough.view];
-    
 }
 
 @end

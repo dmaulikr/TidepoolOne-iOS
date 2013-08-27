@@ -35,6 +35,7 @@ NSString *const FBSessionStateChangedNotification =
     NSString *jsonTest = @"[{\"string\":\"test\"}]";
     NSArray *obj = [jsonTest objectFromJSONString];
     NSLog(@"obj:%@",obj);
+    
     //Clear keychain on first run in case of reinstallation
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"]) {
         // Delete values from keychain here

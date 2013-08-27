@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPWalkthroughViewController : UIPageViewController
+@interface TPWalkthroughViewController : UIViewController
 
 @end

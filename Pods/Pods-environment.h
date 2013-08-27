@@ -38,6 +38,12 @@
 // Please contact the author.
 // Version: 1.5pre.
 
+// LAWalkthrough
+#define COCOAPODS_POD_AVAILABLE_LAWalkthrough
+#define COCOAPODS_VERSION_MAJOR_LAWalkthrough 1
+#define COCOAPODS_VERSION_MINOR_LAWalkthrough 0
+#define COCOAPODS_VERSION_PATCH_LAWalkthrough 0
+
 // MBProgressHUD
 #define COCOAPODS_POD_AVAILABLE_MBProgressHUD
 #define COCOAPODS_VERSION_MAJOR_MBProgressHUD 0
