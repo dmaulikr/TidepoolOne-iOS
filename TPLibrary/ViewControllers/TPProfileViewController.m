@@ -168,17 +168,31 @@
         polarChartView.data = big5Values;
     } else {
         _startNewGameView = [[UIImageView alloc] initWithFrame:self.view.bounds];
-        _startNewGameView.image = [UIImage imageNamed:@"bg-the-algorithmist.jpg"];
+        _startNewGameView.image = [UIImage imageNamed:@"personality-placeholderbg.jpg"];
         _startNewGameView.contentMode = UIViewContentModeScaleAspectFill;
         _startNewGameView.userInteractionEnabled = YES;
-        UIButton *startPersonalityGameButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 30)];
-        [startPersonalityGameButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
+        UIButton *startPersonalityGameButton = [[TPButton alloc] initWithFrame:CGRectZero];
+        [startPersonalityGameButton.titleLabel setFont:[UIFont fontWithName:startPersonalityGameButton.titleLabel.font.fontName size:startPersonalityGameButton.titleLabel.font.pointSize + 10]];
+        UIImage *buttonImage = [UIImage imageNamed:@"btn-pers-playnow.png"];
+        startPersonalityGameButton.bounds = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+        startPersonalityGameButton.center = self.view.center;
+        [startPersonalityGameButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
 //        [startPersonalityGameButton addTarget:self action:@selector(testFn) forControlEvents:UIControlEventTouchUpInside];
         
         [startPersonalityGameButton addTarget:self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
-        [startPersonalityGameButton setTitle:@"New Game" forState:UIControlStateNormal];
+        [startPersonalityGameButton setTitle:@"New\nGame" forState:UIControlStateNormal];
+        startPersonalityGameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        startPersonalityGameButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
         [_startNewGameView addSubview:startPersonalityGameButton];
         [self.view addSubview:_startNewGameView];
+        
+        float padding = 10;
+        UILabel *textLabel = [[TPLabel alloc] initWithFrame:CGRectMake(padding, 0, self.view.bounds.size.width - 2*padding, 200)];
+        textLabel.text = @"Discover your unique personality from 60 unique personality types.";
+        [_startNewGameView addSubview:textLabel];
+        textLabel.textColor = [UIColor whiteColor];
+        textLabel.textAlignment = NSTextAlignmentCenter;
+        textLabel.numberOfLines = 0;
         
         TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
         //        _imageView.image = nil;
@@ -230,6 +244,7 @@
 -(void)loggedIn
 {
     self.user = _oauthClient.user;
+    NSLog(@"logged in called in profileVC");
     if (!self.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
