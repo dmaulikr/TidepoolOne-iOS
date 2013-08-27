@@ -33,6 +33,7 @@
     [self parseData];
     _eventArray = [NSMutableArray array];
     [self logTestStarted];
+    [self loadDefaults];
 }
 
 
@@ -61,10 +62,12 @@
 
 - (IBAction)sleepMoved:(id)sender {
     [self logSleepChanged];
+    [self saveDefaults];
 }
 
 - (IBAction)activityMoved:(id)sender {
     [self logActivityChanged];
+    [self saveDefaults];    
 }
 
 #pragma mark Logging functions
@@ -118,5 +121,24 @@
     [self logEventToServer:event];
 }
 
+
+-(void)saveDefaults
+{
+    NSDictionary *snoozerStageDefaults = @{
+                                           @"sleep":[NSNumber numberWithFloat:self.sleepSlider.value],
+                                           @"activity":[NSNumber numberWithFloat:self.activitySlider.value],
+                                               };
+    [[NSUserDefaults standardUserDefaults] setValue:snoozerStageDefaults forKey:@"SnoozerSurveyStagePreviousValues"];
+    
+}
+
+-(void)loadDefaults
+{
+    NSDictionary *snoozerStageDefaults = [[NSUserDefaults standardUserDefaults] valueForKey:@"SnoozerSurveyStagePreviousValues"];
+    if (snoozerStageDefaults) {
+        self.sleepSlider.value = [snoozerStageDefaults[@"sleep"] floatValue];
+        self.activitySlider.value = [snoozerStageDefaults[@"activity"] floatValue];
+    }
+}
 
 @end
