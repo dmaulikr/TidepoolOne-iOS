@@ -232,7 +232,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="i4g-MY-yJx" firstAttribute="top" secondItem="713-hP-faN" secondAttribute="top" type="default" id="50n-Ss-dCj"/>
                                             <constraint firstItem="6Xi-xN-5vT" firstAttribute="top" secondItem="f9t-iT-TsY" secondAttribute="top" type="user" id="5md-ie-RII"/>
                                             <constraint firstItem="FmE-7B-Wv3" firstAttribute="top" secondItem="i4g-MY-yJx" secondAttribute="top" type="default" id="B0k-fA-8Nb"/>
                                             <constraint firstItem="Fzx-it-VlU" firstAttribute="top" secondItem="713-hP-faN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="BNB-Pp-Y3R"/>
@@ -243,6 +242,7 @@
                                             <constraint firstAttribute="bottom" secondItem="5tx-5S-ceT" secondAttribute="bottom" constant="383" id="cg1-dU-i7G"/>
                                             <constraint firstItem="5tx-5S-ceT" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="122" id="el7-GN-65V"/>
                                             <constraint firstAttribute="trailing" secondItem="FmE-7B-Wv3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="exA-Pn-JKF"/>
+                                            <constraint firstItem="713-hP-faN" firstAttribute="baseline" secondItem="i4g-MY-yJx" secondAttribute="baseline" type="default" id="gi5-zb-SAO"/>
                                             <constraint firstAttribute="height" constant="900" id="gxk-eO-1iu"/>
                                             <constraint firstItem="f9t-iT-TsY" firstAttribute="top" secondItem="ZXp-Sf-vrg" secondAttribute="top" constant="320" id="jYb-Yl-8R9"/>
                                             <constraint firstItem="6Xi-xN-5vT" firstAttribute="leading" secondItem="ZXp-Sf-vrg" secondAttribute="leading" constant="150" id="pkM-Zx-Mxm"/>
@@ -349,7 +349,7 @@
                             <constraint firstItem="aMS-w3-p8E" firstAttribute="trailing" secondItem="dIS-1N-fZX" secondAttribute="trailing" type="default" id="zzN-03-vYM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Games" image="tabicon-speed~iphone.png" id="E0S-zh-qJP"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="tabicon-game~iphone.png" id="E0S-zh-qJP"/>
                     <connections>
                         <outlet property="gameStartView" destination="aMS-w3-p8E" id="D85-xW-42f"/>
                     </connections>
@@ -431,9 +431,9 @@
         <image name="righthand~iphone.png" width="85" height="130"/>
         <image name="snoozer-clock~iphone.png" width="113" height="117"/>
         <image name="snoozer-logo~iphone.png" width="201" height="55"/>
+        <image name="tabicon-game~iphone.png" width="33" height="23"/>
         <image name="tabicon-profile.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>
-        <image name="tabicon-speed~iphone.png" width="33" height="23"/>
     </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
@@ -447,6 +447,9 @@
         </class>
         <class className="TPGameViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPGameViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="gameStartView" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="TPLabel" superclassName="UILabel">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/TPLabel.h"/>
