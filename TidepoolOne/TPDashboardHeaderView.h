@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TPBarGraphView.h"
+#import "TPCurveGraphView.h"
 
 @interface TPDashboardHeaderView : UIView
 
@@ -15,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
 @property (weak, nonatomic) IBOutlet TPBarGraphView *barGraphView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet TPCurveGraphView *curveGraphView;
 
 @end

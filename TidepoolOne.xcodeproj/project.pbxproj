@@ -516,6 +516,7 @@
 		A85289F117CD070F005DE9F2 /* tp-snoozer-start_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A852881F17CD070F005DE9F2 /* tp-snoozer-start_blueprint.png */; };
 		A85289F417CD08C9005DE9F2 /* personality-placeholderbg@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289F217CD08C9005DE9F2 /* personality-placeholderbg@2x~iphone.jpg */; };
 		A85289F517CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289F317CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg */; };
+		A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */; };
 		A8680BD017C813E700FA0AA8 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */; };
 		A8680BD117C813E700FA0AA8 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */; };
 		A8680BD217C813E700FA0AA8 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC717C813E700FA0AA8 /* Default~iphone.png */; };
@@ -1116,6 +1117,8 @@
 		A852881F17CD070F005DE9F2 /* tp-snoozer-start_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-start_blueprint.png"; sourceTree = "<group>"; };
 		A85289F217CD08C9005DE9F2 /* personality-placeholderbg@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "personality-placeholderbg@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A85289F317CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "personality-placeholderbg~iphone.jpg"; sourceTree = "<group>"; };
+		A85289F617CD230F005DE9F2 /* TPCurveGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCurveGraphView.h; sourceTree = "<group>"; };
+		A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCurveGraphView.m; sourceTree = "<group>"; };
 		A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		A8680BC717C813E700FA0AA8 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
@@ -2156,6 +2159,8 @@
 				A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */,
 				A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */,
 				A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */,
+				A85289F617CD230F005DE9F2 /* TPCurveGraphView.h */,
+				A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */,
 				A8DD649D17B1D4650040BD90 /* TPProfileViewHeader.h */,
 				A8DD649E17B1D4650040BD90 /* TPProfileViewHeader.m */,
 				A852855917B31DEF0057954F /* TPPolarChartView.h */,
@@ -2863,6 +2868,7 @@
 				A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */,
 				A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */,
 				A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */,
+				A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
