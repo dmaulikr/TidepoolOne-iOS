@@ -71,16 +71,16 @@
 -(void)viewWasTapped:(UIGestureRecognizer *)sender
 {
     CGPoint touchPoint = [sender locationInView:self.scrollView];
-    if (touchPoint.y > 40 && touchPoint.y < 58) {
-        if (!_legendView.hidden) {
-            _legendView.hidden = YES;
-            [_legendView removeFromSuperview];
-        } else {
+
+    if (!_legendView.hidden) {
+        _legendView.hidden = YES;
+        [_legendView removeFromSuperview];
+    } else {
+        if (touchPoint.y > 40 && touchPoint.y < 58) {
             _legendView.hidden = NO;
             _legendView.center = CGPointMake(touchPoint.x + _legendView.bounds.size.width/2, 49);
             [self.scrollView addSubview:_legendView];
         }
-    } else if (touchPoint.y < 44) {
     }
 }
 
