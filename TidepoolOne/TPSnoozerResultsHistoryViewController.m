@@ -16,6 +16,7 @@
 @interface TPSnoozerResultsHistoryViewController ()
 {
     TPDashboardHeaderView *_dashboardHeaderView;
+    int _numServerCallsCompleted;
     
 }
 @end
@@ -75,40 +76,76 @@
 
 -(void)downloadResults
 {
+    _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"results: %@", [responseObject[@"data"] description]);
         self.results = responseObject[@"data"];
-        [self.tableView.pullToRefreshView stopAnimating];
+        _numServerCallsCompleted++;
+        if (_numServerCallsCompleted == 2) {
+            [self.tableView.pullToRefreshView stopAnimating];
+        }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         [self.tableView.pullToRefreshView stopAnimating];
     }];
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"user: %@", [responseObject[@"data"] description]);
+        self.user = responseObject[@"data"];
+        _numServerCallsCompleted++;
+        if (_numServerCallsCompleted == 2) {
+            [self.tableView.pullToRefreshView stopAnimating];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fail: %@", [error description]);
+        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+        [self.tableView.pullToRefreshView stopAnimating];
+    }];
+
+    
 }
 
 -(void)setResults:(NSArray *)results
 {
     _results = [[results reverseObjectEnumerator] allObjects];
     if (_results) {
-        int dailyBest = 1000000;
-        int allTimeBest = 1000000;
-        NSDate *now = [NSDate date];
-        for (NSDictionary *item in results) {
-            NSDate *gameDate = [[TPOAuthClient sharedClient] dateFromString:item[@"time_played"]];
-            int avgTime = [item[@"average_time"] intValue];
-            if (avgTime != 0) {
-                if (avgTime < allTimeBest) {
-                    allTimeBest = avgTime;
-                }
-                if (avgTime < dailyBest && [self isSameDayWithDate1:gameDate date2:now]) {
-                    dailyBest = avgTime;
-                }
-            }
-        }
-        _dashboardHeaderView.dailyBestLabel.text = [NSString stringWithFormat:@"%i", dailyBest];
-        _dashboardHeaderView.allTimeBestLabel.text = [NSString stringWithFormat:@"%i", allTimeBest];
+//        int dailyBest = 1000000;
+//        int allTimeBest = 1000000;
+//        NSDate *now = [NSDate date];
+//        for (NSDictionary *item in results) {
+//            NSDate *gameDate = [[TPOAuthClient sharedClient] dateFromString:item[@"time_played"]];
+//            int avgTime = [item[@"average_time"] intValue];
+//            if (avgTime != 0) {
+//                if (avgTime < allTimeBest) {
+//                    allTimeBest = avgTime;
+//                }
+//                if (avgTime < dailyBest && [self isSameDayWithDate1:gameDate date2:now]) {
+//                    dailyBest = avgTime;
+//                }
+//            }
+//        }
+//        _dashboardHeaderView.dailyBestLabel.text = [NSString stringWithFormat:@"%i", dailyBest];
+//        _dashboardHeaderView.allTimeBestLabel.text = [NSString stringWithFormat:@"%i", allTimeBest];
     }
     [self.tableView reloadData];
+}
+
+-(void)setUser:(NSDictionary *)user
+{
+    _user = user;
+    if (_user) {
+        NSDictionary *circadianRhythm = _user[@"aggregate_results"][0][@"scores"][@"circadian"];
+        NSMutableArray *timesPlayedArray = [NSMutableArray array];
+
+        NSMutableArray *scoresByHour = [NSMutableArray array];
+        for (int i=0;i<24;i++) {
+            NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
+            [scoresByHour addObject:hourlyDetail[@"speed_score"]];
+            [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
+        }
+        _dashboardHeaderView.curveGraphView.data = scoresByHour;
+        _dashboardHeaderView.densityData = timesPlayedArray;
+    }
 }
 
 

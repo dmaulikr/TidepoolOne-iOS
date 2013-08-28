@@ -70,8 +70,12 @@
     _result = result;
     if (_result) {
         self.currentFastestTime.text = result[@"average_time"];
-        self.blurbLabel.text = [result[@"bullet_description"] componentsJoinedByString:@" "];
+        self.blurbLabel.text = result[@"description"];
         self.animalLabel.text = [result[@"speed_archetype"] uppercaseString];
+        if ([self.animalLabel.text hasPrefix:@"PROGRESS"]) {
+            self.animalLabel.text = @"";
+            self.messageLabel.text = @"";
+        }
         self.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@",result[@"speed_archetype"]]];
         NSMutableArray *historyMutable = [result[@"calculations"][@"stage_data"] mutableCopy];
         for (int i=0;i<historyMutable.count;i++){

@@ -11,6 +11,7 @@
 @interface TPSnoozerResultsHistoryViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *results;
+@property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightButton;
 
 @end
