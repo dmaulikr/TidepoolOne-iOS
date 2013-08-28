@@ -27,6 +27,8 @@
 @property (nonatomic, strong) NSString *correctColor;
 @property (nonatomic, strong) NSString *identifier;
 
+@property (nonatomic, assign) float timeToShow;
+
 @property (nonatomic, assign) BOOL isRinging;
 @property id<TPSnoozerClockViewDelegate> delegate;
 

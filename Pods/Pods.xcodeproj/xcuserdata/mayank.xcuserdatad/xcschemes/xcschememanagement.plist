@@ -84,6 +84,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Pods-UrbanAirship-iOS-SDK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -123,6 +128,11 @@
 			<true/>
 		</dict>
 		<key>0C6D633AA2AD4750A2AB263B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0D553F908FB64DE29CB0830B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -242,6 +252,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>34EDF0C73C2348A488155DE3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>363BC810635642E2893C5AC6</key>
 		<dict>
 			<key>primary</key>
@@ -263,6 +278,11 @@
 			<true/>
 		</dict>
 		<key>38B24D5F481642818EC0EB2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>392BCD5B35904718B94E7A0F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -382,6 +402,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>659897A1F06D429C879A24FE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6E2BA24F4DC547C1A62233A4</key>
 		<dict>
 			<key>primary</key>
@@ -393,6 +418,11 @@
 			<true/>
 		</dict>
 		<key>73B5B2303C1C4409B31254D9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>741AC99770A0400CAB90B41A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -428,6 +458,11 @@
 			<true/>
 		</dict>
 		<key>7F7EC01670CC42EDBA5FED0C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81252038327E4CEA9BABD310</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -517,6 +552,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9E6EF1E4ED03404587FA485D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9FDE63E217DD45AD83C755FB</key>
 		<dict>
 			<key>primary</key>
@@ -597,6 +637,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B81C7C0DE5654E27AED36E06</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B85671F0A29241F4AB2EEFE1</key>
 		<dict>
 			<key>primary</key>
@@ -653,6 +698,11 @@
 			<true/>
 		</dict>
 		<key>C7F39C64EDC2416DB118FEB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C82B7758C88743999BCA9B91</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -722,6 +772,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>E0DFB0B89C6F4B538603CA6A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E492A666A97A4C58A470C778</key>
 		<dict>
 			<key>primary</key>
@@ -772,6 +827,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>F6A59A7E81D74D26928B644B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>F8A3DB0560F344338D5C8F09</key>
 		<dict>
 			<key>primary</key>
@@ -798,6 +858,11 @@
 			<true/>
 		</dict>
 		<key>FDE39642EF284E289A6D4559</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE339BE14CB1487EBA3B2195</key>
 		<dict>
 			<key>primary</key>
 			<true/>

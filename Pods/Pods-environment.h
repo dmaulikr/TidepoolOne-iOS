@@ -68,3 +68,9 @@
 #define COCOAPODS_VERSION_MINOR_TestFlightSDK 0
 #define COCOAPODS_VERSION_PATCH_TestFlightSDK 0
 
+// UrbanAirship-iOS-SDK
+#define COCOAPODS_POD_AVAILABLE_UrbanAirship_iOS_SDK
+#define COCOAPODS_VERSION_MAJOR_UrbanAirship_iOS_SDK 2
+#define COCOAPODS_VERSION_MINOR_UrbanAirship_iOS_SDK 0
+#define COCOAPODS_VERSION_PATCH_UrbanAirship_iOS_SDK 0
+

@@ -9,6 +9,7 @@ PODS:
   - SSKeychain (1.2.0)
   - SVPullToRefresh (0.4.1)
   - TestFlightSDK (2.0)
+  - UrbanAirship-iOS-SDK (2.0.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - SSKeychain
   - SVPullToRefresh
   - TestFlightSDK
+  - UrbanAirship-iOS-SDK
 
 EXTERNAL SOURCES:
   AttributedMarkdown:
@@ -37,5 +39,6 @@ SPEC CHECKSUMS:
   SSKeychain: 2fe90c92034129d9615a508529b601a520f297d1
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
+  UrbanAirship-iOS-SDK: 2c57f0162d51520cf3181d15825fbd04f6283b25
 
 COCOAPODS: 0.23.0

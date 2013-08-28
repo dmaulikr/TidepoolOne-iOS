@@ -19,6 +19,8 @@
 @property (assign) NSTimeInterval maxTime;
 @property (assign) NSTimeInterval minTime;
 
+@property (assign) float timeToShow;
+
 -(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct;
 -(void)showedRingingClockInClockView:(TPSnoozerClockView *)clockView;
 -(void)instructionDone;

@@ -20,7 +20,6 @@
     CGPoint relativeCenter;
     BOOL _showingResponseImage;
     BOOL _response;
-    float _avgTimeToShow;
     int _shownCounter;
     float _staticScale;
     float _ringingScale;
@@ -76,7 +75,7 @@
     [_imageDictionary setValue:[UIImage imageNamed:@"snoozer-clockringc2.png"] forKey:@"yellow-ringing-2"];
     
     
-    _avgTimeToShow = 2000;
+    _timeToShow = 2000;
     UIImage *image = _imageDictionary[@"green"];
     _baseSize = image.size;
     _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _baseSize.width, _baseSize.width)];
@@ -166,12 +165,12 @@
     self.currentColorSequence = colors;
     for (int i=0;i<colors.count;i++) {
         NSString *color = colors[i];
-        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.001*i*_avgTimeToShow/colors.count target:self selector:@selector(setRingingColorFromTimer:) userInfo:color repeats:NO];
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:0.001*i*_timeToShow/colors.count target:self selector:@selector(setRingingColorFromTimer:) userInfo:color repeats:NO];
         [_timerArray addObject:timer];
         [_timerDatesArray addObject:timer.fireDate];
 
     }
-    _resetToStaticTimer = [NSTimer scheduledTimerWithTimeInterval:0.001*_avgTimeToShow target:self selector:@selector(setStaticClockFromTimer:) userInfo:@"green" repeats:NO];
+    _resetToStaticTimer = [NSTimer scheduledTimerWithTimeInterval:0.001*_timeToShow target:self selector:@selector(setStaticClockFromTimer:) userInfo:@"green" repeats:NO];
 }
 
 -(void)setRingingColorFromTimer:(NSTimer *)sender

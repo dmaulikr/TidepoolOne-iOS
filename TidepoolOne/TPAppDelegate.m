@@ -12,6 +12,9 @@
 #import "TPOAuthClient.h"
 #import <TestFlightSDK/TestFlight.h>
 #import <JSONKit/JSONKit.h>
+#import <UAirship.h>
+#import <UAConfig.h>
+#import <UAPush.h>
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
@@ -51,6 +54,30 @@ NSString *const FBSessionStateChangedNotification =
     [[UINavigationBar appearance] setBackgroundColor:[UIColor yellowColor]];
     [self customizeAppearance];
     
+    
+    // Populate AirshipConfig.plist with your app's info from https://go.urbanairship.com
+    // or set runtime properties here.
+    [UAirship setLogLevel:UALogLevelTrace];
+    UAConfig *config = [UAConfig defaultConfig];
+    
+    // You can also programatically override the plist values:
+    // config.developmentAppKey = @"YourKey";
+    // etc.
+    
+    // Call takeOff (which creates the UAirship singleton)
+    [UAirship takeOff:config];
+    UA_LDEBUG(@"Config:\n%@", [config description]);
+    [[UAPush shared] resetBadge];
+    
+    // Set the notification types required for the app (optional). With the default value of push set to no,
+    // UAPush will record the desired remote notification types, but not register for
+    // push notifications as mentioned above. When push is enabled at a later time, the registration
+    // will occur normally. This value defaults to badge, alert and sound, so it's only necessary to
+    // set it if you want to add or remove types.
+    [UAPush shared].notificationTypes = (UIRemoteNotificationTypeBadge |
+                                         UIRemoteNotificationTypeSound |
+                                         UIRemoteNotificationTypeAlert);
+
     return YES;
 }
 

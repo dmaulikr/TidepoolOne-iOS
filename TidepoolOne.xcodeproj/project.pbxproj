@@ -521,6 +521,7 @@
 		A8528A0817CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FD17CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg */; };
 		A8528A0917CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FE17CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg */; };
 		A8528A0A17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FF17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg */; };
+		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A8680BD017C813E700FA0AA8 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */; };
 		A8680BD117C813E700FA0AA8 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */; };
 		A8680BD217C813E700FA0AA8 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC717C813E700FA0AA8 /* Default~iphone.png */; };
@@ -1127,6 +1128,7 @@
 		A85289FD17CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3.jpg"; sourceTree = "<group>"; };
 		A85289FE17CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4.jpg"; sourceTree = "<group>"; };
 		A85289FF17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough5.jpg"; sourceTree = "<group>"; };
+		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
 		A8680BC717C813E700FA0AA8 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
@@ -1341,6 +1343,7 @@
 			isa = PBXGroup;
 			children = (
 				A82F6A2D17947064003FC088 /* TidepoolOne-Info.plist */,
+				A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */,
 				A82F6A2E17947064003FC088 /* InfoPlist.strings */,
 				A82F6A3117947064003FC088 /* main.m */,
 				A82F6A3317947064003FC088 /* TidepoolOne-Prefix.pch */,
@@ -2795,6 +2798,7 @@
 				A8528A0817CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg in Resources */,
 				A8528A0917CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg in Resources */,
 				A8528A0A17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg in Resources */,
+				A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

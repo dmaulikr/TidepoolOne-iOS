@@ -26,6 +26,7 @@
     BOOL _stageDone;
     BOOL _instructionDone;
 }
+
 @end
 
 @implementation TPSnoozerStageViewController
@@ -143,7 +144,6 @@
         _instructionVC.view.alpha = 0.0;
     } completion:^(BOOL finished) {
         [self layoutClocks];
-        [self createTimerForStageEnd];
         [self logTestStarted];
         [_instructionVC.view removeFromSuperview];
         _instructionVC = nil;
@@ -154,7 +154,8 @@
 {
     int boxHeight = self.view.bounds.size.height / self.numRows;
     int boxWidth = self.view.bounds.size.width / self.numColumns;
-    NSArray *shuffledTimeline = [self shuffleArray:self.data[@"sequence"]];
+    NSArray *shuffledTimeline = [self generateTimelineForCorrectSequence:self.data[@"correct_color_sequence"] incorrectSequences:self.data[@"incorrect_color_sequences"] fractionIncorrect:[self.data[@"fraction_incorrect"] floatValue] timeToShow:[self.data[@"time_to_show"] floatValue] minimumTimeGapFraction:[self.data[@"minimum_time_gap_fraction"] floatValue] numberCorrectToShow:[self.data[@"number_correct_to_show"] floatValue]];
+    NSLog(@"generated %@", [shuffledTimeline description]);
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
             TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
@@ -168,8 +169,51 @@
             [_clockViews addObject:clockView];
         }
     }
+    [self createTimerForStageEndUsingTimeline:shuffledTimeline];
 }
 
+
+-(NSArray *)generateTimelineForCorrectSequence:(NSArray *)correctSequence incorrectSequences:(NSArray *)incorrectSequences fractionIncorrect:(float)fractionIncorrect timeToShow:(float)timeToShow minimumTimeGapFraction:(float)minimumTimeGapFraction numberCorrectToShow:(int)numberCorrectToShow
+{
+    int numClocks = self.numRows * self.numColumns;
+    int numberCorrectShown = 0;
+    int lastChosenClock = arc4random()%numClocks;
+    int currentClock = arc4random()%numClocks;
+    float lastTime = 0;
+    NSMutableArray *timeline = [NSMutableArray array];
+    for (int i=0;i<numClocks;i++) {
+        NSMutableArray *mutableArray = [NSMutableArray array];
+        [timeline addObject:mutableArray];
+    }
+    // Generate timeline for determinate number of correct clocks
+    while (numberCorrectShown < numberCorrectToShow) {
+        // choose clock other than last chosen
+        while (currentClock == lastChosenClock) {
+            currentClock = arc4random()%numClocks;
+        }
+        lastChosenClock = currentClock;
+        
+        //choose sequence
+        BOOL currentShouldBeCorrect = (int)(((float)arc4random() / UINT32_MAX) / fractionIncorrect);
+        NSArray *currentSequence;
+        if (currentShouldBeCorrect) {
+            currentSequence = correctSequence;
+            numberCorrectShown++;
+        } else {
+            currentSequence = incorrectSequences[arc4random()%incorrectSequences.count];
+        }
+        float timeDiff = ((float)arc4random() / UINT32_MAX) * 2.0 * timeToShow;
+        if (timeDiff < minimumTimeGapFraction * timeToShow) {
+            timeDiff += (minimumTimeGapFraction * timeToShow);
+        }
+        //show clock - currentClock at time lastShown + timeDiff for timeToShow
+        NSMutableArray *timelineForCurrentClock = timeline[currentClock];
+        NSDictionary *event = @{@"colors":currentSequence, @"delay":[NSNumber numberWithFloat:lastTime + timeDiff]};
+        lastTime += timeDiff;
+        [timelineForCurrentClock addObject:event];
+    }
+    return timeline;
+}
 
 -(NSArray *)shuffleArray:(NSArray *)array
 {
@@ -181,17 +225,18 @@
 }
 
 
--(void)createTimerForStageEnd
+-(void)createTimerForStageEndUsingTimeline:(NSArray *)timeline
 {
     NSNumber *maxTime = @0;
-    for (NSArray *clockSequence in self.data[@"sequence"]) {
+    for (NSArray *clockSequence in timeline) {
         for (NSDictionary *item in clockSequence) {
-            if ([maxTime intValue] < [item[@"delay"] intValue]) {
+            if ([maxTime floatValue] < [item[@"delay"] floatValue]) {
                 maxTime = item[@"delay"];
             }
         }
     }
-    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:_timeToShow + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
+    NSLog(@"Timer for stage end after: %@ s", maxTime);
     _timerDate = _timer.fireDate;
 }
 
