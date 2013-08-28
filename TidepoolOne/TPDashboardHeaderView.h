@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet TPCurveGraphView *curveGraphView;
 
 @property (strong, nonatomic) NSArray *densityData;
+@property (strong, nonatomic) NSArray *results;
 
 @end

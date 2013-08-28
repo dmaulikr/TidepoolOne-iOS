@@ -36,7 +36,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
     self.type = @"snoozer";
-//    self.type = @"snoozers"; //For debugging
+    self.type = @"snoozers"; //For debugging
 }
 
 - (void)viewDidAppear:(BOOL)animated

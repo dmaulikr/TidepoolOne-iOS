@@ -494,6 +494,7 @@
 		A81E327717CDCFB000869142 /* titlebar@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E30BE17CDCFB000869142 /* titlebar@2x~iphone.png */; };
 		A81E327817CDCFB000869142 /* titlebar~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E30BF17CDCFB000869142 /* titlebar~iphone.png */; };
 		A81E327917CDCFB000869142 /* tp-snoozer-start_blueprint.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E30C017CDCFB000869142 /* tp-snoozer-start_blueprint.png */; };
+		A81E327C17CEAB0900869142 /* TPCircadianTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E327B17CEAB0800869142 /* TPCircadianTooltipView.m */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
@@ -1086,6 +1087,8 @@
 		A81E30BE17CDCFB000869142 /* titlebar@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar@2x~iphone.png"; sourceTree = "<group>"; };
 		A81E30BF17CDCFB000869142 /* titlebar~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "titlebar~iphone.png"; sourceTree = "<group>"; };
 		A81E30C017CDCFB000869142 /* tp-snoozer-start_blueprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tp-snoozer-start_blueprint.png"; sourceTree = "<group>"; };
+		A81E327A17CEAB0700869142 /* TPCircadianTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircadianTooltipView.h; sourceTree = "<group>"; };
+		A81E327B17CEAB0800869142 /* TPCircadianTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCircadianTooltipView.m; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidePool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidePool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -2142,6 +2145,10 @@
 				A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */,
 				A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */,
 				A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */,
+				A81E327A17CEAB0700869142 /* TPCircadianTooltipView.h */,
+				A81E327B17CEAB0800869142 /* TPCircadianTooltipView.m */,
+				A819481417B087CB009959DA /* TPGraphTooltipView.h */,
+				A819481517B087CB009959DA /* TPGraphTooltipView.m */,
 				A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */,
 				A85289F617CD230F005DE9F2 /* TPCurveGraphView.h */,
 				A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */,
@@ -2152,8 +2159,6 @@
 				A8DD64A217B1DB260040BD90 /* TPProfileViewHeader.xib */,
 				A819479F17B05990009959DA /* TPSnoozerResultsGraphView.h */,
 				A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */,
-				A819481417B087CB009959DA /* TPGraphTooltipView.h */,
-				A819481517B087CB009959DA /* TPGraphTooltipView.m */,
 				A879A65A17A871220082A455 /* TPCirclesDistanceView.h */,
 				A879A65B17A871220082A455 /* TPCirclesDistanceView.m */,
 				A879A65E17A871220082A455 /* TPOverlayView.h */,
@@ -2853,6 +2858,7 @@
 				A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */,
 				A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */,
 				A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */,
+				A81E327C17CEAB0900869142 /* TPCircadianTooltipView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

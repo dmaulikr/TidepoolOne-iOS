@@ -69,7 +69,7 @@
 {
     _result = result;
     if (_result) {
-        self.currentFastestTime.text = result[@"average_time"];
+        self.currentFastestTime.text = result[@"speed_score"];
         self.blurbLabel.text = result[@"description"];
         self.animalLabel.text = [result[@"speed_archetype"] uppercaseString];
         if ([self.animalLabel.text hasPrefix:@"PROGRESS"]) {
@@ -79,7 +79,7 @@
         self.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@",result[@"speed_archetype"]]];
         NSMutableArray *historyMutable = [result[@"calculations"][@"stage_data"] mutableCopy];
         for (int i=0;i<historyMutable.count;i++){
-            historyMutable[i] = historyMutable[i][@"average_time"];
+            historyMutable[i] = historyMutable[i][@"score"];
         }
         self.history = historyMutable;
         self.gameLevelHistoryView.results = self.history;

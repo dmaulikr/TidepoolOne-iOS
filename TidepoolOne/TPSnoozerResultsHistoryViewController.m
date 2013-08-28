@@ -146,6 +146,7 @@
             }
             _dashboardHeaderView.curveGraphView.data = scoresByHour;
             _dashboardHeaderView.densityData = timesPlayedArray;
+            _dashboardHeaderView.results = scoresByHour;
             _dashboardHeaderView.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
             _dashboardHeaderView.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
         }
@@ -191,7 +192,7 @@
                             
     NSDate *date = [dateFormatter dateFromString:dateString];
     view.date = date;
-    view.fastestTime = self.results[indexPath.row][@"average_time"];
+    view.fastestTime = self.results[indexPath.row][@"speed_score"];
     view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
     if ([view.animalLabel.text hasPrefix:@"PROGRESS"]) {
         view.animalLabel.text = @"";

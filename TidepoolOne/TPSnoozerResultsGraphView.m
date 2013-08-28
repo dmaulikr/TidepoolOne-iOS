@@ -61,6 +61,8 @@
     dashPatternArray[0] = 10;    //drawn line
     dashPatternArray[1] = 7;    //empty space
 
+    BOOL invertedGraph = NO;
+    
     // Drawing code
     for (int i=0;i<self.results.count;i++) {
         if (![self.results[i] isEqualToNumber:@0]) { // sentinel value for no responses recorded
@@ -73,7 +75,12 @@
             [imageView addGestureRecognizer:tap];
             imageView.frame = CGRectMake(0, 0, imageSideSize, imageSideSize);
             float x = (i+0.475)*distanceBetweenClocks;
-            float y = yStartScreen + ([_results[i] floatValue] - minValue) / yRangeResults * yRangeScreen;
+            float y;
+            if (invertedGraph) {
+                y = yStartScreen + ([_results[i] floatValue] - minValue) / yRangeResults * yRangeScreen;
+            } else {
+                y = yStartScreen - ([_results[i] floatValue] - maxValue) / yRangeResults * yRangeScreen;
+            }
             //add path between clocks
             if (i==0) {
                 CGPathMoveToPoint(path, nil, x, y);

@@ -63,7 +63,7 @@
 -(void)setScore:(NSString *)score
 {
     _score = score;
-    self.scoreLabel.text = [NSString stringWithFormat:@"%@ms", score];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%@", score];
 }
 
 /*
