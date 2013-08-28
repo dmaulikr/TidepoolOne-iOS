@@ -134,17 +134,21 @@
 {
     _user = user;
     if (_user) {
-        NSDictionary *circadianRhythm = _user[@"aggregate_results"][0][@"scores"][@"circadian"];
-        NSMutableArray *timesPlayedArray = [NSMutableArray array];
-
-        NSMutableArray *scoresByHour = [NSMutableArray array];
-        for (int i=0;i<24;i++) {
-            NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
-            [scoresByHour addObject:hourlyDetail[@"speed_score"]];
-            [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
+        NSArray *aggregateResults = _user[@"aggregate_results"];
+        if (aggregateResults.count && (aggregateResults != [NSNull null])) {
+            NSDictionary *circadianRhythm = aggregateResults[0][@"scores"][@"circadian"];
+            NSMutableArray *timesPlayedArray = [NSMutableArray array];
+            NSMutableArray *scoresByHour = [NSMutableArray array];
+            for (int i=0;i<24;i++) {
+                NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
+                [scoresByHour addObject:hourlyDetail[@"speed_score"]];
+                [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
+            }
+            _dashboardHeaderView.curveGraphView.data = scoresByHour;
+            _dashboardHeaderView.densityData = timesPlayedArray;
+            _dashboardHeaderView.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
+            _dashboardHeaderView.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
         }
-        _dashboardHeaderView.curveGraphView.data = scoresByHour;
-        _dashboardHeaderView.densityData = timesPlayedArray;
     }
 }
 
@@ -189,11 +193,15 @@
     view.date = date;
     view.fastestTime = self.results[indexPath.row][@"average_time"];
     view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
+    if ([view.animalLabel.text hasPrefix:@"PROGRESS"]) {
+        view.animalLabel.text = @"";
+    }
+    
     view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
     [[cell.contentView subviews]
      makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell.contentView addSubview:view];
-    view.detailLabel.text = [self.results[indexPath.row][@"bullet_description"] componentsJoinedByString:@" "];
+    view.detailLabel.text = self.results[indexPath.row][@"description"];
     return cell;
 }
 

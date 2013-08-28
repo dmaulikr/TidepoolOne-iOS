@@ -183,6 +183,7 @@
     hud.labelText = @"Calculating results";
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
 //    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
+    __block typeof(self) bself = self;
     [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
@@ -196,6 +197,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game results"];
+        [bself getNewGame];
     }];
 }
 
@@ -206,6 +208,7 @@
     //constructing link manually due to the link parameter
     NSMutableURLRequest *request = [[oauthClient requestWithMethod:@"get" path:nil parameters:nil] mutableCopy];
     [request setURL:[NSURL URLWithString:dataObject[@"status"][@"link"]]];
+    __block typeof(self) bself = self;
     AFJSONRequestOperation *op = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *data, id JSON) {
         NSDictionary *dataObject = JSON;
         NSString *state = dataObject[@"status"][@"state"];
@@ -216,6 +219,8 @@
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *data, NSError *error, id JSON) {
         NSLog(@"f:%@", [data description]);
+        [_oauthClient handleError:error withOptionalMessage:@"Error polling for results"];
+        [bself getNewGame];
     }];
     [oauthClient enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)op];
 }
@@ -228,12 +233,14 @@
     [completeEvents setValue:_gameId forKey:@"game_id"];
     [completeEvents setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
 
-    TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
-    oauthClient.parameterEncoding = AFJSONParameterEncoding;
-    [oauthClient postPath:@"/api/v1/user_events" parameters:completeEvents success:^(AFHTTPRequestOperation *operation, id dataObject) {
+    __block typeof(self) bself = self;
+    _oauthClient.parameterEncoding = AFJSONParameterEncoding;
+    [_oauthClient postPath:@"/api/v1/user_events" parameters:completeEvents success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSLog(@"event logging:%@", [dataObject description]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@", [error description]);
+        [_oauthClient handleError:error withOptionalMessage:@"Error submitting performance"];
+        [bself getNewGame];
     }];
 }
 

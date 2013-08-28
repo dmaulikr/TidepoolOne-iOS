@@ -154,7 +154,8 @@
 {
     int boxHeight = self.view.bounds.size.height / self.numRows;
     int boxWidth = self.view.bounds.size.width / self.numColumns;
-    NSArray *shuffledTimeline = [self generateTimelineForCorrectSequence:self.data[@"correct_color_sequence"] incorrectSequences:self.data[@"incorrect_color_sequences"] fractionIncorrect:[self.data[@"fraction_incorrect"] floatValue] timeToShow:[self.data[@"time_to_show"] floatValue] minimumTimeGapFraction:[self.data[@"minimum_time_gap_fraction"] floatValue] numberCorrectToShow:[self.data[@"number_correct_to_show"] floatValue]];
+    _timeToShow = [self.data[@"time_to_show"] floatValue];
+    NSArray *shuffledTimeline = [self generateTimelineForCorrectSequence:self.data[@"correct_color_sequence"] incorrectSequences:self.data[@"incorrect_color_sequences"] fractionIncorrect:[self.data[@"fraction_incorrect"] floatValue] timeToShow:_timeToShow minimumTimeGapFraction:[self.data[@"minimum_time_gap_fraction"] floatValue] maximumTimeGapFraction:[self.data[@"maximum_time_gap_fraction"] floatValue] numberCorrectToShow:[self.data[@"number_correct_to_show"] floatValue]];
     NSLog(@"generated %@", [shuffledTimeline description]);
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
@@ -173,7 +174,7 @@
 }
 
 
--(NSArray *)generateTimelineForCorrectSequence:(NSArray *)correctSequence incorrectSequences:(NSArray *)incorrectSequences fractionIncorrect:(float)fractionIncorrect timeToShow:(float)timeToShow minimumTimeGapFraction:(float)minimumTimeGapFraction numberCorrectToShow:(int)numberCorrectToShow
+-(NSArray *)generateTimelineForCorrectSequence:(NSArray *)correctSequence incorrectSequences:(NSArray *)incorrectSequences fractionIncorrect:(float)fractionIncorrect timeToShow:(float)timeToShow minimumTimeGapFraction:(float)minimumTimeGapFraction maximumTimeGapFraction:(float)maximumTimeGapFraction numberCorrectToShow:(int)numberCorrectToShow
 {
     int numClocks = self.numRows * self.numColumns;
     int numberCorrectShown = 0;
@@ -202,7 +203,7 @@
         } else {
             currentSequence = incorrectSequences[arc4random()%incorrectSequences.count];
         }
-        float timeDiff = ((float)arc4random() / UINT32_MAX) * 2.0 * timeToShow;
+        float timeDiff = ((float)arc4random() / UINT32_MAX) * timeToShow * (maximumTimeGapFraction - minimumTimeGapFraction);
         if (timeDiff < minimumTimeGapFraction * timeToShow) {
             timeDiff += (minimumTimeGapFraction * timeToShow);
         }
@@ -235,8 +236,10 @@
             }
         }
     }
-    _timer = [NSTimer scheduledTimerWithTimeInterval:_timeToShow + maxTime.floatValue/1000 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
-    NSLog(@"Timer for stage end after: %@ s", maxTime);
+    float timeToEnd = (1.5*_timeToShow + maxTime.floatValue)/1000;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:timeToEnd target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
+    NSLog(@"Last clock: %f s", maxTime.floatValue/1000);
+    NSLog(@"Timer for stage end after: %f s", timeToEnd);
     _timerDate = _timer.fireDate;
 }
 

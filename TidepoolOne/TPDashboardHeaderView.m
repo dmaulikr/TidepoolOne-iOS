@@ -54,7 +54,7 @@
     UIImage *low = [UIImage imageNamed:@"dash-density-red.png"];
     if (_densityData) {
         for (int i=0;i<_densityData.count;i++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(33*i, 44, 66, 10)];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(33*(i-0.5), 44, 66, 10)];
             int timesPlayed = [_densityData[i] intValue];
             if (timesPlayed <= 3) {
                 imageView.image = low;
