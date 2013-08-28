@@ -93,17 +93,20 @@
                 _messageLabel.text = @"There was an error. Please play again later.";
                 [self personalityGameThrewError];
             }
+            return NO;
         } else if ([requestString hasPrefix:@"ioslog"]) {
             if (_loadingGameHud) {
                 [_loadingGameHud hide:YES];
                 _loadingGameHud = nil;
+
             }
             NSLog(requestString);
-
+            return NO;
         } else if ([requestString hasPrefix:@"ioserror"]) {
             _messageLabel.text = @"There was an error.";
+            return NO;
         }
-        return NO;
+
         // new version
         NSString* jsonString = [[requestString componentsSeparatedByString:@"ios://"] objectAtIndex:1];
         NSDictionary *jsonMessage = [jsonString objectFromJSONString];
@@ -152,8 +155,10 @@
 {
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     _webView.scrollView.bounces = NO;
-    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
+//    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", nil]]];
+    
     [_webView loadRequest:request];
     _webView.delegate = self;
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
