@@ -31,6 +31,35 @@
 		A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */; };
 		A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */; };
 		A819481617B087CB009959DA /* TPGraphTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A819481517B087CB009959DA /* TPGraphTooltipView.m */; };
+		A81E2B6317CDBB2200869142 /* dash-background@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4617CDBB2200869142 /* dash-background@2x~iphone.png */; };
+		A81E2B6417CDBB2200869142 /* dash-background~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4717CDBB2200869142 /* dash-background~iphone.png */; };
+		A81E2B6517CDBB2200869142 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4817CDBB2200869142 /* Default-568h@2x~iphone.png */; };
+		A81E2B6617CDBB2200869142 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4917CDBB2200869142 /* Default@2x~iphone.png */; };
+		A81E2B6717CDBB2200869142 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4A17CDBB2200869142 /* Default~iphone.png */; };
+		A81E2B6817CDBB2200869142 /* dash-background-new@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4B17CDBB2200869142 /* dash-background-new@2x~iphone.png */; };
+		A81E2B6917CDBB2200869142 /* dash-background-new~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4C17CDBB2200869142 /* dash-background-new~iphone.png */; };
+		A81E2B6A17CDBB2200869142 /* dash-chartflag-flip@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4D17CDBB2200869142 /* dash-chartflag-flip@2x~iphone.png */; };
+		A81E2B6B17CDBB2200869142 /* dash-chartflag-flip~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4E17CDBB2200869142 /* dash-chartflag-flip~iphone.png */; };
+		A81E2B6C17CDBB2200869142 /* dash-chartflag@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B4F17CDBB2200869142 /* dash-chartflag@2x~iphone.png */; };
+		A81E2B6D17CDBB2200869142 /* dash-chartflag~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5017CDBB2200869142 /* dash-chartflag~iphone.png */; };
+		A81E2B6E17CDBB2200869142 /* dash-circrhyclocks@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5117CDBB2200869142 /* dash-circrhyclocks@2x~iphone.png */; };
+		A81E2B6F17CDBB2200869142 /* dash-circrhyclocks~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5217CDBB2200869142 /* dash-circrhyclocks~iphone.png */; };
+		A81E2B7017CDBB2200869142 /* dash-density-green@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5317CDBB2200869142 /* dash-density-green@2x~iphone.png */; };
+		A81E2B7117CDBB2200869142 /* dash-density-green~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5417CDBB2200869142 /* dash-density-green~iphone.png */; };
+		A81E2B7217CDBB2200869142 /* dash-density-red@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5517CDBB2200869142 /* dash-density-red@2x~iphone.png */; };
+		A81E2B7317CDBB2200869142 /* dash-density-red~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5617CDBB2200869142 /* dash-density-red~iphone.png */; };
+		A81E2B7417CDBB2200869142 /* dash-density-yellow@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5717CDBB2200869142 /* dash-density-yellow@2x~iphone.png */; };
+		A81E2B7517CDBB2200869142 /* dash-density-yellow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5817CDBB2200869142 /* dash-density-yellow~iphone.png */; };
+		A81E2B7617CDBB2200869142 /* dash-densityflag-flip@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5917CDBB2200869142 /* dash-densityflag-flip@2x~iphone.png */; };
+		A81E2B7717CDBB2200869142 /* dash-densityflag-flip~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5A17CDBB2200869142 /* dash-densityflag-flip~iphone.png */; };
+		A81E2B7817CDBB2200869142 /* dash-densityflag@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5B17CDBB2200869142 /* dash-densityflag@2x~iphone.png */; };
+		A81E2B7917CDBB2200869142 /* dash-densityflag~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5C17CDBB2200869142 /* dash-densityflag~iphone.png */; };
+		A81E2B7A17CDBB2200869142 /* dash-widget@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5D17CDBB2200869142 /* dash-widget@2x~iphone.png */; };
+		A81E2B7B17CDBB2200869142 /* dash-widget~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5E17CDBB2200869142 /* dash-widget~iphone.png */; };
+		A81E2B7C17CDBB2200869142 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B5F17CDBB2200869142 /* Default-568h@2x~iphone.png */; };
+		A81E2B7D17CDBB2200869142 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B6017CDBB2200869142 /* Default@2x~iphone.png */; };
+		A81E2B7E17CDBB2200869142 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B6117CDBB2200869142 /* Default~iphone.png */; };
+		A81E2B7F17CDBB2200869142 /* tp-dashboard_v2B_blueprint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A81E2B6217CDBB2200869142 /* tp-dashboard_v2B_blueprint.jpg */; };
 		A82F6A2617947064003FC088 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2517947064003FC088 /* Foundation.framework */; };
 		A82F6A2817947064003FC088 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2717947064003FC088 /* CoreGraphics.framework */; };
 		A82F6A2A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
@@ -49,35 +78,6 @@
 		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
 		A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A852856317B4016D0057954F /* TPProfileTableViewCell.xib */; };
 		A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A852856617B401810057954F /* TPProfileTableViewCell.m */; };
-		A852882017CD070F005DE9F2 /* dash-background@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864217CD070E005DE9F2 /* dash-background@2x~iphone.png */; };
-		A852882117CD070F005DE9F2 /* dash-background~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864317CD070E005DE9F2 /* dash-background~iphone.png */; };
-		A852882217CD070F005DE9F2 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864417CD070E005DE9F2 /* Default-568h@2x~iphone.png */; };
-		A852882317CD070F005DE9F2 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864517CD070E005DE9F2 /* Default@2x~iphone.png */; };
-		A852882417CD070F005DE9F2 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864617CD070E005DE9F2 /* Default~iphone.png */; };
-		A852882517CD070F005DE9F2 /* dash-background@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864717CD070E005DE9F2 /* dash-background@2x~iphone.png */; };
-		A852882617CD070F005DE9F2 /* dash-background~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864817CD070E005DE9F2 /* dash-background~iphone.png */; };
-		A852882717CD070F005DE9F2 /* dash-chartflag-flip@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864917CD070E005DE9F2 /* dash-chartflag-flip@2x~iphone.png */; };
-		A852882817CD070F005DE9F2 /* dash-chartflag-flip~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864A17CD070E005DE9F2 /* dash-chartflag-flip~iphone.png */; };
-		A852882917CD070F005DE9F2 /* dash-chartflag@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864B17CD070E005DE9F2 /* dash-chartflag@2x~iphone.png */; };
-		A852882A17CD070F005DE9F2 /* dash-chartflag~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864C17CD070E005DE9F2 /* dash-chartflag~iphone.png */; };
-		A852882B17CD070F005DE9F2 /* dash-circrhyclocks@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864D17CD070E005DE9F2 /* dash-circrhyclocks@2x~iphone.png */; };
-		A852882C17CD070F005DE9F2 /* dash-circrhyclocks~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864E17CD070E005DE9F2 /* dash-circrhyclocks~iphone.png */; };
-		A852882D17CD070F005DE9F2 /* dash-density-green@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852864F17CD070E005DE9F2 /* dash-density-green@2x~iphone.png */; };
-		A852882E17CD070F005DE9F2 /* dash-density-green~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865017CD070E005DE9F2 /* dash-density-green~iphone.png */; };
-		A852882F17CD070F005DE9F2 /* dash-density-red@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865117CD070E005DE9F2 /* dash-density-red@2x~iphone.png */; };
-		A852883017CD070F005DE9F2 /* dash-density-red~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865217CD070E005DE9F2 /* dash-density-red~iphone.png */; };
-		A852883117CD070F005DE9F2 /* dash-density-yellow@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865317CD070E005DE9F2 /* dash-density-yellow@2x~iphone.png */; };
-		A852883217CD070F005DE9F2 /* dash-density-yellow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865417CD070E005DE9F2 /* dash-density-yellow~iphone.png */; };
-		A852883317CD070F005DE9F2 /* dash-densityflag-flip@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865517CD070E005DE9F2 /* dash-densityflag-flip@2x~iphone.png */; };
-		A852883417CD070F005DE9F2 /* dash-densityflag-flip~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865617CD070E005DE9F2 /* dash-densityflag-flip~iphone.png */; };
-		A852883517CD070F005DE9F2 /* dash-densityflag@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865717CD070E005DE9F2 /* dash-densityflag@2x~iphone.png */; };
-		A852883617CD070F005DE9F2 /* dash-densityflag~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865817CD070E005DE9F2 /* dash-densityflag~iphone.png */; };
-		A852883717CD070F005DE9F2 /* dash-widget@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865917CD070E005DE9F2 /* dash-widget@2x~iphone.png */; };
-		A852883817CD070F005DE9F2 /* dash-widget~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865A17CD070E005DE9F2 /* dash-widget~iphone.png */; };
-		A852883917CD070F005DE9F2 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865B17CD070E005DE9F2 /* Default-568h@2x~iphone.png */; };
-		A852883A17CD070F005DE9F2 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865C17CD070E005DE9F2 /* Default@2x~iphone.png */; };
-		A852883B17CD070F005DE9F2 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852865D17CD070E005DE9F2 /* Default~iphone.png */; };
-		A852883C17CD070F005DE9F2 /* tp-dashboard_v2B_blueprint.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A852865E17CD070E005DE9F2 /* tp-dashboard_v2B_blueprint.jpg */; };
 		A852883D17CD070F005DE9F2 /* btn-pers-playnow@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852866017CD070E005DE9F2 /* btn-pers-playnow@2x~iphone.png */; };
 		A852883E17CD070F005DE9F2 /* btn-pers-playnow~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852866117CD070E005DE9F2 /* btn-pers-playnow~iphone.png */; };
 		A852884117CD070F005DE9F2 /* btn-back-pressed@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A852866517CD070E005DE9F2 /* btn-back-pressed@2x~iphone.png */; };
@@ -516,23 +516,7 @@
 		A85289F417CD08C9005DE9F2 /* personality-placeholderbg@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289F217CD08C9005DE9F2 /* personality-placeholderbg@2x~iphone.jpg */; };
 		A85289F517CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289F317CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg */; };
 		A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */; };
-		A8528A0617CD5E4A005DE9F2 /* tp-appwalkthrough1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FB17CD5E4A005DE9F2 /* tp-appwalkthrough1.jpg */; };
-		A8528A0717CD5E4A005DE9F2 /* tp-appwalkthrough2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FC17CD5E4A005DE9F2 /* tp-appwalkthrough2.jpg */; };
-		A8528A0817CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FD17CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg */; };
-		A8528A0917CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FE17CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg */; };
-		A8528A0A17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A85289FF17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
-		A8680BD017C813E700FA0AA8 /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */; };
-		A8680BD117C813E700FA0AA8 /* Default@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */; };
-		A8680BD217C813E700FA0AA8 /* Default~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC717C813E700FA0AA8 /* Default~iphone.png */; };
-		A8680BD317C813E700FA0AA8 /* dash-background@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC817C813E700FA0AA8 /* dash-background@2x~iphone.png */; };
-		A8680BD417C813E700FA0AA8 /* dash-background~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BC917C813E700FA0AA8 /* dash-background~iphone.png */; };
-		A8680BD517C813E700FA0AA8 /* dash-chartflag-flip@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCA17C813E700FA0AA8 /* dash-chartflag-flip@2x~iphone.png */; };
-		A8680BD617C813E700FA0AA8 /* dash-chartflag-flip~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCB17C813E700FA0AA8 /* dash-chartflag-flip~iphone.png */; };
-		A8680BD717C813E700FA0AA8 /* dash-chartflag@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCC17C813E700FA0AA8 /* dash-chartflag@2x~iphone.png */; };
-		A8680BD817C813E700FA0AA8 /* dash-chartflag~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCD17C813E700FA0AA8 /* dash-chartflag~iphone.png */; };
-		A8680BD917C813E700FA0AA8 /* dash-widget@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCE17C813E700FA0AA8 /* dash-widget@2x~iphone.png */; };
-		A8680BDA17C813E700FA0AA8 /* dash-widget~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8680BCF17C813E700FA0AA8 /* dash-widget~iphone.png */; };
 		A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */; };
 		A8680BDF17C8168800FA0AA8 /* TPDashboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */; };
 		A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */; };
@@ -566,6 +550,16 @@
 		A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.mm */; };
 		A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */; };
 		A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E703517AC3C60001605DF /* TPSnoozerClockView.m */; };
+		A88D043017CDAAAD000ED362 /* tp-appwalkthrough1@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042817CDAAAD000ED362 /* tp-appwalkthrough1@2x~iphone.jpg */; };
+		A88D043117CDAAAD000ED362 /* tp-appwalkthrough1~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042917CDAAAD000ED362 /* tp-appwalkthrough1~iphone.jpg */; };
+		A88D043217CDAAAD000ED362 /* tp-appwalkthrough2@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042A17CDAAAD000ED362 /* tp-appwalkthrough2@2x~iphone.jpg */; };
+		A88D043317CDAAAD000ED362 /* tp-appwalkthrough2~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042B17CDAAAD000ED362 /* tp-appwalkthrough2~iphone.jpg */; };
+		A88D043417CDAAAD000ED362 /* tp-appwalkthrough3@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042C17CDAAAD000ED362 /* tp-appwalkthrough3@2x~iphone.jpg */; };
+		A88D043517CDAAAD000ED362 /* tp-appwalkthrough3~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042D17CDAAAD000ED362 /* tp-appwalkthrough3~iphone.jpg */; };
+		A88D043617CDAAAD000ED362 /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042E17CDAAAD000ED362 /* tp-appwalkthrough4@2x~iphone.jpg */; };
+		A88D043717CDAAAD000ED362 /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88D042F17CDAAAD000ED362 /* tp-appwalkthrough4~iphone.jpg */; };
+		A88D043A17CDB041000ED362 /* btn-xclose@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A88D043817CDB041000ED362 /* btn-xclose@2x~iphone.png */; };
+		A88D043B17CDB041000ED362 /* btn-xclose~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A88D043917CDB041000ED362 /* btn-xclose~iphone.png */; };
 		A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */; };
 		A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */; };
 		A893FB4217C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */; };
@@ -628,6 +622,35 @@
 		A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsGraphView.m; sourceTree = "<group>"; };
 		A819481417B087CB009959DA /* TPGraphTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGraphTooltipView.h; sourceTree = "<group>"; };
 		A819481517B087CB009959DA /* TPGraphTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGraphTooltipView.m; sourceTree = "<group>"; };
+		A81E2B4617CDBB2200869142 /* dash-background@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4717CDBB2200869142 /* dash-background~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4817CDBB2200869142 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4917CDBB2200869142 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4A17CDBB2200869142 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4B17CDBB2200869142 /* dash-background-new@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4C17CDBB2200869142 /* dash-background-new~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4D17CDBB2200869142 /* dash-chartflag-flip@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag-flip@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4E17CDBB2200869142 /* dash-chartflag-flip~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag-flip~iphone.png"; sourceTree = "<group>"; };
+		A81E2B4F17CDBB2200869142 /* dash-chartflag@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5017CDBB2200869142 /* dash-chartflag~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5117CDBB2200869142 /* dash-circrhyclocks@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-circrhyclocks@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5217CDBB2200869142 /* dash-circrhyclocks~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-circrhyclocks~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5317CDBB2200869142 /* dash-density-green@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-green@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5417CDBB2200869142 /* dash-density-green~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-green~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5517CDBB2200869142 /* dash-density-red@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-red@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5617CDBB2200869142 /* dash-density-red~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-red~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5717CDBB2200869142 /* dash-density-yellow@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-yellow@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5817CDBB2200869142 /* dash-density-yellow~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-yellow~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5917CDBB2200869142 /* dash-densityflag-flip@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag-flip@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5A17CDBB2200869142 /* dash-densityflag-flip~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag-flip~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5B17CDBB2200869142 /* dash-densityflag@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5C17CDBB2200869142 /* dash-densityflag~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5D17CDBB2200869142 /* dash-widget@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-widget@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5E17CDBB2200869142 /* dash-widget~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-widget~iphone.png"; sourceTree = "<group>"; };
+		A81E2B5F17CDBB2200869142 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B6017CDBB2200869142 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
+		A81E2B6117CDBB2200869142 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		A81E2B6217CDBB2200869142 /* tp-dashboard_v2B_blueprint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-dashboard_v2B_blueprint.jpg"; sourceTree = "<group>"; };
 		A82F6A2217947064003FC088 /* TidePool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TidePool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A82F6A2517947064003FC088 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A82F6A2717947064003FC088 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -655,35 +678,6 @@
 		A852856317B4016D0057954F /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
 		A852856517B401810057954F /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
 		A852856617B401810057954F /* TPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewCell.m; sourceTree = "<group>"; };
-		A852864217CD070E005DE9F2 /* dash-background@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864317CD070E005DE9F2 /* dash-background~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background~iphone.png"; sourceTree = "<group>"; };
-		A852864417CD070E005DE9F2 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864517CD070E005DE9F2 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864617CD070E005DE9F2 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
-		A852864717CD070E005DE9F2 /* dash-background@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864817CD070E005DE9F2 /* dash-background~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background~iphone.png"; sourceTree = "<group>"; };
-		A852864917CD070E005DE9F2 /* dash-chartflag-flip@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag-flip@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864A17CD070E005DE9F2 /* dash-chartflag-flip~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag-flip~iphone.png"; sourceTree = "<group>"; };
-		A852864B17CD070E005DE9F2 /* dash-chartflag@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864C17CD070E005DE9F2 /* dash-chartflag~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag~iphone.png"; sourceTree = "<group>"; };
-		A852864D17CD070E005DE9F2 /* dash-circrhyclocks@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-circrhyclocks@2x~iphone.png"; sourceTree = "<group>"; };
-		A852864E17CD070E005DE9F2 /* dash-circrhyclocks~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-circrhyclocks~iphone.png"; sourceTree = "<group>"; };
-		A852864F17CD070E005DE9F2 /* dash-density-green@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-green@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865017CD070E005DE9F2 /* dash-density-green~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-green~iphone.png"; sourceTree = "<group>"; };
-		A852865117CD070E005DE9F2 /* dash-density-red@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-red@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865217CD070E005DE9F2 /* dash-density-red~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-red~iphone.png"; sourceTree = "<group>"; };
-		A852865317CD070E005DE9F2 /* dash-density-yellow@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-yellow@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865417CD070E005DE9F2 /* dash-density-yellow~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-density-yellow~iphone.png"; sourceTree = "<group>"; };
-		A852865517CD070E005DE9F2 /* dash-densityflag-flip@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag-flip@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865617CD070E005DE9F2 /* dash-densityflag-flip~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag-flip~iphone.png"; sourceTree = "<group>"; };
-		A852865717CD070E005DE9F2 /* dash-densityflag@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865817CD070E005DE9F2 /* dash-densityflag~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-densityflag~iphone.png"; sourceTree = "<group>"; };
-		A852865917CD070E005DE9F2 /* dash-widget@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-widget@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865A17CD070E005DE9F2 /* dash-widget~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-widget~iphone.png"; sourceTree = "<group>"; };
-		A852865B17CD070E005DE9F2 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865C17CD070E005DE9F2 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
-		A852865D17CD070E005DE9F2 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
-		A852865E17CD070E005DE9F2 /* tp-dashboard_v2B_blueprint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-dashboard_v2B_blueprint.jpg"; sourceTree = "<group>"; };
 		A852866017CD070E005DE9F2 /* btn-pers-playnow@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-pers-playnow@2x~iphone.png"; sourceTree = "<group>"; };
 		A852866117CD070E005DE9F2 /* btn-pers-playnow~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-pers-playnow~iphone.png"; sourceTree = "<group>"; };
 		A852866517CD070E005DE9F2 /* btn-back-pressed@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-back-pressed@2x~iphone.png"; sourceTree = "<group>"; };
@@ -1123,23 +1117,7 @@
 		A85289F317CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "personality-placeholderbg~iphone.jpg"; sourceTree = "<group>"; };
 		A85289F617CD230F005DE9F2 /* TPCurveGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCurveGraphView.h; sourceTree = "<group>"; };
 		A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCurveGraphView.m; sourceTree = "<group>"; };
-		A85289FB17CD5E4A005DE9F2 /* tp-appwalkthrough1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough1.jpg"; sourceTree = "<group>"; };
-		A85289FC17CD5E4A005DE9F2 /* tp-appwalkthrough2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough2.jpg"; sourceTree = "<group>"; };
-		A85289FD17CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3.jpg"; sourceTree = "<group>"; };
-		A85289FE17CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4.jpg"; sourceTree = "<group>"; };
-		A85289FF17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough5.jpg"; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
-		A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
-		A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x~iphone.png"; sourceTree = "<group>"; };
-		A8680BC717C813E700FA0AA8 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
-		A8680BC817C813E700FA0AA8 /* dash-background@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background@2x~iphone.png"; sourceTree = "<group>"; };
-		A8680BC917C813E700FA0AA8 /* dash-background~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background~iphone.png"; sourceTree = "<group>"; };
-		A8680BCA17C813E700FA0AA8 /* dash-chartflag-flip@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag-flip@2x~iphone.png"; sourceTree = "<group>"; };
-		A8680BCB17C813E700FA0AA8 /* dash-chartflag-flip~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag-flip~iphone.png"; sourceTree = "<group>"; };
-		A8680BCC17C813E700FA0AA8 /* dash-chartflag@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag@2x~iphone.png"; sourceTree = "<group>"; };
-		A8680BCD17C813E700FA0AA8 /* dash-chartflag~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-chartflag~iphone.png"; sourceTree = "<group>"; };
-		A8680BCE17C813E700FA0AA8 /* dash-widget@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-widget@2x~iphone.png"; sourceTree = "<group>"; };
-		A8680BCF17C813E700FA0AA8 /* dash-widget~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-widget~iphone.png"; sourceTree = "<group>"; };
 		A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardHeaderView.h; sourceTree = "<group>"; };
 		A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardHeaderView.m; sourceTree = "<group>"; };
 		A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPDashboardHeaderView.xib; sourceTree = "<group>"; };
@@ -1194,6 +1172,16 @@
 		A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSnoozerStageViewController.m; path = StageVC/TPSnoozerStageViewController.m; sourceTree = "<group>"; };
 		A87E703417AC3C60001605DF /* TPSnoozerClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerClockView.h; sourceTree = "<group>"; };
 		A87E703517AC3C60001605DF /* TPSnoozerClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerClockView.m; sourceTree = "<group>"; };
+		A88D042817CDAAAD000ED362 /* tp-appwalkthrough1@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough1@2x~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042917CDAAAD000ED362 /* tp-appwalkthrough1~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough1~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042A17CDAAAD000ED362 /* tp-appwalkthrough2@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough2@2x~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042B17CDAAAD000ED362 /* tp-appwalkthrough2~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough2~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042C17CDAAAD000ED362 /* tp-appwalkthrough3@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3@2x~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042D17CDAAAD000ED362 /* tp-appwalkthrough3~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042E17CDAAAD000ED362 /* tp-appwalkthrough4@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4@2x~iphone.jpg"; sourceTree = "<group>"; };
+		A88D042F17CDAAAD000ED362 /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
+		A88D043817CDB041000ED362 /* btn-xclose@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-xclose@2x~iphone.png"; sourceTree = "<group>"; };
+		A88D043917CDB041000ED362 /* btn-xclose~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-xclose~iphone.png"; sourceTree = "<group>"; };
 		A893FB3B17C28E2B00A176DB /* TPProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileEditViewController.h; sourceTree = "<group>"; };
 		A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileEditViewController.m; sourceTree = "<group>"; };
 		A893FB3E17C2B33900A176DB /* TPSnoozerSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerSurveyStageViewController.h; sourceTree = "<group>"; };
@@ -1263,9 +1251,9 @@
 		A819476817AE089E009959DA /* Design */ = {
 			isa = PBXGroup;
 			children = (
-				A85289F917CD5E4A005DE9F2 /* AppWalkthrough */,
+				A81E2B4417CDBB2200869142 /* dashboard */,
+				A88D042717CDAAAD000ED362 /* walkthrough */,
 				A86DF4DC17BD9623001F6B23 /* app icon */,
-				A852864017CD070E005DE9F2 /* dashboard */,
 				A852865F17CD070E005DE9F2 /* personality */,
 				A852866417CD070E005DE9F2 /* snoozer */,
 				A819476017AE0633009959DA /* Karla-Bold.ttf */,
@@ -1276,12 +1264,56 @@
 			name = Design;
 			sourceTree = "<group>";
 		};
+		A81E2B4417CDBB2200869142 /* dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A81E2B4517CDBB2200869142 /* archive */,
+				A81E2B4B17CDBB2200869142 /* dash-background-new@2x~iphone.png */,
+				A81E2B4C17CDBB2200869142 /* dash-background-new~iphone.png */,
+				A81E2B4D17CDBB2200869142 /* dash-chartflag-flip@2x~iphone.png */,
+				A81E2B4E17CDBB2200869142 /* dash-chartflag-flip~iphone.png */,
+				A81E2B4F17CDBB2200869142 /* dash-chartflag@2x~iphone.png */,
+				A81E2B5017CDBB2200869142 /* dash-chartflag~iphone.png */,
+				A81E2B5117CDBB2200869142 /* dash-circrhyclocks@2x~iphone.png */,
+				A81E2B5217CDBB2200869142 /* dash-circrhyclocks~iphone.png */,
+				A81E2B5317CDBB2200869142 /* dash-density-green@2x~iphone.png */,
+				A81E2B5417CDBB2200869142 /* dash-density-green~iphone.png */,
+				A81E2B5517CDBB2200869142 /* dash-density-red@2x~iphone.png */,
+				A81E2B5617CDBB2200869142 /* dash-density-red~iphone.png */,
+				A81E2B5717CDBB2200869142 /* dash-density-yellow@2x~iphone.png */,
+				A81E2B5817CDBB2200869142 /* dash-density-yellow~iphone.png */,
+				A81E2B5917CDBB2200869142 /* dash-densityflag-flip@2x~iphone.png */,
+				A81E2B5A17CDBB2200869142 /* dash-densityflag-flip~iphone.png */,
+				A81E2B5B17CDBB2200869142 /* dash-densityflag@2x~iphone.png */,
+				A81E2B5C17CDBB2200869142 /* dash-densityflag~iphone.png */,
+				A81E2B5D17CDBB2200869142 /* dash-widget@2x~iphone.png */,
+				A81E2B5E17CDBB2200869142 /* dash-widget~iphone.png */,
+				A81E2B5F17CDBB2200869142 /* Default-568h@2x~iphone.png */,
+				A81E2B6017CDBB2200869142 /* Default@2x~iphone.png */,
+				A81E2B6117CDBB2200869142 /* Default~iphone.png */,
+				A81E2B6217CDBB2200869142 /* tp-dashboard_v2B_blueprint.jpg */,
+			);
+			name = dashboard;
+			path = ../../Dropbox/Tidepool/UEX/mobile/production/dashboard;
+			sourceTree = "<group>";
+		};
+		A81E2B4517CDBB2200869142 /* archive */ = {
+			isa = PBXGroup;
+			children = (
+				A81E2B4617CDBB2200869142 /* dash-background@2x~iphone.png */,
+				A81E2B4717CDBB2200869142 /* dash-background~iphone.png */,
+				A81E2B4817CDBB2200869142 /* Default-568h@2x~iphone.png */,
+				A81E2B4917CDBB2200869142 /* Default@2x~iphone.png */,
+				A81E2B4A17CDBB2200869142 /* Default~iphone.png */,
+			);
+			path = archive;
+			sourceTree = "<group>";
+		};
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
 				A816448C17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.h */,
 				A816448D17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.m */,
-				A8680BC317C813E700FA0AA8 /* dashboard */,
 				A819476817AE089E009959DA /* Design */,
 				A86C5C7517BC66B9001A22D4 /* UIKit Customization */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
@@ -1376,51 +1408,6 @@
 				A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */,
 			);
 			name = Walkthrough;
-			sourceTree = "<group>";
-		};
-		A852864017CD070E005DE9F2 /* dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				A852864117CD070E005DE9F2 /* archive */,
-				A852864717CD070E005DE9F2 /* dash-background@2x~iphone.png */,
-				A852864817CD070E005DE9F2 /* dash-background~iphone.png */,
-				A852864917CD070E005DE9F2 /* dash-chartflag-flip@2x~iphone.png */,
-				A852864A17CD070E005DE9F2 /* dash-chartflag-flip~iphone.png */,
-				A852864B17CD070E005DE9F2 /* dash-chartflag@2x~iphone.png */,
-				A852864C17CD070E005DE9F2 /* dash-chartflag~iphone.png */,
-				A852864D17CD070E005DE9F2 /* dash-circrhyclocks@2x~iphone.png */,
-				A852864E17CD070E005DE9F2 /* dash-circrhyclocks~iphone.png */,
-				A852864F17CD070E005DE9F2 /* dash-density-green@2x~iphone.png */,
-				A852865017CD070E005DE9F2 /* dash-density-green~iphone.png */,
-				A852865117CD070E005DE9F2 /* dash-density-red@2x~iphone.png */,
-				A852865217CD070E005DE9F2 /* dash-density-red~iphone.png */,
-				A852865317CD070E005DE9F2 /* dash-density-yellow@2x~iphone.png */,
-				A852865417CD070E005DE9F2 /* dash-density-yellow~iphone.png */,
-				A852865517CD070E005DE9F2 /* dash-densityflag-flip@2x~iphone.png */,
-				A852865617CD070E005DE9F2 /* dash-densityflag-flip~iphone.png */,
-				A852865717CD070E005DE9F2 /* dash-densityflag@2x~iphone.png */,
-				A852865817CD070E005DE9F2 /* dash-densityflag~iphone.png */,
-				A852865917CD070E005DE9F2 /* dash-widget@2x~iphone.png */,
-				A852865A17CD070E005DE9F2 /* dash-widget~iphone.png */,
-				A852865B17CD070E005DE9F2 /* Default-568h@2x~iphone.png */,
-				A852865C17CD070E005DE9F2 /* Default@2x~iphone.png */,
-				A852865D17CD070E005DE9F2 /* Default~iphone.png */,
-				A852865E17CD070E005DE9F2 /* tp-dashboard_v2B_blueprint.jpg */,
-			);
-			name = dashboard;
-			path = ../../Dropbox/Tidepool/UEX/mobile/production/dashboard;
-			sourceTree = "<group>";
-		};
-		A852864117CD070E005DE9F2 /* archive */ = {
-			isa = PBXGroup;
-			children = (
-				A852864217CD070E005DE9F2 /* dash-background@2x~iphone.png */,
-				A852864317CD070E005DE9F2 /* dash-background~iphone.png */,
-				A852864417CD070E005DE9F2 /* Default-568h@2x~iphone.png */,
-				A852864517CD070E005DE9F2 /* Default@2x~iphone.png */,
-				A852864617CD070E005DE9F2 /* Default~iphone.png */,
-			);
-			path = archive;
 			sourceTree = "<group>";
 		};
 		A852865F17CD070E005DE9F2 /* personality */ = {
@@ -1956,46 +1943,6 @@
 			path = "tab bar icons";
 			sourceTree = "<group>";
 		};
-		A85289F917CD5E4A005DE9F2 /* AppWalkthrough */ = {
-			isa = PBXGroup;
-			children = (
-				A85289FB17CD5E4A005DE9F2 /* tp-appwalkthrough1.jpg */,
-				A85289FC17CD5E4A005DE9F2 /* tp-appwalkthrough2.jpg */,
-				A85289FD17CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg */,
-				A85289FE17CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg */,
-				A85289FF17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg */,
-			);
-			name = AppWalkthrough;
-			path = ../../Dropbox/Tidepool/UEX/mobile/Design/AppWalkthrough;
-			sourceTree = "<group>";
-		};
-		A8680BC317C813E700FA0AA8 /* dashboard */ = {
-			isa = PBXGroup;
-			children = (
-				A8680BC417C813E700FA0AA8 /* archive */,
-				A8680BC817C813E700FA0AA8 /* dash-background@2x~iphone.png */,
-				A8680BC917C813E700FA0AA8 /* dash-background~iphone.png */,
-				A8680BCA17C813E700FA0AA8 /* dash-chartflag-flip@2x~iphone.png */,
-				A8680BCB17C813E700FA0AA8 /* dash-chartflag-flip~iphone.png */,
-				A8680BCC17C813E700FA0AA8 /* dash-chartflag@2x~iphone.png */,
-				A8680BCD17C813E700FA0AA8 /* dash-chartflag~iphone.png */,
-				A8680BCE17C813E700FA0AA8 /* dash-widget@2x~iphone.png */,
-				A8680BCF17C813E700FA0AA8 /* dash-widget~iphone.png */,
-			);
-			name = dashboard;
-			path = ../../Dropbox/Tidepool/UEX/mobile/production/dashboard;
-			sourceTree = "<group>";
-		};
-		A8680BC417C813E700FA0AA8 /* archive */ = {
-			isa = PBXGroup;
-			children = (
-				A8680BC517C813E700FA0AA8 /* Default-568h@2x~iphone.png */,
-				A8680BC617C813E700FA0AA8 /* Default@2x~iphone.png */,
-				A8680BC717C813E700FA0AA8 /* Default~iphone.png */,
-			);
-			path = archive;
-			sourceTree = "<group>";
-		};
 		A86C2CC317A1AFFA00A5290E /* ResultVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -2127,6 +2074,24 @@
 				A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A88D042717CDAAAD000ED362 /* walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				A88D043817CDB041000ED362 /* btn-xclose@2x~iphone.png */,
+				A88D043917CDB041000ED362 /* btn-xclose~iphone.png */,
+				A88D042817CDAAAD000ED362 /* tp-appwalkthrough1@2x~iphone.jpg */,
+				A88D042917CDAAAD000ED362 /* tp-appwalkthrough1~iphone.jpg */,
+				A88D042A17CDAAAD000ED362 /* tp-appwalkthrough2@2x~iphone.jpg */,
+				A88D042B17CDAAAD000ED362 /* tp-appwalkthrough2~iphone.jpg */,
+				A88D042C17CDAAAD000ED362 /* tp-appwalkthrough3@2x~iphone.jpg */,
+				A88D042D17CDAAAD000ED362 /* tp-appwalkthrough3~iphone.jpg */,
+				A88D042E17CDAAAD000ED362 /* tp-appwalkthrough4@2x~iphone.jpg */,
+				A88D042F17CDAAAD000ED362 /* tp-appwalkthrough4~iphone.jpg */,
+			);
+			name = walkthrough;
+			path = ../../Dropbox/Tidepool/UEX/mobile/production/walkthrough;
 			sourceTree = "<group>";
 		};
 		A89B97D417A099AE006815A6 /* GameVC */ = {
@@ -2315,47 +2280,7 @@
 				A816448A17BED7C800EE6E76 /* Default@2x~iphone.png in Resources */,
 				A816448B17BED7C800EE6E76 /* Default~iphone.png in Resources */,
 				A893FB4217C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib in Resources */,
-				A8680BD017C813E700FA0AA8 /* Default-568h@2x~iphone.png in Resources */,
-				A8680BD117C813E700FA0AA8 /* Default@2x~iphone.png in Resources */,
-				A8680BD217C813E700FA0AA8 /* Default~iphone.png in Resources */,
-				A8680BD317C813E700FA0AA8 /* dash-background@2x~iphone.png in Resources */,
-				A8680BD417C813E700FA0AA8 /* dash-background~iphone.png in Resources */,
-				A8680BD517C813E700FA0AA8 /* dash-chartflag-flip@2x~iphone.png in Resources */,
-				A8680BD617C813E700FA0AA8 /* dash-chartflag-flip~iphone.png in Resources */,
-				A8680BD717C813E700FA0AA8 /* dash-chartflag@2x~iphone.png in Resources */,
-				A8680BD817C813E700FA0AA8 /* dash-chartflag~iphone.png in Resources */,
-				A8680BD917C813E700FA0AA8 /* dash-widget@2x~iphone.png in Resources */,
-				A8680BDA17C813E700FA0AA8 /* dash-widget~iphone.png in Resources */,
 				A8680BDF17C8168800FA0AA8 /* TPDashboardHeaderView.xib in Resources */,
-				A852882017CD070F005DE9F2 /* dash-background@2x~iphone.png in Resources */,
-				A852882117CD070F005DE9F2 /* dash-background~iphone.png in Resources */,
-				A852882217CD070F005DE9F2 /* Default-568h@2x~iphone.png in Resources */,
-				A852882317CD070F005DE9F2 /* Default@2x~iphone.png in Resources */,
-				A852882417CD070F005DE9F2 /* Default~iphone.png in Resources */,
-				A852882517CD070F005DE9F2 /* dash-background@2x~iphone.png in Resources */,
-				A852882617CD070F005DE9F2 /* dash-background~iphone.png in Resources */,
-				A852882717CD070F005DE9F2 /* dash-chartflag-flip@2x~iphone.png in Resources */,
-				A852882817CD070F005DE9F2 /* dash-chartflag-flip~iphone.png in Resources */,
-				A852882917CD070F005DE9F2 /* dash-chartflag@2x~iphone.png in Resources */,
-				A852882A17CD070F005DE9F2 /* dash-chartflag~iphone.png in Resources */,
-				A852882B17CD070F005DE9F2 /* dash-circrhyclocks@2x~iphone.png in Resources */,
-				A852882C17CD070F005DE9F2 /* dash-circrhyclocks~iphone.png in Resources */,
-				A852882D17CD070F005DE9F2 /* dash-density-green@2x~iphone.png in Resources */,
-				A852882E17CD070F005DE9F2 /* dash-density-green~iphone.png in Resources */,
-				A852882F17CD070F005DE9F2 /* dash-density-red@2x~iphone.png in Resources */,
-				A852883017CD070F005DE9F2 /* dash-density-red~iphone.png in Resources */,
-				A852883117CD070F005DE9F2 /* dash-density-yellow@2x~iphone.png in Resources */,
-				A852883217CD070F005DE9F2 /* dash-density-yellow~iphone.png in Resources */,
-				A852883317CD070F005DE9F2 /* dash-densityflag-flip@2x~iphone.png in Resources */,
-				A852883417CD070F005DE9F2 /* dash-densityflag-flip~iphone.png in Resources */,
-				A852883517CD070F005DE9F2 /* dash-densityflag@2x~iphone.png in Resources */,
-				A852883617CD070F005DE9F2 /* dash-densityflag~iphone.png in Resources */,
-				A852883717CD070F005DE9F2 /* dash-widget@2x~iphone.png in Resources */,
-				A852883817CD070F005DE9F2 /* dash-widget~iphone.png in Resources */,
-				A852883917CD070F005DE9F2 /* Default-568h@2x~iphone.png in Resources */,
-				A852883A17CD070F005DE9F2 /* Default@2x~iphone.png in Resources */,
-				A852883B17CD070F005DE9F2 /* Default~iphone.png in Resources */,
-				A852883C17CD070F005DE9F2 /* tp-dashboard_v2B_blueprint.jpg in Resources */,
 				A852883D17CD070F005DE9F2 /* btn-pers-playnow@2x~iphone.png in Resources */,
 				A852883E17CD070F005DE9F2 /* btn-pers-playnow~iphone.png in Resources */,
 				A852884117CD070F005DE9F2 /* btn-back-pressed@2x~iphone.png in Resources */,
@@ -2793,12 +2718,46 @@
 				A85289F117CD070F005DE9F2 /* tp-snoozer-start_blueprint.png in Resources */,
 				A85289F417CD08C9005DE9F2 /* personality-placeholderbg@2x~iphone.jpg in Resources */,
 				A85289F517CD08C9005DE9F2 /* personality-placeholderbg~iphone.jpg in Resources */,
-				A8528A0617CD5E4A005DE9F2 /* tp-appwalkthrough1.jpg in Resources */,
-				A8528A0717CD5E4A005DE9F2 /* tp-appwalkthrough2.jpg in Resources */,
-				A8528A0817CD5E4A005DE9F2 /* tp-appwalkthrough3.jpg in Resources */,
-				A8528A0917CD5E4A005DE9F2 /* tp-appwalkthrough4.jpg in Resources */,
-				A8528A0A17CD5E4A005DE9F2 /* tp-appwalkthrough5.jpg in Resources */,
 				A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */,
+				A88D043017CDAAAD000ED362 /* tp-appwalkthrough1@2x~iphone.jpg in Resources */,
+				A88D043117CDAAAD000ED362 /* tp-appwalkthrough1~iphone.jpg in Resources */,
+				A88D043217CDAAAD000ED362 /* tp-appwalkthrough2@2x~iphone.jpg in Resources */,
+				A88D043317CDAAAD000ED362 /* tp-appwalkthrough2~iphone.jpg in Resources */,
+				A88D043417CDAAAD000ED362 /* tp-appwalkthrough3@2x~iphone.jpg in Resources */,
+				A88D043517CDAAAD000ED362 /* tp-appwalkthrough3~iphone.jpg in Resources */,
+				A88D043617CDAAAD000ED362 /* tp-appwalkthrough4@2x~iphone.jpg in Resources */,
+				A88D043717CDAAAD000ED362 /* tp-appwalkthrough4~iphone.jpg in Resources */,
+				A88D043A17CDB041000ED362 /* btn-xclose@2x~iphone.png in Resources */,
+				A88D043B17CDB041000ED362 /* btn-xclose~iphone.png in Resources */,
+				A81E2B6317CDBB2200869142 /* dash-background@2x~iphone.png in Resources */,
+				A81E2B6417CDBB2200869142 /* dash-background~iphone.png in Resources */,
+				A81E2B6517CDBB2200869142 /* Default-568h@2x~iphone.png in Resources */,
+				A81E2B6617CDBB2200869142 /* Default@2x~iphone.png in Resources */,
+				A81E2B6717CDBB2200869142 /* Default~iphone.png in Resources */,
+				A81E2B6817CDBB2200869142 /* dash-background-new@2x~iphone.png in Resources */,
+				A81E2B6917CDBB2200869142 /* dash-background-new~iphone.png in Resources */,
+				A81E2B6A17CDBB2200869142 /* dash-chartflag-flip@2x~iphone.png in Resources */,
+				A81E2B6B17CDBB2200869142 /* dash-chartflag-flip~iphone.png in Resources */,
+				A81E2B6C17CDBB2200869142 /* dash-chartflag@2x~iphone.png in Resources */,
+				A81E2B6D17CDBB2200869142 /* dash-chartflag~iphone.png in Resources */,
+				A81E2B6E17CDBB2200869142 /* dash-circrhyclocks@2x~iphone.png in Resources */,
+				A81E2B6F17CDBB2200869142 /* dash-circrhyclocks~iphone.png in Resources */,
+				A81E2B7017CDBB2200869142 /* dash-density-green@2x~iphone.png in Resources */,
+				A81E2B7117CDBB2200869142 /* dash-density-green~iphone.png in Resources */,
+				A81E2B7217CDBB2200869142 /* dash-density-red@2x~iphone.png in Resources */,
+				A81E2B7317CDBB2200869142 /* dash-density-red~iphone.png in Resources */,
+				A81E2B7417CDBB2200869142 /* dash-density-yellow@2x~iphone.png in Resources */,
+				A81E2B7517CDBB2200869142 /* dash-density-yellow~iphone.png in Resources */,
+				A81E2B7617CDBB2200869142 /* dash-densityflag-flip@2x~iphone.png in Resources */,
+				A81E2B7717CDBB2200869142 /* dash-densityflag-flip~iphone.png in Resources */,
+				A81E2B7817CDBB2200869142 /* dash-densityflag@2x~iphone.png in Resources */,
+				A81E2B7917CDBB2200869142 /* dash-densityflag~iphone.png in Resources */,
+				A81E2B7A17CDBB2200869142 /* dash-widget@2x~iphone.png in Resources */,
+				A81E2B7B17CDBB2200869142 /* dash-widget~iphone.png in Resources */,
+				A81E2B7C17CDBB2200869142 /* Default-568h@2x~iphone.png in Resources */,
+				A81E2B7D17CDBB2200869142 /* Default@2x~iphone.png in Resources */,
+				A81E2B7E17CDBB2200869142 /* Default~iphone.png in Resources */,
+				A81E2B7F17CDBB2200869142 /* tp-dashboard_v2B_blueprint.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2971,7 +2930,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3004,7 +2963,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

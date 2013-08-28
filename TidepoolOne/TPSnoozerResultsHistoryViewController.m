@@ -116,6 +116,7 @@
 {
     [super viewDidAppear:animated];
     _dashboardHeaderView.scrollView.contentSize = CGSizeMake(790, 192);
+    _dashboardHeaderView.scrollView.contentOffset = CGPointMake(325, 0);
     _dashboardHeaderView.scrollView.scrollEnabled = YES;
 }
 

@@ -199,14 +199,14 @@
     _startNewGameView.contentMode = UIViewContentModeScaleAspectFill;
     _startNewGameView.userInteractionEnabled = YES;
     UIButton *startPersonalityGameButton = [[TPButton alloc] initWithFrame:CGRectZero];
-    [startPersonalityGameButton.titleLabel setFont:[UIFont fontWithName:startPersonalityGameButton.titleLabel.font.fontName size:startPersonalityGameButton.titleLabel.font.pointSize + 10]];
-    UIImage *buttonImage = [UIImage imageNamed:@"btn-pers-playnow.png"];
+//    [startPersonalityGameButton.titleLabel setFont:[UIFont fontWithName:startPersonalityGameButton.titleLabel.font.fontName size:startPersonalityGameButton.titleLabel.font.pointSize + 10]];
+    UIImage *buttonImage = [UIImage imageNamed:@"btn-red.png"];
     startPersonalityGameButton.bounds = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
     startPersonalityGameButton.center = self.view.center;
     [startPersonalityGameButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
     
     [startPersonalityGameButton addTarget:self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
-    [startPersonalityGameButton setTitle:@"New\nGame" forState:UIControlStateNormal];
+    [startPersonalityGameButton setTitle:@"Play Game" forState:UIControlStateNormal];
     startPersonalityGameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     startPersonalityGameButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [_startNewGameView addSubview:startPersonalityGameButton];

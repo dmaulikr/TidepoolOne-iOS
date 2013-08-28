@@ -151,12 +151,13 @@
 //                                      @"EmotionsCirclesResult":[TPEmotionsCirclesStageViewController class],
                                       @"SpeedArchetypeResult":[TPSnoozerResultViewController class],
                                       };
-
+    BOOL hasResultsToShow = NO;
     for (NSDictionary *result in _results) {
         NSString *resultType = result[@"type"];
         Class stageClass = classDictionary[resultType];
         TPResultViewController *resultVC = [[stageClass alloc] init];
         if (resultVC) {
+            hasResultsToShow = YES;
             resultVC.gameVC = self;
             [self addChildViewController:resultVC];
             [self.view addSubview:resultVC.view];
@@ -164,6 +165,14 @@
             [resultVC didMoveToParentViewController:self];
         }
     }
+    if (!hasResultsToShow) {
+        [[[UIAlertView alloc] initWithTitle:@"Game error" message:@"There was an error processing game results. Most likely, you did not react at all! Please play again!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    [self getNewGame];
 }
 
 #pragma mark polling and obtaining Results

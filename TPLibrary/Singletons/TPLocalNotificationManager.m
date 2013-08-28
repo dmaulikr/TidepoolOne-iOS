@@ -24,7 +24,7 @@
     localNotif.fireDate = [NSDate dateWithTimeIntervalSinceNow:86400]; // 24 hours
     localNotif.timeZone = [NSTimeZone defaultTimeZone];
     
-    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Play Snoozer so we can track your circadian rhythms!", nil)];
+    localNotif.alertBody = [NSString stringWithFormat:NSLocalizedString(@"Play Snoozer to track your brain speed and attention", nil)];
     localNotif.alertAction = NSLocalizedString(@"View Details", nil);
     
     localNotif.soundName = UILocalNotificationDefaultSoundName;

@@ -10,7 +10,9 @@
 #import <LAWalkthrough/LAWalkthroughViewController.h>
 
 @interface TPWalkthroughViewController ()
-
+{
+    UIButton *_dismissButton;
+}
 @end
 
 @implementation TPWalkthroughViewController
@@ -30,22 +32,24 @@
     // Do any additional setup after loading the view from its nib.
     LAWalkthroughViewController *walkthrough = [[LAWalkthroughViewController alloc] init];
     walkthrough.view.frame = self.view.bounds;
-
-    int numImages = 5;
+    walkthrough.nextButtonText = @"";
+    
+    int numImages = 4;
     for (int i=0;i <numImages; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tp-appwalkthrough%i.jpg",i+1]];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         [walkthrough addPageWithView:imageView];
-    }    
+    }
     [self addChildViewController:walkthrough];
     [self.view addSubview:walkthrough.view];
     
     
-    UIButton *dismissButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.bounds.size.width/2 - 100, self.view.bounds.size.height - 90, 200, 40)];
-    [dismissButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
-    [dismissButton setTitle:@"Get Started!" forState:UIControlStateNormal];
-    [dismissButton addTarget:self action:@selector(quitWalkthrough) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:dismissButton];
+    _dismissButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    UIImage *xImage = [UIImage imageNamed:@"btn-xclose.png"];
+    [_dismissButton setBackgroundImage:xImage forState:UIControlStateNormal];
+    _dismissButton.frame = CGRectMake(self.view.bounds.size.width - xImage.size.width, 0, xImage.size.width, xImage.size.height);
+    [_dismissButton addTarget:self action:@selector(quitWalkthrough) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_dismissButton];
 }
 
 - (void)didReceiveMemoryWarning

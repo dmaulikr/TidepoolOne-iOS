@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPGameViewController : UIViewController
+@interface TPGameViewController : UIViewController<UIAlertViewDelegate>
 
 @property (strong, nonatomic) id gameObject;
 @property NSString *type;
