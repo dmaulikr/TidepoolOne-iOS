@@ -1,1 +1,0 @@
-../../LAWalkthrough/LAWalkthrough/LAWalkthroughViewController.h
