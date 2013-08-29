@@ -89,6 +89,7 @@
 
 -(void)clearCurrentGame
 {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
     for (UIViewController *controller in self.childViewControllers) {
         [controller.view removeFromSuperview];
         [controller willMoveToParentViewController:nil];
@@ -151,6 +152,8 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [hud hide:YES];
             [_oauthClient handleError:error withOptionalMessage:@"Couldn't submit events to server"];
+            [self clearCurrentGame];
+            self.gameStartView.hidden = NO;
         }];
     }
 }
@@ -186,7 +189,8 @@
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    [self getNewGame];
+    [self clearCurrentGame];
+    self.gameStartView.hidden = NO;
 }
 
 #pragma mark polling and obtaining Results
@@ -214,7 +218,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game results"];
-        [bself getNewGame];
+        [self clearCurrentGame];
+        self.gameStartView.hidden = NO;
     }];
 }
 
@@ -224,7 +229,8 @@
     [_pollTimer invalidate];
     _pollTimer = nil;
     [[[UIAlertView alloc] initWithTitle:@"Server busy" message:@"The results are taking too long. The results will be populated on the dashboard later." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-    [self getNewGame];
+    [self clearCurrentGame];
+    self.gameStartView.hidden = NO;
 }
 
 -(void)pollForResultsForStatus:(NSTimer *)sender
@@ -246,7 +252,8 @@
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *data, NSError *error, id JSON) {
         NSLog(@"f:%@", [data description]);
         [_oauthClient handleError:error withOptionalMessage:@"Error polling for results"];
-        [bself getNewGame];
+        [self clearCurrentGame];
+        self.gameStartView.hidden = NO;
     }];
     [oauthClient enqueueHTTPRequestOperation:(AFHTTPRequestOperation *)op];
 }
@@ -266,7 +273,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@", [error description]);
         [_oauthClient handleError:error withOptionalMessage:@"Error submitting performance"];
-        [bself getNewGame];
+        [self clearCurrentGame];
+        self.gameStartView.hidden = NO;
     }];
 }
 

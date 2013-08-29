@@ -13,6 +13,7 @@
 
 //NSString * const kBaseURLString = @"https://alpha.tidepool.co";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
+//NSString * const kBaseURLString = @"https://api.tidepool.co";
 NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"http://10.1.10.11:7004";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
