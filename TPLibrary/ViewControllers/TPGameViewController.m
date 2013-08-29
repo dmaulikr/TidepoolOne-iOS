@@ -89,6 +89,10 @@
 
 -(void)clearCurrentGame
 {
+    [_pollTimer invalidate];
+    _pollTimer = nil;
+    [_pollTimeoutTimer invalidate];
+    _pollTimeoutTimer = nil;
     [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
     for (UIViewController *controller in self.childViewControllers) {
         [controller.view removeFromSuperview];
