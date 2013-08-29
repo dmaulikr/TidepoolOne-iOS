@@ -113,13 +113,15 @@
     [self doLogin];
 }
 
--(void)personalityGameIsDone:(id)sender
+-(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
 {
     NSLog(@"personality done delegate method called on tabbar");
     UIViewController *vc = sender;
     [vc dismissViewControllerAnimated:YES completion:^{
-        self.selectedIndex = 2;
-        [self showTooltip];
+        if (success) {
+            self.selectedIndex = 2;
+            [self showTooltip];
+        }
     }];
 }
 

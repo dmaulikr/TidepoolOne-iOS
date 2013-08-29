@@ -10,7 +10,7 @@
 
 @protocol TPPersonalityGameViewControllerDelegate
 
--(void)personalityGameIsDone:(id)sender;
+-(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
 
 @end
 

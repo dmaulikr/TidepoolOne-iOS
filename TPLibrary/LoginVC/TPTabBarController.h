@@ -11,7 +11,7 @@
 
 @interface TPTabBarController : UITabBarController<TPPersonalityGameViewControllerDelegate>
 
--(void)personalityGameIsDone:(id)sender;
+-(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
 -(void)showPersonalityGame;
 
 @end

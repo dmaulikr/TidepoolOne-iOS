@@ -54,11 +54,20 @@
     [self.view addSubview:button];
     
     button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
-    button.center = CGPointMake(3*self.view.bounds.size.width/4, 250);
+    button.center = CGPointMake(1*self.view.bounds.size.width/2, 325);
     [button setTitle:@"Logout" forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(logoutButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:button];    
+    [self.view addSubview:button];
+    
+    
+    button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
+    button.center = CGPointMake(3*self.view.bounds.size.width/4, 250);
+    [button setTitle:@"Play Later" forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(playLaterButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+    
     [self startNewPersonalityGame];
 
 }
@@ -156,8 +165,10 @@
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     _webView.scrollView.bounces = NO;
 //    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tide-dev.herokuapp.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", nil]]];
+    // below line used for debug - login with invalid token
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", nil]]];
     
     [_webView loadRequest:request];
     _webView.delegate = self;
@@ -184,12 +195,13 @@
 {
     _messageLabel.text = @"Personality Game finished successfully";
     [_oauthClient getUserInfoFromServer];
-    [self.delegate personalityGameIsDone:self];
+    [self.delegate personalityGameIsDone:self successfully:YES];
 }
 
 -(void)personalityGameThrewError
 {
     [_webView removeFromSuperview];
+    _webView = nil;
 }
 
 -(void)logoutButtonPressed
@@ -197,6 +209,11 @@
     [self dismissViewControllerAnimated:YES completion:^{
     }];
     [_oauthClient logout];
+}
+
+-(void)playLaterButtonPressed
+{
+    [self.delegate personalityGameIsDone:self successfully:NO];
 }
 
 @end

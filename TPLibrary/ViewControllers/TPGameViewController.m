@@ -26,6 +26,7 @@
     NSNumber *_userId;
     NSMutableArray *_eventsForEachStageArray;
     NSTimer *_pollTimeoutTimer;
+    NSTimer *_pollTimer;
 }
 @end
 
@@ -190,7 +191,7 @@
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
             _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
-            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
+            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else {
             [_pollTimeoutTimer invalidate];
             _pollTimeoutTimer = nil;
@@ -208,8 +209,8 @@
 
 -(void)pollTimedOut
 {
-    [_pollTimeoutTimer invalidate];
-    _pollTimeoutTimer = nil;
+    [_pollTimer invalidate];
+    _pollTimer = nil;
     [[[UIAlertView alloc] initWithTitle:@"Server busy" message:@"The results are taking too long. The results will be populated on the dashboard later." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     [self getNewGame];
 }
@@ -226,7 +227,7 @@
         NSDictionary *dataObject = JSON;
         NSString *state = dataObject[@"status"][@"state"];
         if ([state isEqualToString:@"pending"]) {
-            [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
+            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else if ([state isEqualToString:@"done"]) {
             [self getResults];
         }
