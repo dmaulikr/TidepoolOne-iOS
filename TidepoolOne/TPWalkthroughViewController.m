@@ -34,7 +34,7 @@
     walkthrough.view.frame = self.view.bounds;
     walkthrough.nextButtonText = @"";
     
-    int numImages = 4;
+    int numImages = 5;
     for (int i=0;i <numImages; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tp-appwalkthrough%i.jpg",i]];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];

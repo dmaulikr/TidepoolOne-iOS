@@ -127,7 +127,7 @@
 
 -(void)showTooltip
 {
-    UIImage *image = [UIImage imageNamed:@"playsnoozer-alertb.png"];
+    UIImage *image = [UIImage imageNamed:@"playsnoozer-alertc.png"];
     // TODO : calculate position correctly... 
     _tooltipView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - self.tabBar.bounds.size.height - image.size.height, image.size.width, image.size.height)];
     _tooltipView.image = image;

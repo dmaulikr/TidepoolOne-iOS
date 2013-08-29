@@ -80,25 +80,24 @@
     CGPoint touchPoint = [sender locationInView:self.scrollView];
 
     if (!_legendView.hidden || !_tooltipView.hidden) {
-        _legendView.hidden = YES;
-        [_legendView removeFromSuperview];
-        _tooltipView.hidden = YES;
-        [_tooltipView removeFromSuperview];
+        [self dismissPopovers];
     } else {
         if (touchPoint.y < 58) {
             _legendView.hidden = NO;
             _legendView.center = CGPointMake(touchPoint.x + _legendView.bounds.size.width/2, 49);
             [self.scrollView addSubview:_legendView];
         } else if (touchPoint.y > 60) {
-            _tooltipView.hidden = NO;
-            int index = [self indexForTouchPoint:touchPoint];
-            float x = 32.5*index+22;
-            if (index < 19) {
-                x++;
+            if (self.results) {
+                _tooltipView.hidden = NO;
+                int index = [self indexForTouchPoint:touchPoint];
+                float x = 32.5*index+22;
+                if (index < 19) {
+                    x++;
+                }
+                _tooltipView.center = CGPointMake(x, 100);
+                _tooltipView.score = self.results[index];
+                [self.scrollView addSubview:_tooltipView];
             }
-            _tooltipView.center = CGPointMake(x, 100);
-            _tooltipView.score = self.results[index];
-            [self.scrollView addSubview:_tooltipView];
         }
     }
 }
@@ -110,5 +109,11 @@
     return (int)index;
 }
 
-
+-(void)dismissPopovers
+{
+    _legendView.hidden = YES;
+    [_legendView removeFromSuperview];
+    _tooltipView.hidden = YES;
+    [_tooltipView removeFromSuperview];
+}
 @end

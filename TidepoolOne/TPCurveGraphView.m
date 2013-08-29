@@ -31,7 +31,6 @@
 -(void)commonInit
 {
     self.backgroundColor = [UIColor clearColor];
-    self.data = @[@1,@2,@3,@4,@5,@6,@7,@6,@5,@40,@5,@3,@1,@2,@3,@4,@5,@6,@7,@6,@5,@4,@5,@3];
 }
 
 - (void)drawRect:(CGRect)rect

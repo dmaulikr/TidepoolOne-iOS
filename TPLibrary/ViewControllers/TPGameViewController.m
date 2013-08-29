@@ -72,6 +72,8 @@
 
 -(void)getNewGame
 {
+    [self clearCurrentGame];
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading new game";
     [_oauthClient postPath:[NSString stringWithFormat:@"api/v1/users/-/games?def_id=%@", self.type] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -83,6 +85,16 @@
         [hud hide:YES];
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game"];
     }];
+}
+
+-(void)clearCurrentGame
+{
+    for (UIViewController *controller in self.childViewControllers) {
+        [controller.view removeFromSuperview];
+        [controller willMoveToParentViewController:nil];
+        [controller removeFromParentViewController];
+    }
+    self.gameObject = nil;
 }
 
 

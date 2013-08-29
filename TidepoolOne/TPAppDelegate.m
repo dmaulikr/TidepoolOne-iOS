@@ -32,8 +32,8 @@ NSString *const FBSessionStateChangedNotification =
 //    [GAI sharedInstance].debug = YES;
 //    // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
-//    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-//    [TestFlight takeOff:@"f9c7e27c-d774-4e7b-a6aa-b5f5e9551123"];
+    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
+    [TestFlight takeOff:@"f9c7e27c-d774-4e7b-a6aa-b5f5e9551123"];
     
     NSString *jsonTest = @"[{\"string\":\"test\"}]";
     NSArray *obj = [jsonTest objectFromJSONString];
@@ -66,6 +66,7 @@ NSString *const FBSessionStateChangedNotification =
     
     // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
+    NSLog(@"Config:\n%@", [config description]);
     UA_LDEBUG(@"Config:\n%@", [config description]);
     [[UAPush shared] resetBadge];
     

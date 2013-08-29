@@ -290,7 +290,7 @@
 
 - (IBAction)fitbitLoginButtonPressed:(id)sender {
     TPServiceLoginViewController *loginView = [[TPServiceLoginViewController alloc] init];
-    [self presentViewController:loginView animated:YES completion:^{
+    [self presentViewController:loginView animated:NO completion:^{
         NSLog(@"yeah");
     }];
 }

@@ -74,6 +74,11 @@
     [self.tableView reloadData];
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [_dashboardHeaderView dismissPopovers];
+}
+
 -(void)downloadResults
 {
     _numServerCallsCompleted = 0;
