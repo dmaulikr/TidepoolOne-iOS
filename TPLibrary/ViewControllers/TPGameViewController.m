@@ -25,6 +25,7 @@
     NSNumber *_gameId;
     NSNumber *_userId;
     NSMutableArray *_eventsForEachStageArray;
+    NSTimer *_pollTimeoutTimer;
 }
 @end
 
@@ -188,8 +189,11 @@
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
+            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
             [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else {
+            [_pollTimeoutTimer invalidate];
+            _pollTimeoutTimer = nil;
             _results = dataObject[@"data"];
             [hud hide:YES];
             [self showResults];
@@ -199,6 +203,15 @@
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game results"];
         [bself getNewGame];
     }];
+}
+
+
+-(void)pollTimedOut
+{
+    [_pollTimeoutTimer invalidate];
+    _pollTimeoutTimer = nil;
+    [[[UIAlertView alloc] initWithTitle:@"Server busy" message:@"The results are taking too long. The results will be populated on the dashboard later." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+    [self getNewGame];
 }
 
 -(void)pollForResultsForStatus:(NSTimer *)sender

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface TPProfileViewHeader : UIView
 
 @property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;

@@ -33,7 +33,7 @@
 
 -(void)commonInit
 {
-    [self setBackgroundImage:[UIImage imageNamed:@"btn-rect.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self setBackgroundImage:[UIImage imageNamed:@"btn-rect2.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     NSDictionary *barButtonAppearanceDict = @{UITextAttributeFont : [UIFont fontWithName:@"Karla-Regular" size:13.0],UITextAttributeTextColor : [UIColor blackColor],UITextAttributeTextShadowOffset : @0,
                                               };
     [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];

@@ -56,7 +56,7 @@
     float leftMarginLabel = 10;
     float labelHeight = 25;
     float labelWidth = 150;
-    float textFieldHeight = 25;
+    float textFieldHeight = 44;
     float textFieldWidth = 270;
     float labelDistApart = textFieldHeight + 2*kPadding + labelHeight;
     TPLabel *nameLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding, labelWidth, textFieldHeight)];
@@ -205,9 +205,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     if (!_viewDidLayout) {
-        _viewDidLayout = YES;
+//        _viewDidLayout = YES;
 //        self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + 100);
-        _scrollContentView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 750);
+        _scrollContentView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 800);
         [self.scrollView addSubview:_scrollContentView];
         [self.scrollView setContentSize:_scrollContentView.bounds.size];
     }

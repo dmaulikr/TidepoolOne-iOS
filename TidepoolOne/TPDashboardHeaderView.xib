@@ -107,7 +107,7 @@
 					<object class="IBUILabel" id="43871857">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 110}, {160, 21}}</string>
+						<string key="NSFrame">{{0, 115}, {160, 21}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1009991507"/>
@@ -136,10 +136,10 @@
 					<object class="IBUILabel" id="737578980">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 62}, {160, 21}}</string>
+						<string key="NSFrame">{{0, 63}, {160, 21}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="901956253"/>
+						<reference key="NSNextKeyView" ref="69005993"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -147,7 +147,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">Best of the Day</string>
-						<reference key="IBUITextColor" ref="142552722"/>
+						<nil key="IBUITextColor"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
@@ -158,10 +158,10 @@
 					<object class="IBUILabel" id="69005993">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{161, 62}, {159, 21}}</string>
+						<string key="NSFrame">{{161, 63}, {159, 21}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="43871857"/>
+						<reference key="NSNextKeyView" ref="901956253"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -169,7 +169,7 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">All Time Best</string>
-						<reference key="IBUITextColor" ref="142552722"/>
+						<nil key="IBUITextColor"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
 						<int key="IBUITextAlignment">1</int>
@@ -180,7 +180,7 @@
 					<object class="IBUILabel" id="269876177">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{161, 110}, {159, 21}}</string>
+						<string key="NSFrame">{{161, 115}, {159, 21}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1054783329"/>
@@ -202,10 +202,10 @@
 					<object class="IBUILabel" id="901956253">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{0, 80}, {160, 36}}</string>
+						<string key="NSFrame">{{0, 85}, {160, 36}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="69005993"/>
+						<reference key="NSNextKeyView" ref="43871857"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -216,22 +216,23 @@
 						<reference key="IBUITextColor" ref="142552722"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
+						<float key="IBUIMinimumScaleFactor">0.5</float>
+						<bool key="IBUIAdjustsLetterSpacingToFitWidth">YES</bool>
 						<int key="IBUITextAlignment">1</int>
-						<object class="IBUIFontDescription" key="IBUIFontDescription" id="29762725">
+						<object class="IBUIFontDescription" key="IBUIFontDescription" id="940232683">
 							<int key="type">1</int>
-							<double key="pointSize">30</double>
+							<double key="pointSize">42</double>
 						</object>
-						<object class="NSFont" key="IBUIFont" id="477695606">
+						<object class="NSFont" key="IBUIFont" id="261410058">
 							<string key="NSName">Helvetica</string>
-							<double key="NSSize">30</double>
+							<double key="NSSize">42</double>
 							<int key="NSfFlags">16</int>
 						</object>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 					</object>
 					<object class="IBUILabel" id="1009991507">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{161, 80}, {159, 36}}</string>
+						<string key="NSFrame">{{161, 85}, {159, 36}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="269876177"/>
@@ -245,10 +246,11 @@
 						<reference key="IBUITextColor" ref="142552722"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">0</int>
+						<float key="IBUIMinimumScaleFactor">0.5</float>
+						<bool key="IBUIAdjustsLetterSpacingToFitWidth">YES</bool>
 						<int key="IBUITextAlignment">1</int>
-						<reference key="IBUIFontDescription" ref="29762725"/>
-						<reference key="IBUIFont" ref="477695606"/>
-						<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
+						<reference key="IBUIFontDescription" ref="940232683"/>
+						<reference key="IBUIFont" ref="261410058"/>
 					</object>
 					<object class="IBUIScrollView" id="979538899">
 						<reference key="NSNextResponder" ref="1061628220"/>
@@ -275,6 +277,7 @@
 								<string key="NSFrame">{{0, 59}, {790, 125}}</string>
 								<reference key="NSSuperview" ref="979538899"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>

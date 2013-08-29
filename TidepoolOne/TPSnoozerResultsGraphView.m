@@ -111,7 +111,7 @@
     free(dashPatternArray);
     CGPathRelease(path);
     
-    _tooltipView = [[TPGraphTooltipView alloc] initWithFrame:CGRectMake(0, 0, 93, 45)];
+    _tooltipView = [[TPGraphTooltipView alloc] initWithFrame:CGRectMake(0, 0, 73, 50)];
 }
 
 -(void)imageViewWasTapped:(UITapGestureRecognizer *)sender

@@ -207,7 +207,7 @@
 							<object class="IBUITextView" id="864826396">
 								<reference key="NSNextResponder" ref="476856870"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{330, 10}, {290, 90}}</string>
+								<string key="NSFrame">{{330, 3}, {290, 90}}</string>
 								<reference key="NSSuperview" ref="476856870"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="231505686"/>
@@ -223,11 +223,11 @@
 								</object>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">1</int>
-									<double key="pointSize">14</double>
+									<double key="pointSize">15</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica</string>
-									<double key="NSSize">14</double>
+									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
@@ -504,7 +504,7 @@
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="8.CustomClassName">TPLabel</string>
 				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="82.CustomClassName">TPLabel</string>
+				<string key="82.CustomClassName">TPLabelBold</string>
 				<string key="82.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>

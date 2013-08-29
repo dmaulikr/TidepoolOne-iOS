@@ -41,7 +41,7 @@
 
 -(void)commonInit
 {
-    UIImage *image = [UIImage imageNamed:@"dash-densityflag.png"];
+    UIImage *image = [UIImage imageNamed:@"dash-densityflag2.png"];
     _legendView = [[UIImageView alloc] initWithImage:image];
     _legendView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
     _legendView.hidden = YES;

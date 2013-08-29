@@ -236,7 +236,7 @@
             }
         }
     }
-    float timeToEnd = (1.5*_timeToShow + maxTime.floatValue)/1000;
+    float timeToEnd = (1.25*_timeToShow + maxTime.floatValue)/1000;
     _timer = [NSTimer scheduledTimerWithTimeInterval:timeToEnd target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
     NSLog(@"Last clock: %f s", maxTime.floatValue/1000);
     NSLog(@"Timer for stage end after: %f s", timeToEnd);
@@ -343,7 +343,7 @@
     //    rawText = @"Hello, world. *This* is native Markdown.";
     
     // create a font attribute for emphasized text
-    UIFont *strongFont = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    UIFont *strongFont = [UIFont fontWithName:@"Karla-Bold" size:18.0];
     
     // create a color attribute for paragraph text
     UIColor *emColor = [UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0];

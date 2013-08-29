@@ -36,7 +36,7 @@
     
     int numImages = 4;
     for (int i=0;i <numImages; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tp-appwalkthrough%i.jpg",i+1]];
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"tp-appwalkthrough%i.jpg",i]];
         UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
         [walkthrough addPageWithView:imageView];
     }

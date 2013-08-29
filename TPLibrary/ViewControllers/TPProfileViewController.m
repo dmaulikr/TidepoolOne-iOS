@@ -213,13 +213,13 @@
     [self.view addSubview:_startNewGameView];
     
     float padding = 10;
-    UILabel *textLabel = [[TPLabel alloc] initWithFrame:CGRectMake(padding, 0, self.view.bounds.size.width - 2*padding, 200)];
+    UILabel *textLabel = [[TPLabel alloc] initWithFrame:CGRectMake(padding, 0, self.view.bounds.size.width - 2*padding, 150)];
     textLabel.text = @"Discover your unique personality from 60 unique personality types.";
     [_startNewGameView addSubview:textLabel];
     textLabel.textColor = [UIColor whiteColor];
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.numberOfLines = 0;
-    startPersonalityGameButton.center = CGPointMake(startPersonalityGameButton.center.x, textLabel.center.y + textLabel.bounds.size.height/2 + 50);
+    startPersonalityGameButton.center = CGPointMake(startPersonalityGameButton.center.x, textLabel.center.y + textLabel.bounds.size.height/2 + 100);
 }
 -(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
 {

@@ -18,7 +18,7 @@
         // Initialization code
         UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
         [self addSubview:backgroundImage];
-        backgroundImage.image = [UIImage imageNamed:@"historychart-bubble.png"
+        backgroundImage.image = [UIImage imageNamed:@"historychart-bubble2.png"
                                  ];
         CGRect bubbleFrame = frame;
         bubbleFrame.size.height *= 0.8;
@@ -29,7 +29,7 @@
         self.scoreLabel.textColor = [UIColor whiteColor];
 
         self.levelLabel.fontSize = 10;
-        self.scoreLabel.fontSize = 20;
+        self.scoreLabel.fontSize = 22;
         
         self.levelLabel.centered = YES;
         self.scoreLabel.centered = YES;        
