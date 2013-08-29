@@ -17,6 +17,7 @@
 {
     TPDashboardHeaderView *_dashboardHeaderView;
     int _numServerCallsCompleted;
+    NSDateFormatter *_hourFromDate;
     
 }
 @end
@@ -61,6 +62,9 @@
     
     //hack, more to model
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Got New Game Results" object:nil];
+    
+    _hourFromDate = [[NSDateFormatter alloc] init];
+    [_hourFromDate setDateFormat:@"HH"];
 }
 
 -(void)loggedIn
@@ -70,6 +74,10 @@
 
 -(void)loggedOut
 {
+    _dashboardHeaderView.allTimeBestLabel.text = @"";
+    _dashboardHeaderView.dailyBestLabel.text = @"";
+    _dashboardHeaderView.densityData = nil;
+    _dashboardHeaderView.curveGraphView.data = nil;
     self.results = nil;
     [self.tableView reloadData];
 }
@@ -163,7 +171,13 @@
 {
     [super viewDidAppear:animated];
     _dashboardHeaderView.scrollView.contentSize = CGSizeMake(790, 192);
-    _dashboardHeaderView.scrollView.contentOffset = CGPointMake(325, 0);
+    NSDate *now = [NSDate date];
+    int hour = [[_hourFromDate stringFromDate:now] floatValue];
+    float offset = 790*hour/24;
+    if (offset > (790-320)) {
+        offset = 790-320;
+    }
+    _dashboardHeaderView.scrollView.contentOffset = CGPointMake(offset, 0);
     _dashboardHeaderView.scrollView.scrollEnabled = YES;
 }
 

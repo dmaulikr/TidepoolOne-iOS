@@ -153,7 +153,6 @@
 										<int key="IBUIBaselineAdjustment">0</int>
 										<float key="IBUIMinimumScaleFactor">0.5</float>
 										<bool key="IBUIAdjustsLetterSpacingToFitWidth">YES</bool>
-										<int key="IBUINumberOfLines">0</int>
 										<int key="IBUITextAlignment">1</int>
 										<object class="IBUIFontDescription" key="IBUIFontDescription">
 											<int key="type">1</int>
@@ -164,7 +163,6 @@
 											<double key="NSSize">45</double>
 											<int key="NSfFlags">16</int>
 										</object>
-										<double key="preferredMaxLayoutWidth">88</double>
 									</object>
 									<object class="IBUILabel" id="352406415">
 										<reference key="NSNextResponder" ref="794601319"/>
@@ -1337,7 +1335,7 @@
 								<float key="scoringTypeFloat">24</float>
 								<int key="contentType">2</int>
 							</object>
-							<object class="IBNSLayoutConstraint" id="841126233">
+							<object class="IBNSLayoutConstraint" id="733634697">
 								<reference key="firstItem" ref="764576953"/>
 								<int key="firstAttribute">3</int>
 								<int key="relation">0</int>
@@ -1765,7 +1763,7 @@
 						<int key="objectID">2997</int>
 						<reference key="object" ref="764576953"/>
 						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="123465537">
+							<object class="IBNSLayoutConstraint" id="824993336">
 								<reference key="firstItem" ref="764576953"/>
 								<int key="firstAttribute">8</int>
 								<int key="relation">0</int>
@@ -1827,12 +1825,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">3043</int>
-						<reference key="object" ref="123465537"/>
+						<reference key="object" ref="824993336"/>
 						<reference key="parent" ref="764576953"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">3049</int>
-						<reference key="object" ref="841126233"/>
+						<reference key="object" ref="733634697"/>
 						<reference key="parent" ref="794601319"/>
 					</object>
 				</array>
@@ -1904,7 +1902,7 @@
 					<reference ref="667841180"/>
 					<reference ref="843011199"/>
 					<reference ref="785477518"/>
-					<reference ref="841126233"/>
+					<reference ref="733634697"/>
 					<reference ref="1042594929"/>
 					<reference ref="249094827"/>
 					<reference ref="668792388"/>
@@ -1986,7 +1984,7 @@
 				<string key="2997.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<array class="NSMutableArray" key="2997.IBViewMetadataConstraints">
 					<reference ref="361884187"/>
-					<reference ref="123465537"/>
+					<reference ref="824993336"/>
 				</array>
 				<boolean value="NO" key="2997.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="3010.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>

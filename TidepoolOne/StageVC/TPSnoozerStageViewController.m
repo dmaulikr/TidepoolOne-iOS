@@ -156,10 +156,12 @@
     int boxWidth = self.view.bounds.size.width / self.numColumns;
     _timeToShow = [self.data[@"time_to_show"] floatValue];
     NSArray *shuffledTimeline = [self generateTimelineForCorrectSequence:self.data[@"correct_color_sequence"] incorrectSequences:self.data[@"incorrect_color_sequences"] fractionIncorrect:[self.data[@"fraction_incorrect"] floatValue] timeToShow:_timeToShow minimumTimeGapFraction:[self.data[@"minimum_time_gap_fraction"] floatValue] maximumTimeGapFraction:[self.data[@"maximum_time_gap_fraction"] floatValue] numberCorrectToShow:[self.data[@"number_correct_to_show"] floatValue]];
+
     NSLog(@"generated %@", [shuffledTimeline description]);
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
             TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
+            clockView.timeToShow = _timeToShow;
             clockView.isRinging = NO;
             clockView.delegate = self;
             clockView.timeline = shuffledTimeline[self.numRows*i+j];

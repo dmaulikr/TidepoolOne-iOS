@@ -111,8 +111,9 @@
             }
             NSLog(requestString);
             return NO;
-        } else if ([requestString hasPrefix:@"ioserror"]) {
+        } else if ([requestString hasPrefix:@"ioserr"]) {
             _messageLabel.text = @"There was an error.";
+            [self personalityGameThrewError];
             return NO;
         }
 
@@ -165,7 +166,7 @@
     _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
     _webView.scrollView.bounces = NO;
 //    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://tide-dev.herokuapp.com#gameForUser/%@", [_oauthClient oauthToken]]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://alpha.tidepool.co/#gameForUser/%@", [_oauthClient oauthToken]]]];
     
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://alpha.tidepool.co#gameForUser/%@", [_oauthClient oauthToken]]]];
 //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", [_oauthClient oauthToken]]]];

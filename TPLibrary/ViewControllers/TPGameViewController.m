@@ -17,6 +17,8 @@
 #import "TPSnoozerSurveyStageViewController.h"
 #import "TPTabBarController.h"
 
+#import <UAPush.h>
+
 @interface TPGameViewController ()
 {
     TPOAuthClient *_oauthClient;
@@ -164,6 +166,7 @@
 
 -(void)showResults
 {
+    [[UAPush shared] setPushEnabled:YES];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Got New Game Results" object:nil];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSDictionary *classDictionary = @{
@@ -210,7 +213,7 @@
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
-            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
+            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
             _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else {
             [_pollTimeoutTimer invalidate];

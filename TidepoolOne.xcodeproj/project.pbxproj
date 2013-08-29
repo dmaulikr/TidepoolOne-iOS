@@ -540,6 +540,8 @@
 		A82F6A4A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
 		A82F6A5217947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A5017947064003FC088 /* InfoPlist.strings */; };
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
+		A83CA40F17CF0A3F00FD45BC /* playsnoozer-alertc@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A83CA40D17CF0A3F00FD45BC /* playsnoozer-alertc@2x~iphone.png */; };
+		A83CA41017CF0A3F00FD45BC /* playsnoozer-alertc~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A83CA40E17CF0A3F00FD45BC /* playsnoozer-alertc~iphone.png */; };
 		A83E994817C45D75008C555A /* TPTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A83E994717C45D75008C555A /* TPTextView.m */; };
 		A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */; };
 		A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */; };
@@ -1161,6 +1163,8 @@
 		A82F6A4F17947064003FC088 /* TidepoolOneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TidepoolOneTests-Info.plist"; sourceTree = "<group>"; };
 		A82F6A5117947064003FC088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
+		A83CA40D17CF0A3F00FD45BC /* playsnoozer-alertc@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playsnoozer-alertc@2x~iphone.png"; sourceTree = "<group>"; };
+		A83CA40E17CF0A3F00FD45BC /* playsnoozer-alertc~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playsnoozer-alertc~iphone.png"; sourceTree = "<group>"; };
 		A83E994617C45D75008C555A /* TPTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTextView.h; sourceTree = "<group>"; };
 		A83E994717C45D75008C555A /* TPTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTextView.m; sourceTree = "<group>"; };
 		A83FA5ED17BD970200638F61 /* TPSnoozerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerGame.h; sourceTree = "<group>"; };
@@ -1467,6 +1471,8 @@
 				A81E3AAE17CED0C600869142 /* personality backgrounds */,
 				A81E3B2517CED0C600869142 /* playsnoozer-alertb@2x~iphone.png */,
 				A81E3B2617CED0C600869142 /* playsnoozer-alertb~iphone.png */,
+				A83CA40D17CF0A3F00FD45BC /* playsnoozer-alertc@2x~iphone.png */,
+				A83CA40E17CF0A3F00FD45BC /* playsnoozer-alertc~iphone.png */,
 				A81E3B2717CED0C600869142 /* profile-header@2x~iphone.png */,
 				A81E3B2817CED0C600869142 /* profile-header~iphone.png */,
 				A81E3B2917CED0C600869142 /* settings */,
@@ -2867,6 +2873,8 @@
 				A81E3D9017CED0C700869142 /* titlebar@2x~iphone.png in Resources */,
 				A81E3D9117CED0C700869142 /* titlebar~iphone.png in Resources */,
 				A81E3D9217CED0C700869142 /* tp-snoozer-start_blueprint.png in Resources */,
+				A83CA40F17CF0A3F00FD45BC /* playsnoozer-alertc@2x~iphone.png in Resources */,
+				A83CA41017CF0A3F00FD45BC /* playsnoozer-alertc~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3113,6 +3121,8 @@
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "726D0F92-22B6-4799-845F-769754B00501";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "726D0F92-22B6-4799-845F-769754B00501";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
