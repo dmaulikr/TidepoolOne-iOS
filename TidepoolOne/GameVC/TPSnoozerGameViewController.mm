@@ -37,7 +37,37 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
     self.type = @"snoozer";
 //    self.type = @"snoozers"; //For debugging
+//    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(testForGettingData) userInfo:nil repeats:NO];
 }
+
+-(void)testForGettingData
+{
+//    [[TPOAuthClient sharedClient] getPath:@"/api/v1/users/-/sleeps.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"sucess:%@",[responseObject description]);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"errorRRRR: %@", error);
+//    }];
+//    
+//    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"sucess:%@",[responseObject description]);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"errorRRRR: %@", error);
+//    }];
+//
+//    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"sucess:%@",[responseObject description]);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"errorRRRR: %@", error);
+//    }];
+//
+//    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?daily=true" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"sucess:%@",[responseObject description]);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"errorRRRR: %@", error);
+//    }];
+
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -47,6 +77,8 @@
 {
 //    [self getNewGame];
 }
+
+
 
 
 -(void)loggedOutSignal
