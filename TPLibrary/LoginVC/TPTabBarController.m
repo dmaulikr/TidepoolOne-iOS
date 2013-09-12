@@ -83,7 +83,7 @@
             [hud hide:YES];
             _oauthClient.user = responseObject[@"data"];
             NSDictionary *personality = _oauthClient.user[@"personality"];
-            if (!personality || personality == [NSNull null]) {
+            if (!personality || personality == (NSDictionary *)[NSNull null]) {
                 _personalityVC = [[TPPersonalityGameViewController alloc] init];
                 [self presentViewController:_personalityVC animated:YES completion:^{
                 }];
@@ -95,7 +95,7 @@
         }];
     } else {
         NSDictionary *personality = _oauthClient.user[@"personality"];
-        if (!personality || personality == [NSNull null]) {
+        if (!personality || personality == (NSDictionary *)[NSNull null]) {
             _personalityVC = [[TPPersonalityGameViewController alloc] init];
             [self presentViewController:_personalityVC animated:YES completion:^{
             }];

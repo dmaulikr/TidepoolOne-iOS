@@ -24,4 +24,5 @@
 -(void)tappedClockView:(TPSnoozerClockView *)clockView correctly:(BOOL)correct;
 -(void)showedRingingClockInClockView:(TPSnoozerClockView *)clockView;
 -(void)instructionDone;
+
 @end

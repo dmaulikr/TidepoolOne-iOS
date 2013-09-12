@@ -219,7 +219,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
              if (!error) {
-                 NSLog([user description]);
                  [self getTidepoolOauthTokenInExchangeForFacebookUserInfo:user andFacebookToken:token];
              } else {
                  [self handleError:error withOptionalMessage:@"Facebook account authorization not done."];

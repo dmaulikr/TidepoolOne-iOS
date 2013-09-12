@@ -12,7 +12,6 @@
 @interface TPSnoozerGameViewController : TPGameViewController
 
 @property (strong, nonatomic) TPSnoozerGame *gameObject;
--(void)currentStageDoneWithEvents:(NSArray *)events;
 - (IBAction)playButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *gameStartView;
 

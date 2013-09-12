@@ -49,7 +49,7 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
-    NSLog(requestString);
+    NSLog(@"%@", requestString);
     
     if ([requestString hasPrefix:@"iosaction"]) {
         NSString* logString = [[requestString componentsSeparatedByString:@"iosaction://"] objectAtIndex:1];

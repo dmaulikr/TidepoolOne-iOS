@@ -14,6 +14,7 @@
 #import <AttributedMarkdown/markdown_peg.h>
 #import "TPPolarChartView.h"
 #import "TPProfileTableViewCell.h"
+#import "TPTabBarController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPProfileViewController ()
@@ -143,14 +144,14 @@
     _user = user;
     if (_user) {
         personality = _user[@"personality"];
-        if (personality && (personality != [NSNull null])) {
+        if (personality && (personality != (NSDictionary *)[NSNull null])) {
             hasData = YES;
         }
     }
     if (hasData) {
         [_startNewGameView removeFromSuperview];
         
-        TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
+        TPProfileViewHeader *profileHeaderView = (TPProfileViewHeader *)self.tableView.tableHeaderView;
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         
         self.bulletPoints = personality[@"profile_description"][@"bullet_description"];
@@ -159,7 +160,7 @@
         self.paragraphs = paragraphs;
         
         NSString *name = [_user valueForKey:@"name"];
-        if (name != [NSNull null] && [name length] != 0 && name) {
+        if (name != (NSString *)[NSNull null] && [name length] != 0 && name) {
             profileHeaderView.nameLabel.text = _user[@"name"];
         } else {
             profileHeaderView.nameLabel.text = _user[@"email"];
@@ -167,7 +168,7 @@
         profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
         profileHeaderView.personalityTypeLabel.text = [personality[@"profile_description"][@"name"] uppercaseString];
         profileHeaderView.blurbLabel.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
-        TPPolarChartView *polarChartView = profileHeaderView.chartView;
+        TPPolarChartView *polarChartView = (TPPolarChartView *)profileHeaderView.chartView;
         NSMutableArray *big5Values = [NSMutableArray array];
         NSArray *keys = @[@"openness",@"conscientiousness",@"extraversion",@"agreeableness",@"neuroticism",];
         for (NSString *key in keys) {
@@ -177,7 +178,7 @@
     } else {
         _startNewGameView.hidden = NO;
         
-        TPProfileViewHeader *profileHeaderView = self.tableView.tableHeaderView;
+        TPProfileViewHeader *profileHeaderView = (TPProfileViewHeader *)self.tableView.tableHeaderView;
         //        _imageView.image = nil;
         
         self.bulletPoints = nil;
@@ -186,7 +187,7 @@
         //        profileHeaderView.badgeImageView.image = nil;
         profileHeaderView.personalityTypeLabel.text = nil;
         profileHeaderView.blurbLabel.attributedText = nil;
-        TPPolarChartView *polarChartView = profileHeaderView.chartView;
+        TPPolarChartView *polarChartView = (TPPolarChartView *)profileHeaderView.chartView;
         polarChartView.data = nil;
     }
     [self.tableView reloadData];
@@ -205,7 +206,7 @@
     startPersonalityGameButton.center = self.view.center;
     [startPersonalityGameButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
     
-    [startPersonalityGameButton addTarget:self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
+    [startPersonalityGameButton addTarget:(TPTabBarController *)self.tabBarController action:@selector(showPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
     [startPersonalityGameButton setTitle:@"Play Game" forState:UIControlStateNormal];
     startPersonalityGameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     startPersonalityGameButton.titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -289,7 +290,6 @@
     
     
     NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPProfileViewHeader" owner:nil options:nil];
-    NSLog([nibItems description]);
     TPProfileViewHeader *profileHeaderView;
     for (id item in nibItems) {
         if ([item isKindOfClass:[TPProfileViewHeader class]]) {

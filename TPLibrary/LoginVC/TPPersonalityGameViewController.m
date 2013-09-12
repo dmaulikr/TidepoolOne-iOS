@@ -109,7 +109,7 @@
                 _loadingGameHud = nil;
 
             }
-            NSLog(requestString);
+            NSLog(@"%@", requestString);
             return NO;
         } else if ([requestString hasPrefix:@"ioserr"]) {
             _messageLabel.text = @"There was an error.";
@@ -127,16 +127,16 @@
         } else if ([messageType isEqualToString:@"finish"]) {
             [self personalityGameFinishedSuccessfully];
         } else if ([messageType isEqualToString:@"log"]) {
-            NSLog([NSString stringWithFormat:@"WEB.LOG (message):%@",jsonMessage[@"message"]]);
-            NSLog([NSString stringWithFormat:@"WEB.LOG (details):%@",jsonMessage[@"details"]]);
+            NSLog(@"WEB.LOG (message):%@",jsonMessage[@"message"]);
+            NSLog(@"WEB.LOG (details):%@",jsonMessage[@"details"]);
         } else if ([messageType isEqualToString:@"error"]) {
             _messageLabel.text = jsonMessage[@"message"];
-            NSLog([NSString stringWithFormat:@"WEB.ERROR (message):%@",jsonMessage[@"message"]]);
-            NSLog([NSString stringWithFormat:@"WEB.ERROR (details):%@",jsonMessage[@"details"]]);
+            NSLog(@"WEB.ERROR (message):%@",jsonMessage[@"message"]);
+            NSLog(@"WEB.ERROR (details):%@",jsonMessage[@"details"]);
             [self personalityGameThrewError];
         } else if ([messageType isEqualToString:@"warn"]) {
-            NSLog([NSString stringWithFormat:@"WEB.WARN (message):%@",jsonMessage[@"message"]]);
-            NSLog([NSString stringWithFormat:@"WEB.WARN (details):%@",jsonMessage[@"details"]]);
+            NSLog(@"WEB.WARN (message):%@",jsonMessage[@"message"]);
+            NSLog(@"WEB.WARN (details):%@",jsonMessage[@"details"]);
         }
         return NO;
     }
@@ -190,8 +190,8 @@
 
 -(void)testJS
 {
-    NSString *jsString = @"var iframe = document.createElement('IFRAME');var src = 'ioslog://yepps';iframe.setAttribute('src', src);document.documentElement.appendChild(iframe);";
-    NSLog([_webView stringByEvaluatingJavaScriptFromString:jsString]);
+//    NSString *jsString = @"var iframe = document.createElement('IFRAME');var src = 'ioslog://yepps';iframe.setAttribute('src', src);document.documentElement.appendChild(iframe);";
+//    NSLog([_webView stringByEvaluatingJavaScriptFromString:jsString]);
 }
 
 -(void)personalityGameFinishedSuccessfully

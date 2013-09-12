@@ -52,7 +52,6 @@
     [self.view addGestureRecognizer:tap];
     self.view.backgroundColor = [UIColor colorWithWhite:245.0/255.0 alpha:1.0];
     float kPadding = 10;
-    float leftMargin = 120;
     float leftMarginLabel = 10;
     float labelHeight = 25;
     float labelWidth = 150;
@@ -364,6 +363,11 @@
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.education.text = _educationOptions[row];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
 }
 
 @end

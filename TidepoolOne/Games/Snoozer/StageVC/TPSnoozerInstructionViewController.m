@@ -7,6 +7,7 @@
 //
 
 #import "TPSnoozerInstructionViewController.h"
+#import "TPSnoozerStageViewController.h"
 
 @interface TPSnoozerInstructionViewController ()
 
@@ -27,7 +28,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.startButton addTarget:self.stageVC action:@selector(instructionDone) forControlEvents:UIControlEventTouchUpInside];
+    [self.startButton addTarget:(TPSnoozerStageViewController *)self.stageVC action:@selector(instructionDone) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning

@@ -44,7 +44,6 @@
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
 
     NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPDashboardHeaderView" owner:nil options:nil];
-    NSLog([nibItems description]);
     for (id item in nibItems) {
         if ([item isKindOfClass:[TPDashboardHeaderView class]]) {
             _dashboardHeaderView = item;
@@ -148,7 +147,7 @@
     _user = user;
     if (_user) {
         NSArray *aggregateResults = _user[@"aggregate_results"];
-        if (aggregateResults.count && (aggregateResults != [NSNull null])) {
+        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
             NSDictionary *circadianRhythm = aggregateResults[0][@"scores"][@"circadian"];
             NSMutableArray *timesPlayedArray = [NSMutableArray array];
             NSMutableArray *scoresByHour = [NSMutableArray array];

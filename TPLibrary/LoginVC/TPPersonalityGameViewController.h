@@ -14,7 +14,7 @@
 
 @end
 
-@interface TPPersonalityGameViewController : UIViewController
+@interface TPPersonalityGameViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, weak) id<TPPersonalityGameViewControllerDelegate> delegate;
 

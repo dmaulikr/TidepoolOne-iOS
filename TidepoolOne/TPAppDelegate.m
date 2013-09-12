@@ -32,6 +32,7 @@ NSString *const FBSessionStateChangedNotification =
 //    [GAI sharedInstance].debug = YES;
 //    // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
+    NSLog(@"%@", [tracker description]);
 //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
 //    [TestFlight takeOff:@"f9c7e27c-d774-4e7b-a6aa-b5f5e9551123"];
     
@@ -196,7 +197,6 @@ NSString *const FBSessionStateChangedNotification =
                                               permissions:@[@"basic_info", @"email"]
                                           urlSchemeSuffix:nil
                                        tokenCacheStrategy:_tokenCaching];
-    session.accessTokenData;
     // If showing the login UI, or if a cached token is available,
     // then open the session.
     if (allowLoginUI || session.state == FBSessionStateCreatedTokenLoaded) {

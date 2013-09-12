@@ -29,7 +29,6 @@
 		A82F6A5217947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A5017947064003FC088 /* InfoPlist.strings */; };
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
-		A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */; };
 		A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A317A888C20082A455 /* TPLoginViewController.m */; };
@@ -595,6 +594,9 @@
 		A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA017E2631400A3C95B /* TPPolarChartView.m */; };
 		A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA317E2631400A3C95B /* TPCircadianTooltipView.m */; };
 		A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA517E2631400A3C95B /* TPGraphTooltipView.m */; };
+		A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAAD17E263DE00A3C95B /* TPWalkthroughViewController.m */; };
+		A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */; };
+		A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -643,8 +645,6 @@
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
 		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
-		A84E11D817CC530A007642C1 /* TPWalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWalkthroughViewController.h; sourceTree = "<group>"; };
-		A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWalkthroughViewController.m; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A879A6A217A888C20082A455 /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
@@ -1246,6 +1246,10 @@
 		A8BABAA317E2631400A3C95B /* TPCircadianTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCircadianTooltipView.m; sourceTree = "<group>"; };
 		A8BABAA417E2631400A3C95B /* TPGraphTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGraphTooltipView.h; sourceTree = "<group>"; };
 		A8BABAA517E2631400A3C95B /* TPGraphTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGraphTooltipView.m; sourceTree = "<group>"; };
+		A8BABAAC17E263DE00A3C95B /* TPWalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWalkthroughViewController.h; sourceTree = "<group>"; };
+		A8BABAAD17E263DE00A3C95B /* TPWalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWalkthroughViewController.m; sourceTree = "<group>"; };
+		A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1253,6 +1257,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */,
+				A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */,
 				A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */,
 				A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */,
 				A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */,
@@ -1323,6 +1329,8 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */,
+				A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */,
 				A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */,
 				A897427117971BB7000CFD4F /* QuartzCore.framework */,
 				A897426F17971BAE000CFD4F /* AVFoundation.framework */,
@@ -1341,7 +1349,7 @@
 				A8BABA4217E2615A00A3C95B /* Profile */,
 				A8BABA8B17E262CC00A3C95B /* Dashboard */,
 				A8BABA5617E2616700A3C95B /* Games */,
-				A84E11D517CC490A007642C1 /* Walkthrough */,
+				A8BABAAB17E263DE00A3C95B /* Walkthrough */,
 				A8BABA9917E2631400A3C95B /* Views */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
@@ -1388,15 +1396,6 @@
 				A835B72D17E23DAD00775E38 /* TPUser.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		A84E11D517CC490A007642C1 /* Walkthrough */ = {
-			isa = PBXGroup;
-			children = (
-				A84E11D817CC530A007642C1 /* TPWalkthroughViewController.h */,
-				A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */,
-			);
-			name = Walkthrough;
 			sourceTree = "<group>";
 		};
 		A879A6A017A888C20082A455 /* TPLibrary */ = {
@@ -2294,6 +2293,15 @@
 			path = TooltipViews;
 			sourceTree = "<group>";
 		};
+		A8BABAAB17E263DE00A3C95B /* Walkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABAAC17E263DE00A3C95B /* TPWalkthroughViewController.h */,
+				A8BABAAD17E263DE00A3C95B /* TPWalkthroughViewController.m */,
+			);
+			path = Walkthrough;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2967,7 +2975,6 @@
 				A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */,
 				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
 				A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */,
-				A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */,
 				A825EFD317E2373B00DCAAF2 /* TPBarButtonItem.m in Sources */,
 				A825EFD417E2373B00DCAAF2 /* TPButton.m in Sources */,
 				A825EFD517E2373B00DCAAF2 /* TPLabel.m in Sources */,
@@ -3003,6 +3010,7 @@
 				A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */,
 				A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */,
 				A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */,
+				A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -82,7 +82,6 @@
         NSLog(@"got game succesffully");
         [hud hide:YES];
         self.gameObject = responseObject[@"data"];
-        NSLog([self.gameObject description]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
         [_oauthClient handleError:error withOptionalMessage:@"Unable to get game"];
@@ -140,7 +139,6 @@
     [stageLog setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
     [stageLog setValue:events forKey:@"events"];
     [stageLog setValue:currentVC.type forKey:@"event_type"];
-    NSLog([stageLog description]);
     //start------wrap events into global array
     [_eventsForEachStageArray addObject:stageLog];
     //next stage
@@ -213,8 +211,8 @@
         NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
-            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
-            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
+            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:bself selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
+            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:bself selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else {
             [_pollTimeoutTimer invalidate];
             _pollTimeoutTimer = nil;
@@ -252,9 +250,9 @@
         NSDictionary *dataObject = JSON;
         NSString *state = dataObject[@"status"][@"state"];
         if ([state isEqualToString:@"pending"]) {
-            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
+            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:bself selector:@selector(pollForResultsForStatus:) userInfo:dataObject repeats:NO];
         } else if ([state isEqualToString:@"done"]) {
-            [self getResults];
+            [bself getResults];
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *data, NSError *error, id JSON) {
         NSLog(@"f:%@", [data description]);
@@ -280,8 +278,8 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"error:%@", [error description]);
         [_oauthClient handleError:error withOptionalMessage:@"Error submitting performance"];
-        [self clearCurrentGame];
-        self.gameStartView.hidden = NO;
+        [bself clearCurrentGame];
+        bself.gameStartView.hidden = NO;
     }];
 }
 

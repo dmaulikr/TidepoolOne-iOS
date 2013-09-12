@@ -56,7 +56,6 @@
     float padding = 10;
     float barWidth = 20;
     float barMaxHeight = rect.size.height - 2 * padding;
-    float barMinHeight = 20;
     float distanceBetweenBars = 10;
     
     float maxData = [[self.data valueForKeyPath:@"@max.floatValue"] floatValue];
