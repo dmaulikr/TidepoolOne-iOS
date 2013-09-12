@@ -10,16 +10,6 @@
 		40FE9C691B2B410E9541EC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE9E0A1B4814CD7AD31BA9A /* libPods.a */; };
 		A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */; };
 		A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */; };
-		A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477617AE1323009959DA /* TPSnoozerResultViewController.m */; };
-		A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */; };
-		A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */; };
-		A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */; };
-		A819479617B020F1009959DA /* TPDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479517B020F1009959DA /* TPDashboardViewController.m */; };
-		A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */; };
-		A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */; };
-		A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */; };
-		A819481617B087CB009959DA /* TPGraphTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A819481517B087CB009959DA /* TPGraphTooltipView.m */; };
-		A81E327C17CEAB0900869142 /* TPCircadianTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81E327B17CEAB0800869142 /* TPCircadianTooltipView.m */; };
 		A825EFD317E2373B00DCAAF2 /* TPBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A825EFC817E2373B00DCAAF2 /* TPBarButtonItem.m */; };
 		A825EFD417E2373B00DCAAF2 /* TPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A825EFCA17E2373B00DCAAF2 /* TPButton.m */; };
 		A825EFD517E2373B00DCAAF2 /* TPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A825EFCC17E2373B00DCAAF2 /* TPLabel.m */; };
@@ -39,21 +29,9 @@
 		A82F6A5217947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A5017947064003FC088 /* InfoPlist.strings */; };
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
-		A835B73117E23EE000775E38 /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B73017E23EE000775E38 /* TPBarGraphView.m */; };
-		A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */; };
 		A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */; };
-		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
-		A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A852856317B4016D0057954F /* TPProfileTableViewCell.xib */; };
-		A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A852856617B401810057954F /* TPProfileTableViewCell.m */; };
-		A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
-		A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */; };
-		A8680BDF17C8168800FA0AA8 /* TPDashboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */; };
 		A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */; };
-		A879A64D17A870940082A455 /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64C17A870940082A455 /* CGHelper.m */; };
-		A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */; };
-		A879A66217A871220082A455 /* TPCirclesDistanceView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65B17A871220082A455 /* TPCirclesDistanceView.m */; };
-		A879A66417A871220082A455 /* TPOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65F17A871220082A455 /* TPOverlayView.m */; };
 		A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A317A888C20082A455 /* TPLoginViewController.m */; };
 		A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A517A888C20082A455 /* TPServiceLoginViewController.m */; };
 		A879A6BF17A888C20082A455 /* TPOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A817A888C20082A455 /* TPOAuthClient.m */; };
@@ -61,19 +39,8 @@
 		A879A6C117A888C20082A455 /* TPUploadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AC17A888C20082A455 /* TPUploadQueue.m */; };
 		A879A6C217A888C20082A455 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AF17A888C20082A455 /* Singleton.m */; };
 		A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */; };
-		A879A6C517A888C20082A455 /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B617A888C20082A455 /* TPGameViewController.m */; };
-		A879A6C617A888C20082A455 /* TPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B817A888C20082A455 /* TPResultViewController.m */; };
-		A879A6C717A888C20082A455 /* TPStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6BA17A888C20082A455 /* TPStageViewController.m */; };
-		A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.mm */; };
-		A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */; };
-		A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A87E703517AC3C60001605DF /* TPSnoozerClockView.m */; };
-		A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */; };
-		A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */; };
-		A893FB4217C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */; };
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
-		A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */; };
-		A89D96E017BAB36A000146E8 /* TPSnoozerInstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */; };
 		A8A2430817D0130D00E9643F /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A240F217D0130C00E9643F /* Icon-72.png */; };
 		A8A2430917D0130D00E9643F /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A240F317D0130C00E9643F /* Icon-72@2x.png */; };
 		A8A2430A17D0130D00E9643F /* Icon-Small-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A8A240F417D0130C00E9643F /* Icon-Small-50.png */; };
@@ -592,10 +559,42 @@
 		A8A2450B17D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430617D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg */; };
 		A8A2450C17D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */; };
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
-		A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */; };
-		A8DD649C17B1D2850040BD90 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */; };
-		A8DD649F17B1D4650040BD90 /* TPProfileViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649E17B1D4650040BD90 /* TPProfileViewHeader.m */; };
-		A8DD64A317B1DB260040BD90 /* TPProfileViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DD64A217B1DB260040BD90 /* TPProfileViewHeader.xib */; };
+		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
+		A8BABA4117E2615000A3C95B /* TPPersonalityWebGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4017E2615000A3C95B /* TPPersonalityWebGameViewController.m */; };
+		A8BABA4F17E2615A00A3C95B /* TPProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPProfileEditViewController.m */; };
+		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
+		A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */; };
+		A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4917E2615A00A3C95B /* TPProfileViewController.m */; };
+		A8BABA5317E2615A00A3C95B /* TPProfileViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4B17E2615A00A3C95B /* TPProfileViewHeader.m */; };
+		A8BABA5417E2615A00A3C95B /* TPProfileViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4C17E2615A00A3C95B /* TPProfileViewHeader.xib */; };
+		A8BABA5517E2615A00A3C95B /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4E17E2615A00A3C95B /* TPSettingsViewController.m */; };
+		A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5817E2616700A3C95B /* TPGameViewController.m */; };
+		A8BABA6117E2616700A3C95B /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */; };
+		A8BABA6217E2616700A3C95B /* TPResultsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */; };
+		A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5D17E2616700A3C95B /* TPResultViewController.m */; };
+		A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5F17E2616700A3C95B /* TPStageViewController.m */; };
+		A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA6717E261C500A3C95B /* TPSnoozerClockView.m */; };
+		A8BABA6B17E261C500A3C95B /* TPSnoozerResultsGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA6917E261C500A3C95B /* TPSnoozerResultsGraphView.m */; };
+		A8BABA7217E261FC00A3C95B /* TPSnoozerGameViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA6E17E261FC00A3C95B /* TPSnoozerGameViewController.mm */; };
+		A8BABA7317E261FC00A3C95B /* TPSnoozerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA7117E261FC00A3C95B /* TPSnoozerGame.m */; };
+		A8BABA7F17E2625C00A3C95B /* TPSnoozerInstructionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA7617E2625C00A3C95B /* TPSnoozerInstructionViewController.m */; };
+		A8BABA8017E2625C00A3C95B /* TPSnoozerInstructionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA7717E2625C00A3C95B /* TPSnoozerInstructionViewController.xib */; };
+		A8BABA8117E2625C00A3C95B /* TPSnoozerStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA7917E2625C00A3C95B /* TPSnoozerStageViewController.m */; };
+		A8BABA8217E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA7B17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m */; };
+		A8BABA8317E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA7C17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib */; };
+		A8BABA8417E2625C00A3C95B /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */; };
+		A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA8717E2629A00A3C95B /* TPSnoozerResultViewController.m */; };
+		A8BABA8A17E2629A00A3C95B /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA8817E2629A00A3C95B /* TPSnoozerResultViewController.xib */; };
+		A8BABA9417E262CC00A3C95B /* TPDashboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA8D17E262CC00A3C95B /* TPDashboardHeaderView.m */; };
+		A8BABA9517E262CC00A3C95B /* TPDashboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA8E17E262CC00A3C95B /* TPDashboardHeaderView.xib */; };
+		A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */; };
+		A8BABA9717E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9217E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.m */; };
+		A8BABA9817E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA9317E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.xib */; };
+		A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9C17E2631400A3C95B /* TPBarGraphView.m */; };
+		A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9E17E2631400A3C95B /* TPCurveGraphView.m */; };
+		A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA017E2631400A3C95B /* TPPolarChartView.m */; };
+		A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA317E2631400A3C95B /* TPCircadianTooltipView.m */; };
+		A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA517E2631400A3C95B /* TPGraphTooltipView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -614,23 +613,6 @@
 		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A816447E17BED70E00EE6E76 /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
 		A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
-		A819477517AE1323009959DA /* TPSnoozerResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultViewController.h; sourceTree = "<group>"; };
-		A819477617AE1323009959DA /* TPSnoozerResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultViewController.m; sourceTree = "<group>"; };
-		A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultViewController.xib; sourceTree = "<group>"; };
-		A819478F17B01FEF009959DA /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
-		A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
-		A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPResultsHistoryViewController.xib; sourceTree = "<group>"; };
-		A819479417B020F1009959DA /* TPDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardViewController.h; sourceTree = "<group>"; };
-		A819479517B020F1009959DA /* TPDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardViewController.m; sourceTree = "<group>"; };
-		A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultsHistoryWidget.xib; sourceTree = "<group>"; };
-		A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryWidget.h; sourceTree = "<group>"; };
-		A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryWidget.m; sourceTree = "<group>"; };
-		A819479F17B05990009959DA /* TPSnoozerResultsGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsGraphView.h; sourceTree = "<group>"; };
-		A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsGraphView.m; sourceTree = "<group>"; };
-		A819481417B087CB009959DA /* TPGraphTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGraphTooltipView.h; sourceTree = "<group>"; };
-		A819481517B087CB009959DA /* TPGraphTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGraphTooltipView.m; sourceTree = "<group>"; };
-		A81E327A17CEAB0700869142 /* TPCircadianTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircadianTooltipView.h; sourceTree = "<group>"; };
-		A81E327B17CEAB0800869142 /* TPCircadianTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCircadianTooltipView.m; sourceTree = "<group>"; };
 		A825EFC717E2373B00DCAAF2 /* TPBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBarButtonItem.h; sourceTree = "<group>"; };
 		A825EFC817E2373B00DCAAF2 /* TPBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBarButtonItem.m; sourceTree = "<group>"; };
 		A825EFC917E2373B00DCAAF2 /* TPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPButton.h; sourceTree = "<group>"; };
@@ -661,32 +643,10 @@
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
 		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
-		A835B72F17E23EE000775E38 /* TPBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPBarGraphView.h; path = Views/TPBarGraphView.h; sourceTree = "<group>"; };
-		A835B73017E23EE000775E38 /* TPBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPBarGraphView.m; path = Views/TPBarGraphView.m; sourceTree = "<group>"; };
-		A83FA5ED17BD970200638F61 /* TPSnoozerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerGame.h; sourceTree = "<group>"; };
-		A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerGame.m; sourceTree = "<group>"; };
 		A84E11D817CC530A007642C1 /* TPWalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWalkthroughViewController.h; sourceTree = "<group>"; };
 		A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWalkthroughViewController.m; sourceTree = "<group>"; };
-		A852855917B31DEF0057954F /* TPPolarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPolarChartView.h; sourceTree = "<group>"; };
-		A852855A17B31DEF0057954F /* TPPolarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPolarChartView.m; sourceTree = "<group>"; };
-		A852856317B4016D0057954F /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
-		A852856517B401810057954F /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
-		A852856617B401810057954F /* TPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewCell.m; sourceTree = "<group>"; };
-		A85289F617CD230F005DE9F2 /* TPCurveGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCurveGraphView.h; sourceTree = "<group>"; };
-		A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCurveGraphView.m; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
-		A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardHeaderView.h; sourceTree = "<group>"; };
-		A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardHeaderView.m; sourceTree = "<group>"; };
-		A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPDashboardHeaderView.xib; sourceTree = "<group>"; };
 		A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		A879A64B17A870940082A455 /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGHelper.h; path = Helper/CGHelper.h; sourceTree = "<group>"; };
-		A879A64C17A870940082A455 /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGHelper.m; path = Helper/CGHelper.m; sourceTree = "<group>"; };
-		A879A65517A870FA0082A455 /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSurveyStageViewController.h; path = StageVC/TPSurveyStageViewController.h; sourceTree = "<group>"; };
-		A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSurveyStageViewController.m; path = StageVC/TPSurveyStageViewController.m; sourceTree = "<group>"; };
-		A879A65A17A871220082A455 /* TPCirclesDistanceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCirclesDistanceView.h; path = Views/TPCirclesDistanceView.h; sourceTree = "<group>"; };
-		A879A65B17A871220082A455 /* TPCirclesDistanceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPCirclesDistanceView.m; path = Views/TPCirclesDistanceView.m; sourceTree = "<group>"; };
-		A879A65E17A871220082A455 /* TPOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPOverlayView.h; path = Views/TPOverlayView.h; sourceTree = "<group>"; };
-		A879A65F17A871220082A455 /* TPOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPOverlayView.m; path = Views/TPOverlayView.m; sourceTree = "<group>"; };
 		A879A6A217A888C20082A455 /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
 		A879A6A317A888C20082A455 /* TPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
 		A879A6A417A888C20082A455 /* TPServiceLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPServiceLoginViewController.h; sourceTree = "<group>"; };
@@ -701,28 +661,8 @@
 		A879A6AF17A888C20082A455 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		A879A6B017A888C20082A455 /* TPLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocalNotificationManager.h; sourceTree = "<group>"; };
 		A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocalNotificationManager.m; sourceTree = "<group>"; };
-		A879A6B517A888C20082A455 /* TPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGameViewController.h; sourceTree = "<group>"; };
-		A879A6B617A888C20082A455 /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
-		A879A6B717A888C20082A455 /* TPResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultViewController.h; sourceTree = "<group>"; };
-		A879A6B817A888C20082A455 /* TPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultViewController.m; sourceTree = "<group>"; };
-		A879A6B917A888C20082A455 /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
-		A879A6BA17A888C20082A455 /* TPStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPStageViewController.m; sourceTree = "<group>"; };
-		A87E6FFC17AB27B6001605DF /* TPSnoozerGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerGameViewController.h; path = GameVC/TPSnoozerGameViewController.h; sourceTree = "<group>"; };
-		A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TPSnoozerGameViewController.mm; path = GameVC/TPSnoozerGameViewController.mm; sourceTree = "<group>"; };
-		A87E6FFF17AB2916001605DF /* TPSnoozerStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSnoozerStageViewController.h; path = StageVC/TPSnoozerStageViewController.h; sourceTree = "<group>"; };
-		A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSnoozerStageViewController.m; path = StageVC/TPSnoozerStageViewController.m; sourceTree = "<group>"; };
-		A87E703417AC3C60001605DF /* TPSnoozerClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerClockView.h; sourceTree = "<group>"; };
-		A87E703517AC3C60001605DF /* TPSnoozerClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerClockView.m; sourceTree = "<group>"; };
-		A893FB3B17C28E2B00A176DB /* TPProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileEditViewController.h; sourceTree = "<group>"; };
-		A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileEditViewController.m; sourceTree = "<group>"; };
-		A893FB3E17C2B33900A176DB /* TPSnoozerSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerSurveyStageViewController.h; sourceTree = "<group>"; };
-		A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerSurveyStageViewController.m; sourceTree = "<group>"; };
-		A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerSurveyStageViewController.xib; sourceTree = "<group>"; };
 		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerInstructionViewController.h; sourceTree = "<group>"; };
-		A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerInstructionViewController.m; sourceTree = "<group>"; };
-		A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerInstructionViewController.xib; sourceTree = "<group>"; };
 		A8A240F217D0130C00E9643F /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		A8A240F317D0130C00E9643F /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		A8A240F417D0130C00E9643F /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
@@ -1242,13 +1182,70 @@
 		A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
 		A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
-		A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
-		A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
-		A8DD649A17B1D2840040BD90 /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
-		A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewController.m; sourceTree = "<group>"; };
-		A8DD649D17B1D4650040BD90 /* TPProfileViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewHeader.h; sourceTree = "<group>"; };
-		A8DD649E17B1D4650040BD90 /* TPProfileViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewHeader.m; sourceTree = "<group>"; };
-		A8DD64A217B1DB260040BD90 /* TPProfileViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileViewHeader.xib; sourceTree = "<group>"; };
+		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
+		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
+		A8BABA3F17E2615000A3C95B /* TPPersonalityWebGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityWebGameViewController.h; sourceTree = "<group>"; };
+		A8BABA4017E2615000A3C95B /* TPPersonalityWebGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityWebGameViewController.m; sourceTree = "<group>"; };
+		A8BABA4317E2615A00A3C95B /* TPProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileEditViewController.h; sourceTree = "<group>"; };
+		A8BABA4417E2615A00A3C95B /* TPProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileEditViewController.m; sourceTree = "<group>"; };
+		A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
+		A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewCell.m; sourceTree = "<group>"; };
+		A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
+		A8BABA4817E2615A00A3C95B /* TPProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewController.h; sourceTree = "<group>"; };
+		A8BABA4917E2615A00A3C95B /* TPProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewController.m; sourceTree = "<group>"; };
+		A8BABA4A17E2615A00A3C95B /* TPProfileViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileViewHeader.h; sourceTree = "<group>"; };
+		A8BABA4B17E2615A00A3C95B /* TPProfileViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileViewHeader.m; sourceTree = "<group>"; };
+		A8BABA4C17E2615A00A3C95B /* TPProfileViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileViewHeader.xib; sourceTree = "<group>"; };
+		A8BABA4D17E2615A00A3C95B /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
+		A8BABA4E17E2615A00A3C95B /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
+		A8BABA5717E2616700A3C95B /* TPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGameViewController.h; sourceTree = "<group>"; };
+		A8BABA5817E2616700A3C95B /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
+		A8BABA5917E2616700A3C95B /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
+		A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
+		A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPResultsHistoryViewController.xib; sourceTree = "<group>"; };
+		A8BABA5C17E2616700A3C95B /* TPResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultViewController.h; sourceTree = "<group>"; };
+		A8BABA5D17E2616700A3C95B /* TPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultViewController.m; sourceTree = "<group>"; };
+		A8BABA5E17E2616700A3C95B /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
+		A8BABA5F17E2616700A3C95B /* TPStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPStageViewController.m; sourceTree = "<group>"; };
+		A8BABA6617E261C500A3C95B /* TPSnoozerClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerClockView.h; sourceTree = "<group>"; };
+		A8BABA6717E261C500A3C95B /* TPSnoozerClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerClockView.m; sourceTree = "<group>"; };
+		A8BABA6817E261C500A3C95B /* TPSnoozerResultsGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsGraphView.h; sourceTree = "<group>"; };
+		A8BABA6917E261C500A3C95B /* TPSnoozerResultsGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsGraphView.m; sourceTree = "<group>"; };
+		A8BABA6D17E261FC00A3C95B /* TPSnoozerGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerGameViewController.h; sourceTree = "<group>"; };
+		A8BABA6E17E261FC00A3C95B /* TPSnoozerGameViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TPSnoozerGameViewController.mm; sourceTree = "<group>"; };
+		A8BABA7017E261FC00A3C95B /* TPSnoozerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerGame.h; sourceTree = "<group>"; };
+		A8BABA7117E261FC00A3C95B /* TPSnoozerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerGame.m; sourceTree = "<group>"; };
+		A8BABA7517E2625C00A3C95B /* TPSnoozerInstructionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerInstructionViewController.h; sourceTree = "<group>"; };
+		A8BABA7617E2625C00A3C95B /* TPSnoozerInstructionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerInstructionViewController.m; sourceTree = "<group>"; };
+		A8BABA7717E2625C00A3C95B /* TPSnoozerInstructionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerInstructionViewController.xib; sourceTree = "<group>"; };
+		A8BABA7817E2625C00A3C95B /* TPSnoozerStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerStageViewController.h; sourceTree = "<group>"; };
+		A8BABA7917E2625C00A3C95B /* TPSnoozerStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerStageViewController.m; sourceTree = "<group>"; };
+		A8BABA7A17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerSurveyStageViewController.h; sourceTree = "<group>"; };
+		A8BABA7B17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerSurveyStageViewController.m; sourceTree = "<group>"; };
+		A8BABA7C17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerSurveyStageViewController.xib; sourceTree = "<group>"; };
+		A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyStageViewController.h; sourceTree = "<group>"; };
+		A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyStageViewController.m; sourceTree = "<group>"; };
+		A8BABA8617E2629A00A3C95B /* TPSnoozerResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultViewController.h; sourceTree = "<group>"; };
+		A8BABA8717E2629A00A3C95B /* TPSnoozerResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultViewController.m; sourceTree = "<group>"; };
+		A8BABA8817E2629A00A3C95B /* TPSnoozerResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultViewController.xib; sourceTree = "<group>"; };
+		A8BABA8C17E262CC00A3C95B /* TPDashboardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardHeaderView.h; sourceTree = "<group>"; };
+		A8BABA8D17E262CC00A3C95B /* TPDashboardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardHeaderView.m; sourceTree = "<group>"; };
+		A8BABA8E17E262CC00A3C95B /* TPDashboardHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPDashboardHeaderView.xib; sourceTree = "<group>"; };
+		A8BABA8F17E262CC00A3C95B /* TPDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardViewController.h; sourceTree = "<group>"; };
+		A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardViewController.m; sourceTree = "<group>"; };
+		A8BABA9117E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryWidget.h; sourceTree = "<group>"; };
+		A8BABA9217E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryWidget.m; sourceTree = "<group>"; };
+		A8BABA9317E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultsHistoryWidget.xib; sourceTree = "<group>"; };
+		A8BABA9B17E2631400A3C95B /* TPBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBarGraphView.h; sourceTree = "<group>"; };
+		A8BABA9C17E2631400A3C95B /* TPBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBarGraphView.m; sourceTree = "<group>"; };
+		A8BABA9D17E2631400A3C95B /* TPCurveGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCurveGraphView.h; sourceTree = "<group>"; };
+		A8BABA9E17E2631400A3C95B /* TPCurveGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCurveGraphView.m; sourceTree = "<group>"; };
+		A8BABA9F17E2631400A3C95B /* TPPolarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPolarChartView.h; sourceTree = "<group>"; };
+		A8BABAA017E2631400A3C95B /* TPPolarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPolarChartView.m; sourceTree = "<group>"; };
+		A8BABAA217E2631400A3C95B /* TPCircadianTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircadianTooltipView.h; sourceTree = "<group>"; };
+		A8BABAA317E2631400A3C95B /* TPCircadianTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCircadianTooltipView.m; sourceTree = "<group>"; };
+		A8BABAA417E2631400A3C95B /* TPGraphTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGraphTooltipView.h; sourceTree = "<group>"; };
+		A8BABAA517E2631400A3C95B /* TPGraphTooltipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGraphTooltipView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1305,6 +1302,7 @@
 				A825EFC617E2373B00DCAAF2 /* UIKit Customization */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
 				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
+				A8BABA2F17E2605F00A3C95B /* Helper */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
 				A82F6A4D17947064003FC088 /* TidepoolOneTests */,
 				A82F6A2417947064003FC088 /* Frameworks */,
@@ -1340,15 +1338,11 @@
 		A82F6A2B17947064003FC088 /* TidepoolOne */ = {
 			isa = PBXGroup;
 			children = (
+				A8BABA4217E2615A00A3C95B /* Profile */,
+				A8BABA8B17E262CC00A3C95B /* Dashboard */,
+				A8BABA5617E2616700A3C95B /* Games */,
 				A84E11D517CC490A007642C1 /* Walkthrough */,
-				A8BD1DF5179F030300A7E26C /* Helper */,
-				A852856317B4016D0057954F /* TPProfileTableViewCell.xib */,
-				A852856517B401810057954F /* TPProfileTableViewCell.h */,
-				A852856617B401810057954F /* TPProfileTableViewCell.m */,
-				A86C2CC317A1AFFA00A5290E /* ResultVC */,
-				A8BD1E0C17A0452C00A7E26C /* Views */,
-				A8BD1DF6179F032700A7E26C /* StageVC */,
-				A89B97D417A099AE006815A6 /* GameVC */,
+				A8BABA9917E2631400A3C95B /* Views */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
 				A82F6A4017947064003FC088 /* Images.xcassets */,
@@ -1405,21 +1399,6 @@
 			name = Walkthrough;
 			sourceTree = "<group>";
 		};
-		A86C2CC317A1AFFA00A5290E /* ResultVC */ = {
-			isa = PBXGroup;
-			children = (
-				A819477517AE1323009959DA /* TPSnoozerResultViewController.h */,
-				A819477617AE1323009959DA /* TPSnoozerResultViewController.m */,
-				A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */,
-				A819479417B020F1009959DA /* TPDashboardViewController.h */,
-				A819479517B020F1009959DA /* TPDashboardViewController.m */,
-				A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */,
-				A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */,
-				A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */,
-			);
-			name = ResultVC;
-			sourceTree = "<group>";
-		};
 		A879A6A017A888C20082A455 /* TPLibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -1427,7 +1406,7 @@
 				A879A6A117A888C20082A455 /* LoginVC */,
 				A879A6A617A888C20082A455 /* Networking */,
 				A879A6AD17A888C20082A455 /* Singletons */,
-				A879A6B217A888C20082A455 /* ViewControllers */,
+				A8BABA3E17E2615000A3C95B /* Personality */,
 			);
 			path = TPLibrary;
 			sourceTree = "<group>";
@@ -1469,39 +1448,6 @@
 				A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */,
 			);
 			path = Singletons;
-			sourceTree = "<group>";
-		};
-		A879A6B217A888C20082A455 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				A893FB3B17C28E2B00A176DB /* TPProfileEditViewController.h */,
-				A893FB3C17C28E2B00A176DB /* TPProfileEditViewController.m */,
-				A879A6B517A888C20082A455 /* TPGameViewController.h */,
-				A879A6B617A888C20082A455 /* TPGameViewController.m */,
-				A879A6B717A888C20082A455 /* TPResultViewController.h */,
-				A879A6B817A888C20082A455 /* TPResultViewController.m */,
-				A819478F17B01FEF009959DA /* TPResultsHistoryViewController.h */,
-				A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */,
-				A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */,
-				A879A6B917A888C20082A455 /* TPStageViewController.h */,
-				A879A6BA17A888C20082A455 /* TPStageViewController.m */,
-				A8DD649A17B1D2840040BD90 /* TPProfileViewController.h */,
-				A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */,
-				A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */,
-				A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		A89B97D417A099AE006815A6 /* GameVC */ = {
-			isa = PBXGroup;
-			children = (
-				A87E6FFC17AB27B6001605DF /* TPSnoozerGameViewController.h */,
-				A87E6FFD17AB27B6001605DF /* TPSnoozerGameViewController.mm */,
-				A83FA5ED17BD970200638F61 /* TPSnoozerGame.h */,
-				A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */,
-			);
-			name = GameVC;
 			sourceTree = "<group>";
 		};
 		A8A240F017D0130C00E9643F /* Resources */ = {
@@ -2172,61 +2118,180 @@
 			path = walkthrough;
 			sourceTree = "<group>";
 		};
-		A8BD1DF5179F030300A7E26C /* Helper */ = {
+		A8BABA2C17E2600900A3C95B /* Snoozer */ = {
 			isa = PBXGroup;
 			children = (
-				A879A64B17A870940082A455 /* CGHelper.h */,
-				A879A64C17A870940082A455 /* CGHelper.m */,
+				A8BABA6517E261C500A3C95B /* Views */,
+				A8BABA6C17E261FC00A3C95B /* GameVC */,
+				A8BABA6F17E261FC00A3C95B /* Models */,
+				A8BABA8517E2629A00A3C95B /* ResultVC */,
+				A8BABA7417E2625C00A3C95B /* StageVC */,
 			);
-			name = Helper;
+			name = Snoozer;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		A8BD1DF6179F032700A7E26C /* StageVC */ = {
+		A8BABA2F17E2605F00A3C95B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				A87E6FFF17AB2916001605DF /* TPSnoozerStageViewController.h */,
-				A87E700017AB2916001605DF /* TPSnoozerStageViewController.m */,
-				A89D96DC17BAB36A000146E8 /* TPSnoozerInstructionViewController.h */,
-				A89D96DD17BAB36A000146E8 /* TPSnoozerInstructionViewController.m */,
-				A89D96DE17BAB36A000146E8 /* TPSnoozerInstructionViewController.xib */,
-				A893FB3E17C2B33900A176DB /* TPSnoozerSurveyStageViewController.h */,
-				A893FB3F17C2B33900A176DB /* TPSnoozerSurveyStageViewController.m */,
-				A893FB4017C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib */,
-				A879A65517A870FA0082A455 /* TPSurveyStageViewController.h */,
-				A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */,
+				A8BABA3017E2605F00A3C95B /* CGHelper.h */,
+				A8BABA3117E2605F00A3C95B /* CGHelper.m */,
 			);
-			name = StageVC;
+			path = Helper;
 			sourceTree = "<group>";
 		};
-		A8BD1E0C17A0452C00A7E26C /* Views */ = {
+		A8BABA3E17E2615000A3C95B /* Personality */ = {
 			isa = PBXGroup;
 			children = (
-				A835B72F17E23EE000775E38 /* TPBarGraphView.h */,
-				A835B73017E23EE000775E38 /* TPBarGraphView.m */,
-				A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */,
-				A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */,
-				A81E327A17CEAB0700869142 /* TPCircadianTooltipView.h */,
-				A81E327B17CEAB0800869142 /* TPCircadianTooltipView.m */,
-				A819481417B087CB009959DA /* TPGraphTooltipView.h */,
-				A819481517B087CB009959DA /* TPGraphTooltipView.m */,
-				A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */,
-				A85289F617CD230F005DE9F2 /* TPCurveGraphView.h */,
-				A85289F717CD230F005DE9F2 /* TPCurveGraphView.m */,
-				A8DD649D17B1D4650040BD90 /* TPProfileViewHeader.h */,
-				A8DD649E17B1D4650040BD90 /* TPProfileViewHeader.m */,
-				A852855917B31DEF0057954F /* TPPolarChartView.h */,
-				A852855A17B31DEF0057954F /* TPPolarChartView.m */,
-				A8DD64A217B1DB260040BD90 /* TPProfileViewHeader.xib */,
-				A819479F17B05990009959DA /* TPSnoozerResultsGraphView.h */,
-				A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */,
-				A879A65A17A871220082A455 /* TPCirclesDistanceView.h */,
-				A879A65B17A871220082A455 /* TPCirclesDistanceView.m */,
-				A879A65E17A871220082A455 /* TPOverlayView.h */,
-				A879A65F17A871220082A455 /* TPOverlayView.m */,
-				A87E703417AC3C60001605DF /* TPSnoozerClockView.h */,
-				A87E703517AC3C60001605DF /* TPSnoozerClockView.m */,
+				A8BABA3F17E2615000A3C95B /* TPPersonalityWebGameViewController.h */,
+				A8BABA4017E2615000A3C95B /* TPPersonalityWebGameViewController.m */,
+			);
+			path = Personality;
+			sourceTree = "<group>";
+		};
+		A8BABA4217E2615A00A3C95B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA4317E2615A00A3C95B /* TPProfileEditViewController.h */,
+				A8BABA4417E2615A00A3C95B /* TPProfileEditViewController.m */,
+				A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */,
+				A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */,
+				A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */,
+				A8BABA4817E2615A00A3C95B /* TPProfileViewController.h */,
+				A8BABA4917E2615A00A3C95B /* TPProfileViewController.m */,
+				A8BABA4A17E2615A00A3C95B /* TPProfileViewHeader.h */,
+				A8BABA4B17E2615A00A3C95B /* TPProfileViewHeader.m */,
+				A8BABA4C17E2615A00A3C95B /* TPProfileViewHeader.xib */,
+				A8BABA4D17E2615A00A3C95B /* TPSettingsViewController.h */,
+				A8BABA4E17E2615A00A3C95B /* TPSettingsViewController.m */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		A8BABA5617E2616700A3C95B /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA2C17E2600900A3C95B /* Snoozer */,
+				A8BABA5717E2616700A3C95B /* TPGameViewController.h */,
+				A8BABA5817E2616700A3C95B /* TPGameViewController.m */,
+				A8BABA5917E2616700A3C95B /* TPResultsHistoryViewController.h */,
+				A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */,
+				A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */,
+				A8BABA5C17E2616700A3C95B /* TPResultViewController.h */,
+				A8BABA5D17E2616700A3C95B /* TPResultViewController.m */,
+				A8BABA5E17E2616700A3C95B /* TPStageViewController.h */,
+				A8BABA5F17E2616700A3C95B /* TPStageViewController.m */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		A8BABA6517E261C500A3C95B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA6617E261C500A3C95B /* TPSnoozerClockView.h */,
+				A8BABA6717E261C500A3C95B /* TPSnoozerClockView.m */,
+				A8BABA6817E261C500A3C95B /* TPSnoozerResultsGraphView.h */,
+				A8BABA6917E261C500A3C95B /* TPSnoozerResultsGraphView.m */,
 			);
 			name = Views;
+			path = Games/Snoozer/Views;
+			sourceTree = "<group>";
+		};
+		A8BABA6C17E261FC00A3C95B /* GameVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA6D17E261FC00A3C95B /* TPSnoozerGameViewController.h */,
+				A8BABA6E17E261FC00A3C95B /* TPSnoozerGameViewController.mm */,
+			);
+			name = GameVC;
+			path = Games/Snoozer/GameVC;
+			sourceTree = "<group>";
+		};
+		A8BABA6F17E261FC00A3C95B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA7017E261FC00A3C95B /* TPSnoozerGame.h */,
+				A8BABA7117E261FC00A3C95B /* TPSnoozerGame.m */,
+			);
+			name = Models;
+			path = Games/Snoozer/Models;
+			sourceTree = "<group>";
+		};
+		A8BABA7417E2625C00A3C95B /* StageVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA7517E2625C00A3C95B /* TPSnoozerInstructionViewController.h */,
+				A8BABA7617E2625C00A3C95B /* TPSnoozerInstructionViewController.m */,
+				A8BABA7717E2625C00A3C95B /* TPSnoozerInstructionViewController.xib */,
+				A8BABA7817E2625C00A3C95B /* TPSnoozerStageViewController.h */,
+				A8BABA7917E2625C00A3C95B /* TPSnoozerStageViewController.m */,
+				A8BABA7A17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.h */,
+				A8BABA7B17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m */,
+				A8BABA7C17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib */,
+				A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */,
+				A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */,
+			);
+			name = StageVC;
+			path = Games/Snoozer/StageVC;
+			sourceTree = "<group>";
+		};
+		A8BABA8517E2629A00A3C95B /* ResultVC */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA8617E2629A00A3C95B /* TPSnoozerResultViewController.h */,
+				A8BABA8717E2629A00A3C95B /* TPSnoozerResultViewController.m */,
+				A8BABA8817E2629A00A3C95B /* TPSnoozerResultViewController.xib */,
+			);
+			name = ResultVC;
+			path = Games/Snoozer/ResultVC;
+			sourceTree = "<group>";
+		};
+		A8BABA8B17E262CC00A3C95B /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA8C17E262CC00A3C95B /* TPDashboardHeaderView.h */,
+				A8BABA8D17E262CC00A3C95B /* TPDashboardHeaderView.m */,
+				A8BABA8E17E262CC00A3C95B /* TPDashboardHeaderView.xib */,
+				A8BABA8F17E262CC00A3C95B /* TPDashboardViewController.h */,
+				A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */,
+				A8BABA9117E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.h */,
+				A8BABA9217E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.m */,
+				A8BABA9317E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.xib */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		A8BABA9917E2631400A3C95B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA9A17E2631400A3C95B /* DataViews */,
+				A8BABAA117E2631400A3C95B /* TooltipViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A8BABA9A17E2631400A3C95B /* DataViews */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABA9B17E2631400A3C95B /* TPBarGraphView.h */,
+				A8BABA9C17E2631400A3C95B /* TPBarGraphView.m */,
+				A8BABA9D17E2631400A3C95B /* TPCurveGraphView.h */,
+				A8BABA9E17E2631400A3C95B /* TPCurveGraphView.m */,
+				A8BABA9F17E2631400A3C95B /* TPPolarChartView.h */,
+				A8BABAA017E2631400A3C95B /* TPPolarChartView.m */,
+			);
+			path = DataViews;
+			sourceTree = "<group>";
+		};
+		A8BABAA117E2631400A3C95B /* TooltipViews */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABAA217E2631400A3C95B /* TPCircadianTooltipView.h */,
+				A8BABAA317E2631400A3C95B /* TPCircadianTooltipView.m */,
+				A8BABAA417E2631400A3C95B /* TPGraphTooltipView.h */,
+				A8BABAA517E2631400A3C95B /* TPGraphTooltipView.m */,
+			);
+			path = TooltipViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2314,14 +2379,6 @@
 				A82F6A4117947064003FC088 /* Images.xcassets in Resources */,
 				A82F6A3017947064003FC088 /* InfoPlist.strings in Resources */,
 				A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */,
-				A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */,
-				A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */,
-				A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */,
-				A8DD64A317B1DB260040BD90 /* TPProfileViewHeader.xib in Resources */,
-				A852856417B4016D0057954F /* TPProfileTableViewCell.xib in Resources */,
-				A89D96E017BAB36A000146E8 /* TPSnoozerInstructionViewController.xib in Resources */,
-				A893FB4217C2B33900A176DB /* TPSnoozerSurveyStageViewController.xib in Resources */,
-				A8680BDF17C8168800FA0AA8 /* TPDashboardHeaderView.xib in Resources */,
 				A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */,
 				A8A2430817D0130D00E9643F /* Icon-72.png in Resources */,
 				A8A2430917D0130D00E9643F /* Icon-72@2x.png in Resources */,
@@ -2840,6 +2897,14 @@
 				A8A2450A17D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg in Resources */,
 				A8A2450B17D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg in Resources */,
 				A8A2450C17D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg in Resources */,
+				A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */,
+				A8BABA5417E2615A00A3C95B /* TPProfileViewHeader.xib in Resources */,
+				A8BABA6217E2616700A3C95B /* TPResultsHistoryViewController.xib in Resources */,
+				A8BABA8017E2625C00A3C95B /* TPSnoozerInstructionViewController.xib in Resources */,
+				A8BABA8317E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib in Resources */,
+				A8BABA8A17E2629A00A3C95B /* TPSnoozerResultViewController.xib in Resources */,
+				A8BABA9517E262CC00A3C95B /* TPDashboardHeaderView.xib in Resources */,
+				A8BABA9817E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2893,10 +2958,6 @@
 			files = (
 				A82F6A3617947064003FC088 /* TPAppDelegate.m in Sources */,
 				A82F6A3217947064003FC088 /* main.m in Sources */,
-				A879A64D17A870940082A455 /* CGHelper.m in Sources */,
-				A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */,
-				A879A66217A871220082A455 /* TPCirclesDistanceView.m in Sources */,
-				A879A66417A871220082A455 /* TPOverlayView.m in Sources */,
 				A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */,
 				A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */,
 				A879A6BF17A888C20082A455 /* TPOAuthClient.m in Sources */,
@@ -2904,33 +2965,9 @@
 				A879A6C117A888C20082A455 /* TPUploadQueue.m in Sources */,
 				A879A6C217A888C20082A455 /* Singleton.m in Sources */,
 				A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */,
-				A879A6C517A888C20082A455 /* TPGameViewController.m in Sources */,
-				A879A6C617A888C20082A455 /* TPResultViewController.m in Sources */,
-				A879A6C717A888C20082A455 /* TPStageViewController.m in Sources */,
-				A87E6FFE17AB27B6001605DF /* TPSnoozerGameViewController.mm in Sources */,
-				A87E700117AB2916001605DF /* TPSnoozerStageViewController.m in Sources */,
-				A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */,
-				A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */,
-				A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */,
-				A819479617B020F1009959DA /* TPDashboardViewController.m in Sources */,
-				A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */,
-				A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */,
-				A819481617B087CB009959DA /* TPGraphTooltipView.m in Sources */,
-				A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */,
-				A8DD649C17B1D2850040BD90 /* TPProfileViewController.m in Sources */,
-				A8DD649F17B1D4650040BD90 /* TPProfileViewHeader.m in Sources */,
-				A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */,
-				A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */,
-				A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */,
 				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
-				A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */,
 				A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */,
-				A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */,
-				A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */,
-				A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */,
 				A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */,
-				A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */,
-				A81E327C17CEAB0900869142 /* TPCircadianTooltipView.m in Sources */,
 				A825EFD317E2373B00DCAAF2 /* TPBarButtonItem.m in Sources */,
 				A825EFD417E2373B00DCAAF2 /* TPButton.m in Sources */,
 				A825EFD517E2373B00DCAAF2 /* TPLabel.m in Sources */,
@@ -2938,7 +2975,34 @@
 				A825EFD717E2373B00DCAAF2 /* TPTextField.m in Sources */,
 				A825EFD817E2373B00DCAAF2 /* TPTextView.m in Sources */,
 				A835B72E17E23DAD00775E38 /* TPUser.m in Sources */,
-				A835B73117E23EE000775E38 /* TPBarGraphView.m in Sources */,
+				A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */,
+				A8BABA4117E2615000A3C95B /* TPPersonalityWebGameViewController.m in Sources */,
+				A8BABA4F17E2615A00A3C95B /* TPProfileEditViewController.m in Sources */,
+				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
+				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
+				A8BABA5317E2615A00A3C95B /* TPProfileViewHeader.m in Sources */,
+				A8BABA5517E2615A00A3C95B /* TPSettingsViewController.m in Sources */,
+				A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */,
+				A8BABA6117E2616700A3C95B /* TPResultsHistoryViewController.m in Sources */,
+				A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */,
+				A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */,
+				A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */,
+				A8BABA6B17E261C500A3C95B /* TPSnoozerResultsGraphView.m in Sources */,
+				A8BABA7217E261FC00A3C95B /* TPSnoozerGameViewController.mm in Sources */,
+				A8BABA7317E261FC00A3C95B /* TPSnoozerGame.m in Sources */,
+				A8BABA7F17E2625C00A3C95B /* TPSnoozerInstructionViewController.m in Sources */,
+				A8BABA8117E2625C00A3C95B /* TPSnoozerStageViewController.m in Sources */,
+				A8BABA8217E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m in Sources */,
+				A8BABA8417E2625C00A3C95B /* TPSurveyStageViewController.m in Sources */,
+				A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */,
+				A8BABA9417E262CC00A3C95B /* TPDashboardHeaderView.m in Sources */,
+				A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */,
+				A8BABA9717E262CC00A3C95B /* TPSnoozerResultsHistoryWidget.m in Sources */,
+				A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */,
+				A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */,
+				A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */,
+				A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */,
+				A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
