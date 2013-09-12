@@ -15,9 +15,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        [self setBackgroundColor:[UIColor clearColor]];
-        self.colors = @[[UIColor colorWithRed:60/255.0 green:188/255.0 blue:175/255.0 alpha:1.0],[UIColor colorWithRed:115/255.0 green:115/255.0 blue:115/255.0 alpha:1.0],[UIColor colorWithRed:255/255.0 green:175/255.0 blue:48/255.0 alpha:1.0],[UIColor colorWithRed:233/255.0 green:98/255.0 blue:103/255.0 alpha:1.0],[UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0],];
+        [self commonInit];
     }
     return self;
 }
@@ -26,13 +24,16 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
-        [self setBackgroundColor:[UIColor clearColor]];
-        self.colors = @[[UIColor colorWithRed:60/255.0 green:188/255.0 blue:175/255.0 alpha:1.0],[UIColor colorWithRed:115/255.0 green:115/255.0 blue:115/255.0 alpha:1.0],[UIColor colorWithRed:255/255.0 green:175/255.0 blue:48/255.0 alpha:1.0],[UIColor colorWithRed:233/255.0 green:98/255.0 blue:103/255.0 alpha:1.0],[UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0],];
+        [self commonInit];
     }
     return self;
 }
 
+-(void)commonInit
+{
+    [self setBackgroundColor:[UIColor clearColor]];
+    self.colors = @[[UIColor colorWithRed:60/255.0 green:188/255.0 blue:175/255.0 alpha:1.0],[UIColor colorWithRed:115/255.0 green:115/255.0 blue:115/255.0 alpha:1.0],[UIColor colorWithRed:255/255.0 green:175/255.0 blue:48/255.0 alpha:1.0],[UIColor colorWithRed:233/255.0 green:98/255.0 blue:103/255.0 alpha:1.0],[UIColor colorWithRed:24/255.0 green:143/255.0 blue:244/255.0 alpha:1.0],];
+}
 
 - (void)drawRect:(CGRect)rect
 {

@@ -23,7 +23,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];        
     }
     return self;
@@ -33,7 +32,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
     }
     return self;

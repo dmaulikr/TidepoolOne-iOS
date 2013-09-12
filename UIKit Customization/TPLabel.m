@@ -14,7 +14,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         self.backgroundColor = [UIColor clearColor];
         self.fontSize = 20.0;
     }
@@ -25,13 +24,11 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
         self.backgroundColor = [UIColor clearColor];
         self.fontSize = self.font.pointSize;
     }
     return self;
 }
-
 
 -(void)setCentered:(BOOL)centered
 {
@@ -67,14 +64,5 @@
     _fontSize = fontSize;
     [self setCorrectFont];
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

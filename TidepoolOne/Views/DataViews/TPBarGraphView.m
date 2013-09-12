@@ -24,7 +24,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;
@@ -34,7 +33,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;

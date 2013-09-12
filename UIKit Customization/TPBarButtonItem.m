@@ -14,7 +14,6 @@
 {
     self = [super initWithTitle:title style:style target:target action:action];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;
@@ -24,7 +23,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;

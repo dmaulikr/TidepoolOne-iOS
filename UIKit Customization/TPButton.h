@@ -10,9 +10,4 @@
 
 @interface TPButton : UIButton
 
-- (id)initWithFrame:(CGRect)frame;
-
-+(id)buttonWithType:(UIButtonType)buttonType;
-
-
 @end

@@ -14,8 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        self.bold = YES;
+        [self commonInit];
     }
     return self;
 }
@@ -24,10 +23,14 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
-        self.bold = YES;
+        [self commonInit];
     }
     return self;
+}
+
+-(void)commonInit
+{
+    self.bold = YES;
 }
 
 @end

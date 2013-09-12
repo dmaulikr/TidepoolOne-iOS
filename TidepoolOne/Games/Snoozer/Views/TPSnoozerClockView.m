@@ -34,7 +34,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self commonInitIvars];
+        [self commonInit];
     }
     return self;
 }
@@ -43,13 +43,12 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
-        [self commonInitIvars];
+        [self commonInit];
     }
     return self;
 }
 
--(void)commonInitIvars
+-(void)commonInit
 {
     self.backgroundColor = [UIColor clearColor];
     _timerArray = [NSMutableArray array];

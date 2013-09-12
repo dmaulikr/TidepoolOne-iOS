@@ -14,7 +14,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;
@@ -24,7 +23,6 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
         [self commonInit];
     }
     return self;
@@ -34,7 +32,6 @@
 {
     TPButton *button = [super buttonWithType:buttonType];
     if (button) {
-        // Initialization code
         [button commonInit];
     }
     return button;

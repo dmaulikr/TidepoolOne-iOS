@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		40FE9C691B2B410E9541EC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE9E0A1B4814CD7AD31BA9A /* libPods.a */; };
 		A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */; };
-		A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */; };
 		A825EFD317E2373B00DCAAF2 /* TPBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A825EFC817E2373B00DCAAF2 /* TPBarButtonItem.m */; };
 		A825EFD417E2373B00DCAAF2 /* TPButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A825EFCA17E2373B00DCAAF2 /* TPButton.m */; };
 		A825EFD517E2373B00DCAAF2 /* TPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A825EFCC17E2373B00DCAAF2 /* TPLabel.m */; };
@@ -559,7 +558,6 @@
 		A8A2450C17D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */; };
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
-		A8BABA4117E2615000A3C95B /* TPPersonalityWebGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4017E2615000A3C95B /* TPPersonalityWebGameViewController.m */; };
 		A8BABA4F17E2615A00A3C95B /* TPProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPProfileEditViewController.m */; };
 		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
 		A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */; };
@@ -597,6 +595,7 @@
 		A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAAD17E263DE00A3C95B /* TPWalkthroughViewController.m */; };
 		A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */; };
 		A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */; };
+		A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -613,8 +612,6 @@
 		0B9F97BBD54343BAA819C3E6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		3BE9E0A1B4814CD7AD31BA9A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
-		A816447E17BED70E00EE6E76 /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
-		A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
 		A825EFC717E2373B00DCAAF2 /* TPBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBarButtonItem.h; sourceTree = "<group>"; };
 		A825EFC817E2373B00DCAAF2 /* TPBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBarButtonItem.m; sourceTree = "<group>"; };
 		A825EFC917E2373B00DCAAF2 /* TPButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPButton.h; sourceTree = "<group>"; };
@@ -1184,8 +1181,6 @@
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
 		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
-		A8BABA3F17E2615000A3C95B /* TPPersonalityWebGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityWebGameViewController.h; sourceTree = "<group>"; };
-		A8BABA4017E2615000A3C95B /* TPPersonalityWebGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityWebGameViewController.m; sourceTree = "<group>"; };
 		A8BABA4317E2615A00A3C95B /* TPProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileEditViewController.h; sourceTree = "<group>"; };
 		A8BABA4417E2615A00A3C95B /* TPProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileEditViewController.m; sourceTree = "<group>"; };
 		A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
@@ -1250,6 +1245,8 @@
 		A8BABAAD17E263DE00A3C95B /* TPWalkthroughViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWalkthroughViewController.m; sourceTree = "<group>"; };
 		A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		A8BABAB317E26A1D00A3C95B /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
+		A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1417,8 +1414,6 @@
 				A879A6A317A888C20082A455 /* TPLoginViewController.m */,
 				A879A6A417A888C20082A455 /* TPServiceLoginViewController.h */,
 				A879A6A517A888C20082A455 /* TPServiceLoginViewController.m */,
-				A816447E17BED70E00EE6E76 /* TPPersonalityGameViewController.h */,
-				A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */,
 				A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */,
 				A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */,
 			);
@@ -2142,8 +2137,8 @@
 		A8BABA3E17E2615000A3C95B /* Personality */ = {
 			isa = PBXGroup;
 			children = (
-				A8BABA3F17E2615000A3C95B /* TPPersonalityWebGameViewController.h */,
-				A8BABA4017E2615000A3C95B /* TPPersonalityWebGameViewController.m */,
+				A8BABAB317E26A1D00A3C95B /* TPPersonalityGameViewController.h */,
+				A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */,
 			);
 			path = Personality;
 			sourceTree = "<group>";
@@ -2974,7 +2969,6 @@
 				A879A6C217A888C20082A455 /* Singleton.m in Sources */,
 				A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */,
 				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
-				A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */,
 				A825EFD317E2373B00DCAAF2 /* TPBarButtonItem.m in Sources */,
 				A825EFD417E2373B00DCAAF2 /* TPButton.m in Sources */,
 				A825EFD517E2373B00DCAAF2 /* TPLabel.m in Sources */,
@@ -2983,7 +2977,6 @@
 				A825EFD817E2373B00DCAAF2 /* TPTextView.m in Sources */,
 				A835B72E17E23DAD00775E38 /* TPUser.m in Sources */,
 				A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */,
-				A8BABA4117E2615000A3C95B /* TPPersonalityWebGameViewController.m in Sources */,
 				A8BABA4F17E2615A00A3C95B /* TPProfileEditViewController.m in Sources */,
 				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
@@ -3011,6 +3004,7 @@
 				A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */,
 				A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */,
 				A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */,
+				A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

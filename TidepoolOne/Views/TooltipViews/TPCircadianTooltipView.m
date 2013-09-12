@@ -14,29 +14,41 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
-        UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
-        [self addSubview:backgroundImage];
-        backgroundImage.image = [UIImage imageNamed:@"dash-chartflag-flip.png"];
-        CGRect bubbleFrame = frame;
-        bubbleFrame.size.height *= 0.8;
-        self.scoreLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0*bubbleFrame.size.height, bubbleFrame.size.width, 0.8*bubbleFrame.size.height)];
-        self.scoreLabel.textColor = [UIColor whiteColor];
-        self.scoreLabel.fontSize = 20;
-        self.scoreLabel.centered = YES;
-        [self addSubview:self.scoreLabel];
-        
-        TPLabel *pointsLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0.7*bubbleFrame.size.height, bubbleFrame.size.width, 0.2*bubbleFrame.size.height)];
-        pointsLabel.textColor = [UIColor whiteColor];
-        pointsLabel.text = @"POINTS";
-        pointsLabel.fontSize = 10;
-        pointsLabel.centered = YES;
-        [self addSubview:pointsLabel];
-
-        
+        [self commonInit];
     }
     return self;
 }
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
+-(void)commonInit
+{
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
+    [self addSubview:backgroundImage];
+    backgroundImage.image = [UIImage imageNamed:@"dash-chartflag-flip.png"];
+    CGRect bubbleFrame = self.bounds;
+    bubbleFrame.size.height *= 0.8;
+    self.scoreLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0*bubbleFrame.size.height, bubbleFrame.size.width, 0.8*bubbleFrame.size.height)];
+    self.scoreLabel.textColor = [UIColor whiteColor];
+    self.scoreLabel.fontSize = 20;
+    self.scoreLabel.centered = YES;
+    [self addSubview:self.scoreLabel];
+    
+    TPLabel *pointsLabel = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 0.7*bubbleFrame.size.height, bubbleFrame.size.width, 0.2*bubbleFrame.size.height)];
+    pointsLabel.textColor = [UIColor whiteColor];
+    pointsLabel.text = @"POINTS";
+    pointsLabel.fontSize = 10;
+    pointsLabel.centered = YES;
+    [self addSubview:pointsLabel];
+}
+
 
 -(void)setScore:(NSString *)score
 {
