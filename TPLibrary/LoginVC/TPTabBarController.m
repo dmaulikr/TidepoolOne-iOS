@@ -48,6 +48,12 @@
     [self doLogin];
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 -(void)doLogin
 {
     NSLog(@"Tab bar is to try and login");
@@ -62,6 +68,41 @@
     }
 }
 
+-(void)checkIfPersonalityExists
+{
+    if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading...";
+        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            [hud hide:YES];
+            _oauthClient.user = responseObject[@"data"];
+            NSDictionary *personality = _oauthClient.user[@"personality"];
+            if (!personality || personality == (NSDictionary *)[NSNull null]) {
+                [self showPersonalityGame];
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [hud hide:YES];
+            [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
+        }];
+    } else {
+        NSDictionary *personality = _oauthClient.user[@"personality"];
+        if (!personality || personality == (NSDictionary *)[NSNull null]) {
+                [self showPersonalityGame];
+        }
+    }
+}
+
+-(void)showPersonalityGame
+{
+    _personalityVC = [[TPPersonalityGameViewController alloc] init];
+    [self presentViewController:_personalityVC animated:YES completion:^{
+    }];
+    _personalityVC.delegate = self;
+    _loginVC = nil;
+}
+
+#pragma mark Login/Logout Notification Responders
+
 -(void)loggedInSignal
 {
     NSLog(@"Tab bar got logged in signal");
@@ -69,7 +110,7 @@
     
     if (_loginVC) {
         [_loginVC dismissViewControllerAnimated:YES completion:^{
-            [self showPersonalityGame];
+            [self checkIfPersonalityExists];
         }];
     }
 }
@@ -80,55 +121,17 @@
     [self doLogin];
 }
 
+#pragma mark Tooltip methods
 
--(void)showPersonalityGame
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Loading...";
-        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            [hud hide:YES];
-            _oauthClient.user = responseObject[@"data"];
-            NSDictionary *personality = _oauthClient.user[@"personality"];
-            if (!personality || personality == (NSDictionary *)[NSNull null]) {
-                _personalityVC = [[TPPersonalityGameViewController alloc] init];
-                [self presentViewController:_personalityVC animated:YES completion:^{
-                }];
-                _personalityVC.delegate = self;
-                _loginVC = nil;
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [hud hide:YES];
-            [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
-        }];
-    } else {
-        NSDictionary *personality = _oauthClient.user[@"personality"];
-        if (!personality || personality == (NSDictionary *)[NSNull null]) {
-            _personalityVC = [[TPPersonalityGameViewController alloc] init];
-            [self presentViewController:_personalityVC animated:YES completion:^{
-            }];
-            _personalityVC.delegate = self;
-            _loginVC = nil;
-        }
-    }
-}
-
--(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
-{
-    NSLog(@"personality done delegate method called on tabbar");
-    UIViewController *vc = sender;
-    [vc dismissViewControllerAnimated:YES completion:^{
-        if (success) {
-            self.selectedIndex = 2;
-            [self showTooltip];
-        }
-    }];
+    [self dismissTooltip];
 }
 
 -(void)showTooltip
 {
     UIImage *image = [UIImage imageNamed:@"playsnoozer-alertc.png"];
-    // TODO : calculate position correctly... 
+    // TODO : calculate position correctly...
     _tooltipView = [[UIImageView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - self.tabBar.bounds.size.height - image.size.height, image.size.width, image.size.height)];
     _tooltipView.image = image;
     [self.view addSubview:_tooltipView];
@@ -147,15 +150,20 @@
     }];
 }
 
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
-{
-    [self dismissTooltip];
-}
 
-- (void)didReceiveMemoryWarning
+
+#pragma mark TPPersonalityGameViewControllerDelegate methods
+
+-(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSLog(@"personality done delegate method called on tabbar");
+    UIViewController *vc = sender;
+    [vc dismissViewControllerAnimated:YES completion:^{
+        if (success) {
+            self.selectedIndex = 2;
+            [self showTooltip];
+        }
+    }];
 }
 
 @end
