@@ -487,7 +487,7 @@
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="1.CustomClassName">TPSnoozerResultsHistoryWidget</string>
+				<string key="1.CustomClassName">TPSnoozerResultsDashboardWidget</string>
 				<string key="1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="16.CustomClassName">TPLabel</string>
 				<string key="16.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -532,7 +532,7 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">TPSnoozerResultsHistoryWidget</string>
+					<string key="className">TPSnoozerResultsDashboardWidget</string>
 					<string key="superclassName">UIView</string>
 					<object class="NSMutableDictionary" key="actions">
 						<string key="NS.key.0">changePage:</string>
@@ -591,7 +591,7 @@
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TPSnoozerResultsHistoryWidget.h</string>
+						<string key="minorKey">./Classes/TPSnoozerResultsDashboardWidget.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

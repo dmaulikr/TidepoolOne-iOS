@@ -7,7 +7,7 @@
 //
 
 #import "TPDashboardViewController.h"
-#import "TPSnoozerResultsHistoryWidget.h"
+#import "TPSnoozerResultsDashboardWidget.h"
 #import "TPSnoozerResultViewController.h"
 #import "TPDashboardHeaderView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
@@ -120,25 +120,6 @@
 -(void)setResults:(NSArray *)results
 {
     _results = [[results reverseObjectEnumerator] allObjects];
-    if (_results) {
-//        int dailyBest = 1000000;
-//        int allTimeBest = 1000000;
-//        NSDate *now = [NSDate date];
-//        for (NSDictionary *item in results) {
-//            NSDate *gameDate = [[TPOAuthClient sharedClient] dateFromString:item[@"time_played"]];
-//            int avgTime = [item[@"average_time"] intValue];
-//            if (avgTime != 0) {
-//                if (avgTime < allTimeBest) {
-//                    allTimeBest = avgTime;
-//                }
-//                if (avgTime < dailyBest && [self isSameDayWithDate1:gameDate date2:now]) {
-//                    dailyBest = avgTime;
-//                }
-//            }
-//        }
-//        _dashboardHeaderView.dailyBestLabel.text = [NSString stringWithFormat:@"%i", dailyBest];
-//        _dashboardHeaderView.allTimeBestLabel.text = [NSString stringWithFormat:@"%i", allTimeBest];
-    }
     [self.tableView reloadData];
 }
 
@@ -187,11 +168,11 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsHistoryWidget" owner:nil options:nil];
-    TPSnoozerResultsHistoryWidget *view;
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsDashboardWidget" owner:nil options:nil];
+    TPSnoozerResultsDashboardWidget *view;
     
     for (id item in nibItems) {
-        if ([item isKindOfClass:[TPSnoozerResultsHistoryWidget class]]) {
+        if ([item isKindOfClass:[TPSnoozerResultsDashboardWidget class]]) {
             view = item;
         }
     }

@@ -7,8 +7,7 @@
 //
 
 #import "TPProfileViewController.h"
-#import "TPSettingsViewController.h"
-#import "TPProfileViewHeader.h"
+#import "TPProfileHeaderView.h"
 #import "TPOAuthClient.h"
 #import <AttributedMarkdown/markdown_lib.h>
 #import <AttributedMarkdown/markdown_peg.h>
@@ -131,12 +130,6 @@
     return 0;
 }
 
--(void)showSettings
-{
-    TPSettingsViewController *settingsVC = [[TPSettingsViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [self.navigationController pushViewController:settingsVC animated:YES];
-}
-
 -(void)setUser:(NSDictionary *)user
 {
     BOOL hasData = NO;
@@ -151,7 +144,7 @@
     if (hasData) {
         [_startNewGameView removeFromSuperview];
         
-        TPProfileViewHeader *profileHeaderView = (TPProfileViewHeader *)self.tableView.tableHeaderView;
+        TPProfileHeaderView *profileHeaderView = (TPProfileHeaderView *)self.tableView.tableHeaderView;
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         
         self.bulletPoints = personality[@"profile_description"][@"bullet_description"];
@@ -178,7 +171,7 @@
     } else {
         _startNewGameView.hidden = NO;
         
-        TPProfileViewHeader *profileHeaderView = (TPProfileViewHeader *)self.tableView.tableHeaderView;
+        TPProfileHeaderView *profileHeaderView = (TPProfileHeaderView *)self.tableView.tableHeaderView;
         //        _imageView.image = nil;
         
         self.bulletPoints = nil;
@@ -289,10 +282,10 @@
     self.tableView.backgroundView = _imageView;
     
     
-    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPProfileViewHeader" owner:nil options:nil];
-    TPProfileViewHeader *profileHeaderView;
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPProfileHeaderView" owner:nil options:nil];
+    TPProfileHeaderView *profileHeaderView;
     for (id item in nibItems) {
-        if ([item isKindOfClass:[TPProfileViewHeader class]]) {
+        if ([item isKindOfClass:[TPProfileHeaderView class]]) {
             profileHeaderView = item;
         }
     }

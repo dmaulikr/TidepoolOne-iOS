@@ -1,14 +1,14 @@
 //
-//  TPProfileViewHeader.m
+//  TPProfileHeaderView.m
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 8/6/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "TPProfileViewHeader.h"
+#import "TPProfileHeaderView.h"
 
-@implementation TPProfileViewHeader
+@implementation TPProfileHeaderView
 
 - (id)initWithFrame:(CGRect)frame
 {

@@ -92,32 +92,6 @@
     NSLog(@"FromWebView: %@", requestString);
     
     if ([requestString hasPrefix:@"ios"]) {
-        //old web version
-        if ([requestString hasPrefix:@"iosaction"]) {
-            NSString *action = [requestString componentsSeparatedByString:@"://"][1];
-            BOOL done = [action boolValue];
-            if (done) {
-                [self personalityGameFinishedSuccessfully];
-            } else {
-                _messageLabel.text = @"There was an error. Please play again later.";
-                [self personalityGameThrewError];
-            }
-            return NO;
-        } else if ([requestString hasPrefix:@"ioslog"]) {
-            if (_loadingGameHud) {
-                [_loadingGameHud hide:YES];
-                _loadingGameHud = nil;
-
-            }
-            NSLog(@"%@", requestString);
-            return NO;
-        } else if ([requestString hasPrefix:@"ioserr"]) {
-            _messageLabel.text = @"There was an error.";
-            [self personalityGameThrewError];
-            return NO;
-        }
-
-        // new version
         NSString* jsonString = [[requestString componentsSeparatedByString:@"ios://"] objectAtIndex:1];
         NSDictionary *jsonMessage = [jsonString objectFromJSONString];
         NSString *messageType = jsonMessage[@"type"];

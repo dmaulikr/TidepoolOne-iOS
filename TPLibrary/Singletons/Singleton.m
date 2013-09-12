@@ -20,7 +20,7 @@ static NSMutableDictionary* instances = nil;
 	id instance = [instances objectForKey:self];
 	if (!instance) {
 		instance = [[self alloc] init];
-		[instances setObject:instance forKey:self];
+		[instances setObject:instance forKey:(id<NSCopying>)self];
 	}
 	return instance;
 }

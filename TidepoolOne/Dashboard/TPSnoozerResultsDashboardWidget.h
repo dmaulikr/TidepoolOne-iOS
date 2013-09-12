@@ -1,5 +1,5 @@
 //
-//  TPSnoozerResultsHistoryWidget.h
+//  TPSnoozerResultsDashboardWidget.h
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 8/5/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPSnoozerResultsHistoryWidget : UIView <UIScrollViewDelegate>
+@interface TPSnoozerResultsDashboardWidget : UIView <UIScrollViewDelegate>
 
 
 @property (strong, nonatomic) NSDate *date;

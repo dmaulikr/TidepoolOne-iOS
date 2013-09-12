@@ -1,19 +1,19 @@
 //
-//  TPSnoozerResultsHistoryWidget.m
+//  TPSnoozerResultsDashboardWidget.m
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 8/5/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "TPSnoozerResultsHistoryWidget.h"
+#import "TPSnoozerResultsDashboardWidget.h"
 
-@interface TPSnoozerResultsHistoryWidget()
+@interface TPSnoozerResultsDashboardWidget()
 {
     BOOL _pageControlUsed;
 }
 @end
-@implementation TPSnoozerResultsHistoryWidget
+@implementation TPSnoozerResultsDashboardWidget
 
 - (id)initWithFrame:(CGRect)frame
 {
