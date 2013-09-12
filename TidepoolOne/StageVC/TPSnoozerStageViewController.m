@@ -196,10 +196,12 @@
         }
         lastChosenClock = currentClock;
         
-        //choose sequence
-        BOOL currentShouldBeCorrect = (int)(((float)arc4random() / UINT32_MAX) / fractionIncorrect);
+        BOOL currentShouldBeCorrect = YES;
+        if (fractionIncorrect > 0) {
+            currentShouldBeCorrect =  (int)(((float)arc4random() / UINT32_MAX) / fractionIncorrect);
+        }
         NSArray *currentSequence;
-        if (currentShouldBeCorrect) {
+        if (currentShouldBeCorrect || incorrectSequences.count == 0) {
             currentSequence = correctSequence;
             numberCorrectShown++;
         } else {
