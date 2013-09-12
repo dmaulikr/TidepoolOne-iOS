@@ -74,6 +74,13 @@
     }
 }
 
+-(void)loggedOutSignal
+{
+    NSLog(@"Tab bar got logged out signal");
+    [self doLogin];
+}
+
+
 -(void)showPersonalityGame
 {
     if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
@@ -87,6 +94,7 @@
                 _personalityVC = [[TPPersonalityGameViewController alloc] init];
                 [self presentViewController:_personalityVC animated:YES completion:^{
                 }];
+                _personalityVC.delegate = self;
                 _loginVC = nil;
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -103,14 +111,6 @@
             _loginVC = nil;
         }
     }
-}
-
-
-
--(void)loggedOutSignal
-{
-    NSLog(@"Tab bar got logged out signal");
-    [self doLogin];
 }
 
 -(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
