@@ -9,29 +9,22 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@protocol TPLoginViewControllerDelegate
-
-@end
-
 @interface TPLoginViewController : UIViewController
 
 @property (nonatomic, strong) TPBarButtonItem *rightButton;
 @property (nonatomic, strong) UIView *currentView;
 
+- (IBAction)fbLoginButtonPressed:(id)sender;
+
+@property (strong, nonatomic) UIView *loginView;
 @property (strong, nonatomic) IBOutlet UITextField *loginEmail;
 @property (strong, nonatomic) IBOutlet UITextField *loginPassword;
+- (IBAction)loginButtonPressed:(id)sender;
 
+@property (strong, nonatomic) UIView *createAccountView;
 @property (strong, nonatomic) IBOutlet UITextField *createAccountEmail;
 @property (strong, nonatomic) IBOutlet UITextField *createAccountPassword;
 @property (strong, nonatomic) IBOutlet UITextField *createAccountPassword2;
-
-@property (strong, nonatomic) UIView *createAccountView;
-@property (strong, nonatomic) UIView *loginView;
-
-
 - (IBAction)createAccountButtonPressed:(id)sender;
-- (IBAction)loginButtonPressed:(id)sender;
-- (IBAction)fbLoginButtonPressed:(id)sender;
-- (IBAction)fitbitLoginButtonPressed:(id)sender;
 
 @end
