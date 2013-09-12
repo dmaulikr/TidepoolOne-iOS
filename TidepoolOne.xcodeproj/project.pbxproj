@@ -38,6 +38,8 @@
 		A82F6A4A17947064003FC088 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82F6A2917947064003FC088 /* UIKit.framework */; };
 		A82F6A5217947064003FC088 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A82F6A5017947064003FC088 /* InfoPlist.strings */; };
 		A82F6A5417947064003FC088 /* TidepoolOneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A82F6A5317947064003FC088 /* TidepoolOneTests.m */; };
+		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
+		A835B73117E23EE000775E38 /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B73017E23EE000775E38 /* TPBarGraphView.m */; };
 		A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */; };
 		A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84E11D917CC530A007642C1 /* TPWalkthroughViewController.m */; };
 		A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A852855A17B31DEF0057954F /* TPPolarChartView.m */; };
@@ -47,7 +49,6 @@
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */; };
 		A8680BDF17C8168800FA0AA8 /* TPDashboardHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */; };
-		A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */; };
 		A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */; };
 		A879A64D17A870940082A455 /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A64C17A870940082A455 /* CGHelper.m */; };
 		A879A65917A870FB0082A455 /* TPSurveyStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A65617A870FA0082A455 /* TPSurveyStageViewController.m */; };
@@ -590,7 +591,6 @@
 		A8A2450A17D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430517D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg */; };
 		A8A2450B17D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430617D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg */; };
 		A8A2450C17D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */; };
-		A8AF0F6C17BD5746005AB5A2 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF0F6B17BD5746005AB5A2 /* TPUser.m */; };
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
 		A8DD5EB417B1AAC10040BD90 /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD5EB317B1AAC10040BD90 /* TPSettingsViewController.m */; };
 		A8DD649C17B1D2850040BD90 /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DD649B17B1D2840040BD90 /* TPProfileViewController.m */; };
@@ -659,6 +659,10 @@
 		A82F6A4F17947064003FC088 /* TidepoolOneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TidepoolOneTests-Info.plist"; sourceTree = "<group>"; };
 		A82F6A5117947064003FC088 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A82F6A5317947064003FC088 /* TidepoolOneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TidepoolOneTests.m; sourceTree = "<group>"; };
+		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
+		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
+		A835B72F17E23EE000775E38 /* TPBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPBarGraphView.h; path = Views/TPBarGraphView.h; sourceTree = "<group>"; };
+		A835B73017E23EE000775E38 /* TPBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPBarGraphView.m; path = Views/TPBarGraphView.m; sourceTree = "<group>"; };
 		A83FA5ED17BD970200638F61 /* TPSnoozerGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerGame.h; sourceTree = "<group>"; };
 		A83FA5EE17BD970200638F61 /* TPSnoozerGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerGame.m; sourceTree = "<group>"; };
 		A84E11D817CC530A007642C1 /* TPWalkthroughViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWalkthroughViewController.h; sourceTree = "<group>"; };
@@ -674,8 +678,6 @@
 		A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardHeaderView.h; sourceTree = "<group>"; };
 		A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardHeaderView.m; sourceTree = "<group>"; };
 		A8680BDE17C8168800FA0AA8 /* TPDashboardHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPDashboardHeaderView.xib; sourceTree = "<group>"; };
-		A8680BE017C8368500FA0AA8 /* TPBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPBarGraphView.h; path = ../TPLibrary/ViewControllers/TPBarGraphView.h; sourceTree = "<group>"; };
-		A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPBarGraphView.m; path = ../TPLibrary/ViewControllers/TPBarGraphView.m; sourceTree = "<group>"; };
 		A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A879A64B17A870940082A455 /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CGHelper.h; path = Helper/CGHelper.h; sourceTree = "<group>"; };
 		A879A64C17A870940082A455 /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CGHelper.m; path = Helper/CGHelper.m; sourceTree = "<group>"; };
@@ -1238,8 +1240,6 @@
 		A8A2430517D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3~iphone.jpg"; sourceTree = "<group>"; };
 		A8A2430617D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
-		A8AF0F6A17BD5746005AB5A2 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
-		A8AF0F6B17BD5746005AB5A2 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
 		A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
 		A8DD5EB217B1AAC10040BD90 /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
@@ -1387,6 +1387,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A835B72B17E23DAD00775E38 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A835B72C17E23DAD00775E38 /* TPUser.h */,
+				A835B72D17E23DAD00775E38 /* TPUser.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A84E11D517CC490A007642C1 /* Walkthrough */ = {
 			isa = PBXGroup;
 			children = (
@@ -1414,7 +1423,7 @@
 		A879A6A017A888C20082A455 /* TPLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				A8AF0F6917BD5735005AB5A2 /* Models */,
+				A835B72B17E23DAD00775E38 /* Models */,
 				A879A6A117A888C20082A455 /* LoginVC */,
 				A879A6A617A888C20082A455 /* Networking */,
 				A879A6AD17A888C20082A455 /* Singletons */,
@@ -2163,15 +2172,6 @@
 			path = walkthrough;
 			sourceTree = "<group>";
 		};
-		A8AF0F6917BD5735005AB5A2 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				A8AF0F6A17BD5746005AB5A2 /* TPUser.h */,
-				A8AF0F6B17BD5746005AB5A2 /* TPUser.m */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		A8BD1DF5179F030300A7E26C /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -2201,8 +2201,8 @@
 		A8BD1E0C17A0452C00A7E26C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A8680BE017C8368500FA0AA8 /* TPBarGraphView.h */,
-				A8680BE117C8368600FA0AA8 /* TPBarGraphView.m */,
+				A835B72F17E23EE000775E38 /* TPBarGraphView.h */,
+				A835B73017E23EE000775E38 /* TPBarGraphView.m */,
 				A8680BDB17C8166D00FA0AA8 /* TPDashboardHeaderView.h */,
 				A8680BDC17C8166D00FA0AA8 /* TPDashboardHeaderView.m */,
 				A81E327A17CEAB0700869142 /* TPCircadianTooltipView.h */,
@@ -2922,14 +2922,12 @@
 				A852855B17B31DEF0057954F /* TPPolarChartView.m in Sources */,
 				A852856717B401820057954F /* TPProfileTableViewCell.m in Sources */,
 				A89D96DF17BAB36A000146E8 /* TPSnoozerInstructionViewController.m in Sources */,
-				A8AF0F6C17BD5746005AB5A2 /* TPUser.m in Sources */,
 				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
 				A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */,
 				A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */,
 				A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */,
 				A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */,
 				A8680BDD17C8166D00FA0AA8 /* TPDashboardHeaderView.m in Sources */,
-				A8680BE217C8368600FA0AA8 /* TPBarGraphView.m in Sources */,
 				A84E11DB17CC530A007642C1 /* TPWalkthroughViewController.m in Sources */,
 				A85289F817CD230F005DE9F2 /* TPCurveGraphView.m in Sources */,
 				A81E327C17CEAB0900869142 /* TPCircadianTooltipView.m in Sources */,
@@ -2939,6 +2937,8 @@
 				A825EFD617E2373B00DCAAF2 /* TPLabelBold.m in Sources */,
 				A825EFD717E2373B00DCAAF2 /* TPTextField.m in Sources */,
 				A825EFD817E2373B00DCAAF2 /* TPTextView.m in Sources */,
+				A835B72E17E23DAD00775E38 /* TPUser.m in Sources */,
+				A835B73117E23EE000775E38 /* TPBarGraphView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
