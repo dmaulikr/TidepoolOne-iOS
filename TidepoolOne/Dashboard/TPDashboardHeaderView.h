@@ -20,6 +20,13 @@
 
 @property (strong, nonatomic) NSArray *densityData;
 @property (strong, nonatomic) NSArray *results;
+
+
+@property (weak, nonatomic) IBOutlet UIScrollView *fitbitScrollView;
+@property (weak, nonatomic) IBOutlet TPBarGraphView *fitbitBarGraphView;
+@property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitSleepGraphView;
+@property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitActivityGraphView;
+
 -(void)dismissPopovers;
 
 @end

@@ -151,6 +151,7 @@
 {
     [super viewDidAppear:animated];
     _dashboardHeaderView.scrollView.contentSize = CGSizeMake(790, 192);
+    _dashboardHeaderView.fitbitScrollView.contentSize = CGSizeMake(694, 244);
     NSDate *now = [NSDate date];
     int hour = [[_hourFromDate stringFromDate:now] floatValue];
     float offset = 790*hour/24;
@@ -159,6 +160,13 @@
     }
     _dashboardHeaderView.scrollView.contentOffset = CGPointMake(offset, 0);
     _dashboardHeaderView.scrollView.scrollEnabled = YES;
+    
+    
+    //TODO: working on graph params - remove and refactor later
+    _dashboardHeaderView.fitbitActivityGraphView.data = @[@13, @52, @23, @44, @15, @26, @71];
+    _dashboardHeaderView.fitbitSleepGraphView.data = @[@13, @52, @23, @44, @15, @126, @71];
+    _dashboardHeaderView.fitbitSleepGraphView.color = [UIColor redColor];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -213,6 +221,28 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)testForGettingData
+{
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sucess:%@",[responseObject description]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"errorRRRR: %@", error);
+    }];
+    
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/activities" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sucess:%@",[responseObject description]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"errorRRRR: %@", error);
+    }];
+    
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?daily=true" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sucess:%@",[responseObject description]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"errorRRRR: %@", error);
+    }];
+    
 }
 
 #pragma mark - Table view data source

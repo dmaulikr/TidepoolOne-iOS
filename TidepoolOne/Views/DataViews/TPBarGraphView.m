@@ -10,8 +10,6 @@
 
 @interface TPBarGraphView()
 {
-    UIColor *_unselectedColor;
-    UIColor *_selectedColor;
     int _tagOffset;
     UIView *_selectedView;
 }
@@ -48,21 +46,23 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    self.data = @[@100,@200,@30,@170,@60,@320];
-    // Drawing code
-//    CGContextRef context = UIGraphicsGetCurrentContext();
-    float padding = 10;
-    float barWidth = 20;
-    float barMaxHeight = rect.size.height - 2 * padding;
-    float distanceBetweenBars = 10;
+    self.data = @[@1,@2,@3,@4,@5,@6,@7];
+    _distanceBetweenBars = 77.5;
+    _firstOffset = 45;
+    _selectedColor = [UIColor colorWithRed:215/255.0 green:57/255.0 blue:57/255.0 alpha:1.0];
+    _unselectedColor = [UIColor colorWithRed:215/255.0 green:57/255.0 blue:57/255.0 alpha:1.0];
+    _barWidth = 20;
+    _topBottomPadding = 0;
     
+    float barMaxHeight = rect.size.height - 2 * _topBottomPadding;
+
     float maxData = [[self.data valueForKeyPath:@"@max.floatValue"] floatValue];
     
     for (int i=0;i<_data.count;i++) {
         NSNumber *item = _data[i];
         float y = item.floatValue / maxData * barMaxHeight;
-        float x = (barWidth + distanceBetweenBars) * i;
-        CGRect barRect = CGRectMake(x, rect.size.height - padding, barWidth, -y);
+        float x = _firstOffset + (_barWidth + _distanceBetweenBars) * i;
+        CGRect barRect = CGRectMake(x, rect.size.height - _topBottomPadding, _barWidth, -y);
         UIView *barView = [[UIView alloc] initWithFrame:barRect];
         barView.backgroundColor = _unselectedColor;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(barWasTapped:)];

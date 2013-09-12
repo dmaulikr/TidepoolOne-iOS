@@ -11,5 +11,11 @@
 @interface TPBarGraphView : UIView
 
 @property (strong, nonatomic) NSArray *data;
+@property (assign, nonatomic) float barWidth;
+@property (assign, nonatomic) float distanceBetweenBars;
+@property (assign, nonatomic) float firstOffset;
+@property (assign, nonatomic) float topBottomPadding;
+@property (strong, nonatomic) UIColor *selectedColor;
+@property (strong, nonatomic) UIColor *unselectedColor;
 
 @end

@@ -595,6 +595,8 @@
 		A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */; };
 		A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */; };
 		A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */; };
+		A8BABAB917E27CDB00A3C95B /* calendar-graph@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BABAB717E27CDB00A3C95B /* calendar-graph@2x~iphone.png */; };
+		A8BABABA17E27CDB00A3C95B /* calendar-graph~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BABAB817E27CDB00A3C95B /* calendar-graph~iphone.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1244,6 +1246,8 @@
 		A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A8BABAB317E26A1D00A3C95B /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
 		A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
+		A8BABAB717E27CDB00A3C95B /* calendar-graph@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-graph@2x~iphone.png"; sourceTree = "<group>"; };
+		A8BABAB817E27CDB00A3C95B /* calendar-graph~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-graph~iphone.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1444,6 +1448,7 @@
 		A8A240F017D0130C00E9643F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A8BABAB617E27CDB00A3C95B /* fitbit */,
 				A8A240F117D0130C00E9643F /* app icon */,
 				A8A240FC17D0130C00E9643F /* dashboard */,
 				A8A2411D17D0130C00E9643F /* Karla-Bold.ttf */,
@@ -2292,6 +2297,15 @@
 			path = Walkthrough;
 			sourceTree = "<group>";
 		};
+		A8BABAB617E27CDB00A3C95B /* fitbit */ = {
+			isa = PBXGroup;
+			children = (
+				A8BABAB717E27CDB00A3C95B /* calendar-graph@2x~iphone.png */,
+				A8BABAB817E27CDB00A3C95B /* calendar-graph~iphone.png */,
+			);
+			path = fitbit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2903,6 +2917,8 @@
 				A8BABA8A17E2629A00A3C95B /* TPSnoozerResultViewController.xib in Resources */,
 				A8BABA9517E262CC00A3C95B /* TPDashboardHeaderView.xib in Resources */,
 				A8BABA9817E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib in Resources */,
+				A8BABAB917E27CDB00A3C95B /* calendar-graph@2x~iphone.png in Resources */,
+				A8BABABA17E27CDB00A3C95B /* calendar-graph~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

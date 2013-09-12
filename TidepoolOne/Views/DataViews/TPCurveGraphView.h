@@ -11,5 +11,6 @@
 @interface TPCurveGraphView : UIView
 
 @property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) UIColor *color;
 
 @end
