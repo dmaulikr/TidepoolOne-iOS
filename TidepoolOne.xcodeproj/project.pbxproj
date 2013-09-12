@@ -14,7 +14,7 @@
 		A819478517AF4167009959DA /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */; };
 		A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */; };
 		A819479317B01FF0009959DA /* TPResultsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */; };
-		A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */; };
+		A819479617B020F1009959DA /* TPDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479517B020F1009959DA /* TPDashboardViewController.m */; };
 		A819479B17B02AD4009959DA /* TPSnoozerResultsHistoryWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */; };
 		A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */; };
 		A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A81947A017B05990009959DA /* TPSnoozerResultsGraphView.m */; };
@@ -620,8 +620,8 @@
 		A819478F17B01FEF009959DA /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
 		A819479017B01FEF009959DA /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
 		A819479117B01FEF009959DA /* TPResultsHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPResultsHistoryViewController.xib; sourceTree = "<group>"; };
-		A819479417B020F1009959DA /* TPSnoozerResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryViewController.h; sourceTree = "<group>"; };
-		A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryViewController.m; sourceTree = "<group>"; };
+		A819479417B020F1009959DA /* TPDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardViewController.h; sourceTree = "<group>"; };
+		A819479517B020F1009959DA /* TPDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardViewController.m; sourceTree = "<group>"; };
 		A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultsHistoryWidget.xib; sourceTree = "<group>"; };
 		A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsHistoryWidget.h; sourceTree = "<group>"; };
 		A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsHistoryWidget.m; sourceTree = "<group>"; };
@@ -1411,8 +1411,8 @@
 				A819477517AE1323009959DA /* TPSnoozerResultViewController.h */,
 				A819477617AE1323009959DA /* TPSnoozerResultViewController.m */,
 				A819478417AF4167009959DA /* TPSnoozerResultViewController.xib */,
-				A819479417B020F1009959DA /* TPSnoozerResultsHistoryViewController.h */,
-				A819479517B020F1009959DA /* TPSnoozerResultsHistoryViewController.m */,
+				A819479417B020F1009959DA /* TPDashboardViewController.h */,
+				A819479517B020F1009959DA /* TPDashboardViewController.m */,
 				A819479C17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.h */,
 				A819479D17B02EBD009959DA /* TPSnoozerResultsHistoryWidget.m */,
 				A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */,
@@ -2912,7 +2912,7 @@
 				A87E703617AC3C60001605DF /* TPSnoozerClockView.m in Sources */,
 				A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */,
 				A819479217B01FF0009959DA /* TPResultsHistoryViewController.m in Sources */,
-				A819479617B020F1009959DA /* TPSnoozerResultsHistoryViewController.m in Sources */,
+				A819479617B020F1009959DA /* TPDashboardViewController.m in Sources */,
 				A819479E17B02EBE009959DA /* TPSnoozerResultsHistoryWidget.m in Sources */,
 				A81947A117B05990009959DA /* TPSnoozerResultsGraphView.m in Sources */,
 				A819481617B087CB009959DA /* TPGraphTooltipView.m in Sources */,

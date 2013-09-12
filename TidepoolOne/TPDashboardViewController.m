@@ -1,19 +1,19 @@
 //
-//  TPSnoozerResultsHistoryViewController.m
+//  TPDashboardViewController.m
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 8/5/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "TPSnoozerResultsHistoryViewController.h"
+#import "TPDashboardViewController.h"
 #import "TPSnoozerResultsHistoryWidget.h"
 #import "TPSnoozerResultViewController.h"
 #import "TPDashboardHeaderView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SVPullToRefresh/UIScrollView+SVPullToRefresh.h>
 
-@interface TPSnoozerResultsHistoryViewController ()
+@interface TPDashboardViewController ()
 {
     TPDashboardHeaderView *_dashboardHeaderView;
     int _numServerCallsCompleted;
@@ -22,7 +22,7 @@
 }
 @end
 
-@implementation TPSnoozerResultsHistoryViewController
+@implementation TPDashboardViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,7 +52,7 @@
     }
     self.tableView.tableHeaderView = _dashboardHeaderView;
     
-    __block TPSnoozerResultsHistoryViewController *wself = self;
+    __block TPDashboardViewController *wself = self;
     [self.tableView addPullToRefreshWithActionHandler:^{
         [wself downloadResults];
     }];

@@ -1,5 +1,5 @@
 //
-//  TPSnoozerResultsHistoryViewController.h
+//  TPDashboardViewController.h
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 8/5/13.
@@ -8,7 +8,7 @@
 
 #import "TPResultsHistoryViewController.h"
 
-@interface TPSnoozerResultsHistoryViewController : UITableViewController
+@interface TPDashboardViewController : UITableViewController
 
 @property (strong, nonatomic) NSArray *results;
 @property (strong, nonatomic) NSDictionary *user;
