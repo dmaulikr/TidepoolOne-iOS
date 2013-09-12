@@ -10,7 +10,6 @@
 		40FE9C691B2B410E9541EC21 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BE9E0A1B4814CD7AD31BA9A /* libPods.a */; };
 		A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */; };
 		A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */; };
-		A816448E17BEE7F600EE6E76 /* TPLogoutDEBUGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A816448D17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.m */; };
 		A819477117AE09BB009959DA /* TPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477017AE09BB009959DA /* TPLabel.m */; };
 		A819477417AE0C07009959DA /* TPTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477317AE0C07009959DA /* TPTextField.m */; };
 		A819477717AE1323009959DA /* TPSnoozerResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A819477617AE1323009959DA /* TPSnoozerResultViewController.m */; };
@@ -615,8 +614,6 @@
 		A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		A816447E17BED70E00EE6E76 /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
 		A816447F17BED70E00EE6E76 /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
-		A816448C17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLogoutDEBUGViewController.h; sourceTree = "<group>"; };
-		A816448D17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLogoutDEBUGViewController.m; sourceTree = "<group>"; };
 		A819476F17AE09BB009959DA /* TPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLabel.h; sourceTree = "<group>"; };
 		A819477017AE09BB009959DA /* TPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLabel.m; sourceTree = "<group>"; };
 		A819477217AE0C07009959DA /* TPTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTextField.h; path = TidepoolOne/TPTextField.h; sourceTree = "<group>"; };
@@ -1285,8 +1282,6 @@
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
-				A816448C17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.h */,
-				A816448D17BEE7F500EE6E76 /* TPLogoutDEBUGViewController.m */,
 				A8A240F017D0130C00E9643F /* Resources */,
 				A86C5C7517BC66B9001A22D4 /* UIKit Customization */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
@@ -1337,7 +1332,6 @@
 				A89B97D417A099AE006815A6 /* GameVC */,
 				A82F6A3417947064003FC088 /* TPAppDelegate.h */,
 				A82F6A3517947064003FC088 /* TPAppDelegate.m */,
-				A86C2CD417A211E000A5290E /* WidgetVC */,
 				A82F6A4017947064003FC088 /* Images.xcassets */,
 				A82F6A2C17947064003FC088 /* Supporting Files */,
 			);
@@ -1396,13 +1390,6 @@
 				A819479917B02AD3009959DA /* TPSnoozerResultsHistoryWidget.xib */,
 			);
 			name = ResultVC;
-			sourceTree = "<group>";
-		};
-		A86C2CD417A211E000A5290E /* WidgetVC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = WidgetVC;
 			sourceTree = "<group>";
 		};
 		A86C5C7517BC66B9001A22D4 /* UIKit Customization */ = {
@@ -2944,7 +2931,6 @@
 				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
 				A83FA5EF17BD970200638F61 /* TPSnoozerGame.m in Sources */,
 				A816448017BED70E00EE6E76 /* TPPersonalityGameViewController.m in Sources */,
-				A816448E17BEE7F600EE6E76 /* TPLogoutDEBUGViewController.m in Sources */,
 				A893FB3D17C28E2B00A176DB /* TPProfileEditViewController.m in Sources */,
 				A893FB4117C2B33900A176DB /* TPSnoozerSurveyStageViewController.m in Sources */,
 				A83E994817C45D75008C555A /* TPTextView.m in Sources */,
