@@ -43,12 +43,7 @@
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
 
-    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPDashboardHeaderView" owner:nil options:nil];
-    for (id item in nibItems) {
-        if ([item isKindOfClass:[TPDashboardHeaderView class]]) {
-            _dashboardHeaderView = item;
-        }
-    }
+    _dashboardHeaderView = [[TPDashboardHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 616)];
     self.tableView.tableHeaderView = _dashboardHeaderView;
     
     __block TPDashboardViewController *wself = self;
