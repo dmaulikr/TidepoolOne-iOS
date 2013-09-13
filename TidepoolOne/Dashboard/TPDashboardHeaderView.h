@@ -15,6 +15,4 @@
 @property (strong, nonatomic) TPSnoozerSummaryView *snoozerSummaryView;
 @property (strong, nonatomic) TPFitbitSummaryView *fitbitSummaryView;
 
--(void)dismissPopovers;
-
 @end

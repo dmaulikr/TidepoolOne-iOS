@@ -7,10 +7,12 @@
 //
 
 #import "TPServiceLoginViewController.h"
+#import "TPOAuthClient.h"
 
 @interface TPServiceLoginViewController ()
 {
-    UIWebView *_webView;
+    TPOAuthClient *_oauthClient;
+//    UIWebView *_webView;
 }
 @end
 
@@ -21,6 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _oauthClient = [TPOAuthClient sharedClient];
     }
     return self;
 }
@@ -29,12 +32,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"https://tide-dev.herokuapp.com/#gameForUser/b035b21b813bc54290b7f4b39ea93dbeff6be3f207923fbb3321d2894a359344"]];
+    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:@"/auth/new?user_id=1234&provider=fitbit" parameters:nil];
+
     [_webView loadRequest:request];
     _webView.delegate = self;
     
-    [self.view addSubview:_webView];
 }
 
 - (void)didReceiveMemoryWarning

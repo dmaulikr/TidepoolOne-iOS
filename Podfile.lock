@@ -1,6 +1,6 @@
 PODS:
   - AFNetworking (1.3.1)
-  - AttributedMarkdown (0.9.0)
+  - AttributedMarkdown (0.9.1)
   - Facebook-iOS-SDK (3.5.3)
   - GoogleAnalytics-iOS-SDK (2.0beta4)
   - JSONKit (1.5pre)
@@ -30,7 +30,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 9ec8aafb9269236a7630bd8d9838ce2ba30fa2a0
-  AttributedMarkdown: dec3931152ba5afc06f083214745bce896c11bd9
+  AttributedMarkdown: 67f0458c38a1c8c9210a5e8c8a06f4854bb2b867
   Facebook-iOS-SDK: c11e851555d8cb8b55853ec2990b01d9e343d09e
   GoogleAnalytics-iOS-SDK: acf0f1ac4dcac408d17e7766454918b7e9e2b03a
   JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
@@ -41,4 +41,4 @@ SPEC CHECKSUMS:
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
   UrbanAirship-iOS-SDK: 2c57f0162d51520cf3181d15825fbd04f6283b25
 
-COCOAPODS: 0.23.0
+COCOAPODS: 0.24.0

@@ -55,6 +55,5 @@
     }
     _fitbitSummaryView.frame = CGRectOffset(_fitbitSummaryView.frame, 0, _snoozerSummaryView.frame.size.height);
     [self addSubview:_fitbitSummaryView];
-
 }
 @end

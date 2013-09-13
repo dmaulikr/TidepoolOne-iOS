@@ -25,6 +25,11 @@
 #import "TPUser.h"
 #import "TPOAuthClient.h"
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
+
+
+#ifndef DEVELOPMENT
+    #define DEVELOPMENT
+#endif
 //#define NSLog TFLog
 
 #endif

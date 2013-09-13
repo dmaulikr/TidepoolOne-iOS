@@ -20,4 +20,6 @@
 @property (strong, nonatomic) NSArray *densityData;
 @property (strong, nonatomic) NSArray *results;
 
+-(void)dismissPopovers;
+
 @end

@@ -11,14 +11,14 @@
 #import "TPSnoozerResultViewController.h"
 #import "TPDashboardHeaderView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <SVPullToRefresh/UIScrollView+SVPullToRefresh.h>
+#import "TPServiceLoginViewController.h"
 
 @interface TPDashboardViewController ()
 {
     TPDashboardHeaderView *_dashboardHeaderView;
     int _numServerCallsCompleted;
     NSDateFormatter *_hourFromDate;
-    
+    UIRefreshControl *_myRefreshControl;
 }
 @end
 
@@ -46,11 +46,13 @@
     _dashboardHeaderView = [[TPDashboardHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 616)];
     self.tableView.tableHeaderView = _dashboardHeaderView;
     
-    __block TPDashboardViewController *wself = self;
-    [self.tableView addPullToRefreshWithActionHandler:^{
-        [wself downloadResults];
-    }];
-    [self.tableView triggerPullToRefresh];
+    _myRefreshControl = [[UIRefreshControl alloc]
+                                        init];
+    [_myRefreshControl addTarget:self action:@selector(downloadResults) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:_myRefreshControl];
+
+    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Logged In" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
     
@@ -59,11 +61,20 @@
     
     _hourFromDate = [[NSDateFormatter alloc] init];
     [_hourFromDate setDateFormat:@"HH"];
+    
+    [self loggedIn];
+    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] initWithNibName:nil bundle:nil];
+    serviceVC.view.frame = self.view.bounds;
+    [self.navigationController pushViewController:serviceVC animated:YES];
 }
+
+
 
 -(void)loggedIn
 {
-    [self.tableView triggerPullToRefresh];
+    [self.tableView setContentOffset:CGPointMake(0, -_myRefreshControl.frame.size.height) animated:YES];
+    [_myRefreshControl beginRefreshing];
+    [self downloadResults];
 }
 
 -(void)loggedOut
@@ -78,10 +89,16 @@
 
 -(void)viewDidDisappear:(BOOL)animated
 {
-    [_dashboardHeaderView dismissPopovers];
+    [_dashboardHeaderView.snoozerSummaryView dismissPopovers];
 }
 
 -(void)downloadResults
+{
+    [self downloadResultsForSnoozerSummary];
+    [self downloadResultsForFitbitSummary];
+}
+
+-(void)downloadResultsForSnoozerSummary
 {
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -89,24 +106,24 @@
         self.results = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
-            [self.tableView.pullToRefreshView stopAnimating];
+            [_myRefreshControl endRefreshing];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-        [self.tableView.pullToRefreshView stopAnimating];
+        [_myRefreshControl endRefreshing];
     }];
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"user: %@", [responseObject[@"data"] description]);
         self.user = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
-            [self.tableView.pullToRefreshView stopAnimating];
+            [_myRefreshControl endRefreshing];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-        [self.tableView.pullToRefreshView stopAnimating];
+        [_myRefreshControl endRefreshing];
     }];
 
     
@@ -132,6 +149,7 @@
                 [scoresByHour addObject:hourlyDetail[@"speed_score"]];
                 [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
             }
+            
             _dashboardHeaderView.snoozerSummaryView.curveGraphView.data = scoresByHour;
             _dashboardHeaderView.snoozerSummaryView.densityData = timesPlayedArray;
             _dashboardHeaderView.snoozerSummaryView.results = scoresByHour;
@@ -218,16 +236,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)testForGettingData
+-(void)downloadResultsForFitbitSummary
 {
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"sucess:%@",[responseObject description]);
+        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"errorRRRR: %@", error);
     }];
     
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/activities" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"sucess:%@",[responseObject description]);
+        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"errorRRRR: %@", error);
     }];
