@@ -597,6 +597,8 @@
 		A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */; };
 		A8BABAB917E27CDB00A3C95B /* calendar-graph@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BABAB717E27CDB00A3C95B /* calendar-graph@2x~iphone.png */; };
 		A8BABABA17E27CDB00A3C95B /* calendar-graph~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8BABAB817E27CDB00A3C95B /* calendar-graph~iphone.png */; };
+		A8BABABD17E28C5900A3C95B /* TPSnoozerSummaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABABC17E28C5900A3C95B /* TPSnoozerSummaryView.m */; };
+		A8BABABF17E28C6B00A3C95B /* TPSnoozerSummaryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABABE17E28C6B00A3C95B /* TPSnoozerSummaryView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1248,6 +1250,9 @@
 		A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
 		A8BABAB717E27CDB00A3C95B /* calendar-graph@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-graph@2x~iphone.png"; sourceTree = "<group>"; };
 		A8BABAB817E27CDB00A3C95B /* calendar-graph~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar-graph~iphone.png"; sourceTree = "<group>"; };
+		A8BABABB17E28C5900A3C95B /* TPSnoozerSummaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerSummaryView.h; sourceTree = "<group>"; };
+		A8BABABC17E28C5900A3C95B /* TPSnoozerSummaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerSummaryView.m; sourceTree = "<group>"; };
+		A8BABABE17E28C6B00A3C95B /* TPSnoozerSummaryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerSummaryView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2246,6 +2251,9 @@
 				A8BABA8C17E262CC00A3C95B /* TPDashboardHeaderView.h */,
 				A8BABA8D17E262CC00A3C95B /* TPDashboardHeaderView.m */,
 				A8BABA8E17E262CC00A3C95B /* TPDashboardHeaderView.xib */,
+				A8BABABB17E28C5900A3C95B /* TPSnoozerSummaryView.h */,
+				A8BABABC17E28C5900A3C95B /* TPSnoozerSummaryView.m */,
+				A8BABABE17E28C6B00A3C95B /* TPSnoozerSummaryView.xib */,
 				A8BABA8F17E262CC00A3C95B /* TPDashboardViewController.h */,
 				A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */,
 				A8BABA9117E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.h */,
@@ -2919,6 +2927,7 @@
 				A8BABA9817E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib in Resources */,
 				A8BABAB917E27CDB00A3C95B /* calendar-graph@2x~iphone.png in Resources */,
 				A8BABABA17E27CDB00A3C95B /* calendar-graph~iphone.png in Resources */,
+				A8BABABF17E28C6B00A3C95B /* TPSnoozerSummaryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3015,6 +3024,7 @@
 				A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */,
 				A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */,
 				A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */,
+				A8BABABD17E28C5900A3C95B /* TPSnoozerSummaryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

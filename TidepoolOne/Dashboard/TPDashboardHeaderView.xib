@@ -277,7 +277,7 @@
 								<string key="NSFrame">{{0, 59}, {790, 125}}</string>
 								<reference key="NSSuperview" ref="979538899"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="808836121"/>
+								<reference key="NSNextKeyView" ref="245418126"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
@@ -292,17 +292,17 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
-					<object class="IBUIScrollView" id="808836121">
+					<object class="IBUIScrollView" id="245418126">
 						<reference key="NSNextResponder" ref="1061628220"/>
 						<int key="NSvFlags">268</int>
 						<array class="NSMutableArray" key="NSSubviews">
-							<object class="IBUIImageView" id="319219853">
-								<reference key="NSNextResponder" ref="808836121"/>
+							<object class="IBUIImageView" id="271085574">
+								<reference key="NSNextResponder" ref="245418126"/>
 								<int key="NSvFlags">274</int>
 								<string key="NSFrameSize">{694, 244}</string>
-								<reference key="NSSuperview" ref="808836121"/>
+								<reference key="NSSuperview" ref="245418126"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="113469923"/>
+								<reference key="NSNextKeyView" ref="966901194"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -311,13 +311,13 @@
 									<string key="NSResourceName">calendar-graph~iphone.png</string>
 								</object>
 							</object>
-							<object class="IBUIView" id="113469923">
-								<reference key="NSNextResponder" ref="808836121"/>
+							<object class="IBUIView" id="966901194">
+								<reference key="NSNextResponder" ref="245418126"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{0, 86}, {694, 153}}</string>
-								<reference key="NSSuperview" ref="808836121"/>
+								<reference key="NSSuperview" ref="245418126"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="278252934"/>
+								<reference key="NSNextKeyView" ref="140715338"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -328,25 +328,24 @@
 								</object>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<object class="IBUIView" id="278252934">
-								<reference key="NSNextResponder" ref="808836121"/>
+							<object class="IBUIView" id="140715338">
+								<reference key="NSNextResponder" ref="245418126"/>
 								<int key="NSvFlags">292</int>
 								<array class="NSMutableArray" key="NSSubviews"/>
 								<string key="NSFrame">{{0, 86}, {694, 153}}</string>
-								<reference key="NSSuperview" ref="808836121"/>
+								<reference key="NSSuperview" ref="245418126"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
-							<object class="IBUIView" id="598379917">
-								<reference key="NSNextResponder" ref="808836121"/>
+							<object class="IBUIView" id="426713960">
+								<reference key="NSNextResponder" ref="245418126"/>
 								<int key="NSvFlags">292</int>
 								<array class="NSMutableArray" key="NSSubviews"/>
 								<string key="NSFrame">{{0, 86}, {694, 153}}</string>
-								<reference key="NSSuperview" ref="808836121"/>
+								<reference key="NSSuperview" ref="245418126"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="319219853"/>
+								<reference key="NSNextKeyView" ref="271085574"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
@@ -354,7 +353,7 @@
 						<string key="NSFrame">{{0, 372}, {320, 244}}</string>
 						<reference key="NSSuperview" ref="1061628220"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="598379917"/>
+						<reference key="NSNextKeyView" ref="426713960"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIAutoresizesSubviews">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
@@ -412,7 +411,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fitbitScrollView</string>
 						<reference key="source" ref="1061628220"/>
-						<reference key="destination" ref="808836121"/>
+						<reference key="destination" ref="245418126"/>
 					</object>
 					<int key="connectionID">31</int>
 				</object>
@@ -420,7 +419,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fitbitBarGraphView</string>
 						<reference key="source" ref="1061628220"/>
-						<reference key="destination" ref="113469923"/>
+						<reference key="destination" ref="966901194"/>
 					</object>
 					<int key="connectionID">33</int>
 				</object>
@@ -428,7 +427,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fitbitSleepGraphView</string>
 						<reference key="source" ref="1061628220"/>
-						<reference key="destination" ref="278252934"/>
+						<reference key="destination" ref="140715338"/>
 					</object>
 					<int key="connectionID">35</int>
 				</object>
@@ -436,7 +435,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fitbitActivityGraphView</string>
 						<reference key="source" ref="1061628220"/>
-						<reference key="destination" ref="598379917"/>
+						<reference key="destination" ref="426713960"/>
 					</object>
 					<int key="connectionID">38</int>
 				</object>
@@ -474,7 +473,7 @@
 							<reference ref="901956253"/>
 							<reference ref="1009991507"/>
 							<reference ref="979538899"/>
-							<reference ref="808836121"/>
+							<reference ref="245418126"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -545,35 +544,35 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">29</int>
-						<reference key="object" ref="808836121"/>
+						<reference key="object" ref="245418126"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="319219853"/>
-							<reference ref="113469923"/>
-							<reference ref="278252934"/>
-							<reference ref="598379917"/>
+							<reference ref="271085574"/>
+							<reference ref="966901194"/>
+							<reference ref="140715338"/>
+							<reference ref="426713960"/>
 						</array>
 						<reference key="parent" ref="1061628220"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">30</int>
-						<reference key="object" ref="319219853"/>
-						<reference key="parent" ref="808836121"/>
+						<reference key="object" ref="271085574"/>
+						<reference key="parent" ref="245418126"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">32</int>
-						<reference key="object" ref="113469923"/>
-						<reference key="parent" ref="808836121"/>
+						<reference key="object" ref="966901194"/>
+						<reference key="parent" ref="245418126"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">34</int>
-						<reference key="object" ref="278252934"/>
-						<reference key="parent" ref="808836121"/>
+						<reference key="object" ref="140715338"/>
+						<reference key="parent" ref="245418126"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">36</int>
-						<reference key="object" ref="598379917"/>
+						<reference key="object" ref="426713960"/>
 						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="808836121"/>
+						<reference key="parent" ref="245418126"/>
 					</object>
 				</array>
 			</object>
