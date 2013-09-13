@@ -7,25 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPBarGraphView.h"
-#import "TPCurveGraphView.h"
 #import "TPSnoozerSummaryView.h"
+#import "TPFitbitSummaryView.h"
 
 @interface TPDashboardHeaderView : UIView
 
-@property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
-@property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet TPCurveGraphView *curveGraphView;
-
-@property (strong, nonatomic) NSArray *densityData;
-@property (strong, nonatomic) NSArray *results;
-
-
-@property (weak, nonatomic) IBOutlet UIScrollView *fitbitScrollView;
-@property (weak, nonatomic) IBOutlet TPBarGraphView *fitbitBarGraphView;
-@property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitSleepGraphView;
-@property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitActivityGraphView;
+@property (strong, nonatomic) TPSnoozerSummaryView *snoozerSummaryView;
+@property (strong, nonatomic) TPFitbitSummaryView *fitbitSummaryView;
 
 -(void)dismissPopovers;
 

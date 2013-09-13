@@ -39,79 +39,22 @@
 
 -(void)commonInit
 {
-    UIImage *image = [UIImage imageNamed:@"dash-densityflag2.png"];
-    _legendView = [[UIImageView alloc] initWithImage:image];
-    _legendView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-    _legendView.hidden = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasTapped:)];
-    [self addGestureRecognizer:tap];
-
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerSummaryView" owner:nil options:nil];
+    for (id item in nibItems) {
+        if ([item isKindOfClass:[TPSnoozerSummaryView class]]) {
+            _snoozerSummaryView = item;
+        }
+    }
+    [self addSubview:_snoozerSummaryView];
     
-    _tooltipView = [[TPCircadianTooltipView alloc] initWithFrame:CGRectMake(0, 0, 85, 61)];
-    _tooltipView.hidden = YES;
-}
-
--(void)setDensityData:(NSArray *)densityData
-{
-    _densityData = densityData;
-    UIImage *high = [UIImage imageNamed:@"dash-density-green.png"];
-    UIImage *medium = [UIImage imageNamed:@"dash-density-yellow.png"];
-    UIImage *low = [UIImage imageNamed:@"dash-density-red.png"];
-    if (_densityData) {
-        for (int i=0;i<_densityData.count;i++) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(33*(i-0.5), 44, 66, 10)];
-            int timesPlayed = [_densityData[i] intValue];
-            if (timesPlayed <= 3) {
-                imageView.image = low;
-            } else if (timesPlayed <= 5) {
-                imageView.image = medium;
-            } else if (timesPlayed > 5) {
-                imageView.image = high;
-            }
-            [self.scrollView addSubview:imageView];
+    nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPFitbitSummaryView" owner:nil options:nil];
+    for (id item in nibItems) {
+        if ([item isKindOfClass:[TPFitbitSummaryView class]]) {
+            _fitbitSummaryView = item;
         }
     }
-}
+    _fitbitSummaryView.frame = CGRectOffset(_fitbitSummaryView.frame, 0, _snoozerSummaryView.frame.size.height);
+    [self addSubview:_fitbitSummaryView];
 
--(void)viewWasTapped:(UIGestureRecognizer *)sender
-{
-    CGPoint touchPoint = [sender locationInView:self.scrollView];
-
-    if (!_legendView.hidden || !_tooltipView.hidden) {
-        [self dismissPopovers];
-    } else {
-        if (touchPoint.y < 58) {
-            _legendView.hidden = NO;
-            _legendView.center = CGPointMake(touchPoint.x + _legendView.bounds.size.width/2, 49);
-            [self.scrollView addSubview:_legendView];
-        } else if (touchPoint.y > 60) {
-            if (self.results) {
-                _tooltipView.hidden = NO;
-                int index = [self indexForTouchPoint:touchPoint];
-                float x = 32.5*index+22;
-                if (index < 19) {
-                    x++;
-                }
-                _tooltipView.center = CGPointMake(x, 100);
-                _tooltipView.score = self.results[index];
-                [self.scrollView addSubview:_tooltipView];
-            }
-        }
-    }
-}
-
-
--(int)indexForTouchPoint:(CGPoint)touchPoint
-{
-    float index = 24 * touchPoint.x / 790;
-    return (int)index;
-}
-
--(void)dismissPopovers
-{
-    _legendView.hidden = YES;
-    [_legendView removeFromSuperview];
-    _tooltipView.hidden = YES;
-    [_tooltipView removeFromSuperview];
 }
 @end

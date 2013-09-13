@@ -73,10 +73,10 @@
 
 -(void)loggedOut
 {
-    _dashboardHeaderView.allTimeBestLabel.text = @"";
-    _dashboardHeaderView.dailyBestLabel.text = @"";
-    _dashboardHeaderView.densityData = nil;
-    _dashboardHeaderView.curveGraphView.data = nil;
+    _dashboardHeaderView.snoozerSummaryView.allTimeBestLabel.text = @"";
+    _dashboardHeaderView.snoozerSummaryView.dailyBestLabel.text = @"";
+    _dashboardHeaderView.snoozerSummaryView.densityData = nil;
+    _dashboardHeaderView.snoozerSummaryView.curveGraphView.data = nil;
     self.results = nil;
     [self.tableView reloadData];
 }
@@ -137,11 +137,11 @@
                 [scoresByHour addObject:hourlyDetail[@"speed_score"]];
                 [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
             }
-            _dashboardHeaderView.curveGraphView.data = scoresByHour;
-            _dashboardHeaderView.densityData = timesPlayedArray;
-            _dashboardHeaderView.results = scoresByHour;
-            _dashboardHeaderView.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
-            _dashboardHeaderView.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
+            _dashboardHeaderView.snoozerSummaryView.curveGraphView.data = scoresByHour;
+            _dashboardHeaderView.snoozerSummaryView.densityData = timesPlayedArray;
+            _dashboardHeaderView.snoozerSummaryView.results = scoresByHour;
+            _dashboardHeaderView.snoozerSummaryView.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
+            _dashboardHeaderView.snoozerSummaryView.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
         }
     }
 }
@@ -150,22 +150,22 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    _dashboardHeaderView.scrollView.contentSize = CGSizeMake(790, 192);
-    _dashboardHeaderView.fitbitScrollView.contentSize = CGSizeMake(694, 244);
+    _dashboardHeaderView.snoozerSummaryView.scrollView.contentSize = CGSizeMake(790, 192);
+    _dashboardHeaderView.fitbitSummaryView.fitbitScrollView.contentSize = CGSizeMake(694, 244);
     NSDate *now = [NSDate date];
     int hour = [[_hourFromDate stringFromDate:now] floatValue];
     float offset = 790*hour/24;
     if (offset > (790-320)) {
         offset = 790-320;
     }
-    _dashboardHeaderView.scrollView.contentOffset = CGPointMake(offset, 0);
-    _dashboardHeaderView.scrollView.scrollEnabled = YES;
+    _dashboardHeaderView.snoozerSummaryView.scrollView.contentOffset = CGPointMake(offset, 0);
+    _dashboardHeaderView.snoozerSummaryView.scrollView.scrollEnabled = YES;
     
     
     //TODO: working on graph params - remove and refactor later
-    _dashboardHeaderView.fitbitActivityGraphView.data = @[@13, @52, @23, @44, @15, @26, @71];
-    _dashboardHeaderView.fitbitSleepGraphView.data = @[@13, @52, @23, @44, @15, @126, @71];
-    _dashboardHeaderView.fitbitSleepGraphView.color = [UIColor redColor];
+    _dashboardHeaderView.fitbitSummaryView.fitbitActivityGraphView.data = @[@13, @52, @23, @44, @15, @26, @71];
+    _dashboardHeaderView.fitbitSummaryView.fitbitSleepGraphView.data = @[@13, @52, @23, @44, @15, @126, @71];
+    _dashboardHeaderView.fitbitSummaryView.fitbitSleepGraphView.color = [UIColor redColor];
 
 }
 
