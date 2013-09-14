@@ -33,8 +33,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:@"/auth/new?user_id=1234&provider=fitbit" parameters:nil];
+    
+    //dist trial TODO: fix up
+    
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"dist2/index2" withExtension:@"html"];
+    [_webView loadRequest:[NSURLRequest requestWithURL:url]];
 
-    [_webView loadRequest:request];
+    
+//    [_webView loadRequest:request];
     _webView.delegate = self;
     
 }

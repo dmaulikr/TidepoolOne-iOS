@@ -15,7 +15,6 @@
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
     NSArray *_educationOptions;
-    BOOL _viewDidLayout;
 }
 @end
 
@@ -190,7 +189,6 @@
                           @"College - Ph.D.",
                           @"Prefer not to answer",
                           ];
-    _viewDidLayout = NO;
 }
 
 -(void)customizeFields:(NSArray *)fields
@@ -201,15 +199,11 @@
     }
 }
 
--(void)viewDidAppear:(BOOL)animated
+-(void)viewDidLayoutSubviews
 {
-    if (!_viewDidLayout) {
-//        _viewDidLayout = YES;
-//        self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, _femaleButton.frame.origin.y + _femaleButton.frame.size.height + 100);
-        _scrollContentView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 800);
-        [self.scrollView addSubview:_scrollContentView];
-        [self.scrollView setContentSize:_scrollContentView.bounds.size];
-    }
+    _scrollContentView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 800);
+    [self.scrollView addSubview:_scrollContentView];
+    [self.scrollView setContentSize:_scrollContentView.bounds.size];
     [self loadData];
 }
 

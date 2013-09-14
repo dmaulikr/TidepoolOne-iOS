@@ -63,9 +63,6 @@
     [_hourFromDate setDateFormat:@"HH"];
     
     [self loggedIn];
-    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] initWithNibName:nil bundle:nil];
-    serviceVC.view.frame = self.view.bounds;
-    [self.navigationController pushViewController:serviceVC animated:YES];
 }
 
 
