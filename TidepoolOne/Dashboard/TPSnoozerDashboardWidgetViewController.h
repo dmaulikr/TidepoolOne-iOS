@@ -1,17 +1,18 @@
 //
-//  TPSnoozerSummaryView.h
+//  TPSnoozerDashboardWidgetViewController.h
 //  TidepoolOne
 //
-//  Created by Mayank Sanganeria on 9/12/13.
+//  Created by Mayank Sanganeria on 9/13/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "TPBarGraphView.h"
 #import "TPCurveGraphView.h"
+#import "TPBarGraphView.h"
 
-@interface TPSnoozerSummaryView : UIView
+@interface TPSnoozerDashboardWidgetViewController : UIViewController
 
+@property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -21,5 +22,6 @@
 @property (strong, nonatomic) NSArray *results;
 
 -(void)dismissPopovers;
-
+-(void)downloadResults;
+-(void)reset;
 @end

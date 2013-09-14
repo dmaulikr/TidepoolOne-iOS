@@ -34,13 +34,7 @@
 	// Do any additional setup after loading the view.
     NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:@"/auth/new?user_id=1234&provider=fitbit" parameters:nil];
     
-    //dist trial TODO: fix up
-    
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"dist2/index2" withExtension:@"html"];
-    [_webView loadRequest:[NSURLRequest requestWithURL:url]];
-
-    
-//    [_webView loadRequest:request];
+    [_webView loadRequest:request];
     _webView.delegate = self;
     
 }
@@ -59,11 +53,11 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     requestString = [requestString lowercaseString];
     NSLog(@"%@", requestString);
     
-    if ([requestString hasPrefix:@"iosaction"]) {
-        NSString* logString = [[requestString componentsSeparatedByString:@"iosaction://"] objectAtIndex:1];
-        BOOL done = logString.boolValue;
-        NSLog(@"success: %i", done);
-        return NO;
+    if ([requestString hasSuffix:@"success"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+    } else if ([requestString hasSuffix:@"failure"]) {
+        [self.navigationController popViewControllerAnimated:YES];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
     }
     return YES;
 }

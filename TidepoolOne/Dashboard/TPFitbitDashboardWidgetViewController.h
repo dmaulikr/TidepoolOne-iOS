@@ -1,8 +1,8 @@
 //
-//  TPFitbitSummaryView.h
+//  TPFitbitDashboardWidgetViewController.h
 //  TidepoolOne
 //
-//  Created by Mayank Sanganeria on 9/12/13.
+//  Created by Mayank Sanganeria on 9/13/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "TPBarGraphView.h"
 #import "TPCurveGraphView.h"
 
-@interface TPFitbitSummaryView : UIView
+@interface TPFitbitDashboardWidgetViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *fitbitScrollView;
 @property (weak, nonatomic) IBOutlet TPBarGraphView *fitbitBarGraphView;

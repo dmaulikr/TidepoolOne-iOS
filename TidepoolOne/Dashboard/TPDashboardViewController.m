@@ -9,15 +9,13 @@
 #import "TPDashboardViewController.h"
 #import "TPSnoozerResultsDashboardWidget.h"
 #import "TPSnoozerResultViewController.h"
-#import "TPDashboardHeaderView.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import "TPServiceLoginViewController.h"
 
 @interface TPDashboardViewController ()
 {
-    TPDashboardHeaderView *_dashboardHeaderView;
+    UIView *_dashboardHeaderView;
     int _numServerCallsCompleted;
-    NSDateFormatter *_hourFromDate;
     UIRefreshControl *_myRefreshControl;
 }
 @end
@@ -43,7 +41,8 @@
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
 
-    _dashboardHeaderView = [[TPDashboardHeaderView alloc] initWithFrame:CGRectMake(0, 0, 320, 616)];
+    _dashboardHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+    [self constructHeaderView];
     self.tableView.tableHeaderView = _dashboardHeaderView;
     
     _myRefreshControl = [[UIRefreshControl alloc]
@@ -51,18 +50,36 @@
     [_myRefreshControl addTarget:self action:@selector(downloadResults) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:_myRefreshControl];
 
-    
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Logged In" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOut) name:@"Logged Out" object:nil];
     
     //hack, more to model
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Got New Game Results" object:nil];
-    
-    _hourFromDate = [[NSDateFormatter alloc] init];
-    [_hourFromDate setDateFormat:@"HH"];
-    
     [self loggedIn];
+    
+    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
+    serviceVC.view.frame = self.view.bounds;
+    [self.navigationController pushViewController:serviceVC animated:YES];
+}
+
+
+-(void)constructHeaderView
+{
+    self.snoozerWidget = [[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
+    [self addChildViewController:self.snoozerWidget];
+    [self.snoozerWidget didMoveToParentViewController:self];
+    [_dashboardHeaderView addSubview:self.snoozerWidget.view];
+    
+    self.fitbitWidget = [[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
+    [self addChildViewController:self.fitbitWidget];
+    [self.fitbitWidget didMoveToParentViewController:self];
+    self.fitbitWidget.view.frame = CGRectOffset(self.fitbitWidget.view.frame, 0, self.snoozerWidget.view.frame.size.height);
+    [_dashboardHeaderView addSubview:self.fitbitWidget.view];
+    
+    CGRect bounds = _dashboardHeaderView.bounds;
+    bounds.size.height = self.snoozerWidget.view.frame.size.height + self.fitbitWidget.view.frame.size.height;
+    _dashboardHeaderView.bounds = bounds;
 }
 
 
@@ -76,107 +93,20 @@
 
 -(void)loggedOut
 {
-    _dashboardHeaderView.snoozerSummaryView.allTimeBestLabel.text = @"";
-    _dashboardHeaderView.snoozerSummaryView.dailyBestLabel.text = @"";
-    _dashboardHeaderView.snoozerSummaryView.densityData = nil;
-    _dashboardHeaderView.snoozerSummaryView.curveGraphView.data = nil;
-    self.results = nil;
+    [self.snoozerWidget reset];
     [self.tableView reloadData];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    [_dashboardHeaderView.snoozerSummaryView dismissPopovers];
 }
 
 -(void)downloadResults
 {
-    [self downloadResultsForSnoozerSummary];
+    [self.snoozerWidget downloadResults];
     [self downloadResultsForFitbitSummary];
-}
-
--(void)downloadResultsForSnoozerSummary
-{
-    _numServerCallsCompleted = 0;
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"results: %@", [responseObject[@"data"] description]);
-        self.results = responseObject[@"data"];
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 2) {
-            [_myRefreshControl endRefreshing];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fail: %@", [error description]);
-        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-        [_myRefreshControl endRefreshing];
-    }];
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"user: %@", [responseObject[@"data"] description]);
-        self.user = responseObject[@"data"];
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 2) {
-            [_myRefreshControl endRefreshing];
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fail: %@", [error description]);
-        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-        [_myRefreshControl endRefreshing];
-    }];
-
-    
 }
 
 -(void)setResults:(NSArray *)results
 {
     _results = [[results reverseObjectEnumerator] allObjects];
     [self.tableView reloadData];
-}
-
--(void)setUser:(NSDictionary *)user
-{
-    _user = user;
-    if (_user) {
-        NSArray *aggregateResults = _user[@"aggregate_results"];
-        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-            NSDictionary *circadianRhythm = aggregateResults[0][@"scores"][@"circadian"];
-            NSMutableArray *timesPlayedArray = [NSMutableArray array];
-            NSMutableArray *scoresByHour = [NSMutableArray array];
-            for (int i=0;i<24;i++) {
-                NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
-                [scoresByHour addObject:hourlyDetail[@"speed_score"]];
-                [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
-            }
-            
-            _dashboardHeaderView.snoozerSummaryView.curveGraphView.data = scoresByHour;
-            _dashboardHeaderView.snoozerSummaryView.densityData = timesPlayedArray;
-            _dashboardHeaderView.snoozerSummaryView.results = scoresByHour;
-            _dashboardHeaderView.snoozerSummaryView.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
-            _dashboardHeaderView.snoozerSummaryView.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
-        }
-    }
-}
-
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    _dashboardHeaderView.snoozerSummaryView.scrollView.contentSize = CGSizeMake(790, 192);
-    _dashboardHeaderView.fitbitSummaryView.fitbitScrollView.contentSize = CGSizeMake(694, 244);
-    NSDate *now = [NSDate date];
-    int hour = [[_hourFromDate stringFromDate:now] floatValue];
-    float offset = 790*hour/24;
-    if (offset > (790-320)) {
-        offset = 790-320;
-    }
-    _dashboardHeaderView.snoozerSummaryView.scrollView.contentOffset = CGPointMake(offset, 0);
-    _dashboardHeaderView.snoozerSummaryView.scrollView.scrollEnabled = YES;
-    
-    
-    //TODO: working on graph params - remove and refactor later
-    _dashboardHeaderView.fitbitSummaryView.fitbitActivityGraphView.data = @[@13, @52, @23, @44, @15, @26, @71];
-    _dashboardHeaderView.fitbitSummaryView.fitbitSleepGraphView.data = @[@13, @52, @23, @44, @15, @126, @71];
-    _dashboardHeaderView.fitbitSummaryView.fitbitSleepGraphView.color = [UIColor redColor];
-
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
