@@ -65,7 +65,7 @@
 }
 
 
--(void)downloadResults
+-(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 {
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -73,24 +73,24 @@
         self.results = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
-//            [_myRefreshControl endRefreshing];
+            successBlock();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-//        [_myRefreshControl endRefreshing];
+        failureBlock();
     }];
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"user: %@", [responseObject[@"data"] description]);
         self.user = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
-//            [_myRefreshControl endRefreshing];
+            successBlock();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Fail: %@", [error description]);
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-//        [_myRefreshControl endRefreshing];
+        failureBlock();
     }];
     
     

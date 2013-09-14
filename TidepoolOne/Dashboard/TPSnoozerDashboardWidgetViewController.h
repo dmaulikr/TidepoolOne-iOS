@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TPDashboardWidgetViewController.h"
 #import "TPCurveGraphView.h"
 #import "TPBarGraphView.h"
 
-@interface TPSnoozerDashboardWidgetViewController : UIViewController
+@interface TPSnoozerDashboardWidgetViewController : TPDashboardWidgetViewController
 
 @property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
@@ -22,6 +22,5 @@
 @property (strong, nonatomic) NSArray *results;
 
 -(void)dismissPopovers;
--(void)downloadResults;
--(void)reset;
+
 @end

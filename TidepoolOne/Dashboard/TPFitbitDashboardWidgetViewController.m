@@ -9,7 +9,9 @@
 #import "TPFitbitDashboardWidgetViewController.h"
 
 @interface TPFitbitDashboardWidgetViewController ()
-
+{
+    int _numServerCallsCompleted;
+}
 @end
 
 @implementation TPFitbitDashboardWidgetViewController
@@ -43,6 +45,45 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)downloadResultswithCompletionHandlersSuccess:(void (^)())successBlock andFailure:(void (^)())failureBlock
+{
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sucess:%@",[responseObject description]);
+        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
+        _numServerCallsCompleted++;
+        if (_numServerCallsCompleted == 3) {
+            successBlock();
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"errorRRRR: %@", error);
+        failureBlock();
+    }];
+    
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/activities" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sucess:%@",[responseObject description]);
+        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
+        _numServerCallsCompleted++;
+        if (_numServerCallsCompleted == 3) {
+            successBlock();
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"errorRRRR: %@", error);
+        failureBlock();
+    }];
+    
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?daily=true" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"sucess:%@",[responseObject description]);
+        _numServerCallsCompleted++;
+        if (_numServerCallsCompleted == 3) {
+            successBlock();
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"errorRRRR: %@", error);
+        failureBlock();
+    }];
+    
 }
 
 @end

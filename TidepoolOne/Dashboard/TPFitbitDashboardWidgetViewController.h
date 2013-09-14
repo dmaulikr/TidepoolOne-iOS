@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "TPBarGraphView.h"
+#import "TPDashboardWidgetViewController.h"
 #import "TPCurveGraphView.h"
+#import "TPBarGraphView.h"
 
-@interface TPFitbitDashboardWidgetViewController : UIViewController
+@interface TPFitbitDashboardWidgetViewController : TPDashboardWidgetViewController
 
 @property (weak, nonatomic) IBOutlet UIScrollView *fitbitScrollView;
 @property (weak, nonatomic) IBOutlet TPBarGraphView *fitbitBarGraphView;

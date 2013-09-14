@@ -15,7 +15,8 @@
 @interface TPDashboardViewController ()
 {
     UIView *_dashboardHeaderView;
-    int _numServerCallsCompleted;
+    int _numWidgetsCompleted;
+    NSArray *_widgets;
     UIRefreshControl *_myRefreshControl;
 }
 @end
@@ -80,6 +81,7 @@
     CGRect bounds = _dashboardHeaderView.bounds;
     bounds.size.height = self.snoozerWidget.view.frame.size.height + self.fitbitWidget.view.frame.size.height;
     _dashboardHeaderView.bounds = bounds;
+    
 }
 
 
@@ -99,8 +101,24 @@
 
 -(void)downloadResults
 {
-    [self.snoozerWidget downloadResults];
-    [self downloadResultsForFitbitSummary];
+    //TODO: get results array back from snoozerWidget
+    [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
+        _numWidgetsCompleted++;
+        if (_numWidgetsCompleted == 2) {
+            [_myRefreshControl endRefreshing];
+        }
+    } andFailure:^{
+        [_myRefreshControl endRefreshing];
+    }];
+    [self.fitbitWidget downloadResultswithCompletionHandlersSuccess:^{
+        _numWidgetsCompleted++;
+        if (_numWidgetsCompleted == 2) {
+            [_myRefreshControl endRefreshing];
+        }
+    } andFailure:^{
+        [_myRefreshControl endRefreshing];
+    }];
+
 }
 
 -(void)setResults:(NSArray *)results
@@ -163,29 +181,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)downloadResultsForFitbitSummary
-{
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sucess:%@",[responseObject description]);
-        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"errorRRRR: %@", error);
-    }];
-    
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/activities" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sucess:%@",[responseObject description]);
-        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"errorRRRR: %@", error);
-    }];
-    
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?daily=true" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sucess:%@",[responseObject description]);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"errorRRRR: %@", error);
-    }];
-    
-}
 
 #pragma mark - Table view data source
 
@@ -210,6 +205,5 @@
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
 }
-
 
 @end

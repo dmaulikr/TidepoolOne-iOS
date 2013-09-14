@@ -74,6 +74,7 @@
 		A830EFC417E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A830EFC217E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.xib */; };
 		A830EFC817E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A830EFC617E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m */; };
 		A830EFC917E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */; };
+		A830EFCC17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */; };
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
 		A83F74C717E38BA000612AA7 /* TPFItbitConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A83F74C617E38BA000612AA7 /* TPFItbitConnectionViewController.m */; };
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
@@ -706,6 +707,8 @@
 		A830EFC517E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFitbitDashboardWidgetViewController.h; sourceTree = "<group>"; };
 		A830EFC617E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFitbitDashboardWidgetViewController.m; sourceTree = "<group>"; };
 		A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPFitbitDashboardWidgetViewController.xib; sourceTree = "<group>"; };
+		A830EFCA17E3FEE70035DCD0 /* TPDashboardWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardWidgetViewController.h; sourceTree = "<group>"; };
+		A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardWidgetViewController.m; sourceTree = "<group>"; };
 		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
 		A83F74C517E38BA000612AA7 /* TPFItbitConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPFItbitConnectionViewController.h; path = Connections/TPFItbitConnectionViewController.h; sourceTree = "<group>"; };
@@ -1477,6 +1480,21 @@
 				A830EF7417E3E8520035DCD0 /* Default~iphone.png */,
 			);
 			path = archive;
+			sourceTree = "<group>";
+		};
+		A830EFCD17E3FEEF0035DCD0 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				A830EFCA17E3FEE70035DCD0 /* TPDashboardWidgetViewController.h */,
+				A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */,
+				A830EFC017E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.h */,
+				A830EFC117E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m */,
+				A830EFC217E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.xib */,
+				A830EFC517E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.h */,
+				A830EFC617E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m */,
+				A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */,
+			);
+			name = Widget;
 			sourceTree = "<group>";
 		};
 		A835B72B17E23DAD00775E38 /* Models */ = {
@@ -2302,12 +2320,7 @@
 			children = (
 				A8BABA8F17E262CC00A3C95B /* TPDashboardViewController.h */,
 				A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */,
-				A830EFC017E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.h */,
-				A830EFC117E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m */,
-				A830EFC217E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.xib */,
-				A830EFC517E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.h */,
-				A830EFC617E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m */,
-				A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */,
+				A830EFCD17E3FEEF0035DCD0 /* Widget */,
 				A8BABA9117E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.h */,
 				A8BABA9217E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m */,
 				A8BABA9317E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib */,
@@ -3077,6 +3090,7 @@
 				A8BABA6B17E261C500A3C95B /* TPSnoozerResultsGraphView.m in Sources */,
 				A8BABA7217E261FC00A3C95B /* TPSnoozerGameViewController.mm in Sources */,
 				A8BABA7317E261FC00A3C95B /* TPSnoozerGame.m in Sources */,
+				A830EFCC17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m in Sources */,
 				A8BABA7F17E2625C00A3C95B /* TPSnoozerInstructionViewController.m in Sources */,
 				A8BABA8117E2625C00A3C95B /* TPSnoozerStageViewController.m in Sources */,
 				A8BABA8217E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m in Sources */,
