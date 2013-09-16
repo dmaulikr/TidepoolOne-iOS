@@ -12,9 +12,15 @@
 
 @interface TPFitbitDashboardWidgetViewController : TPDashboardWidgetViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
+@property (weak, nonatomic) IBOutlet UIButton *connectButton;
+- (IBAction)connectAction:(id)sender;
+@property (assign, nonatomic) BOOL isConnected;
 @property (weak, nonatomic) IBOutlet UIScrollView *fitbitScrollView;
 @property (weak, nonatomic) IBOutlet TPBarGraphView *fitbitBarGraphView;
 @property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitSleepGraphView;
 @property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitActivityGraphView;
+- (IBAction)refreshButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 @end

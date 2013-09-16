@@ -31,13 +31,13 @@
 -(void)commonInit
 {
     self.backgroundColor = [UIColor clearColor];
+    _color = [UIColor colorWithRed:36/255.0 green:145/255.0 blue:241/255.0 alpha:1.0];    
 }
 
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    _color = [UIColor colorWithRed:36/255.0 green:145/255.0 blue:241/255.0 alpha:1.0];
     CGMutablePathRef path = CGPathCreateMutable();
     float distBetweenPoints = rect.size.width / _data.count;
     float yMin = [[self.data valueForKeyPath:@"@min.floatValue"] floatValue];

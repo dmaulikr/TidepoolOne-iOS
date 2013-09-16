@@ -10,7 +10,6 @@
 #import "TPSnoozerResultsDashboardWidget.h"
 #import "TPSnoozerResultViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "TPServiceLoginViewController.h"
 
 @interface TPDashboardViewController ()
 {
@@ -58,10 +57,6 @@
     //hack, more to model
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Got New Game Results" object:nil];
     [self loggedIn];
-    
-    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
-    serviceVC.view.frame = self.view.bounds;
-    [self.navigationController pushViewController:serviceVC animated:YES];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -211,6 +206,11 @@
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
+}
+
+-(void)showFitbitConnect
+{
+    
 }
 
 @end

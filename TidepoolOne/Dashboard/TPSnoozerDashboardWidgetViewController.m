@@ -82,6 +82,7 @@
     }];
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"user: %@", [responseObject[@"data"] description]);
+        [TPOAuthClient sharedClient].user = responseObject[@"data"];
         self.user = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {

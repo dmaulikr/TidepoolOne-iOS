@@ -42,17 +42,15 @@
     _unselectedColor = [UIColor colorWithWhite:1.0 alpha:0.45];
     _selectedColor = [UIColor colorWithRed:37/255.0 green:144/255.0 blue:242/255.0 alpha:1.0];
     _tagOffset = 666; // the number of the beast!
+    _distanceBetweenBars = 77.5;
+    _firstOffset = 45;
+    _barWidth = 20;
+    _topBottomPadding = 0;
 }
 
 - (void)drawRect:(CGRect)rect
 {
     self.data = @[@1,@2,@3,@4,@5,@6,@7];
-    _distanceBetweenBars = 77.5;
-    _firstOffset = 45;
-    _selectedColor = [UIColor colorWithRed:215/255.0 green:57/255.0 blue:57/255.0 alpha:1.0];
-    _unselectedColor = [UIColor colorWithRed:215/255.0 green:57/255.0 blue:57/255.0 alpha:1.0];
-    _barWidth = 20;
-    _topBottomPadding = 0;
     
     float barMaxHeight = rect.size.height - 2 * _topBottomPadding;
 

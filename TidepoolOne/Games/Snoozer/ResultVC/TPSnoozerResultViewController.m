@@ -47,20 +47,20 @@
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"results-bg.png"]];
     //hack
-    if (!_firstTimeHackFix) {
-        _firstTimeHackFix = YES;
-        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            if (screenSize.height > 480.0f) {
-                /*Do iPhone 5 stuff here.*/
-                self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+20);
-            } else {
-                /*Do iPhone Classic stuff here.*/
-            }
-        } else {
-            /*Do iPad stuff here.*/
-        }
-    }
+//    if (!_firstTimeHackFix) {
+//        _firstTimeHackFix = YES;
+//        CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+//        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+//            if (screenSize.height > 480.0f) {
+//                /*Do iPhone 5 stuff here.*/
+//                self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height+20);
+//            } else {
+//                /*Do iPhone Classic stuff here.*/
+//            }
+//        } else {
+//            /*Do iPad stuff here.*/
+//        }
+//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,4 +94,20 @@
 {
     return _result;
 }
+- (IBAction)shareAction:(id)sender
+{
+    NSString *message = [NSString stringWithFormat:@"I just scored %@ on Snoozer! Can you do better?", self.currentFastestTime.text];
+    NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];
+    
+    NSArray *postItems = @[message, url];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                            initWithActivityItems:postItems
+                                            applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
+    
+    
 @end

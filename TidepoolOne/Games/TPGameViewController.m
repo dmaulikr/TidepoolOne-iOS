@@ -118,10 +118,11 @@
                                       @"Survey":[TPSnoozerSurveyStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
-    TPStageViewController *stageVC = [[stageClass alloc] init];
-    stageVC.data = self.gameObject[@"stages"][_stage];
-    stageVC.view.frame = self.view.frame;
+    TPStageViewController *stageVC = [[stageClass alloc] initWithNibName:nil bundle:nil];
+    stageVC.view.frame = self.view.bounds;
+    stageVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
     stageVC.gameVC = self;
+    stageVC.data = self.gameObject[@"stages"][_stage];
     [self displayContentController:stageVC];
 }
 
@@ -177,7 +178,7 @@
     for (NSDictionary *result in _results) {
         NSString *resultType = result[@"type"];
         Class stageClass = classDictionary[resultType];
-        TPResultViewController *resultVC = [[stageClass alloc] init];
+        TPResultViewController *resultVC = [[stageClass alloc] initWithNibName:nil bundle:nil];
         if (resultVC) {
             hasResultsToShow = YES;
             resultVC.gameVC = self;

@@ -14,8 +14,9 @@
                 <outlet property="currentFastestTime" destination="2671" id="2768"/>
                 <outlet property="gameLevelHistoryView" destination="1023" id="2770"/>
                 <outlet property="messageLabel" destination="181" id="201"/>
-                <outlet property="playAgainButton" destination="1492" id="1501"/>
+                <outlet property="playAgainButton" destination="OQt-4R-2jp" id="0OB-kd-7tX"/>
                 <outlet property="scrollView" destination="1298" id="1502"/>
+                <outlet property="shareButton" destination="1492" id="tVM-f3-kme"/>
                 <outlet property="view" destination="15" id="16"/>
             </connections>
         </placeholder>
@@ -110,7 +111,7 @@
                                 <constraint firstItem="2997" firstAttribute="top" secondItem="2574" secondAttribute="top" constant="85" id="3049"/>
                             </constraints>
                         </view>
-                        <view opaque="NO" autoresizesSubviews="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="515">
+                        <view autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="515">
                             <rect key="frame" x="0.0" y="275" width="320" height="141"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -172,11 +173,11 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1492">
-                            <rect key="frame" x="94" y="12" width="133" height="341"/>
+                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQt-4R-2jp">
+                            <rect key="frame" x="167" y="15" width="133" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="133" id="2802"/>
+                                <constraint firstAttribute="width" constant="133" id="Vaw-jm-DX9"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <state key="normal" title="Play Again" backgroundImage="btn-red.png">
@@ -187,15 +188,36 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1492">
+                            <rect key="frame" x="20" y="15" width="133" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="133" id="2802"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                            <state key="normal" title="Share" backgroundImage="btn-blue.png">
+                                <color key="titleColor" red="1" green="0.99689670939999997" blue="0.9713417231" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="Ing-34-bUZ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="1492" firstAttribute="top" secondItem="2472" secondAttribute="top" constant="12" id="2795"/>
-                        <constraint firstItem="1492" firstAttribute="centerX" secondItem="1477" secondAttribute="centerX" id="2796"/>
+                        <constraint firstItem="1492" firstAttribute="top" secondItem="2472" secondAttribute="top" constant="10" id="2795"/>
+                        <constraint firstItem="1492" firstAttribute="centerX" secondItem="1477" secondAttribute="centerX" constant="-73.5" id="2796"/>
                         <constraint firstItem="1477" firstAttribute="leading" secondItem="2472" secondAttribute="leading" id="2797"/>
                         <constraint firstItem="1477" firstAttribute="bottom" secondItem="2472" secondAttribute="bottom" id="2798"/>
                         <constraint firstItem="1477" firstAttribute="top" secondItem="2472" secondAttribute="top" id="2799"/>
                         <constraint firstItem="1477" firstAttribute="bottom" secondItem="2472" secondAttribute="bottom" id="2838"/>
+                        <constraint firstAttribute="bottom" secondItem="1477" secondAttribute="bottom" id="C2g-1W-bUx"/>
+                        <constraint firstItem="1492" firstAttribute="leading" secondItem="2472" secondAttribute="leading" constant="20" id="T6j-pC-ALG"/>
+                        <constraint firstAttribute="trailing" secondItem="OQt-4R-2jp" secondAttribute="trailing" constant="20" id="ruM-a0-mbo"/>
                     </constraints>
                 </view>
             </subviews>
@@ -208,11 +230,13 @@
                 <constraint firstItem="1298" firstAttribute="bottom" secondItem="15" secondAttribute="bottom" id="2807"/>
                 <constraint firstItem="2472" firstAttribute="bottom" secondItem="15" secondAttribute="bottom" id="2808"/>
                 <constraint firstItem="2472" firstAttribute="trailing" secondItem="15" secondAttribute="trailing" id="2809"/>
+                <constraint firstAttribute="bottom" secondItem="2472" secondAttribute="bottom" id="ZUw-mN-uk0"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
     <resources>
+        <image name="btn-blue.png" width="126" height="45"/>
         <image name="btn-diagonalbg.png" width="320" height="70"/>
         <image name="btn-red.png" width="126" height="45"/>
         <image name="historychart-timeline.png" width="320" height="7"/>

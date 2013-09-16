@@ -86,6 +86,12 @@
     } else {
         [self showInstructionScreen];
     }
+    self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height);    
+}
+
+-(void)viewDidLayoutSubviews
+{
+//    self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
 }
 
 -(void)viewDidDisappear:(BOOL)animated

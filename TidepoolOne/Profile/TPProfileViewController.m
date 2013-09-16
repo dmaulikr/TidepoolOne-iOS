@@ -251,6 +251,7 @@
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
         [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            _oauthClient.user = responseObject[@"data"];
             [hud hide:YES];
             self.user = responseObject[@"data"];
             _oauthClient.user = self.user;
@@ -323,6 +324,7 @@
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                             initWithActivityItems:postItems
                                             applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact];
     
     [self presentViewController:activityVC animated:YES completion:nil];
 }

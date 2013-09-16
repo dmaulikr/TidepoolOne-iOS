@@ -136,11 +136,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
-                                        <rect key="frame" x="23" y="67" width="275" height="58"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
+                                        <rect key="frame" x="23" y="54" width="275" height="58"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="58" id="9HQ-av-YJR"/>
                                             <constraint firstAttribute="width" constant="275" id="Hy7-1R-Lc8"/>
@@ -149,14 +149,14 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
-                                        <rect key="frame" x="60" y="10" width="201" height="55"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
+                                        <rect key="frame" x="60" y="8" width="201" height="55"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
-                                        <rect key="frame" x="104" y="226" width="113" height="117"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
+                                        <rect key="frame" x="104" y="200" width="113" height="117"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
-                                        <rect key="frame" x="109" y="438" width="102" height="42"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
+                                        <rect key="frame" x="109" y="389" width="102" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="102" id="G4R-FQ-stz"/>
                                             <constraint firstAttribute="height" constant="42" id="cUz-zj-Kaj"/>
