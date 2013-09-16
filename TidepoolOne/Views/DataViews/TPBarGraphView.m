@@ -42,9 +42,9 @@
     _unselectedColor = [UIColor colorWithWhite:1.0 alpha:0.45];
     _selectedColor = [UIColor colorWithRed:37/255.0 green:144/255.0 blue:242/255.0 alpha:1.0];
     _tagOffset = 666; // the number of the beast!
-    _distanceBetweenBars = 77.5;
-    _firstOffset = 45;
-    _barWidth = 20;
+    _distanceBetweenBars = 97.5;
+    _firstOffset = 42;
+    _barWidth = 30;
     _topBottomPadding = 0;
 }
 
@@ -59,8 +59,8 @@
     for (int i=0;i<_data.count;i++) {
         NSNumber *item = _data[i];
         float y = item.floatValue / maxData * barMaxHeight;
-        float x = _firstOffset + (_barWidth + _distanceBetweenBars) * i;
-        CGRect barRect = CGRectMake(x, rect.size.height - _topBottomPadding, _barWidth, -y);
+        float x = _firstOffset + (_distanceBetweenBars) * i + 0.5*_barWidth;
+        CGRect barRect = CGRectMake(x - _barWidth/2, rect.size.height - _topBottomPadding, _barWidth, -y);
         UIView *barView = [[UIView alloc] initWithFrame:barRect];
         barView.backgroundColor = _unselectedColor;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(barWasTapped:)];
