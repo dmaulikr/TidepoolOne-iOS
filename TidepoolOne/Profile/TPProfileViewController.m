@@ -45,7 +45,6 @@
     [self setupView];
     [self constructStartNewGameView];
     [self loggedIn]; //by calling this here - we don't have to repopulate every time viewDidAppear - it is called when loaded and on every user change
-
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -275,9 +274,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _oauthClient = [TPOAuthClient sharedClient];
     self.title = @"Profile";
-    //    self.rightButton.target = self;
-    //    self.rightButton.action = @selector(showSettings);
-    
     
     _imageView = [[UIImageView alloc] init];
     _imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -301,6 +297,34 @@
 -(void)loggedOut
 {
     self.user = nil;
+}
+
+
+- (IBAction)sharePersonality:(id)sender
+{
+    NSString *personalityTypeName;
+    BOOL hasData = NO;
+    NSDictionary *personality;
+    if (_user) {
+        personality = _user[@"personality"];
+        if (personality && (personality != (NSDictionary *)[NSNull null])) {
+            hasData = YES;
+        }
+    }
+    if (hasData) {
+        personalityTypeName = personality[@"profile_description"][@"name"];
+    }
+
+    NSString *message = [NSString stringWithFormat:@"I'm %@! Find out your personality with TidePool!", personalityTypeName];
+     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];
+                         
+    NSArray *postItems = @[message, url];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                            initWithActivityItems:postItems
+                                            applicationActivities:nil];
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 @end

@@ -24,21 +24,13 @@ NSString *const FBSessionStateChangedNotification =
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    // Optional: automatically send uncaught exceptions to Google Analytics.
 //    [GAI sharedInstance].trackUncaughtExceptions = YES;
-//    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
 //    [GAI sharedInstance].dispatchInterval = 20;
-//    // Optional: set debug to YES for extra debugging information.
 //    [GAI sharedInstance].debug = YES;
-//    // Create tracker instance.
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
     NSLog(@"%@", [tracker description]);
-//    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]];
-//    [TestFlight takeOff:@"f9c7e27c-d774-4e7b-a6aa-b5f5e9551123"];
     
-    NSString *jsonTest = @"[{\"string\":\"test\"}]";
-    NSArray *obj = [jsonTest objectFromJSONString];
-    NSLog(@"obj:%@",obj);
+//    [TestFlight takeOff:@"f9c7e27c-d774-4e7b-a6aa-b5f5e9551123"];
     
     //Clear keychain on first run in case of reinstallation
     if (![[NSUserDefaults standardUserDefaults] objectForKey:@"FirstRun"]) {
@@ -46,6 +38,7 @@ NSString *const FBSessionStateChangedNotification =
         [[TPOAuthClient sharedClient] deleteAllPasswords];
         [[NSUserDefaults standardUserDefaults] setValue:@"1strun" forKey:@"FirstRun"];
     }
+    
     // Handle launching from a notification
     UILocalNotification *localNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotification) {
@@ -60,12 +53,6 @@ NSString *const FBSessionStateChangedNotification =
     // or set runtime properties here.
     [UAirship setLogLevel:UALogLevelTrace];
     UAConfig *config = [UAConfig defaultConfig];
-    
-    // You can also programatically override the plist values:
-    // config.developmentAppKey = @"YourKey";
-    // etc.
-    
-    // Call takeOff (which creates the UAirship singleton)
     [UAirship takeOff:config];
     [UAPush setDefaultPushEnabledValue:NO];
     [[UAPush shared] resetBadge];

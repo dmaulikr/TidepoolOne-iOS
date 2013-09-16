@@ -45,6 +45,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fQo-CL-3RZ">
+                        <barButtonItem key="leftBarButtonItem" title="Share" style="done" id="bEI-BL-IjP" customClass="TPBarButtonItem">
+                            <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="sharePersonality:" destination="3cL-lO-zVo" id="LX4-8l-orz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="done" id="CDV-Kf-3je" customClass="TPBarButtonItem">
                             <color key="tintColor" red="0.90588235289999997" green="0.90588235289999997" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -53,6 +59,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="leftButton" destination="bEI-BL-IjP" id="VAd-cZ-2AD"/>
                         <outlet property="rightButton" destination="CDV-Kf-3je" id="ves-E7-1yG"/>
                     </connections>
                 </tableViewController>
