@@ -31,6 +31,15 @@
     [self.startButton addTarget:(TPSnoozerStageViewController *)self.stageVC action:@selector(instructionDone) forControlEvents:UIControlEventTouchUpInside];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:[NSString stringWithFormat:@"Snoozer Instruction Screen %@", self.levelNumberLabel.text]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

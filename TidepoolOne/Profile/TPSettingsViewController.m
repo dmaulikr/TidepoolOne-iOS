@@ -191,6 +191,14 @@
                           ];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:@"Settings Screen"];
+}
+
 -(void)customizeFields:(NSArray *)fields
 {
     for (TPTextField *field in fields) {

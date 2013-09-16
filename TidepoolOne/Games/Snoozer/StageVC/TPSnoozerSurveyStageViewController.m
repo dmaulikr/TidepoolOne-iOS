@@ -36,6 +36,14 @@
     [self loadDefaults];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:@"Snoozer Survey Screen"];
+}
 
 - (void)didReceiveMemoryWarning
 {

@@ -1257,8 +1257,8 @@
 		A8BABA7A17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerSurveyStageViewController.h; sourceTree = "<group>"; };
 		A8BABA7B17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerSurveyStageViewController.m; sourceTree = "<group>"; };
 		A8BABA7C17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerSurveyStageViewController.xib; sourceTree = "<group>"; };
-		A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSurveyStageViewController.h; sourceTree = "<group>"; };
-		A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSurveyStageViewController.m; sourceTree = "<group>"; };
+		A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPSurveyStageViewController.h; path = Snoozer/StageVC/TPSurveyStageViewController.h; sourceTree = "<group>"; };
+		A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPSurveyStageViewController.m; path = Snoozer/StageVC/TPSurveyStageViewController.m; sourceTree = "<group>"; };
 		A8BABA8617E2629A00A3C95B /* TPSnoozerResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultViewController.h; sourceTree = "<group>"; };
 		A8BABA8717E2629A00A3C95B /* TPSnoozerResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultViewController.m; sourceTree = "<group>"; };
 		A8BABA8817E2629A00A3C95B /* TPSnoozerResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultViewController.xib; sourceTree = "<group>"; };
@@ -2248,6 +2248,8 @@
 				A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */,
 				A8BABA5C17E2616700A3C95B /* TPResultViewController.h */,
 				A8BABA5D17E2616700A3C95B /* TPResultViewController.m */,
+				A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */,
+				A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */,
 				A8BABA5E17E2616700A3C95B /* TPStageViewController.h */,
 				A8BABA5F17E2616700A3C95B /* TPStageViewController.m */,
 			);
@@ -2297,8 +2299,6 @@
 				A8BABA7A17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.h */,
 				A8BABA7B17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m */,
 				A8BABA7C17E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib */,
-				A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */,
-				A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */,
 			);
 			name = StageVC;
 			path = Games/Snoozer/StageVC;
@@ -3226,14 +3226,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vamsee Nalamothu (7N5U35L94Y)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vamsee Nalamothu (7N5U35L94Y)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8B1EA561-5B54-4F59-8D16-3D12AB92C855";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -3245,15 +3245,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "76B7C227-E838-479F-8540-B4E6B5069C41";
+				PROVISIONING_PROFILE = "726D0F92-22B6-4799-845F-769754B00501";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "726D0F92-22B6-4799-845F-769754B00501";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};

@@ -37,10 +37,14 @@
     [[TPLocalNotificationManager sharedInstance] createNotification];
     _firstTimeHackFix = NO;
 }
-
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:@"Snoozer Result Screen"];
+    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"results-bg.png"]];
     //hack
     if (!_firstTimeHackFix) {

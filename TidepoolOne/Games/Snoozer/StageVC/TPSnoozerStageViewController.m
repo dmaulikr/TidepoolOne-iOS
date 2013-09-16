@@ -64,11 +64,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-//    if (_instructionVC) {
-//        NSLog(@"instructionVC on appear so returning");
-//        return;
-//    }
     
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:[NSString stringWithFormat:@"Snoozer Stage Screen, %i",self.gameVC.stage]];
+
     if (_pauseTime) {
         NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];
         for (TPSnoozerClockView *clockView in _clockViews) {

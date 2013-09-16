@@ -64,6 +64,13 @@
     [self.navigationController pushViewController:serviceVC animated:YES];
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:@"Dashboard Screen"];
+}
 
 -(void)constructHeaderView
 {

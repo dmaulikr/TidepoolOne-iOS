@@ -30,13 +30,19 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
 	// Do any additional setup after loading the view.
-    // Send a screen view to the first property.
-    id tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
-    [tracker sendView:@"/SnoozerGame"];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
     self.type = @"snoozer";
 //    self.type = @"snoozers"; //For debugging
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:@"Snoozer New Game"];
 }
 
 -(void)loggedInSignal
