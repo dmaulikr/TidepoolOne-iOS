@@ -23,6 +23,22 @@
 - (IBAction)refreshButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
+
+@property (assign, nonatomic) float speedChange;
+@property (assign, nonatomic) float activityChange;
+@property (assign, nonatomic) float sleepChange;
+
+
+@property (weak, nonatomic) IBOutlet TPLabelBold *speedNumberLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *speedArrowImage;
+@property (weak, nonatomic) IBOutlet TPLabelBold *activityNumberLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *activityArrowImage;
+@property (weak, nonatomic) IBOutlet TPLabelBold *sleepNumberLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *sleepArrowImage;
+
+
+
+
 @property (strong, nonatomic) NSDictionary *user;
 
 @end

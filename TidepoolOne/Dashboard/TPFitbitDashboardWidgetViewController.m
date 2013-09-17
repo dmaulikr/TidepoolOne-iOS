@@ -39,7 +39,9 @@
     self.fitbitSleepGraphView.color = [UIColor colorWithRed:2/255.0 green:110/255.0 blue:160/255.0 alpha:1.0];
     _connectedSize = self.view.bounds.size;
     _notConnectedSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height - self.fitbitScrollView.frame.size.height);
-    self.isConnected = NO;
+    [self refreshFitbitConnectedness];
+    self.speedChange = -0.02;
+    self.sleepChange = -0;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -47,7 +49,6 @@
     [super viewDidAppear:animated];
     self.fitbitScrollView.contentSize = CGSizeMake(694, 244);
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -67,6 +68,20 @@
         self.connectButton.hidden = YES;
     }
 }
+
+-(void)refreshFitbitConnectedness
+{
+    //TODO: centralize
+    NSDictionary *user = [TPOAuthClient sharedClient].user;
+    NSArray *authentications = user[@"authentications"];
+    self.isConnected = NO;
+    for (NSDictionary *item in authentications) {
+        if ([item[@"provider"] isEqualToString:@"fitbit"]) {
+            self.isConnected = YES;
+        }
+    }
+}
+
 
 -(void)showConnectUI
 {
@@ -100,23 +115,37 @@
 {
     _user = user;
     if (_user) {
-//        NSArray *aggregateResults = _user[@"aggregate_results"];
-//        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-//            NSArray *stepsRhythm = aggregateResults[1][@"scores"][@"weekly"];
-//            NSMutableArray *stepsWeekly = [NSMutableArray array];
-//            for (int i=0; i < stepsRhythm.count; i++) {
-//                [stepsWeekly addObject:stepsRhythm[i][@"average_steps"]];
-//            }
-//            NSArray *sleepRhythm = aggregateResults[2][@"scores"][@"weekly"];
-//            NSMutableArray *sleepWeekly = [NSMutableArray array];
-//            for (int i=0; i < sleepRhythm.count; i++) {
-//                [sleepWeekly addObject:sleepRhythm[i][@"average_minutes"]];
-//            }
-//            self.fitbitSleepGraphView.data = sleepWeekly;
-//            self.fitbitActivityGraphView.data = stepsWeekly;
-//        }
+        [self refreshFitbitConnectedness];        
+        NSArray *aggregateResults = _user[@"aggregate_results"];
+        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
+            NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
+            NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
+            NSArray *stepsRhythm = activityAggregateResult[@"scores"][@"weekly"];
+            NSMutableArray *stepsWeekly = [NSMutableArray array];
+            for (int i=0; i < stepsRhythm.count; i++) {
+                [stepsWeekly addObject:stepsRhythm[i][@"average_steps"]];
+            }
+            NSArray *sleepRhythm = sleepAggregateResult[@"scores"][@"weekly"];
+            NSMutableArray *sleepWeekly = [NSMutableArray array];
+            for (int i=0; i < sleepRhythm.count; i++) {
+                [sleepWeekly addObject:sleepRhythm[i][@"average_minutes"]];
+            }
+            self.fitbitSleepGraphView.data = sleepWeekly;
+            self.fitbitActivityGraphView.data = stepsWeekly;
+        }
     }
 }
+
+-(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
+{
+    for (NSDictionary *item in array) {
+        if ([item[@"type"] isEqualToString:type]) {
+            return item;
+        }
+    }
+    return nil;
+}
+
 
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
@@ -136,5 +165,46 @@
     }];
 }
 
+
+-(void)setSleepChange:(float)sleepChange
+{
+    _sleepChange = sleepChange;
+    self.sleepNumberLabel.text = [NSString stringWithFormat:@"%g",100*fabs(sleepChange)];
+    if (sleepChange > 0) {
+        self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow-up.png"];
+    } else if (sleepChange < 0) {
+        self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow-down.png"];
+    } else if (!sleepChange) {
+        self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow.png"];
+    }
+
+}
+
+-(void)setActivityChange:(float)activityChange
+{
+    _activityChange = activityChange;
+    self.activityNumberLabel.text = [NSString stringWithFormat:@"%g%%",100*fabs(activityChange)];
+    if (activityChange > 0) {
+        self.activityArrowImage.image = [UIImage imageNamed:@"fitbit-yellowarrow-up.png"];
+    } else if (activityChange < 0) {
+        self.activityArrowImage.image = [UIImage imageNamed:@"fitbit-yellowarrow-down.png"];
+    } else if (!activityChange) {
+        self.activityArrowImage.image = [UIImage imageNamed:@"fitbit-yellowarrow.png"];
+    }
+
+}
+
+-(void)setSpeedChange:(float)speedChange
+{
+    _speedChange = speedChange;
+    self.speedNumberLabel.text = [NSString stringWithFormat:@"%g%%",100*fabs(speedChange)];
+    if (speedChange > 0) {
+        self.speedArrowImage.image = [UIImage imageNamed:@"fitbit-greenarrow-up.png"];
+    } else if (speedChange < 0) {
+        self.speedArrowImage.image = [UIImage imageNamed:@"fitbit-greenarrow-down.png"];
+    } else if (!speedChange) {
+        self.speedArrowImage.image = [UIImage imageNamed:@"fitbit-greenarrow.png"];
+    }
+}
 
 @end

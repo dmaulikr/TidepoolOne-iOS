@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPFitbitDashboardWidgetViewController">
             <connections>
+                <outlet property="activityArrowImage" destination="55w-Jq-RCp" id="gDS-dk-Amt"/>
+                <outlet property="activityNumberLabel" destination="U1o-rG-Sl5" id="HDr-RD-3DG"/>
                 <outlet property="connectButton" destination="ACM-8c-LCH" id="TJg-c0-YCa"/>
                 <outlet property="fitbitActivityGraphView" destination="EU1-ru-FeB" id="SrZ-ho-E4u"/>
                 <outlet property="fitbitBarGraphView" destination="xE4-W2-MR1" id="X0g-cy-fUa"/>
@@ -14,6 +16,10 @@
                 <outlet property="fitbitSleepGraphView" destination="eL6-ag-5W6" id="aew-jQ-qrR"/>
                 <outlet property="headerImageView" destination="Qb9-dL-izI" id="urm-Hh-aH1"/>
                 <outlet property="refreshButton" destination="5iI-1B-K5I" id="OSb-mF-fwo"/>
+                <outlet property="sleepArrowImage" destination="WLt-VO-wBR" id="KmC-gM-r3g"/>
+                <outlet property="sleepNumberLabel" destination="beg-t6-QsE" id="mB2-gY-IyR"/>
+                <outlet property="speedArrowImage" destination="Ca5-nq-9ee" id="eEz-6K-djG"/>
+                <outlet property="speedNumberLabel" destination="wpn-O1-eP5" id="DtY-PI-9o8"/>
                 <outlet property="view" destination="5e2-0E-qtA" id="Xyg-1V-8uW"/>
             </connections>
         </placeholder>
@@ -73,6 +79,52 @@
                         <action selector="connectAction:" destination="-1" eventType="touchUpInside" id="ZtH-L1-94F"/>
                     </connections>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mAl-yN-dS0" customClass="TPLabelBold">
+                    <rect key="frame" x="37" y="34" width="43" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="wpn-O1-eP5" customClass="TPLabelBold">
+                    <rect key="frame" x="27" y="46" width="62" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <color key="textColor" red="0.24705882352941178" green="0.78823529411764703" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="U1o-rG-Sl5" customClass="TPLabelBold">
+                    <rect key="frame" x="135" y="46" width="62" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <color key="textColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="beg-t6-QsE" customClass="TPLabelBold">
+                    <rect key="frame" x="248" y="46" width="62" height="56"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                    <color key="textColor" red="0.0078431372549019607" green="0.43137254901960786" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="HOURS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e1u-hK-Jbm" customClass="TPLabelBold">
+                    <rect key="frame" x="251" y="88" width="61" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" red="0.0078431372550000003" green="0.43137254899999999" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CYL-T4-lAH" customClass="TPLabelBold">
+                    <rect key="frame" x="142" y="34" width="43" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YPP-by-TWb" customClass="TPLabelBold">
+                    <rect key="frame" x="252" y="34" width="43" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5iI-1B-K5I">
                     <rect key="frame" x="289" y="0.0" width="31" height="28"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -83,6 +135,18 @@
                         <action selector="refreshButtonPressed:" destination="-1" eventType="touchUpInside" id="m0y-qm-4Ca"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitbit-greenarrow-up.png" id="Ca5-nq-9ee">
+                    <rect key="frame" x="0.0" y="63" width="40" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitbit-yellowarrow-up.png" id="55w-Jq-RCp">
+                    <rect key="frame" x="110" y="63" width="40" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitbit-bluearrow-up.png" id="WLt-VO-wBR">
+                    <rect key="frame" x="225" y="63" width="40" height="25"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -93,5 +157,8 @@
         <image name="btn-refresh.png" width="18" height="21"/>
         <image name="calendar-graph.png" width="694" height="244"/>
         <image name="dash-fitbitbg.png" width="320" height="103"/>
+        <image name="fitbit-bluearrow-up.png" width="40" height="25"/>
+        <image name="fitbit-greenarrow-up.png" width="40" height="25"/>
+        <image name="fitbit-yellowarrow-up.png" width="40" height="25"/>
     </resources>
 </document>

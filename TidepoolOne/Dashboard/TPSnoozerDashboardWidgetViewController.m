@@ -101,7 +101,8 @@
     if (_user) {
         NSArray *aggregateResults = _user[@"aggregate_results"];
         if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-            NSDictionary *circadianRhythm = aggregateResults[0][@"scores"][@"circadian"];
+            NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+            NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];
             NSMutableArray *timesPlayedArray = [NSMutableArray array];
             NSMutableArray *scoresByHour = [NSMutableArray array];
             for (int i=0;i<24;i++) {
@@ -117,6 +118,17 @@
         }
     }
 }
+
+-(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
+{
+    for (NSDictionary *item in array) {
+        if ([item[@"type"] isEqualToString:type]) {
+            return item;
+        }
+    }
+    return nil;
+}
+
 
 -(void)reset
 {
