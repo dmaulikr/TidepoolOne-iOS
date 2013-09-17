@@ -50,8 +50,9 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    self.data = @[@1,@2,@3,@4,@5,@6,@7];
-    
+    if (!_data) {
+        return;
+    }
     float barMaxHeight = rect.size.height - 2 * _topBottomPadding;
 
     float maxData = [[self.data valueForKeyPath:@"@max.floatValue"] floatValue];
@@ -83,7 +84,11 @@
     }
 }
 
-
+-(void)setData:(NSArray *)data
+{
+    _data = data;
+    [self setNeedsDisplay];
+}
 
 
 

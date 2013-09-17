@@ -120,18 +120,30 @@
         if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
             NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
             NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
+            NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+            
             NSArray *stepsRhythm = activityAggregateResult[@"scores"][@"weekly"];
             NSMutableArray *stepsWeekly = [NSMutableArray array];
             for (int i=0; i < stepsRhythm.count; i++) {
                 [stepsWeekly addObject:stepsRhythm[i][@"average_steps"]];
             }
+            
             NSArray *sleepRhythm = sleepAggregateResult[@"scores"][@"weekly"];
             NSMutableArray *sleepWeekly = [NSMutableArray array];
             for (int i=0; i < sleepRhythm.count; i++) {
                 [sleepWeekly addObject:sleepRhythm[i][@"average_minutes"]];
             }
+            
+            NSArray *speedRhythm = speedAggregateResult[@"scores"][@"weekly"];
+            NSMutableArray *speedWeekly = [NSMutableArray array];
+            for (int i=0; i < speedRhythm.count; i++) {
+                [speedWeekly addObject:speedRhythm[i][@"speed_score"]];
+            }
+
+            
             self.fitbitSleepGraphView.data = sleepWeekly;
             self.fitbitActivityGraphView.data = stepsWeekly;
+            self.fitbitBarGraphView.data = speedWeekly;
         }
     }
 }
