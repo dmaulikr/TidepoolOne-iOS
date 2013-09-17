@@ -4,9 +4,9 @@ PODS:
   - Facebook-iOS-SDK (3.5.3)
   - GoogleAnalytics-iOS-SDK (2.0beta4)
   - iRate (1.7.5)
-  - JSONKit (1.5pre)
   - LAWalkthrough (1.0.0)
   - MBProgressHUD (0.7)
+  - SBJson (3.2)
   - SSKeychain (1.2.0)
   - SVPullToRefresh (0.4.1)
   - TestFlightSDK (2.0)
@@ -18,9 +18,9 @@ DEPENDENCIES:
   - Facebook-iOS-SDK
   - GoogleAnalytics-iOS-SDK
   - iRate
-  - JSONKit
   - LAWalkthrough
   - MBProgressHUD
+  - SBJson
   - SSKeychain
   - SVPullToRefresh
   - TestFlightSDK
@@ -36,9 +36,9 @@ SPEC CHECKSUMS:
   Facebook-iOS-SDK: c11e851555d8cb8b55853ec2990b01d9e343d09e
   GoogleAnalytics-iOS-SDK: acf0f1ac4dcac408d17e7766454918b7e9e2b03a
   iRate: 8de5eaeca627c7708c8aec279eeb8daf2551c774
-  JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
   LAWalkthrough: 01dae086c1dd166b5afe9816763414e3512b3fea
   MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946
+  SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
   SSKeychain: 2fe90c92034129d9615a508529b601a520f297d1
   SVPullToRefresh: 61a0e4bd12bd6f8e3465909810b0fbeb1a28d5f2
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858

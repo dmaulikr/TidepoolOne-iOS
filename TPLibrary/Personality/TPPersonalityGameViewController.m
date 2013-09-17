@@ -8,7 +8,7 @@
 
 #import "TPPersonalityGameViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
-#import <JSONKit/JSONKit.h>
+#import <SBJson/SBJson.h>
 
 @interface TPPersonalityGameViewController ()
 {
@@ -92,8 +92,9 @@
     NSLog(@"FromWebView: %@", requestString);
     
     if ([requestString hasPrefix:@"ios"]) {
-        NSString* jsonString = [[requestString componentsSeparatedByString:@"ios://"] objectAtIndex:1];
-        NSDictionary *jsonMessage = [jsonString objectFromJSONString];
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+         NSString* jsonString = [[requestString componentsSeparatedByString:@"ios://"] objectAtIndex:1];
+        NSDictionary *jsonMessage = [jsonParser objectWithString:jsonString];
         NSString *messageType = jsonMessage[@"type"];
         if ([messageType isEqualToString:@"start"]) {
             [_loadingGameHud hide:YES];

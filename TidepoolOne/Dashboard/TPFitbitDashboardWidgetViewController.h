@@ -23,4 +23,6 @@
 - (IBAction)refreshButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
+@property (strong, nonatomic) NSDictionary *user;
+
 @end

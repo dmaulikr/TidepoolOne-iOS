@@ -68,45 +68,6 @@
     }
 }
 
--(void)downloadResultswithCompletionHandlersSuccess:(void (^)())successBlock andFailure:(void (^)())failureBlock
-{
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/sleeps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sucess:%@",[responseObject description]);
-        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 3) {
-            successBlock();
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"errorRRRR: %@", error);
-        failureBlock();
-    }];
-    
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/activities" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sucess:%@",[responseObject description]);
-        NSLog(@"sucess:%i",[(NSArray *)responseObject[@"data"] count]);
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 3) {
-            successBlock();
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"errorRRRR: %@", error);
-        failureBlock();
-    }];
-    
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?daily=true" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"sucess:%@",[responseObject description]);
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 3) {
-            successBlock();
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"errorRRRR: %@", error);
-        failureBlock();
-    }];
-    
-}
-
 -(void)showConnectUI
 {
     TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
@@ -134,4 +95,46 @@
     }];
 
 }
+
+-(void)setUser:(NSDictionary *)user
+{
+    _user = user;
+    if (_user) {
+//        NSArray *aggregateResults = _user[@"aggregate_results"];
+//        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
+//            NSArray *stepsRhythm = aggregateResults[1][@"scores"][@"weekly"];
+//            NSMutableArray *stepsWeekly = [NSMutableArray array];
+//            for (int i=0; i < stepsRhythm.count; i++) {
+//                [stepsWeekly addObject:stepsRhythm[i][@"average_steps"]];
+//            }
+//            NSArray *sleepRhythm = aggregateResults[2][@"scores"][@"weekly"];
+//            NSMutableArray *sleepWeekly = [NSMutableArray array];
+//            for (int i=0; i < sleepRhythm.count; i++) {
+//                [sleepWeekly addObject:sleepRhythm[i][@"average_minutes"]];
+//            }
+//            self.fitbitSleepGraphView.data = sleepWeekly;
+//            self.fitbitActivityGraphView.data = stepsWeekly;
+//        }
+    }
+}
+
+-(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    _numServerCallsCompleted = 0;
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"user: %@", [responseObject[@"data"] description]);
+        [TPOAuthClient sharedClient].user = responseObject[@"data"];
+        self.user = responseObject[@"data"];
+        _numServerCallsCompleted++;
+        if (_numServerCallsCompleted == 1) {
+            successBlock();
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Fail: %@", [error description]);
+        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+        failureBlock();
+    }];
+}
+
+
 @end

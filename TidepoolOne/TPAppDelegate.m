@@ -11,7 +11,6 @@
 #import "TPLocalNotificationManager.h"
 #import "TPOAuthClient.h"
 #import <TestFlightSDK/TestFlight.h>
-#import <JSONKit/JSONKit.h>
 #import <UAirship.h>
 #import <UAConfig.h>
 #import <UAPush.h>

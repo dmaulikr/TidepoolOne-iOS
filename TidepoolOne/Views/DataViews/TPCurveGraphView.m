@@ -42,6 +42,9 @@
     float distBetweenPoints = rect.size.width / _data.count;
     float yMin = [[self.data valueForKeyPath:@"@min.floatValue"] floatValue];
     float yMax = [[self.data valueForKeyPath:@"@max.floatValue"] floatValue];
+    if (!yMin && !yMax) {
+        return;
+    }
     float yRange = yMax - yMin;
     float yScale = 0.8*rect.size.height / yRange;
     

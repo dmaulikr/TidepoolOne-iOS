@@ -93,8 +93,6 @@
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         failureBlock();
     }];
-    
-    
 }
 
 -(void)setUser:(NSDictionary *)user
