@@ -3,6 +3,7 @@ PODS:
   - AttributedMarkdown (0.9.1)
   - Facebook-iOS-SDK (3.5.3)
   - GoogleAnalytics-iOS-SDK (2.0beta4)
+  - iRate (1.7.5)
   - JSONKit (1.5pre)
   - LAWalkthrough (1.0.0)
   - MBProgressHUD (0.7)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - AttributedMarkdown (from `https://github.com/dreamwieber/AttributedMarkdown.git`)
   - Facebook-iOS-SDK
   - GoogleAnalytics-iOS-SDK
+  - iRate
   - JSONKit
   - LAWalkthrough
   - MBProgressHUD
@@ -33,6 +35,7 @@ SPEC CHECKSUMS:
   AttributedMarkdown: 67f0458c38a1c8c9210a5e8c8a06f4854bb2b867
   Facebook-iOS-SDK: c11e851555d8cb8b55853ec2990b01d9e343d09e
   GoogleAnalytics-iOS-SDK: acf0f1ac4dcac408d17e7766454918b7e9e2b03a
+  iRate: 8de5eaeca627c7708c8aec279eeb8daf2551c774
   JSONKit: 409734ab3407fce90ef7eaa95d7168f38d9a6601
   LAWalkthrough: 01dae086c1dd166b5afe9816763414e3512b3fea
   MBProgressHUD: 1fd8591a2216d5dec6de24e09187bb03bcbe9946

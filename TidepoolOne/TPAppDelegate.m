@@ -15,6 +15,7 @@
 #import <UAirship.h>
 #import <UAConfig.h>
 #import <UAPush.h>
+#import <iRate/iRate.h>
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
