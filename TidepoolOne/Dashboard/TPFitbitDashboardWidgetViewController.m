@@ -8,12 +8,16 @@
 
 #import "TPFitbitDashboardWidgetViewController.h"
 #import "TPServiceLoginViewController.h"
+#import <AFHTTPRequestOperation.h>
 
-@interface TPFitbitDashboardWidgetViewController ()
+@interface TPFitbitDashboardWidgetViewController()<TPServiceLoginViewControllerDelegate>
 {
     int _numServerCallsCompleted;
     CGSize _connectedSize;
     CGSize _notConnectedSize;
+    TPOAuthClient *_oauthClient;
+    NSTimer *_pollTimeoutTimer;
+    NSTimer *_pollTimer;
 }
 @end
 
@@ -32,16 +36,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.fitbitActivityGraphView.data = @[@13, @52, @23, @44, @15, @26, @71];
-    self.fitbitSleepGraphView.data = @[@13, @52, @23, @44, @15, @126, @71];
+    _oauthClient = [TPOAuthClient sharedClient];
     self.fitbitBarGraphView.unselectedColor = [UIColor colorWithRed:63/255.0 green:201/255.0 blue:167/255.0 alpha:1.0];
     self.fitbitActivityGraphView.color = [UIColor colorWithRed:250/255.0 green:187/255.0 blue:61/255.0 alpha:1.0];
     self.fitbitSleepGraphView.color = [UIColor colorWithRed:2/255.0 green:110/255.0 blue:160/255.0 alpha:1.0];
     _connectedSize = self.view.bounds.size;
     _notConnectedSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height - self.fitbitScrollView.frame.size.height);
     [self refreshFitbitConnectedness];
-    self.speedChange = -0.02;
-    self.sleepChange = -0;
+    self.speedChange = 0;
+    self.sleepChange = 0;
+    self.activityChange = 0;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -60,12 +64,9 @@
 {
     _isConnected = isConnected;
     if (!isConnected) {
-        self.headerImageView.image = [UIImage imageNamed:@"dash-fitbitbg-connect.png"];
-        self.connectButton.hidden = NO;
+        self.connectView.hidden = NO;
     } else {
-        self.headerImageView.image = [UIImage imageNamed:@"dash-fitbitbg.png"];
-        self.view.bounds = CGRectMake(0, 0, _connectedSize.width, _connectedSize.height);
-        self.connectButton.hidden = YES;
+        self.connectView.hidden = YES;
     }
 }
 
@@ -86,9 +87,23 @@
 -(void)showConnectUI
 {
     TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
+    serviceVC.delegate = self;
     serviceVC.view.frame = self.view.bounds;
     [self.navigationController pushViewController:serviceVC animated:YES];
 }
+
+-(void)connectionMadeSucessfully:(BOOL)success
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    if (success) {
+        [self downloadResultswithCompletionHandlersSuccess:^{
+            [self refreshFitbitConnectedness];
+        } andFailure:^{}];
+    } else {
+    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
+    }
+}
+
 
 - (IBAction)connectAction:(id)sender
 {
@@ -103,13 +118,55 @@
     animation.repeatCount = 2000;
     [self.refreshButton.layer addAnimation:animation forKey:@"MyAnimation"];
     // TODO: refresh API fitbit
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?daily=true" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self.refreshButton.layer removeAllAnimations];
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *status = responseObject[@"status"];
+        NSLog([status description]);
+        if ([status[@"state"] isEqualToString:@"pending"]) {
+            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
+            [self pollForFitbitSyncStatus];
+        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self.refreshButton.layer removeAllAnimations];
+        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not update fitbit data"];
     }];
 
 }
+
+-(void)pollTimedOut
+{
+    [_pollTimer invalidate];
+    _pollTimer = nil;
+    [self.refreshButton.layer removeAllAnimations];
+    [[[UIAlertView alloc] initWithTitle:@"Server busy" message:@"Fitbit sync is taking too long. When synced, they will be populated on the dashboard." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+}
+
+-(void)pollForFitbitSyncStatus
+{
+    [_oauthClient getPath:@"api/v1/users/-/connections/fitbit/progress.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *status = responseObject[@"status"];
+        NSString *state = status[@"state"];
+        if ([state isEqualToString:@"pending"]) {
+            _pollTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(pollForFitbitSyncStatus) userInfo:nil repeats:NO];
+        } else if ([state isEqualToString:@"done"]){
+            [_pollTimeoutTimer invalidate];
+            _pollTimeoutTimer = nil;
+            [self downloadResultswithCompletionHandlersSuccess:^{
+                [self.refreshButton.layer removeAllAnimations];
+            } andFailure:^{
+                [_pollTimeoutTimer invalidate];
+                _pollTimeoutTimer = nil;
+                [self.refreshButton.layer removeAllAnimations];
+            }];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Fitbit data could not be refreshed at this time. Please try again later" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+            [self.refreshButton.layer removeAllAnimations];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [_oauthClient handleError:error withOptionalMessage:@"Could not refresh Fitbit"];
+    }];
+}
+
 
 -(void)setUser:(NSDictionary *)user
 {
@@ -125,13 +182,13 @@
             NSArray *stepsRhythm = activityAggregateResult[@"scores"][@"weekly"];
             NSMutableArray *stepsWeekly = [NSMutableArray array];
             for (int i=0; i < stepsRhythm.count; i++) {
-                [stepsWeekly addObject:stepsRhythm[i][@"average_steps"]];
+                [stepsWeekly addObject:stepsRhythm[i][@"average"]];
             }
             
             NSArray *sleepRhythm = sleepAggregateResult[@"scores"][@"weekly"];
             NSMutableArray *sleepWeekly = [NSMutableArray array];
             for (int i=0; i < sleepRhythm.count; i++) {
-                [sleepWeekly addObject:sleepRhythm[i][@"average_minutes"]];
+                [sleepWeekly addObject:sleepRhythm[i][@"average"]];
             }
             
             NSArray *speedRhythm = speedAggregateResult[@"scores"][@"weekly"];

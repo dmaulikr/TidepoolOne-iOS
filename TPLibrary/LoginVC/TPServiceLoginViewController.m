@@ -62,10 +62,10 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     NSLog(@"%@", requestString);
     
     if ([requestString hasSuffix:@"success"]) {
+        [self.delegate connectionMadeSucessfully:YES];
         [self.navigationController popViewControllerAnimated:YES];
     } else if ([requestString hasSuffix:@"failure"]) {
-        [self.navigationController popViewControllerAnimated:YES];
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
+        [self.delegate connectionMadeSucessfully:NO];
     }
     return YES;
 }

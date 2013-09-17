@@ -99,22 +99,30 @@
 {
     _user = user;
     if (_user) {
-        NSArray *aggregateResults = _user[@"aggregate_results"];
-        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-            NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
-            NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];
-            NSMutableArray *timesPlayedArray = [NSMutableArray array];
-            NSMutableArray *scoresByHour = [NSMutableArray array];
-            for (int i=0;i<24;i++) {
-                NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
-                [scoresByHour addObject:hourlyDetail[@"speed_score"]];
-                [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
+        @try {
+            NSArray *aggregateResults = _user[@"aggregate_results"];
+            if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
+                NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+                NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];
+                NSMutableArray *timesPlayedArray = [NSMutableArray array];
+                NSMutableArray *scoresByHour = [NSMutableArray array];
+                for (int i=0;i<24;i++) {
+                    NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
+                    [scoresByHour addObject:hourlyDetail[@"speed_score"]];
+                    [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
+                }
+                self.curveGraphView.data = scoresByHour;
+                self.densityData = timesPlayedArray;
+                self.results = scoresByHour;
+                self.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
+                self.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
             }
-            self.curveGraphView.data = scoresByHour;
-            self.densityData = timesPlayedArray;
-            self.results = scoresByHour;
-            self.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
-            self.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
+        }
+        @catch (NSException *exception) {
+            NSLog(@"%@", exception.reason);
+        }
+        @finally {
+            NSLog(@"Moving along now");
         }
     }
 }
