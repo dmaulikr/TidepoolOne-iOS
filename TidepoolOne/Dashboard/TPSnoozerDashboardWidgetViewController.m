@@ -113,7 +113,6 @@
                 }
                 self.curveGraphView.data = scoresByHour;
                 self.densityData = timesPlayedArray;
-                self.results = scoresByHour;
                 self.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
                 self.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
             }

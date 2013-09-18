@@ -152,9 +152,7 @@
                         initWithLocaleIdentifier:@"en_US_POSIX"];
     [dateFormatter setLocale:locale];
     // below is hack for pre-iOS 7
-    
-    NSString *initialDateString = self.results[indexPath.row][@"time_played"];
-    NSMutableString *dateString = [initialDateString mutableCopy];
+    NSMutableString *dateString = [self.results[indexPath.row][@"time_played"] mutableCopy];
     if ([dateString characterAtIndex:26] == ':') {
         [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
     }
