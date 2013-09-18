@@ -45,8 +45,6 @@
     [super viewDidLoad];
 
 	// Do any additional setup after loading the view.
-    //TODO: find better way
-    self.view.frame = CGRectOffset(self.view.frame, 0, -20.0);
     self.view.backgroundColor = [UIColor clearColor];
     _clockViews = [NSMutableArray array];
     self.numRows = 3;

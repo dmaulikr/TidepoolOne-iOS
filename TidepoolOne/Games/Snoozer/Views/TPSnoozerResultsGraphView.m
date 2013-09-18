@@ -37,8 +37,6 @@
     return self;
 }
 
-//TODO : allocation happinging in drawing - fix
-
 - (void)drawRect:(CGRect)rect
 {
     _tagOffset = 666;

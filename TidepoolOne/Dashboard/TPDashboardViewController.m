@@ -103,7 +103,6 @@
 
 -(void)downloadResults
 {
-    //TODO: get results array back from snoozerWidget
     [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
         self.results = self.snoozerWidget.results;
         _numWidgetsCompleted++;

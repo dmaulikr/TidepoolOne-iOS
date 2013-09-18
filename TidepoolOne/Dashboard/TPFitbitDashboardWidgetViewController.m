@@ -117,7 +117,7 @@
     animation.duration = 1.0f;
     animation.repeatCount = 2000;
     [self.refreshButton.layer addAnimation:animation forKey:@"MyAnimation"];
-    // TODO: refresh API fitbit
+
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *status = responseObject[@"status"];
         NSLog([status description]);
