@@ -157,7 +157,7 @@
     if ([dateString characterAtIndex:26] == ':') {
         [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
     }
-                            
+    
     NSDate *date = [dateFormatter dateFromString:dateString];
     view.date = date;
     view.fastestTime = self.results[indexPath.row][@"speed_score"];

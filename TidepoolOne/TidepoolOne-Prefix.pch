@@ -18,6 +18,7 @@
 #import "TPLabel.h"
 #import "TPLabelBold.h"
 #import "TPTextField.h"
+#import "TPTextView.h"
 #import "TPBarButtonItem.h"
 #import "TPButton.h"
 

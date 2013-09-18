@@ -146,6 +146,7 @@
         [_startNewGameView removeFromSuperview];
         
         TPProfileHeaderView *profileHeaderView = (TPProfileHeaderView *)self.tableView.tableHeaderView;
+        [profileHeaderView.shareButton addTarget:self action:@selector(sharePersonality:) forControlEvents:UIControlEventTouchUpInside];
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         
         self.bulletPoints = personality[@"profile_description"][@"bullet_description"];
@@ -215,6 +216,8 @@
     textLabel.textAlignment = NSTextAlignmentCenter;
     textLabel.numberOfLines = 0;
     startPersonalityGameButton.center = CGPointMake(startPersonalityGameButton.center.x, textLabel.center.y + textLabel.bounds.size.height/2 + 100);
+    
+    
 }
 -(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
 {
