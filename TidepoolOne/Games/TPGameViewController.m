@@ -140,6 +140,8 @@
     [stageLog setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
     [stageLog setValue:events forKey:@"events"];
     [stageLog setValue:currentVC.type forKey:@"event_type"];
+    int timeZoneOffsetInMinutes = [[NSTimeZone localTimeZone] secondsFromGMT] / 60;
+    [stageLog setValue:[NSNumber numberWithInt:timeZoneOffsetInMinutes] forKey:@"timezone_offset"];
     //start------wrap events into global array
     [_eventsForEachStageArray addObject:stageLog];
     //next stage
