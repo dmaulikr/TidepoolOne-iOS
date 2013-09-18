@@ -606,7 +606,6 @@
 		A8BABA5417E2615A00A3C95B /* TPProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4C17E2615A00A3C95B /* TPProfileHeaderView.xib */; };
 		A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5817E2616700A3C95B /* TPGameViewController.m */; };
 		A8BABA6117E2616700A3C95B /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */; };
-		A8BABA6217E2616700A3C95B /* TPResultsHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */; };
 		A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5D17E2616700A3C95B /* TPResultViewController.m */; };
 		A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5F17E2616700A3C95B /* TPStageViewController.m */; };
 		A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA6717E261C500A3C95B /* TPSnoozerClockView.m */; };
@@ -1280,7 +1279,6 @@
 		A8BABA5817E2616700A3C95B /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
 		A8BABA5917E2616700A3C95B /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
 		A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
-		A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPResultsHistoryViewController.xib; sourceTree = "<group>"; };
 		A8BABA5C17E2616700A3C95B /* TPResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultViewController.h; sourceTree = "<group>"; };
 		A8BABA5D17E2616700A3C95B /* TPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultViewController.m; sourceTree = "<group>"; };
 		A8BABA5E17E2616700A3C95B /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
@@ -2312,7 +2310,6 @@
 				A8BABA5817E2616700A3C95B /* TPGameViewController.m */,
 				A8BABA5917E2616700A3C95B /* TPResultsHistoryViewController.h */,
 				A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */,
-				A8BABA5B17E2616700A3C95B /* TPResultsHistoryViewController.xib */,
 				A8BABA5C17E2616700A3C95B /* TPResultViewController.h */,
 				A8BABA5D17E2616700A3C95B /* TPResultViewController.m */,
 				A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */,
@@ -3086,7 +3083,6 @@
 				A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */,
 				A86756F917E8ED210015C48F /* fitbit-yellowarrow-down@2x~iphone.png in Resources */,
 				A8BABA5417E2615A00A3C95B /* TPProfileHeaderView.xib in Resources */,
-				A8BABA6217E2616700A3C95B /* TPResultsHistoryViewController.xib in Resources */,
 				A8BABA8017E2625C00A3C95B /* TPSnoozerInstructionViewController.xib in Resources */,
 				A8BABA8317E2625C00A3C95B /* TPSnoozerSurveyStageViewController.xib in Resources */,
 				A8BABA8A17E2629A00A3C95B /* TPSnoozerResultViewController.xib in Resources */,

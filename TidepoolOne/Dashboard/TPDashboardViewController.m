@@ -105,6 +105,7 @@
 {
     //TODO: get results array back from snoozerWidget
     [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
+        self.results = self.snoozerWidget.results;
         _numWidgetsCompleted++;
         if (_numWidgetsCompleted == 2) {
             [_myRefreshControl endRefreshing];
