@@ -758,6 +758,7 @@
 		A86756C017E8ED210015C48F /* tp-dashboard_v2B_blueprint.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-dashboard_v2B_blueprint.jpg"; sourceTree = "<group>"; };
 		A867570017E8F1760015C48F /* TPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPColor.h; path = TPLibrary/Models/TPColor.h; sourceTree = SOURCE_ROOT; };
 		A867570117E8F1760015C48F /* TPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPColor.m; path = TPLibrary/Models/TPColor.m; sourceTree = SOURCE_ROOT; };
+		A867570317E92B0C0015C48F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A879A6A217A888C20082A455 /* TPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLoginViewController.h; sourceTree = "<group>"; };
 		A879A6A317A888C20082A455 /* TPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLoginViewController.m; sourceTree = "<group>"; };
@@ -1407,6 +1408,7 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A867570317E92B0C0015C48F /* StoreKit.framework */,
 				A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */,
 				A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */,
 				A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */,
