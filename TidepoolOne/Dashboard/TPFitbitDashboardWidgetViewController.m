@@ -172,35 +172,46 @@
 {
     _user = user;
     if (_user) {
-        [self refreshFitbitConnectedness];        
-        NSArray *aggregateResults = _user[@"aggregate_results"];
-        if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-            NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
-            NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
-            NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
-            
-            NSArray *stepsRhythm = activityAggregateResult[@"scores"][@"weekly"];
-            NSMutableArray *stepsWeekly = [NSMutableArray array];
-            for (int i=0; i < stepsRhythm.count; i++) {
-                [stepsWeekly addObject:stepsRhythm[i][@"average"]];
-            }
-            
-            NSArray *sleepRhythm = sleepAggregateResult[@"scores"][@"weekly"];
-            NSMutableArray *sleepWeekly = [NSMutableArray array];
-            for (int i=0; i < sleepRhythm.count; i++) {
-                [sleepWeekly addObject:sleepRhythm[i][@"average"]];
-            }
-            
-            NSArray *speedRhythm = speedAggregateResult[@"scores"][@"weekly"];
-            NSMutableArray *speedWeekly = [NSMutableArray array];
-            for (int i=0; i < speedRhythm.count; i++) {
-                [speedWeekly addObject:speedRhythm[i][@"speed_score"]];
-            }
+        [self refreshFitbitConnectedness];
+        @try {
+            NSArray *aggregateResults = _user[@"aggregate_results"];
+            if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
+                NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
+                NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
+                NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+                
+                NSArray *stepsRhythm = activityAggregateResult[@"scores"][@"weekly"];
+                NSMutableArray *stepsWeekly = [NSMutableArray array];
+                for (int i=0; i < stepsRhythm.count; i++) {
+                    [stepsWeekly addObject:stepsRhythm[i][@"average"]];
+                }
+                
+                NSArray *sleepRhythm = sleepAggregateResult[@"scores"][@"weekly"];
+                NSMutableArray *sleepWeekly = [NSMutableArray array];
+                for (int i=0; i < sleepRhythm.count; i++) {
+                    [sleepWeekly addObject:sleepRhythm[i][@"average"]];
+                }
+                
+                NSArray *speedRhythm = speedAggregateResult[@"scores"][@"weekly"];
+                NSMutableArray *speedWeekly = [NSMutableArray array];
+                for (int i=0; i < speedRhythm.count; i++) {
+                    [speedWeekly addObject:speedRhythm[i][@"speed_score"]];
+                }
 
-            
-            self.fitbitSleepGraphView.data = sleepWeekly;
-            self.fitbitActivityGraphView.data = stepsWeekly;
-            self.fitbitBarGraphView.data = speedWeekly;
+                
+                self.fitbitSleepGraphView.data = sleepWeekly;
+                self.fitbitActivityGraphView.data = stepsWeekly;
+                self.fitbitBarGraphView.data = speedWeekly;
+                self.speedChange = [speedAggregateResult[@"scores"][@"trend"] floatValue];
+                self.activityChange = [activityAggregateResult[@"scores"][@"trend"] floatValue];
+                self.sleepChange = [sleepAggregateResult[@"scores"][@"trend"] floatValue];
+            }
+        }
+        @catch (NSException *e) {
+            NSLog([e description]);
+        }
+        @finally {
+            NSLog(@"move along - no fitbit data");
         }
     }
 }
@@ -238,7 +249,7 @@
 -(void)setSleepChange:(float)sleepChange
 {
     _sleepChange = sleepChange;
-    self.sleepNumberLabel.text = [NSString stringWithFormat:@"%g",100*fabs(sleepChange)];
+    self.sleepNumberLabel.text = [NSString stringWithFormat:@"%g%%",100*fabs(sleepChange)];
     if (sleepChange > 0) {
         self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow-up.png"];
     } else if (sleepChange < 0) {
