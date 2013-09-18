@@ -184,8 +184,8 @@
         if (resultVC) {
             hasResultsToShow = YES;
             resultVC.gameVC = self;
+            [self displayContentController:resultVC];            
             resultVC.result = result;
-            [self displayContentController:resultVC];
         }
     }
     if (!hasResultsToShow) {
