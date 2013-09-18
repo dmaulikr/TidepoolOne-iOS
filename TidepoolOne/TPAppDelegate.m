@@ -21,6 +21,16 @@ NSString *const FBSessionStateChangedNotification =
 
 @implementation TPAppDelegate
 
+
++ (void)initialize
+{
+    //enable preview mode
+    [iRate sharedInstance].daysUntilPrompt = 0;
+    [iRate sharedInstance].usesUntilPrompt = 3;
+}
+
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
