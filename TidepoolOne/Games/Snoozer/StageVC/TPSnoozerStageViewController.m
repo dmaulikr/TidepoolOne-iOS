@@ -25,7 +25,6 @@
     NSDateFormatter *_debugFormatter;
     BOOL _stageDone;
     BOOL _instructionDone;
-    BOOL _viewDidLayout;
 }
 
 @end
@@ -60,7 +59,6 @@
     [_debugFormatter setDateStyle:NSDateFormatterLongStyle];
     _stageDone = NO;
     _instructionDone = NO;
-    _viewDidLayout = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -87,10 +85,6 @@
         _pauseTime = nil;
     } else {
         [self showInstructionScreen];
-    }
-    if (!_viewDidLayout) {
-        _viewDidLayout = YES;
-        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
     }
 }
 

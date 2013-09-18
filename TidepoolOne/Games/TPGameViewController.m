@@ -184,10 +184,8 @@
         if (resultVC) {
             hasResultsToShow = YES;
             resultVC.gameVC = self;
-            [self addChildViewController:resultVC];
-            [self.view addSubview:resultVC.view];
-            resultVC.result = result;        
-            [resultVC didMoveToParentViewController:self];
+            resultVC.result = result;
+            [self displayContentController:resultVC];
         }
     }
     if (!hasResultsToShow) {
@@ -297,7 +295,7 @@
 - (void) displayContentController: (UIViewController*) content;
 {
     [self addChildViewController:content];
-    content.view.frame = self.view.frame;
+    content.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
     [self.view addSubview:content.view];
     [content didMoveToParentViewController:self];
 }
