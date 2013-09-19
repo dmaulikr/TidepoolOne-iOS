@@ -176,7 +176,7 @@
                     x++;
                 }
                 _tooltipView.center = CGPointMake(x, 100);
-                _tooltipView.score = self.results[index];
+                _tooltipView.score = self.curveGraphView.data[index];
                 [self.scrollView addSubview:_tooltipView];
             }
         }
