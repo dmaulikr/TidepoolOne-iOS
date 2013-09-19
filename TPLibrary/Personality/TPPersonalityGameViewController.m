@@ -142,14 +142,11 @@
     } else {
         _webView.frame = CGRectMake(0, 20.0f, self.view.bounds.size.width, self.view.bounds.size.height - 20);
         }
-//    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://alpha.tidepool.co/#gameForUser/%@", [_oauthClient oauthToken]]]];
+    NSURL *localUrl = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"Personality Game/dist"]];
     
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://alpha.tidepool.co#gameForUser/%@", [_oauthClient oauthToken]]]];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", [_oauthClient oauthToken]]]];
-    // below line used for debug - login with invalid token
-//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://dev.tidepool.co.s3-website-us-west-1.amazonaws.com/#gameForUser/%@", nil]]];
-    
+    //    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://alpha.tidepool.co/#gameForUser/%@", [_oauthClient oauthToken]]]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@#gameForUser/%@", localUrl, [_oauthClient oauthToken]]]];
+
     [_webView loadRequest:request];
     _webView.delegate = self;
     [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{

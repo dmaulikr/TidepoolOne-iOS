@@ -34,6 +34,7 @@
 		A830EFCC17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */; };
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
+		A847A7CF17EB709F009E228F /* Personality Game in Resources */ = {isa = PBXBuildFile; fileRef = A847A7CE17EB709F009E228F /* Personality Game */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A86756C117E8ED210015C48F /* dash-background-new@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A867568217E8ED210015C48F /* dash-background-new@2x~iphone.png */; };
 		A86756C217E8ED210015C48F /* dash-background-new~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A867568317E8ED210015C48F /* dash-background-new~iphone.png */; };
@@ -691,6 +692,7 @@
 		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
 		A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPServiceLoginViewController.xib; sourceTree = "<group>"; };
+		A847A7CE17EB709F009E228F /* Personality Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Personality Game"; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A867568217E8ED210015C48F /* dash-background-new@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new@2x~iphone.png"; sourceTree = "<group>"; };
 		A867568317E8ED210015C48F /* dash-background-new~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new~iphone.png"; sourceTree = "<group>"; };
@@ -1383,6 +1385,7 @@
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
+				A847A7CE17EB709F009E228F /* Personality Game */,
 				A8A240F017D0130C00E9643F /* Resources */,
 				A825EFC617E2373B00DCAAF2 /* UIKit Customization */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
@@ -2725,6 +2728,7 @@
 				A86756C817E8ED210015C48F /* dash-densityflag~iphone.png in Resources */,
 				A86756E617E8ED210015C48F /* dash-snoozerbg@2x~iphone.png in Resources */,
 				A8A243D517D0130D00E9643F /* lefthand@2x~iphone.png in Resources */,
+				A847A7CF17EB709F009E228F /* Personality Game in Resources */,
 				A8A243D617D0130D00E9643F /* lefthand~iphone.png in Resources */,
 				A86756F217E8ED210015C48F /* fitbit-bluearrow~iphone.png in Resources */,
 				A86756F617E8ED210015C48F /* fitbit-greenarrow-up~iphone.png in Resources */,
