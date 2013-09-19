@@ -79,6 +79,15 @@
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker sendView:@"Login Screen"];
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+    } else {
+        // Load resources for iOS 7 or later
+        self.view.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height - 40);
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,6 +155,9 @@
     [self.view addSubview:walkthrough.view];
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 
 #pragma mark LoginView
 
