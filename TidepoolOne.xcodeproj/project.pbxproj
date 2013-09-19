@@ -33,7 +33,6 @@
 		A830EFC917E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */; };
 		A830EFCC17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */; };
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
-		A83F74C717E38BA000612AA7 /* TPFItbitConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A83F74C617E38BA000612AA7 /* TPFItbitConnectionViewController.m */; };
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A86756C117E8ED210015C48F /* dash-background-new@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A867568217E8ED210015C48F /* dash-background-new@2x~iphone.png */; };
@@ -113,7 +112,6 @@
 		A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A517A888C20082A455 /* TPServiceLoginViewController.m */; };
 		A879A6BF17A888C20082A455 /* TPOAuthClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A817A888C20082A455 /* TPOAuthClient.m */; };
 		A879A6C017A888C20082A455 /* TPTokenCachingStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AA17A888C20082A455 /* TPTokenCachingStrategy.m */; };
-		A879A6C117A888C20082A455 /* TPUploadQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AC17A888C20082A455 /* TPUploadQueue.m */; };
 		A879A6C217A888C20082A455 /* Singleton.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6AF17A888C20082A455 /* Singleton.m */; };
 		A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */; };
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
@@ -692,8 +690,6 @@
 		A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardWidgetViewController.m; sourceTree = "<group>"; };
 		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
-		A83F74C517E38BA000612AA7 /* TPFItbitConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPFItbitConnectionViewController.h; path = Connections/TPFItbitConnectionViewController.h; sourceTree = "<group>"; };
-		A83F74C617E38BA000612AA7 /* TPFItbitConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPFItbitConnectionViewController.m; path = Connections/TPFItbitConnectionViewController.m; sourceTree = "<group>"; };
 		A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPServiceLoginViewController.xib; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A867568217E8ED210015C48F /* dash-background-new@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new@2x~iphone.png"; sourceTree = "<group>"; };
@@ -779,8 +775,6 @@
 		A879A6A817A888C20082A455 /* TPOAuthClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPOAuthClient.m; sourceTree = "<group>"; };
 		A879A6A917A888C20082A455 /* TPTokenCachingStrategy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTokenCachingStrategy.h; sourceTree = "<group>"; };
 		A879A6AA17A888C20082A455 /* TPTokenCachingStrategy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTokenCachingStrategy.m; sourceTree = "<group>"; };
-		A879A6AB17A888C20082A455 /* TPUploadQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUploadQueue.h; sourceTree = "<group>"; };
-		A879A6AC17A888C20082A455 /* TPUploadQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUploadQueue.m; sourceTree = "<group>"; };
 		A879A6AE17A888C20082A455 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		A879A6AF17A888C20082A455 /* Singleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Singleton.m; sourceTree = "<group>"; };
 		A879A6B017A888C20082A455 /* TPLocalNotificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLocalNotificationManager.h; sourceTree = "<group>"; };
@@ -1501,15 +1495,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A83F74C417E38B6100612AA7 /* Connections */ = {
-			isa = PBXGroup;
-			children = (
-				A83F74C517E38BA000612AA7 /* TPFItbitConnectionViewController.h */,
-				A83F74C617E38BA000612AA7 /* TPFItbitConnectionViewController.m */,
-			);
-			name = Connections;
-			sourceTree = "<group>";
-		};
 		A867568017E8ED210015C48F /* dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -1606,7 +1591,6 @@
 		A879A6A017A888C20082A455 /* TPLibrary */ = {
 			isa = PBXGroup;
 			children = (
-				A83F74C417E38B6100612AA7 /* Connections */,
 				A835B72B17E23DAD00775E38 /* Models */,
 				A879A6A117A888C20082A455 /* LoginVC */,
 				A879A6A617A888C20082A455 /* Networking */,
@@ -1637,8 +1621,6 @@
 				A879A6A817A888C20082A455 /* TPOAuthClient.m */,
 				A879A6A917A888C20082A455 /* TPTokenCachingStrategy.h */,
 				A879A6AA17A888C20082A455 /* TPTokenCachingStrategy.m */,
-				A879A6AB17A888C20082A455 /* TPUploadQueue.h */,
-				A879A6AC17A888C20082A455 /* TPUploadQueue.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -3162,7 +3144,6 @@
 				A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */,
 				A879A6BF17A888C20082A455 /* TPOAuthClient.m in Sources */,
 				A879A6C017A888C20082A455 /* TPTokenCachingStrategy.m in Sources */,
-				A879A6C117A888C20082A455 /* TPUploadQueue.m in Sources */,
 				A879A6C217A888C20082A455 /* Singleton.m in Sources */,
 				A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */,
 				A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */,
@@ -3184,7 +3165,6 @@
 				A8BABA6117E2616700A3C95B /* TPResultsHistoryViewController.m in Sources */,
 				A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */,
 				A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */,
-				A83F74C717E38BA000612AA7 /* TPFItbitConnectionViewController.m in Sources */,
 				A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */,
 				A8BABA6B17E261C500A3C95B /* TPSnoozerResultsGraphView.m in Sources */,
 				A8BABA7217E261FC00A3C95B /* TPSnoozerGameViewController.mm in Sources */,

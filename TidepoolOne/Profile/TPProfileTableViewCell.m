@@ -21,14 +21,11 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    
     for (NSLayoutConstraint *cellConstraint in self.constraints)
     {
         [self removeConstraint:cellConstraint];
-        
         id firstItem = cellConstraint.firstItem == self ? self.contentView : cellConstraint.firstItem;
         id seccondItem = cellConstraint.secondItem == self ? self.contentView : cellConstraint.secondItem;
-        
         NSLayoutConstraint* contentViewConstraint = [NSLayoutConstraint constraintWithItem:firstItem
                                                                                  attribute:cellConstraint.firstAttribute
                                                                                  relatedBy:cellConstraint.relation
@@ -36,7 +33,6 @@
                                                                                  attribute:cellConstraint.secondAttribute
                                                                                 multiplier:cellConstraint.multiplier
                                                                                   constant:cellConstraint.constant];
-        
         [self.contentView addConstraint:contentViewConstraint];
     }
 }
