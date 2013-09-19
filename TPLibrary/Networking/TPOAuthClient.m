@@ -192,6 +192,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     NSLog(@"Loggin out OauthClient");
     [[FBSession activeSession] closeAndClearTokenInformation];
+    self.user = nil;
     [self clearAuthorizationHeader];
     [self deleteAllPasswords];
     self.isLoggedIn = 0;
