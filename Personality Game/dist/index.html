@@ -1,6 +1,6 @@
-<!doctype html><!-- ---------------- Build: 09-19_99d6a4f ---------------- --><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>TidePool</title><meta name=description content="A fun, scientifically validated game helps you discover your personality."><meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no"><link rel=apple-touch-icon-precomposed href=apple-touch-icon-57x57-precomposed.png><link rel=apple-touch-icon-precomposed sizes=72x72 href=apple-touch-icon-72x72-precomposed.png><link rel=apple-touch-icon-precomposed sizes=114x114 href=apple-touch-icon-114x114-precomposed.png><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=TidePool><!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">--><link rel=stylesheet href="09-19_99d6a4f/all-min.css"><script type="text/javascript">window.pageLoadStart = (new Date()).getTime()</script></head><body><!--[if lte IE 7]>
+<!doctype html><!-- ---------------- Build: 09-19_19aa9e4 ---------------- --><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>TidePool</title><meta name=description content="A fun, scientifically validated game helps you discover your personality."><meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no"><link rel=apple-touch-icon-precomposed href=apple-touch-icon-57x57-precomposed.png><link rel=apple-touch-icon-precomposed sizes=72x72 href=apple-touch-icon-72x72-precomposed.png><link rel=apple-touch-icon-precomposed sizes=114x114 href=apple-touch-icon-114x114-precomposed.png><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=TidePool><!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">--><link rel=stylesheet href="09-19_19aa9e4/all-min.css"><script type="text/javascript">window.pageLoadStart = (new Date()).getTime()</script></head><body><!--[if lte IE 7]>
         <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]--><script src="09-19_99d6a4f/bower_components/requirejs/require.min.js"></script><script>//https://github.com/alanshaw/grunt-include-replace
+    <![endif]--><script src="09-19_19aa9e4/bower_components/requirejs/require.min.js"></script><script>//https://github.com/alanshaw/grunt-include-replace
         require.config({
   packages: ['core', 'game/levels/_base', 'game/levels/reaction_time_disc', 'game/levels/person_fill', 'game/levels/proximity_takes_turns', 'game/levels/alex_trebek', 'game/levels/snoozer', 'game/levels/interest_picker', 'ui_widgets/formation', 'dashboard/widgets/base', 'dashboard/widgets/lister'],
   paths: {
@@ -39,13 +39,14 @@
 //@ sourceMappingURL=_require_config.js.map
 */
 
-        require.config({ baseUrl: '09-19_99d6a4f' });
+        require.config({ baseUrl: '09-19_19aa9e4' });
 
         require(['core'], function (core) {
             config = {
                 debug: 'true' === '', // Cast the string 'true' to a bool. You know, sort of.
                 isDev: 'true' === '',
-                buildDir: '09-19_99d6a4f',
+                includeFeedbackBtn: 'true' == 'true',
+                buildDir: '09-19_19aa9e4',
                 googleAnalyticsKey: 'UA-41751970-1',
                 kissKey: '3ade783301ccf63970e4cd000d816f2069c5255a',
                 apiServer: 'https://api.tidepool.co',
