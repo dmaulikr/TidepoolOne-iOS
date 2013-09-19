@@ -1,0 +1,63 @@
+<!doctype html><!-- ---------------- Build: 09-19_19aa9e4 ---------------- --><!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--><!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]--><!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]--><!--[if gt IE 8]><!--><html class=no-js><!--<![endif]--><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>TidePool</title><meta name=description content="A fun, scientifically validated game helps you discover your personality."><meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no"><link rel=apple-touch-icon-precomposed href=apple-touch-icon-57x57-precomposed.png><link rel=apple-touch-icon-precomposed sizes=72x72 href=apple-touch-icon-72x72-precomposed.png><link rel=apple-touch-icon-precomposed sizes=114x114 href=apple-touch-icon-114x114-precomposed.png><meta name=apple-mobile-web-app-status-bar-style content=black><meta name=apple-mobile-web-app-title content=TidePool><!--<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">--><link rel=stylesheet href="09-19_19aa9e4/all-min.css"><script type="text/javascript">window.pageLoadStart = (new Date()).getTime()</script></head><body><!--[if lte IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]--><script src="09-19_19aa9e4/bower_components/requirejs/require.min.js"></script><script>//https://github.com/alanshaw/grunt-include-replace
+        require.config({
+  packages: ['core', 'game/levels/_base', 'game/levels/reaction_time_disc', 'game/levels/person_fill', 'game/levels/proximity_takes_turns', 'game/levels/alex_trebek', 'game/levels/snoozer', 'game/levels/interest_picker', 'ui_widgets/formation', 'dashboard/widgets/base', 'dashboard/widgets/lister'],
+  paths: {
+    Handlebars: 'bower_components/require-handlebars-plugin/Handlebars',
+    underscore: 'bower_components/underscore-amd/underscore',
+    jqueryui: 'bower_components/jquery-ui/jqueryui',
+    jquiTouchPunch: 'bower_components/jquery-ui-touch-punch/jquery.ui.touch-punch.min',
+    backbone: 'bower_components/backbone-amd/backbone',
+    syphon: 'bower_components/tidepool-backbone.syphon/lib/amd/backbone.syphon',
+    text: 'bower_components/requirejs-text/text',
+    chart: 'bower_components/Chart.js/Chart.min',
+    markdown: 'bower_components/markdown/lib/markdown',
+    fastclick: 'bower_components/fastclick/lib/fastclick',
+    bootstrap: 'vendor/bootstrap/js/bootstrap.min',
+    jquery: 'vendor/jquery-2.0.3.min',
+    results: 'scripts/views/results',
+    controllers: 'scripts/controllers',
+    helpers: 'scripts/helpers'
+  },
+  shim: {
+    bootstrap: {
+      deps: ['jquery'],
+      exports: 'jquery'
+    },
+    chart: {
+      exports: 'Chart'
+    },
+    markdown: {
+      exports: 'markdown'
+    }
+  },
+  waitSeconds: 14
+});
+
+/*
+//@ sourceMappingURL=_require_config.js.map
+*/
+
+        require.config({ baseUrl: '09-19_19aa9e4' });
+
+        require(['core'], function (core) {
+            config = {
+                debug: 'true' === '', // Cast the string 'true' to a bool. You know, sort of.
+                isDev: 'true' === '',
+                includeFeedbackBtn: 'true' == 'true',
+                buildDir: '09-19_19aa9e4',
+                googleAnalyticsKey: 'UA-41751970-1',
+                kissKey: '3ade783301ccf63970e4cd000d816f2069c5255a',
+                apiServer: 'https://api.tidepool.co',
+                appSecret: '3e4da2177beee0d8ec458480526b3716047b3ff0df3362262183f6841253a706',
+                appId: '3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1',
+                fbId: '470347313045508'
+            }
+            window.apiServerUrl = config.apiServer //TODO: eeeeeew! Encapsulate config instead
+            window._app = core.start(config);
+
+            if (typeof (_base = core.analytics).trackPerformance === "function") {
+                _base.trackPerformance((new Date()).getTime());
+            }
+        });</script></body></html>
