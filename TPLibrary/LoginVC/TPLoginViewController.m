@@ -252,7 +252,7 @@
         [createAccountButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
         createAccountButton.frame = CGRectMake(0, 0, 300, 45);
         createAccountButton.center = CGPointMake(self.view.center.x, kVerticalOffset + 165);
-        [createAccountButton setTitle:@"Create account" forState:UIControlStateNormal];
+        [createAccountButton setTitle:@"Create Account" forState:UIControlStateNormal];
         [createAccountButton addTarget:self action:@selector(createAccountButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [_createAccountView addSubview:createAccountButton];
         
@@ -307,9 +307,9 @@
 {
     _currentView = currentView;
     if (currentView == self.loginView) {
-        self.rightButton.title = @"Sign up";
+        self.rightButton.title = @"Sign Up";
     } else {
-        self.rightButton.title = @"Log in";
+        self.rightButton.title = @"Log In";
     }
 }
 
@@ -348,7 +348,7 @@
     [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-facebook.png"] forState:UIControlStateNormal];
     facebookButton.frame = CGRectMake(0, 0, 300, 45);
     facebookButton.center = CGPointMake(self.view.center.x, kVerticalOffset - 95);
-    [facebookButton setTitle:@"   Log in with Facebook" forState:UIControlStateNormal];
+    [facebookButton setTitle:@"   Log In with Facebook" forState:UIControlStateNormal];
     [facebookButton addTarget:self action:@selector(fbLoginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:facebookButton];
     [self addOrGraphicToView:view];
