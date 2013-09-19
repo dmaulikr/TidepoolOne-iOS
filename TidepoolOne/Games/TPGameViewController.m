@@ -300,7 +300,7 @@
         content.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     } else {
         // Load resources for iOS 7 or later
-        content.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.bounds.size.height);
+        content.view.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.bounds.size.height - 20);
     }
     [self.view addSubview:content.view];
     [content didMoveToParentViewController:self];

@@ -9,6 +9,8 @@
 #import "TPPersonalityGameViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <SBJson/SBJson.h>
+#import "TPLabel.h"
+#import "TPOAuthClient.h"
 
 @interface TPPersonalityGameViewController ()
 {
@@ -72,12 +74,6 @@
 
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    self.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height+20); //for status bar
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -138,8 +134,14 @@
 
 -(void)startNewPersonalityGame
 {
-    _webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    _webView = [[UIWebView alloc] init];
     _webView.scrollView.bounces = NO;
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // normal comportment
+        _webView.frame = self.view.bounds;
+    } else {
+        _webView.frame = CGRectMake(0, 20.0f, self.view.bounds.size.width, self.view.bounds.size.height - 20);
+        }
 //    NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:[NSString stringWithFormat:@"#gameForUser/%@", [_oauthClient oauthToken]] parameters:nil];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://alpha.tidepool.co/#gameForUser/%@", [_oauthClient oauthToken]]]];
     

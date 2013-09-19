@@ -129,30 +129,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
-                                        <rect key="frame" x="23" y="54" width="275" height="58"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="58" id="9HQ-av-YJR"/>
-                                            <constraint firstAttribute="width" constant="275" id="Hy7-1R-Lc8"/>
-                                        </constraints>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
+                                        <rect key="frame" x="23" y="165" width="275" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
-                                        <rect key="frame" x="60" y="8" width="201" height="55"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
-                                        <rect key="frame" x="104" y="200" width="113" height="117"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
-                                        <rect key="frame" x="109" y="389" width="102" height="42"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
+                                        <rect key="frame" x="60" y="90" width="201" height="55"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="102" id="G4R-FQ-stz"/>
-                                            <constraint firstAttribute="height" constant="42" id="cUz-zj-Kaj"/>
+                                            <constraint firstAttribute="height" constant="55" id="T9O-he-WeD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
+                                        <rect key="frame" x="104" y="226" width="113" height="117"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
+                                        <rect key="frame" x="109" y="363" width="102" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="bXI-vb-IHb"/>
+                                            <constraint firstAttribute="width" constant="102" id="kxc-cJ-YyU"/>
                                         </constraints>
                                         <state key="normal" title="Play" backgroundImage="btn-red.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -165,36 +164,35 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="524-06-A8g" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="149" id="03Q-Jk-IJc"/>
-                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="GBf-gU-xkd"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="88" id="ROY-Na-cuH"/>
-                                    <constraint firstItem="524-06-A8g" firstAttribute="centerX" secondItem="aMS-w3-p8E" secondAttribute="centerX" id="T8c-z5-9I4"/>
-                                    <constraint firstItem="524-06-A8g" firstAttribute="centerY" secondItem="aMS-w3-p8E" secondAttribute="centerY" id="iNG-Ev-2xj"/>
-                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" id="kef-2d-UIM"/>
-                                    <constraint firstItem="524-06-A8g" firstAttribute="centerX" secondItem="xdt-uX-BWK" secondAttribute="centerX" id="kgZ-bn-RxA"/>
-                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aMS-w3-p8E" secondAttribute="top" constant="10" id="kwF-U5-YDT"/>
-                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="top" secondItem="aMS-w3-p8E" secondAttribute="top" constant="67" id="lab-f9-zvl"/>
-                                    <constraint firstAttribute="bottom" secondItem="pkg-Ct-QKB" secondAttribute="bottom" constant="88" id="vZf-XC-g2z"/>
-                                    <constraint firstItem="RFc-JV-jDO" firstAttribute="centerX" secondItem="xdt-uX-BWK" secondAttribute="centerX" id="wyu-0g-4Kr"/>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="centerX" secondItem="RFc-JV-jDO" secondAttribute="centerX" id="4m6-qm-aUq"/>
+                                    <constraint firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="DL6-IR-ZaI"/>
+                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="Fu9-Lz-9gf"/>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="leading" secondItem="aMS-w3-p8E" secondAttribute="leading" constant="23" id="IZW-9x-a35"/>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="top" secondItem="RFc-JV-jDO" secondAttribute="bottom" constant="20" id="S7D-jN-C42"/>
+                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="top" secondItem="524-06-A8g" secondAttribute="bottom" constant="20" id="Yy1-aw-MSF"/>
+                                    <constraint firstItem="524-06-A8g" firstAttribute="top" secondItem="xdt-uX-BWK" secondAttribute="bottom" constant="20" id="hGe-0C-11p"/>
+                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="m0N-Qx-smd"/>
+                                    <constraint firstAttribute="centerY" secondItem="524-06-A8g" secondAttribute="centerY" id="td9-Fc-ZcQ"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="leading" secondItem="dIS-1N-fZX" secondAttribute="leading" id="TFl-eT-vDJ"/>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="bottom" secondItem="dIS-1N-fZX" secondAttribute="bottom" id="kuM-cF-WS1"/>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="top" secondItem="dIS-1N-fZX" secondAttribute="top" id="qpv-Q2-67c"/>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="trailing" secondItem="dIS-1N-fZX" secondAttribute="trailing" id="zzN-03-vYM"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="top" secondItem="dIS-1N-fZX" secondAttribute="top" id="OJd-SZ-NVs"/>
+                            <constraint firstAttribute="trailing" secondItem="aMS-w3-p8E" secondAttribute="trailing" id="Pa4-m6-F25"/>
+                            <constraint firstAttribute="bottom" secondItem="aMS-w3-p8E" secondAttribute="bottom" id="SC3-ya-PgK"/>
+                            <constraint firstItem="aMS-w3-p8E" firstAttribute="leading" secondItem="dIS-1N-fZX" secondAttribute="leading" id="UiB-II-rs6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Games" image="tabicon-game.png" id="E0S-zh-qJP"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="gameStartView" destination="aMS-w3-p8E" id="D85-xW-42f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3317" y="-73"/>
+            <point key="canvasLocation" x="-3385" y="-110"/>
         </scene>
         <!--Dashboard View Controller - Root View Controller-->
         <scene sceneID="EVK-1R-mTt">
