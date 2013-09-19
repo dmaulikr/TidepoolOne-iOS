@@ -103,6 +103,7 @@
 
 -(void)downloadResults
 {
+    _numWidgetsCompleted = 0;
     [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
         self.results = self.snoozerWidget.results;
         _numWidgetsCompleted++;
