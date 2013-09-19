@@ -7,11 +7,14 @@
 //
 
 #import "TPSnoozerDashboardWidgetViewController.h"
+#import "TPCircadianTooltipView.h"
 
 @interface TPSnoozerDashboardWidgetViewController ()
 {
     NSDateFormatter *_hourFromDate;
     int _numServerCallsCompleted;
+    UIImageView *_legendView;
+    TPCircadianTooltipView *_tooltipView;
 }
 @end
 
@@ -32,6 +35,16 @@
     // Do any additional setup after loading the view from its nib.
     _hourFromDate = [[NSDateFormatter alloc] init];
     [_hourFromDate setDateFormat:@"HH"];
+    UIImage *image = [UIImage imageNamed:@"dash-densityflag2.png"];
+    _legendView = [[UIImageView alloc] initWithImage:image];
+    _legendView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    _legendView.hidden = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasTapped:)];
+    [self.view addGestureRecognizer:tap];
+    
+    
+    _tooltipView = [[TPCircadianTooltipView alloc] initWithFrame:CGRectMake(0, 0, 85, 61)];
+    _tooltipView.hidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -57,11 +70,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)dismissPopovers
-{
-    //TODO: implement
 }
 
 
@@ -145,5 +153,50 @@
     self.curveGraphView.data = nil;
     self.results = nil;
 }
+
+
+
+-(void)viewWasTapped:(UIGestureRecognizer *)sender
+{
+    CGPoint touchPoint = [sender locationInView:self.scrollView];
+    
+    if (!_legendView.hidden || !_tooltipView.hidden) {
+        [self dismissPopovers];
+    } else {
+        if (touchPoint.y < 58) {
+            _legendView.hidden = NO;
+            _legendView.center = CGPointMake(touchPoint.x + _legendView.bounds.size.width/2, 49);
+            [self.scrollView addSubview:_legendView];
+        } else if (touchPoint.y > 60) {
+            if (self.results) {
+                _tooltipView.hidden = NO;
+                int index = [self indexForTouchPoint:touchPoint];
+                float x = 32.5*index+22;
+                if (index < 19) {
+                    x++;
+                }
+                _tooltipView.center = CGPointMake(x, 100);
+                _tooltipView.score = self.results[index];
+                [self.scrollView addSubview:_tooltipView];
+            }
+        }
+    }
+}
+
+
+-(int)indexForTouchPoint:(CGPoint)touchPoint
+{
+    float index = 24 * touchPoint.x / 790;
+    return (int)index;
+}
+
+-(void)dismissPopovers
+{
+    _legendView.hidden = YES;
+    [_legendView removeFromSuperview];
+    _tooltipView.hidden = YES;
+    [_tooltipView removeFromSuperview];
+}
+
 
 @end

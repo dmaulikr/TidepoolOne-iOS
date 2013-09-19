@@ -67,8 +67,10 @@
         success = [_oauthClient loginPassively];
     }
     if (!_oauthClient.isLoggedIn) {
-        _loginVC = [[TPLoginViewController alloc] init];
-        [self presentViewController:_loginVC animated:YES completion:^{}];
+        if (!_loginVC) {
+            _loginVC = [[TPLoginViewController alloc] init];
+            [self presentViewController:_loginVC animated:YES completion:^{}];
+        }
     }
 }
 
@@ -115,6 +117,7 @@
     if (_loginVC) {
         [_loginVC dismissViewControllerAnimated:YES completion:^{
             [self checkIfPersonalityExists];
+            _loginVC = nil;
         }];
     }
 }
