@@ -12,8 +12,8 @@
 #import "TPLoginViewController.h"
 
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
-NSString * const kBaseURLString = @"https://api.tidepool.co";
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"https://api.tidepool.co";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
 
@@ -260,6 +260,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message
 {
     int httpErrorCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+    if (_errorAlert) {
+        return;
+    }
     if (httpErrorCode == 401) {
         _errorAlert = [[UIAlertView alloc] initWithTitle:@"Authentication Error" message:@"Please login again" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
         _errorAlert.delegate = self;

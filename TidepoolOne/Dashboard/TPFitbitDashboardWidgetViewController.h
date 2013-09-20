@@ -22,8 +22,6 @@
 @property (weak, nonatomic) IBOutlet TPBarGraphView *fitbitBarGraphView;
 @property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitSleepGraphView;
 @property (weak, nonatomic) IBOutlet TPCurveGraphView *fitbitActivityGraphView;
-- (IBAction)refreshButtonPressed:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 
 @property (assign, nonatomic) float speedChange;
@@ -37,9 +35,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *activityArrowImage;
 @property (weak, nonatomic) IBOutlet TPLabelBold *sleepNumberLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *sleepArrowImage;
-
-
-
 
 @property (strong, nonatomic) NSDictionary *user;
 

@@ -42,7 +42,6 @@
     self.fitbitSleepGraphView.color = [UIColor colorWithRed:2/255.0 green:110/255.0 blue:160/255.0 alpha:1.0];
     _connectedSize = self.view.bounds.size;
     _notConnectedSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height - self.fitbitScrollView.frame.size.height);
-    [self refreshFitbitConnectedness];
     self.speedChange = 0;
     self.sleepChange = 0;
     self.activityChange = 0;
@@ -109,34 +108,11 @@
 {
     [self showConnectUI];
 }
-- (IBAction)refreshButtonPressed:(id)sender
-{
-    CABasicAnimation* animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-    animation.fromValue = [NSNumber numberWithFloat:0.0f];
-    animation.toValue = [NSNumber numberWithFloat: 2*M_PI];
-    animation.duration = 1.0f;
-    animation.repeatCount = 2000;
-    [self.refreshButton.layer addAnimation:animation forKey:@"MyAnimation"];
-
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *status = responseObject[@"status"];
-        if ([status[@"state"] isEqualToString:@"pending"]) {
-            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
-            [self pollForFitbitSyncStatus];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self.refreshButton.layer removeAllAnimations];
-        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not update fitbit data"];
-    }];
-
-}
 
 -(void)pollTimedOut
 {
     [_pollTimer invalidate];
     _pollTimer = nil;
-    [self.refreshButton.layer removeAllAnimations];
     [[[UIAlertView alloc] initWithTitle:@"Server busy" message:@"Fitbit sync is taking too long. When synced, they will be populated on the dashboard." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
 }
 
@@ -150,16 +126,15 @@
         } else if ([state isEqualToString:@"done"]){
             [_pollTimeoutTimer invalidate];
             _pollTimeoutTimer = nil;
-            [self downloadResultswithCompletionHandlersSuccess:^{
-                [self.refreshButton.layer removeAllAnimations];
+            [self refreshWeeklyDatawithCompletionHandlersSuccess:^{
+                [_pollTimeoutTimer invalidate];
+                _pollTimeoutTimer = nil;
             } andFailure:^{
                 [_pollTimeoutTimer invalidate];
                 _pollTimeoutTimer = nil;
-                [self.refreshButton.layer removeAllAnimations];
             }];
         } else {
             [[[UIAlertView alloc] initWithTitle:@"Error" message:@"Fitbit data could not be refreshed at this time. Please try again later" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-            [self.refreshButton.layer removeAllAnimations];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [_oauthClient handleError:error withOptionalMessage:@"Could not refresh Fitbit"];
@@ -194,7 +169,7 @@
                 NSArray *speedRhythm = speedAggregateResult[@"scores"][@"weekly"];
                 NSMutableArray *speedWeekly = [NSMutableArray array];
                 for (int i=0; i < speedRhythm.count; i++) {
-                    [speedWeekly addObject:speedRhythm[i][@"speed_score"]];
+                    [speedWeekly addObject:speedRhythm[i][@"average_speed_score"]];
                 }
 
                 
@@ -224,8 +199,13 @@
     return nil;
 }
 
-
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self refreshWeeklyDatawithCompletionHandlersSuccess:successBlock andFailure:failureBlock];
+    [self startFitbitSync];
+}
+    
+-(void)refreshWeeklyDatawithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -238,6 +218,19 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         failureBlock();
+    }];
+}
+
+-(void)startFitbitSync
+{
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *status = responseObject[@"status"];
+        if ([status[@"state"] isEqualToString:@"pending"]) {
+            _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
+            [self pollForFitbitSyncStatus];
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not update fitbit data"];
     }];
 }
 
