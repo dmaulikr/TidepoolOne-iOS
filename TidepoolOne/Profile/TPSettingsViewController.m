@@ -154,7 +154,7 @@
     TPButton *logoutButton = [[TPButton alloc] initWithFrame:CGRectZero];
     logoutButton.frame = CGRectMake(120, genderButtonsY + self.maleButton.bounds.size.height + 3*kPadding, 130, 40);
     logoutButton.center = CGPointMake(self.view.bounds.size.width/2, logoutButton.center.y);
-    [logoutButton setTitle:@"Logout" forState:UIControlStateNormal];
+    [logoutButton setTitle:@"Log Out" forState:UIControlStateNormal];
     [logoutButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
     [logoutButton addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -241,7 +241,7 @@
 }
 
 - (IBAction)logoutButtonPressed:(id)sender {
-    [[[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are you sure you want to log out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Log Out" message:@"Are you sure you want to log out?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] show];
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
