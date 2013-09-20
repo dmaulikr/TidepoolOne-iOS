@@ -204,7 +204,7 @@
 {
     [self refreshWeeklyDatawithCompletionHandlersSuccess:successBlock andFailure:failureBlock];
     if (self.isConnected) {
-        [self refreshFitbitConnectedness];
+        [self refreshFitbitData];
     }
 }
     
