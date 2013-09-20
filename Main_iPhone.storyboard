@@ -126,28 +126,28 @@
                         <viewControllerLayoutGuide type="bottom" id="odT-fd-ryV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dIS-1N-fZX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
+                                <rect key="frame" x="0.0" y="-25" width="320" height="568"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
                                         <rect key="frame" x="23" y="165" width="275" height="41"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
                                         <rect key="frame" x="60" y="90" width="201" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="T9O-he-WeD"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
                                         <rect key="frame" x="104" y="226" width="113" height="117"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
                                         <rect key="frame" x="109" y="363" width="102" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="bXI-vb-IHb"/>
@@ -184,6 +184,7 @@
                             <constraint firstItem="aMS-w3-p8E" firstAttribute="leading" secondItem="dIS-1N-fZX" secondAttribute="leading" id="UiB-II-rs6"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Games" image="tabicon-game.png" id="E0S-zh-qJP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>

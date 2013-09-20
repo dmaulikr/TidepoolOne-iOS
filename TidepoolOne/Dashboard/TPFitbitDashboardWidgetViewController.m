@@ -249,41 +249,36 @@
 -(void)setSleepChange:(float)sleepChange
 {
     _sleepChange = sleepChange;
-    self.sleepNumberLabel.text = [NSString stringWithFormat:@"%g%%",100*fabs(sleepChange)];
-    if (sleepChange > 0) {
-        self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow-up.png"];
-    } else if (sleepChange < 0) {
-        self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow-down.png"];
-    } else if (!sleepChange) {
-        self.sleepArrowImage.image = [UIImage imageNamed:@"fitbit-bluearrow.png"];
-    }
-
+    [self setArrowImage:_sleepArrowImage withColorString:@"blue" andLabel:_sleepNumberLabel withValue:sleepChange];
 }
 
 -(void)setActivityChange:(float)activityChange
 {
     _activityChange = activityChange;
-    self.activityNumberLabel.text = [NSString stringWithFormat:@"%g%%",100*fabs(activityChange)];
-    if (activityChange > 0) {
-        self.activityArrowImage.image = [UIImage imageNamed:@"fitbit-yellowarrow-up.png"];
-    } else if (activityChange < 0) {
-        self.activityArrowImage.image = [UIImage imageNamed:@"fitbit-yellowarrow-down.png"];
-    } else if (!activityChange) {
-        self.activityArrowImage.image = [UIImage imageNamed:@"fitbit-yellowarrow.png"];
-    }
-
-}
+    [self setArrowImage:_activityArrowImage withColorString:@"yellow" andLabel:_activityNumberLabel withValue:activityChange];}
 
 -(void)setSpeedChange:(float)speedChange
 {
     _speedChange = speedChange;
-    self.speedNumberLabel.text = [NSString stringWithFormat:@"%g%%",100*fabs(speedChange)];
-    if (speedChange > 0) {
-        self.speedArrowImage.image = [UIImage imageNamed:@"fitbit-greenarrow-up.png"];
-    } else if (speedChange < 0) {
-        self.speedArrowImage.image = [UIImage imageNamed:@"fitbit-greenarrow-down.png"];
-    } else if (!speedChange) {
-        self.speedArrowImage.image = [UIImage imageNamed:@"fitbit-greenarrow.png"];
+    [self setArrowImage:_speedArrowImage withColorString:@"green" andLabel:_speedNumberLabel withValue:speedChange];
+}
+
+
+-(void)setArrowImage:(UIImageView *)imageView withColorString:(NSString *)colorString andLabel:(UILabel *)label withValue:(float)value
+{
+    if (value > 1) {
+        label.text = @">100%";
+    } else if (value < -1) {
+        label.text = @"<100%";
+    } else {
+        label.text = [NSString stringWithFormat:@"%i%%",(int)(100*fabs(value))];
+    }
+    if (value > 0) {
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"fitbit-%@arrow-up.png", colorString]];
+    } else if (value < 0) {
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"fitbit-%@arrow-down.png", colorString]];
+    } else if (!value) {
+        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"fitbit-%@arrow.png", colorString]];
     }
 }
 

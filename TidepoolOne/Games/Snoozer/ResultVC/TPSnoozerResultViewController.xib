@@ -30,7 +30,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2574">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="285"/>
+                            <rect key="frame" x="0.0" y="20" width="320" height="285"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="resultsbadge-antelope.png" translatesAutoresizingMaskIntoConstraints="NO" id="2594">
@@ -157,7 +157,7 @@
                         <constraint firstAttribute="trailing" secondItem="2574" secondAttribute="trailing" id="GXm-QS-PrM"/>
                         <constraint firstAttribute="bottom" secondItem="515" secondAttribute="bottom" constant="64" id="SgT-YE-82u"/>
                         <constraint firstItem="515" firstAttribute="top" secondItem="1298" secondAttribute="top" constant="275" id="UAW-Cr-TLG"/>
-                        <constraint firstItem="2574" firstAttribute="top" secondItem="1298" secondAttribute="top" id="gKX-k7-8yz"/>
+                        <constraint firstItem="2574" firstAttribute="top" secondItem="1298" secondAttribute="top" constant="20" id="gKX-k7-8yz"/>
                         <constraint firstItem="515" firstAttribute="leading" secondItem="2574" secondAttribute="leading" id="ibb-Eu-uyl"/>
                     </constraints>
                 </scrollView>

@@ -295,13 +295,7 @@
 - (void) displayContentController: (UIViewController*) content;
 {
     [self addChildViewController:content];
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
-        // Load resources for iOS 6.1 or earlier
-        content.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
-    } else {
-        // Load resources for iOS 7 or later
-        content.view.frame = CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.bounds.size.height - 20);
-    }
+    content.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
     [self.view addSubview:content.view];
     [content didMoveToParentViewController:self];
 }

@@ -12,8 +12,8 @@
 #import "TPLoginViewController.h"
 
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
-NSString * const kBaseURLString = @"https://api.tidepool.co";
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"https://api.tidepool.co";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
 
@@ -26,10 +26,11 @@ NSString * const kSSKeychainServiceName = @"Tidepool";
 static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 
-@interface TPOAuthClient()
+@interface TPOAuthClient()<UIAlertViewDelegate>
 {
     NSString *_clientId;
     NSString *_clientSecret;
+    UIAlertView *_errorAlert;
     
 }
 @end
@@ -277,7 +278,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     int httpErrorCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
     if (httpErrorCode == 401) {
-        [[[UIAlertView alloc] initWithTitle:@"Authentication Error" message:@"Please login again" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        _errorAlert = [[UIAlertView alloc] initWithTitle:@"Authentication Error" message:@"Please login again" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+        _errorAlert.delegate = self;
+        [_errorAlert show];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
         [self logout];
         return;
@@ -286,7 +289,10 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     if (errorMessage) {
         message = errorMessage;
     }
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+    _errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
+    _errorAlert.delegate = self;
+    [_errorAlert show];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
 }
 -(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo
@@ -314,6 +320,11 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
     }
     return [dateFormatter dateFromString:dateString];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    _errorAlert = nil;
 }
 
 @end
