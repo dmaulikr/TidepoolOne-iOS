@@ -87,7 +87,13 @@
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]
                                             initWithActivityItems:postItems
                                             applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact];
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        activityVC.excludedActivityTypes = @[UIActivityTypeCopyToPasteboard];
+    } else {
+        // Load resources for iOS 7 or later
+        [activityVC setExcludedActivityTypes:@[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact]];
+    }
     
     [self presentViewController:activityVC animated:YES completion:nil];
 }
