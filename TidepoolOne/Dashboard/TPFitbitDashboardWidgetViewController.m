@@ -45,6 +45,7 @@
     self.speedChange = 0;
     self.sleepChange = 0;
     self.activityChange = 0;
+    [self refreshFitbitConnectedness];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -202,7 +203,9 @@
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     [self refreshWeeklyDatawithCompletionHandlersSuccess:successBlock andFailure:failureBlock];
-    [self startFitbitSync];
+    if (self.isConnected) {
+        [self refreshFitbitConnectedness];
+    }
 }
     
 -(void)refreshWeeklyDatawithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
@@ -221,7 +224,7 @@
     }];
 }
 
--(void)startFitbitSync
+-(void)refreshFitbitData
 {
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *status = responseObject[@"status"];
