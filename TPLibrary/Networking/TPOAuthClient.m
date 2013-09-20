@@ -12,8 +12,8 @@
 #import "TPLoginViewController.h"
 
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
-//NSString * const kBaseURLString = @"https://api.tidepool.co";
-NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+NSString * const kBaseURLString = @"https://api.tidepool.co";
+//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
 
@@ -77,7 +77,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
                             _clientSecret, @"client_secret",
                             nil];
     [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success");
         NSString *token = [responseObject valueForKey:@"access_token"];
         [self saveAndUseOauthToken:token];
         self.user = responseObject[@"user"];
@@ -102,7 +101,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
                             _clientSecret, @"client_secret",
                             nil];
     [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"success");
         NSString *token = [responseObject valueForKey:@"access_token"];
         [self saveAndUseOauthToken:token];
         self.isLoggedIn = YES;
@@ -120,7 +118,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)saveAndUseOauthToken:(NSString *)token
 {
-    NSLog(@"called save oauth token");
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
@@ -134,28 +131,23 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)setUser:(NSDictionary *)user
 {
     _user = user;
-    NSLog(@"changed user to %@", [user description]);
 }
 
 -(NSDictionary *)getUserInfo
 {
-    NSLog(@"debug:%@", [[[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"] description]);
     return [[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"];
 }
 
 -(BOOL)hasOauthToken
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    NSLog(@"Checking num of saved oauth tokens: %i", accounts.count);
     return accounts.count;
 }
 
 -(BOOL)loginPassively
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    NSLog(@"Checking for accounts: %i %@", accounts.count, [accounts description]);
     if (accounts.count > 0) {
-        NSLog(@"got into the inner loop only if accounts exist");
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",[self oauthToken]]];
 //        self.user = [self getUserInfo];
         self.isLoggedIn = 1;
@@ -178,20 +170,16 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)deleteAllPasswords
 {
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    NSLog(@"Checking for accounts pre deletion: %@", [accounts description]);
     for (NSDictionary *account in accounts) {
         NSDictionary *account = accounts[0];
         NSString *username = account[@"acct"];
         [SSKeychain deletePasswordForService:kSSKeychainServiceName account:username];
     }
-    accounts = [SSKeychain accountsForService:kSSKeychainServiceName];    
-    NSLog(@"Checking for accounts post deletion: %@", [accounts description]);
-
+    accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
 }
 
 -(void)logout
 {
-    NSLog(@"Loggin out OauthClient");
     [[FBSession activeSession] closeAndClearTokenInformation];
     self.user = nil;
     [self clearAuthorizationHeader];
@@ -230,13 +218,8 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)getTidepoolOauthTokenInExchangeForFacebookUserInfo:(NSDictionary *)user andFacebookToken:(NSDictionary *)token
 {
     if (!token) {
-        NSLog(@"token empty");
         return;
-    } else {
-        NSLog(@"token not empty");
     }
-    NSLog(@"Facebook Data:%@",[token description]);
-    
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:kDateFormat];
     
@@ -298,7 +281,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo
 {
     [self postPath:@"/oauth/authorize" parameters:facebookInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"facebook exchange oatuh: %@", [responseObject description]);
         [self saveAndUseOauthToken:responseObject[@"access_token"]];
         self.user = responseObject[@"user"];
         self.isLoggedIn = YES;

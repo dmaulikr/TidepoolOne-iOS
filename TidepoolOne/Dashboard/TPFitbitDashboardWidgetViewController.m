@@ -120,7 +120,6 @@
 
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *status = responseObject[@"status"];
-        NSLog([status description]);
         if ([status[@"state"] isEqualToString:@"pending"]) {
             _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
             [self pollForFitbitSyncStatus];
@@ -211,7 +210,6 @@
             NSLog([e description]);
         }
         @finally {
-            NSLog(@"move along - no fitbit data");
         }
     }
 }
@@ -231,7 +229,6 @@
 {
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"user: %@", [responseObject[@"data"] description]);
         [TPOAuthClient sharedClient].user = responseObject[@"data"];
         self.user = responseObject[@"data"];
         _numServerCallsCompleted++;
@@ -239,7 +236,6 @@
             successBlock();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fail: %@", [error description]);
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         failureBlock();
     }];

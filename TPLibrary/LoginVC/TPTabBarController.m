@@ -60,8 +60,6 @@
 
 -(void)doLogin
 {
-    NSLog(@"Tab bar is to try and login");
-    NSLog(@"checking client online status %i", _oauthClient.isLoggedIn);    
     BOOL success = 0;
     if (_oauthClient.hasOauthToken && !_oauthClient.isLoggedIn) {
         success = [_oauthClient loginPassively];
@@ -111,9 +109,6 @@
 
 -(void)loggedInSignal
 {
-    NSLog(@"Tab bar got logged in signal");
-    NSLog(@"checking client %i", _oauthClient.isLoggedIn);
-    
     if (_loginVC) {
         [_loginVC dismissViewControllerAnimated:YES completion:^{
             [self checkIfPersonalityExists];
@@ -124,7 +119,6 @@
 
 -(void)loggedOutSignal
 {
-    NSLog(@"Tab bar got logged out signal");
     [self doLogin];
 }
 
@@ -163,7 +157,6 @@
 
 -(void)personalityGameIsDone:(id)sender successfully:(BOOL)success;
 {
-    NSLog(@"personality done delegate method called on tabbar");
     UIViewController *vc = sender;
     [vc dismissViewControllerAnimated:YES completion:^{
         if (success) {

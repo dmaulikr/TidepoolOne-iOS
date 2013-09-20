@@ -85,7 +85,7 @@
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
     
-    NSLog(@"FromWebView: %@", requestString);
+//    NSLog(@"FromWebView: %@", requestString);
     
     if ([requestString hasPrefix:@"ios"]) {
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];

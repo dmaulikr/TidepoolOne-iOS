@@ -249,7 +249,6 @@
 -(void)loggedIn
 {
     self.user = _oauthClient.user;
-    NSLog(@"logged in called in profileVC");
     if (!self.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";

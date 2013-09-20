@@ -72,13 +72,10 @@
         for (TPSnoozerClockView *clockView in _clockViews) {
             [clockView resume];
         }
-        NSLog(@"time appear: %@", [[NSDate date] description]);
-        NSLog(@"time diff: %f", difference);
         NSDate *oldDate = _timerDate;
         NSDate *newDate = [oldDate dateByAddingTimeInterval:difference];
 
         _timer.fireDate = newDate;
-        NSLog(@"TIMER NEW DATE: %@", [_timer.fireDate description]);
         _timerDate = newDate;
         _pauseTime = nil;
     } else {
@@ -90,19 +87,13 @@
 {
     [super viewDidDisappear:animated];
     if (!_instructionDone) {
-        NSLog(@"instruction not done on disappear so returning");
         return;
     }
     if (_stageDone) {
         return;
     }
     _pauseTime = [NSDate date];
-    NSLog(@"time disappear: %@", [_pauseTime description]);
-//    [_timer invalidate];
-//    _timer = nil;
-    NSLog(@"original fire date: %@", [_timer.fireDate description]);    
     _timer.fireDate = [[NSDate date] dateByAddingTimeInterval:10000];
-    NSLog(@"sentinel fire date: %@", [_timer.fireDate description]);
     for (TPSnoozerClockView *clockView in _clockViews) {
         [clockView pause];
     }
@@ -155,7 +146,6 @@
     _timeToShow = [self.data[@"time_to_show"] floatValue];
     NSArray *shuffledTimeline = [self generateTimelineForCorrectSequence:self.data[@"correct_color_sequence"] incorrectSequences:self.data[@"incorrect_color_sequences"] fractionIncorrect:[self.data[@"fraction_incorrect"] floatValue] timeToShow:_timeToShow minimumTimeGapFraction:[self.data[@"minimum_time_gap_fraction"] floatValue] maximumTimeGapFraction:[self.data[@"maximum_time_gap_fraction"] floatValue] numberCorrectToShow:[self.data[@"number_correct_to_show"] floatValue]];
 
-    NSLog(@"generated %@", [shuffledTimeline description]);
     for (int i=0; i<self.numColumns; i++) {
         for (int j=0; j<self.numRows; j++) {
             TPSnoozerClockView *clockView = [[TPSnoozerClockView alloc] initWithFrame:CGRectMake(i*boxWidth, j*boxHeight, boxWidth, boxHeight)];
@@ -240,8 +230,6 @@
     }
     float timeToEnd = (1.25*_timeToShow + maxTime.floatValue)/1000;
     _timer = [NSTimer scheduledTimerWithTimeInterval:timeToEnd target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
-    NSLog(@"Last clock: %f s", maxTime.floatValue/1000);
-    NSLog(@"Timer for stage end after: %f s", timeToEnd);
     _timerDate = _timer.fireDate;
 }
 
@@ -305,10 +293,8 @@
     [event setValue:clockView.identifier forKey:@"item_id"];
     if ([clockView isTarget]) {
         [event setValue:@"target" forKey:@"type"];
-        NSLog(@"ring target");
     } else {
         [event setValue:@"decoy" forKey:@"type"];
-        NSLog(@"ring decoy");
     }
     [event setValue:clockView.currentColor forKey:@"color"];
     [self logEventToServer:event];

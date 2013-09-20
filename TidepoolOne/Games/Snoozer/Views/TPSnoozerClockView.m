@@ -194,9 +194,7 @@
 {
     for (int i=0;i<_timerArray.count;i++) {
         NSTimer *timer = _timerArray[i];
-        NSLog(@"old fire date: %@", timer.fireDate);
         timer.fireDate = [[NSDate date] dateByAddingTimeInterval:100000];
-        NSLog(@"sentinel fire date: %@", timer.fireDate);
     }
     _pauseTime = [NSDate date];
 }
@@ -207,12 +205,7 @@
         NSTimer *timer = _timerArray[i];
         NSDate *oldDate = _timerDatesArray[i];
         NSDate *newDate = [oldDate dateByAddingTimeInterval:difference];
-        NSLog(@"difference: %f", difference);
         [timer setFireDate:newDate];
-        NSLog(@"OLD date: %@", oldDate);
-        NSLog(@"NEW date: %@", newDate);
-        NSLog(@"new fire date: %@", timer.fireDate);
-
     }
     _pauseTime = nil;
 }

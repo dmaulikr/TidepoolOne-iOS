@@ -59,8 +59,6 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
-    NSLog(@"%@", requestString);
-    
     if ([requestString hasSuffix:@"success"]) {
         [self.delegate connectionMadeSucessfully:YES];
         [self.navigationController popViewControllerAnimated:YES];

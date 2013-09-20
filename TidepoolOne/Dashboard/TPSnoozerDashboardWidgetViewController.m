@@ -77,7 +77,6 @@
 {
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"results: %@", [responseObject[@"data"] description]);
         self.results = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
@@ -89,7 +88,6 @@
         failureBlock();
     }];
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"user: %@", [responseObject[@"data"] description]);
         [TPOAuthClient sharedClient].user = responseObject[@"data"];
         self.user = responseObject[@"data"];
         _numServerCallsCompleted++;
@@ -129,7 +127,6 @@
             NSLog(@"%@", exception.reason);
         }
         @finally {
-            NSLog(@"Moving along now");
         }
     }
 }

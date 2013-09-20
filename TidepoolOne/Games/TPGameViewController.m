@@ -79,7 +79,6 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading new game";
     [_oauthClient postPath:[NSString stringWithFormat:@"api/v1/users/-/games?def_id=%@", self.type] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"got game succesffully");
         [hud hide:YES];
         self.gameObject = responseObject[@"data"];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -209,7 +208,6 @@
 //    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
     __block typeof(self) bself = self;
     [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
-        NSLog(@"suxess: %@", [dataObject description]);
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
             _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:bself selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
@@ -256,7 +254,6 @@
             [bself getResults];
         }
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *data, NSError *error, id JSON) {
-        NSLog(@"f:%@", [data description]);
         [_oauthClient handleError:error withOptionalMessage:@"Error polling for results"];
         [self clearCurrentGame];
         self.gameStartView.hidden = NO;
@@ -275,9 +272,7 @@
     __block typeof(self) bself = self;
     _oauthClient.parameterEncoding = AFJSONParameterEncoding;
     [_oauthClient postPath:@"/api/v1/user_events" parameters:completeEvents success:^(AFHTTPRequestOperation *operation, id dataObject) {
-        NSLog(@"event logging:%@", [dataObject description]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"error:%@", [error description]);
         [_oauthClient handleError:error withOptionalMessage:@"Error submitting performance"];
         [bself clearCurrentGame];
         bself.gameStartView.hidden = NO;
