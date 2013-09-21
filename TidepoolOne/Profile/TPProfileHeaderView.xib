@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -11,42 +11,55 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="278"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="135">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="135">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile-header.png" id="192">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="profile-header.png" translatesAutoresizingMaskIntoConstraints="NO" id="192">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="155"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="193">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="193">
                             <rect key="frame" x="12" y="22" width="70" height="84"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="84" id="Yto-Hb-9m2"/>
+                                <constraint firstAttribute="width" constant="70" id="tW6-bV-JO9"/>
+                            </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="194" customClass="TPLabel">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="194" customClass="TPLabel">
                             <rect key="frame" x="100" y="10" width="210" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="210" id="o8C-kG-VPN"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Personality" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="195" customClass="TPLabel">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Personality" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="195" customClass="TPLabel">
                             <rect key="frame" x="100" y="31" width="210" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="1gl-jh-I2W"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" id="403" customClass="TPTextView">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="403" customClass="TPTextView">
                             <rect key="frame" x="100" y="71" width="210" height="84"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="84" id="c5t-qm-xaN"/>
+                            </constraints>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qo0-Me-fMC" customClass="TPButton">
-                            <rect key="frame" x="12" y="122" width="70" height="26"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qo0-Me-fMC" customClass="TPButton">
+                            <rect key="frame" x="12" y="122" width="71" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Share" backgroundImage="btn-blue.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -54,25 +67,78 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="194" firstAttribute="top" secondItem="135" secondAttribute="top" constant="10" id="30t-9f-ui7"/>
+                        <constraint firstItem="193" firstAttribute="top" secondItem="135" secondAttribute="top" constant="22" id="7xK-na-YtP"/>
+                        <constraint firstItem="qo0-Me-fMC" firstAttribute="leading" secondItem="192" secondAttribute="leading" constant="12" id="7xk-vY-ouV"/>
+                        <constraint firstItem="192" firstAttribute="leading" secondItem="403" secondAttribute="leading" constant="-100" id="B5k-zz-hzG"/>
+                        <constraint firstItem="403" firstAttribute="top" secondItem="195" secondAttribute="bottom" constant="19" id="GfD-6i-JCg"/>
+                        <constraint firstAttribute="trailing" secondItem="194" secondAttribute="trailing" constant="10" id="J5N-t0-JH7"/>
+                        <constraint firstItem="qo0-Me-fMC" firstAttribute="top" secondItem="193" secondAttribute="bottom" constant="16" id="KPk-GA-z7Y"/>
+                        <constraint firstAttribute="trailing" secondItem="192" secondAttribute="trailing" id="LVd-39-f9b"/>
+                        <constraint firstItem="195" firstAttribute="top" secondItem="194" secondAttribute="bottom" id="QHD-te-BVy"/>
+                        <constraint firstItem="194" firstAttribute="leading" secondItem="193" secondAttribute="trailing" constant="18" id="Y2z-TE-jBP"/>
+                        <constraint firstItem="192" firstAttribute="leading" secondItem="135" secondAttribute="leading" id="ZGx-RA-WZG"/>
+                        <constraint firstItem="194" firstAttribute="top" relation="greaterThanOrEqual" secondItem="135" secondAttribute="top" constant="10" id="aJS-af-v36"/>
+                        <constraint firstAttribute="bottom" secondItem="192" secondAttribute="bottom" id="aPM-Y7-hHS"/>
+                        <constraint firstItem="193" firstAttribute="leading" secondItem="135" secondAttribute="leading" constant="12" id="bmv-bJ-wPb"/>
+                        <constraint firstItem="195" firstAttribute="top" secondItem="194" secondAttribute="bottom" id="cSV-M1-80K"/>
+                        <constraint firstAttribute="trailing" secondItem="403" secondAttribute="trailing" constant="10" id="dUg-7H-tU4"/>
+                        <constraint firstItem="194" firstAttribute="trailing" secondItem="195" secondAttribute="trailing" id="deS-Vp-Z5W"/>
+                        <constraint firstItem="195" firstAttribute="leading" secondItem="194" secondAttribute="leading" id="fdS-lk-HFe"/>
+                        <constraint firstItem="403" firstAttribute="top" secondItem="192" secondAttribute="bottom" constant="-84" id="jOt-bT-clC"/>
+                        <constraint firstItem="192" firstAttribute="top" secondItem="135" secondAttribute="top" id="jRb-Wz-vhp"/>
+                        <constraint firstItem="195" firstAttribute="leading" secondItem="193" secondAttribute="trailing" constant="18" id="lpe-Qh-cNU"/>
+                        <constraint firstItem="qo0-Me-fMC" firstAttribute="width" secondItem="193" secondAttribute="width" id="qda-Mb-iDj"/>
+                        <constraint firstItem="qo0-Me-fMC" firstAttribute="bottom" secondItem="192" secondAttribute="bottom" constant="-7" id="sLd-LJ-d0y"/>
+                        <constraint firstAttribute="trailing" secondItem="195" secondAttribute="trailing" constant="10" id="wD6-as-ttQ"/>
+                        <constraint firstItem="194" firstAttribute="leading" secondItem="195" secondAttribute="leading" id="wHs-B9-YKK"/>
+                        <constraint firstItem="195" firstAttribute="width" secondItem="194" secondAttribute="width" id="yXe-CS-ipB"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" id="151">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="151">
                     <rect key="frame" x="0.0" y="159" width="320" height="119"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="chartbg.png" id="233">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="chartbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="233">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="119"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <view contentMode="scaleToFill" id="227" customClass="TPPolarChartView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="227" customClass="TPPolarChartView">
                             <rect key="frame" x="0.0" y="5" width="110" height="110"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="110" id="GBw-Tx-hB3"/>
+                                <constraint firstAttribute="height" constant="110" id="Ovi-ub-XSG"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="227" secondAttribute="bottom" constant="4" id="1jw-2U-ZMV"/>
+                        <constraint firstItem="227" firstAttribute="leading" secondItem="151" secondAttribute="leading" id="8L2-Qv-47c"/>
+                        <constraint firstAttribute="trailing" secondItem="233" secondAttribute="trailing" id="A2S-Ju-gKb"/>
+                        <constraint firstAttribute="bottom" secondItem="233" secondAttribute="bottom" id="M2Z-OI-S9l"/>
+                        <constraint firstItem="227" firstAttribute="top" secondItem="151" secondAttribute="top" constant="5" id="NXp-80-lgT"/>
+                        <constraint firstAttribute="height" constant="119" id="hIe-AJ-253"/>
+                        <constraint firstItem="233" firstAttribute="leading" secondItem="151" secondAttribute="leading" id="pa9-zX-FKW"/>
+                        <constraint firstItem="233" firstAttribute="top" secondItem="151" secondAttribute="top" id="wJ9-U4-YMg"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="151" secondAttribute="bottom" id="3yx-TJ-aMO"/>
+                <constraint firstItem="151" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="4jx-A6-6Sy"/>
+                <constraint firstItem="135" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="7oD-CF-6aA"/>
+                <constraint firstItem="135" firstAttribute="top" secondItem="2" secondAttribute="top" id="8T2-1z-RwA"/>
+                <constraint firstAttribute="trailing" secondItem="135" secondAttribute="trailing" id="e44-Ng-Beg"/>
+                <constraint firstItem="135" firstAttribute="centerX" secondItem="151" secondAttribute="centerX" id="fXb-aw-LxI"/>
+                <constraint firstItem="151" firstAttribute="top" secondItem="135" secondAttribute="bottom" constant="4" id="r0z-IQ-lOz"/>
+                <constraint firstAttribute="trailing" secondItem="151" secondAttribute="trailing" id="rrN-OG-n5K"/>
+                <constraint firstItem="135" firstAttribute="width" secondItem="151" secondAttribute="width" id="vCf-aX-LUN"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="badgeImageView" destination="193" id="250"/>
