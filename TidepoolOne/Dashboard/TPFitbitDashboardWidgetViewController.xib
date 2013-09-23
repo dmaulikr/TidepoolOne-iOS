@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -27,107 +27,140 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="345"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view alpha="0.40000000000000002" contentMode="scaleToFill" id="XcL-TH-0Xc">
-                    <rect key="frame" x="0.0" y="103" width="320" height="244"/>
+                <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XcL-TH-0Xc">
+                    <rect key="frame" x="0.0" y="101" width="320" height="244"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="244" id="3RO-Xe-SoT"/>
+                    </constraints>
                 </view>
-                <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1Nv-oh-w14">
-                    <rect key="frame" x="0.0" y="103" width="320" height="244"/>
+                <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Nv-oh-w14">
+                    <rect key="frame" x="0.0" y="101" width="320" height="244"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar-graph.png" id="57h-lQ-fd8">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="calendar-graph.png" translatesAutoresizingMaskIntoConstraints="NO" id="57h-lQ-fd8">
                             <rect key="frame" x="0.0" y="0.0" width="694" height="244"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="694" id="R1Z-TS-KqG"/>
+                            </constraints>
                         </imageView>
-                        <view contentMode="scaleToFill" id="xE4-W2-MR1" customClass="TPBarGraphView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xE4-W2-MR1" customClass="TPBarGraphView">
                             <rect key="frame" x="0.0" y="86" width="694" height="153"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="694" id="5JM-rJ-M6U"/>
+                            </constraints>
                         </view>
-                        <view contentMode="scaleToFill" id="eL6-ag-5W6" customClass="TPCurveGraphView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eL6-ag-5W6" customClass="TPCurveGraphView">
                             <rect key="frame" x="0.0" y="86" width="694" height="153"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="694" id="tME-Gh-2BA"/>
+                            </constraints>
                         </view>
-                        <view contentMode="scaleToFill" id="EU1-ru-FeB" customClass="TPCurveGraphView">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-ru-FeB" customClass="TPCurveGraphView">
                             <rect key="frame" x="0.0" y="86" width="694" height="153"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="694" id="4Yf-RZ-7jK"/>
+                            </constraints>
                         </view>
                     </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="xE4-W2-MR1" secondAttribute="bottom" constant="5" id="B5K-7A-VLy"/>
+                        <constraint firstAttribute="bottom" secondItem="57h-lQ-fd8" secondAttribute="bottom" id="BiW-Js-nej"/>
+                        <constraint firstItem="EU1-ru-FeB" firstAttribute="top" secondItem="1Nv-oh-w14" secondAttribute="top" constant="86" id="DJ2-Ae-r25"/>
+                        <constraint firstAttribute="height" constant="244" id="Fnq-hc-5GK"/>
+                        <constraint firstItem="eL6-ag-5W6" firstAttribute="top" secondItem="1Nv-oh-w14" secondAttribute="top" constant="86" id="QTt-Ak-kqk"/>
+                        <constraint firstAttribute="bottom" secondItem="eL6-ag-5W6" secondAttribute="bottom" constant="5" id="bGG-Zb-H89"/>
+                        <constraint firstItem="EU1-ru-FeB" firstAttribute="leading" secondItem="1Nv-oh-w14" secondAttribute="leading" id="dQf-qs-SlF"/>
+                        <constraint firstItem="eL6-ag-5W6" firstAttribute="leading" secondItem="1Nv-oh-w14" secondAttribute="leading" id="gd0-yF-0Er"/>
+                        <constraint firstItem="xE4-W2-MR1" firstAttribute="top" secondItem="1Nv-oh-w14" secondAttribute="top" constant="86" id="mMs-dD-q9c"/>
+                        <constraint firstItem="57h-lQ-fd8" firstAttribute="leading" secondItem="1Nv-oh-w14" secondAttribute="leading" id="oTf-G6-sSG"/>
+                        <constraint firstItem="xE4-W2-MR1" firstAttribute="leading" secondItem="1Nv-oh-w14" secondAttribute="leading" id="wqE-Ua-atA"/>
+                        <constraint firstAttribute="bottom" secondItem="EU1-ru-FeB" secondAttribute="bottom" constant="5" id="xzn-aA-XCw"/>
+                        <constraint firstItem="57h-lQ-fd8" firstAttribute="top" secondItem="1Nv-oh-w14" secondAttribute="top" id="yEB-Lb-Um0"/>
+                    </constraints>
                 </scrollView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash-fitbitbg.png" id="Qb9-dL-izI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dash-fitbitbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qb9-dL-izI">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="103" id="Yc1-X4-I9d"/>
+                    </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mAl-yN-dS0" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Speed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAl-yN-dS0" customClass="TPLabelBold">
                     <rect key="frame" x="37" y="34" width="43" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="wpn-O1-eP5" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpn-O1-eP5" customClass="TPLabelBold">
                     <rect key="frame" x="37" y="46" width="62" height="56"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="31"/>
                     <color key="textColor" red="0.24705882352941178" green="0.78823529411764703" blue="0.65490196078431373" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="U1o-rG-Sl5" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1o-rG-Sl5" customClass="TPLabelBold">
                     <rect key="frame" x="145" y="46" width="62" height="56"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="31"/>
                     <color key="textColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="beg-t6-QsE" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beg-t6-QsE" customClass="TPLabelBold">
                     <rect key="frame" x="256" y="46" width="62" height="56"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="31"/>
                     <color key="textColor" red="0.0078431372549019607" green="0.43137254901960786" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="TRENDS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5yT-ae-6LH" customClass="TPLabel">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="TRENDS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yT-ae-6LH" customClass="TPLabel">
                     <rect key="frame" x="103" y="7" width="152" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.29803921570000003" green="0.34509803919999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CYL-T4-lAH" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYL-T4-lAH" customClass="TPLabelBold">
                     <rect key="frame" x="142" y="34" width="43" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YPP-by-TWb" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPP-by-TWb" customClass="TPLabelBold">
                     <rect key="frame" x="252" y="34" width="43" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitbit-greenarrow-up.png" id="Ca5-nq-9ee">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fitbit-greenarrow-up.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ca5-nq-9ee">
                     <rect key="frame" x="-2" y="63" width="40" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitbit-yellowarrow-up.png" id="55w-Jq-RCp">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fitbit-yellowarrow-up.png" translatesAutoresizingMaskIntoConstraints="NO" id="55w-Jq-RCp">
                     <rect key="frame" x="106" y="63" width="40" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fitbit-bluearrow-up.png" id="WLt-VO-wBR">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fitbit-bluearrow-up.png" translatesAutoresizingMaskIntoConstraints="NO" id="WLt-VO-wBR">
                     <rect key="frame" x="215" y="63" width="40" height="25"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="WEEKLY RHYTHM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aaU-7p-TGE" customClass="TPLabel">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="WEEKLY RHYTHM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaU-7p-TGE" customClass="TPLabel">
                     <rect key="frame" x="9" y="113" width="152" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.29803921570000003" green="0.34509803919999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" id="zts-kO-ZjZ">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zts-kO-ZjZ">
                     <rect key="frame" x="0.0" y="34" width="320" height="69"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ACM-8c-LCH">
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-8c-LCH">
                             <rect key="frame" x="110" y="20" width="100" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Connect" backgroundImage="btn-connectfitbit.png">
@@ -143,6 +176,17 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="XcL-TH-0Xc" secondAttribute="bottom" id="4ni-uT-sVK"/>
+                <constraint firstAttribute="trailing" secondItem="1Nv-oh-w14" secondAttribute="trailing" id="8kZ-D7-Bt1"/>
+                <constraint firstItem="1Nv-oh-w14" firstAttribute="leading" secondItem="5e2-0E-qtA" secondAttribute="leading" id="YM4-ZR-ATQ"/>
+                <constraint firstItem="XcL-TH-0Xc" firstAttribute="leading" secondItem="5e2-0E-qtA" secondAttribute="leading" id="dty-pw-f5V"/>
+                <constraint firstAttribute="bottom" secondItem="1Nv-oh-w14" secondAttribute="bottom" id="dwB-ob-Ic2"/>
+                <constraint firstItem="Qb9-dL-izI" firstAttribute="leading" secondItem="5e2-0E-qtA" secondAttribute="leading" id="ixP-Ln-yr8"/>
+                <constraint firstItem="Qb9-dL-izI" firstAttribute="top" secondItem="5e2-0E-qtA" secondAttribute="top" id="sEj-lE-Nz0"/>
+                <constraint firstAttribute="trailing" secondItem="XcL-TH-0Xc" secondAttribute="trailing" id="uNh-iD-8f0"/>
+                <constraint firstAttribute="trailing" secondItem="Qb9-dL-izI" secondAttribute="trailing" id="xY4-fR-97h"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
