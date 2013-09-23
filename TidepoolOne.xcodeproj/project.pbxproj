@@ -599,6 +599,7 @@
 		A8A2450A17D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430517D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg */; };
 		A8A2450B17D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430617D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg */; };
 		A8A2450C17D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */; };
+		A8A887F717F0F15D0043EA76 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A887F617F0F15D0043EA76 /* CoreData.framework */; };
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
 		A8BABA4F17E2615A00A3C95B /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPSettingsViewController.m */; };
@@ -1265,6 +1266,7 @@
 		A8A2430517D0130D00E9643F /* tp-appwalkthrough3~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3~iphone.jpg"; sourceTree = "<group>"; };
 		A8A2430617D0130D00E9643F /* tp-appwalkthrough4@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A8A2430717D0130D00E9643F /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
+		A8A887F617F0F15D0043EA76 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
@@ -1338,6 +1340,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A887F717F0F15D0043EA76 /* CoreData.framework in Frameworks */,
 				A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */,
 				A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */,
 				A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */,
@@ -1411,6 +1414,7 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8A887F617F0F15D0043EA76 /* CoreData.framework */,
 				A867570317E92B0C0015C48F /* StoreKit.framework */,
 				A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */,
 				A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */,
@@ -2302,6 +2306,7 @@
 		A8BABA5617E2616700A3C95B /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				A8F5B2EC17F0F7580066E0BD /* EI */,
 				A8BABA2C17E2600900A3C95B /* Snoozer */,
 				A8BABA5717E2616700A3C95B /* TPGameViewController.h */,
 				A8BABA5817E2616700A3C95B /* TPGameViewController.m */,
@@ -2438,6 +2443,37 @@
 				A8BABAB817E27CDB00A3C95B /* calendar-graph~iphone.png */,
 			);
 			path = fitbit;
+			sourceTree = "<group>";
+		};
+		A8F5B2EC17F0F7580066E0BD /* EI */ = {
+			isa = PBXGroup;
+			children = (
+				A8F5B2EF17F0F78A0066E0BD /* StageVC */,
+				A8F5B2EE17F0F7820066E0BD /* ResultVC */,
+				A8F5B2ED17F0F7790066E0BD /* GameVC */,
+			);
+			name = EI;
+			sourceTree = "<group>";
+		};
+		A8F5B2ED17F0F7790066E0BD /* GameVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GameVC;
+			sourceTree = "<group>";
+		};
+		A8F5B2EE17F0F7820066E0BD /* ResultVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ResultVC;
+			sourceTree = "<group>";
+		};
+		A8F5B2EF17F0F78A0066E0BD /* StageVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = StageVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
