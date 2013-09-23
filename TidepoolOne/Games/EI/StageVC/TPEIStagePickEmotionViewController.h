@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPStageViewController.h"
 
-@interface TPEIStagePickEmotionViewController : UIViewController
+@interface TPEIStagePickEmotionViewController : TPStageViewController
 
 @end

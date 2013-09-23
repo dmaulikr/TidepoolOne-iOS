@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPGameViewController.h"
 
-@interface TPEIResultViewController : UIViewController
+@interface TPEIResultViewController : TPGameViewController
 
 @end

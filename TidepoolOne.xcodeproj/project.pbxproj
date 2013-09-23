@@ -644,6 +644,7 @@
 		A8F5B2F917F103450066E0BD /* TPEIResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B2F717F103450066E0BD /* TPEIResultViewController.xib */; };
 		A8F5B2FD17F103AE0066E0BD /* TPEIStagePickEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B2FB17F103AE0066E0BD /* TPEIStagePickEmotionViewController.m */; };
 		A8F5B2FE17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B2FC17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib */; };
+		A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30017F104950066E0BD /* TPEIGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1348,6 +1349,8 @@
 		A8F5B2FA17F103AE0066E0BD /* TPEIStagePickEmotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEIStagePickEmotionViewController.h; path = EI/StageVC/TPEIStagePickEmotionViewController.h; sourceTree = "<group>"; };
 		A8F5B2FB17F103AE0066E0BD /* TPEIStagePickEmotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIStagePickEmotionViewController.m; path = EI/StageVC/TPEIStagePickEmotionViewController.m; sourceTree = "<group>"; };
 		A8F5B2FC17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPEIStagePickEmotionViewController.xib; path = EI/StageVC/TPEIStagePickEmotionViewController.xib; sourceTree = "<group>"; };
+		A8F5B2FF17F104950066E0BD /* TPEIGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEIGame.h; path = EI/Models/TPEIGame.h; sourceTree = "<group>"; };
+		A8F5B30017F104950066E0BD /* TPEIGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIGame.m; path = EI/Models/TPEIGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2463,9 +2466,10 @@
 		A8F5B2EC17F0F7580066E0BD /* EI */ = {
 			isa = PBXGroup;
 			children = (
+				A8F5B2ED17F0F7790066E0BD /* GameVC */,
+				A8F5B30217F104990066E0BD /* Models */,
 				A8F5B2EF17F0F78A0066E0BD /* StageVC */,
 				A8F5B2EE17F0F7820066E0BD /* ResultVC */,
-				A8F5B2ED17F0F7790066E0BD /* GameVC */,
 			);
 			name = EI;
 			sourceTree = "<group>";
@@ -2498,6 +2502,15 @@
 				A8F5B2FC17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib */,
 			);
 			name = StageVC;
+			sourceTree = "<group>";
+		};
+		A8F5B30217F104990066E0BD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A8F5B2FF17F104950066E0BD /* TPEIGame.h */,
+				A8F5B30017F104950066E0BD /* TPEIGame.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3226,6 +3239,7 @@
 				A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */,
 				A8BABA4F17E2615A00A3C95B /* TPSettingsViewController.m in Sources */,
 				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
+				A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */,
 				A830EFC317E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m in Sources */,
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
 				A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */,
