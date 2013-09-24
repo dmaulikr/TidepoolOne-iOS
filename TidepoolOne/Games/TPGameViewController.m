@@ -47,6 +47,9 @@
 {
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
+    [self.playButton addTarget:self action:@selector(playButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)setGameObject:(id)gameObject
@@ -57,7 +60,6 @@
     }
 }
 
-
 -(void)setupNewGame
 {
     _stage = 0;
@@ -65,10 +67,8 @@
     self.gameStartView.hidden = YES;
     if (self.childViewControllers.count) {
         UIViewController *currentVC = self.childViewControllers[0];
-        [currentVC.view removeFromSuperview];
-        [currentVC removeFromParentViewController];
+        [self hideContentController:currentVC];
     }
-    
     [self setupGameForCurrentStage];
 }
 
@@ -284,6 +284,27 @@
     NSNumber *epochTime = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]*1000];
     return epochTime.longLongValue;
 }
+
+- (IBAction)playButtonPressed:(id)sender {
+    [self getNewGame];
+}
+
+
+#pragma mark Login/Logout notification handlers
+
+-(void)loggedInSignal
+{
+    
+}
+
+-(void)loggedOutSignal
+{
+    for (UIViewController *child in super.childViewControllers) {
+        [self hideContentController:child];
+    }
+    self.gameStartView.hidden = NO;
+}
+
 
 #pragma mark Container View Controller methods
 

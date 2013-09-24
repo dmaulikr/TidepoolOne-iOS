@@ -157,9 +157,6 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="playButtonPressed:" destination="OmI-K6-FCI" eventType="touchUpInside" id="vH2-bM-GD0"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -189,6 +186,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="gameStartView" destination="aMS-w3-p8E" id="D85-xW-42f"/>
+                        <outlet property="playButton" destination="pkg-Ct-QKB" id="bvk-qQ-MDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>

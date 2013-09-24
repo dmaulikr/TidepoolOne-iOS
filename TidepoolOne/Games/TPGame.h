@@ -1,5 +1,5 @@
 //
-//  TPEIGame.h
+//  TPGame.h
 //  TidepoolOne
 //
 //  Created by Mayank Sanganeria on 9/23/13.
@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TPGame.h"
 
-@interface TPEIGame : TPGame
+@interface TPGame : NSDictionary
 
 @end

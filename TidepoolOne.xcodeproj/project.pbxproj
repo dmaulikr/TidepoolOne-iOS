@@ -609,7 +609,6 @@
 		A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4B17E2615A00A3C95B /* TPProfileHeaderView.m */; };
 		A8BABA5417E2615A00A3C95B /* TPProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4C17E2615A00A3C95B /* TPProfileHeaderView.xib */; };
 		A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5817E2616700A3C95B /* TPGameViewController.m */; };
-		A8BABA6117E2616700A3C95B /* TPResultsHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */; };
 		A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5D17E2616700A3C95B /* TPResultViewController.m */; };
 		A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA5F17E2616700A3C95B /* TPStageViewController.m */; };
 		A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA6717E261C500A3C95B /* TPSnoozerClockView.m */; };
@@ -645,6 +644,7 @@
 		A8F5B2FD17F103AE0066E0BD /* TPEIStagePickEmotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B2FB17F103AE0066E0BD /* TPEIStagePickEmotionViewController.m */; };
 		A8F5B2FE17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B2FC17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib */; };
 		A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30017F104950066E0BD /* TPEIGame.m */; };
+		A8F5B30517F1060B0066E0BD /* TPGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30417F1060B0066E0BD /* TPGame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1290,8 +1290,6 @@
 		A8BABA4C17E2615A00A3C95B /* TPProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileHeaderView.xib; sourceTree = "<group>"; };
 		A8BABA5717E2616700A3C95B /* TPGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGameViewController.h; sourceTree = "<group>"; };
 		A8BABA5817E2616700A3C95B /* TPGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGameViewController.m; sourceTree = "<group>"; };
-		A8BABA5917E2616700A3C95B /* TPResultsHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultsHistoryViewController.h; sourceTree = "<group>"; };
-		A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultsHistoryViewController.m; sourceTree = "<group>"; };
 		A8BABA5C17E2616700A3C95B /* TPResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPResultViewController.h; sourceTree = "<group>"; };
 		A8BABA5D17E2616700A3C95B /* TPResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPResultViewController.m; sourceTree = "<group>"; };
 		A8BABA5E17E2616700A3C95B /* TPStageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPStageViewController.h; sourceTree = "<group>"; };
@@ -1351,6 +1349,8 @@
 		A8F5B2FC17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPEIStagePickEmotionViewController.xib; path = EI/StageVC/TPEIStagePickEmotionViewController.xib; sourceTree = "<group>"; };
 		A8F5B2FF17F104950066E0BD /* TPEIGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEIGame.h; path = EI/Models/TPEIGame.h; sourceTree = "<group>"; };
 		A8F5B30017F104950066E0BD /* TPEIGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIGame.m; path = EI/Models/TPEIGame.m; sourceTree = "<group>"; };
+		A8F5B30317F1060B0066E0BD /* TPGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGame.h; sourceTree = "<group>"; };
+		A8F5B30417F1060B0066E0BD /* TPGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2328,14 +2328,14 @@
 				A8BABA2C17E2600900A3C95B /* Snoozer */,
 				A8BABA5717E2616700A3C95B /* TPGameViewController.h */,
 				A8BABA5817E2616700A3C95B /* TPGameViewController.m */,
-				A8BABA5917E2616700A3C95B /* TPResultsHistoryViewController.h */,
-				A8BABA5A17E2616700A3C95B /* TPResultsHistoryViewController.m */,
 				A8BABA5C17E2616700A3C95B /* TPResultViewController.h */,
 				A8BABA5D17E2616700A3C95B /* TPResultViewController.m */,
 				A8BABA7D17E2625C00A3C95B /* TPSurveyStageViewController.h */,
 				A8BABA7E17E2625C00A3C95B /* TPSurveyStageViewController.m */,
 				A8BABA5E17E2616700A3C95B /* TPStageViewController.h */,
 				A8BABA5F17E2616700A3C95B /* TPStageViewController.m */,
+				A8F5B30317F1060B0066E0BD /* TPGame.h */,
+				A8F5B30417F1060B0066E0BD /* TPGame.m */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -3244,12 +3244,12 @@
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
 				A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */,
 				A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */,
-				A8BABA6117E2616700A3C95B /* TPResultsHistoryViewController.m in Sources */,
 				A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */,
 				A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */,
 				A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */,
 				A8BABA6B17E261C500A3C95B /* TPSnoozerResultsGraphView.m in Sources */,
 				A8BABA7217E261FC00A3C95B /* TPSnoozerGameViewController.mm in Sources */,
+				A8F5B30517F1060B0066E0BD /* TPGame.m in Sources */,
 				A8F5B2F317F103290066E0BD /* TPEIGameViewController.m in Sources */,
 				A8BABA7317E261FC00A3C95B /* TPSnoozerGame.m in Sources */,
 				A830EFCC17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m in Sources */,

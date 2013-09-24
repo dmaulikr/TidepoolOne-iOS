@@ -28,11 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedOutSignal) name:@"Logged Out" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedInSignal) name:@"Logged In" object:nil];
+    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
     self.type = @"snoozer";
 //    self.type = @"snoozers"; //For debugging
 }
@@ -45,35 +43,10 @@
     [tracker sendView:@"Snoozer New Game"];
 }
 
--(void)loggedInSignal
-{
-
-}
-
--(void)loggedOutSignal
-{
-    for (UIViewController *child in super.childViewControllers) {
-        [super hideContentController:child];
-    }
-    self.gameStartView.hidden = NO;
-}
-
--(void)learnMore
-{
-    [self performSegueWithIdentifier:@"learnMoreSegue" sender:nil];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    [super viewDidUnload];
-}
-
-- (IBAction)playButtonPressed:(id)sender {
-    [self getNewGame];
-}
 @end

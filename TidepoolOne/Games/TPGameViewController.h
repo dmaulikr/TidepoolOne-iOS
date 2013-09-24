@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TPGame.h"
 
 @interface TPGameViewController : UIViewController<UIAlertViewDelegate>
 
-@property (strong, nonatomic) id gameObject;
+@property (strong, nonatomic) TPGame *gameObject;
 @property NSString *type;
 @property (assign) int stage;
 @property (weak, nonatomic) IBOutlet UIView *gameStartView;
+@property (weak, nonatomic) IBOutlet TPButton *playButton;
 
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;

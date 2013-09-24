@@ -29,6 +29,15 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:[NSString stringWithFormat:@"EI Stage Screen, %i",self.gameVC.stage]];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

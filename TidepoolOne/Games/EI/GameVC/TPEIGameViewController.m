@@ -26,13 +26,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
+    self.type = @"emotional_intelligence";
+    //    self.type = @"snoozers"; //For debugging
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    // Google analytics tracker
+    id tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker sendView:@"Snoozer New Game"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)playButtonPressed:(id)sender {
+    [self getNewGame];
 }
 
 @end

@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
-#import "TPResultsHistoryViewController.h"
 #import "TPSnoozerDashboardWidgetViewController.h"
 #import "TPFitbitDashboardWidgetViewController.h"
 

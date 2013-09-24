@@ -15,14 +15,10 @@
 {
     NSMutableArray *_clockViews;
     TPSnoozerClockView *_ringingClockView;
-    int _correctTouches;
-    int _incorrectTouches;
-    NSMutableArray *_eventArray;
+    TPSnoozerInstructionViewController *_instructionVC;
     NSTimer *_timer;
     NSDate *_timerDate;
-    TPSnoozerInstructionViewController *_instructionVC;
     NSDate *_pauseTime;
-    NSDateFormatter *_debugFormatter;
     BOOL _stageDone;
     BOOL _instructionDone;
 }
@@ -51,10 +47,7 @@
     self.numColumns = 2;
     self.numChoices = 0;
     self.numChoicesTotal = 1;
-    _eventArray = [NSMutableArray array];
     self.type = @"snoozer";
-    _debugFormatter = [[NSDateFormatter alloc] init];
-    [_debugFormatter setDateStyle:NSDateFormatterLongStyle];
     _stageDone = NO;
     _instructionDone = NO;
 }
@@ -264,27 +257,11 @@
     if (_pauseTime) {
         return;
     }
-    NSLog(@"FIRED AT: %@ scheduled for:", [NSDate date]);
-    [self logTestCompleted];
-    [self.gameVC currentStageDoneWithEvents:_eventArray];
     _stageDone = YES;
+    [super stageOver];
 }
 
 #pragma mark Logging functions
-
--(void)logEventToServer:(NSDictionary *)event
-{
-    NSMutableDictionary *eventWithTime = [event mutableCopy];
-    [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
-    [_eventArray addObject:eventWithTime];
-}
--(void)logTestStarted
-{
-    NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"level_started" forKey:@"event"];
-    [event setValue:self.data[@"game_type"] forKey:@"sequence_type"];
-    [self logEventToServer:event];
-}
 
 -(void)logClockRingForClock:(TPSnoozerClockView *)clockView
 {
@@ -313,15 +290,6 @@
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"incorrect" forKey:@"event"];
     [event setValue:clockView.identifier forKey:@"item_id"];
-    [self logEventToServer:event];
-}
-
--(void)logTestCompleted
-{
-    NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"level_completed" forKey:@"event"];
-    [self logEventToServer:event];
-    [event setValue:@"level_summary" forKey:@"event"];
     [self logEventToServer:event];
 }
 

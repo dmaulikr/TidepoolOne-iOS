@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPResultViewController.h"
+#import "TPGameViewController.h"
+#import "TPEIGame.h"
 
-@interface TPEIGameViewController : TPResultViewController
+@interface TPEIGameViewController : TPGameViewController
+
+@property (strong, nonatomic) TPEIGame *gameObject;
+@property (weak, nonatomic) IBOutlet TPButton *playButton;
 
 @end

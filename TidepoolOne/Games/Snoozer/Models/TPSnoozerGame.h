@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TPGame.h"
 
-@interface TPSnoozerGame : NSDictionary
+@interface TPSnoozerGame : TPGame
+
 
 @end

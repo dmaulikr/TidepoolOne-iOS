@@ -15,6 +15,14 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, weak) TPGameViewController *gameVC;
 
+@property (nonatomic, strong) NSMutableArray *eventArray;
+
+-(void)logEventToServer:(NSDictionary *)event;
+-(void)logTestStarted;
+-(void)logTestCompleted;
+-(void)stageOver;
+
+
 -(long long)epochTimeNow;
 
 @end
