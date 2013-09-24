@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPSnoozerGameViewController">
+            <connections>
+                <outlet property="gameStartView" destination="WvU-2A-Og4" id="Ubo-l2-XLp"/>
+                <outlet property="playButton" destination="Log-hu-OGh" id="mDa-qV-iXj"/>
+                <outlet property="view" destination="uod-ZW-hMp" id="Don-YZ-HnX"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view autoresizesSubviews="NO" contentMode="scaleToFill" id="uod-ZW-hMp">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WvU-2A-Og4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ytg-tb-7ET">
+                            <rect key="frame" x="60" y="114" width="201" height="55"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="VtD-Cw-L62" customClass="TPLabelBold">
+                            <rect key="frame" x="20" y="177" width="280" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="adQ-RM-yJV">
+                            <rect key="frame" x="103" y="226" width="113" height="117"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Log-hu-OGh" customClass="TPButton">
+                            <rect key="frame" x="97" y="393" width="126" height="45"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Play" backgroundImage="btn-red.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="playButtonPressed:" destination="-1" eventType="touchUpInside" id="jy6-ro-cBQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="VtD-Cw-L62" firstAttribute="leading" secondItem="WvU-2A-Og4" secondAttribute="leading" constant="20" symbolic="YES" id="5NK-up-gwj"/>
+                        <constraint firstItem="VtD-Cw-L62" firstAttribute="centerX" secondItem="Log-hu-OGh" secondAttribute="centerX" id="7od-tR-0TD"/>
+                        <constraint firstItem="Log-hu-OGh" firstAttribute="top" secondItem="adQ-RM-yJV" secondAttribute="bottom" constant="50" id="A49-Yw-coe"/>
+                        <constraint firstAttribute="centerY" secondItem="adQ-RM-yJV" secondAttribute="centerY" id="HuW-Mc-SY3"/>
+                        <constraint firstItem="VtD-Cw-L62" firstAttribute="top" secondItem="ytg-tb-7ET" secondAttribute="bottom" constant="8" symbolic="YES" id="IqN-b1-kph"/>
+                        <constraint firstAttribute="centerX" secondItem="Log-hu-OGh" secondAttribute="centerX" id="JEu-E1-RBd"/>
+                        <constraint firstItem="adQ-RM-yJV" firstAttribute="top" secondItem="VtD-Cw-L62" secondAttribute="bottom" constant="8" symbolic="YES" id="NJy-yN-wM7"/>
+                        <constraint firstAttribute="centerX" secondItem="adQ-RM-yJV" secondAttribute="centerX" id="jBI-AM-qfN"/>
+                        <constraint firstItem="ytg-tb-7ET" firstAttribute="centerX" secondItem="VtD-Cw-L62" secondAttribute="centerX" id="pcF-z0-RMl"/>
+                    </constraints>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="WvU-2A-Og4" secondAttribute="trailing" id="Rw4-3h-lwt"/>
+                <constraint firstItem="WvU-2A-Og4" firstAttribute="top" secondItem="uod-ZW-hMp" secondAttribute="top" id="dPR-3f-mtO"/>
+                <constraint firstAttribute="bottom" secondItem="WvU-2A-Og4" secondAttribute="bottom" id="ouy-cS-aAC"/>
+                <constraint firstItem="WvU-2A-Og4" firstAttribute="leading" secondItem="uod-ZW-hMp" secondAttribute="leading" id="rqf-he-czz"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="btn-red.png" width="126" height="45"/>
+        <image name="snoozer-clock.png" width="113" height="117"/>
+        <image name="snoozer-logo.png" width="201" height="55"/>
+    </resources>
+</document>

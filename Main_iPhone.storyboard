@@ -117,82 +117,6 @@
             </objects>
             <point key="canvasLocation" x="-2854" y="1333"/>
         </scene>
-        <!--Snoozer Game View Controller - Games-->
-        <scene sceneID="j3g-PE-fnc">
-            <objects>
-                <viewController id="OmI-K6-FCI" customClass="TPSnoozerGameViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="57M-dB-2Cd"/>
-                        <viewControllerLayoutGuide type="bottom" id="odT-fd-ryV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dIS-1N-fZX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aMS-w3-p8E">
-                                <rect key="frame" x="0.0" y="-25" width="320" height="568"/>
-                                <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="275" translatesAutoresizingMaskIntoConstraints="NO" id="xdt-uX-BWK" customClass="TPLabelBold">
-                                        <rect key="frame" x="23" y="165" width="275" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="RFc-JV-jDO">
-                                        <rect key="frame" x="60" y="90" width="201" height="55"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="55" id="T9O-he-WeD"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="524-06-A8g">
-                                        <rect key="frame" x="104" y="226" width="113" height="117"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pkg-Ct-QKB" customClass="TPButton">
-                                        <rect key="frame" x="109" y="363" width="102" height="42"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="bXI-vb-IHb"/>
-                                            <constraint firstAttribute="width" constant="102" id="kxc-cJ-YyU"/>
-                                        </constraints>
-                                        <state key="normal" title="Play" backgroundImage="btn-red.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.97254901959999995" green="0.72941176470000002" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="centerX" secondItem="RFc-JV-jDO" secondAttribute="centerX" id="4m6-qm-aUq"/>
-                                    <constraint firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="DL6-IR-ZaI"/>
-                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="Fu9-Lz-9gf"/>
-                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="leading" secondItem="aMS-w3-p8E" secondAttribute="leading" constant="23" id="IZW-9x-a35"/>
-                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="top" secondItem="RFc-JV-jDO" secondAttribute="bottom" constant="20" id="S7D-jN-C42"/>
-                                    <constraint firstItem="pkg-Ct-QKB" firstAttribute="top" secondItem="524-06-A8g" secondAttribute="bottom" constant="20" id="Yy1-aw-MSF"/>
-                                    <constraint firstItem="524-06-A8g" firstAttribute="top" secondItem="xdt-uX-BWK" secondAttribute="bottom" constant="20" id="hGe-0C-11p"/>
-                                    <constraint firstItem="xdt-uX-BWK" firstAttribute="centerX" secondItem="524-06-A8g" secondAttribute="centerX" id="m0N-Qx-smd"/>
-                                    <constraint firstAttribute="centerY" secondItem="524-06-A8g" secondAttribute="centerY" id="td9-Fc-ZcQ"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="top" secondItem="dIS-1N-fZX" secondAttribute="top" id="OJd-SZ-NVs"/>
-                            <constraint firstAttribute="trailing" secondItem="aMS-w3-p8E" secondAttribute="trailing" id="Pa4-m6-F25"/>
-                            <constraint firstAttribute="bottom" secondItem="aMS-w3-p8E" secondAttribute="bottom" id="SC3-ya-PgK"/>
-                            <constraint firstItem="aMS-w3-p8E" firstAttribute="leading" secondItem="dIS-1N-fZX" secondAttribute="leading" id="UiB-II-rs6"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <tabBarItem key="tabBarItem" title="Games" image="tabicon-game.png" id="E0S-zh-qJP"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="gameStartView" destination="aMS-w3-p8E" id="D85-xW-42f"/>
-                        <outlet property="playButton" destination="pkg-Ct-QKB" id="bvk-qQ-MDP"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DVu-j6-bDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3385" y="-110"/>
-        </scene>
         <!--Dashboard View Controller - Root View Controller-->
         <scene sceneID="EVK-1R-mTt">
             <objects>
@@ -234,6 +158,50 @@
             </objects>
             <point key="canvasLocation" x="-3372" y="595"/>
         </scene>
+        <!--Game Picker View Controller - Root View Controller-->
+        <scene sceneID="kSC-Xr-O0u">
+            <objects>
+                <tableViewController id="GXg-nk-XyQ" customClass="TPGamePickerViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aKy-2p-Ggw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0pK-ZA-o3C">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0pK-ZA-o3C" id="HWz-BK-Pmh">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="PgU-2w-lD1"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4eo-gO-0Wi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3800" y="-22"/>
+        </scene>
+        <!--Navigation Controller - Games-->
+        <scene sceneID="aDp-d9-iNy">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="ar3-Jo-39R" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <tabBarItem key="tabBarItem" title="Games" image="tabicon-game.png" id="Yng-47-jFO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bey-pi-LKu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GXg-nk-XyQ" kind="relationship" relationship="rootViewController" id="53t-3z-EbB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TsB-AT-vUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4202" y="-17"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="tPH-3m-UNI">
             <objects>
@@ -245,20 +213,17 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="OmI-K6-FCI" kind="relationship" relationship="viewControllers" id="p7g-Tz-zQ2"/>
+                        <segue destination="ar3-Jo-39R" kind="relationship" relationship="viewControllers" id="ZeZ-Sd-Wgr"/>
                         <segue destination="gzV-xg-QCH" kind="relationship" relationship="viewControllers" id="Ixq-Pb-DwU"/>
                         <segue destination="60S-k1-RCy" kind="relationship" relationship="viewControllers" id="zLu-Lk-BtJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj2-At-ZTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3909" y="761"/>
+            <point key="canvasLocation" x="-4221" y="802"/>
         </scene>
     </scenes>
     <resources>
-        <image name="btn-red.png" width="126" height="45"/>
-        <image name="snoozer-clock.png" width="113" height="117"/>
-        <image name="snoozer-logo.png" width="201" height="55"/>
         <image name="tabicon-game.png" width="33" height="23"/>
         <image name="tabicon-profile2.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>

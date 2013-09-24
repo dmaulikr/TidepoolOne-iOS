@@ -645,6 +645,8 @@
 		A8F5B2FE17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B2FC17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib */; };
 		A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30017F104950066E0BD /* TPEIGame.m */; };
 		A8F5B30517F1060B0066E0BD /* TPGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30417F1060B0066E0BD /* TPGame.m */; };
+		A8F5B30717F1120C0066E0BD /* TPSnoozerGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B30617F1120C0066E0BD /* TPSnoozerGameViewController.xib */; };
+		A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30C17F1130C0066E0BD /* TPGamePickerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1351,6 +1353,9 @@
 		A8F5B30017F104950066E0BD /* TPEIGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIGame.m; path = EI/Models/TPEIGame.m; sourceTree = "<group>"; };
 		A8F5B30317F1060B0066E0BD /* TPGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGame.h; sourceTree = "<group>"; };
 		A8F5B30417F1060B0066E0BD /* TPGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGame.m; sourceTree = "<group>"; };
+		A8F5B30617F1120C0066E0BD /* TPSnoozerGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerGameViewController.xib; sourceTree = "<group>"; };
+		A8F5B30B17F1130C0066E0BD /* TPGamePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGamePickerViewController.h; sourceTree = "<group>"; };
+		A8F5B30C17F1130C0066E0BD /* TPGamePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGamePickerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2324,6 +2329,8 @@
 		A8BABA5617E2616700A3C95B /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				A8F5B30B17F1130C0066E0BD /* TPGamePickerViewController.h */,
+				A8F5B30C17F1130C0066E0BD /* TPGamePickerViewController.m */,
 				A8F5B2EC17F0F7580066E0BD /* EI */,
 				A8BABA2C17E2600900A3C95B /* Snoozer */,
 				A8BABA5717E2616700A3C95B /* TPGameViewController.h */,
@@ -2357,6 +2364,7 @@
 			children = (
 				A8BABA6D17E261FC00A3C95B /* TPSnoozerGameViewController.h */,
 				A8BABA6E17E261FC00A3C95B /* TPSnoozerGameViewController.mm */,
+				A8F5B30617F1120C0066E0BD /* TPSnoozerGameViewController.xib */,
 			);
 			name = GameVC;
 			path = Games/Snoozer/GameVC;
@@ -2619,6 +2627,7 @@
 				A86756E417E8ED210015C48F /* dash-fitbitbg@2x~iphone.png in Resources */,
 				A86756EB17E8ED210015C48F /* Default@2x~iphone.png in Resources */,
 				A8A2433A17D0130D00E9643F /* btn-back-pressed@2x~iphone.png in Resources */,
+				A8F5B30717F1120C0066E0BD /* TPSnoozerGameViewController.xib in Resources */,
 				A8A2433B17D0130D00E9643F /* btn-back-pressed~iphone.png in Resources */,
 				A8A2433C17D0130D00E9643F /* btn-back@2x~iphone.png in Resources */,
 				A8A2433D17D0130D00E9643F /* btn-back~iphone.png in Resources */,
@@ -3240,6 +3249,7 @@
 				A8BABA4F17E2615A00A3C95B /* TPSettingsViewController.m in Sources */,
 				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
 				A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */,
+				A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */,
 				A830EFC317E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m in Sources */,
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
 				A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */,
