@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4469" systemVersion="13A476u" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3694"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPEIStagePickEmotionViewController">
             <connections>
+                <outlet property="emo_1" destination="iwg-uq-3a4" id="1Nj-HU-exX"/>
+                <outlet property="emo_2" destination="wGi-E1-HYh" id="beR-Af-Tti"/>
+                <outlet property="emo_3" destination="O40-cC-47N" id="gnZ-zG-Lxp"/>
+                <outlet property="imageView" destination="OAK-Uv-wEC" id="Dp3-Hx-jX8"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -13,7 +18,63 @@
         <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OAK-Uv-wEC">
+                    <rect key="frame" x="10" y="10" width="300" height="290"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="290" id="P3X-qs-ShV"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwg-uq-3a4">
+                    <rect key="frame" x="20" y="325" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-E1-HYh">
+                    <rect key="frame" x="20" y="370" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="jM5-QC-ArD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O40-cC-47N">
+                    <rect key="frame" x="20" y="415" width="280" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="tqx-Ot-hTN"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wGi-E1-HYh" firstAttribute="leading" secondItem="iwg-uq-3a4" secondAttribute="leading" id="Bk3-Ih-SDa"/>
+                <constraint firstItem="O40-cC-47N" firstAttribute="trailing" secondItem="wGi-E1-HYh" secondAttribute="trailing" id="Eic-9Z-wS7"/>
+                <constraint firstItem="wGi-E1-HYh" firstAttribute="top" secondItem="iwg-uq-3a4" secondAttribute="bottom" constant="15" id="H9A-oB-StK"/>
+                <constraint firstItem="wGi-E1-HYh" firstAttribute="leading" secondItem="O40-cC-47N" secondAttribute="leading" id="Jp7-4M-uOw"/>
+                <constraint firstItem="iwg-uq-3a4" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="Ner-ge-nyx"/>
+                <constraint firstAttribute="centerX" secondItem="OAK-Uv-wEC" secondAttribute="centerX" id="OVE-aQ-E3D"/>
+                <constraint firstItem="OAK-Uv-wEC" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="QQn-vW-vyp"/>
+                <constraint firstItem="O40-cC-47N" firstAttribute="top" secondItem="wGi-E1-HYh" secondAttribute="bottom" constant="15" id="Utx-xh-WIZ"/>
+                <constraint firstItem="wGi-E1-HYh" firstAttribute="trailing" secondItem="iwg-uq-3a4" secondAttribute="trailing" id="ZzG-7i-Svf"/>
+                <constraint firstItem="OAK-Uv-wEC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="10" id="fgh-Hr-jqH"/>
+                <constraint firstItem="iwg-uq-3a4" firstAttribute="centerX" secondItem="OAK-Uv-wEC" secondAttribute="centerX" id="nQO-ng-K8n"/>
+                <constraint firstItem="iwg-uq-3a4" firstAttribute="top" secondItem="OAK-Uv-wEC" secondAttribute="bottom" constant="25" id="vc8-sL-zvM"/>
+                <constraint firstAttribute="trailing" secondItem="OAK-Uv-wEC" secondAttribute="trailing" constant="10" id="y5S-J8-Ywr"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

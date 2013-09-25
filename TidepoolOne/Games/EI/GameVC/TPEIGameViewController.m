@@ -29,8 +29,8 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
-    self.type = @"emotional_intelligence";
-    //    self.type = @"snoozers"; //For debugging
+//    self.type = @"emotional_intelligence";
+    self.type = @"snoozer"; //FOR NOW
 }
 
 -(void)viewDidAppear:(BOOL)animated
