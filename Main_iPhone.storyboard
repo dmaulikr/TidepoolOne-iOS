@@ -163,12 +163,12 @@
             <objects>
                 <tableViewController id="GXg-nk-XyQ" customClass="TPGamePickerViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aKy-2p-Ggw">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0pK-ZA-o3C">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0pK-ZA-o3C" id="HWz-BK-Pmh">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -178,7 +178,6 @@
                         </prototypes>
                         <sections/>
                     </tableView>
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Root View Controller" id="PgU-2w-lD1"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eo-gO-0Wi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,7 +188,6 @@
         <scene sceneID="aDp-d9-iNy">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ar3-Jo-39R" sceneMemberID="viewController">
-                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="Games" image="tabicon-game.png" id="Yng-47-jFO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bey-pi-LKu">
                         <autoresizingMask key="autoresizingMask"/>

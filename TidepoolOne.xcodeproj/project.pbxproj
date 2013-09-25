@@ -32,6 +32,13 @@
 		A830EFC817E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A830EFC617E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m */; };
 		A830EFC917E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */; };
 		A830EFCC17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */; };
+		A835950F17F373A100A99AE6 /* cell-faceoff@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A835950917F373A100A99AE6 /* cell-faceoff@2x~iphone.png */; };
+		A835951017F373A100A99AE6 /* cell-faceoff~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A835950A17F373A100A99AE6 /* cell-faceoff~iphone.png */; };
+		A835951117F373A100A99AE6 /* cell-snoozer@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A835950B17F373A100A99AE6 /* cell-snoozer@2x~iphone.png */; };
+		A835951217F373A100A99AE6 /* cell-snoozer~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A835950C17F373A100A99AE6 /* cell-snoozer~iphone.png */; };
+		A835951317F373A100A99AE6 /* games-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A835950D17F373A100A99AE6 /* games-bg@2x~iphone.png */; };
+		A835951417F373A100A99AE6 /* games-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A835950E17F373A100A99AE6 /* games-bg~iphone.png */; };
+		A835951717F37A0300A99AE6 /* TPGamePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A835951617F37A0300A99AE6 /* TPGamePickerCell.m */; };
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
 		A847A7D117EB78A0009E228F /* Personality Game in Resources */ = {isa = PBXBuildFile; fileRef = A847A7D017EB78A0009E228F /* Personality Game */; };
@@ -699,6 +706,14 @@
 		A830EFC717E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPFitbitDashboardWidgetViewController.xib; sourceTree = "<group>"; };
 		A830EFCA17E3FEE70035DCD0 /* TPDashboardWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardWidgetViewController.h; sourceTree = "<group>"; };
 		A830EFCB17E3FEE70035DCD0 /* TPDashboardWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardWidgetViewController.m; sourceTree = "<group>"; };
+		A835950917F373A100A99AE6 /* cell-faceoff@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-faceoff@2x~iphone.png"; sourceTree = "<group>"; };
+		A835950A17F373A100A99AE6 /* cell-faceoff~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-faceoff~iphone.png"; sourceTree = "<group>"; };
+		A835950B17F373A100A99AE6 /* cell-snoozer@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-snoozer@2x~iphone.png"; sourceTree = "<group>"; };
+		A835950C17F373A100A99AE6 /* cell-snoozer~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell-snoozer~iphone.png"; sourceTree = "<group>"; };
+		A835950D17F373A100A99AE6 /* games-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "games-bg@2x~iphone.png"; sourceTree = "<group>"; };
+		A835950E17F373A100A99AE6 /* games-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "games-bg~iphone.png"; sourceTree = "<group>"; };
+		A835951517F37A0300A99AE6 /* TPGamePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGamePickerCell.h; sourceTree = "<group>"; };
+		A835951617F37A0300A99AE6 /* TPGamePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGamePickerCell.m; sourceTree = "<group>"; };
 		A835B72C17E23DAD00775E38 /* TPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUser.h; sourceTree = "<group>"; };
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
 		A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPServiceLoginViewController.xib; sourceTree = "<group>"; };
@@ -1514,6 +1529,19 @@
 			name = Widget;
 			sourceTree = "<group>";
 		};
+		A835950817F373A100A99AE6 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				A835950917F373A100A99AE6 /* cell-faceoff@2x~iphone.png */,
+				A835950A17F373A100A99AE6 /* cell-faceoff~iphone.png */,
+				A835950B17F373A100A99AE6 /* cell-snoozer@2x~iphone.png */,
+				A835950C17F373A100A99AE6 /* cell-snoozer~iphone.png */,
+				A835950D17F373A100A99AE6 /* games-bg@2x~iphone.png */,
+				A835950E17F373A100A99AE6 /* games-bg~iphone.png */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
 		A835B72B17E23DAD00775E38 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1669,6 +1697,7 @@
 		A8A240F017D0130C00E9643F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A835950817F373A100A99AE6 /* Games */,
 				A867570517E939440015C48F /* personality */,
 				A867568017E8ED210015C48F /* dashboard */,
 				A8BABAB617E27CDB00A3C95B /* fitbit */,
@@ -2331,6 +2360,8 @@
 			children = (
 				A8F5B30B17F1130C0066E0BD /* TPGamePickerViewController.h */,
 				A8F5B30C17F1130C0066E0BD /* TPGamePickerViewController.m */,
+				A835951517F37A0300A99AE6 /* TPGamePickerCell.h */,
+				A835951617F37A0300A99AE6 /* TPGamePickerCell.m */,
 				A8F5B2EC17F0F7580066E0BD /* EI */,
 				A8BABA2C17E2600900A3C95B /* Snoozer */,
 				A8BABA5717E2616700A3C95B /* TPGameViewController.h */,
@@ -2658,6 +2689,7 @@
 				A8A2435317D0130D00E9643F /* or-graphic@2x~iphone.png in Resources */,
 				A8A2435417D0130D00E9643F /* or-graphic~iphone.png in Resources */,
 				A86756F817E8ED210015C48F /* fitbit-greenarrow~iphone.png in Resources */,
+				A835951417F373A100A99AE6 /* games-bg~iphone.png in Resources */,
 				A8A2435517D0130D00E9643F /* badge-the-algorithmist@2x~iphone.png in Resources */,
 				A8A2435617D0130D00E9643F /* badge-the-algorithmist~iphone.png in Resources */,
 				A8A2435717D0130D00E9643F /* badge-the-analyst@2x~iphone.png in Resources */,
@@ -2672,6 +2704,7 @@
 				A8A2436017D0130D00E9643F /* badge-the-bullet-train~iphone.png in Resources */,
 				A8A2436117D0130D00E9643F /* badge-the-calculator@2x~iphone.png in Resources */,
 				A86756E917E8ED210015C48F /* dash-widget~iphone.png in Resources */,
+				A835951017F373A100A99AE6 /* cell-faceoff~iphone.png in Resources */,
 				A86756DE17E8ED210015C48F /* dash-density-yellow@2x~iphone.png in Resources */,
 				A8A2436217D0130D00E9643F /* badge-the-calculator~iphone.png in Resources */,
 				A8A2436317D0130D00E9643F /* badge-the-charger@2x~iphone.png in Resources */,
@@ -2771,6 +2804,7 @@
 				A8A243B517D0130D00E9643F /* badge-the-shelter@2x~iphone.png in Resources */,
 				A8A243B617D0130D00E9643F /* badge-the-shelter~iphone.png in Resources */,
 				A8A243B717D0130D00E9643F /* badge-the-soloist@2x~iphone.png in Resources */,
+				A835951217F373A100A99AE6 /* cell-snoozer~iphone.png in Resources */,
 				A8A243B817D0130D00E9643F /* badge-the-soloist~iphone.png in Resources */,
 				A8A243B917D0130D00E9643F /* badge-the-sparkler@2x~iphone.png in Resources */,
 				A8A243BA17D0130D00E9643F /* badge-the-sparkler~iphone.png in Resources */,
@@ -2943,6 +2977,7 @@
 				A8A2444817D0130D00E9643F /* bg-the-sparkler@2x~iphone.jpg in Resources */,
 				A86756E517E8ED210015C48F /* dash-fitbitbg~iphone.png in Resources */,
 				A8A2444917D0130D00E9643F /* bg-the-sparkler~iphone.jpg in Resources */,
+				A835951117F373A100A99AE6 /* cell-snoozer@2x~iphone.png in Resources */,
 				A8A2444A17D0130D00E9643F /* bg-the-super-sleuth@2x~iphone.jpg in Resources */,
 				A8A2444B17D0130D00E9643F /* bg-the-super-sleuth~iphone.jpg in Resources */,
 				A8A2444C17D0130D00E9643F /* bg-the-swiss-army-knife@2x~iphone.jpg in Resources */,
@@ -2998,6 +3033,7 @@
 				A8A2447917D0130D00E9643F /* resultsbadge-dog.png in Resources */,
 				A8A2447A17D0130D00E9643F /* resultsbadge-dog@2x.png in Resources */,
 				A8A2447B17D0130D00E9643F /* resultsbadge-dolphin.png in Resources */,
+				A835950F17F373A100A99AE6 /* cell-faceoff@2x~iphone.png in Resources */,
 				A8A2447C17D0130D00E9643F /* resultsbadge-dolphin@2x.png in Resources */,
 				A8A2447D17D0130D00E9643F /* resultsbadge-falcon.png in Resources */,
 				A86756E017E8ED210015C48F /* dash-densityflag2@2x~iphone.png in Resources */,
@@ -3022,6 +3058,7 @@
 				A8A2448C17D0130D00E9643F /* anim-badge-cheetah@2x.png in Resources */,
 				A8A2448D17D0130D00E9643F /* anim-badge-crow.png in Resources */,
 				A8A2448E17D0130D00E9643F /* anim-badge-crow@2x.png in Resources */,
+				A835951317F373A100A99AE6 /* games-bg@2x~iphone.png in Resources */,
 				A8A2448F17D0130D00E9643F /* anim-badge-dog.png in Resources */,
 				A8A2449017D0130D00E9643F /* anim-badge-dog@2x.png in Resources */,
 				A8A2449117D0130D00E9643F /* anim-badge-dolphin.png in Resources */,
@@ -3229,6 +3266,7 @@
 			files = (
 				A82F6A3617947064003FC088 /* TPAppDelegate.m in Sources */,
 				A82F6A3217947064003FC088 /* main.m in Sources */,
+				A835951717F37A0300A99AE6 /* TPGamePickerCell.m in Sources */,
 				A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */,
 				A879A6BE17A888C20082A455 /* TPServiceLoginViewController.m in Sources */,
 				A879A6BF17A888C20082A455 /* TPOAuthClient.m in Sources */,

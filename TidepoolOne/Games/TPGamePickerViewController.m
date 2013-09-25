@@ -9,6 +9,7 @@
 #import "TPGamePickerViewController.h"
 #import "TPSnoozerGameViewController.h"
 #import "TPEIGameViewController.h"
+#import "TPGamePickerCell.h"
 
 @interface TPGamePickerViewController () <UITableViewDelegate>
 {
@@ -30,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.tableView registerClass:[TPGamePickerCell class] forCellReuseIdentifier:@"GameCell"];
+    self.title = @"Games";
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"games-bg.png"]];
     self.games = @[@"Snoozer", @"EI"];
     self.tableView.delegate = self;
     _gameClasses = @{
@@ -42,6 +46,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120;
 }
 
 #pragma mark - Table view data source
@@ -58,9 +67,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"GameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.textLabel.text = self.games[indexPath.row];
     // Configure the cell...
     return cell;
 }
