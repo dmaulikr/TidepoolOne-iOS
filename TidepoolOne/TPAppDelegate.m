@@ -71,19 +71,25 @@ NSString *const FBSessionStateChangedNotification =
 
 -(void)customizeAppearance
 {
-    [[UINavigationBar appearance] setTitleTextAttributes:
-     [NSDictionary dictionaryWithObjectsAndKeys:
-      [UIColor blackColor],
-      UITextAttributeTextColor,
-      [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
-      UITextAttributeTextShadowColor,
-      [NSValue valueWithUIOffset:UIOffsetMake(0, -0)],
-      UITextAttributeTextShadowOffset,
-      [UIFont fontWithName:@"Karla-Regular" size:20.0],
-      UITextAttributeFont,
-      nil]];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar.png"] forBarMetrics:UIBarMetricsDefault];
-//    [[UINavigationBar appearance] setBackgroundImage:nil forBarMetrics:UIBarMetricsLandscapePhone];
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        //        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
+        [[UINavigationBar appearance] setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [UIColor blackColor],
+          UITextAttributeTextColor,
+          [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8],
+          UITextAttributeTextShadowColor,
+          [NSValue valueWithUIOffset:UIOffsetMake(0, -0)],
+          UITextAttributeTextShadowOffset,
+          [UIFont fontWithName:@"Karla-Regular" size:20.0],
+          UITextAttributeFont,
+          nil]];
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar.png"] forBarMetrics:UIBarMetricsDefault];
+    } else {
+        // Load resources for iOS 7 or later
+    }
+
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
@@ -100,7 +106,7 @@ NSString *const FBSessionStateChangedNotification =
 //    }
 //    
 //    // Set icon badge number to zero
-//    application.applicationIconBadgeNumber = 0;
+    application.applicationIconBadgeNumber = 0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
