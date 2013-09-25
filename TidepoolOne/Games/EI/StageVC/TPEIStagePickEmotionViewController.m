@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.emo_1 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
+    [self.emo_2 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
+    [self.emo_3 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -55,6 +58,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)emotionChosen:(id)sender
+{
+    [super stageOver];
 }
 
 @end
