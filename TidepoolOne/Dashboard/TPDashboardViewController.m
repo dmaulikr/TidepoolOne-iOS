@@ -16,7 +16,6 @@
     UIView *_dashboardHeaderView;
     int _numWidgetsCompleted;
     NSArray *_widgets;
-    UIRefreshControl *_myRefreshControl;
 }
 @end
 
@@ -45,10 +44,11 @@
     [self constructHeaderView];
     self.tableView.tableHeaderView = _dashboardHeaderView;
     
-    _myRefreshControl = [[UIRefreshControl alloc]
+    self.refreshControl = [[UIRefreshControl alloc]
                                         init];
-    [_myRefreshControl addTarget:self action:@selector(downloadResults) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:_myRefreshControl];
+    [self.refreshControl addTarget:self action:@selector(downloadResults) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = self.refreshControl;
+    self.tableView.backgroundView.layer.zPosition -= 1;
 
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Logged In" object:nil];
@@ -64,7 +64,9 @@
     [super viewDidAppear:animated];
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Dashboard Screen"];
+    [tracker set:kGAIScreenName value:@"Dashboard Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+
 }
 
 -(void)constructHeaderView
@@ -90,8 +92,10 @@
 
 -(void)loggedIn
 {
-    [self.tableView setContentOffset:CGPointMake(0, -_myRefreshControl.frame.size.height) animated:YES];
-    [_myRefreshControl beginRefreshing];
+    [self.tableView setContentOffset:CGPointMake(0, -self.refreshControl.frame.size.height) animated:YES];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.refreshControl beginRefreshing];
+    });
     [self downloadResults];
 }
 
@@ -108,18 +112,24 @@
         self.results = self.snoozerWidget.results;
         _numWidgetsCompleted++;
         if (_numWidgetsCompleted == 2) {
-            [_myRefreshControl endRefreshing];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.refreshControl endRefreshing];
+            });
         }
     } andFailure:^{
-        [_myRefreshControl endRefreshing];
+        [self.refreshControl endRefreshing];
     }];
     [self.fitbitWidget downloadResultswithCompletionHandlersSuccess:^{
         _numWidgetsCompleted++;
         if (_numWidgetsCompleted == 2) {
-            [_myRefreshControl endRefreshing];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.refreshControl endRefreshing];
+            });
         }
     } andFailure:^{
-        [_myRefreshControl endRefreshing];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.refreshControl endRefreshing];
+        });
     }];
 
 }

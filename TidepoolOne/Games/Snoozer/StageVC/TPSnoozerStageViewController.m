@@ -58,7 +58,8 @@
     
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:[NSString stringWithFormat:@"Snoozer Stage Screen, %i",self.gameVC.stage]];
+    [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Snoozer Stage Screen, %i",self.gameVC.stage]];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 
     if (_pauseTime) {
         NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];

@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (weak, nonatomic) IBOutlet UIView *drawerView;
 @property (weak, nonatomic) IBOutlet UIButton *emo_1;
 @property (weak, nonatomic) IBOutlet UIButton *emo_2;
 @property (weak, nonatomic) IBOutlet UIButton *emo_3;

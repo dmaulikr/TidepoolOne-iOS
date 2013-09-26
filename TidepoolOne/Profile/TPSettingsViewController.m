@@ -196,7 +196,9 @@
     [super viewDidAppear:animated];
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Settings Screen"];
+    [tracker set:kGAIScreenName value:@"Settings Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+
 }
 
 -(void)customizeFields:(NSArray *)fields

@@ -47,7 +47,8 @@
     [super viewDidAppear:animated];
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Tab Bar"];
+    [tracker set:kGAIScreenName value:@"Tab Bar"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 
     [self doLogin];
 }

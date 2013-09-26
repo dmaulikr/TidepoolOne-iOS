@@ -1,6 +1,6 @@
 platform :ios, '6.0'
 
-pod 'AFNetworking'
+pod 'AFNetworking', '1.2'
 pod 'Facebook-iOS-SDK'
 pod 'SSKeychain'
 pod 'AttributedMarkdown', :git => 'https://github.com/dreamwieber/AttributedMarkdown.git'

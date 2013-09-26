@@ -57,7 +57,8 @@
     [super viewDidAppear:animated];
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Walkthrough Screen"];
+    [tracker set:kGAIScreenName value:@"Walkthrough Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 }
 
 - (void)didReceiveMemoryWarning

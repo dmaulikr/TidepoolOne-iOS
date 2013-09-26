@@ -40,7 +40,9 @@
     [super viewDidAppear:animated];
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Snoozer New Game"];
+    [tracker set:kGAIScreenName value:@"Snoozer New Game"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+
 }
 
 - (void)didReceiveMemoryWarning

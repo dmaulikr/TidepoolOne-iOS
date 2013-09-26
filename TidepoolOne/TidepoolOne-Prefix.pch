@@ -26,6 +26,8 @@
 #import "TPUser.h"
 #import "TPOAuthClient.h"
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+#import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 
 
 #ifndef DEVELOPMENT

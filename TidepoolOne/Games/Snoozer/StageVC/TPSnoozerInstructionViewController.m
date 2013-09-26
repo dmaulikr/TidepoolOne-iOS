@@ -37,7 +37,8 @@
     
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:[NSString stringWithFormat:@"Snoozer Instruction Screen %@", self.levelNumberLabel.text]];
+    [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Snoozer Instruction Screen %@", self.levelNumberLabel.text]];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 }
 
 - (void)didReceiveMemoryWarning

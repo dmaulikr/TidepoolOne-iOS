@@ -41,8 +41,9 @@
     
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Snoozer Result Screen"];
-    
+    [tracker set:kGAIScreenName value:@"Snoozer Result Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"results-bg.png"]];
 }
 

@@ -11,6 +11,8 @@
 #import <SBJson/SBJson.h>
 #import "TPLabel.h"
 #import "TPOAuthClient.h"
+#import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
+
 
 @interface TPPersonalityGameViewController ()
 {
@@ -100,14 +102,17 @@
         } else if ([messageType isEqualToString:@"log"]) {
             NSLog(@"WEB.LOG (message):%@",jsonMessage[@"message"]);
             NSLog(@"WEB.LOG (details):%@",jsonMessage[@"details"]);
+            [self logEventToGoogleAnalytics:jsonMessage[@"message"] ofType:@"log"];
         } else if ([messageType isEqualToString:@"error"]) {
             _messageLabel.text = jsonMessage[@"message"];
             NSLog(@"WEB.ERROR (message):%@",jsonMessage[@"message"]);
             NSLog(@"WEB.ERROR (details):%@",jsonMessage[@"details"]);
+            [self logEventToGoogleAnalytics:jsonMessage[@"message"] ofType:@"error"];
             [self personalityGameThrewError];
         } else if ([messageType isEqualToString:@"warn"]) {
             NSLog(@"WEB.WARN (message):%@",jsonMessage[@"message"]);
             NSLog(@"WEB.WARN (details):%@",jsonMessage[@"details"]);
+            [self logEventToGoogleAnalytics:jsonMessage[@"message"] ofType:@"warn"];
         }
         return NO;
     }
@@ -192,5 +197,16 @@
 {
     [self.delegate personalityGameIsDone:self successfully:NO];
 }
+
+-(void)logEventToGoogleAnalytics:(NSString *)event ofType:(NSString *)type
+{
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"personality_game"     // Event category (required)
+                                                          action:type  // Event action (required)
+                                                           label:event          // Event label
+                                                           value:nil] build]];    // Event value
+}
+
 
 @end

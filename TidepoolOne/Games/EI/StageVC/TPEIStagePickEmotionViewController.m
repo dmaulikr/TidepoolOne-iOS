@@ -7,6 +7,7 @@
 //
 
 #import "TPEIStagePickEmotionViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TPEIStagePickEmotionViewController ()
 
@@ -30,6 +31,9 @@
     [self.emo_1 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
     [self.emo_2 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
     [self.emo_3 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
+    [self.imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
+    [self.imageView.layer setBorderWidth: 5.0];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -38,7 +42,9 @@
     
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:[NSString stringWithFormat:@"EI Stage Screen, %i",self.gameVC.stage]];
+    [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"EI Stage Screen, %i",self.gameVC.stage]];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+
     self.imageView.image = [UIImage imageNamed:@"btn-red.png"];
     [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
 }

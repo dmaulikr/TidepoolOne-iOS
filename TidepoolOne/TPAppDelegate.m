@@ -88,9 +88,8 @@ NSString *const FBSessionStateChangedNotification =
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar.png"] forBarMetrics:UIBarMetricsDefault];
     } else {
         // Load resources for iOS 7 or later
-        [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+        [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     }
-
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification

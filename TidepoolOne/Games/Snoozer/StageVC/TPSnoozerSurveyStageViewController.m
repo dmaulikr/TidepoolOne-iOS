@@ -42,7 +42,9 @@
     
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Snoozer Survey Screen"];
+    [tracker set:kGAIScreenName value:@"Snoozer Survey Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+
 }
 
 - (void)didReceiveMemoryWarning

@@ -52,7 +52,8 @@
     [super viewDidAppear:animated];
     // Google analytics tracker
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker sendView:@"Profile Screen"];
+    [tracker set:kGAIScreenName value:@"Profile Screen"];
+    [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 }
 
 - (void)didReceiveMemoryWarning
