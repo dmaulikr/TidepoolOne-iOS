@@ -26,8 +26,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self logTestStarted];
     _eventArray = [NSMutableArray array];
+    [self logTestStarted];
 }
 
 - (void)didReceiveMemoryWarning
