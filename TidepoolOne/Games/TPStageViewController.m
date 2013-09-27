@@ -27,7 +27,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _eventArray = [NSMutableArray array];
-    [self logTestStarted];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,7 +37,6 @@
 
 -(void)stageOver
 {
-    [self logTestCompleted];
     [self.gameVC currentStageDoneWithEvents:self.eventArray];
 }
 
@@ -50,20 +48,40 @@
     [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
     [self.eventArray addObject:eventWithTime];
 }
--(void)logTestStarted
+
+-(void)logLevelStartedWithAdditionalData:(NSDictionary *)data
 {
-    NSMutableDictionary *event = [NSMutableDictionary dictionary];
+    NSMutableDictionary *event;
+    if (data) {
+        event = [data mutableCopy];
+    } else {
+        event = [NSMutableDictionary dictionary];
+    }
     [event setValue:@"level_started" forKey:@"event"];
-    [event setValue:self.data[@"game_type"] forKey:@"sequence_type"];
     [self logEventToServer:event];
+    
 }
--(void)logTestCompleted
+-(void)logLevelCompletedWithAdditionalData:(NSDictionary *)data
 {
-    NSMutableDictionary *event = [NSMutableDictionary dictionary];
+    NSMutableDictionary *event;
+    if (data) {
+        event = [data mutableCopy];
+    } else {
+        event = [NSMutableDictionary dictionary];
+    }
     [event setValue:@"level_completed" forKey:@"event"];
     [self logEventToServer:event];
     [event setValue:@"level_summary" forKey:@"event"];
     [self logEventToServer:event];
+}
+
+-(void)logLevelStarted
+{
+    [self logLevelStartedWithAdditionalData:nil];
+}
+-(void)logLevelCompleted
+{
+    [self logLevelCompletedWithAdditionalData:nil];
 }
 
 

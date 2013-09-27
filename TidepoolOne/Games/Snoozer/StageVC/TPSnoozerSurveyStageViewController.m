@@ -32,7 +32,7 @@
     self.type = @"survey";
     [self parseData];
     _eventArray = [NSMutableArray array];
-    [self logTestStarted];
+    [self logLevelStarted];
     [self loadDefaults];
 }
 
@@ -66,7 +66,7 @@
 }
 
 - (IBAction)submitStage:(id)sender {
-    [self logTestCompleted];
+    [self logLevelCompleted];
     [self.gameVC currentStageDoneWithEvents:_eventArray];
 }
 
@@ -110,7 +110,7 @@
 }
 
 
--(void)logTestStarted
+-(void)logLevelStarted
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"level_started" forKey:@"event"];
@@ -118,7 +118,7 @@
     [self logEventToServer:event];
 }
 
--(void)logTestCompleted
+-(void)logLevelCompleted
 {
     NSMutableDictionary *event = [NSMutableDictionary dictionary];
     [event setValue:@"level_completed" forKey:@"event"];

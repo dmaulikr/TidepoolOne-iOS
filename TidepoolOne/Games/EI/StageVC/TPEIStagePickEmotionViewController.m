@@ -36,6 +36,12 @@
     [self.emo_3 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
     [self.imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.imageView.layer setBorderWidth: 5.0];
+    
+    [self logLevelStartedWithAdditionalData:@{
+                                              @"primary_multiplier":@2.0,
+                                              @"secondary_multiplier":@1.0,
+                                              @"time_to_show":@999,
+                                              }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -117,10 +123,10 @@
 {
     _imageIndex = imageIndex;
     if (_imageIndex == self.imagesData.count) {
+        [self logLevelCompleted];
         [self stageOver];
         return;
     }
-    NSLog([self.imagesData[_imageIndex] description]);
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
     [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
     self.emo_1.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][0];

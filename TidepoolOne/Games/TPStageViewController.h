@@ -18,8 +18,14 @@
 @property (nonatomic, strong) NSMutableArray *eventArray;
 
 -(void)logEventToServer:(NSDictionary *)event;
--(void)logTestStarted;
--(void)logTestCompleted;
+
+-(void)logLevelStarted;
+-(void)logLevelCompleted;
+
+-(void)logLevelStartedWithAdditionalData:(NSDictionary *)data;
+-(void)logLevelCompletedWithAdditionalData:(NSDictionary *)data;
+
+
 -(void)stageOver;
 
 

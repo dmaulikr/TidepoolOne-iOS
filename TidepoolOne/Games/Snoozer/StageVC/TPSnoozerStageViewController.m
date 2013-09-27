@@ -127,7 +127,7 @@
         _instructionVC.view.alpha = 0.0;
     } completion:^(BOOL finished) {
         [self layoutClocks];
-        [self logTestStarted];
+        [self logLevelStartedWithAdditionalData:@{@"sequence_type":self.data[@"game_type"]}];
         [_instructionVC.view removeFromSuperview];
         _instructionVC = nil;
     }];
@@ -259,6 +259,7 @@
         return;
     }
     _stageDone = YES;
+    [self logLevelCompleted];
     [super stageOver];
 }
 
