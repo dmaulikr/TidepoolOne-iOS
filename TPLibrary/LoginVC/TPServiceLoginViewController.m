@@ -64,8 +64,10 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     if ([requestString hasSuffix:@"success"]) {
         [self.delegate connectionMadeSucessfully:YES];
         [self.navigationController popViewControllerAnimated:YES];
+        return NO;
     } else if ([requestString hasSuffix:@"failure"]) {
         [self.delegate connectionMadeSucessfully:NO];
+        return NO;
     }
     return YES;
 }

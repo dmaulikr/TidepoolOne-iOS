@@ -137,6 +137,7 @@
 
 -(void)currentStageDoneWithEvents:(NSArray *)events
 {
+    NSLog([events description]);
     TPStageViewController *currentVC = self.childViewControllers[0];
     NSMutableDictionary *stageLog = [NSMutableDictionary dictionary];
     [stageLog setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];

@@ -121,7 +121,7 @@
     }
     NSLog([self.imagesData[_imageIndex] description]);
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
-    [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];    
+    [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
     self.emo_1.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][0];
     self.emo_2.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][1];
     self.emo_3.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][2];
