@@ -22,9 +22,6 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell-faceoff.png"]];
-        
-        [self.contentView addSubview:image];
     }
     return self;
 }

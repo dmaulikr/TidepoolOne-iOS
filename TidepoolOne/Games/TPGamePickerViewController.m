@@ -14,6 +14,7 @@
 @interface TPGamePickerViewController () <UITableViewDelegate>
 {
     NSDictionary *_gameClasses;
+    NSDictionary *_gameCellImages;
 }
 @end
 
@@ -40,6 +41,11 @@
                      @"Snoozer":[TPSnoozerGameViewController class],
                      @"EI":[TPEIGameViewController class],
                      };
+    _gameCellImages = @{
+                     @"Snoozer":[UIImage imageNamed:@"cell-snoozer.png"],
+                     @"EI":[UIImage imageNamed:@"cell-faceoff.png"],
+                     };
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +76,8 @@
     static NSString *CellIdentifier = @"GameCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     // Configure the cell...
+    NSString *game = self.games[indexPath.row];
+    cell.imageView.image = _gameCellImages[game];
     return cell;
 }
 
