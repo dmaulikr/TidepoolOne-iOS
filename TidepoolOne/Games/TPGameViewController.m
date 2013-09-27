@@ -114,9 +114,6 @@
     _gameId = self.gameObject[@"id"];
     _userId = self.gameObject[@"user_id"];
     NSString *viewName = self.gameObject[@"stages"][_stage][@"view_name"];
-
-    //TODO: debug for now
-//    viewName = @"FaceOff";
     NSDictionary *classDictionary = @{
                                       @"Snoozer":[TPSnoozerStageViewController class],
                                       @"Survey":[TPSnoozerSurveyStageViewController class],
@@ -176,29 +173,24 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"Got New Game Results" object:nil];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSDictionary *classDictionary = @{
-//                                      @"SurveyResult":[TPSurveyResultViewController class],
-//                                      @"ReactionTimeResult":[TPReactionTimeResultViewController class],
-//                                      @"EmotionsCirclesResult":[TPEmotionsCirclesStageViewController class],
                                       @"SpeedArchetypeResult":[TPSnoozerResultViewController class],
+                                      @"EmoFaceResult":[TPEIResultViewController class],
                                       };
     BOOL hasResultsToShow = NO;
     for (NSDictionary *result in _results) {
         NSString *resultType = result[@"type"];
         Class stageClass = classDictionary[resultType];
-        //TODO : debug for now
-        stageClass = [TPEIResultViewController class];
-        
         TPResultViewController *resultVC = [[stageClass alloc] initWithNibName:nil bundle:nil];
-//        if (resultVC) {
-//            hasResultsToShow = YES;
-//            resultVC.gameVC = self;
-            [self displayContentController:resultVC];            
-//            resultVC.result = result;
-//        }
+        if (resultVC) {
+            hasResultsToShow = YES;
+            resultVC.gameVC = self;
+            [self displayContentController:resultVC];
+            resultVC.result = result;
+        }
     }
-//    if (!hasResultsToShow) {
-//        [[[UIAlertView alloc] initWithTitle:@"Game error" message:@"There was an error processing game results. Most likely, you did not react at all! Please play again!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-//    }
+    if (!hasResultsToShow) {
+        [[[UIAlertView alloc] initWithTitle:@"Game error" message:@"There was an error processing game results. Most likely, you did not react at all! Please play again!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+    }
 }
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

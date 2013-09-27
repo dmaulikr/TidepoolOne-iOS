@@ -19,4 +19,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *emo_2;
 @property (weak, nonatomic) IBOutlet UIButton *emo_3;
 
+
+@property (assign, nonatomic) int imageIndex;
+@property (strong, nonatomic) NSArray *imagesData;
+@property (assign, nonatomic) float timeToShow;
+
+@property (strong, nonatomic) NSString *primary;
+@property (strong, nonatomic) NSString *secondary;
+@property (assign, nonatomic) int instantReplayCount;
+@property (assign, nonatomic) BOOL isSecondary;
+
 @end

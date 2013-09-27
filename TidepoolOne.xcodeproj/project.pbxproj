@@ -43,40 +43,60 @@
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
 		A847A7D117EB78A0009E228F /* Personality Game in Resources */ = {isa = PBXBuildFile; fileRef = A847A7D017EB78A0009E228F /* Personality Game */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
-		A8665DBA17F4AD2E001D1622 /* btn-faceoff-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9817F4AD2E001D1622 /* btn-faceoff-bg@2x~iphone.png */; };
-		A8665DBB17F4AD2E001D1622 /* btn-faceoff-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9917F4AD2E001D1622 /* btn-faceoff-bg~iphone.png */; };
-		A8665DBC17F4AD2E001D1622 /* btn-faceoff-correct-big@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9A17F4AD2E001D1622 /* btn-faceoff-correct-big@2x~iphone.png */; };
-		A8665DBD17F4AD2E001D1622 /* btn-faceoff-correct-big~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9B17F4AD2E001D1622 /* btn-faceoff-correct-big~iphone.png */; };
-		A8665DBE17F4AD2E001D1622 /* btn-faceoff-correct-sm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9C17F4AD2E001D1622 /* btn-faceoff-correct-sm@2x~iphone.png */; };
-		A8665DBF17F4AD2E001D1622 /* btn-faceoff-correct-sm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9D17F4AD2E001D1622 /* btn-faceoff-correct-sm~iphone.png */; };
-		A8665DC017F4AD2E001D1622 /* btn-faceoff-white-big@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9E17F4AD2E001D1622 /* btn-faceoff-white-big@2x~iphone.png */; };
-		A8665DC117F4AD2E001D1622 /* btn-faceoff-white-big~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665D9F17F4AD2E001D1622 /* btn-faceoff-white-big~iphone.png */; };
-		A8665DC217F4AD2E001D1622 /* btn-faceoff-white-sm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA017F4AD2E001D1622 /* btn-faceoff-white-sm@2x~iphone.png */; };
-		A8665DC317F4AD2E001D1622 /* btn-faceoff-white-sm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA117F4AD2E001D1622 /* btn-faceoff-white-sm~iphone.png */; };
-		A8665DC417F4AD2E001D1622 /* btn-faceoff-wrong-big@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA217F4AD2E001D1622 /* btn-faceoff-wrong-big@2x~iphone.png */; };
-		A8665DC517F4AD2E001D1622 /* btn-faceoff-wrong-big~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA317F4AD2E001D1622 /* btn-faceoff-wrong-big~iphone.png */; };
-		A8665DC617F4AD2E001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA417F4AD2E001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png */; };
-		A8665DC717F4AD2E001D1622 /* btn-faceoff-wrong-sm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA517F4AD2E001D1622 /* btn-faceoff-wrong-sm~iphone.png */; };
-		A8665DC817F4AD2E001D1622 /* faceoff-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA617F4AD2E001D1622 /* faceoff-bg@2x~iphone.png */; };
-		A8665DC917F4AD2E001D1622 /* faceoff-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA717F4AD2E001D1622 /* faceoff-bg~iphone.png */; };
-		A8665DCA17F4AD2E001D1622 /* faceoff-logo-white@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA817F4AD2E001D1622 /* faceoff-logo-white@2x~iphone.png */; };
-		A8665DCB17F4AD2E001D1622 /* faceoff-logo-white~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DA917F4AD2E001D1622 /* faceoff-logo-white~iphone.png */; };
-		A8665DCC17F4AD2E001D1622 /* faceoff-photo-correct@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DAA17F4AD2E001D1622 /* faceoff-photo-correct@2x~iphone.png */; };
-		A8665DCD17F4AD2E001D1622 /* faceoff-photo-correct~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DAB17F4AD2E001D1622 /* faceoff-photo-correct~iphone.png */; };
-		A8665DCE17F4AD2E001D1622 /* faceoff-photo-frame@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DAC17F4AD2E001D1622 /* faceoff-photo-frame@2x~iphone.png */; };
-		A8665DCF17F4AD2E001D1622 /* faceoff-photo-frame~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DAD17F4AD2E001D1622 /* faceoff-photo-frame~iphone.png */; };
-		A8665DD017F4AD2E001D1622 /* faceoff-photo-replay@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DAE17F4AD2E001D1622 /* faceoff-photo-replay@2x~iphone.png */; };
-		A8665DD117F4AD2E001D1622 /* faceoff-photo-replay~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DAF17F4AD2E001D1622 /* faceoff-photo-replay~iphone.png */; };
-		A8665DD217F4AD2E001D1622 /* faceoff-photo-wrong@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB017F4AD2E001D1622 /* faceoff-photo-wrong@2x~iphone.png */; };
-		A8665DD317F4AD2E001D1622 /* faceoff-photo-wrong~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB117F4AD2E001D1622 /* faceoff-photo-wrong~iphone.png */; };
-		A8665DD417F4AD2E001D1622 /* points-bonus@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB217F4AD2E001D1622 /* points-bonus@2x~iphone.png */; };
-		A8665DD517F4AD2E001D1622 /* points-bonusbanner@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB317F4AD2E001D1622 /* points-bonusbanner@2x~iphone.png */; };
-		A8665DD617F4AD2E001D1622 /* points-bonusbanner~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB417F4AD2E001D1622 /* points-bonusbanner~iphone.png */; };
-		A8665DD717F4AD2E001D1622 /* points-bonus~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB517F4AD2E001D1622 /* points-bonus~iphone.png */; };
-		A8665DD817F4AD2E001D1622 /* points-correct@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB617F4AD2E001D1622 /* points-correct@2x~iphone.png */; };
-		A8665DD917F4AD2E001D1622 /* points-correct~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB717F4AD2E001D1622 /* points-correct~iphone.png */; };
-		A8665DDA17F4AD2E001D1622 /* points-wrong@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB817F4AD2E001D1622 /* points-wrong@2x~iphone.png */; };
-		A8665DDB17F4AD2E001D1622 /* points-wrong~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DB917F4AD2E001D1622 /* points-wrong~iphone.png */; };
+		A8665E1E17F4FC74001D1622 /* btn-faceoff-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DDD17F4FC74001D1622 /* btn-faceoff-bg@2x~iphone.png */; };
+		A8665E1F17F4FC74001D1622 /* btn-faceoff-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DDE17F4FC74001D1622 /* btn-faceoff-bg~iphone.png */; };
+		A8665E2017F4FC74001D1622 /* btn-faceoff-correct-big@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DDF17F4FC74001D1622 /* btn-faceoff-correct-big@2x~iphone.png */; };
+		A8665E2117F4FC74001D1622 /* btn-faceoff-correct-big~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE017F4FC74001D1622 /* btn-faceoff-correct-big~iphone.png */; };
+		A8665E2217F4FC74001D1622 /* btn-faceoff-correct-sm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE117F4FC74001D1622 /* btn-faceoff-correct-sm@2x~iphone.png */; };
+		A8665E2317F4FC74001D1622 /* btn-faceoff-correct-sm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE217F4FC74001D1622 /* btn-faceoff-correct-sm~iphone.png */; };
+		A8665E2417F4FC74001D1622 /* btn-faceoff-white-big@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE317F4FC74001D1622 /* btn-faceoff-white-big@2x~iphone.png */; };
+		A8665E2517F4FC74001D1622 /* btn-faceoff-white-big~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE417F4FC74001D1622 /* btn-faceoff-white-big~iphone.png */; };
+		A8665E2617F4FC74001D1622 /* btn-faceoff-white-sm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE517F4FC74001D1622 /* btn-faceoff-white-sm@2x~iphone.png */; };
+		A8665E2717F4FC74001D1622 /* btn-faceoff-white-sm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE617F4FC74001D1622 /* btn-faceoff-white-sm~iphone.png */; };
+		A8665E2817F4FC74001D1622 /* btn-faceoff-wrong-big@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE717F4FC74001D1622 /* btn-faceoff-wrong-big@2x~iphone.png */; };
+		A8665E2917F4FC74001D1622 /* btn-faceoff-wrong-big~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE817F4FC74001D1622 /* btn-faceoff-wrong-big~iphone.png */; };
+		A8665E2A17F4FC74001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DE917F4FC74001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png */; };
+		A8665E2B17F4FC74001D1622 /* btn-faceoff-wrong-sm~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DEA17F4FC74001D1622 /* btn-faceoff-wrong-sm~iphone.png */; };
+		A8665E2C17F4FC74001D1622 /* faceoff-bg@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DEB17F4FC74001D1622 /* faceoff-bg@2x~iphone.png */; };
+		A8665E2D17F4FC74001D1622 /* faceoff-bg~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DEC17F4FC74001D1622 /* faceoff-bg~iphone.png */; };
+		A8665E2E17F4FC74001D1622 /* faceoff-logo-white@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DED17F4FC74001D1622 /* faceoff-logo-white@2x~iphone.png */; };
+		A8665E2F17F4FC74001D1622 /* faceoff-logo-white~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DEE17F4FC74001D1622 /* faceoff-logo-white~iphone.png */; };
+		A8665E3017F4FC74001D1622 /* faceoff-photo-correct@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DEF17F4FC74001D1622 /* faceoff-photo-correct@2x~iphone.png */; };
+		A8665E3117F4FC74001D1622 /* faceoff-photo-correct~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF017F4FC74001D1622 /* faceoff-photo-correct~iphone.png */; };
+		A8665E3217F4FC74001D1622 /* faceoff-photo-frame@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF117F4FC74001D1622 /* faceoff-photo-frame@2x~iphone.png */; };
+		A8665E3317F4FC74001D1622 /* faceoff-photo-frame~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF217F4FC74001D1622 /* faceoff-photo-frame~iphone.png */; };
+		A8665E3417F4FC74001D1622 /* faceoff-photo-replay@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF317F4FC74001D1622 /* faceoff-photo-replay@2x~iphone.png */; };
+		A8665E3517F4FC74001D1622 /* faceoff-photo-replay~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF417F4FC74001D1622 /* faceoff-photo-replay~iphone.png */; };
+		A8665E3617F4FC74001D1622 /* faceoff-photo-wrong@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF517F4FC74001D1622 /* faceoff-photo-wrong@2x~iphone.png */; };
+		A8665E3717F4FC74001D1622 /* faceoff-photo-wrong~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF617F4FC74001D1622 /* faceoff-photo-wrong~iphone.png */; };
+		A8665E3817F4FC74001D1622 /* fo-amusement.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665DF917F4FC74001D1622 /* fo-amusement.jpg */; };
+		A8665E3917F4FC74001D1622 /* fo-amusement@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665DFA17F4FC74001D1622 /* fo-amusement@2x.jpg */; };
+		A8665E3A17F4FC74001D1622 /* fo-anger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665DFC17F4FC74001D1622 /* fo-anger.jpg */; };
+		A8665E3B17F4FC74001D1622 /* fo-anger@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665DFD17F4FC74001D1622 /* fo-anger@2x.jpg */; };
+		A8665E3C17F4FC74001D1622 /* boredom.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665DFF17F4FC74001D1622 /* boredom.jpg */; };
+		A8665E3D17F4FC74001D1622 /* boredom@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0017F4FC74001D1622 /* boredom@2x.jpg */; };
+		A8665E3E17F4FC74001D1622 /* fo-confused.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0217F4FC74001D1622 /* fo-confused.jpg */; };
+		A8665E3F17F4FC74001D1622 /* fo-confused@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0317F4FC74001D1622 /* fo-confused@2x.jpg */; };
+		A8665E4017F4FC74001D1622 /* coyness.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0517F4FC74001D1622 /* coyness.jpg */; };
+		A8665E4117F4FC74001D1622 /* coyness@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0617F4FC74001D1622 /* coyness@2x.jpg */; };
+		A8665E4217F4FC74001D1622 /* embarrassment.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0817F4FC74001D1622 /* embarrassment.jpg */; };
+		A8665E4317F4FC74001D1622 /* embarrassment@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0917F4FC74001D1622 /* embarrassment@2x.jpg */; };
+		A8665E4417F4FC74001D1622 /* fo-fear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0B17F4FC74001D1622 /* fo-fear.jpg */; };
+		A8665E4517F4FC74001D1622 /* fo-fear@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0C17F4FC74001D1622 /* fo-fear@2x.jpg */; };
+		A8665E4617F4FC74001D1622 /* fo-pain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0E17F4FC74001D1622 /* fo-pain.jpg */; };
+		A8665E4717F4FC74001D1622 /* fo-pain@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E0F17F4FC74001D1622 /* fo-pain@2x.jpg */; };
+		A8665E4817F4FC74001D1622 /* fo-pride.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1117F4FC74001D1622 /* fo-pride.jpg */; };
+		A8665E4917F4FC74001D1622 /* fo-pride@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1217F4FC74001D1622 /* fo-pride@2x.jpg */; };
+		A8665E4A17F4FC74001D1622 /* fo-shame.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1417F4FC74001D1622 /* fo-shame.jpg */; };
+		A8665E4B17F4FC74001D1622 /* fo-shame@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1517F4FC74001D1622 /* fo-shame@2x.jpg */; };
+		A8665E4C17F4FC74001D1622 /* points-bonus@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1617F4FC74001D1622 /* points-bonus@2x~iphone.png */; };
+		A8665E4D17F4FC74001D1622 /* points-bonusbanner@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1717F4FC74001D1622 /* points-bonusbanner@2x~iphone.png */; };
+		A8665E4E17F4FC74001D1622 /* points-bonusbanner~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1817F4FC74001D1622 /* points-bonusbanner~iphone.png */; };
+		A8665E4F17F4FC74001D1622 /* points-bonus~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1917F4FC74001D1622 /* points-bonus~iphone.png */; };
+		A8665E5017F4FC74001D1622 /* points-correct@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1A17F4FC74001D1622 /* points-correct@2x~iphone.png */; };
+		A8665E5117F4FC74001D1622 /* points-correct~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1B17F4FC74001D1622 /* points-correct~iphone.png */; };
+		A8665E5217F4FC74001D1622 /* points-wrong@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1C17F4FC74001D1622 /* points-wrong@2x~iphone.png */; };
+		A8665E5317F4FC74001D1622 /* points-wrong~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A8665E1D17F4FC74001D1622 /* points-wrong~iphone.png */; };
 		A86756C117E8ED210015C48F /* dash-background-new@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A867568217E8ED210015C48F /* dash-background-new@2x~iphone.png */; };
 		A86756C217E8ED210015C48F /* dash-background-new~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A867568317E8ED210015C48F /* dash-background-new~iphone.png */; };
 		A86756C317E8ED210015C48F /* dash-background@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A867568417E8ED210015C48F /* dash-background@2x~iphone.png */; };
@@ -753,40 +773,60 @@
 		A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPServiceLoginViewController.xib; sourceTree = "<group>"; };
 		A847A7D017EB78A0009E228F /* Personality Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Personality Game"; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
-		A8665D9817F4AD2E001D1622 /* btn-faceoff-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-bg@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665D9917F4AD2E001D1622 /* btn-faceoff-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-bg~iphone.png"; sourceTree = "<group>"; };
-		A8665D9A17F4AD2E001D1622 /* btn-faceoff-correct-big@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-big@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665D9B17F4AD2E001D1622 /* btn-faceoff-correct-big~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-big~iphone.png"; sourceTree = "<group>"; };
-		A8665D9C17F4AD2E001D1622 /* btn-faceoff-correct-sm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-sm@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665D9D17F4AD2E001D1622 /* btn-faceoff-correct-sm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-sm~iphone.png"; sourceTree = "<group>"; };
-		A8665D9E17F4AD2E001D1622 /* btn-faceoff-white-big@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-big@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665D9F17F4AD2E001D1622 /* btn-faceoff-white-big~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-big~iphone.png"; sourceTree = "<group>"; };
-		A8665DA017F4AD2E001D1622 /* btn-faceoff-white-sm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-sm@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DA117F4AD2E001D1622 /* btn-faceoff-white-sm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-sm~iphone.png"; sourceTree = "<group>"; };
-		A8665DA217F4AD2E001D1622 /* btn-faceoff-wrong-big@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-big@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DA317F4AD2E001D1622 /* btn-faceoff-wrong-big~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-big~iphone.png"; sourceTree = "<group>"; };
-		A8665DA417F4AD2E001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-sm@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DA517F4AD2E001D1622 /* btn-faceoff-wrong-sm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-sm~iphone.png"; sourceTree = "<group>"; };
-		A8665DA617F4AD2E001D1622 /* faceoff-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-bg@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DA717F4AD2E001D1622 /* faceoff-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-bg~iphone.png"; sourceTree = "<group>"; };
-		A8665DA817F4AD2E001D1622 /* faceoff-logo-white@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-logo-white@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DA917F4AD2E001D1622 /* faceoff-logo-white~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-logo-white~iphone.png"; sourceTree = "<group>"; };
-		A8665DAA17F4AD2E001D1622 /* faceoff-photo-correct@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-correct@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DAB17F4AD2E001D1622 /* faceoff-photo-correct~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-correct~iphone.png"; sourceTree = "<group>"; };
-		A8665DAC17F4AD2E001D1622 /* faceoff-photo-frame@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-frame@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DAD17F4AD2E001D1622 /* faceoff-photo-frame~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-frame~iphone.png"; sourceTree = "<group>"; };
-		A8665DAE17F4AD2E001D1622 /* faceoff-photo-replay@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-replay@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DAF17F4AD2E001D1622 /* faceoff-photo-replay~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-replay~iphone.png"; sourceTree = "<group>"; };
-		A8665DB017F4AD2E001D1622 /* faceoff-photo-wrong@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-wrong@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DB117F4AD2E001D1622 /* faceoff-photo-wrong~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-wrong~iphone.png"; sourceTree = "<group>"; };
-		A8665DB217F4AD2E001D1622 /* points-bonus@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonus@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DB317F4AD2E001D1622 /* points-bonusbanner@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonusbanner@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DB417F4AD2E001D1622 /* points-bonusbanner~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonusbanner~iphone.png"; sourceTree = "<group>"; };
-		A8665DB517F4AD2E001D1622 /* points-bonus~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonus~iphone.png"; sourceTree = "<group>"; };
-		A8665DB617F4AD2E001D1622 /* points-correct@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-correct@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DB717F4AD2E001D1622 /* points-correct~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-correct~iphone.png"; sourceTree = "<group>"; };
-		A8665DB817F4AD2E001D1622 /* points-wrong@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-wrong@2x~iphone.png"; sourceTree = "<group>"; };
-		A8665DB917F4AD2E001D1622 /* points-wrong~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-wrong~iphone.png"; sourceTree = "<group>"; };
+		A8665DDD17F4FC74001D1622 /* btn-faceoff-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-bg@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DDE17F4FC74001D1622 /* btn-faceoff-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-bg~iphone.png"; sourceTree = "<group>"; };
+		A8665DDF17F4FC74001D1622 /* btn-faceoff-correct-big@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-big@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DE017F4FC74001D1622 /* btn-faceoff-correct-big~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-big~iphone.png"; sourceTree = "<group>"; };
+		A8665DE117F4FC74001D1622 /* btn-faceoff-correct-sm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-sm@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DE217F4FC74001D1622 /* btn-faceoff-correct-sm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-correct-sm~iphone.png"; sourceTree = "<group>"; };
+		A8665DE317F4FC74001D1622 /* btn-faceoff-white-big@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-big@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DE417F4FC74001D1622 /* btn-faceoff-white-big~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-big~iphone.png"; sourceTree = "<group>"; };
+		A8665DE517F4FC74001D1622 /* btn-faceoff-white-sm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-sm@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DE617F4FC74001D1622 /* btn-faceoff-white-sm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-white-sm~iphone.png"; sourceTree = "<group>"; };
+		A8665DE717F4FC74001D1622 /* btn-faceoff-wrong-big@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-big@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DE817F4FC74001D1622 /* btn-faceoff-wrong-big~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-big~iphone.png"; sourceTree = "<group>"; };
+		A8665DE917F4FC74001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-sm@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DEA17F4FC74001D1622 /* btn-faceoff-wrong-sm~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-faceoff-wrong-sm~iphone.png"; sourceTree = "<group>"; };
+		A8665DEB17F4FC74001D1622 /* faceoff-bg@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-bg@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DEC17F4FC74001D1622 /* faceoff-bg~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-bg~iphone.png"; sourceTree = "<group>"; };
+		A8665DED17F4FC74001D1622 /* faceoff-logo-white@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-logo-white@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DEE17F4FC74001D1622 /* faceoff-logo-white~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-logo-white~iphone.png"; sourceTree = "<group>"; };
+		A8665DEF17F4FC74001D1622 /* faceoff-photo-correct@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-correct@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DF017F4FC74001D1622 /* faceoff-photo-correct~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-correct~iphone.png"; sourceTree = "<group>"; };
+		A8665DF117F4FC74001D1622 /* faceoff-photo-frame@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-frame@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DF217F4FC74001D1622 /* faceoff-photo-frame~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-frame~iphone.png"; sourceTree = "<group>"; };
+		A8665DF317F4FC74001D1622 /* faceoff-photo-replay@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-replay@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DF417F4FC74001D1622 /* faceoff-photo-replay~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-replay~iphone.png"; sourceTree = "<group>"; };
+		A8665DF517F4FC74001D1622 /* faceoff-photo-wrong@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-wrong@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665DF617F4FC74001D1622 /* faceoff-photo-wrong~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "faceoff-photo-wrong~iphone.png"; sourceTree = "<group>"; };
+		A8665DF917F4FC74001D1622 /* fo-amusement.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-amusement.jpg"; sourceTree = "<group>"; };
+		A8665DFA17F4FC74001D1622 /* fo-amusement@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-amusement@2x.jpg"; sourceTree = "<group>"; };
+		A8665DFC17F4FC74001D1622 /* fo-anger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-anger.jpg"; sourceTree = "<group>"; };
+		A8665DFD17F4FC74001D1622 /* fo-anger@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-anger@2x.jpg"; sourceTree = "<group>"; };
+		A8665DFF17F4FC74001D1622 /* boredom.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = boredom.jpg; sourceTree = "<group>"; };
+		A8665E0017F4FC74001D1622 /* boredom@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "boredom@2x.jpg"; sourceTree = "<group>"; };
+		A8665E0217F4FC74001D1622 /* fo-confused.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-confused.jpg"; sourceTree = "<group>"; };
+		A8665E0317F4FC74001D1622 /* fo-confused@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-confused@2x.jpg"; sourceTree = "<group>"; };
+		A8665E0517F4FC74001D1622 /* coyness.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = coyness.jpg; sourceTree = "<group>"; };
+		A8665E0617F4FC74001D1622 /* coyness@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "coyness@2x.jpg"; sourceTree = "<group>"; };
+		A8665E0817F4FC74001D1622 /* embarrassment.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = embarrassment.jpg; sourceTree = "<group>"; };
+		A8665E0917F4FC74001D1622 /* embarrassment@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "embarrassment@2x.jpg"; sourceTree = "<group>"; };
+		A8665E0B17F4FC74001D1622 /* fo-fear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-fear.jpg"; sourceTree = "<group>"; };
+		A8665E0C17F4FC74001D1622 /* fo-fear@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-fear@2x.jpg"; sourceTree = "<group>"; };
+		A8665E0E17F4FC74001D1622 /* fo-pain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-pain.jpg"; sourceTree = "<group>"; };
+		A8665E0F17F4FC74001D1622 /* fo-pain@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-pain@2x.jpg"; sourceTree = "<group>"; };
+		A8665E1117F4FC74001D1622 /* fo-pride.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-pride.jpg"; sourceTree = "<group>"; };
+		A8665E1217F4FC74001D1622 /* fo-pride@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-pride@2x.jpg"; sourceTree = "<group>"; };
+		A8665E1417F4FC74001D1622 /* fo-shame.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-shame.jpg"; sourceTree = "<group>"; };
+		A8665E1517F4FC74001D1622 /* fo-shame@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "fo-shame@2x.jpg"; sourceTree = "<group>"; };
+		A8665E1617F4FC74001D1622 /* points-bonus@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonus@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665E1717F4FC74001D1622 /* points-bonusbanner@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonusbanner@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665E1817F4FC74001D1622 /* points-bonusbanner~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonusbanner~iphone.png"; sourceTree = "<group>"; };
+		A8665E1917F4FC74001D1622 /* points-bonus~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-bonus~iphone.png"; sourceTree = "<group>"; };
+		A8665E1A17F4FC74001D1622 /* points-correct@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-correct@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665E1B17F4FC74001D1622 /* points-correct~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-correct~iphone.png"; sourceTree = "<group>"; };
+		A8665E1C17F4FC74001D1622 /* points-wrong@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-wrong@2x~iphone.png"; sourceTree = "<group>"; };
+		A8665E1D17F4FC74001D1622 /* points-wrong~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-wrong~iphone.png"; sourceTree = "<group>"; };
 		A867568217E8ED210015C48F /* dash-background-new@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new@2x~iphone.png"; sourceTree = "<group>"; };
 		A867568317E8ED210015C48F /* dash-background-new~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background-new~iphone.png"; sourceTree = "<group>"; };
 		A867568417E8ED210015C48F /* dash-background@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dash-background@2x~iphone.png"; sourceTree = "<group>"; };
@@ -1621,45 +1661,153 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		A8665D9717F4AD2E001D1622 /* Face Off */ = {
+		A8665DDC17F4FC74001D1622 /* Face Off */ = {
 			isa = PBXGroup;
 			children = (
-				A8665D9817F4AD2E001D1622 /* btn-faceoff-bg@2x~iphone.png */,
-				A8665D9917F4AD2E001D1622 /* btn-faceoff-bg~iphone.png */,
-				A8665D9A17F4AD2E001D1622 /* btn-faceoff-correct-big@2x~iphone.png */,
-				A8665D9B17F4AD2E001D1622 /* btn-faceoff-correct-big~iphone.png */,
-				A8665D9C17F4AD2E001D1622 /* btn-faceoff-correct-sm@2x~iphone.png */,
-				A8665D9D17F4AD2E001D1622 /* btn-faceoff-correct-sm~iphone.png */,
-				A8665D9E17F4AD2E001D1622 /* btn-faceoff-white-big@2x~iphone.png */,
-				A8665D9F17F4AD2E001D1622 /* btn-faceoff-white-big~iphone.png */,
-				A8665DA017F4AD2E001D1622 /* btn-faceoff-white-sm@2x~iphone.png */,
-				A8665DA117F4AD2E001D1622 /* btn-faceoff-white-sm~iphone.png */,
-				A8665DA217F4AD2E001D1622 /* btn-faceoff-wrong-big@2x~iphone.png */,
-				A8665DA317F4AD2E001D1622 /* btn-faceoff-wrong-big~iphone.png */,
-				A8665DA417F4AD2E001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png */,
-				A8665DA517F4AD2E001D1622 /* btn-faceoff-wrong-sm~iphone.png */,
-				A8665DA617F4AD2E001D1622 /* faceoff-bg@2x~iphone.png */,
-				A8665DA717F4AD2E001D1622 /* faceoff-bg~iphone.png */,
-				A8665DA817F4AD2E001D1622 /* faceoff-logo-white@2x~iphone.png */,
-				A8665DA917F4AD2E001D1622 /* faceoff-logo-white~iphone.png */,
-				A8665DAA17F4AD2E001D1622 /* faceoff-photo-correct@2x~iphone.png */,
-				A8665DAB17F4AD2E001D1622 /* faceoff-photo-correct~iphone.png */,
-				A8665DAC17F4AD2E001D1622 /* faceoff-photo-frame@2x~iphone.png */,
-				A8665DAD17F4AD2E001D1622 /* faceoff-photo-frame~iphone.png */,
-				A8665DAE17F4AD2E001D1622 /* faceoff-photo-replay@2x~iphone.png */,
-				A8665DAF17F4AD2E001D1622 /* faceoff-photo-replay~iphone.png */,
-				A8665DB017F4AD2E001D1622 /* faceoff-photo-wrong@2x~iphone.png */,
-				A8665DB117F4AD2E001D1622 /* faceoff-photo-wrong~iphone.png */,
-				A8665DB217F4AD2E001D1622 /* points-bonus@2x~iphone.png */,
-				A8665DB317F4AD2E001D1622 /* points-bonusbanner@2x~iphone.png */,
-				A8665DB417F4AD2E001D1622 /* points-bonusbanner~iphone.png */,
-				A8665DB517F4AD2E001D1622 /* points-bonus~iphone.png */,
-				A8665DB617F4AD2E001D1622 /* points-correct@2x~iphone.png */,
-				A8665DB717F4AD2E001D1622 /* points-correct~iphone.png */,
-				A8665DB817F4AD2E001D1622 /* points-wrong@2x~iphone.png */,
-				A8665DB917F4AD2E001D1622 /* points-wrong~iphone.png */,
+				A8665DDD17F4FC74001D1622 /* btn-faceoff-bg@2x~iphone.png */,
+				A8665DDE17F4FC74001D1622 /* btn-faceoff-bg~iphone.png */,
+				A8665DDF17F4FC74001D1622 /* btn-faceoff-correct-big@2x~iphone.png */,
+				A8665DE017F4FC74001D1622 /* btn-faceoff-correct-big~iphone.png */,
+				A8665DE117F4FC74001D1622 /* btn-faceoff-correct-sm@2x~iphone.png */,
+				A8665DE217F4FC74001D1622 /* btn-faceoff-correct-sm~iphone.png */,
+				A8665DE317F4FC74001D1622 /* btn-faceoff-white-big@2x~iphone.png */,
+				A8665DE417F4FC74001D1622 /* btn-faceoff-white-big~iphone.png */,
+				A8665DE517F4FC74001D1622 /* btn-faceoff-white-sm@2x~iphone.png */,
+				A8665DE617F4FC74001D1622 /* btn-faceoff-white-sm~iphone.png */,
+				A8665DE717F4FC74001D1622 /* btn-faceoff-wrong-big@2x~iphone.png */,
+				A8665DE817F4FC74001D1622 /* btn-faceoff-wrong-big~iphone.png */,
+				A8665DE917F4FC74001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png */,
+				A8665DEA17F4FC74001D1622 /* btn-faceoff-wrong-sm~iphone.png */,
+				A8665DEB17F4FC74001D1622 /* faceoff-bg@2x~iphone.png */,
+				A8665DEC17F4FC74001D1622 /* faceoff-bg~iphone.png */,
+				A8665DED17F4FC74001D1622 /* faceoff-logo-white@2x~iphone.png */,
+				A8665DEE17F4FC74001D1622 /* faceoff-logo-white~iphone.png */,
+				A8665DEF17F4FC74001D1622 /* faceoff-photo-correct@2x~iphone.png */,
+				A8665DF017F4FC74001D1622 /* faceoff-photo-correct~iphone.png */,
+				A8665DF117F4FC74001D1622 /* faceoff-photo-frame@2x~iphone.png */,
+				A8665DF217F4FC74001D1622 /* faceoff-photo-frame~iphone.png */,
+				A8665DF317F4FC74001D1622 /* faceoff-photo-replay@2x~iphone.png */,
+				A8665DF417F4FC74001D1622 /* faceoff-photo-replay~iphone.png */,
+				A8665DF517F4FC74001D1622 /* faceoff-photo-wrong@2x~iphone.png */,
+				A8665DF617F4FC74001D1622 /* faceoff-photo-wrong~iphone.png */,
+				A8665DF717F4FC74001D1622 /* images */,
+				A8665E1617F4FC74001D1622 /* points-bonus@2x~iphone.png */,
+				A8665E1717F4FC74001D1622 /* points-bonusbanner@2x~iphone.png */,
+				A8665E1817F4FC74001D1622 /* points-bonusbanner~iphone.png */,
+				A8665E1917F4FC74001D1622 /* points-bonus~iphone.png */,
+				A8665E1A17F4FC74001D1622 /* points-correct@2x~iphone.png */,
+				A8665E1B17F4FC74001D1622 /* points-correct~iphone.png */,
+				A8665E1C17F4FC74001D1622 /* points-wrong@2x~iphone.png */,
+				A8665E1D17F4FC74001D1622 /* points-wrong~iphone.png */,
 			);
 			path = "Face Off";
+			sourceTree = "<group>";
+		};
+		A8665DF717F4FC74001D1622 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A8665DF817F4FC74001D1622 /* amusement */,
+				A8665DFB17F4FC74001D1622 /* anger */,
+				A8665DFE17F4FC74001D1622 /* boredom */,
+				A8665E0117F4FC74001D1622 /* confused */,
+				A8665E0417F4FC74001D1622 /* coyness */,
+				A8665E0717F4FC74001D1622 /* embarrassment */,
+				A8665E0A17F4FC74001D1622 /* fear */,
+				A8665E0D17F4FC74001D1622 /* pain */,
+				A8665E1017F4FC74001D1622 /* pride */,
+				A8665E1317F4FC74001D1622 /* shame */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		A8665DF817F4FC74001D1622 /* amusement */ = {
+			isa = PBXGroup;
+			children = (
+				A8665DF917F4FC74001D1622 /* fo-amusement.jpg */,
+				A8665DFA17F4FC74001D1622 /* fo-amusement@2x.jpg */,
+			);
+			path = amusement;
+			sourceTree = "<group>";
+		};
+		A8665DFB17F4FC74001D1622 /* anger */ = {
+			isa = PBXGroup;
+			children = (
+				A8665DFC17F4FC74001D1622 /* fo-anger.jpg */,
+				A8665DFD17F4FC74001D1622 /* fo-anger@2x.jpg */,
+			);
+			path = anger;
+			sourceTree = "<group>";
+		};
+		A8665DFE17F4FC74001D1622 /* boredom */ = {
+			isa = PBXGroup;
+			children = (
+				A8665DFF17F4FC74001D1622 /* boredom.jpg */,
+				A8665E0017F4FC74001D1622 /* boredom@2x.jpg */,
+			);
+			path = boredom;
+			sourceTree = "<group>";
+		};
+		A8665E0117F4FC74001D1622 /* confused */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E0217F4FC74001D1622 /* fo-confused.jpg */,
+				A8665E0317F4FC74001D1622 /* fo-confused@2x.jpg */,
+			);
+			path = confused;
+			sourceTree = "<group>";
+		};
+		A8665E0417F4FC74001D1622 /* coyness */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E0517F4FC74001D1622 /* coyness.jpg */,
+				A8665E0617F4FC74001D1622 /* coyness@2x.jpg */,
+			);
+			path = coyness;
+			sourceTree = "<group>";
+		};
+		A8665E0717F4FC74001D1622 /* embarrassment */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E0817F4FC74001D1622 /* embarrassment.jpg */,
+				A8665E0917F4FC74001D1622 /* embarrassment@2x.jpg */,
+			);
+			path = embarrassment;
+			sourceTree = "<group>";
+		};
+		A8665E0A17F4FC74001D1622 /* fear */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E0B17F4FC74001D1622 /* fo-fear.jpg */,
+				A8665E0C17F4FC74001D1622 /* fo-fear@2x.jpg */,
+			);
+			path = fear;
+			sourceTree = "<group>";
+		};
+		A8665E0D17F4FC74001D1622 /* pain */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E0E17F4FC74001D1622 /* fo-pain.jpg */,
+				A8665E0F17F4FC74001D1622 /* fo-pain@2x.jpg */,
+			);
+			path = pain;
+			sourceTree = "<group>";
+		};
+		A8665E1017F4FC74001D1622 /* pride */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E1117F4FC74001D1622 /* fo-pride.jpg */,
+				A8665E1217F4FC74001D1622 /* fo-pride@2x.jpg */,
+			);
+			path = pride;
+			sourceTree = "<group>";
+		};
+		A8665E1317F4FC74001D1622 /* shame */ = {
+			isa = PBXGroup;
+			children = (
+				A8665E1417F4FC74001D1622 /* fo-shame.jpg */,
+				A8665E1517F4FC74001D1622 /* fo-shame@2x.jpg */,
+			);
+			path = shame;
 			sourceTree = "<group>";
 		};
 		A867568017E8ED210015C48F /* dashboard */ = {
@@ -1806,7 +1954,7 @@
 		A8A240F017D0130C00E9643F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A8665D9717F4AD2E001D1622 /* Face Off */,
+				A8665DDC17F4FC74001D1622 /* Face Off */,
 				A835950817F373A100A99AE6 /* Games */,
 				A867570517E939440015C48F /* personality */,
 				A867568017E8ED210015C48F /* dashboard */,
@@ -2744,21 +2892,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8665DCF17F4AD2E001D1622 /* faceoff-photo-frame~iphone.png in Resources */,
+				A8665E3317F4FC74001D1622 /* faceoff-photo-frame~iphone.png in Resources */,
 				A82F6A4117947064003FC088 /* Images.xcassets in Resources */,
-				A8665DCB17F4AD2E001D1622 /* faceoff-logo-white~iphone.png in Resources */,
+				A8665E2F17F4FC74001D1622 /* faceoff-logo-white~iphone.png in Resources */,
 				A82F6A3017947064003FC088 /* InfoPlist.strings in Resources */,
 				A80F7C371794E07500C08D9C /* Main_iPhone.storyboard in Resources */,
 				A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */,
 				A8A2430817D0130D00E9643F /* Icon-72.png in Resources */,
 				A8A2430917D0130D00E9643F /* Icon-72@2x.png in Resources */,
+				A8665E4F17F4FC74001D1622 /* points-bonus~iphone.png in Resources */,
 				A8A2430A17D0130D00E9643F /* Icon-Small-50.png in Resources */,
 				A8A2430B17D0130D00E9643F /* Icon-Small-50@2x.png in Resources */,
 				A8A2430C17D0130D00E9643F /* Icon-Small.png in Resources */,
 				A86756FA17E8ED210015C48F /* fitbit-yellowarrow-down~iphone.png in Resources */,
 				A8A2430D17D0130D00E9643F /* Icon-Small@2x.png in Resources */,
 				A8A2430E17D0130D00E9643F /* Icon.png in Resources */,
-				A8665DC117F4AD2E001D1622 /* btn-faceoff-white-big~iphone.png in Resources */,
+				A8665E2517F4FC74001D1622 /* btn-faceoff-white-big~iphone.png in Resources */,
 				A8A2430F17D0130D00E9643F /* Icon@2x.png in Resources */,
 				A8A2431017D0130D00E9643F /* iTunesArtwork.png in Resources */,
 				A8A2431117D0130D00E9643F /* iTunesArtwork@2x.png in Resources */,
@@ -2773,6 +2922,7 @@
 				A8A2433A17D0130D00E9643F /* btn-back-pressed@2x~iphone.png in Resources */,
 				A8F5B30717F1120C0066E0BD /* TPSnoozerGameViewController.xib in Resources */,
 				A8A2433B17D0130D00E9643F /* btn-back-pressed~iphone.png in Resources */,
+				A8665E4D17F4FC74001D1622 /* points-bonusbanner@2x~iphone.png in Resources */,
 				A8A2433C17D0130D00E9643F /* btn-back@2x~iphone.png in Resources */,
 				A8A2433D17D0130D00E9643F /* btn-back~iphone.png in Resources */,
 				A8A2433E17D0130D00E9643F /* btn-rect-pressed2@2x~iphone.png in Resources */,
@@ -2787,31 +2937,32 @@
 				A8A2434717D0130D00E9643F /* btn-createaccount-pressed~iphone.png in Resources */,
 				A8A2434817D0130D00E9643F /* btn-createaccount@2x~iphone.png in Resources */,
 				A8A2434917D0130D00E9643F /* btn-createaccount~iphone.png in Resources */,
-				A8665DD417F4AD2E001D1622 /* points-bonus@2x~iphone.png in Resources */,
 				A8A2434A17D0130D00E9643F /* btn-facebook-pressed@2x~iphone.png in Resources */,
 				A8A2434B17D0130D00E9643F /* btn-facebook-pressed~iphone.png in Resources */,
 				A86756CF17E8ED210015C48F /* btn-connectfitbit~iphone.png in Resources */,
-				A8665DBD17F4AD2E001D1622 /* btn-faceoff-correct-big~iphone.png in Resources */,
+				A8665E2117F4FC74001D1622 /* btn-faceoff-correct-big~iphone.png in Resources */,
 				A8A2434C17D0130D00E9643F /* btn-facebook@2x~iphone.png in Resources */,
 				A8A2434D17D0130D00E9643F /* btn-facebook~iphone.png in Resources */,
 				A8A2434E17D0130D00E9643F /* fbicon@2x~iphone.png in Resources */,
 				A8A2434F17D0130D00E9643F /* fbicon~iphone.png in Resources */,
+				A8665E4717F4FC74001D1622 /* fo-pain@2x.jpg in Resources */,
 				A8A2435017D0130D00E9643F /* login-568h@2x~iphone.png in Resources */,
 				A86756F117E8ED210015C48F /* fitbit-bluearrow@2x~iphone.png in Resources */,
 				A8A2435117D0130D00E9643F /* login@2x~iphone.png in Resources */,
 				A8A2435217D0130D00E9643F /* login~iphone.png in Resources */,
 				A867571317E939440015C48F /* btn-share~iphone.png in Resources */,
-				A8665DCC17F4AD2E001D1622 /* faceoff-photo-correct@2x~iphone.png in Resources */,
+				A8665E3017F4FC74001D1622 /* faceoff-photo-correct@2x~iphone.png in Resources */,
+				A8665E3D17F4FC74001D1622 /* boredom@2x.jpg in Resources */,
 				A8A2435317D0130D00E9643F /* or-graphic@2x~iphone.png in Resources */,
 				A8A2435417D0130D00E9643F /* or-graphic~iphone.png in Resources */,
 				A86756F817E8ED210015C48F /* fitbit-greenarrow~iphone.png in Resources */,
-				A8665DD117F4AD2E001D1622 /* faceoff-photo-replay~iphone.png in Resources */,
+				A8665E3517F4FC74001D1622 /* faceoff-photo-replay~iphone.png in Resources */,
 				A835951417F373A100A99AE6 /* games-bg~iphone.png in Resources */,
-				A8665DC817F4AD2E001D1622 /* faceoff-bg@2x~iphone.png in Resources */,
+				A8665E2C17F4FC74001D1622 /* faceoff-bg@2x~iphone.png in Resources */,
 				A8A2435517D0130D00E9643F /* badge-the-algorithmist@2x~iphone.png in Resources */,
 				A8A2435617D0130D00E9643F /* badge-the-algorithmist~iphone.png in Resources */,
 				A8A2435717D0130D00E9643F /* badge-the-analyst@2x~iphone.png in Resources */,
-				A8665DD217F4AD2E001D1622 /* faceoff-photo-wrong@2x~iphone.png in Resources */,
+				A8665E3617F4FC74001D1622 /* faceoff-photo-wrong@2x~iphone.png in Resources */,
 				A8A2435817D0130D00E9643F /* badge-the-analyst~iphone.png in Resources */,
 				A8A2435917D0130D00E9643F /* badge-the-anchor@2x~iphone.png in Resources */,
 				A8A2435A17D0130D00E9643F /* badge-the-anchor~iphone.png in Resources */,
@@ -2825,7 +2976,7 @@
 				A86756E917E8ED210015C48F /* dash-widget~iphone.png in Resources */,
 				A835951017F373A100A99AE6 /* cell-faceoff~iphone.png in Resources */,
 				A86756DE17E8ED210015C48F /* dash-density-yellow@2x~iphone.png in Resources */,
-				A8665DC617F4AD2E001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png in Resources */,
+				A8665E2A17F4FC74001D1622 /* btn-faceoff-wrong-sm@2x~iphone.png in Resources */,
 				A8A2436217D0130D00E9643F /* badge-the-calculator~iphone.png in Resources */,
 				A8A2436317D0130D00E9643F /* badge-the-charger@2x~iphone.png in Resources */,
 				A8A2436417D0130D00E9643F /* badge-the-charger~iphone.png in Resources */,
@@ -2833,7 +2984,7 @@
 				A8A2436617D0130D00E9643F /* badge-the-chess-master~iphone.png in Resources */,
 				A8A2436717D0130D00E9643F /* badge-the-chief-executive@2x~iphone.png in Resources */,
 				A8A2436817D0130D00E9643F /* badge-the-chief-executive~iphone.png in Resources */,
-				A8665DBB17F4AD2E001D1622 /* btn-faceoff-bg~iphone.png in Resources */,
+				A8665E1F17F4FC74001D1622 /* btn-faceoff-bg~iphone.png in Resources */,
 				A86756D917E8ED210015C48F /* dash-circrhyclocks~iphone.png in Resources */,
 				A867571017E939440015C48F /* btn-share-pressed@2x~iphone.png in Resources */,
 				A8A2436917D0130D00E9643F /* badge-the-clicker@2x~iphone.png in Resources */,
@@ -2854,7 +3005,7 @@
 				A8A2437717D0130D00E9643F /* badge-the-different-drummer@2x~iphone.png in Resources */,
 				A8A2437817D0130D00E9643F /* badge-the-different-drummer~iphone.png in Resources */,
 				A8A2437917D0130D00E9643F /* badge-the-director@2x~iphone.png in Resources */,
-				A8665DCA17F4AD2E001D1622 /* faceoff-logo-white@2x~iphone.png in Resources */,
+				A8665E2E17F4FC74001D1622 /* faceoff-logo-white@2x~iphone.png in Resources */,
 				A8A2437A17D0130D00E9643F /* badge-the-director~iphone.png in Resources */,
 				A8A2437B17D0130D00E9643F /* badge-the-drum-machine@2x~iphone.png in Resources */,
 				A8A2437C17D0130D00E9643F /* badge-the-drum-machine~iphone.png in Resources */,
@@ -2870,6 +3021,7 @@
 				A8A2438417D0130D00E9643F /* badge-the-explorer~iphone.png in Resources */,
 				A8A2438517D0130D00E9643F /* badge-the-eye-of-the-storm@2x~iphone.png in Resources */,
 				A8A2438617D0130D00E9643F /* badge-the-eye-of-the-storm~iphone.png in Resources */,
+				A8665E4117F4FC74001D1622 /* coyness@2x.jpg in Resources */,
 				A8A2438717D0130D00E9643F /* badge-the-free-spirit@2x~iphone.png in Resources */,
 				A8A2438817D0130D00E9643F /* badge-the-free-spirit~iphone.png in Resources */,
 				A8A2438917D0130D00E9643F /* badge-the-free-verse-poet@2x~iphone.png in Resources */,
@@ -2877,13 +3029,14 @@
 				A8A2438B17D0130D00E9643F /* badge-the-ghostwriter@2x~iphone.png in Resources */,
 				A8A2438C17D0130D00E9643F /* badge-the-ghostwriter~iphone.png in Resources */,
 				A8A2438D17D0130D00E9643F /* badge-the-giver@2x~iphone.png in Resources */,
+				A8665E3F17F4FC74001D1622 /* fo-confused@2x.jpg in Resources */,
 				A8A2438E17D0130D00E9643F /* badge-the-giver~iphone.png in Resources */,
 				A8A2438F17D0130D00E9643F /* badge-the-go-getter@2x~iphone.png in Resources */,
 				A8A2439017D0130D00E9643F /* badge-the-go-getter~iphone.png in Resources */,
 				A86756DC17E8ED210015C48F /* dash-density-red@2x~iphone.png in Resources */,
 				A8A2439117D0130D00E9643F /* badge-the-host@2x~iphone.png in Resources */,
 				A867570E17E939440015C48F /* btn-pers-playnow@2x~iphone.png in Resources */,
-				A8665DC717F4AD2E001D1622 /* btn-faceoff-wrong-sm~iphone.png in Resources */,
+				A8665E2B17F4FC74001D1622 /* btn-faceoff-wrong-sm~iphone.png in Resources */,
 				A86756E217E8ED210015C48F /* dash-fitbitbg-connect@2x~iphone.png in Resources */,
 				A8A2439217D0130D00E9643F /* badge-the-host~iphone.png in Resources */,
 				A8A2439317D0130D00E9643F /* badge-the-igniter@2x~iphone.png in Resources */,
@@ -2902,7 +3055,7 @@
 				A86756CA17E8ED210015C48F /* Default@2x~iphone.png in Resources */,
 				A8A2439F17D0130D00E9643F /* badge-the-microwave@2x~iphone.png in Resources */,
 				A8A243A017D0130D00E9643F /* badge-the-microwave~iphone.png in Resources */,
-				A8665DC017F4AD2E001D1622 /* btn-faceoff-white-big@2x~iphone.png in Resources */,
+				A8665E2417F4FC74001D1622 /* btn-faceoff-white-big@2x~iphone.png in Resources */,
 				A8A243A117D0130D00E9643F /* badge-the-pablo-picasso@2x~iphone.png in Resources */,
 				A8A243A217D0130D00E9643F /* badge-the-pablo-picasso~iphone.png in Resources */,
 				A86756CE17E8ED210015C48F /* btn-connectfitbit@2x~iphone.png in Resources */,
@@ -2924,7 +3077,6 @@
 				A8A243B217D0130D00E9643F /* badge-the-scientist~iphone.png in Resources */,
 				A86756E117E8ED210015C48F /* dash-densityflag2~iphone.png in Resources */,
 				A8A243B317D0130D00E9643F /* badge-the-scrutinizer@2x~iphone.png in Resources */,
-				A8665DDB17F4AD2E001D1622 /* points-wrong~iphone.png in Resources */,
 				A8A243B417D0130D00E9643F /* badge-the-scrutinizer~iphone.png in Resources */,
 				A8A243B517D0130D00E9643F /* badge-the-shelter@2x~iphone.png in Resources */,
 				A8A243B617D0130D00E9643F /* badge-the-shelter~iphone.png in Resources */,
@@ -2942,10 +3094,13 @@
 				A867571117E939440015C48F /* btn-share-pressed~iphone.png in Resources */,
 				A8A243BF17D0130D00E9643F /* badge-the-team-player@2x~iphone.png in Resources */,
 				A8A243C017D0130D00E9643F /* badge-the-team-player~iphone.png in Resources */,
+				A8665E3C17F4FC74001D1622 /* boredom.jpg in Resources */,
 				A8A243C117D0130D00E9643F /* badge-the-trailblazer@2x~iphone.png in Resources */,
 				A8A243C217D0130D00E9643F /* badge-the-trailblazer~iphone.png in Resources */,
 				A86756C917E8ED210015C48F /* Default-568h@2x~iphone.png in Resources */,
 				A8F5B2F417F103290066E0BD /* TPEIGameViewController.xib in Resources */,
+				A8665E4617F4FC74001D1622 /* fo-pain.jpg in Resources */,
+				A8665E4217F4FC74001D1622 /* embarrassment.jpg in Resources */,
 				A8A243C317D0130D00E9643F /* badge-the-trendsetter@2x~iphone.png in Resources */,
 				A8A243C417D0130D00E9643F /* badge-the-trendsetter~iphone.png in Resources */,
 				A8A243C517D0130D00E9643F /* badge-the-tried-and-true@2x~iphone.png in Resources */,
@@ -2990,14 +3145,15 @@
 				A8A243E217D0130D00E9643F /* righthand~iphone.png in Resources */,
 				A8A243E317D0130D00E9643F /* tp-profile-edit_blueprint.png in Resources */,
 				A8A243E417D0130D00E9643F /* icon-ribbon@2x~iphone.png in Resources */,
+				A8665E4A17F4FC74001D1622 /* fo-shame.jpg in Resources */,
 				A8A243E517D0130D00E9643F /* icon-ribbon~iphone.png in Resources */,
 				A8A243E617D0130D00E9643F /* bg-the-algorithmist@2x~iphone.jpg in Resources */,
 				A86756C617E8ED210015C48F /* dash-densityflag-flip~iphone.png in Resources */,
 				A8A243E717D0130D00E9643F /* bg-the-algorithmist~iphone.jpg in Resources */,
 				A8A243E817D0130D00E9643F /* bg-the-analyst@2x~iphone.jpg in Resources */,
 				A8A243E917D0130D00E9643F /* bg-the-analyst~iphone.jpg in Resources */,
-				A8665DC317F4AD2E001D1622 /* btn-faceoff-white-sm~iphone.png in Resources */,
-				A8665DCE17F4AD2E001D1622 /* faceoff-photo-frame@2x~iphone.png in Resources */,
+				A8665E2717F4FC74001D1622 /* btn-faceoff-white-sm~iphone.png in Resources */,
+				A8665E3217F4FC74001D1622 /* faceoff-photo-frame@2x~iphone.png in Resources */,
 				A867571517E939440015C48F /* personality-placeholderbg~iphone.jpg in Resources */,
 				A86756D017E8ED210015C48F /* btn-refresh@2x~iphone.png in Resources */,
 				A8A243EA17D0130D00E9643F /* bg-the-anchor@2x~iphone.jpg in Resources */,
@@ -3025,7 +3181,6 @@
 				A8A2440017D0130D00E9643F /* bg-the-cool-cat@2x~iphone.jpg in Resources */,
 				A8A2440117D0130D00E9643F /* bg-the-cool-cat~iphone.jpg in Resources */,
 				A8A2440217D0130D00E9643F /* bg-the-decider@2x~iphone.jpg in Resources */,
-				A8665DD617F4AD2E001D1622 /* points-bonusbanner~iphone.png in Resources */,
 				A8A2440317D0130D00E9643F /* bg-the-decider~iphone.jpg in Resources */,
 				A8A2440417D0130D00E9643F /* bg-the-detailer@2x~iphone.jpg in Resources */,
 				A8A2440517D0130D00E9643F /* bg-the-detailer~iphone.jpg in Resources */,
@@ -3063,10 +3218,10 @@
 				A8F5B2F917F103450066E0BD /* TPEIResultViewController.xib in Resources */,
 				A8A2442317D0130D00E9643F /* bg-the-igniter~iphone.jpg in Resources */,
 				A8A2442417D0130D00E9643F /* bg-the-impulse-planner@2x~iphone.jpg in Resources */,
-				A8665DD817F4AD2E001D1622 /* points-correct@2x~iphone.png in Resources */,
 				A8A2442517D0130D00E9643F /* bg-the-impulse-planner~iphone.jpg in Resources */,
+				A8665E5217F4FC74001D1622 /* points-wrong@2x~iphone.png in Resources */,
 				A8A2442617D0130D00E9643F /* bg-the-laser-beam@2x~iphone.jpg in Resources */,
-				A8665DBE17F4AD2E001D1622 /* btn-faceoff-correct-sm@2x~iphone.png in Resources */,
+				A8665E2217F4FC74001D1622 /* btn-faceoff-correct-sm@2x~iphone.png in Resources */,
 				A8A2442717D0130D00E9643F /* bg-the-laser-beam~iphone.jpg in Resources */,
 				A8A2442817D0130D00E9643F /* bg-the-lone-ranger@2x~iphone.jpg in Resources */,
 				A8A2442917D0130D00E9643F /* bg-the-lone-ranger~iphone.jpg in Resources */,
@@ -3090,6 +3245,7 @@
 				A8A2443817D0130D00E9643F /* bg-the-power-tool@2x~iphone.jpg in Resources */,
 				A8A2443917D0130D00E9643F /* bg-the-power-tool~iphone.jpg in Resources */,
 				A8A2443A17D0130D00E9643F /* bg-the-private-investigator@2x~iphone.jpg in Resources */,
+				A8665E4517F4FC74001D1622 /* fo-fear@2x.jpg in Resources */,
 				A8A2443B17D0130D00E9643F /* bg-the-private-investigator~iphone.jpg in Resources */,
 				A8A2443C17D0130D00E9643F /* bg-the-producer@2x~iphone.jpg in Resources */,
 				A8A2443D17D0130D00E9643F /* bg-the-producer~iphone.jpg in Resources */,
@@ -3114,15 +3270,15 @@
 				A8A2444D17D0130D00E9643F /* bg-the-swiss-army-knife~iphone.jpg in Resources */,
 				A8A2444E17D0130D00E9643F /* bg-the-team-player@2x~iphone.jpg in Resources */,
 				A86756D817E8ED210015C48F /* dash-circrhyclocks@2x~iphone.png in Resources */,
+				A8665E4C17F4FC74001D1622 /* points-bonus@2x~iphone.png in Resources */,
 				A8A2444F17D0130D00E9643F /* bg-the-team-player~iphone.jpg in Resources */,
 				A8A2445017D0130D00E9643F /* bg-the-trailblazer@2x~iphone.jpg in Resources */,
 				A8A2445117D0130D00E9643F /* bg-the-trailblazer~iphone.jpg in Resources */,
 				A8A2445217D0130D00E9643F /* bg-the-trendsetter@2x~iphone.jpg in Resources */,
 				A8A2445317D0130D00E9643F /* bg-the-trendsetter~iphone.jpg in Resources */,
-				A8665DC417F4AD2E001D1622 /* btn-faceoff-wrong-big@2x~iphone.png in Resources */,
+				A8665E2817F4FC74001D1622 /* btn-faceoff-wrong-big@2x~iphone.png in Resources */,
 				A8A2445417D0130D00E9643F /* bg-the-tried-and-true@2x~iphone.jpg in Resources */,
 				A8A2445517D0130D00E9643F /* bg-the-tried-and-true~iphone.jpg in Resources */,
-				A8665DD517F4AD2E001D1622 /* points-bonusbanner@2x~iphone.png in Resources */,
 				A8A2445617D0130D00E9643F /* bg-the-true-blue@2x~iphone.jpg in Resources */,
 				A8A2445717D0130D00E9643F /* bg-the-true-blue~iphone.jpg in Resources */,
 				A8A2445817D0130D00E9643F /* bg-the-well-oiled-machine@2x~iphone.jpg in Resources */,
@@ -3134,6 +3290,7 @@
 				A8A2445D17D0130D00E9643F /* playsnoozer-alertb~iphone.png in Resources */,
 				A8A2445E17D0130D00E9643F /* playsnoozer-alertc@2x~iphone.png in Resources */,
 				A8A2445F17D0130D00E9643F /* playsnoozer-alertc~iphone.png in Resources */,
+				A8665E4417F4FC74001D1622 /* fo-fear.jpg in Resources */,
 				A8A2446017D0130D00E9643F /* profile-header@2x~iphone.png in Resources */,
 				A8A2446117D0130D00E9643F /* profile-header~iphone.png in Resources */,
 				A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */,
@@ -3173,16 +3330,14 @@
 				A8A2447E17D0130D00E9643F /* resultsbadge-falcon@2x.png in Resources */,
 				A8A2447F17D0130D00E9643F /* resultsbadge-gorilla.png in Resources */,
 				A8A2448017D0130D00E9643F /* resultsbadge-gorilla@2x.png in Resources */,
-				A8665DD317F4AD2E001D1622 /* faceoff-photo-wrong~iphone.png in Resources */,
-				A8665DD917F4AD2E001D1622 /* points-correct~iphone.png in Resources */,
+				A8665E3717F4FC74001D1622 /* faceoff-photo-wrong~iphone.png in Resources */,
 				A8A2448117D0130D00E9643F /* resultsbadge-progress1.png in Resources */,
 				A86756DF17E8ED210015C48F /* dash-density-yellow~iphone.png in Resources */,
 				A8A2448217D0130D00E9643F /* resultsbadge-progress1@2x.png in Resources */,
 				A8A2448317D0130D00E9643F /* resultsbadge-progress2.png in Resources */,
 				A8A2448417D0130D00E9643F /* resultsbadge-progress2@2x.png in Resources */,
-				A8665DDA17F4AD2E001D1622 /* points-wrong@2x~iphone.png in Resources */,
 				A86756D517E8ED210015C48F /* dash-chartflag-flip~iphone.png in Resources */,
-				A8665DCD17F4AD2E001D1622 /* faceoff-photo-correct~iphone.png in Resources */,
+				A8665E3117F4FC74001D1622 /* faceoff-photo-correct~iphone.png in Resources */,
 				A8A2448517D0130D00E9643F /* resultsbadge-wolf.png in Resources */,
 				A8A2448617D0130D00E9643F /* resultsbadge-wolf@2x.png in Resources */,
 				A867571217E939440015C48F /* btn-share@2x~iphone.png in Resources */,
@@ -3200,6 +3355,7 @@
 				A8A2449117D0130D00E9643F /* anim-badge-dolphin.png in Resources */,
 				A8A2449217D0130D00E9643F /* anim-badge-dolphin@2x.png in Resources */,
 				A8A2449317D0130D00E9643F /* anim-badge-falcon.png in Resources */,
+				A8665E4017F4FC74001D1622 /* coyness.jpg in Resources */,
 				A8A2449417D0130D00E9643F /* anim-badge-falcon@2x.png in Resources */,
 				A8A2449517D0130D00E9643F /* anim-badge-gorilla.png in Resources */,
 				A8A2449617D0130D00E9643F /* anim-badge-gorilla@2x.png in Resources */,
@@ -3215,7 +3371,9 @@
 				A8A2449E17D0130D00E9643F /* historychart-bubble~iphone.png in Resources */,
 				A8A2449F17D0130D00E9643F /* btn-blue@2x~iphone.png in Resources */,
 				A8A244A017D0130D00E9643F /* btn-blue~iphone.png in Resources */,
+				A8665E5017F4FC74001D1622 /* points-correct@2x~iphone.png in Resources */,
 				A8A244A117D0130D00E9643F /* btn-diagonalbg@2x~iphone.png in Resources */,
+				A8665E5317F4FC74001D1622 /* points-wrong~iphone.png in Resources */,
 				A8A244A217D0130D00E9643F /* btn-diagonalbg~iphone.png in Resources */,
 				A8A244A317D0130D00E9643F /* btn-graph@2x~iphone.png in Resources */,
 				A8A244A417D0130D00E9643F /* btn-graph~iphone.png in Resources */,
@@ -3243,7 +3401,7 @@
 				A8A244B817D0130D00E9643F /* historychart-clock~iphone.png in Resources */,
 				A8A244B917D0130D00E9643F /* historychart-dottedline@2x~iphone.png in Resources */,
 				A8A244BA17D0130D00E9643F /* historychart-dottedline~iphone.png in Resources */,
-				A8665DC217F4AD2E001D1622 /* btn-faceoff-white-sm@2x~iphone.png in Resources */,
+				A8665E2617F4FC74001D1622 /* btn-faceoff-white-sm@2x~iphone.png in Resources */,
 				A8A244BB17D0130D00E9643F /* historychart-timeline@2x~iphone.png in Resources */,
 				A8A244BC17D0130D00E9643F /* historychart-timeline~iphone.png in Resources */,
 				A8A244BD17D0130D00E9643F /* icon-alert@2x~iphone.png in Resources */,
@@ -3254,17 +3412,20 @@
 				A86756C417E8ED210015C48F /* dash-background~iphone.png in Resources */,
 				A8A244C117D0130D00E9643F /* icon-missed@2x~iphone.png in Resources */,
 				A8A244C217D0130D00E9643F /* icon-missed~iphone.png in Resources */,
-				A8665DBC17F4AD2E001D1622 /* btn-faceoff-correct-big@2x~iphone.png in Resources */,
+				A8665E2017F4FC74001D1622 /* btn-faceoff-correct-big@2x~iphone.png in Resources */,
 				A8A244C317D0130D00E9643F /* results-bg@2x~iphone.png in Resources */,
 				A8A244C417D0130D00E9643F /* results-bg~iphone.png in Resources */,
 				A8A244C517D0130D00E9643F /* tp-snoozer-results-detail_blueprint.png in Resources */,
 				A8A244C617D0130D00E9643F /* tp-snoozer-results-detail_blueprintv2.png in Resources */,
 				A8A244C717D0130D00E9643F /* tp-snoozer-results_blueprint.png in Resources */,
 				A8A244C817D0130D00E9643F /* tp-snoozer-results_blueprint_v2.png in Resources */,
+				A8665E4917F4FC74001D1622 /* fo-pride@2x.jpg in Resources */,
 				A8A244C917D0130D00E9643F /* tp-snoozer-results_blueprint_v3.png in Resources */,
-				A8665DC517F4AD2E001D1622 /* btn-faceoff-wrong-big~iphone.png in Resources */,
+				A8665E2917F4FC74001D1622 /* btn-faceoff-wrong-big~iphone.png in Resources */,
 				A86756F717E8ED210015C48F /* fitbit-greenarrow@2x~iphone.png in Resources */,
 				A8A244CA17D0130D00E9643F /* snoozer-clock-correct@2x~iphone.png in Resources */,
+				A8665E3917F4FC74001D1622 /* fo-amusement@2x.jpg in Resources */,
+				A8665E3B17F4FC74001D1622 /* fo-anger@2x.jpg in Resources */,
 				A86756CD17E8ED210015C48F /* btn-connectfitbit-pressed~iphone.png in Resources */,
 				A8A244CB17D0130D00E9643F /* snoozer-clock-correct~iphone.png in Resources */,
 				A8A244CC17D0130D00E9643F /* snoozer-clock-missed@2x~iphone.png in Resources */,
@@ -3272,10 +3433,11 @@
 				A86756C717E8ED210015C48F /* dash-densityflag@2x~iphone.png in Resources */,
 				A8A244CE17D0130D00E9643F /* snoozer-clock@2x~iphone.png in Resources */,
 				A8A244CF17D0130D00E9643F /* snoozer-clockb@2x~iphone.png in Resources */,
+				A8665E4817F4FC74001D1622 /* fo-pride.jpg in Resources */,
 				A8A244D017D0130D00E9643F /* snoozer-clockb~iphone.png in Resources */,
 				A8A244D117D0130D00E9643F /* snoozer-clockc@2x~iphone.png in Resources */,
 				A8A244D217D0130D00E9643F /* snoozer-clockc~iphone.png in Resources */,
-				A8665DC917F4AD2E001D1622 /* faceoff-bg~iphone.png in Resources */,
+				A8665E2D17F4FC74001D1622 /* faceoff-bg~iphone.png in Resources */,
 				A8A244D317D0130D00E9643F /* snoozer-clockring1@2x~iphone.png in Resources */,
 				A8A244D417D0130D00E9643F /* snoozer-clockring1~iphone.png in Resources */,
 				A8A244D517D0130D00E9643F /* snoozer-clockring2@2x~iphone.png in Resources */,
@@ -3283,7 +3445,7 @@
 				A8A244D717D0130D00E9643F /* snoozer-clockringb1@2x~iphone.png in Resources */,
 				A8A244D817D0130D00E9643F /* snoozer-clockringb1~iphone.png in Resources */,
 				A8A244D917D0130D00E9643F /* snoozer-clockringb2@2x~iphone.png in Resources */,
-				A8665DD017F4AD2E001D1622 /* faceoff-photo-replay@2x~iphone.png in Resources */,
+				A8665E3417F4FC74001D1622 /* faceoff-photo-replay@2x~iphone.png in Resources */,
 				A8A244DA17D0130D00E9643F /* snoozer-clockringb2~iphone.png in Resources */,
 				A8A244DB17D0130D00E9643F /* snoozer-clockringc1@2x~iphone.png in Resources */,
 				A8A244DC17D0130D00E9643F /* snoozer-clockringc1~iphone.png in Resources */,
@@ -3294,18 +3456,18 @@
 				A86756EE17E8ED210015C48F /* fitbit-bluearrow-down~iphone.png in Resources */,
 				A86756E317E8ED210015C48F /* dash-fitbitbg-connect~iphone.png in Resources */,
 				A8A244E017D0130D00E9643F /* snoozer-logo@2x~iphone.png in Resources */,
-				A8665DBA17F4AD2E001D1622 /* btn-faceoff-bg@2x~iphone.png in Resources */,
+				A8665E1E17F4FC74001D1622 /* btn-faceoff-bg@2x~iphone.png in Resources */,
 				A86756D417E8ED210015C48F /* dash-chartflag-flip@2x~iphone.png in Resources */,
 				A8A244E117D0130D00E9643F /* snoozer-logo~iphone.png in Resources */,
-				A8665DBF17F4AD2E001D1622 /* btn-faceoff-correct-sm~iphone.png in Resources */,
+				A8665E2317F4FC74001D1622 /* btn-faceoff-correct-sm~iphone.png in Resources */,
 				A8A244E217D0130D00E9643F /* tabicon-focus-ios7@2x~iphone.png in Resources */,
 				A86756DA17E8ED210015C48F /* dash-density-green@2x~iphone.png in Resources */,
 				A8A244E317D0130D00E9643F /* tabicon-focus-ios7~iphone.png in Resources */,
 				A8A244E417D0130D00E9643F /* tabicon-focus@2x~iphone.png in Resources */,
 				A8A244E517D0130D00E9643F /* tabicon-focus~iphone.png in Resources */,
-				A8665DD717F4AD2E001D1622 /* points-bonus~iphone.png in Resources */,
 				A8A244E617D0130D00E9643F /* tabicon-game-ios7@2x~iphone.png in Resources */,
 				A8A244E717D0130D00E9643F /* tabicon-game-ios7~iphone.png in Resources */,
+				A8665E3817F4FC74001D1622 /* fo-amusement.jpg in Resources */,
 				A8A244E817D0130D00E9643F /* tabicon-game@2x~iphone.png in Resources */,
 				A8F5B2FE17F103AE0066E0BD /* TPEIStagePickEmotionViewController.xib in Resources */,
 				A8A244E917D0130D00E9643F /* tabicon-game~iphone.png in Resources */,
@@ -3318,15 +3480,19 @@
 				A8A244EF17D0130D00E9643F /* tabicon-profile2~iphone.png in Resources */,
 				A8A244F017D0130D00E9643F /* tabicon-profile@2x~iphone.png in Resources */,
 				A8A244F117D0130D00E9643F /* tabicon-profile~iphone.png in Resources */,
+				A8665E4B17F4FC74001D1622 /* fo-shame@2x.jpg in Resources */,
 				A86756EA17E8ED210015C48F /* Default-568h@2x~iphone.png in Resources */,
 				A8A244F217D0130D00E9643F /* tabicon-results-ios7@2x~iphone.png in Resources */,
 				A8A244F317D0130D00E9643F /* tabicon-results-ios7~iphone.png in Resources */,
 				A8A244F417D0130D00E9643F /* tabicon-results@2x~iphone.png in Resources */,
+				A8665E3E17F4FC74001D1622 /* fo-confused.jpg in Resources */,
 				A8A244F517D0130D00E9643F /* tabicon-results~iphone.png in Resources */,
 				A8A244F617D0130D00E9643F /* tabicon-speed-ios7@2x~iphone.png in Resources */,
+				A8665E4317F4FC74001D1622 /* embarrassment@2x.jpg in Resources */,
 				A86756D617E8ED210015C48F /* dash-chartflag@2x~iphone.png in Resources */,
 				A8A244F717D0130D00E9643F /* tabicon-speed-ios7~iphone.png in Resources */,
 				A8A244F817D0130D00E9643F /* tabicon-speed@2x~iphone.png in Resources */,
+				A8665E4E17F4FC74001D1622 /* points-bonusbanner~iphone.png in Resources */,
 				A8A244F917D0130D00E9643F /* tabicon-speed~iphone.png in Resources */,
 				A8A244FA17D0130D00E9643F /* tabicon-starfish-ios7@2x~iphone.png in Resources */,
 				A8A244FB17D0130D00E9643F /* tabicon-starfish-ios7~iphone.png in Resources */,
@@ -3336,6 +3502,7 @@
 				A8A244FF17D0130D00E9643F /* titlebar~iphone.png in Resources */,
 				A8A2450017D0130D00E9643F /* tp-snoozer-start_blueprint.png in Resources */,
 				A8A2450117D0130D00E9643F /* btn-xclose@2x~iphone.png in Resources */,
+				A8665E3A17F4FC74001D1622 /* fo-anger.jpg in Resources */,
 				A8A2450217D0130D00E9643F /* btn-xclose~iphone.png in Resources */,
 				A8A2450317D0130D00E9643F /* tp-appwalkthrough0@2x~iphone.jpg in Resources */,
 				A8A2450417D0130D00E9643F /* tp-appwalkthrough0~iphone.jpg in Resources */,
@@ -3357,6 +3524,7 @@
 				A8BABA9817E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib in Resources */,
 				A8BABAB917E27CDB00A3C95B /* calendar-graph@2x~iphone.png in Resources */,
 				A8BABABA17E27CDB00A3C95B /* calendar-graph~iphone.png in Resources */,
+				A8665E5117F4FC74001D1622 /* points-correct~iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
