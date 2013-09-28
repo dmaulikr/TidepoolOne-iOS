@@ -41,6 +41,8 @@
 
 -(void)getTidepoolOauthTokenInExchangeForFacebookUserInfo:(NSDictionary *)user andFacebookToken:(NSDictionary *)token;
 
+-(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
 -(NSDate *)dateFromString:(NSString *)stringDate;
 
 @end

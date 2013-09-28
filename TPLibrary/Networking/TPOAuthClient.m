@@ -13,8 +13,8 @@
 
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"https://api.tidepool.co";
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
-NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
 
 NSString * const kClientId = @"3e372449d494eb6dc7d74cd3da1d6eedd50c7d98f3dedf1caf02960a9a260fb1";
@@ -32,6 +32,8 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     NSString *_clientSecret;
     UIAlertView *_errorAlert;
     
+    BOOL _isGettingUser;
+    NSMutableArray *_userCompletionBlocks;
 }
 @end
 
@@ -187,15 +189,29 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     self.isLoggedIn = 0;
 }
 
--(void)getUserInfoFromServer
+-(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.user = responseObject[@"data"];
-        self.isLoggedIn = 1;
-//        [self saveUserInfo];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
-    }];
+    // TODO: add failure Blocks
+    [_userCompletionBlocks addObject:[successBlock copy]];
+    if (!_isGettingUser) {
+        _isGettingUser = YES;
+        [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.user = responseObject[@"data"];
+            self.isLoggedIn = 1;
+            _isGettingUser = NO;
+            // TODO: fix the block typecast
+            for (id item in _userCompletionBlocks) {
+                void (^block)(void);
+                block = item;
+                block();
+            }
+            [_userCompletionBlocks removeAllObjects];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failureBlock();
+            _isGettingUser = NO;
+            [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
+        }];
+    }
 }
 
 
@@ -311,5 +327,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     _errorAlert = nil;
 }
+
 
 @end

@@ -39,7 +39,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hs-QM-l1b">
-                    <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                    <rect key="frame" x="0.0" y="318" width="320" height="250"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwg-uq-3a4">
@@ -86,7 +86,7 @@
                     <color key="backgroundColor" red="0.29803921568627451" green="0.3411764705882353" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="O40-cC-47N" firstAttribute="leading" secondItem="0Hs-QM-l1b" secondAttribute="leading" constant="20" symbolic="YES" id="936-8p-XiT"/>
-                        <constraint firstAttribute="height" constant="200" id="BjA-fN-iwB"/>
+                        <constraint firstAttribute="height" constant="250" id="BjA-fN-iwB"/>
                         <constraint firstItem="iwg-uq-3a4" firstAttribute="trailing" secondItem="wGi-E1-HYh" secondAttribute="trailing" id="IBT-6s-OWo"/>
                         <constraint firstItem="wGi-E1-HYh" firstAttribute="leading" secondItem="O40-cC-47N" secondAttribute="leading" id="Lew-Dn-doR"/>
                         <constraint firstItem="O40-cC-47N" firstAttribute="top" secondItem="0Hs-QM-l1b" secondAttribute="top" constant="69" id="NGr-Uh-O1y"/>

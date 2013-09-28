@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPGameViewController.h"
+#import "TPResultViewController.h"
 
-@interface TPEIResultViewController : TPGameViewController
+@interface TPEIResultViewController : TPResultViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
 @property (weak, nonatomic) IBOutlet TPTextView *blurbView;

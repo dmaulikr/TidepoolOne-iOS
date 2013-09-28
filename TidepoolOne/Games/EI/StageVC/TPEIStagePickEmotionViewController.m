@@ -144,14 +144,16 @@
 -(void)logCurrentResponse:(NSString *)choice
 {
     BOOL correct;
+    NSArray *correctString = @[@"incorrect", @"correct"];
     if (self.isSecondary) {
         correct = [choice isEqualToString:self.secondary];
     } else {
         correct = [choice isEqualToString:self.primary];
     }
+    
     NSArray *modes = @[@"primary",@"secondary"];
     NSDictionary *event = @{
-                            @"event":[NSNumber numberWithBool:correct],
+                            @"event":correctString[correct],
                             @"value":choice,
                             @"type":modes[_isSecondary],
                             @"instant_replay":[NSNumber numberWithInt:_instantReplayCount],
