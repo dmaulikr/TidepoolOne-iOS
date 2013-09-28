@@ -21,7 +21,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor clearColor];
+        self.cellImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 102)];
+        [self addSubview:self.cellImageView];
     }
     return self;
 }

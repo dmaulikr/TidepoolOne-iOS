@@ -34,6 +34,7 @@
     [super viewDidLoad];
     [self.tableView registerClass:[TPGamePickerCell class] forCellReuseIdentifier:@"GameCell"];
     self.title = @"Games";
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"games-bg.png"]];
     self.games = @[@"Snoozer", @"EI"];
     self.tableView.delegate = self;
@@ -74,10 +75,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"GameCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TPGamePickerCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     // Configure the cell...
     NSString *game = self.games[indexPath.row];
-    cell.imageView.image = _gameCellImages[game];
+    cell.cellImageView.image = _gameCellImages[game];
+//    cell.cellImageView.bounds = CGRectMake(0, 0, cell.cellImageView.bounds.size.width, 120);
     return cell;
 }
 

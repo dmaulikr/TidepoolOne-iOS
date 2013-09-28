@@ -10,4 +10,6 @@
 
 @interface TPGamePickerCell : UITableViewCell
 
+@property (strong, nonatomic) UIImageView *cellImageView;
+
 @end

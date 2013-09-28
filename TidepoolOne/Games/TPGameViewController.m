@@ -174,7 +174,7 @@
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSDictionary *classDictionary = @{
                                       @"SpeedArchetypeResult":[TPSnoozerResultViewController class],
-                                      @"EmoFaceResult":[TPEIResultViewController class],
+                                      @"EmoIntelligenceResult":[TPEIResultViewController class],
                                       };
     BOOL hasResultsToShow = NO;
     for (NSDictionary *result in _results) {
