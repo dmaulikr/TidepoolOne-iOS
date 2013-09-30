@@ -16,8 +16,8 @@
     CGSize _connectedSize;
     CGSize _notConnectedSize;
     TPOAuthClient *_oauthClient;
-    NSTimer *_pollTimeoutTimer;
-    NSTimer *_pollTimer;
+    __block NSTimer *_pollTimeoutTimer;
+    __block NSTimer *_pollTimer;
 }
 @end
 
@@ -210,7 +210,19 @@
     
 -(void)refreshWeeklyDatawithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    _numServerCallsCompleted = 0;
+    // NEW WAY - DOESNT WORK - INFINITELY CALLED.. PROBABLY AN ISSUE WITH BLOCK VARIABLES//
+//    _numServerCallsCompleted = 0;
+//    [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
+//        self.user = [TPOAuthClient sharedClient].user;
+//        _numServerCallsCompleted++;
+//        if (_numServerCallsCompleted == 1) {
+//            successBlock();
+//        }
+//    } andFailure:^{
+//        failureBlock();
+//    }];
+    //END NEW WAY//
+    //OLD WAY//
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [TPOAuthClient sharedClient].user = responseObject[@"data"];
         self.user = responseObject[@"data"];
@@ -222,6 +234,7 @@
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         failureBlock();
     }];
+    // END OLD WAY//
 }
 
 -(void)refreshFitbitData

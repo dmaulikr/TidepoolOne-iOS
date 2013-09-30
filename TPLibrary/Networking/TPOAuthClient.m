@@ -283,6 +283,16 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }
 }
 
+-(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:[NSString stringWithFormat:@"api/v1/users/-/games?def_id=%@", type] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get game"];
+    }];
+}
+
+
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {

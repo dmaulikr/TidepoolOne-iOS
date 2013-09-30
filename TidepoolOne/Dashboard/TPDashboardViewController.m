@@ -113,6 +113,7 @@
         _numWidgetsCompleted++;
         if (_numWidgetsCompleted == 2) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                NSLog(@"end refresh");
                 [self.refreshControl endRefreshing];
             });
         }
