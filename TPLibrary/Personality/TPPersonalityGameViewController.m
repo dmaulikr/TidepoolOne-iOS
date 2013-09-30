@@ -176,7 +176,7 @@
 -(void)personalityGameFinishedSuccessfully
 {
     _messageLabel.text = @"Personality Game finished successfully";
-    [_oauthClient getUserInfoFromServer];
+    [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{} andFailure:^{}];
     [self.delegate personalityGameIsDone:self successfully:YES];
 }
 

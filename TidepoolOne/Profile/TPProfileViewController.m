@@ -253,25 +253,12 @@
     if (!self.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
-        // NEW WAY
         [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
             [hud hide:YES];
             self.user = _oauthClient.user;
         } andFailure:^{
             [hud hide:YES];
         }];
-        // END NEW WAY        
-//        // OLD WAY OF EXPLICIT GETTING
-//        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            _oauthClient.user = responseObject[@"data"];
-//            [hud hide:YES];
-//            self.user = responseObject[@"data"];
-//            _oauthClient.user = self.user;
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            [hud hide:YES];
-//            [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
-//        }];
-//        // END OLD WAY OF EXPLICIT GETTING
     }
 }
 

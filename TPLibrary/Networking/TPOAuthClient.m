@@ -70,7 +70,56 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     return self;
 }
 
+-(void)setUser:(NSDictionary *)user
+{
+    _user = user;
+}
 
+#pragma mark OAuth methods
+
+-(NSString *)oauthToken
+{
+    return [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
+}
+
+-(void)saveAndUseOauthToken:(NSString *)token
+{
+    [self deleteAllPasswords];
+    [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
+    [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
+}
+
+
+-(BOOL)hasOauthToken
+{
+    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+    return accounts.count;
+}
+
+-(BOOL)loginPassively
+{
+    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+    if (accounts.count > 0) {
+        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",[self oauthToken]]];
+        self.isLoggedIn = 1;
+        return 1;
+    }
+    return 0;
+}
+
+
+-(void)deleteAllPasswords
+{
+    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+    for (NSDictionary *account in accounts) {
+        NSDictionary *account = accounts[0];
+        NSString *username = account[@"acct"];
+        [SSKeychain deletePasswordForService:kSSKeychainServiceName account:username];
+    }
+    accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
+}
+
+#pragma mark Actual Login methods
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -94,8 +143,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
-
-
 -(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -116,100 +163,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         failureBlock();
     }];
 }
-
--(NSString *)oauthToken
-{
-    return [SSKeychain passwordForService:kSSKeychainServiceName account:kSSKeychainServiceName];
-}
-
--(void)saveAndUseOauthToken:(NSString *)token
-{
-    [self deleteAllPasswords];
-    [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
-    [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
-}
-
--(void)setUser:(NSDictionary *)user
-{
-    _user = user;
-}
-
--(BOOL)hasOauthToken
-{
-    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    return accounts.count;
-}
-
--(BOOL)loginPassively
-{
-    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    if (accounts.count > 0) {
-        [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",[self oauthToken]]];
-        self.isLoggedIn = 1;
-        return 1;
-    }
-    return 0;
-}
-
--(void)setIsLoggedIn:(BOOL)isLoggedIn
-{
-    _isLoggedIn = isLoggedIn;
-    if (isLoggedIn) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];
-    } else {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
-    }
-    
-}
-
--(void)deleteAllPasswords
-{
-    NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-    for (NSDictionary *account in accounts) {
-        NSDictionary *account = accounts[0];
-        NSString *username = account[@"acct"];
-        [SSKeychain deletePasswordForService:kSSKeychainServiceName account:username];
-    }
-    accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
-}
-
--(void)logout
-{
-    [[FBSession activeSession] closeAndClearTokenInformation];
-    self.user = nil;
-    [self clearAuthorizationHeader];
-    [self deleteAllPasswords];
-    self.isLoggedIn = 0;
-}
-
--(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
-{
-    NSLog(@"GET USER INFO");
-    // TODO: add failure Blocks
-    [_userCompletionBlocks addObject:[successBlock copy]];
-    if (!_isGettingUser) {
-        NSLog(@"MAKE REQUEST");
-        _isGettingUser = YES;
-        [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            self.user = responseObject[@"data"];
-            self.isLoggedIn = 1;
-            _isGettingUser = NO;
-            // TODO: fix the block typecast
-            for (id item in _userCompletionBlocks) {
-                NSLog(@"running item off array");
-                void (^block)(void);
-                block = item;
-                block();
-            }
-            [_userCompletionBlocks removeAllObjects];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failureBlock();
-            _isGettingUser = NO;
-            [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
-        }];
-    }
-}
-
 
 -(void)authenticateWithFacebookToken:(NSDictionary *)token
 {
@@ -269,6 +222,76 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self loginFacebookWithTokenInfo:dict];
 }
 
+-(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo
+{
+    [self postPath:@"/oauth/authorize" parameters:facebookInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self saveAndUseOauthToken:responseObject[@"access_token"]];
+        self.user = responseObject[@"user"];
+        self.isLoggedIn = YES;
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];
+    }];
+}
+
+-(void)setIsLoggedIn:(BOOL)isLoggedIn
+{
+    _isLoggedIn = isLoggedIn;
+    if (isLoggedIn) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged In" object:self userInfo:nil];
+    } else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"Logged Out" object:self userInfo:nil];
+    }
+    
+}
+
+-(void)logout
+{
+    [[FBSession activeSession] closeAndClearTokenInformation];
+    self.user = nil;
+    [self clearAuthorizationHeader];
+    [self deleteAllPasswords];
+    self.isLoggedIn = 0;
+}
+
+#pragma mark API methods
+
+-(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    NSLog(@"GET USER INFO");
+    // TODO: add failure Blocks
+    [_userCompletionBlocks addObject:[successBlock copy]];
+    if (!_isGettingUser) {
+        NSLog(@"MAKE REQUEST");
+        _isGettingUser = YES;
+        [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            self.user = responseObject[@"data"];
+            self.isLoggedIn = 1;
+            _isGettingUser = NO;
+            // TODO: fix the block typecast
+            for (id item in _userCompletionBlocks) {
+                NSLog(@"running item off array");
+                void (^block)(void);
+                block = item;
+                block();
+            }
+            [_userCompletionBlocks removeAllObjects];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failureBlock();
+            _isGettingUser = NO;
+            [self handleError:error withOptionalMessage:@"An error occured while getting user info from Tidepool."];
+        }];
+    }
+}
+
+-(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
+        successBlock(dataObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get game results"];
+    }];
+}
+#pragma mark Helper methods
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message
 {
     int httpErrorCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
@@ -294,16 +317,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
 }
--(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo
-{
-    [self postPath:@"/oauth/authorize" parameters:facebookInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [self saveAndUseOauthToken:responseObject[@"access_token"]];
-        self.user = responseObject[@"user"];
-        self.isLoggedIn = YES;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];
-    }];
-}
+
 
 -(NSDate *)dateFromString:(NSString *)stringDate
 {
@@ -324,6 +338,5 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     _errorAlert = nil;
 }
-
 
 @end

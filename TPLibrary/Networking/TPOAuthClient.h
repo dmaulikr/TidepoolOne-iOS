@@ -33,6 +33,7 @@
 
 #pragma mark API methods
 -(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+-(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
 
 @end

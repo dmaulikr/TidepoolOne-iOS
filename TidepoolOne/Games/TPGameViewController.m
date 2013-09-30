@@ -207,7 +207,7 @@
     hud.labelText = @"Calculating results";
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
     __block typeof(self) bself = self;
-    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
+    [oauthClient getGameResultsForGameId:_gameId WithCompletionHandlersSuccess:^(id dataObject) {
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];
         if ([state isEqualToString:@"pending"]) {
             _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:bself selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
@@ -219,9 +219,8 @@
             [hud hide:YES];
             [self showResults];
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } andFailure:^{
         [hud hide:YES];
-        [_oauthClient handleError:error withOptionalMessage:@"Unable to get game results"];
         [self clearCurrentGame];
         self.gameStartView.hidden = NO;
     }];
