@@ -267,10 +267,8 @@
     [completeEvents setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
 
     __block typeof(self) bself = self;
-    _oauthClient.parameterEncoding = AFJSONParameterEncoding;
-    [_oauthClient postPath:@"/api/v1/user_events" parameters:completeEvents success:^(AFHTTPRequestOperation *operation, id dataObject) {
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [_oauthClient handleError:error withOptionalMessage:@"Error submitting performance"];
+    [_oauthClient postGameEvents:completeEvents withCompletionHandlersSuccess:^{
+    } andFailure:^{
         [bself clearCurrentGame];
         bself.gameStartView.hidden = NO;
     }];

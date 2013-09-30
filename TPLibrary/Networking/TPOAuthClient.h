@@ -35,7 +35,9 @@
 -(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
 -(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+-(void)postGameEvents:(NSDictionary *)events withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
 
 @end

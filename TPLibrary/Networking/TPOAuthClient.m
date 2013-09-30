@@ -292,6 +292,17 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
+-(void)postGameEvents:(NSDictionary *)events withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:@"/api/v1/user_events" parameters:events success:^(AFHTTPRequestOperation *operation, id dataObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Error submitting performance"];
+        failureBlock();
+    }];
+    
+    
+}
 
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
 {
