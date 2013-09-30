@@ -87,18 +87,32 @@
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         failureBlock();
     }];
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [TPOAuthClient sharedClient].user = responseObject[@"data"];
-        self.user = responseObject[@"data"];
+    // NEW WAY
+    [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
+        self.user = [TPOAuthClient sharedClient].user;
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
             successBlock();
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fail: %@", [error description]);
-        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+    } andFailure:^{
         failureBlock();
     }];
+    // END NEW WAY
+//        // OLD WAY OF EXPLICIT GETTING
+//    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        [TPOAuthClient sharedClient].user = responseObject[@"data"];
+//        self.user = responseObject[@"data"];
+//        _numServerCallsCompleted++;
+//        if (_numServerCallsCompleted == 2) {
+//            successBlock();
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Fail: %@", [error description]);
+//        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+//        failureBlock();
+//    }];
+//        // END OLD WAY OF EXPLICIT GETTING
+
 }
 
 -(void)setUser:(NSDictionary *)user

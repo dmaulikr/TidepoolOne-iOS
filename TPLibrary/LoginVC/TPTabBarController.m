@@ -78,17 +78,30 @@
     if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
-        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // NEW WAY
+        [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
             [hud hide:YES];
-            _oauthClient.user = responseObject[@"data"];
             NSDictionary *personality = _oauthClient.user[@"personality"];
             if (!personality || personality == (NSDictionary *)[NSNull null]) {
                 [self showPersonalityGame];
             }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        } andFailure:^{
             [hud hide:YES];
-            [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
         }];
+        // END NEW WAY
+//        // OLD WAY OF EXPLICIT GETTING
+//        [_oauthClient getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            [hud hide:YES];
+//            _oauthClient.user = responseObject[@"data"];
+//            NSDictionary *personality = _oauthClient.user[@"personality"];
+//            if (!personality || personality == (NSDictionary *)[NSNull null]) {
+//                [self showPersonalityGame];
+//            }
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            [hud hide:YES];
+//            [_oauthClient handleError:error withOptionalMessage:@"Unable to get user information"];
+//        }];
+//        // END OLD WAY OF EXPLICIT GETTING
     } else {
         NSDictionary *personality = _oauthClient.user[@"personality"];
         if (!personality || personality == (NSDictionary *)[NSNull null]) {

@@ -33,7 +33,8 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     UIAlertView *_errorAlert;
     
     BOOL _isGettingUser;
-    NSMutableArray *_userCompletionBlocks;
+    __block NSMutableArray *_userCompletionBlocks;
+    __block NSMutableArray *_userFailureBlocks;
 }
 @end
 
@@ -64,8 +65,11 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 	[self setDefaultHeader:@"Accept" value:@"application/json"];
 	[self setDefaultHeader:@"Content-type" value:@"application/json"];
     [self setParameterEncoding:AFJSONParameterEncoding];
+    
+    _userCompletionBlocks = [NSMutableArray array];
     return self;
 }
+
 
 -(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
@@ -191,9 +195,11 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
+    NSLog(@"GET USER INFO");
     // TODO: add failure Blocks
     [_userCompletionBlocks addObject:[successBlock copy]];
     if (!_isGettingUser) {
+        NSLog(@"MAKE REQUEST");
         _isGettingUser = YES;
         [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             self.user = responseObject[@"data"];
@@ -201,6 +207,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
             _isGettingUser = NO;
             // TODO: fix the block typecast
             for (id item in _userCompletionBlocks) {
+                NSLog(@"running item off array");
                 void (^block)(void);
                 block = item;
                 block();
@@ -294,6 +301,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     _errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
     _errorAlert.delegate = self;
     [_errorAlert show];
+    NSLog([error description]);
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
 }
