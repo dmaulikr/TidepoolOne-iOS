@@ -344,7 +344,9 @@
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"Done";
         [hud hide:YES afterDelay:2.0];
-        [_oauthClient getUserInfoFromServer];
+        [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
+        } andFailure:^{
+        }];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];

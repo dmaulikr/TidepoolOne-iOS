@@ -18,31 +18,21 @@
 + (TPOAuthClient *)sharedClient;
 - (id)initWithBaseURL:(NSURL *)url;
 
--(BOOL)loginPassively;
+#pragma mark OAuth methods
 -(void)saveAndUseOauthToken:(NSString *)token;
-
 -(NSString *)oauthToken;
-
--(void)getUserInfoFromServer;
-
--(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
-
--(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
-
--(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo;
-
 -(void)deleteAllPasswords;
 
+#pragma mark Actual Login methods
+-(BOOL)loginPassively;
+-(void)loginWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+-(void)createAccountWithUsername:(NSString *)username password:(NSString *)password withCompletingHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+-(void)loginFacebookWithTokenInfo:(NSDictionary *)facebookInfo;
+-(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
 -(void)logout;
 
--(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
-
--(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
-
--(void)getTidepoolOauthTokenInExchangeForFacebookUserInfo:(NSDictionary *)user andFacebookToken:(NSDictionary *)token;
-
+#pragma mark API methods
 -(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
-
--(NSDate *)dateFromString:(NSString *)stringDate;
+-(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
 
 @end

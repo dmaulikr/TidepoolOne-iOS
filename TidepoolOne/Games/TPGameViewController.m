@@ -206,7 +206,6 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Calculating results";
     TPOAuthClient *oauthClient = [TPOAuthClient sharedClient];
-//    [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:@{@"event_log":_eventsForEachStageArray} success:^(AFHTTPRequestOperation *operation, id dataObject) {
     __block typeof(self) bself = self;
     [oauthClient getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/results", _gameId] parameters:nil success:^(AFHTTPRequestOperation *operation, id dataObject) {
         NSString *state = [[dataObject valueForKey:@"status"] valueForKey:@"state"];

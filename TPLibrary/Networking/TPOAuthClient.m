@@ -87,7 +87,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         [self saveAndUseOauthToken:token];
         self.user = responseObject[@"user"];
         self.isLoggedIn = 1;
-//        [self loginWithUsername:username password:password withCompletingHandlersSuccess:successBlock andFailure:failureBlock];
+        successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"An error occured while creating the account. Please try again."];
         failureBlock();
@@ -129,19 +129,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
 }
 
--(void)saveUserInfo
-{
-    [[NSUserDefaults standardUserDefaults] setObject:self.user forKey:@"TidepoolUser"];
-}
-
 -(void)setUser:(NSDictionary *)user
 {
     _user = user;
-}
-
--(NSDictionary *)getUserInfo
-{
-    return [[NSUserDefaults standardUserDefaults] objectForKey:@"TidepoolUser"];
 }
 
 -(BOOL)hasOauthToken
@@ -155,7 +145,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     NSArray *accounts = [SSKeychain accountsForService:kSSKeychainServiceName];
     if (accounts.count > 0) {
         [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",[self oauthToken]]];
-//        self.user = [self getUserInfo];
         self.isLoggedIn = 1;
         return 1;
     }
