@@ -73,7 +73,6 @@ NSString *const FBSessionStateChangedNotification =
 {
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // Load resources for iOS 6.1 or earlier
-        //        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
         [[UINavigationBar appearance] setTitleTextAttributes:
          [NSDictionary dictionaryWithObjectsAndKeys:
           [UIColor blackColor],
@@ -88,7 +87,15 @@ NSString *const FBSessionStateChangedNotification =
         [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"titlebar.png"] forBarMetrics:UIBarMetricsDefault];
     } else {
         // Load resources for iOS 7 or later
-        [UINavigationBar appearance].tintColor = [UIColor whiteColor];
+        [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+        [UINavigationBar appearance].tintColor = [UIColor blackColor];
+        [[UINavigationBar appearance] setTitleTextAttributes:
+         [NSDictionary dictionaryWithObjectsAndKeys:
+          [UIColor blackColor],
+          UITextAttributeTextColor,
+          [UIFont fontWithName:@"Karla-Regular" size:20.0],
+          UITextAttributeFont,
+          nil]];
     }
 }
 
