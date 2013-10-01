@@ -15,4 +15,6 @@
 @property (strong, nonatomic) TPEIGame *gameObject;
 @property (weak, nonatomic) IBOutlet TPButton *playButton;
 
+@property (assign, nonatomic) int score;
+
 @end

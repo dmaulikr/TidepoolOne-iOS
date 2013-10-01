@@ -11,7 +11,7 @@
 
 @interface TPEIStagePickEmotionViewController ()
 {
-
+    NSDictionary *_buttonImages;
 }
 @end
 
@@ -31,9 +31,13 @@
     [super viewDidLoad];
     self.type = @"faceoff";
     // Do any additional setup after loading the view from its nib.
-    [self.emo_1 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
-    [self.emo_2 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
-    [self.emo_3 addTarget:self action:@selector(emotionChosen:) forControlEvents:UIControlEventTouchUpInside];
+    
+    _buttonImages = @{
+                     @"normal":[UIImage imageNamed:@"btn-faceoff-white-big.png"],
+                     @"correct":[UIImage imageNamed:@"btn-faceoff-correct-big.png"],
+                     @"incorrect":[UIImage imageNamed:@"btn-faceoff-wrong-big.png"],
+                     };
+
     [self.imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.imageView.layer setBorderWidth: 5.0];
     
@@ -72,34 +76,56 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)emotionChosen:(id)sender
+-(IBAction)emotionChosen:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    NSLog(button.titleLabel.text);
-    [self logCurrentResponse:button.titleLabel.text];
-////    [super stageOver];
-//    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-//        if (self.drawerView.transform.ty == 0) {
-////            [self.drawerView setTransform:CGAffineTransformMakeTranslation(0, 400)];
-//        } else {
-////            [self.drawerView setTransform:CGAffineTransformMakeTranslation(0, 0)];
-//        }
-//    }completion:^(BOOL done){
-//        //some completion handler
-//        [sender setEnabled:YES];
-//    }];
-    
-    //move to next part
-    if (self.secondary) {
-        if (self.isSecondary) {
-            [self showNextEmotion];
-        } else {
-            [self showSecondaryEmotion];
-        }
+    BOOL correct;
+    correct = [self logCurrentResponse:button.titleLabel.text];
+    [self updateButtonLooks:button forCorrect:correct];
+    [self showAnimationFromButton:button forCorrect:correct];
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO];
+}
+
+-(void)updateButtonLooks:(UIButton *)button forCorrect:(BOOL)correct
+{
+    if (correct) {
+        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-correct.png"];
+        [button setBackgroundImage:_buttonImages[@"correct"] forState:UIControlStateNormal];
     } else {
-        [self showNextEmotion];
+        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-wrong.png"];
+        [button setBackgroundImage:_buttonImages[@"incorrect"] forState:UIControlStateNormal];
     }
-    NSLog(button.titleLabel.text);
+}
+
+-(void)showAnimationFromButton:(UIButton *)button forCorrect:(BOOL)correct
+{
+    NSArray *images = @[@"points-wrong.png", @"points-correct.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[correct]]];
+    imageView.center = [self.view convertPoint:button.center fromView:self.drawerView];
+        self.view.userInteractionEnabled = NO;
+    [self.view addSubview:imageView];
+    [UIView animateWithDuration:1.0 animations:^{
+        imageView.center = self.scoreLabel.center;
+        imageView.alpha = 0.3;
+    } completion:^(BOOL finished) {
+        [imageView removeFromSuperview];
+        self.view.userInteractionEnabled = YES;        
+    }];
+}
+
+
+-(void)moveToNextPart
+{
+    // not asking twice for same pic
+//    if (self.secondary) {
+//        if (self.isSecondary) {
+//            [self showNextEmotion];
+//        } else {
+//            [self showSecondaryEmotion];
+//        }
+//    } else {
+        [self showNextEmotion];
+//    }
 }
 
 -(void)showSecondaryEmotion
@@ -131,9 +157,35 @@
     }
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
     [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
-    [self.emo_1 setTitle:self.imagesData[_imageIndex][@"emotions"][0] forState:UIControlStateNormal];
-    [self.emo_2 setTitle:self.imagesData[_imageIndex][@"emotions"][1] forState:UIControlStateNormal];
-    [self.emo_3 setTitle:self.imagesData[_imageIndex][@"emotions"][2] forState:UIControlStateNormal];
+    NSArray *emotionOptions = self.imagesData[_imageIndex][@"emotions"];
+    if (emotionOptions.count == 3) {
+        [self.emo_3_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
+        [self.emo_3_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
+        [self.emo_3_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
+        
+        [self.emo_3_0 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+        [self.emo_3_1 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+        [self.emo_3_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+        self.emo_4_0.hidden = self.emo_4_1.hidden = self.emo_4_2.hidden = self.emo_4_3.hidden = YES;
+
+        self.emo_3_0.hidden = self.emo_3_1.hidden = self.emo_3_2.hidden = NO;
+        
+    } else if (emotionOptions.count == 4) {
+        [self.emo_4_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
+        [self.emo_4_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
+        [self.emo_4_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
+        [self.emo_4_3 setTitle:emotionOptions[3] forState:UIControlStateNormal];
+        
+        [self.emo_4_0 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+        [self.emo_4_1 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+        [self.emo_4_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+        [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+
+        self.emo_4_0.hidden = self.emo_4_1.hidden = self.emo_4_2.hidden = self.emo_4_3.hidden = NO;
+
+        self.emo_3_0.hidden = self.emo_3_1.hidden = self.emo_3_2.hidden = YES;
+    }
+    
     self.primary = self.imagesData[_imageIndex][@"primary"];
     if (self.imagesData[_imageIndex][@"secondary"] != [NSNull null]) {
         self.secondary = self.imagesData[_imageIndex][@"secondary"];
@@ -143,16 +195,16 @@
     self.isSecondary = NO;
 }
 
--(void)logCurrentResponse:(NSString *)choice
+-(BOOL)logCurrentResponse:(NSString *)choice
 {
     BOOL correct;
     NSArray *correctString = @[@"incorrect", @"correct"];
-    if (self.isSecondary) {
-        correct = [choice isEqualToString:self.secondary];
-    } else {
-        correct = [choice isEqualToString:self.primary];
-    }
-    
+//    if (self.isSecondary) {
+//        correct = [choice isEqualToString:self.secondary];
+//    } else {
+//        correct = [choice isEqualToString:self.primary];
+//    }
+    correct = ([choice isEqualToString:self.secondary] || [choice isEqualToString:self.primary]);
     NSArray *modes = @[@"primary",@"secondary"];
     NSDictionary *event = @{
                             @"event":correctString[correct],
@@ -160,8 +212,8 @@
                             @"type":modes[_isSecondary],
                             @"instant_replay":[NSNumber numberWithInt:_instantReplayCount],
                             };
-    NSLog([event description]);
     [self logEventToServer:event];
+    return correct;
 }
 
 -(void)setIsSecondary:(BOOL)isSecondary
@@ -171,5 +223,4 @@
         // TODO: SETUP THE RIGHT THINGS
     }
 }
-
 @end
