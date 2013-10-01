@@ -75,6 +75,7 @@
 -(void)emotionChosen:(id)sender
 {
     UIButton *button = (UIButton *)sender;
+    NSLog(button.titleLabel.text);
     [self logCurrentResponse:button.titleLabel.text];
 ////    [super stageOver];
 //    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -98,6 +99,7 @@
     } else {
         [self showNextEmotion];
     }
+    NSLog(button.titleLabel.text);
 }
 
 -(void)showSecondaryEmotion
@@ -129,9 +131,9 @@
     }
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
     [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
-    self.emo_1.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][0];
-    self.emo_2.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][1];
-    self.emo_3.titleLabel.text = self.imagesData[_imageIndex][@"emotions"][2];
+    [self.emo_1 setTitle:self.imagesData[_imageIndex][@"emotions"][0] forState:UIControlStateNormal];
+    [self.emo_2 setTitle:self.imagesData[_imageIndex][@"emotions"][1] forState:UIControlStateNormal];
+    [self.emo_3 setTitle:self.imagesData[_imageIndex][@"emotions"][2] forState:UIControlStateNormal];
     self.primary = self.imagesData[_imageIndex][@"primary"];
     if (self.imagesData[_imageIndex][@"secondary"] != [NSNull null]) {
         self.secondary = self.imagesData[_imageIndex][@"secondary"];
