@@ -12,6 +12,7 @@
 @interface TPEIStagePickEmotionViewController ()
 {
     NSDictionary *_buttonImages;
+    NSMutableArray *_timers;
 }
 @end
 
@@ -30,6 +31,7 @@
 {
     [super viewDidLoad];
     self.type = @"faceoff";
+    _timers = [NSMutableArray array];
     // Do any additional setup after loading the view from its nib.
     
     _buttonImages = @{
@@ -89,12 +91,12 @@
     UIButton *button = (UIButton *)sender;
     BOOL correct;
     correct = [self logCurrentResponse:button.titleLabel.text];
-    [self updateButtonLooks:button forCorrect:correct];
+    [self updateButonLooks:button forCorrect:correct];
     [self showAnimationFromButton:button forCorrect:correct];
-    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO];
+    [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
 }
 
--(void)updateButtonLooks:(UIButton *)button forCorrect:(BOOL)correct
+-(void)updateButonLooks:(UIButton *)button forCorrect:(BOOL)correct
 {
     if (correct) {
         self.imageView.image = [UIImage imageNamed:@"faceoff-photo-correct.png"];
@@ -159,13 +161,16 @@
 {
     _imageIndex = imageIndex;
     if (_imageIndex == self.imagesData.count) {
+        for (NSTimer *timer in _timers) {
+            [timer invalidate];
+        }
         [self logLevelCompleted];
         [self stageOver];
         return;
     }
     self.imageIsHidden = NO;
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
-    [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
+    [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"emotions"];
     if (emotionOptions.count == 3) {
         [self.emo_3_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
@@ -238,7 +243,7 @@
     if (self.imageIsHidden) {
         [self flipImage];
         _instantReplayCount++;
-        [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
+        [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
     }
 }
 
