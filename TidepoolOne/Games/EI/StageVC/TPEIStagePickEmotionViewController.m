@@ -46,6 +46,9 @@
                                               @"secondary_multiplier":@1.0,
                                               @"time_to_show":@999,
                                               }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instantReplay)];
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:tap];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -65,7 +68,12 @@
                       duration:0.2
                        options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
-                        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-replay.png"];;
+                        self.imageIsHidden = !self.imageIsHidden;
+                        if (self.imageIsHidden) {
+                            self.imageView.image = [UIImage imageNamed:@"faceoff-photo-replay.png"];;
+                        } else {
+                            self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
+                        }
                     } completion:NULL];
 }
 
@@ -155,6 +163,7 @@
         [self stageOver];
         return;
     }
+    self.imageIsHidden = NO;
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
     [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"emotions"];
@@ -223,4 +232,14 @@
         // TODO: SETUP THE RIGHT THINGS
     }
 }
+
+-(void)instantReplay
+{
+    if (self.imageIsHidden) {
+        [self flipImage];
+        _instantReplayCount++;
+        [NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO];
+    }
+}
+
 @end

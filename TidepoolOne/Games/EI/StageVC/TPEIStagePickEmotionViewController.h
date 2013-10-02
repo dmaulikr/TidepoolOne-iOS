@@ -40,5 +40,6 @@
 @property (strong, nonatomic) NSString *secondary;
 @property (assign, nonatomic) int instantReplayCount;
 @property (assign, nonatomic) BOOL isSecondary;
+@property (assign, nonatomic) BOOL imageIsHidden;
 
 @end
