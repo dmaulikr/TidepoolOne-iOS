@@ -290,9 +290,16 @@
     }
     self.tableView.tableHeaderView = profileHeaderView;
     
-    UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-    [backButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"btn-back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem = backButtonItem;
+
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [backButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"btn-back.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        self.navigationItem.backBarButtonItem = backButtonItem;
+    } else {
+        //Default in iOS 7 is cool
+    }
+
 }
 
 -(void)loggedOut
