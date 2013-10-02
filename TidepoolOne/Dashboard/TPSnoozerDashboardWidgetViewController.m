@@ -128,6 +128,29 @@
     }
 }
 
+-(void)setDensityData:(NSArray *)densityData
+{
+    _densityData = densityData;
+    UIImage *high = [UIImage imageNamed:@"dash-density-green.png"];
+    UIImage *medium = [UIImage imageNamed:@"dash-density-yellow.png"];
+    UIImage *low = [UIImage imageNamed:@"dash-density-red.png"];
+    if (_densityData) {
+        for (int i=0;i<_densityData.count;i++) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(33*(i-0.5), 44, 66, 10)];
+            int timesPlayed = [_densityData[i] intValue];
+            if (timesPlayed <= 3) {
+                imageView.image = low;
+            } else if (timesPlayed <= 5) {
+                imageView.image = medium;
+            } else if (timesPlayed > 5) {
+                imageView.image = high;
+            }
+            [self.scrollView addSubview:imageView];
+        }
+    }
+}
+
+
 -(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
 {
     for (NSDictionary *item in array) {
