@@ -58,10 +58,10 @@
                             <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qo0-Me-fMC" customClass="TPButton">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qo0-Me-fMC" customClass="TPButton">
                             <rect key="frame" x="12" y="122" width="71" height="26"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Share" backgroundImage="btn-blue.png">
+                            <state key="normal" backgroundImage="btn-share.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
@@ -151,7 +151,7 @@
         </view>
     </objects>
     <resources>
-        <image name="btn-blue.png" width="126" height="45"/>
+        <image name="btn-share.png" width="72" height="27"/>
         <image name="chartbg.png" width="320" height="119"/>
         <image name="profile-header.png" width="320" height="151"/>
     </resources>
