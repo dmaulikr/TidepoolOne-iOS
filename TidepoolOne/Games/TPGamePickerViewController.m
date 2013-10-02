@@ -46,7 +46,12 @@
                      @"Snoozer":[UIImage imageNamed:@"cell-snoozer.png"],
                      @"EI":[UIImage imageNamed:@"cell-faceoff.png"],
                      };
-
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // iOS 6.1 or earlier
+    } else {
+        // iOS 7+
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning
