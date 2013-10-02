@@ -23,7 +23,6 @@
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (nonatomic, weak) IBOutlet UIButton *playAgainButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
-- (IBAction)shareAction:(id)sender;
 @property (nonatomic, weak) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, weak) IBOutlet UIView *bottomBar;
 @property (weak, nonatomic) IBOutlet TPSnoozerResultsGraphView *gameLevelHistoryView;

@@ -28,6 +28,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self.playAgainButton addTarget:self.gameVC action:@selector(getNewGame) forControlEvents:UIControlEventTouchUpInside];
+    [self.shareButton addTarget:self action:@selector(shareGame) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 - (void)didReceiveMemoryWarning

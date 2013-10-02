@@ -67,7 +67,7 @@
     return _result;
 }
 
-- (IBAction)shareAction:(id)sender
+- (IBAction)shareGame
 {
     NSString *message = [NSString stringWithFormat:@"I just played FaceOff"];
     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];

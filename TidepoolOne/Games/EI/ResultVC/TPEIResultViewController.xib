@@ -13,6 +13,8 @@
                 <outlet property="finishTimeLabel" destination="Ov1-JY-xWD" id="0lJ-NJ-yUK"/>
                 <outlet property="incorrectLabel" destination="7St-Ez-Wvh" id="F2T-7d-rsE"/>
                 <outlet property="instantReplaysLabel" destination="hox-fh-fEa" id="IND-ym-hHD"/>
+                <outlet property="playAgainButton" destination="nUX-ue-oIq" id="bQI-we-QKl"/>
+                <outlet property="shareButton" destination="2qh-mP-WlV" id="V3i-RH-7PX"/>
                 <outlet property="view" destination="XbC-fn-VyS" id="P9s-Bc-uEe"/>
             </connections>
         </placeholder>
@@ -216,8 +218,8 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUX-ue-oIq">
-                            <rect key="frame" x="167" y="15" width="133" height="45"/>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUX-ue-oIq">
+                            <rect key="frame" x="166" y="15" width="133" height="45"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                             <state key="normal" title="Play Again" backgroundImage="btn-red.png">
