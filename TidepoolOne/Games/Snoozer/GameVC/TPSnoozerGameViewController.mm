@@ -42,6 +42,9 @@
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Snoozer New Game"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Started Snoozer"];
 
 }
 

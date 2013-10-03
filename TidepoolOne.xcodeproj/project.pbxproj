@@ -723,6 +723,9 @@
 		A866654B17FCE02D001D1622 /* points-wrong@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86664E717FCE02D001D1622 /* points-wrong@2x~iphone.png */; };
 		A866654C17FCE02D001D1622 /* points-wrong~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = A86664E817FCE02D001D1622 /* points-wrong~iphone.png */; };
 		A866655417FCE70D001D1622 /* TPEmotionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A866655317FCE70D001D1622 /* TPEmotionCellView.m */; };
+		A866655617FE299F001D1622 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A866655517FE299F001D1622 /* Accelerate.framework */; };
+		A866655817FE29A4001D1622 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A866655717FE29A4001D1622 /* AdSupport.framework */; };
+		A866655A17FE29AC001D1622 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A866655917FE29AC001D1622 /* CoreTelephony.framework */; };
 		A867570217E8F1760015C48F /* TPColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A867570117E8F1760015C48F /* TPColor.m */; };
 		A86C5C6D17BC4675001A22D4 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86C5C6C17BC4675001A22D4 /* AudioToolbox.framework */; };
 		A879A6BD17A888C20082A455 /* TPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6A317A888C20082A455 /* TPLoginViewController.m */; };
@@ -1526,6 +1529,9 @@
 		A86664E817FCE02D001D1622 /* points-wrong~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "points-wrong~iphone.png"; sourceTree = "<group>"; };
 		A866655217FCE70D001D1622 /* TPEmotionCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEmotionCellView.h; path = EI/Views/TPEmotionCellView.h; sourceTree = "<group>"; };
 		A866655317FCE70D001D1622 /* TPEmotionCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEmotionCellView.m; path = EI/Views/TPEmotionCellView.m; sourceTree = "<group>"; };
+		A866655517FE299F001D1622 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		A866655717FE29A4001D1622 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A866655917FE29AC001D1622 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		A867570017E8F1760015C48F /* TPColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPColor.h; path = TPLibrary/Models/TPColor.h; sourceTree = SOURCE_ROOT; };
 		A867570117E8F1760015C48F /* TPColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPColor.m; path = TPLibrary/Models/TPColor.m; sourceTree = SOURCE_ROOT; };
 		A867570317E92B0C0015C48F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -1630,6 +1636,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A866655A17FE29AC001D1622 /* CoreTelephony.framework in Frameworks */,
+				A866655817FE29A4001D1622 /* AdSupport.framework in Frameworks */,
+				A866655617FE299F001D1622 /* Accelerate.framework in Frameworks */,
 				A8A887F717F0F15D0043EA76 /* CoreData.framework in Frameworks */,
 				A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */,
 				A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */,
@@ -1704,6 +1713,9 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A866655917FE29AC001D1622 /* CoreTelephony.framework */,
+				A866655717FE29A4001D1622 /* AdSupport.framework */,
+				A866655517FE299F001D1622 /* Accelerate.framework */,
 				A8A887F617F0F15D0043EA76 /* CoreData.framework */,
 				A867570317E92B0C0015C48F /* StoreKit.framework */,
 				A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */,
@@ -4050,6 +4062,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Vamsee Nalamothu (7N5U35L94Y)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"MIXPANEL_LOG=1",
+					"MIXPANEL_DEBUG=1",
+				);
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";

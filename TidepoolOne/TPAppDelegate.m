@@ -24,9 +24,9 @@ NSString *const FBSessionStateChangedNotification =
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-//    [GAI sharedInstance].trackUncaughtExceptions = YES;
-//    [GAI sharedInstance].dispatchInterval = 20;
-//    [GAI sharedInstance].debug = YES;
+    [Mixpanel sharedInstanceWithToken:@"d66bffcec658e942b00c61da53593578"];
+
+    
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
     NSLog(@"%@", [tracker description]);
     

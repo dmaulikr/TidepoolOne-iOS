@@ -28,7 +28,7 @@
 #import <GoogleAnalytics-iOS-SDK/GAI.h>
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
-
+#import <Mixpanel/Mixpanel.h>
 
 #ifndef DEVELOPMENT
     #define DEVELOPMENT
