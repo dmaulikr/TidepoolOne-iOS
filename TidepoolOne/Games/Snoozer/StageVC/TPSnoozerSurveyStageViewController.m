@@ -10,7 +10,6 @@
 
 @interface TPSnoozerSurveyStageViewController ()
 {
-    NSMutableArray *_eventArray;
 }
 @end
 
@@ -31,7 +30,6 @@
     // Do any additional setup after loading the view from its nib.
     self.type = @"survey";
     [self parseData];
-    _eventArray = [NSMutableArray array];
     [self logLevelStarted];
     [self loadDefaults];
 }
@@ -66,8 +64,11 @@
 }
 
 - (IBAction)submitStage:(id)sender {
-    [self logLevelCompleted];
-    [self.gameVC currentStageDoneWithEvents:_eventArray];
+    NSMutableArray *data = [NSMutableArray array];
+    [data addObject:@{@"question_id":@"activity1-7",@"topic":@"activity",@"answer":[NSNumber numberWithInt:self.sleepSlider.value*7.9999]}];
+    [data addObject:@{@"question_id":@"sleep1-7",@"topic":@"sleep",@"answer":[NSNumber numberWithInt:self.sleepSlider.value*7.9999]}];
+    [self logLevelCompletedWithAdditionalData:nil summary:@{@"data":data}];
+    [self stageOver];
 }
 
 - (IBAction)sleepMoved:(id)sender {
@@ -81,13 +82,6 @@
 }
 
 #pragma mark Logging functions
-
--(void)logEventToServer:(NSDictionary *)event
-{
-    NSMutableDictionary *eventWithTime = [event mutableCopy];
-    [eventWithTime setValue:[NSNumber numberWithLongLong:[self epochTimeNow]] forKey:@"time"];
-    [_eventArray addObject:eventWithTime];
-}
 
 -(void)logSleepChanged
 {
@@ -108,29 +102,6 @@
     [event setValue:[NSNumber numberWithInt:self.sleepSlider.value*7.9999] forKey:@"answer"];
     [self logEventToServer:event];
 }
-
-
--(void)logLevelStarted
-{
-    NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"level_started" forKey:@"event"];
-    [event setValue:self.data[@"game_type"] forKey:@"sequence_type"];
-    [self logEventToServer:event];
-}
-
--(void)logLevelCompleted
-{
-    NSMutableDictionary *event = [NSMutableDictionary dictionary];
-    [event setValue:@"level_completed" forKey:@"event"];
-    [self logEventToServer:event];
-    [event setValue:@"level_summary" forKey:@"event"];
-    NSMutableArray *data = [NSMutableArray array];
-    [data addObject:@{@"question_id":@"activity1-7",@"topic":@"activity",@"answer":[NSNumber numberWithInt:self.sleepSlider.value*7.9999]}];
-    [data addObject:@{@"question_id":@"sleep1-7",@"topic":@"sleep",@"answer":[NSNumber numberWithInt:self.sleepSlider.value*7.9999]}];
-    [event setValue:data forKey:@"data"];
-    [self logEventToServer:event];
-}
-
 
 -(void)saveDefaults
 {
