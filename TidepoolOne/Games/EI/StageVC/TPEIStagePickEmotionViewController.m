@@ -52,11 +52,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.imageView.layer setBorderColor: [[UIColor whiteColor] CGColor]];
     [self.imageView.layer setBorderWidth: 5.0];
     
-    [self logLevelStartedWithAdditionalData:@{
-                                              @"primary_multiplier":@2.0,
-                                              @"secondary_multiplier":@1.0,
-                                              @"time_to_show":@999,
-                                              }];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instantReplay)];
     self.imageView.userInteractionEnabled = YES;
     [self.imageView addGestureRecognizer:tap];
@@ -201,8 +196,15 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         self.imagesData = data[@"images"];
         self.timeToShow = [data[@"time_to_show"] floatValue];
         self.primaryMultiplier = [data[@"primary_multiplier"] floatValue];
-        self.secondaryMultiplier = [data[@"primary_multiplier"] floatValue];
-        self.difficultyMultiplier = [data[@"primary_multiplier"] floatValue];
+        self.secondaryMultiplier = [data[@"secondary_multiplier"] floatValue];
+        self.difficultyMultiplier = [data[@"difficulty_multiplier"] floatValue];
+        
+        [self logLevelStartedWithAdditionalData:@{
+                                                  @"primary_multiplier":[NSNumber numberWithFloat:self.primaryMultiplier],
+                                                  @"secondary_multiplier":[NSNumber numberWithFloat:self.secondaryMultiplier],
+                                                  @"difficulty_multiplier":[NSNumber numberWithFloat:self.difficultyMultiplier],
+                                                  @"time_to_show":[NSNumber numberWithFloat:self.timeToShow],
+                                                  }];
     }
 }
 
