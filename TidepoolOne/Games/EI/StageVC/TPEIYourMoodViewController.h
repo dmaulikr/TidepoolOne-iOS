@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (assign, nonatomic) int selectedEmotionIndex;
+@property (strong, nonatomic) TPBarButtonItem *rightButton;
 
 @end

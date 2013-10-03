@@ -37,12 +37,6 @@
                         <constraint firstAttribute="height" constant="200" id="BXP-79-nPQ"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Identify the emotion of the image." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cof-E5-d0R" customClass="TPLabel">
-                    <rect key="frame" x="13" y="248" width="294" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hs-QM-l1b">
                     <rect key="frame" x="0.0" y="368" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -207,14 +201,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="OAK-Uv-wEC" firstAttribute="top" secondItem="1" secondAttribute="top" constant="35" id="1pB-F3-hqx"/>
-                <constraint firstItem="cof-E5-d0R" firstAttribute="top" secondItem="OAK-Uv-wEC" secondAttribute="bottom" constant="13" id="6WK-b2-77v"/>
                 <constraint firstItem="Qw9-Ik-1yW" firstAttribute="leading" secondItem="OAK-Uv-wEC" secondAttribute="leading" id="B6m-94-Qt3"/>
                 <constraint firstItem="gcc-Tv-O82" firstAttribute="leading" secondItem="Qw9-Ik-1yW" secondAttribute="trailing" constant="8" symbolic="YES" id="EIl-le-Bhh"/>
                 <constraint firstItem="OAK-Uv-wEC" firstAttribute="top" secondItem="Qw9-Ik-1yW" secondAttribute="bottom" constant="8" symbolic="YES" id="IZT-7h-BM7"/>
-                <constraint firstItem="cof-E5-d0R" firstAttribute="trailing" secondItem="OAK-Uv-wEC" secondAttribute="trailing" id="NHS-Pd-vdM"/>
                 <constraint firstAttribute="trailing" secondItem="0Hs-QM-l1b" secondAttribute="trailing" id="Pe5-A8-Vzp"/>
                 <constraint firstItem="OAK-Uv-wEC" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="SDS-rk-F2r"/>
-                <constraint firstItem="cof-E5-d0R" firstAttribute="leading" secondItem="OAK-Uv-wEC" secondAttribute="leading" id="eHE-Pg-qcc"/>
                 <constraint firstAttribute="bottom" secondItem="HJx-9v-O7S" secondAttribute="bottom" constant="-6" id="fLd-e2-aFK"/>
                 <constraint firstItem="gcc-Tv-O82" firstAttribute="baseline" secondItem="Qw9-Ik-1yW" secondAttribute="baseline" id="maN-iT-yUK"/>
                 <constraint firstItem="0Hs-QM-l1b" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="qoa-e4-2fz"/>

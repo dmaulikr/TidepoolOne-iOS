@@ -23,6 +23,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"Choose your mood";
     }
     return self;
 }
@@ -37,12 +38,13 @@
     _selectedEmotionIndex = -1;
     _eventArray = [NSMutableArray array];    
     _rightButton = [[TPBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(submitStage:)];
-    self.navigationItem.rightBarButtonItem = _rightButton;
+    self.gameVC.navigationItem.rightBarButtonItem = _rightButton;
     self.type = @"survey";
     [ self logLevelStarted];
 }
 
 - (IBAction)submitStage:(id)sender {
+    self.gameVC.navigationItem.rightBarButtonItem = nil;
     NSMutableArray *data = [NSMutableArray array];
     [data addObject:@{@"question_id":@"emotion22",@"topic":@"emotion",@"answer":_emotions[_selectedEmotionIndex]}];
     [self logLevelCompletedWithAdditionalData:nil summary:@{@"data":data}];
@@ -110,9 +112,6 @@
     } else {
         self.selectedEmotionIndex = indexPath.row;
     }
-    
-    // since right button isnt coming
-    [self submitStage:nil];
 }
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 }

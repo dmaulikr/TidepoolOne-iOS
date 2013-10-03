@@ -121,10 +121,11 @@
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] initWithNibName:nil bundle:nil];
+    stageVC.gameVC = self;
     stageVC.view.frame = self.view.bounds;
     stageVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
-    stageVC.gameVC = self;
     stageVC.data = self.gameObject[@"stages"][_stage];
+    self.title = stageVC.title;
     [self displayContentController:stageVC];
 }
 

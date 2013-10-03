@@ -9,6 +9,8 @@
 #import "TPEIStagePickEmotionViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrectSecondary} ChoiceCorrect;
+
 @interface TPEIStagePickEmotionViewController ()
 {
     NSDictionary *_buttonImages;
@@ -23,6 +25,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"Identify the emotion";
     }
     return self;
 }
@@ -89,14 +92,14 @@
 -(IBAction)emotionChosen:(id)sender
 {
     UIButton *button = (UIButton *)sender;
-    BOOL correct;
+    ChoiceCorrect correct;
     correct = [self logCurrentResponse:button.titleLabel.text];
     [self updateButonLooks:button forCorrect:correct];
     [self showAnimationFromButton:button forCorrect:correct];
     [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
 }
 
--(void)updateButonLooks:(UIButton *)button forCorrect:(BOOL)correct
+-(void)updateButonLooks:(UIButton *)button forCorrect:(ChoiceCorrect)correct
 {
     if (correct) {
         self.imageView.image = [UIImage imageNamed:@"faceoff-photo-correct.png"];
@@ -107,13 +110,24 @@
     }
 }
 
--(void)showAnimationFromButton:(UIButton *)button forCorrect:(BOOL)correct
+-(void)showAnimationFromButton:(UIButton *)button forCorrect:(ChoiceCorrect)correct
 {
     NSArray *images = @[@"points-wrong.png", @"points-correct.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[correct]]];
     imageView.center = [self.view convertPoint:button.center fromView:self.drawerView];
         self.view.userInteractionEnabled = NO;
     [self.view addSubview:imageView];
+    TPLabel *label = [[TPLabel alloc] initWithFrame:imageView.bounds];
+    label.fontSize = 20;
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    if (correct == ChoiceCorrectPrimary) {
+        label.text = [NSString stringWithFormat:@"+200"];
+    } else if (correct == ChoiceCorrectSecondary) {
+        label.text = [NSString stringWithFormat:@"+100"];
+    }
+
+    [imageView addSubview:label];
     [UIView animateWithDuration:1.0 animations:^{
         imageView.center = self.scoreLabel.center;
         imageView.alpha = 0.3;
@@ -122,7 +136,6 @@
         self.view.userInteractionEnabled = YES;        
     }];
 }
-
 
 -(void)moveToNextPart
 {
@@ -209,17 +222,22 @@
     self.isSecondary = NO;
 }
 
--(BOOL)logCurrentResponse:(NSString *)choice
+-(ChoiceCorrect)logCurrentResponse:(NSString *)choice
 {
-    BOOL correct;
+    ChoiceCorrect correct;
     NSArray *correctString = @[@"incorrect", @"correct"];
 //    if (self.isSecondary) {
 //        correct = [choice isEqualToString:self.secondary];
 //    } else {
 //        correct = [choice isEqualToString:self.primary];
 //    }
-    correct = ([choice isEqualToString:self.secondary] || [choice isEqualToString:self.primary]);
-    NSArray *modes = @[@"primary",@"secondary"];
+    correct = ChoiceCorrectNo;
+    if ([choice isEqualToString:self.secondary]) {
+        correct = ChoiceCorrectSecondary;
+    } else if ([choice isEqualToString:self.primary]) {
+        correct = ChoiceCorrectPrimary;
+    }
+    NSArray *modes = @[@"", @"primary",@"secondary"];
     NSDictionary *event = @{
                             @"event":correctString[correct],
                             @"value":choice,
