@@ -14,6 +14,7 @@
                 <outlet property="incorrectLabel" destination="7St-Ez-Wvh" id="F2T-7d-rsE"/>
                 <outlet property="instantReplaysLabel" destination="hox-fh-fEa" id="IND-ym-hHD"/>
                 <outlet property="playAgainButton" destination="nUX-ue-oIq" id="bQI-we-QKl"/>
+                <outlet property="scoreLabel" destination="M3S-7G-wWP" id="QVG-aR-wxF"/>
                 <outlet property="shareButton" destination="2qh-mP-WlV" id="V3i-RH-7PX"/>
                 <outlet property="view" destination="XbC-fn-VyS" id="P9s-Bc-uEe"/>
             </connections>

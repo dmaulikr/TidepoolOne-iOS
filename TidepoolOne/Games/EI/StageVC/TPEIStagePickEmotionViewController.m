@@ -15,6 +15,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 {
     NSDictionary *_buttonImages;
     NSMutableArray *_timers;
+    int _score;
 }
 @end
 
@@ -26,6 +27,11 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     if (self) {
         // Custom initialization
         self.title = @"Identify the emotion";
+        
+        _incorrectBaseScore = -20;
+        _correctBaseScore = 100;
+        _instantReplayBaseScore = -5;
+        
     }
     return self;
 }
@@ -54,6 +60,8 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(instantReplay)];
     self.imageView.userInteractionEnabled = YES;
     [self.imageView addGestureRecognizer:tap];
+    
+    self.score = 0;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -94,12 +102,12 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     UIButton *button = (UIButton *)sender;
     ChoiceCorrect correct;
     correct = [self logCurrentResponse:button.titleLabel.text];
-    [self updateButonLooks:button forCorrect:correct];
+    [self updateButtonLooks:button forCorrect:correct];
     [self showAnimationFromButton:button forCorrect:correct];
     [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
 }
 
--(void)updateButonLooks:(UIButton *)button forCorrect:(ChoiceCorrect)correct
+-(void)updateButtonLooks:(UIButton *)button forCorrect:(ChoiceCorrect)correct
 {
     if (correct) {
         self.imageView.image = [UIImage imageNamed:@"faceoff-photo-correct.png"];
@@ -113,7 +121,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(void)showAnimationFromButton:(UIButton *)button forCorrect:(ChoiceCorrect)correct
 {
     NSArray *images = @[@"points-wrong.png", @"points-correct.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[correct]]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[(correct!=0)]]];
     imageView.center = [self.view convertPoint:button.center fromView:self.drawerView];
         self.view.userInteractionEnabled = NO;
     [self.view addSubview:imageView];
@@ -121,21 +129,46 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     label.fontSize = 20;
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
-    if (correct == ChoiceCorrectPrimary) {
-        label.text = [NSString stringWithFormat:@"+200"];
-    } else if (correct == ChoiceCorrectSecondary) {
-        label.text = [NSString stringWithFormat:@"+100"];
-    }
-
+    int scoreDelta = [self getScoreDeltaForChoice:correct];
+    label.text = [NSString stringWithFormat:@"%i", scoreDelta];
+    
     [imageView addSubview:label];
     [UIView animateWithDuration:1.0 animations:^{
         imageView.center = self.scoreLabel.center;
         imageView.alpha = 0.3;
     } completion:^(BOOL finished) {
         [imageView removeFromSuperview];
-        self.view.userInteractionEnabled = YES;        
+        self.view.userInteractionEnabled = YES;
+        self.score += scoreDelta;
     }];
 }
+
+-(int)getScoreDeltaForChoice:(ChoiceCorrect)correct
+{
+    int scoreDelta = 0;
+    switch (correct) {
+        case ChoiceCorrectNo:
+        {
+            scoreDelta += _incorrectBaseScore;
+        }
+            break;
+        case ChoiceCorrectPrimary:
+        {
+            scoreDelta += _correctBaseScore * _primaryMultiplier * _difficultyMultiplier;
+        }
+            break;
+        case ChoiceCorrectSecondary:
+        {
+            scoreDelta += _correctBaseScore * _secondaryMultiplier * _difficultyMultiplier;
+        }
+            break;
+        default:
+            break;
+    }
+    scoreDelta += (_instantReplayBaseScore * _instantReplayCount);
+    return scoreDelta;
+}
+
 
 -(void)moveToNextPart
 {
@@ -167,6 +200,9 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     if (data) {
         self.imagesData = data[@"images"];
         self.timeToShow = [data[@"time_to_show"] floatValue];
+        self.primaryMultiplier = [data[@"primary_multiplier"] floatValue];
+        self.secondaryMultiplier = [data[@"primary_multiplier"] floatValue];
+        self.difficultyMultiplier = [data[@"primary_multiplier"] floatValue];
     }
 }
 
@@ -239,9 +275,9 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     }
     NSArray *modes = @[@"", @"primary",@"secondary"];
     NSDictionary *event = @{
-                            @"event":correctString[correct],
+                            @"event":correctString[(correct!=0)],
                             @"value":choice,
-                            @"type":modes[_isSecondary],
+                            @"type":modes[correct],
                             @"instant_replay":[NSNumber numberWithInt:_instantReplayCount],
                             };
     [self logEventToServer:event];
@@ -263,6 +299,17 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         _instantReplayCount++;
         [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
     }
+}
+
+-(void)setScore:(int)score
+{
+    _score = score;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%i", score];
+}
+
+-(int)score
+{
+    return _score;
 }
 
 @end

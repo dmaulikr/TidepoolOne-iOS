@@ -29,7 +29,7 @@
 - (IBAction)emotionChosen:(id)sender;
 
 @property (weak, nonatomic) IBOutlet TPLabel *scoreLabel;
-
+@property (assign, nonatomic) int score;
 
 
 @property (assign, nonatomic) int imageIndex;
@@ -41,5 +41,15 @@
 @property (assign, nonatomic) int instantReplayCount;
 @property (assign, nonatomic) BOOL isSecondary;
 @property (assign, nonatomic) BOOL imageIsHidden;
+
+//scoring
+@property (assign, nonatomic) int correctBaseScore;
+@property (assign, nonatomic) int incorrectBaseScore;
+@property (assign, nonatomic) int instantReplayBaseScore;
+@property (assign, nonatomic) float primaryMultiplier;
+@property (assign, nonatomic) float secondaryMultiplier;
+@property (assign, nonatomic) float difficultyMultiplier;
+
+
 
 @end

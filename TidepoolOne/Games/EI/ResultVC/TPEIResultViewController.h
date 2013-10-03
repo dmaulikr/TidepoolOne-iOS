@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet TPLabel *instantReplaysLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *correctLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *incorrectLabel;
+@property (weak, nonatomic) IBOutlet TPLabelBold *scoreLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;

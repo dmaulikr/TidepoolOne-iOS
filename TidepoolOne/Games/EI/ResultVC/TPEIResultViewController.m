@@ -54,6 +54,7 @@
     if (_result) {
         self.badgeImageView = nil;
         self.blurbView = nil;
+        self.scoreLabel.text = _result[@"eq_score"];
         self.finishTimeLabel.text = [NSString stringWithFormat:@"%i",[_result[@"time_elapsed"] intValue] / 1000];
         self.instantReplaysLabel.text = _result[@"instant_replays"];
         self.correctLabel.text = _result[@"corrects"];

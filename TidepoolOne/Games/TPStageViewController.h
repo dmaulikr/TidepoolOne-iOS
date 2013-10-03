@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) NSMutableArray *eventArray;
 
+@property (nonatomic, assign) int score;
+
 -(void)logEventToServer:(NSDictionary *)event;
 
 -(void)logLevelStarted;

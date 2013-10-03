@@ -33,6 +33,7 @@
     NSMutableArray *_eventsForEachStageArray;
     NSTimer *_pollTimeoutTimer;
     NSTimer *_pollTimer;
+    int _gameScore;
 }
 @end
 
@@ -70,6 +71,7 @@
 -(void)setupNewGame
 {
     _stage = 0;
+    _gameScore = 0;
     _eventsForEachStageArray = [NSMutableArray array];
     self.gameStartView.hidden = YES;
     if (self.childViewControllers.count) {
@@ -126,6 +128,7 @@
     stageVC.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - self.tabBarController.tabBar.frame.size.height);
     stageVC.data = self.gameObject[@"stages"][_stage];
     self.title = stageVC.title;
+    stageVC.score = _gameScore;
     [self displayContentController:stageVC];
 }
 
@@ -139,6 +142,7 @@
 -(void)currentStageDoneWithEvents:(NSArray *)events
 {
     TPStageViewController *currentVC = self.childViewControllers[0];
+    _gameScore = currentVC.score;
     NSMutableDictionary *stageLog = [NSMutableDictionary dictionary];
     [stageLog setValue:[NSNumber numberWithInt:_stage] forKey:@"stage"];
     [stageLog setValue:events forKey:@"events"];
