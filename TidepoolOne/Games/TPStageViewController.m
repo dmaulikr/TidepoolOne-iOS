@@ -61,7 +61,7 @@
     [self logEventToServer:event];
     
 }
--(void)logLevelCompletedWithAdditionalData:(NSDictionary *)data
+-(void)logLevelCompletedWithAdditionalData:(NSDictionary *)data summary:(NSDictionary *)summaryData
 {
     NSMutableDictionary *event;
     if (data) {
@@ -71,8 +71,15 @@
     }
     [event setValue:@"level_completed" forKey:@"event"];
     [self logEventToServer:event];
-    [event setValue:@"level_summary" forKey:@"event"];
-    [self logEventToServer:event];
+    
+    NSMutableDictionary *summaryEvent;
+    if (summaryData) {
+        summaryEvent = [summaryData mutableCopy];
+    } else {
+        summaryEvent = [NSMutableDictionary dictionary];
+    }
+    [summaryEvent setValue:@"level_summary" forKey:@"event"];
+    [self logEventToServer:summaryEvent];
 }
 
 -(void)logLevelStarted
@@ -81,7 +88,7 @@
 }
 -(void)logLevelCompleted
 {
-    [self logLevelCompletedWithAdditionalData:nil];
+    [self logLevelCompletedWithAdditionalData:nil summary:nil];
 }
 
 

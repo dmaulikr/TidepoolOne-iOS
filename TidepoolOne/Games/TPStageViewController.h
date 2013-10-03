@@ -23,7 +23,7 @@
 -(void)logLevelCompleted;
 
 -(void)logLevelStartedWithAdditionalData:(NSDictionary *)data;
--(void)logLevelCompletedWithAdditionalData:(NSDictionary *)data;
+-(void)logLevelCompletedWithAdditionalData:(NSDictionary *)data summary:(NSDictionary *)summaryData;
 
 
 -(void)stageOver;
