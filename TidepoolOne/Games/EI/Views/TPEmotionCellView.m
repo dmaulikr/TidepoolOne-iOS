@@ -24,7 +24,7 @@
         // Initialization code
         _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 155, 137)];
         [self addSubview:_imgView];
-        _label = [[TPLabel alloc] initWithFrame:CGRectMake(0, 137, 155, 20)];
+        _label = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 137, 155, 20)];
         _label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_label];
     }

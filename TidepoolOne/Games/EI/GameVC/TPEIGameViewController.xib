@@ -16,12 +16,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceoff-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="LQx-aD-efL">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="faceoff-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="LQx-aD-efL">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqA-7o-8eu" customClass="TPButton">
-                    <rect key="frame" x="120" y="411" width="81" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqA-7o-8eu" customClass="TPButton">
+                    <rect key="frame" x="120" y="455" width="81" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Play" backgroundImage="btn-red.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -31,41 +31,47 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceoff-logo-white.png" translatesAutoresizingMaskIntoConstraints="NO" id="Lyg-up-wrc">
                     <rect key="frame" x="39" y="20" width="242" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="242" id="Skd-Su-SoK"/>
-                        <constraint firstAttribute="height" constant="80" id="YEn-91-N8J"/>
-                    </constraints>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This game helps you understand how well you read emotions on others, also known as emotional intelligence or EQ." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="235" translatesAutoresizingMaskIntoConstraints="NO" id="Wia-NB-y9G" customClass="TPLabel">
-                    <rect key="frame" x="43" y="108" width="235" height="102"/>
+                    <rect key="frame" x="46" y="108" width="235" height="102"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Match the emotion to the picture shown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-gz-Ttz" customClass="TPLabel">
-                    <rect key="frame" x="39" y="323" width="242" height="80"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Match the emotion to the picture shown" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="HG3-gz-Ttz" customClass="TPLabel">
+                    <rect key="frame" x="39" y="367" width="242" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How to play:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="byP-zL-tOs" customClass="TPLabelBold">
-                    <rect key="frame" x="39" y="301" width="242" height="32"/>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to play:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="242" translatesAutoresizingMaskIntoConstraints="NO" id="byP-zL-tOs" customClass="TPLabelBold">
+                    <rect key="frame" x="39" y="327" width="242" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="ZHa-Ot-YCR"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="LQx-aD-efL" firstAttribute="top" secondItem="1" secondAttribute="top" id="4OI-lo-yOB"/>
-                <constraint firstItem="Wia-NB-y9G" firstAttribute="top" secondItem="Lyg-up-wrc" secondAttribute="bottom" constant="8" symbolic="YES" id="BNG-OY-2cC"/>
-                <constraint firstAttribute="bottom" secondItem="LQx-aD-efL" secondAttribute="bottom" id="BVC-Of-w5S"/>
-                <constraint firstItem="Lyg-up-wrc" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="U5z-6C-KG8"/>
-                <constraint firstItem="Lyg-up-wrc" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="UWu-XB-zkc"/>
-                <constraint firstItem="LQx-aD-efL" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="k66-iI-G8C"/>
-                <constraint firstAttribute="trailing" secondItem="LQx-aD-efL" secondAttribute="trailing" id="r6l-Pg-Dgn"/>
-                <constraint firstItem="LQx-aD-efL" firstAttribute="centerX" secondItem="Wia-NB-y9G" secondAttribute="centerX" id="xZb-Nj-yTc"/>
+                <constraint firstItem="Lyg-up-wrc" firstAttribute="trailing" secondItem="HG3-gz-Ttz" secondAttribute="trailing" id="29T-Eg-2LG"/>
+                <constraint firstItem="Lyg-up-wrc" firstAttribute="centerX" secondItem="LQx-aD-efL" secondAttribute="centerX" id="3de-Fp-e3Z"/>
+                <constraint firstItem="Lyg-up-wrc" firstAttribute="leading" secondItem="HG3-gz-Ttz" secondAttribute="leading" id="6Tm-js-1Dd"/>
+                <constraint firstItem="byP-zL-tOs" firstAttribute="trailing" secondItem="HG3-gz-Ttz" secondAttribute="trailing" id="7d0-HV-41D"/>
+                <constraint firstItem="Wia-NB-y9G" firstAttribute="trailing" secondItem="Lyg-up-wrc" secondAttribute="trailing" id="DZ2-3K-zTb"/>
+                <constraint firstAttribute="bottom" secondItem="XqA-7o-8eu" secondAttribute="bottom" constant="83" id="LsS-Zq-XIE"/>
+                <constraint firstItem="Lyg-up-wrc" firstAttribute="centerX" secondItem="XqA-7o-8eu" secondAttribute="centerX" id="Naw-iT-cP2"/>
+                <constraint firstItem="byP-zL-tOs" firstAttribute="leading" secondItem="HG3-gz-Ttz" secondAttribute="leading" id="ReV-pk-HG9"/>
+                <constraint firstAttribute="bottom" secondItem="byP-zL-tOs" secondAttribute="bottom" constant="209" id="Slu-eg-O58"/>
+                <constraint firstItem="XqA-7o-8eu" firstAttribute="leading" secondItem="HG3-gz-Ttz" secondAttribute="trailing" constant="-161" id="TMN-Nf-NkY"/>
+                <constraint firstItem="byP-zL-tOs" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="39" id="Uh0-Ur-Txd"/>
+                <constraint firstItem="HG3-gz-Ttz" firstAttribute="top" secondItem="byP-zL-tOs" secondAttribute="bottom" constant="8" symbolic="YES" id="YHQ-75-9yb"/>
+                <constraint firstItem="Lyg-up-wrc" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="eb3-pV-PD3"/>
+                <constraint firstItem="Wia-NB-y9G" firstAttribute="top" secondItem="Lyg-up-wrc" secondAttribute="bottom" constant="8" symbolic="YES" id="lye-nv-Kqa"/>
+                <constraint firstItem="Lyg-up-wrc" firstAttribute="top" secondItem="1" secondAttribute="top" constant="20" symbolic="YES" id="znO-Kv-dMj"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
