@@ -108,6 +108,8 @@
 
 -(void)loggedInSignal
 {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Login successful"];
     if (_loginVC) {
         [_loginVC dismissViewControllerAnimated:YES completion:^{
             [self checkIfPersonalityExists];
@@ -118,6 +120,9 @@
 
 -(void)loggedOutSignal
 {
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Logout successful"];
+
     [self doLogin];
 }
 

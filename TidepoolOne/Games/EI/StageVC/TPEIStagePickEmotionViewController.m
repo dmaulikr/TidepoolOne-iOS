@@ -57,6 +57,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.imageView addGestureRecognizer:tap];
     
     self.score = 0;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -99,6 +100,10 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     correct = [self logCurrentResponse:button.titleLabel.text];
     [self updateButtonLooks:button forCorrect:correct];
     [self showAnimationFromButton:button forCorrect:correct];
+    [UIView animateWithDuration:1.0 animations:^{
+        self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
+        [self.view layoutIfNeeded];
+    }];
     [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
 }
 
@@ -250,7 +255,9 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 
         self.emo_3_0.hidden = self.emo_3_1.hidden = self.emo_3_2.hidden = YES;
     }
-    
+    [UIView animateWithDuration:1.0 animations:^{
+        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
+    }];
     self.primary = self.imagesData[_imageIndex][@"primary"];
     if (self.imagesData[_imageIndex][@"secondary"] != [NSNull null]) {
         self.secondary = self.imagesData[_imageIndex][@"secondary"];

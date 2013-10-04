@@ -59,6 +59,9 @@
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Walkthrough Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+    
+    Mixpanel *mixpanel = [Mixpanel sharedInstance];
+    [mixpanel track:@"Walkthrough shown"];
 }
 
 - (void)didReceiveMemoryWarning

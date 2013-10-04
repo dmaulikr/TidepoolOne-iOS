@@ -38,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Hs-QM-l1b">
-                    <rect key="frame" x="0.0" y="368" width="320" height="200"/>
+                    <rect key="frame" x="0.0" y="568" width="320" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGi-E1-HYh">
@@ -210,7 +210,7 @@
                 <constraint firstItem="gcc-Tv-O82" firstAttribute="baseline" secondItem="Qw9-Ik-1yW" secondAttribute="baseline" id="maN-iT-yUK"/>
                 <constraint firstItem="0Hs-QM-l1b" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="qoa-e4-2fz"/>
                 <constraint firstItem="OAK-Uv-wEC" firstAttribute="centerX" secondItem="HJx-9v-O7S" secondAttribute="centerX" id="sDl-hc-YwK"/>
-                <constraint firstAttribute="bottom" secondItem="0Hs-QM-l1b" secondAttribute="bottom" id="slR-RP-6IA"/>
+                <constraint firstAttribute="bottom" secondItem="0Hs-QM-l1b" secondAttribute="bottom" constant="-200" id="slR-RP-6IA"/>
                 <constraint firstItem="HJx-9v-O7S" firstAttribute="top" secondItem="1" secondAttribute="top" id="x53-PE-DBo"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
