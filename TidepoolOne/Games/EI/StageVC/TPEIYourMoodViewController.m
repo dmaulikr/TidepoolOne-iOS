@@ -23,7 +23,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Choose your mood";
     }
     return self;
 }
@@ -37,7 +36,8 @@
     self.collectionView.dataSource = self;
     _selectedEmotionIndex = -1;
     _eventArray = [NSMutableArray array];    
-    _rightButton = [[TPBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStyleDone target:self action:@selector(submitStage:)];
+    _rightButton = [[TPBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(submitStage:)];
+    _rightButton.tintColor = [UIColor blueColor];
     self.gameVC.navigationItem.rightBarButtonItem = _rightButton;
     self.type = @"survey";
     [ self logLevelStarted];
