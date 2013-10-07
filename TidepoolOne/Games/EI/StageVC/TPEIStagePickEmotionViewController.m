@@ -26,8 +26,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title = @"Identify the emotion";
-        
         _incorrectBaseScore = -20;
         _correctBaseScore = 100;
         _instantReplayBaseScore = -5;
@@ -116,6 +114,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         self.imageView.image = [UIImage imageNamed:@"faceoff-photo-wrong.png"];
         [button setBackgroundImage:_buttonImages[@"incorrect"] forState:UIControlStateNormal];
     }
+    button.titleLabel.textColor = [UIColor colorWithWhite:36/255.0 alpha:1.0];
 }
 
 -(void)showAnimationFromButton:(UIButton *)button forCorrect:(ChoiceCorrect)correct
@@ -133,6 +132,15 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     label.text = [NSString stringWithFormat:@"%i", scoreDelta];
     
     [imageView addSubview:label];
+    [UIView animateWithDuration:0.2 delay:0.9 options:UIViewAnimationOptionAutoreverse animations:^{
+        CGAffineTransform t = CGAffineTransformMakeScale(1.1, 1.1);
+        self.scoreLabel.transform = t;
+        [self.scoreLabel layoutIfNeeded];
+        [self.view layoutIfNeeded];
+//        self.scoreLabel.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished) {
+        self.scoreLabel.transform = CGAffineTransformIdentity;
+    }];
     [UIView animateWithDuration:1.0 animations:^{
         imageView.center = self.scoreLabel.center;
         imageView.alpha = 0.3;

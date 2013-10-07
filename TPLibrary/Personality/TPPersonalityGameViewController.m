@@ -103,15 +103,19 @@
             NSLog(@"WEB.LOG (message):%@",jsonMessage[@"message"]);
             NSLog(@"WEB.LOG (details):%@",jsonMessage[@"details"]);
             [self logEventToGoogleAnalytics:jsonMessage[@"message"] ofType:@"log"];
-            Mixpanel *mixpanel = [Mixpanel sharedInstance];
-            [mixpanel track:jsonMessage[@"message"]];
+#ifndef DEBUG
+            //Analytics
+            [[Mixpanel sharedInstance] track:jsonMessage[@"message"]];
+#endif
         } else if ([messageType isEqualToString:@"error"]) {
             _messageLabel.text = jsonMessage[@"message"];
             NSLog(@"WEB.ERROR (message):%@",jsonMessage[@"message"]);
             NSLog(@"WEB.ERROR (details):%@",jsonMessage[@"details"]);
             [self logEventToGoogleAnalytics:jsonMessage[@"message"] ofType:@"error"];
-            Mixpanel *mixpanel = [Mixpanel sharedInstance];
-            [mixpanel track:jsonMessage[@"message"]];
+#ifndef DEBUG
+            //Analytics
+            [[Mixpanel sharedInstance] track:jsonMessage[@"message"]];
+#endif
             [self personalityGameThrewError];
         } else if ([messageType isEqualToString:@"warn"]) {
             NSLog(@"WEB.WARN (message):%@",jsonMessage[@"message"]);
@@ -143,10 +147,10 @@
 
 -(void)startNewPersonalityGame
 {
-    
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Personality Game Started"];
-
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Personality Game Started"];
+#endif
     _webView = [[UIWebView alloc] init];
     _webView.scrollView.bounces = NO;
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
@@ -183,10 +187,10 @@
 
 -(void)personalityGameFinishedSuccessfully
 {
+#ifndef DEBUG
     //Analytics
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Personality Game Success"];
-    
+    [[Mixpanel sharedInstance] track:@"Personality Game Success"];
+#endif
     _messageLabel.text = @"Personality Game finished successfully";
     [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{} andFailure:^{}];
     [self.delegate personalityGameIsDone:self successfully:YES];
@@ -194,9 +198,10 @@
 
 -(void)personalityGameThrewError
 {
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Personality Game Error"];
-
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Personality Game Error"];
+#endif
     [_webView removeFromSuperview];
     _webView = nil;
 }

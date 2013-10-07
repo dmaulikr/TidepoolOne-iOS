@@ -203,10 +203,10 @@
 }
 
 - (IBAction)loginButtonPressed:(id)sender {
+#ifndef DEBUG
     //Analytics
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Login with email"];
-
+    [[Mixpanel sharedInstance] track:@"Login with email"];
+#endif
     _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _progressView.labelText = @"Logging In";
     [_sharedClient loginWithUsername:self.loginEmail.text password:self.loginPassword.text withCompletingHandlersSuccess:^{
@@ -268,11 +268,10 @@
 
 - (IBAction)createAccountButtonPressed:(id)sender
 {
-    
+#ifndef DEBUG
     //Analytics
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Create Account"];
-
+    [[Mixpanel sharedInstance] track:@"Create Account"];
+#endif
     if (![self.createAccountPassword.text isEqualToString:self.createAccountPassword2.text]) {
         [[[UIAlertView alloc] initWithTitle:@"Password error" message:@"Passwords do not match" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
         return;
@@ -341,10 +340,10 @@
 #pragma mark Common Actions
 
 - (IBAction)fbLoginButtonPressed:(id)sender {
+#ifndef DEBUG
     //Analytics
-    Mixpanel *mixpanel = [Mixpanel sharedInstance];
-    [mixpanel track:@"Facebook Login"];
-    
+    [[Mixpanel sharedInstance] track:@"Facebook Login"];
+#endif
     _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _progressView.labelText = @"Logging In";
     TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
