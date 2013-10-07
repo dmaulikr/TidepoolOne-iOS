@@ -738,8 +738,10 @@
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
 		A8A887F717F0F15D0043EA76 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A887F617F0F15D0043EA76 /* CoreData.framework */; };
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
+		A8B5A22518034F3C00399FDD /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */; };
+		A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A227180355CD00399FDD /* TPTextFieldCell.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
-		A8BABA4F17E2615A00A3C95B /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPSettingsViewController.m */; };
+		A8BABA4F17E2615A00A3C95B /* TPSettingsViewController_old.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */; };
 		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
 		A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */; };
 		A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4917E2615A00A3C95B /* TPProfileViewController.m */; };
@@ -1553,10 +1555,14 @@
 		A8A887F617F0F15D0043EA76 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
+		A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
+		A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
+		A8B5A226180355CD00399FDD /* TPTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTextFieldCell.h; path = TidepoolOne/Profile/TPTextFieldCell.h; sourceTree = "<group>"; };
+		A8B5A227180355CD00399FDD /* TPTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTextFieldCell.m; path = TidepoolOne/Profile/TPTextFieldCell.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
 		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
-		A8BABA4317E2615A00A3C95B /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
-		A8BABA4417E2615A00A3C95B /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
+		A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController_old.h; sourceTree = "<group>"; };
+		A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController_old.m; sourceTree = "<group>"; };
 		A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
 		A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewCell.m; sourceTree = "<group>"; };
 		A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -1687,6 +1693,8 @@
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
+				A8B5A226180355CD00399FDD /* TPTextFieldCell.h */,
+				A8B5A227180355CD00399FDD /* TPTextFieldCell.m */,
 				A8665E5417FBA189001D1622 /* Resources */,
 				A847A7D017EB78A0009E228F /* Personality Game */,
 				A825EFC617E2373B00DCAAF2 /* UIKit Customization */,
@@ -2840,8 +2848,10 @@
 		A8BABA4217E2615A00A3C95B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				A8BABA4317E2615A00A3C95B /* TPSettingsViewController.h */,
-				A8BABA4417E2615A00A3C95B /* TPSettingsViewController.m */,
+				A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */,
+				A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */,
+				A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */,
+				A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */,
 				A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */,
 				A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */,
 				A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */,
@@ -3903,7 +3913,7 @@
 				A830EFC817E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m in Sources */,
 				A835B72E17E23DAD00775E38 /* TPUser.m in Sources */,
 				A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */,
-				A8BABA4F17E2615A00A3C95B /* TPSettingsViewController.m in Sources */,
+				A8BABA4F17E2615A00A3C95B /* TPSettingsViewController_old.m in Sources */,
 				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
 				A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */,
 				A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */,
@@ -3915,6 +3925,7 @@
 				A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */,
 				A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */,
 				A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */,
+				A8B5A22518034F3C00399FDD /* TPSettingsViewController.m in Sources */,
 				A8BABA6B17E261C500A3C95B /* TPSnoozerResultsGraphView.m in Sources */,
 				A8BABA7217E261FC00A3C95B /* TPSnoozerGameViewController.mm in Sources */,
 				A8F5B30517F1060B0066E0BD /* TPGame.m in Sources */,
@@ -3930,6 +3941,7 @@
 				A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */,
 				A8BABA9717E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m in Sources */,
 				A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */,
+				A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */,
 				A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */,
 				A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */,
 				A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */,

@@ -2,27 +2,30 @@
 //  TPSettingsViewController.m
 //  TidepoolOne
 //
-//  Created by Mayank Sanganeria on 8/19/13.
+//  Created by Mayank Sanganeria on 10/7/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
 #import "TPSettingsViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <QuartzCore/QuartzCore.h>
+#import "TPTextFieldCell.h"
 
 @interface TPSettingsViewController ()
 {
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
     NSArray *_educationOptions;
+    NSArray *_groups;
+    NSArray *_fields;
 }
 @end
 
 @implementation TPSettingsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
@@ -33,7 +36,10 @@
 {
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
-	// Do any additional setup after loading the view.    
+	// Do any additional setup after loading the view.
+    _groups = @[@"Name and Email",@"Age",@"Handedness",@"Gender"];
+    _fields = @[@[@"Name", @"Email"],@[@"Age"],@[@"Handedness"],@[@"Gender"],];
+    [self.tableView registerClass:[TPTextFieldCell class] forCellReuseIdentifier:@"SettingsCell"];
     
     [_maleButton setImage:[UIImage imageNamed:@"male.png"] forState:UIControlStateNormal];
     [_maleButton setImage:[UIImage imageNamed:@"male-pressed.png"] forState:UIControlStateSelected];
@@ -61,7 +67,7 @@
     nameLabel.text = @"Name";
     self.name = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding, textFieldWidth, textFieldHeight)];
     self.name.textColor = [UIColor blackColor];
-
+    
     TPLabel *emailLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelDistApart, labelWidth, textFieldHeight)];
     emailLabel.text = @"Email";
     self.email = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 1*labelDistApart, textFieldWidth, textFieldHeight)];
@@ -85,11 +91,11 @@
     pickerView.delegate = self;
     self.education.inputView = pickerView;
     [self customizeFields:@[self.name,self.email,self.age,self.education]];
-
+    
     
     TPLabel *handednessLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 4*(labelDistApart), labelWidth, textFieldHeight)];
     handednessLabel.text = @"Handedness";
-
+    
     float handButtonsY = kPadding + 4*(labelDistApart) + 3*kPadding;
     UIImage *image;
     UIImage *imageSelected;
@@ -102,7 +108,7 @@
     self.leftHandButton.center = CGPointMake(self.view.bounds.size.width/5,self.leftHandButton.center.y);
     [self.leftHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollContentView addSubview:self.leftHandButton];
-
+    
     image = [UIImage imageNamed:@"righthand.png"];
     imageSelected = [UIImage imageNamed:@"righthand-pressed.png"];
     self.rightHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -112,7 +118,7 @@
     self.rightHandButton.center = CGPointMake(0.45*self.view.bounds.size.width,self.rightHandButton.center.y);
     [self.rightHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollContentView addSubview:self.rightHandButton];
-
+    
     image = [UIImage imageNamed:@"mixedhand.png"];
     imageSelected = [UIImage imageNamed:@"mixedhand-pressed.png"];
     self.mixedHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
@@ -123,8 +129,8 @@
     [self.mixedHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollContentView addSubview:self.mixedHandButton];
     
-
-
+    
+    
     TPLabel *genderLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, handButtonsY + self.leftHandButton.bounds.size.height + kPadding, labelWidth, textFieldHeight)];
     genderLabel.text = @"Gender";
     
@@ -149,7 +155,7 @@
     [self.femaleButton addTarget:self action:@selector(genderButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [_scrollContentView addSubview:self.femaleButton];
     
-
+    
     
     TPButton *logoutButton = [[TPButton alloc] initWithFrame:CGRectZero];
     logoutButton.frame = CGRectMake(120, genderButtonsY + self.maleButton.bounds.size.height + 3*kPadding, 130, 40);
@@ -204,7 +210,7 @@
     //Analytics
     [[Mixpanel sharedInstance] track:@"Settings Screen"];
 #endif
-
+    
 }
 
 -(void)customizeFields:(NSArray *)fields
@@ -240,7 +246,7 @@
     }
 }
 - (IBAction)genderButtonPressed:(UIButton *)sender {
-    //this sucks, but I gotta ship today    
+    //this sucks, but I gotta ship today
     if (sender == _maleButton) {
         self.gender = @"male";
     } else if (sender == _femaleButton) {
@@ -279,10 +285,10 @@
         [dateFormatter setDateFormat:@"yyyy-mm-dd"];
         NSDate *dob = [dateFormatter dateFromString:user[@"date_of_birth"]];
         long long age = [[NSDate date] timeIntervalSinceDate:dob] / 3.15569e7;
-    self.age.text = [NSString stringWithFormat:@"%lld",age];
+        self.age.text = [NSString stringWithFormat:@"%lld",age];
     }
-
-
+    
+    
     if (user[@"education"] != [NSNull null]) {
         self.education.text = user[@"education"];
     }
@@ -317,7 +323,7 @@
     
     _maleButton.selected = NO;
     _femaleButton.selected = NO;
-
+    
     if ([_gender isEqualToString:@"male"]) {
         _maleButton.selected = YES;
     } else if ([_gender isEqualToString:@"female"]) {
@@ -381,5 +387,84 @@
 {
     return 1;
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return _groups.count;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _groups[section];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return [_fields[section] count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"SettingsCell";
+    TPTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    // Configure the cell...
+//    cell.textLabel.text = _fields[indexPath.section][indexPath.row];
+    cell.title = _fields[indexPath.section][indexPath.row];
+    return cell;
+}
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+
+ */
 
 @end

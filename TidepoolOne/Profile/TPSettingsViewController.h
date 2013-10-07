@@ -2,14 +2,13 @@
 //  TPSettingsViewController.h
 //  TidepoolOne
 //
-//  Created by Mayank Sanganeria on 8/19/13.
+//  Created by Mayank Sanganeria on 10/7/13.
 //  Copyright (c) 2013 Mayank Sanganeria. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface TPSettingsViewController : UIViewController <UITextFieldDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
-
+@interface TPSettingsViewController : UITableViewController
 @property (strong, nonatomic) IBOutlet TPTextField *name;
 @property (strong, nonatomic) IBOutlet TPTextField *email;
 @property (strong, nonatomic) IBOutlet TPTextField *age;

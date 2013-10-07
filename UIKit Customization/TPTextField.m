@@ -9,7 +9,6 @@
 #import "TPTextField.h"
 #import <QuartzCore/QuartzCore.h>
 
-
 @implementation TPTextField
 
 -(id)initWithCoder:(NSCoder *)aDecoder
@@ -45,7 +44,8 @@
 
 
 - (void) drawPlaceholderInRect:(CGRect)rect {
-    [[UIColor whiteColor] setFill];
+    [[UIColor lightGrayColor] setFill];
+    rect.origin.y = rect.origin.y + ((rect.size.height - self.font.pointSize) / 2);
     [[self placeholder] drawInRect:rect withFont:self.font];
 }
 
