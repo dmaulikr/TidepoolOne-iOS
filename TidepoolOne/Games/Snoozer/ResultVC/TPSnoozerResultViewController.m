@@ -45,6 +45,11 @@
     [tracker set:kGAIScreenName value:@"Snoozer Result Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Snoozer Result Screen"];
+#endif
+
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"results-bg.png"]];
 }
 

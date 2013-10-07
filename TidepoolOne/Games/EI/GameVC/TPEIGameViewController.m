@@ -38,9 +38,14 @@
     // Google analytics tracker
 #ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:@"EI New Game"];
+    [tracker set:kGAIScreenName value:@"Started new FaceOff Game"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Started new FaceOff Game"];
+#endif
+
 }
 
 - (void)didReceiveMemoryWarning

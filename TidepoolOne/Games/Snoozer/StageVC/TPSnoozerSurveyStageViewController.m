@@ -44,6 +44,11 @@
     [tracker set:kGAIScreenName value:@"Snoozer Survey Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Snoozer Survey Screen"];
+#endif
+
 }
 
 - (void)didReceiveMemoryWarning

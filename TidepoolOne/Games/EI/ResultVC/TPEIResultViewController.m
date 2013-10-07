@@ -41,6 +41,7 @@
     [tracker set:kGAIScreenName value:@"FaceOff Result Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif 
+    
 }
 
 - (void)didReceiveMemoryWarning

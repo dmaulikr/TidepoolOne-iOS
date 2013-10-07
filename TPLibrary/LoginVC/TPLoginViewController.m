@@ -82,6 +82,11 @@
     [tracker set:kGAIScreenName value:@"Login Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Login screen"];
+#endif
+
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // Load resources for iOS 6.1 or earlier
 //        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);
@@ -206,7 +211,7 @@
 - (IBAction)loginButtonPressed:(id)sender {
 #ifndef DEBUG
     //Analytics
-    [[Mixpanel sharedInstance] track:@"Login with email"];
+    [[Mixpanel sharedInstance] track:@"Login" properties:@{@"provider":@"email"}];
 #endif
     _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _progressView.labelText = @"Logging In";
@@ -271,7 +276,7 @@
 {
 #ifndef DEBUG
     //Analytics
-    [[Mixpanel sharedInstance] track:@"Create Account"];
+    [[Mixpanel sharedInstance] track:@"Create Account" properties:@{@"provider":@"email"}];
 #endif
     if (![self.createAccountPassword.text isEqualToString:self.createAccountPassword2.text]) {
         [[[UIAlertView alloc] initWithTitle:@"Password error" message:@"Passwords do not match" delegate:self cancelButtonTitle:nil otherButtonTitles:@"ok", nil] show];
@@ -343,7 +348,7 @@
 - (IBAction)fbLoginButtonPressed:(id)sender {
 #ifndef DEBUG
     //Analytics
-    [[Mixpanel sharedInstance] track:@"Facebook Login"];
+    [[Mixpanel sharedInstance] track:@"Login" properties:@{@"provider":@"facebook"}];
 #endif
     _progressView = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     _progressView.labelText = @"Logging In";

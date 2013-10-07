@@ -47,6 +47,11 @@
     [tracker set:kGAIScreenName value:@"Service Connect Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Service Connect Screen"];
+#endif
+
 }
 
 

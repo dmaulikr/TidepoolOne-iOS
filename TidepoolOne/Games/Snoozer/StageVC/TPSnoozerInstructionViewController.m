@@ -41,6 +41,11 @@
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Snoozer Instruction Screen %@", self.levelNumberLabel.text]];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Snoozer Instruction Screen" properties:@{@"stage":self.levelNumberLabel.text}];
+#endif
+
 }
 
 - (void)didReceiveMemoryWarning

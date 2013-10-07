@@ -200,6 +200,11 @@
     [tracker set:kGAIScreenName value:@"Settings Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Settings Screen"];
+#endif
+
 }
 
 -(void)customizeFields:(NSArray *)fields

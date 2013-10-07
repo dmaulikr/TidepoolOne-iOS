@@ -68,6 +68,11 @@
     [tracker set:kGAIScreenName value:@"Dashboard Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Dashboard Screen Appeared"];
+#endif
+
 }
 
 -(void)constructHeaderView

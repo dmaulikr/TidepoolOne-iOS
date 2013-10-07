@@ -56,6 +56,11 @@
     [tracker set:kGAIScreenName value:@"Profile Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif    
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Profile Screen"];
+#endif
+
 }
 
 - (void)didReceiveMemoryWarning

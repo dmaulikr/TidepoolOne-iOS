@@ -62,6 +62,11 @@
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Snoozer Stage Screen, %i",self.gameVC.stage]];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Snoozer Stage Screen" properties:@{@"stage":[NSNumber numberWithInt:self.gameVC.stage]}];
+#endif
+
     if (_pauseTime) {
         NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];
         for (TPSnoozerClockView *clockView in _clockViews) {

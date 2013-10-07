@@ -68,6 +68,11 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"EI Stage Screen, %i",self.gameVC.stage]];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"EI Stage Screen, %i" properties:@{@"stage":[NSNumber numberWithInt:self.gameVC.stage]}];
+#endif
+
     self.imageIndex = 0;
 }
 
