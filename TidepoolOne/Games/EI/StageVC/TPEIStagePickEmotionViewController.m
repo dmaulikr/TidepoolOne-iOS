@@ -63,9 +63,11 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [super viewDidAppear:animated];
     
     // Google analytics tracker
+#ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"EI Stage Screen, %i",self.gameVC.stage]];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+#endif
     self.imageIndex = 0;
 }
 

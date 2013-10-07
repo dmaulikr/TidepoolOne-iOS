@@ -77,10 +77,11 @@
 {
     [super viewDidAppear:animated];
     // Google analytics tracker
+#ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Login Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
-
+#endif
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // Load resources for iOS 6.1 or earlier
 //        self.view.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height);

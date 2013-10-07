@@ -57,10 +57,11 @@
     [super viewDidAppear:animated];
     
     // Google analytics tracker
+#ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Snoozer Stage Screen, %i",self.gameVC.stage]];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
-
+#endif
     if (_pauseTime) {
         NSTimeInterval difference = [[NSDate date] timeIntervalSinceDate:_pauseTime];
         for (TPSnoozerClockView *clockView in _clockViews) {

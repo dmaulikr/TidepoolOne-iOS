@@ -36,9 +36,11 @@
     [super viewDidAppear:animated];
     
     // Google analytics tracker
+#ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:[NSString stringWithFormat:@"Snoozer Instruction Screen %@", self.levelNumberLabel.text]];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+#endif
 }
 
 - (void)didReceiveMemoryWarning

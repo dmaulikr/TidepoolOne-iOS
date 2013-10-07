@@ -42,10 +42,11 @@
 {
     [super viewDidAppear:animated];
     // Google analytics tracker
+#ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Service Connect Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
-    
+#endif
 }
 
 

@@ -56,13 +56,15 @@
 {
     [super viewDidAppear:animated];
     // Google analytics tracker
+#ifndef DEBUG
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"Walkthrough Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
+#endif
 #ifndef DEBUG
     //Analytics
     [[Mixpanel sharedInstance] track:@"Walkthrough shown"];
-#endif    
+#endif
 }
 
 - (void)didReceiveMemoryWarning
