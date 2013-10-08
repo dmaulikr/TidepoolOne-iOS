@@ -22,7 +22,6 @@
     BOOL _ageChanged;
     NSArray *_educationOptions;
     NSArray *_groups;
-    NSArray *_fields;
     UIPickerView *_pickerView;
     NSMutableDictionary *_fieldValues;
     TPSettingsHeaderView *_headerView;
@@ -46,9 +45,8 @@
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
-    _groups = @[@"name and email",@"age",@"education",@"connections",@"handedness",@"gender"];
+    _groups = @[@"name",@"email",@"age",@"education",@"connections",@"handedness",@"gender"];
     [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
-        _fields = @[@[@"name", @"email"],@[@"age"],@[@"education"],@[@"connections"],@[@"handedness"],@[@"gender"],];
         _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
         _connections = [@[] mutableCopy];
         [self loadData];
@@ -247,8 +245,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [_fields[section] count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -259,7 +256,7 @@
                               @[[UIImage imageNamed:@"female.png"],[UIImage imageNamed:@"female-pressed.png"]],];
         cell.values =@[@"male",@"female"];
         cell.currentValue = [_fieldValues objectForKey:@"gender"];
-        cell.title = _fields[indexPath.section][indexPath.row];
+        cell.title = _groups[indexPath.section];
         cell.delegate = self;
         return cell;
     } else if ([_groups[indexPath.section] isEqualToString:@"handedness"]) {
@@ -269,12 +266,12 @@
                               @[[UIImage imageNamed:@"mixedhand.png"],[UIImage imageNamed:@"mixedhand-pressed.png"]],];
         cell.values =@[@"right",@"left",@"mixed"];
         cell.currentValue = [_fieldValues objectForKey:@"handedness"];
-        cell.title = _fields[indexPath.section][indexPath.row];
+        cell.title = _groups[indexPath.section];
         cell.delegate = self;
         return cell;
     } else if ([_groups[indexPath.section] isEqualToString:@"connections"]) {
         TPConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectionsCell" forIndexPath:indexPath];
-        cell.provider = _fieldValues[_fields[indexPath.section][indexPath.row]][indexPath.row];
+        cell.provider = _fieldValues[_groups[indexPath.section]][indexPath.row];
         if ([_connections containsObject:cell.provider]) {
             cell.switchIndicator.on = YES;
         }
@@ -284,7 +281,7 @@
         static NSString *CellIdentifier = @"SettingsCell";
         TPTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
         // Configure the cell...
-        cell.title = _fields[indexPath.section][indexPath.row];
+        cell.title = _groups[indexPath.section];
         cell.textField.text = _fieldValues[cell.title];
         if ([cell.title isEqualToString:@"age"]) {
             cell.textField.keyboardType = UIKeyboardTypeNumberPad;
