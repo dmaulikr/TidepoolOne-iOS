@@ -16,6 +16,7 @@
     UIView *_dashboardHeaderView;
     int _numWidgetsCompleted;
     NSArray *_widgets;
+    BOOL _downloading;
 }
 @end
 
@@ -26,6 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _downloading = NO;
     }
     return self;
 }
@@ -113,27 +115,39 @@
 
 -(void)downloadResults
 {
+    if (_downloading) {
+        return;
+    }
+    _downloading = YES;
+    NSLog(@"start refresh");
     _numWidgetsCompleted = 0;
     [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
         self.results = self.snoozerWidget.results;
         _numWidgetsCompleted++;
+        NSLog(@"one more done - snoozer");
         if (_numWidgetsCompleted == 2) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSLog(@"end refresh");
+                _downloading = NO;
                 [self.refreshControl endRefreshing];
             });
         }
     } andFailure:^{
+        NSLog(@"error!");
         [self.refreshControl endRefreshing];
     }];
     [self.fitbitWidget downloadResultswithCompletionHandlersSuccess:^{
         _numWidgetsCompleted++;
+        NSLog(@"one more done - fitbit");
         if (_numWidgetsCompleted == 2) {
+            NSLog(@"end refresh");
+            _downloading = NO;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.refreshControl endRefreshing];
             });
         }
     } andFailure:^{
+        NSLog(@"error!");
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.refreshControl endRefreshing];
         });

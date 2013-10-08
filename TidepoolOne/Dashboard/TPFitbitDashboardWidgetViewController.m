@@ -45,6 +45,7 @@
     self.speedChange = 0;
     self.sleepChange = 0;
     self.activityChange = 0;
+    
     [self refreshFitbitConnectedness];
 }
 
@@ -64,15 +65,15 @@
 {
     _isConnected = isConnected;
     if (!isConnected) {
-        self.connectView.hidden = NO;
+        self.view.hidden = NO;
     } else {
-        self.connectView.hidden = YES;
+        self.view.hidden = YES;
     }
 }
 
 -(void)refreshFitbitConnectedness
 {
-    //TODO: centralize
+    // TODO: create method on oauthclient that will get used and run code
     NSDictionary *user = [TPOAuthClient sharedClient].user;
     NSArray *authentications = user[@"authentications"];
     self.isConnected = NO;
@@ -81,32 +82,6 @@
             self.isConnected = YES;
         }
     }
-}
-
-
--(void)showConnectUI
-{
-    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
-    serviceVC.view.frame = self.view.bounds;
-    [self.navigationController pushViewController:serviceVC animated:YES];
-}
-
--(void)connectionMadeSucessfully:(BOOL)success
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    if (success) {
-        [self downloadResultswithCompletionHandlersSuccess:^{
-            [self refreshFitbitConnectedness];
-        } andFailure:^{}];
-    } else {
-    [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
-    }
-}
-
-
-- (IBAction)connectAction:(id)sender
-{
-    [self showConnectUI];
 }
 
 -(void)pollTimedOut
@@ -118,6 +93,7 @@
 
 -(void)pollForFitbitSyncStatus
 {
+    NSLog(@"continue poll");
     [_oauthClient getPath:@"api/v1/users/-/connections/fitbit/progress.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *status = responseObject[@"status"];
         NSString *state = status[@"state"];
@@ -126,6 +102,7 @@
         } else if ([state isEqualToString:@"done"]){
             [_pollTimeoutTimer invalidate];
             _pollTimeoutTimer = nil;
+            NSLog(@"poll done");
             [self refreshWeeklyDatawithCompletionHandlersSuccess:^{
                 [_pollTimeoutTimer invalidate];
                 _pollTimeoutTimer = nil;
@@ -209,8 +186,10 @@
     
 -(void)refreshWeeklyDatawithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
+    _numServerCallsCompleted = 0;    
+    NSLog(@"refresh weekly data - start");
     // NEW WAY - DOESNT WORK - INFINITELY CALLED.. PROBABLY AN ISSUE WITH BLOCK VARIABLES//
-//    _numServerCallsCompleted = 0;
+
 //    [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
 //        self.user = [TPOAuthClient sharedClient].user;
 //        _numServerCallsCompleted++;
@@ -223,10 +202,12 @@
     //END NEW WAY//
     //OLD WAY//
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"refresh weekly data - end");
         [TPOAuthClient sharedClient].user = responseObject[@"data"];
         self.user = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 1) {
+            NSLog(@"refresh weekly data - end - stop refresh");
             successBlock();
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -238,9 +219,11 @@
 
 -(void)refreshFitbitData
 {
+    NSLog(@"start fitbit refresh");
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/connections/fitbit/synchronize.json" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *status = responseObject[@"status"];
         if ([status[@"state"] isEqualToString:@"pending"]) {
+            NSLog(@"start poll");
             _pollTimeoutTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(pollTimedOut) userInfo:nil repeats:NO];
             [self pollForFitbitSyncStatus];
         }

@@ -265,7 +265,8 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         _isGettingUser = YES;
         [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             self.user = responseObject[@"data"];
-            self.isLoggedIn = 1;
+            if (!self.isLoggedIn)
+                self.isLoggedIn = 1;
             _isGettingUser = NO;
             // TODO: fix the block typecast
             for (id item in _userCompletionBlocks) {

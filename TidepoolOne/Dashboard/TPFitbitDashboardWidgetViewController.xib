@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="activityArrowImage" destination="55w-Jq-RCp" id="gDS-dk-Amt"/>
                 <outlet property="activityNumberLabel" destination="U1o-rG-Sl5" id="HDr-RD-3DG"/>
-                <outlet property="connectView" destination="zts-kO-ZjZ" id="wjR-Me-cE4"/>
                 <outlet property="fitbitActivityGraphView" destination="EU1-ru-FeB" id="SrZ-ho-E4u"/>
                 <outlet property="fitbitBarGraphView" destination="xE4-W2-MR1" id="X0g-cy-fUa"/>
                 <outlet property="fitbitScrollView" destination="1Nv-oh-w14" id="9Kt-6a-jGS"/>
@@ -156,24 +155,6 @@
                     <color key="textColor" red="0.29803921570000003" green="0.34509803919999998" blue="0.4039215686" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zts-kO-ZjZ">
-                    <rect key="frame" x="0.0" y="34" width="320" height="69"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-8c-LCH">
-                            <rect key="frame" x="110" y="20" width="100" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Connect" backgroundImage="btn-connectfitbit.png">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="connectAction:" destination="-1" eventType="touchUpInside" id="A2l-tw-K2q"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -191,7 +172,6 @@
         </view>
     </objects>
     <resources>
-        <image name="btn-connectfitbit.png" width="122" height="31"/>
         <image name="calendar-graph.png" width="694" height="244"/>
         <image name="dash-fitbitbg.png" width="320" height="103"/>
         <image name="fitbit-bluearrow-up.png" width="40" height="25"/>
