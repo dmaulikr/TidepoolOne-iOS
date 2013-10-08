@@ -779,6 +779,7 @@
 		A8B5A7F218038EAA00399FDD /* tp-appwalkthrough3~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8B5A52318038EAA00399FDD /* tp-appwalkthrough3~iphone.jpg */; };
 		A8B5A7F318038EAA00399FDD /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8B5A52418038EAA00399FDD /* tp-appwalkthrough4@2x~iphone.jpg */; };
 		A8B5A7F418038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8B5A52518038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg */; };
+		A8B5A7F718039B1000399FDD /* TPConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
 		A8BABA4F17E2615A00A3C95B /* TPSettingsViewController_old.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */; };
 		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
@@ -1639,6 +1640,8 @@
 		A8B5A52318038EAA00399FDD /* tp-appwalkthrough3~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3~iphone.jpg"; sourceTree = "<group>"; };
 		A8B5A52418038EAA00399FDD /* tp-appwalkthrough4@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A8B5A52518038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
+		A8B5A7F518039B1000399FDD /* TPConnectionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPConnectionsCell.h; path = Views/TPConnectionsCell.h; sourceTree = "<group>"; };
+		A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPConnectionsCell.m; path = Views/TPConnectionsCell.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
 		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
 		A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController_old.h; sourceTree = "<group>"; };
@@ -1945,6 +1948,8 @@
 				A8B5A227180355CD00399FDD /* TPTextFieldCell.m */,
 				A8B5A22C18036BB100399FDD /* TPImageButtonsCell.h */,
 				A8B5A22D18036BB100399FDD /* TPImageButtonsCell.m */,
+				A8B5A7F518039B1000399FDD /* TPConnectionsCell.h */,
+				A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */,
 				A8B5A23018038C3E00399FDD /* TPSettingsHeaderView.h */,
 				A8B5A23118038C3E00399FDD /* TPSettingsHeaderView.m */,
 				A8B5A23318038C5000399FDD /* TPSettingsHeaderView.xib */,
@@ -4087,6 +4092,7 @@
 				A830EFC317E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m in Sources */,
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
 				A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */,
+				A8B5A7F718039B1000399FDD /* TPConnectionsCell.m in Sources */,
 				A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */,
 				A866655417FCE70D001D1622 /* TPEmotionCellView.m in Sources */,
 				A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */,

@@ -12,10 +12,11 @@
 #import "TPTextFieldCell.h"
 #import "TPImageButtonsCell.h"
 #import "TPSettingsHeaderView.h"
+#import "TPConnectionsCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "TPServiceLoginViewController.h"
 
-
-@interface TPSettingsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, TPImageButtonsCellDelegate, TPTextFieldCellDelegate>
+@interface TPSettingsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, TPImageButtonsCellDelegate, TPTextFieldCellDelegate, TPServiceLoginViewControllerDelegate>
 {
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
@@ -44,10 +45,10 @@
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
-    _groups = @[@"name and email",@"age",@"education",@"handedness",@"gender"];
+    _groups = @[@"name and email",@"age",@"education",@"connections",@"handedness",@"gender"];
     [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
-        _fields = @[@[@"name", @"email"],@[@"age"],@[@"education"],@[@"handedness"],@[@"gender"],];
-        _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"handedness":@"",@"gender":@"",} mutableCopy];
+        _fields = @[@[@"name", @"email"],@[@"age"],@[@"education"],@[@"connections"],@[@"handedness"],@[@"gender"],];
+        _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
         [self loadData];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _groups.count)] withRowAnimation:UITableViewRowAnimationBottom];
     } andFailure:^{
@@ -70,6 +71,7 @@
 
     [self.tableView registerClass:[TPTextFieldCell class] forCellReuseIdentifier:@"SettingsCell"];
     [self.tableView registerClass:[TPImageButtonsCell class] forCellReuseIdentifier:@"ButtonImageCell"];
+    [self.tableView registerClass:[TPConnectionsCell class] forCellReuseIdentifier:@"ConnectionsCell"];
     
     _ageChanged = NO;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
@@ -264,6 +266,10 @@
         cell.title = _fields[indexPath.section][indexPath.row];
         cell.delegate = self;
         return cell;
+    } else if ([_groups[indexPath.section] isEqualToString:@"connections"]) {
+        TPConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectionsCell" forIndexPath:indexPath];
+        cell.provider = _fieldValues[_fields[indexPath.section][indexPath.row]][indexPath.row];
+        return cell;
     } else {
         static NSString *CellIdentifier = @"SettingsCell";
         TPTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -277,10 +283,6 @@
             ;
         } else if ([cell.title isEqualToString:@"education"]) {
             cell.textField.inputView = _pickerView;
-        } else if ([cell.title isEqualToString:@"email"]) {
-            cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
-        } else if ([cell.title isEqualToString:@"email"]) {
-            cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
         } else {
             cell.textField.keyboardType = UIKeyboardTypeDefault;
         }
@@ -317,5 +319,28 @@
         [self changedAge];
     }
 }
+
+#pragma mark TPServiceLoginController methods
+
+-(void)showConnectUI
+{
+    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
+    serviceVC.delegate = self;
+    serviceVC.view.frame = self.view.bounds;
+    [self.navigationController pushViewController:serviceVC animated:YES];
+}
+
+-(void)connectionMadeSucessfully:(BOOL)success
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    if (success) {
+//        [self downloadResultswithCompletionHandlersSuccess:^{
+//            [self refreshFitbitConnectedness];
+//        } andFailure:^{}];
+    } else {
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
+    }
+}
+
 
 @end
