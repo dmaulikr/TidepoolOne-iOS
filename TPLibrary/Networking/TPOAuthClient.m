@@ -312,6 +312,18 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         [self handleError:error withOptionalMessage:@"Unable to get game results"];
     }];
 }
+
+-(void)deleteConnectionForProvider:(NSString *)provider
+{
+    [self deletePath:[NSString stringWithFormat:@"api/v1/users/-/connections/%@", provider] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //Fire and forget
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:[NSString stringWithFormat:@"Couldn't disconnect %@", provider]];
+    }];
+
+}
+
+
 #pragma mark Helper methods
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message
 {

@@ -31,13 +31,20 @@
 -(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
 -(void)logout;
 
-#pragma mark API methods
+#pragma mark API methods - users
 -(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
+#pragma mark API methods - users
 -(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
 -(void)postGameEvents:(NSDictionary *)events withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
 
+#pragma mark API methods - connections
+-(void)deleteConnectionForProvider:(NSString *)provider;
+
+
 -(void)handleError:(NSError *)error withOptionalMessage:(NSString *)message;
+
+
 
 @end

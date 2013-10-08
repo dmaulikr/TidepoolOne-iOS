@@ -8,14 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol TPServiceLoginViewControllerDelegate
-
--(void)connectionMadeSucessfully:(BOOL)success;
-
-@end
-
 @interface TPServiceLoginViewController : UIViewController <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) id<TPServiceLoginViewControllerDelegate> delegate;
+-(void)setCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
 @end

@@ -10,7 +10,7 @@
 #import "TPServiceLoginViewController.h"
 #import <AFHTTPRequestOperation.h>
 
-@interface TPFitbitDashboardWidgetViewController()<TPServiceLoginViewControllerDelegate>
+@interface TPFitbitDashboardWidgetViewController()
 {
     int _numServerCallsCompleted;
     CGSize _connectedSize;
@@ -87,7 +87,6 @@
 -(void)showConnectUI
 {
     TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
-    serviceVC.delegate = self;
     serviceVC.view.frame = self.view.bounds;
     [self.navigationController pushViewController:serviceVC animated:YES];
 }

@@ -12,7 +12,8 @@
 @interface TPServiceLoginViewController ()
 {
     TPOAuthClient *_oauthClient;
-//    UIWebView *_webView;
+    void(^_successBlock)(void);
+    void(^_failureBlock)(void);
 }
 @end
 
@@ -54,6 +55,11 @@
 
 }
 
+-(void)setCompletionHandlersSuccess:(void (^)())successBlock andFailure:(void (^)())failureBlock
+{
+    _successBlock = successBlock;
+    _failureBlock = failureBlock;
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -68,11 +74,11 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
     if ([requestString hasSuffix:@"success"]) {
-        [self.delegate connectionMadeSucessfully:YES];
+        _successBlock();
         [self.navigationController popViewControllerAnimated:YES];
         return NO;
     } else if ([requestString hasSuffix:@"failure"]) {
-        [self.delegate connectionMadeSucessfully:NO];
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
         return NO;
     }
     return YES;

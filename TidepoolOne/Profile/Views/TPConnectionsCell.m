@@ -8,10 +8,9 @@
 
 #import "TPConnectionsCell.h"
 
-@interface TPConnectionsCell()
+@interface TPConnectionsCell() <UIAlertViewDelegate>
 {
     UIImageView *_imageView;
-    UISwitch *_switch;
     UILabel *_label;
 }
 @end
@@ -24,11 +23,11 @@
     if (self) {
         // Initialization code
         _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _switch = [[UISwitch alloc] initWithFrame:CGRectMake(250, 5, 40, 40)];
-        [_switch addTarget:self action:@selector(connectionSwitched:) forControlEvents:UIControlEventValueChanged];
+        _switchIndicator = [[UISwitch alloc] initWithFrame:CGRectMake(250, 5, 40, 40)];
+        [_switchIndicator addTarget:self action:@selector(connectionSwitched:) forControlEvents:UIControlEventTouchUpInside];
         _label = [[UILabel alloc] initWithFrame:CGRectZero];
         [self addSubview:_imageView];
-        [self addSubview:_switch];
+        [self addSubview:_switchIndicator];
         [self addSubview:_label];
     }
     return self;
@@ -56,12 +55,28 @@
 -(void)connectionSwitched:(UISwitch *)sender
 {
     BOOL value = sender.on;
+    sender.on = !sender.on; // keep value as the old one still
     if (value) {
-        
-        
+        [self.delegate connectionsCell:self tryingToSetConnectionStateTo:YES];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Delete connection" message:@"Are you sure you want to delete this connection" delegate:self cancelButtonTitle:@"Don't delete" otherButtonTitles:@"Yes, delete", nil] show];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Delete connection" message:@"Are you sure you want to delete this connection" delegate:self cancelButtonTitle:@"Don't delete" otherButtonTitles:@"Yes, delete", nil];
+        alertView.delegate = self;
+        [alertView show];
     }
 }
+
+#pragma mark UIAlertViewDelegate methods
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        _switchIndicator.on = YES;
+    }
+    if (buttonIndex == 1) {
+        _switchIndicator.on = NO;
+        [self.delegate connectionsCell:self tryingToSetConnectionStateTo:NO];
+    }
+}
+
 
 @end

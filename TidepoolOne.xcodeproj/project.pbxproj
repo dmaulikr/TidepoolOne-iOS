@@ -781,7 +781,6 @@
 		A8B5A7F418038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8B5A52518038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg */; };
 		A8B5A7F718039B1000399FDD /* TPConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
-		A8BABA4F17E2615A00A3C95B /* TPSettingsViewController_old.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */; };
 		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
 		A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */; };
 		A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4917E2615A00A3C95B /* TPProfileViewController.m */; };
@@ -1644,8 +1643,6 @@
 		A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPConnectionsCell.m; path = Views/TPConnectionsCell.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
 		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
-		A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController_old.h; sourceTree = "<group>"; };
-		A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController_old.m; sourceTree = "<group>"; };
 		A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
 		A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPProfileTableViewCell.m; sourceTree = "<group>"; };
 		A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPProfileTableViewCell.xib; sourceTree = "<group>"; };
@@ -2982,8 +2979,6 @@
 			isa = PBXGroup;
 			children = (
 				A8B5A22F18038C1D00399FDD /* Views */,
-				A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */,
-				A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */,
 				A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */,
 				A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */,
 				A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */,
@@ -4084,7 +4079,6 @@
 				A830EFC817E3F6340035DCD0 /* TPFitbitDashboardWidgetViewController.m in Sources */,
 				A835B72E17E23DAD00775E38 /* TPUser.m in Sources */,
 				A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */,
-				A8BABA4F17E2615A00A3C95B /* TPSettingsViewController_old.m in Sources */,
 				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
 				A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */,
 				A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */,

@@ -16,7 +16,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "TPServiceLoginViewController.h"
 
-@interface TPSettingsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, TPImageButtonsCellDelegate, TPTextFieldCellDelegate, TPServiceLoginViewControllerDelegate>
+@interface TPSettingsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, TPImageButtonsCellDelegate, TPTextFieldCellDelegate, TPConnectionsCellDelegate>
 {
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
@@ -26,6 +26,7 @@
     UIPickerView *_pickerView;
     NSMutableDictionary *_fieldValues;
     TPSettingsHeaderView *_headerView;
+    NSMutableArray *_connections;
 }
 @end
 
@@ -49,6 +50,7 @@
     [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
         _fields = @[@[@"name", @"email"],@[@"age"],@[@"education"],@[@"connections"],@[@"handedness"],@[@"gender"],];
         _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
+        _connections = [@[] mutableCopy];
         [self loadData];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _groups.count)] withRowAnimation:UITableViewRowAnimationBottom];
     } andFailure:^{
@@ -163,6 +165,10 @@
     if (user[@"image"] != [NSNull null]) {
         [_headerView.profilePicture setImageWithURL:[NSURL URLWithString:user[@"image"]]];
     }
+    NSArray *authentications = user[@"authentications"];
+    for (NSDictionary *authentication in authentications) {
+        [_connections addObject:authentication[@"provider"]];
+    }
 }
 
 -(void)changedAge
@@ -269,6 +275,10 @@
     } else if ([_groups[indexPath.section] isEqualToString:@"connections"]) {
         TPConnectionsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ConnectionsCell" forIndexPath:indexPath];
         cell.provider = _fieldValues[_fields[indexPath.section][indexPath.row]][indexPath.row];
+        if ([_connections containsObject:cell.provider]) {
+            cell.switchIndicator.on = YES;
+        }
+        cell.delegate = self;
         return cell;
     } else {
         static NSString *CellIdentifier = @"SettingsCell";
@@ -320,27 +330,21 @@
     }
 }
 
-#pragma mark TPServiceLoginController methods
-
--(void)showConnectUI
+#pragma mark TPConnectionCellDelegate methods
+-(void)connectionsCell:(TPConnectionsCell *)cell tryingToSetConnectionStateTo:(BOOL)connected
 {
-    TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
-    serviceVC.delegate = self;
-    serviceVC.view.frame = self.view.bounds;
-    [self.navigationController pushViewController:serviceVC animated:YES];
-}
-
--(void)connectionMadeSucessfully:(BOOL)success
-{
-    [self.navigationController popViewControllerAnimated:YES];
-    if (success) {
-//        [self downloadResultswithCompletionHandlersSuccess:^{
-//            [self refreshFitbitConnectedness];
-//        } andFailure:^{}];
+    if (connected) {
+        TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
+        [serviceVC setCompletionHandlersSuccess:^{
+            cell.switchIndicator.on = YES;
+        } andFailure:^{
+            cell.switchIndicator.on = NO;
+        }];
+        serviceVC.view.frame = self.view.bounds;
+        [self.navigationController pushViewController:serviceVC animated:YES];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];
+        [_oauthClient deleteConnectionForProvider:cell.provider];
     }
 }
-
 
 @end
