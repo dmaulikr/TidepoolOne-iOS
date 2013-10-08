@@ -189,31 +189,30 @@
     _numServerCallsCompleted = 0;    
     NSLog(@"refresh weekly data - start");
     // NEW WAY - DOESNT WORK - INFINITELY CALLED.. PROBABLY AN ISSUE WITH BLOCK VARIABLES//
-
-//    [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
-//        self.user = [TPOAuthClient sharedClient].user;
-//        _numServerCallsCompleted++;
-//        if (_numServerCallsCompleted == 1) {
-//            successBlock();
-//        }
-//    } andFailure:^{
-//        failureBlock();
-//    }];
-    //END NEW WAY//
-    //OLD WAY//
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"refresh weekly data - end");
-        [TPOAuthClient sharedClient].user = responseObject[@"data"];
-        self.user = responseObject[@"data"];
+    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        self.user = user;
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 1) {
-            NSLog(@"refresh weekly data - end - stop refresh");
             successBlock();
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+    } andFailure:^{
         failureBlock();
     }];
+    //END NEW WAY//
+    //OLD WAY//
+//    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"refresh weekly data - end");
+//        [TPOAuthClient sharedClient].user = responseObject[@"data"];
+//        self.user = responseObject[@"data"];
+//        _numServerCallsCompleted++;
+//        if (_numServerCallsCompleted == 1) {
+//            NSLog(@"refresh weekly data - end - stop refresh");
+//            successBlock();
+//        }
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+//        failureBlock();
+//    }];
     // END OLD WAY//
 }
 
