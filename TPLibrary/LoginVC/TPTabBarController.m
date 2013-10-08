@@ -70,24 +70,17 @@
 
 -(void)checkIfPersonalityExists
 {
-    if (!_oauthClient.user) { //for cases when oauthclient is still loading user data
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hud.labelText = @"Loading...";
-        [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
-            [hud hide:YES];
-            NSDictionary *personality = _oauthClient.user[@"personality"];
-            if (!personality || personality == (NSDictionary *)[NSNull null]) {
-                [self showPersonalityGame];
-            }
-        } andFailure:^{
-            [hud hide:YES];
-        }];
-    } else {
-        NSDictionary *personality = _oauthClient.user[@"personality"];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        [hud hide:YES];
+        NSDictionary *personality = user[@"personality"];
         if (!personality || personality == (NSDictionary *)[NSNull null]) {
-                [self showPersonalityGame];
+            [self showPersonalityGame];
         }
-    }
+    } andFailure:^{
+        [hud hide:YES];
+    }];
 }
 
 -(void)showPersonalityGame

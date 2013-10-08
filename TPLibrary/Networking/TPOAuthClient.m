@@ -255,7 +255,15 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 #pragma mark API methods
 
--(void)getUserInfoFromServerWithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+-(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
+{
+    if (self.user) {
+        successBlock(self.user);
+    } else {
+        [self forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:successBlock andFailure:failureBlock];
+    }
+}
+-(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 {
     NSLog(@"GET USER INFO");
     // TODO: add failure Blocks
@@ -268,12 +276,11 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
             if (!self.isLoggedIn)
                 self.isLoggedIn = 1;
             _isGettingUser = NO;
-            // TODO: fix the block typecast
             for (id item in _userCompletionBlocks) {
                 NSLog(@"running item off array");
-                void (^block)(void);
+                void (^block)(NSDictionary *user);
                 block = item;
-                block();
+                block(self.user);
             }
             [_userCompletionBlocks removeAllObjects];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

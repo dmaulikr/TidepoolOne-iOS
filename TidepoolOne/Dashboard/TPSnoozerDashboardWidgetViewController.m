@@ -87,15 +87,15 @@
         [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
         failureBlock();
     }];
-    [[TPOAuthClient sharedClient] getUserInfoFromServerWithCompletionHandlersSuccess:^{
-        self.user = [TPOAuthClient sharedClient].user;
+    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        self.user = user;
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
             successBlock();
         }
     } andFailure:^{
         failureBlock();
-    }];
+    }];     
 }
 
 -(void)setUser:(NSDictionary *)user

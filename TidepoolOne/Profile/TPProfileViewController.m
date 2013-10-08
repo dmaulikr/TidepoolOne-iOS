@@ -260,9 +260,9 @@
     if (!self.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
-        [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
-            [hud hide:YES];
-            self.user = _oauthClient.user;
+        [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+            self.user = user;
+            [hud hide:YES];            
         } andFailure:^{
             [hud hide:YES];
         }];

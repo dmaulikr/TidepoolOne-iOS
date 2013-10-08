@@ -46,7 +46,7 @@
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
     _groups = @[@"name",@"email",@"age",@"education",@"connections",@"handedness",@"gender"];
-    [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
+    [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
         _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
         _connections = [@[] mutableCopy];
         [self loadData];
@@ -194,9 +194,8 @@
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"Done";
         [hud hide:YES afterDelay:2.0];
-        [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
-        } andFailure:^{
-        }];
+        [_oauthClient forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        } andFailure:^{}];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [hud hide:YES];
