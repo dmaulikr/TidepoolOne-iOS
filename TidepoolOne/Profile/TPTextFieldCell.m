@@ -22,7 +22,6 @@
     if (self) {
         // Initialization code
         _textField = [[TPTextField alloc] initWithFrame:CGRectZero];
-        _textField.clearsOnBeginEditing = YES;
         _textField.returnKeyType = UIReturnKeyDone;
         _textField.textColor = [UIColor blackColor];
         _textField.delegate = self;
@@ -40,7 +39,10 @@
 
 -(void)setTitle:(NSString *)title
 {
-    self.textField.placeholder = title;
+    _title = title;
+    if (_title) {
+        self.textField.placeholder = title;
+    }
 }
 
 
@@ -50,12 +52,17 @@
     _textField.frame = CGRectOffset(self.bounds, 10, 0);
 }
 
+-(void)forceTextFieldReturn
+{
+    [self textFieldShouldReturn:_textField];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [_textField resignFirstResponder];
+    [textField resignFirstResponder];
+    if ([self.delegate respondsToSelector:@selector(textFieldCell:wasUpdatedTo:)]) {
+        [self.delegate textFieldCell:self wasUpdatedTo:textField.text];
+    }
     return YES;
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField {
-    [_textField resignFirstResponder];
-}
 @end

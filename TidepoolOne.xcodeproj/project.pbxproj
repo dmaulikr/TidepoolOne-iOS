@@ -740,6 +740,7 @@
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
 		A8B5A22518034F3C00399FDD /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */; };
 		A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A227180355CD00399FDD /* TPTextFieldCell.m */; };
+		A8B5A22E18036BB100399FDD /* TPImageButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A22D18036BB100399FDD /* TPImageButtonsCell.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
 		A8BABA4F17E2615A00A3C95B /* TPSettingsViewController_old.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */; };
 		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
@@ -1557,8 +1558,10 @@
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
 		A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
 		A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSettingsViewController.m; sourceTree = "<group>"; };
-		A8B5A226180355CD00399FDD /* TPTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPTextFieldCell.h; path = TidepoolOne/Profile/TPTextFieldCell.h; sourceTree = "<group>"; };
-		A8B5A227180355CD00399FDD /* TPTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPTextFieldCell.m; path = TidepoolOne/Profile/TPTextFieldCell.m; sourceTree = "<group>"; };
+		A8B5A226180355CD00399FDD /* TPTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTextFieldCell.h; sourceTree = "<group>"; };
+		A8B5A227180355CD00399FDD /* TPTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTextFieldCell.m; sourceTree = "<group>"; };
+		A8B5A22C18036BB100399FDD /* TPImageButtonsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPImageButtonsCell.h; sourceTree = "<group>"; };
+		A8B5A22D18036BB100399FDD /* TPImageButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPImageButtonsCell.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
 		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
 		A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController_old.h; sourceTree = "<group>"; };
@@ -1693,8 +1696,6 @@
 		A82F6A1917947064003FC088 = {
 			isa = PBXGroup;
 			children = (
-				A8B5A226180355CD00399FDD /* TPTextFieldCell.h */,
-				A8B5A227180355CD00399FDD /* TPTextFieldCell.m */,
 				A8665E5417FBA189001D1622 /* Resources */,
 				A847A7D017EB78A0009E228F /* Personality Game */,
 				A825EFC617E2373B00DCAAF2 /* UIKit Customization */,
@@ -2848,6 +2849,10 @@
 		A8BABA4217E2615A00A3C95B /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				A8B5A226180355CD00399FDD /* TPTextFieldCell.h */,
+				A8B5A227180355CD00399FDD /* TPTextFieldCell.m */,
+				A8B5A22C18036BB100399FDD /* TPImageButtonsCell.h */,
+				A8B5A22D18036BB100399FDD /* TPImageButtonsCell.m */,
 				A8BABA4317E2615A00A3C95B /* TPSettingsViewController_old.h */,
 				A8BABA4417E2615A00A3C95B /* TPSettingsViewController_old.m */,
 				A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */,
@@ -3935,6 +3940,7 @@
 				A8BABA7F17E2625C00A3C95B /* TPSnoozerInstructionViewController.m in Sources */,
 				A8BABA8117E2625C00A3C95B /* TPSnoozerStageViewController.m in Sources */,
 				A867570217E8F1760015C48F /* TPColor.m in Sources */,
+				A8B5A22E18036BB100399FDD /* TPImageButtonsCell.m in Sources */,
 				A8BABA8217E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m in Sources */,
 				A8BABA8417E2625C00A3C95B /* TPSurveyStageViewController.m in Sources */,
 				A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */,

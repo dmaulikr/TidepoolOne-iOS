@@ -8,9 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@class TPTextFieldCell;
+
+@protocol TPTextFieldCellDelegate <NSObject>
+
+-(void)textFieldCell:(TPTextFieldCell *)cell wasUpdatedTo:(NSString *)string;
+
+@end
+
+
 @interface TPTextFieldCell : UITableViewCell
 
 @property (nonatomic, strong) TPTextField *textField;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, weak) id<TPTextFieldCellDelegate> delegate;
+
+-(void)forceTextFieldReturn;
 
 @end

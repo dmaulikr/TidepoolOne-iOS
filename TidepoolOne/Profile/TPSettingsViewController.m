@@ -10,14 +10,17 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <QuartzCore/QuartzCore.h>
 #import "TPTextFieldCell.h"
+#import "TPImageButtonsCell.h"
 
-@interface TPSettingsViewController ()
+@interface TPSettingsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, TPImageButtonsCellDelegate, TPTextFieldCellDelegate>
 {
     TPOAuthClient *_oauthClient;
     BOOL _ageChanged;
     NSArray *_educationOptions;
     NSArray *_groups;
     NSArray *_fields;
+    UIPickerView *_pickerView;
+    NSMutableDictionary *_fieldValues;
 }
 @end
 
@@ -37,151 +40,27 @@
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
-    _groups = @[@"Name and Email",@"Age",@"Handedness",@"Gender"];
-    _fields = @[@[@"Name", @"Email"],@[@"Age"],@[@"Handedness"],@[@"Gender"],];
-    [self.tableView registerClass:[TPTextFieldCell class] forCellReuseIdentifier:@"SettingsCell"];
+    _groups = @[@"Name and Email",@"Age",@"Education",@"Handedness",@"Gender"];
+    [_oauthClient getUserInfoFromServerWithCompletionHandlersSuccess:^{
+        _fields = @[@[@"Name", @"Email"],@[@"Age"],@[@"Education"],@[@"Handedness"],@[@"Gender"],];
+        _fieldValues = [@{@"Name":@"",@"Email":@"",@"Age":@"",@"Education":@"",@"Handedness":@"",@"Gender":@"",} mutableCopy];
+        [self loadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _groups.count)] withRowAnimation:UITableViewRowAnimationBottom];
+    } andFailure:^{
+    }];
     
-    [_maleButton setImage:[UIImage imageNamed:@"male.png"] forState:UIControlStateNormal];
-    [_maleButton setImage:[UIImage imageNamed:@"male-pressed.png"] forState:UIControlStateSelected];
-    [_femaleButton setImage:[UIImage imageNamed:@"female.png"] forState:UIControlStateNormal];
-    [_femaleButton setImage:[UIImage imageNamed:@"female-pressed.png"] forState:UIControlStateSelected];
-    [_rightHandButton setImage:[UIImage imageNamed:@"righthand.png"] forState:UIControlStateNormal];
-    [_rightHandButton setImage:[UIImage imageNamed:@"righthand-pressed.png"] forState:UIControlStateSelected];
-    [_leftHandButton setImage:[UIImage imageNamed:@"lefthand.png"] forState:UIControlStateNormal];
-    [_leftHandButton setImage:[UIImage imageNamed:@"lefthand-pressed.png"] forState:UIControlStateSelected];
-    [_mixedHandButton setImage:[UIImage imageNamed:@"mixedhand.png"] forState:UIControlStateNormal];
-    [_mixedHandButton setImage:[UIImage imageNamed:@"mixedhand-pressed.png"] forState:UIControlStateSelected];
+    _pickerView = [[UIPickerView alloc] init];
+    _pickerView.showsSelectionIndicator = YES;
+    _pickerView.delegate = self;
+
+
+    [self.tableView registerClass:[TPTextFieldCell class] forCellReuseIdentifier:@"SettingsCell"];
+    [self.tableView registerClass:[TPImageButtonsCell class] forCellReuseIdentifier:@"ButtonImageCell"];
     
     _ageChanged = NO;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:tap];
     self.view.backgroundColor = [UIColor colorWithWhite:245.0/255.0 alpha:1.0];
-    float kPadding = 10;
-    float leftMarginLabel = 10;
-    float labelHeight = 25;
-    float labelWidth = 150;
-    float textFieldHeight = 44;
-    float textFieldWidth = 270;
-    float labelDistApart = textFieldHeight + 2*kPadding + labelHeight;
-    TPLabel *nameLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding, labelWidth, textFieldHeight)];
-    nameLabel.text = @"Name";
-    self.name = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding, textFieldWidth, textFieldHeight)];
-    self.name.textColor = [UIColor blackColor];
-    
-    TPLabel *emailLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelDistApart, labelWidth, textFieldHeight)];
-    emailLabel.text = @"Email";
-    self.email = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 1*labelDistApart, textFieldWidth, textFieldHeight)];
-    self.email.textColor = [UIColor blackColor];
-    
-    TPLabel *ageLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 2*(labelDistApart), labelWidth, textFieldHeight)];
-    ageLabel.text = @"Age";
-    self.age = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 2*labelDistApart, textFieldWidth, textFieldHeight)];
-    self.age.keyboardType = UIKeyboardTypeNumberPad;
-    self.age.textColor = [UIColor blackColor];
-    
-    [self.age addTarget:self action:@selector(changedAge) forControlEvents:UIControlEventEditingChanged];
-    
-    TPLabel *educationLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 3*(labelDistApart), labelWidth, textFieldHeight)];
-    educationLabel.text = @"Education";
-    self.education = [[TPTextField alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + labelHeight + kPadding + 3*labelDistApart, textFieldWidth, textFieldHeight)];
-    self.education.delegate = self;
-    self.education.textColor = [UIColor blackColor];
-    UIPickerView *pickerView = [UIPickerView new];
-    pickerView.showsSelectionIndicator = YES;
-    pickerView.delegate = self;
-    self.education.inputView = pickerView;
-    [self customizeFields:@[self.name,self.email,self.age,self.education]];
-    
-    
-    TPLabel *handednessLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, kPadding + 4*(labelDistApart), labelWidth, textFieldHeight)];
-    handednessLabel.text = @"Handedness";
-    
-    float handButtonsY = kPadding + 4*(labelDistApart) + 3*kPadding;
-    UIImage *image;
-    UIImage *imageSelected;
-    image = [UIImage imageNamed:@"lefthand.png"];
-    imageSelected = [UIImage imageNamed:@"lefthand-pressed.png"];
-    self.leftHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.leftHandButton setImage:image forState:UIControlStateNormal];
-    [self.leftHandButton setImage:imageSelected forState:UIControlStateSelected];
-    self.leftHandButton.frame = CGRectMake(0, handButtonsY, image.size.width, image.size.height);
-    self.leftHandButton.center = CGPointMake(self.view.bounds.size.width/5,self.leftHandButton.center.y);
-    [self.leftHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_scrollContentView addSubview:self.leftHandButton];
-    
-    image = [UIImage imageNamed:@"righthand.png"];
-    imageSelected = [UIImage imageNamed:@"righthand-pressed.png"];
-    self.rightHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.rightHandButton setImage:image forState:UIControlStateNormal];
-    [self.rightHandButton setImage:imageSelected forState:UIControlStateSelected];
-    self.rightHandButton.frame = CGRectMake(0, handButtonsY, image.size.width, image.size.height);
-    self.rightHandButton.center = CGPointMake(0.45*self.view.bounds.size.width,self.rightHandButton.center.y);
-    [self.rightHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_scrollContentView addSubview:self.rightHandButton];
-    
-    image = [UIImage imageNamed:@"mixedhand.png"];
-    imageSelected = [UIImage imageNamed:@"mixedhand-pressed.png"];
-    self.mixedHandButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.mixedHandButton setImage:image forState:UIControlStateNormal];
-    [self.mixedHandButton setImage:imageSelected forState:UIControlStateSelected];
-    self.mixedHandButton.frame = CGRectMake(0, handButtonsY, image.size.width, image.size.height);
-    self.mixedHandButton.center = CGPointMake(3*self.view.bounds.size.width/4,self.mixedHandButton.center.y);
-    [self.mixedHandButton addTarget:self action:@selector(handButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_scrollContentView addSubview:self.mixedHandButton];
-    
-    
-    
-    TPLabel *genderLabel = [[TPLabel alloc] initWithFrame:CGRectMake(leftMarginLabel, handButtonsY + self.leftHandButton.bounds.size.height + kPadding, labelWidth, textFieldHeight)];
-    genderLabel.text = @"Gender";
-    
-    float genderButtonsY = handButtonsY + self.leftHandButton.bounds.size.height + kPadding + labelHeight + kPadding;
-    image = [UIImage imageNamed:@"male.png"];
-    imageSelected = [UIImage imageNamed:@"male-pressed.png"];
-    self.maleButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.maleButton setImage:image forState:UIControlStateNormal];
-    [self.maleButton setImage:imageSelected forState:UIControlStateSelected];
-    self.maleButton.frame = CGRectMake(0, genderButtonsY, image.size.width, image.size.height);
-    self.maleButton.center = CGPointMake(self.view.bounds.size.width/3,self.maleButton.center.y);
-    [self.maleButton addTarget:self action:@selector(genderButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_scrollContentView addSubview:self.maleButton];
-    
-    image = [UIImage imageNamed:@"female.png"];
-    imageSelected = [UIImage imageNamed:@"female-pressed.png"];
-    self.femaleButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [self.femaleButton setImage:image forState:UIControlStateNormal];
-    [self.femaleButton setImage:imageSelected forState:UIControlStateSelected];
-    self.femaleButton.frame = CGRectMake(0, genderButtonsY, image.size.width, image.size.height);
-    self.femaleButton.center = CGPointMake(2*self.view.bounds.size.width/3,self.femaleButton.center.y);
-    [self.femaleButton addTarget:self action:@selector(genderButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [_scrollContentView addSubview:self.femaleButton];
-    
-    
-    
-    TPButton *logoutButton = [[TPButton alloc] initWithFrame:CGRectZero];
-    logoutButton.frame = CGRectMake(120, genderButtonsY + self.maleButton.bounds.size.height + 3*kPadding, 130, 40);
-    logoutButton.center = CGPointMake(self.view.bounds.size.width/2, logoutButton.center.y);
-    [logoutButton setTitle:@"Log Out" forState:UIControlStateNormal];
-    [logoutButton setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
-    [logoutButton addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    
-    
-    
-    
-    [_scrollContentView addSubview:nameLabel];
-    [_scrollContentView addSubview:self.name];
-    [_scrollContentView addSubview:emailLabel];
-    [_scrollContentView addSubview:self.email];
-    [_scrollContentView addSubview:ageLabel];
-    [_scrollContentView addSubview:self.age];
-    [_scrollContentView addSubview:educationLabel];
-    [_scrollContentView addSubview:self.education];
-    [_scrollContentView addSubview:handednessLabel];
-    [_scrollContentView addSubview:genderLabel];
-    [_scrollContentView addSubview:logoutButton];
-    
-    
     
     _educationOptions = @[
                           @"High School - Freshman (9)",
@@ -219,14 +98,6 @@
         field.textColor = [UIColor blackColor];
         field.layer.borderColor = [[UIColor blackColor] CGColor];
     }
-}
-
--(void)viewDidLayoutSubviews
-{
-    _scrollContentView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 800);
-    [self.scrollView addSubview:_scrollContentView];
-    [self.scrollView setContentSize:_scrollContentView.bounds.size];
-    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -267,66 +138,66 @@
 }
 
 -(void)dismissKeyboard {
-    [self.name resignFirstResponder];
-    [self.email resignFirstResponder];
-    [self.age resignFirstResponder];
-    [self.education resignFirstResponder];
+    for (UITableViewCell *cell in self.tableView.visibleCells) {
+        if ([cell isKindOfClass:[TPTextFieldCell class]]) {
+            TPTextFieldCell *textFieldCell = (TPTextFieldCell *)cell;
+            [textFieldCell forceTextFieldReturn];
+        }
+    }
 }
 
 -(void)loadData
 {
     NSDictionary *user = _oauthClient.user;
     if (user[@"name"] != [NSNull null]) {
-        self.name.text = user[@"name"];
+        [_fieldValues setObject:user[@"name"] forKey:@"Name"];
     }
-    self.email.text = user[@"email"];
+    [_fieldValues setObject:user[@"email"] forKey:@"Email"];
     if (user[@"date_of_birth"] != [NSNull null]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-mm-dd"];
         NSDate *dob = [dateFormatter dateFromString:user[@"date_of_birth"]];
         long long age = [[NSDate date] timeIntervalSinceDate:dob] / 3.15569e7;
-        self.age.text = [NSString stringWithFormat:@"%lld",age];
+        [_fieldValues setObject:[NSString stringWithFormat:@"%lld",age] forKey:@"Age"];
     }
     
     
     if (user[@"education"] != [NSNull null]) {
-        self.education.text = user[@"education"];
+        [_fieldValues setObject:user[@"education"] forKey:@"Education"];
     }
     if (user[@"handedness"] != [NSNull null]) {
-        self.handedness = user[@"handedness"];
+        [_fieldValues setObject:user[@"handedness"] forKey:@"Handedness"];
     }
     if (user[@"gender"] != [NSNull null]) {
-        self.gender = user[@"gender"];
+        [_fieldValues setObject:user[@"gender"] forKey:@"Gender"];
     }
 }
 
 -(void)setHandedness:(NSString *)handedness
 {
-    _handedness = handedness;
-    
+    [_fieldValues setValue:handedness forKey:@"Handedness"];
     _rightHandButton.selected = NO;
     _leftHandButton.selected = NO;
     _mixedHandButton.selected = NO;
     
-    if ([_handedness isEqualToString:@"right"]) {
+    if ([handedness isEqualToString:@"right"]) {
         _rightHandButton.selected = YES;
-    } else if ([_handedness isEqualToString:@"left"]) {
+    } else if ([handedness isEqualToString:@"left"]) {
         _leftHandButton.selected = YES;
-    } else if ([_handedness isEqualToString:@"mixed"]) {
+    } else if ([handedness isEqualToString:@"mixed"]) {
         _mixedHandButton.selected = YES;
     }
 }
 
 -(void)setGender:(NSString *)gender
 {
-    _gender = gender;
-    
+    [_fieldValues setValue:gender forKey:@"Gender"];
     _maleButton.selected = NO;
     _femaleButton.selected = NO;
     
-    if ([_gender isEqualToString:@"male"]) {
+    if ([gender isEqualToString:@"male"]) {
         _maleButton.selected = YES;
-    } else if ([_gender isEqualToString:@"female"]) {
+    } else if ([gender isEqualToString:@"female"]) {
         _femaleButton.selected = YES;
     }
 }
@@ -337,20 +208,21 @@
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
+    [self dismissKeyboard];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setValue:self.name.text forKey:@"name"];
-    [params setValue:self.email.text forKey:@"email"];
+    [params setValue:_fieldValues[@"Name"] forKey:@"name"];
+    [params setValue:_fieldValues[@"Email"] forKey:@"email"];
     int age = [[[NSCalendar currentCalendar]
                 components:NSYearCalendarUnit fromDate:[NSDate date]]
-               year] - self.age.text.intValue;
+               year] - [_fieldValues[@"Age"] intValue];
     if (_ageChanged) {
         [params setValue:[NSString stringWithFormat:@"01/01/%i",age] forKey:@"date_of_birth"];
     }
-    [params setValue:self.education.text forKey:@"education"];
-    [params setValue:self.handedness forKey:@"handedness"];
-    [params setValue:self.gender forKey:@"gender"];
+    [params setValue:_fieldValues[@"Education"] forKey:@"education"];
+    [params setValue:_fieldValues[@"Handedness"] forKey:@"handedness"];
+    [params setValue:_fieldValues[@"Gender"] forKey:@"gender"];
     [params setValue:@1 forKey:@"is_dob_by_age"];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.scrollView animated:YES];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Saving...";
     [_oauthClient putPath:@"api/v1/users/-/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         hud.mode = MBProgressHUDModeText;
@@ -380,7 +252,16 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.education.text = _educationOptions[row];
+    _fieldValues[@"Education"] = _educationOptions[row];
+    [self.tableView reloadData];
+//    for (UITableViewCell *cell in self.tableView.visibleCells) {
+//        if ([cell isKindOfClass:[TPTextFieldCell class]]) {
+//            TPTextFieldCell *textFieldCell = (TPTextFieldCell *)cell;
+//            if ([textFieldCell.title isEqualToString:@"Education"]) {
+//                textFieldCell.textField.text = _fieldValues[@"Education"];
+//            }
+//        }
+//    }
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -408,63 +289,76 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SettingsCell";
-    TPTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    // Configure the cell...
-//    cell.textLabel.text = _fields[indexPath.section][indexPath.row];
-    cell.title = _fields[indexPath.section][indexPath.row];
-    return cell;
+    if ([_groups[indexPath.section] isEqualToString:@"Gender"]) {
+        TPImageButtonsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonImageCell" forIndexPath:indexPath];
+        cell.buttonImages = @[@[[UIImage imageNamed:@"male.png"],[UIImage imageNamed:@"male-pressed.png"]],
+                              @[[UIImage imageNamed:@"female.png"],[UIImage imageNamed:@"female-pressed.png"]],];
+        cell.values =@[@"male",@"female"];
+        cell.currentValue = [_fieldValues objectForKey:@"Gender"];
+        cell.title = _fields[indexPath.section][indexPath.row];
+        cell.delegate = self;
+        return cell;
+    } else if ([_groups[indexPath.section] isEqualToString:@"Handedness"]) {
+        TPImageButtonsCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ButtonImageCell" forIndexPath:indexPath];
+        cell.buttonImages = @[@[[UIImage imageNamed:@"righthand.png"],[UIImage imageNamed:@"righthand-pressed.png"]],
+                              @[[UIImage imageNamed:@"lefthand.png"],[UIImage imageNamed:@"lefthand-pressed.png"]],
+                              @[[UIImage imageNamed:@"mixedhand.png"],[UIImage imageNamed:@"mixedhand-pressed.png"]],];
+        cell.values =@[@"right",@"left",@"mixed"];
+        cell.currentValue = [_fieldValues objectForKey:@"Handedness"];
+        cell.title = _fields[indexPath.section][indexPath.row];
+        cell.delegate = self;
+        return cell;
+    } else {
+        static NSString *CellIdentifier = @"SettingsCell";
+        TPTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        // Configure the cell...
+        cell.title = _fields[indexPath.section][indexPath.row];
+        cell.textField.text = _fieldValues[cell.title];
+        if ([cell.title isEqualToString:@"Age"]) {
+            cell.textField.keyboardType = UIKeyboardTypeNumberPad;
+        } else if ([cell.title isEqualToString:@"Email"]) {
+            cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
+        } else if ([cell.title isEqualToString:@"Education"]) {
+            cell.textField.inputView = _pickerView;
+        } else if ([cell.title isEqualToString:@"Email"]) {
+            cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
+        } else if ([cell.title isEqualToString:@"Email"]) {
+            cell.textField.keyboardType = UIKeyboardTypeEmailAddress;
+        } else {
+            cell.textField.keyboardType = UIKeyboardTypeDefault;
+        }
+        cell.delegate = self;
+        return cell;
+    }
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    if ([_groups[indexPath.section] isEqualToString:@"Gender"] || [_groups[indexPath.section] isEqualToString:@"Handedness"]) {
+        return 150;
+    }
+    return 44;
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma mark TPImageButtonsCellDelegate methods
+
+-(void)valueWasChosen:(NSString *)value inCell:(TPImageButtonsCell *)cell
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    if (value) {
+        [_fieldValues setObject:value forKey:cell.title];
+    } else {
+        [_fieldValues removeObjectForKey:cell.title];
+    }
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+#pragma mark TPTextFieldCellDelegate methods
+
+-(void)textFieldCell:(TPTextFieldCell *)cell wasUpdatedTo:(NSString *)string
 {
+    [_fieldValues setValue:string forKey:cell.title];
+    if ([cell.title isEqualToString:@"Age"]) {
+        [self changedAge];
+    }
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end
