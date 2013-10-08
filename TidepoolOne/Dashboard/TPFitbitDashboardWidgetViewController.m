@@ -13,8 +13,6 @@
 @interface TPFitbitDashboardWidgetViewController()
 {
     int _numServerCallsCompleted;
-    CGSize _connectedSize;
-    CGSize _notConnectedSize;
     TPOAuthClient *_oauthClient;
     __block NSTimer *_pollTimeoutTimer;
     __block NSTimer *_pollTimer;
@@ -40,8 +38,6 @@
     self.fitbitBarGraphView.unselectedColor = [UIColor colorWithRed:63/255.0 green:201/255.0 blue:167/255.0 alpha:1.0];
     self.fitbitActivityGraphView.color = [UIColor colorWithRed:250/255.0 green:187/255.0 blue:61/255.0 alpha:1.0];
     self.fitbitSleepGraphView.color = [UIColor colorWithRed:2/255.0 green:110/255.0 blue:160/255.0 alpha:1.0];
-    _connectedSize = self.view.bounds.size;
-    _notConnectedSize = CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height - self.fitbitScrollView.frame.size.height);
     self.speedChange = 0;
     self.sleepChange = 0;
     self.activityChange = 0;
