@@ -70,12 +70,12 @@
 - (BOOL)webView:(UIWebView *)webView2
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType {
-    
+    NSLog([request description]);
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
     if ([requestString hasSuffix:@"success"]) {
-        _successBlock();
         [self.navigationController popViewControllerAnimated:YES];
+        _successBlock();
         return NO;
     } else if ([requestString hasSuffix:@"failure"]) {
         [[[UIAlertView alloc] initWithTitle:@"Error" message:@"There was an error connecting to Fitbit. Please try again." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok",nil] show];

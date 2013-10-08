@@ -65,9 +65,9 @@
 {
     _isConnected = isConnected;
     if (!isConnected) {
-        self.view.hidden = NO;
-    } else {
         self.view.hidden = YES;
+    } else {
+        self.view.hidden = NO;
     }
 }
 
