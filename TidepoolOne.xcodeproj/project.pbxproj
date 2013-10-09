@@ -781,6 +781,7 @@
 		A8B5A7F418038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8B5A52518038EAA00399FDD /* tp-appwalkthrough4~iphone.jpg */; };
 		A8B5A7F718039B1000399FDD /* TPConnectionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */; };
 		A8B5A7FA1804C6DA00399FDD /* TPDashboardTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A7F91804C6DA00399FDD /* TPDashboardTableCell.m */; };
+		A8B5A8041805DEA100399FDD /* TPDashboardDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A8031805DEA100399FDD /* TPDashboardDetailViewController.m */; };
 		A8BABA3217E2605F00A3C95B /* CGHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA3117E2605F00A3C95B /* CGHelper.m */; };
 		A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */; };
 		A8BABA5117E2615A00A3C95B /* TPProfileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */; };
@@ -1644,6 +1645,8 @@
 		A8B5A7F618039B1000399FDD /* TPConnectionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPConnectionsCell.m; path = Views/TPConnectionsCell.m; sourceTree = "<group>"; };
 		A8B5A7F81804C6DA00399FDD /* TPDashboardTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardTableCell.h; sourceTree = "<group>"; };
 		A8B5A7F91804C6DA00399FDD /* TPDashboardTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardTableCell.m; sourceTree = "<group>"; };
+		A8B5A8021805DEA100399FDD /* TPDashboardDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPDashboardDetailViewController.h; path = Detail/TPDashboardDetailViewController.h; sourceTree = "<group>"; };
+		A8B5A8031805DEA100399FDD /* TPDashboardDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPDashboardDetailViewController.m; path = Detail/TPDashboardDetailViewController.m; sourceTree = "<group>"; };
 		A8BABA3017E2605F00A3C95B /* CGHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGHelper.h; sourceTree = "<group>"; };
 		A8BABA3117E2605F00A3C95B /* CGHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGHelper.m; sourceTree = "<group>"; };
 		A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPProfileTableViewCell.h; sourceTree = "<group>"; };
@@ -2947,6 +2950,15 @@
 			path = walkthrough;
 			sourceTree = "<group>";
 		};
+		A8B5A8051805DEA400399FDD /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A8B5A8021805DEA100399FDD /* TPDashboardDetailViewController.h */,
+				A8B5A8031805DEA100399FDD /* TPDashboardDetailViewController.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		A8BABA2C17E2600900A3C95B /* Snoozer */ = {
 			isa = PBXGroup;
 			children = (
@@ -3086,6 +3098,7 @@
 				A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */,
 				A8B5A7F81804C6DA00399FDD /* TPDashboardTableCell.h */,
 				A8B5A7F91804C6DA00399FDD /* TPDashboardTableCell.m */,
+				A8B5A8051805DEA400399FDD /* Detail */,
 				A830EFCD17E3FEEF0035DCD0 /* Widget */,
 				A8BABA9117E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.h */,
 				A8BABA9217E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m */,
@@ -4122,6 +4135,7 @@
 				A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */,
 				A8F5B2F817F103450066E0BD /* TPEIResultViewController.m in Sources */,
 				A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */,
+				A8B5A8041805DEA100399FDD /* TPDashboardDetailViewController.m in Sources */,
 				A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

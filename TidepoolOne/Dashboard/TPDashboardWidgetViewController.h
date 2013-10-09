@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TPDashboardWidgetViewController : UIViewController
+@interface TPDashboardWidgetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 ;

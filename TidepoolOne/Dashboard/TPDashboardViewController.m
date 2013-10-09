@@ -11,6 +11,7 @@
 #import "TPSnoozerResultViewController.h"
 #import "TPDashboardTableCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "TPDashboardDetailViewController.h"
 
 @interface TPDashboardViewController ()
 {
@@ -48,10 +49,6 @@
     _widgetVCs = @{@"snoozer":[[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    @"fitbit":[[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    };
-    for (NSString *key in _widgetVCs) {
-        TPDashboardWidgetViewController *widget = _widgetVCs[key];
-        widget.view.frame = self.view.bounds;
-    }
     _labels = @{@"snoozer":@[@"",@"Best of the day", @"All time best"],@"faceoff":@[@"",@"Best of the day", @"All time best"],@"fitbit":@[@"Speed",@"Activity",@"Sleep"]};
     _bottomLabels = @{@"snoozer":@[@"",@"POINTS", @"POINTS"],@"faceoff":@[@"",@"POINTS", @"POINTS"],@"fitbit":@[@"",@"",@""]};
     self.title = @"Dashboard";
@@ -288,14 +285,15 @@
 //
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    NSDictionary *classDictionary = @{@"snoozer":[TPSnoozerDashboardWidgetViewController class],@"fitbit":[TPFitbitDashboardWidgetViewController class]};
     TPDashboardWidgetViewController *widget = _widgetVCs[_widgets[indexPath.row]];
-    widget.view.frame = self.view.frame;
 //    [widget downloadResultswithCompletionHandlersSuccess:^{
-        [self.navigationController pushViewController:widget animated:YES];
+//        [self.navigationController pushViewController:widget animated:YES];
 //    } andFailure:^{
 //        NSLog(@"ERROR");
 //    }];
+    TPDashboardDetailViewController *detailVC = [[TPDashboardDetailViewController alloc] init];
+    detailVC.widget = widget;
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

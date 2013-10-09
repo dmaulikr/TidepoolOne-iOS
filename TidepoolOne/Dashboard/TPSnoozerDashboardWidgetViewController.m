@@ -8,6 +8,7 @@
 
 #import "TPSnoozerDashboardWidgetViewController.h"
 #import "TPCircadianTooltipView.h"
+#import "TPSnoozerResultsDashboardWidget.h"
 
 @interface TPSnoozerDashboardWidgetViewController ()
 {
@@ -25,6 +26,18 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        _hourFromDate = [[NSDateFormatter alloc] init];
+        [_hourFromDate setDateFormat:@"HH"];
+        UIImage *image = [UIImage imageNamed:@"dash-densityflag2.png"];
+        _legendView = [[UIImageView alloc] initWithImage:image];
+        _legendView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+        _legendView.hidden = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasTapped:)];
+        [self.view addGestureRecognizer:tap];
+        
+        
+        _tooltipView = [[TPCircadianTooltipView alloc] initWithFrame:CGRectMake(0, 0, 85, 61)];
+        _tooltipView.hidden = YES;
     }
     return self;
 }
@@ -33,18 +46,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _hourFromDate = [[NSDateFormatter alloc] init];
-    [_hourFromDate setDateFormat:@"HH"];
-    UIImage *image = [UIImage imageNamed:@"dash-densityflag2.png"];
-    _legendView = [[UIImageView alloc] initWithImage:image];
-    _legendView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-    _legendView.hidden = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasTapped:)];
-    [self.view addGestureRecognizer:tap];
-    
-    
-    _tooltipView = [[TPCircadianTooltipView alloc] initWithFrame:CGRectMake(0, 0, 85, 61)];
-    _tooltipView.hidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -78,6 +79,7 @@
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.results = responseObject[@"data"];
+        self.results = [[[self.results reverseObjectEnumerator] allObjects] subarrayWithRange:NSMakeRange(0, 5)];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
             successBlock();
@@ -215,5 +217,57 @@
     [_tooltipView removeFromSuperview];
 }
 
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"TPDashboardTableCell";
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsDashboardWidget" owner:nil options:nil];
+    TPSnoozerResultsDashboardWidget *view;
+
+    for (id item in nibItems) {
+        if ([item isKindOfClass:[TPSnoozerResultsDashboardWidget class]]) {
+            view = item;
+        }
+    }
+
+    view.frame = cell.contentView.frame;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+    NSLocale *locale = [[NSLocale alloc]
+                        initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:locale];
+    // below is hack for pre-iOS 7
+    NSMutableString *dateString = [self.results[indexPath.row][@"time_played"] mutableCopy];
+    if ([dateString characterAtIndex:26] == ':') {
+        [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
+    }
+
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    view.date = date;
+    view.fastestTime = self.results[indexPath.row][@"speed_score"];
+    view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
+    if ([view.animalLabel.text hasPrefix:@"PROGRESS"]) {
+        view.animalLabel.text = @"";
+    }
+
+    view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
+    [[cell.contentView subviews]
+     makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [cell.contentView addSubview:view];
+    view.detailLabel.text = self.results[indexPath.row][@"description"];
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.results.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 150;
+}
 
 @end
