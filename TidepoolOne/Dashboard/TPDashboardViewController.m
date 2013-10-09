@@ -56,7 +56,7 @@
     [self.tableView registerClass:[TPDashboardTableCell class] forCellReuseIdentifier:@"TPDashboardTableCell"];
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
-    
+
     
 //    self.tableView.tableHeaderView = _dashboardHeaderView;
     
@@ -211,7 +211,7 @@
     cell.name = _widgets[indexPath.row];
     cell.labels = _labels[cell.name];
     cell.bottomLabels = _bottomLabels[cell.name];
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *user = [TPOAuthClient sharedClient].user;
     
     if (user) {

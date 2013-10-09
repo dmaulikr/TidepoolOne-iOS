@@ -37,6 +37,8 @@
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
 		A847A7D117EB78A0009E228F /* Personality Game in Resources */ = {isa = PBXBuildFile; fileRef = A847A7D017EB78A0009E228F /* Personality Game */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
+		A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */; };
+		A857AEFD180609CA002C2E2A /* TPSnoozerResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A857AEFC180609CA002C2E2A /* TPSnoozerResultCell.xib */; };
 		A86663A317FCB88D001D1622 /* TPEIYourMoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A86663A117FCB88D001D1622 /* TPEIYourMoodViewController.m */; };
 		A86663A417FCB88D001D1622 /* TPEIYourMoodViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A86663A217FCB88D001D1622 /* TPEIYourMoodViewController.xib */; };
 		A866655417FCE70D001D1622 /* TPEmotionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = A866655317FCE70D001D1622 /* TPEmotionCellView.m */; };
@@ -884,6 +886,9 @@
 		A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPServiceLoginViewController.xib; sourceTree = "<group>"; };
 		A847A7D017EB78A0009E228F /* Personality Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Personality Game"; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
+		A857AEF9180609BA002C2E2A /* TPSnoozerResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultCell.h; sourceTree = "<group>"; };
+		A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultCell.m; sourceTree = "<group>"; };
+		A857AEFC180609CA002C2E2A /* TPSnoozerResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultCell.xib; sourceTree = "<group>"; };
 		A86663A017FCB88D001D1622 /* TPEIYourMoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEIYourMoodViewController.h; path = EI/StageVC/TPEIYourMoodViewController.h; sourceTree = "<group>"; };
 		A86663A117FCB88D001D1622 /* TPEIYourMoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIYourMoodViewController.m; path = EI/StageVC/TPEIYourMoodViewController.m; sourceTree = "<group>"; };
 		A86663A217FCB88D001D1622 /* TPEIYourMoodViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPEIYourMoodViewController.xib; path = EI/StageVC/TPEIYourMoodViewController.xib; sourceTree = "<group>"; };
@@ -3103,6 +3108,9 @@
 				A8BABA9117E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.h */,
 				A8BABA9217E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m */,
 				A8BABA9317E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib */,
+				A857AEF9180609BA002C2E2A /* TPSnoozerResultCell.h */,
+				A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */,
+				A857AEFC180609CA002C2E2A /* TPSnoozerResultCell.xib */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -3417,6 +3425,7 @@
 				A8B5A5A818038EAA00399FDD /* howfeeling-angry-pressed~iphone.png in Resources */,
 				A8B5A63618038EAA00399FDD /* fbicon@2x~iphone.png in Resources */,
 				A8B5A7D718038EAA00399FDD /* tabicon-profile2~iphone.png in Resources */,
+				A857AEFD180609CA002C2E2A /* TPSnoozerResultCell.xib in Resources */,
 				A8B5A63218038EAA00399FDD /* btn-facebook-pressed@2x~iphone.png in Resources */,
 				A8B5A75918038EAA00399FDD /* resultsbadge-antelope.png in Resources */,
 				A8B5A7C618038EAA00399FDD /* snoozer-clockringc2~iphone.png in Resources */,
@@ -4125,6 +4134,7 @@
 				A8BABA8217E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m in Sources */,
 				A8BABA8417E2625C00A3C95B /* TPSurveyStageViewController.m in Sources */,
 				A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */,
+				A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */,
 				A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */,
 				A8BABA9717E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m in Sources */,
 				A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */,

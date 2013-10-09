@@ -9,6 +9,7 @@
 #import "TPSnoozerDashboardWidgetViewController.h"
 #import "TPCircadianTooltipView.h"
 #import "TPSnoozerResultsDashboardWidget.h"
+#import "TPSnoozerResultCell.h"
 
 @interface TPSnoozerDashboardWidgetViewController ()
 {
@@ -221,18 +222,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"TPDashboardTableCell";
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsDashboardWidget" owner:nil options:nil];
-    TPSnoozerResultsDashboardWidget *view;
-
-    for (id item in nibItems) {
-        if ([item isKindOfClass:[TPSnoozerResultsDashboardWidget class]]) {
-            view = item;
-        }
-    }
-
-    view.frame = cell.contentView.frame;
+//    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    [tableView registerNib:[UINib nibWithNibName:@"TPSnoozerResultCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
+    
+    TPSnoozerResultCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
     NSLocale *locale = [[NSLocale alloc]
@@ -245,18 +238,17 @@
     }
 
     NSDate *date = [dateFormatter dateFromString:dateString];
-    view.date = date;
-    view.fastestTime = self.results[indexPath.row][@"speed_score"];
-    view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
-    if ([view.animalLabel.text hasPrefix:@"PROGRESS"]) {
-        view.animalLabel.text = @"";
+    cell.date = date;
+    cell.fastestTime = self.results[indexPath.row][@"speed_score"];
+    cell.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
+    if ([cell.animalLabel.text hasPrefix:@"PROGRESS"]) {
+        cell.animalLabel.text = @"";
     }
 
-    view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
-    [[cell.contentView subviews]
-     makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [cell.contentView addSubview:view];
-    view.detailLabel.text = self.results[indexPath.row][@"description"];
+    cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
+    cell.detailLabel.text = self.results[indexPath.row][@"description"];
+    [cell adjustScrollView];
+    
     return cell;
 }
 

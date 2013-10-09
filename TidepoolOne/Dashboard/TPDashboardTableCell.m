@@ -87,6 +87,7 @@
         [self addSubview:_bottomLabel3];
         
         _bottomLabel1.fontSize = _bottomLabel2.fontSize = _bottomLabel3.fontSize = 13;
+        
     }
     return self;
 }
