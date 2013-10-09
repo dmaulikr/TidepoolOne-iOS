@@ -27,12 +27,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;    
+    UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
+    imgView.frame = self.view.frame;
+    [self.view insertSubview:imgView atIndex:0];
+
+
+
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    //virtual function - no implementation
+}
+
+-(void)reset
+{
+    //virtual function - no implementation
 }
 
 @end

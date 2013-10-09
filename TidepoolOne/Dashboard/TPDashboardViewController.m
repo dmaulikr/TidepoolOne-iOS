@@ -9,6 +9,7 @@
 #import "TPDashboardViewController.h"
 #import "TPSnoozerResultsDashboardWidget.h"
 #import "TPSnoozerResultViewController.h"
+#import "TPDashboardTableCell.h"
 #import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPDashboardViewController ()
@@ -16,6 +17,8 @@
     UIView *_dashboardHeaderView;
     int _numWidgetsCompleted;
     NSArray *_widgets;
+    NSDictionary *_labels;
+    NSDictionary *_bottomLabels;
     BOOL _downloading;
 }
 @end
@@ -36,15 +39,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+//    _dashboardHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
+//    [self constructHeaderView];
+    self.snoozerWidget = [[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
+    self.fitbitWidget = [[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
+
+    _widgets = @[@"snoozer",@"faceoff",@"fitbit"];
+    _labels = @{@"snoozer":@[@"",@"Best of the day", @"All time best"],@"faceoff":@[@"",@"Best of the day", @"All time best"],@"fitbit":@[@"Speed",@"Activity",@"Sleep"]};
+    _bottomLabels = @{@"snoozer":@[@"",@"POINTS", @"POINTS"],@"faceoff":@[@"",@"POINTS", @"POINTS"],@"fitbit":@[@"",@"",@""]};
     self.title = @"Dashboard";
-    self.tableView.allowsSelection = NO;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.tableView registerClass:[TPDashboardTableCell class] forCellReuseIdentifier:@"TPDashboardTableCell"];
     [self.tableView reloadData];
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
-
-    _dashboardHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
-    [self constructHeaderView];
-    self.tableView.tableHeaderView = _dashboardHeaderView;
+    
+    
+//    self.tableView.tableHeaderView = _dashboardHeaderView;
+    
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // iOS 6.1 or earlier
+    } else {
+        // iOS 7+
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
     
     self.refreshControl = [[UIRefreshControl alloc]
                                         init];
@@ -58,7 +76,7 @@
     
     //hack, more to model
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Got New Game Results" object:nil];
-    [self loggedIn];
+//    [self loggedIn];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -79,20 +97,20 @@
 
 -(void)constructHeaderView
 {
-    self.snoozerWidget = [[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
-    [self addChildViewController:self.snoozerWidget];
-    [self.snoozerWidget didMoveToParentViewController:self];
-    [_dashboardHeaderView addSubview:self.snoozerWidget.view];
+//    self.snoozerWidget = [[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
+//    [self addChildViewController:self.snoozerWidget];
+//    [self.snoozerWidget didMoveToParentViewController:self];
+//    [_dashboardHeaderView addSubview:self.snoozerWidget.view];
     
-    self.fitbitWidget = [[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
-    [self addChildViewController:self.fitbitWidget];
-    [self.fitbitWidget didMoveToParentViewController:self];
-    self.fitbitWidget.view.frame = CGRectOffset(self.fitbitWidget.view.frame, 0, self.snoozerWidget.view.frame.size.height);
-    [_dashboardHeaderView addSubview:self.fitbitWidget.view];
+//    self.fitbitWidget = [[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
+//    [self addChildViewController:self.fitbitWidget];
+//    [self.fitbitWidget didMoveToParentViewController:self];
+//    self.fitbitWidget.view.frame = CGRectOffset(self.fitbitWidget.view.frame, 0, self.snoozerWidget.view.frame.size.height);
+//    [_dashboardHeaderView addSubview:self.fitbitWidget.view];
     
-    CGRect bounds = _dashboardHeaderView.bounds;
-    bounds.size.height = self.snoozerWidget.view.frame.size.height + self.fitbitWidget.view.frame.size.height;
-    _dashboardHeaderView.bounds = bounds;
+//    CGRect bounds = _dashboardHeaderView.bounds;
+//    bounds.size.height = self.snoozerWidget.view.frame.size.height + self.fitbitWidget.view.frame.size.height;
+//    _dashboardHeaderView.bounds = bounds;
     
 }
 
@@ -121,92 +139,129 @@
     _downloading = YES;
     NSLog(@"start refresh");
     _numWidgetsCompleted = 0;
-    [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
-        self.results = self.snoozerWidget.results;
-        _numWidgetsCompleted++;
-        NSLog(@"one more done - snoozer");
-        if (_numWidgetsCompleted == 2) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSLog(@"end refresh");
-                _downloading = NO;
-                [self.refreshControl endRefreshing];
-            });
-        }
-    } andFailure:^{
-        NSLog(@"error!");
-        [self.refreshControl endRefreshing];
-    }];
-    [self.fitbitWidget downloadResultswithCompletionHandlersSuccess:^{
-        _numWidgetsCompleted++;
-        NSLog(@"one more done - fitbit");
-        if (_numWidgetsCompleted == 2) {
-            NSLog(@"end refresh");
-            _downloading = NO;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.refreshControl endRefreshing];
-            });
-        }
-    } andFailure:^{
-        NSLog(@"error!");
-        dispatch_async(dispatch_get_main_queue(), ^{
+    for (TPDashboardWidgetViewController *widget in _widgets) {
+        [widget downloadResultswithCompletionHandlersSuccess:^{
+            _numWidgetsCompleted++;
+            NSLog(@"one more done");
+            if (_numWidgetsCompleted == 2) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSLog(@"end refresh");
+                    _downloading = NO;
+                    [self.refreshControl endRefreshing];
+                });
+            }
+        } andFailure:^{
+            NSLog(@"error!");
             [self.refreshControl endRefreshing];
-        });
-    }];
+        }];
 
+    }
+    
+//    [self.snoozerWidget downloadResultswithCompletionHandlersSuccess:^{
+//        self.results = self.snoozerWidget.results;
+//        _numWidgetsCompleted++;
+//        NSLog(@"one more done - snoozer");
+//        if (_numWidgetsCompleted == 2) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                NSLog(@"end refresh");
+//                _downloading = NO;
+//                [self.refreshControl endRefreshing];
+//            });
+//        }
+//    } andFailure:^{
+//        NSLog(@"error!");
+//        [self.refreshControl endRefreshing];
+//    }];
+//    [self.fitbitWidget downloadResultswithCompletionHandlersSuccess:^{
+//        _numWidgetsCompleted++;
+//        NSLog(@"one more done - fitbit");
+//        if (_numWidgetsCompleted == 2) {
+//            NSLog(@"end refresh");
+//            _downloading = NO;
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [self.refreshControl endRefreshing];
+//            });
+//        }
+//    } andFailure:^{
+//        NSLog(@"error!");
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [self.refreshControl endRefreshing];
+//        });
+//    }];
 }
-
--(void)setResults:(NSArray *)results
-{
-    _results = [[results reverseObjectEnumerator] allObjects];
-    [self.tableView reloadData];
-}
+//
+//-(void)setResults:(NSArray *)results
+//{
+//    _results = [[results reverseObjectEnumerator] allObjects];
+//    [self.tableView reloadData];
+//}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"SnoozerResultCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsDashboardWidget" owner:nil options:nil];
-    TPSnoozerResultsDashboardWidget *view;
-    
-    for (id item in nibItems) {
-        if ([item isKindOfClass:[TPSnoozerResultsDashboardWidget class]]) {
-            view = item;
-        }
-    }
-    
-    view.frame = cell.contentView.frame;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
-    NSLocale *locale = [[NSLocale alloc]
-                        initWithLocaleIdentifier:@"en_US_POSIX"];
-    [dateFormatter setLocale:locale];
-    // below is hack for pre-iOS 7
-    NSMutableString *dateString = [self.results[indexPath.row][@"time_played"] mutableCopy];
-    if ([dateString characterAtIndex:26] == ':') {
-        [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
-    }
-    
-    NSDate *date = [dateFormatter dateFromString:dateString];
-    view.date = date;
-    view.fastestTime = self.results[indexPath.row][@"speed_score"];
-    view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
-    if ([view.animalLabel.text hasPrefix:@"PROGRESS"]) {
-        view.animalLabel.text = @"";
-    }
-    
-    view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
-    [[cell.contentView subviews]
-     makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    [cell.contentView addSubview:view];
-    view.detailLabel.text = self.results[indexPath.row][@"description"];
+    static NSString *CellIdentifier = @"TPDashboardTableCell";
+    TPDashboardTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    cell.name = _widgets[indexPath.row];
+    cell.labels = _labels[cell.name];
+    cell.bottomLabels = _bottomLabels[cell.name];
     return cell;
+//    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsDashboardWidget" owner:nil options:nil];
+//    TPSnoozerResultsDashboardWidget *view;
+//    
+//    for (id item in nibItems) {
+//        if ([item isKindOfClass:[TPSnoozerResultsDashboardWidget class]]) {
+//            view = item;
+//        }
+//    }
+//    
+//    view.frame = cell.contentView.frame;
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+//    NSLocale *locale = [[NSLocale alloc]
+//                        initWithLocaleIdentifier:@"en_US_POSIX"];
+//    [dateFormatter setLocale:locale];
+//    // below is hack for pre-iOS 7
+//    NSMutableString *dateString = [self.results[indexPath.row][@"time_played"] mutableCopy];
+//    if ([dateString characterAtIndex:26] == ':') {
+//        [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
+//    }
+//    
+//    NSDate *date = [dateFormatter dateFromString:dateString];
+//    view.date = date;
+//    view.fastestTime = self.results[indexPath.row][@"speed_score"];
+//    view.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
+//    if ([view.animalLabel.text hasPrefix:@"PROGRESS"]) {
+//        view.animalLabel.text = @"";
+//    }
+//    
+//    view.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
+//    [[cell.contentView subviews]
+//     makeObjectsPerformSelector:@selector(removeFromSuperview)];
+//    [cell.contentView addSubview:view];
+//    view.detailLabel.text = self.results[indexPath.row][@"description"];
+//    return cell;
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.45];
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    cell.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.45];
+//}
+//
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *classDictionary = @{@"snoozer":[TPSnoozerDashboardWidgetViewController class],@"fitbit":[TPFitbitDashboardWidgetViewController class]};
+    Class WidgetClass = classDictionary[_widgets[indexPath.row]];
+    TPDashboardWidgetViewController *widget = [[WidgetClass alloc] init];
+    widget.view.frame = self.view.frame;
+    [widget downloadResultswithCompletionHandlersSuccess:^{
+        [self.navigationController pushViewController:widget animated:YES];
+    } andFailure:^{
+        NSLog(@"ERROR");
+    }];
+
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 119;
 }
 
 - (void)didReceiveMemoryWarning
@@ -215,17 +270,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;//self.results.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.results.count;
+    return _widgets.count;
 }
 
 - (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
@@ -238,11 +292,6 @@
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
-}
-
--(void)showFitbitConnect
-{
-    
 }
 
 @end
