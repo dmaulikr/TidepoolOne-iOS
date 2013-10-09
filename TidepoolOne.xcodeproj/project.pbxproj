@@ -806,8 +806,6 @@
 		A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA8717E2629A00A3C95B /* TPSnoozerResultViewController.m */; };
 		A8BABA8A17E2629A00A3C95B /* TPSnoozerResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA8817E2629A00A3C95B /* TPSnoozerResultViewController.xib */; };
 		A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */; };
-		A8BABA9717E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9217E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m */; };
-		A8BABA9817E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8BABA9317E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib */; };
 		A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9C17E2631400A3C95B /* TPBarGraphView.m */; };
 		A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABA9E17E2631400A3C95B /* TPCurveGraphView.m */; };
 		A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAA017E2631400A3C95B /* TPPolarChartView.m */; };
@@ -1691,9 +1689,6 @@
 		A8BABA8817E2629A00A3C95B /* TPSnoozerResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultViewController.xib; sourceTree = "<group>"; };
 		A8BABA8F17E262CC00A3C95B /* TPDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardViewController.h; sourceTree = "<group>"; };
 		A8BABA9017E262CC00A3C95B /* TPDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardViewController.m; sourceTree = "<group>"; };
-		A8BABA9117E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultsDashboardWidget.h; sourceTree = "<group>"; };
-		A8BABA9217E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultsDashboardWidget.m; sourceTree = "<group>"; };
-		A8BABA9317E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerResultsDashboardWidget.xib; sourceTree = "<group>"; };
 		A8BABA9B17E2631400A3C95B /* TPBarGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBarGraphView.h; sourceTree = "<group>"; };
 		A8BABA9C17E2631400A3C95B /* TPBarGraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBarGraphView.m; sourceTree = "<group>"; };
 		A8BABA9D17E2631400A3C95B /* TPCurveGraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCurveGraphView.h; sourceTree = "<group>"; };
@@ -3105,9 +3100,6 @@
 				A8B5A7F91804C6DA00399FDD /* TPDashboardTableCell.m */,
 				A8B5A8051805DEA400399FDD /* Detail */,
 				A830EFCD17E3FEEF0035DCD0 /* Widget */,
-				A8BABA9117E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.h */,
-				A8BABA9217E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m */,
-				A8BABA9317E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib */,
 				A857AEF9180609BA002C2E2A /* TPSnoozerResultCell.h */,
 				A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */,
 				A857AEFC180609CA002C2E2A /* TPSnoozerResultCell.xib */,
@@ -4031,7 +4023,6 @@
 				A8B5A60518038EAA00399FDD /* emo-coy-on@2x~iphone.png in Resources */,
 				A8B5A59D18038EAA00399FDD /* faceoff-photo-wrong@2x~iphone.png in Resources */,
 				A8B5A64318038EAA00399FDD /* badge-the-architect@2x~iphone.png in Resources */,
-				A8BABA9817E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.xib in Resources */,
 				A8B5A70D18038EAA00399FDD /* bg-the-impulse-planner~iphone.jpg in Resources */,
 				A8B5A7B218038EAA00399FDD /* snoozer-clock-correct@2x~iphone.png in Resources */,
 			);
@@ -4136,7 +4127,6 @@
 				A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */,
 				A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */,
 				A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */,
-				A8BABA9717E262CC00A3C95B /* TPSnoozerResultsDashboardWidget.m in Sources */,
 				A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */,
 				A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */,
 				A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */,
