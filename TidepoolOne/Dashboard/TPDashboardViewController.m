@@ -17,6 +17,7 @@
     UIView *_dashboardHeaderView;
     int _numWidgetsCompleted;
     NSArray *_widgets;
+    NSDictionary *_widgetVCs;
     NSDictionary *_labels;
     NSDictionary *_bottomLabels;
     BOOL _downloading;
@@ -42,10 +43,15 @@
     
 //    _dashboardHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
 //    [self constructHeaderView];
-    self.snoozerWidget = [[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
-    self.fitbitWidget = [[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil];
-
+    
     _widgets = @[@"snoozer",@"faceoff",@"fitbit"];
+    _widgetVCs = @{@"snoozer":[[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
+                   @"fitbit":[[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
+                   };
+    for (NSString *key in _widgetVCs) {
+        TPDashboardWidgetViewController *widget = _widgetVCs[key];
+        widget.view.frame = self.view.bounds;
+    }
     _labels = @{@"snoozer":@[@"",@"Best of the day", @"All time best"],@"faceoff":@[@"",@"Best of the day", @"All time best"],@"fitbit":@[@"Speed",@"Activity",@"Sleep"]};
     _bottomLabels = @{@"snoozer":@[@"",@"POINTS", @"POINTS"],@"faceoff":@[@"",@"POINTS", @"POINTS"],@"fitbit":@[@"",@"",@""]};
     self.title = @"Dashboard";
@@ -76,7 +82,7 @@
     
     //hack, more to model
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loggedIn) name:@"Got New Game Results" object:nil];
-//    [self loggedIn];
+    [self loggedIn];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -127,7 +133,10 @@
 
 -(void)loggedOut
 {
-    [self.snoozerWidget reset];
+    for (NSString *key in _widgetVCs) {
+        TPDashboardWidgetViewController *widget = _widgetVCs[key];
+        [widget reset];
+    }
     [self.tableView reloadData];
 }
 
@@ -139,15 +148,17 @@
     _downloading = YES;
     NSLog(@"start refresh");
     _numWidgetsCompleted = 0;
-    for (TPDashboardWidgetViewController *widget in _widgets) {
+    for (NSString *key in _widgetVCs) {
+        TPDashboardWidgetViewController *widget = _widgetVCs[key];
         [widget downloadResultswithCompletionHandlersSuccess:^{
             _numWidgetsCompleted++;
             NSLog(@"one more done");
-            if (_numWidgetsCompleted == 2) {
+            if (_numWidgetsCompleted == _widgetVCs.count) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     NSLog(@"end refresh");
                     _downloading = NO;
                     [self.refreshControl endRefreshing];
+                    [self.tableView reloadData];
                 });
             }
         } andFailure:^{
@@ -203,6 +214,36 @@
     cell.name = _widgets[indexPath.row];
     cell.labels = _labels[cell.name];
     cell.bottomLabels = _bottomLabels[cell.name];
+
+    NSDictionary *user = [TPOAuthClient sharedClient].user;
+    
+    if (user) {
+        NSArray *aggregateResults = user[@"aggregate_results"];
+        NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
+        NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
+        NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+        if ([cell.name isEqualToString:@"snoozer"]) {
+            NSDictionary *highScores = speedAggregateResult[@"high_scores"];
+            cell.values = @[
+                            @"",
+                            [NSString stringWithFormat:@"%@",highScores[@"daily_best"]],
+                            [NSString stringWithFormat:@"%@",highScores[@"all_time_best"]],
+                            ];
+//            cell.images = @[@0,@0,@0,];
+        }
+        else if ([cell.name isEqualToString:@"faceoff"]) {
+//            cell.values = @[@"",highScores[@"daily_best"],highScores[@"all_time_best"] stringValue]];
+//            cell.images = @[@0,@0,@0,];
+        }
+        else if ([cell.name isEqualToString:@"fitbit"]) {
+            cell.values = @[
+                            [NSString stringWithFormat:@"%i %%",(int)(100*[speedAggregateResult[@"scores"][@"trend"] floatValue])],
+                            [NSString stringWithFormat:@"%i %%",(int)(100*[activityAggregateResult[@"scores"][@"trend"] floatValue])],
+                            [NSString stringWithFormat:@"%i %%",(int)(100*[sleepAggregateResult[@"scores"][@"trend"] floatValue])],
+                            ];
+//            cell.images = @[@0,@0,@0,];
+        }
+    }
     return cell;
 //    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSnoozerResultsDashboardWidget" owner:nil options:nil];
 //    TPSnoozerResultsDashboardWidget *view;
@@ -247,16 +288,14 @@
 //
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *classDictionary = @{@"snoozer":[TPSnoozerDashboardWidgetViewController class],@"fitbit":[TPFitbitDashboardWidgetViewController class]};
-    Class WidgetClass = classDictionary[_widgets[indexPath.row]];
-    TPDashboardWidgetViewController *widget = [[WidgetClass alloc] init];
+//    NSDictionary *classDictionary = @{@"snoozer":[TPSnoozerDashboardWidgetViewController class],@"fitbit":[TPFitbitDashboardWidgetViewController class]};
+    TPDashboardWidgetViewController *widget = _widgetVCs[_widgets[indexPath.row]];
     widget.view.frame = self.view.frame;
-    [widget downloadResultswithCompletionHandlersSuccess:^{
+//    [widget downloadResultswithCompletionHandlersSuccess:^{
         [self.navigationController pushViewController:widget animated:YES];
-    } andFailure:^{
-        NSLog(@"ERROR");
-    }];
-
+//    } andFailure:^{
+//        NSLog(@"ERROR");
+//    }];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -292,6 +331,16 @@
     return [comp1 day]   == [comp2 day] &&
     [comp1 month] == [comp2 month] &&
     [comp1 year]  == [comp2 year];
+}
+
+-(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
+{
+    for (NSDictionary *item in array) {
+        if ([item[@"type"] isEqualToString:type]) {
+            return item;
+        }
+    }
+    return nil;
 }
 
 @end

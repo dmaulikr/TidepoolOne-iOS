@@ -13,7 +13,7 @@
 
 @property (strong, nonatomic) NSArray *results;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rightButton;
-@property (strong, nonatomic) TPSnoozerDashboardWidgetViewController *snoozerWidget;
-@property (strong, nonatomic) TPFitbitDashboardWidgetViewController *fitbitWidget;
+//@property (strong, nonatomic) TPSnoozerDashboardWidgetViewController *snoozerWidget;
+//@property (strong, nonatomic) TPFitbitDashboardWidgetViewController *fitbitWidget;
 
 @end
