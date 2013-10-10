@@ -72,8 +72,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     //Analytics
     [[Mixpanel sharedInstance] track:@"EI Stage Screen, %i" properties:@{@"stage":[NSNumber numberWithInt:self.gameVC.stage]}];
 #endif
-    self.instructionsLabel.text = @"Pick the emotion you see on the face";
-    
     self.imageIndex = 0;
 }
 
@@ -192,6 +190,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 
 -(void)moveToNextPart
 {
+    self.instructionsLabel.text = @"";
     // not asking twice for same pic
     if (self.imageHasSecondaryEmotion) {
         if (self.isSecondary) {
@@ -214,7 +213,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(void)showSecondaryEmotion
 {
     self.isSecondary = YES;
-    self.instructionsLabel.text = @"There is another emotion in this picture. Try to fin that.";
+    self.instructionsLabel.text = @"There is another emotion in this picture. Try to find that.";
 }
 
 -(void)showNuancedEmotion
@@ -334,16 +333,21 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     ChoiceCorrect correct;
     NSArray *correctString = @[@"incorrect", @"correct"];
     correct = ChoiceCorrectNo;
+    NSString *type;
     if (self.isNuanced) {
         correct = [choice isEqualToString:self.primaryNuanced];
-    } else if ([choice isEqualToString:self.primary] || [choice isEqualToString:self.secondary]) {
+        type = @"nuanced";
+    } else if ([choice isEqualToString:self.primary]) {
         correct = ChoiceCorrectPrimary;
+        type = @"primary";
+    } else if ([choice isEqualToString:self.secondary]) {
+        correct = ChoiceCorrectPrimary;
+        type = @"secondary";
     }
-    NSArray *modes = @[@"", @"primary",@"secondary"];
     NSDictionary *event = @{
                             @"event":correctString[(correct!=0)],
                             @"value":choice,
-                            @"type":modes[correct],
+                            @"type":type,
                             @"instant_replay":[NSNumber numberWithInt:_instantReplayCount],
                             };
     [self logEventToServer:event];
