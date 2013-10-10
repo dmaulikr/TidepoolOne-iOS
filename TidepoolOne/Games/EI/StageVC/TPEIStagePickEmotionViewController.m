@@ -106,8 +106,10 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     correct = [self logCurrentResponse:button.titleLabel.text];
     [self updateButtonLooks:button forCorrect:correct];
     [self showAnimationFromButton:button forCorrect:correct];
+    self.emo_4_0.userInteractionEnabled = self.emo_4_1.userInteractionEnabled = self.emo_4_2.userInteractionEnabled = self.emo_4_3.userInteractionEnabled = YES;
     if (self.imageHasSecondaryEmotion && !self.isSecondary) {
         self.instructionsLabel.text = @"There is another emotion on this face. Try to pick that now.";
+        button.userInteractionEnabled = NO;
     } else {
         [self animateDrawer];
         self.lastAnswerCorrect = correct;
@@ -159,14 +161,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 
 -(void)animateDrawer
 {
-    [UIView animateWithDuration:0.2 delay:0.9 options:UIViewAnimationOptionAutoreverse animations:^{
-        CGAffineTransform t = CGAffineTransformMakeScale(1.1, 1.1);
-        self.scoreLabel.transform = t;
-        [self.scoreLabel layoutIfNeeded];
-        [self.view layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        self.scoreLabel.transform = CGAffineTransformIdentity;
-    }];
 }
 
 -(int)getScoreDeltaForChoice:(ChoiceCorrect)correct
@@ -228,6 +222,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     self.isNuanced = YES;
     self.instructionsLabel.text = @"Now, can you dig a little deeper?";
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"nuanced_emotions"];
+    
     [self.emo_4_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
     [self.emo_4_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
     [self.emo_4_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
@@ -238,6 +233,9 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.emo_4_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
     [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
 
+    [UIView animateWithDuration:0.25 animations:^{
+        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
+    }];
 }
 
 
