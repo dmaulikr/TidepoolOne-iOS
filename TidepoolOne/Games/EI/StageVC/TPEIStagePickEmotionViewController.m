@@ -9,7 +9,7 @@
 #import "TPEIStagePickEmotionViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrectSecondary} ChoiceCorrect;
+typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrectSecondary, ChoiceCorrectNuanced} ChoiceCorrect;
 
 @interface TPEIStagePickEmotionViewController ()
 {
@@ -180,6 +180,11 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
             scoreDelta += _correctBaseScore * _secondaryMultiplier * _difficultyMultiplier;
         }
             break;
+        case ChoiceCorrectNuanced:
+        {
+            scoreDelta += _correctBaseScore * _secondaryMultiplier * _difficultyMultiplier;
+        }
+            break;
         default:
             break;
     }
@@ -335,15 +340,18 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     correct = ChoiceCorrectNo;
     NSString *type;
     if (self.isNuanced) {
-        correct = [choice isEqualToString:self.primaryNuanced];
+        if ([choice isEqualToString:self.primaryNuanced]) {
+            correct = ChoiceCorrectNuanced;
+        }
         type = @"nuanced";
     } else if ([choice isEqualToString:self.primary]) {
         correct = ChoiceCorrectPrimary;
         type = @"primary";
     } else if ([choice isEqualToString:self.secondary]) {
-        correct = ChoiceCorrectPrimary;
+        correct = ChoiceCorrectSecondary;
         type = @"secondary";
     }
+
     NSDictionary *event = @{
                             @"event":correctString[(correct!=0)],
                             @"value":choice,
