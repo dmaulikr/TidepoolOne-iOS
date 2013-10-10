@@ -28,6 +28,15 @@
     return self;
 }
 
+-(id)init
+{
+    self = [super init];
+    if (self) {
+        [self commonInit];
+    }
+    return self;
+}
+
 +(id)buttonWithType:(UIButtonType)buttonType
 {
     TPButton *button = [super buttonWithType:buttonType];

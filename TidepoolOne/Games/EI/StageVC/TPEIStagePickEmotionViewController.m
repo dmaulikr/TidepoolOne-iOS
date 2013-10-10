@@ -72,7 +72,8 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     //Analytics
     [[Mixpanel sharedInstance] track:@"EI Stage Screen, %i" properties:@{@"stage":[NSNumber numberWithInt:self.gameVC.stage]}];
 #endif
-
+    self.instructionsLabel.text = @"Pick the emotion you see on the face";
+    
     self.imageIndex = 0;
 }
 
@@ -104,12 +105,17 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     ChoiceCorrect correct;
     correct = [self logCurrentResponse:button.titleLabel.text];
     [self updateButtonLooks:button forCorrect:correct];
-    [self showAnimationFromButton:button forCorrect:correct];
-    [UIView animateWithDuration:1.0 animations:^{
-        self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
-        [self.view layoutIfNeeded];
-    }];
-    [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
+    if (self.imageHasSecondaryEmotion && !self.isSecondary) {
+        self.instructionsLabel.text = @"There is another emotion on this face. Try to pick that now.";
+    } else {
+        [self showAnimationFromButton:button forCorrect:correct];
+        self.lastAnswerCorrect = correct;
+        [UIView animateWithDuration:0.25 animations:^{
+            self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
+            [self.view layoutIfNeeded];
+        }];
+    }
+    [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
 }
 
 -(void)updateButtonLooks:(UIButton *)button forCorrect:(ChoiceCorrect)correct
@@ -188,24 +194,50 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(void)moveToNextPart
 {
     // not asking twice for same pic
-//    if (self.secondary) {
-//        if (self.isSecondary) {
-//            [self showNextEmotion];
-//        } else {
-//            [self showSecondaryEmotion];
-//        }
-//    } else {
+    if (self.imageHasSecondaryEmotion) {
+        if (self.isSecondary) {
+            [self showNextEmotion];
+        } else {
+            [self showSecondaryEmotion];
+        }
+    } else if (self.imageHasNuancedEmotion) {
+        if (self.isNuanced || !self.lastAnswerCorrect) {
+            [self showNextEmotion];
+        } else {
+            [self showNuancedEmotion];
+        }
+    } else {
         [self showNextEmotion];
-//    }
+    }
 }
 
 -(void)showSecondaryEmotion
 {
     self.isSecondary = YES;
+    self.instructionsLabel.text = @"There is another emotion in this picture. Try to fin that.";
 }
+
+-(void)showNuancedEmotion
+{
+    self.isNuanced = YES;
+    self.instructionsLabel.text = @"Now, can you dig a little deeper?";
+    NSArray *emotionOptions = self.imagesData[_imageIndex][@"nuanced_emotions"];
+    [self.emo_4_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
+    [self.emo_4_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
+    [self.emo_4_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
+    [self.emo_4_3 setTitle:emotionOptions[3] forState:UIControlStateNormal];
+    
+    [self.emo_4_0 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+    [self.emo_4_1 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+    [self.emo_4_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+    [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+
+}
+
 
 -(void)showNextEmotion
 {
+    _instantReplayCount = 0;
     self.imageIndex = self.imageIndex + 1;
 }
 
@@ -270,16 +302,26 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 
         self.emo_3_0.hidden = self.emo_3_1.hidden = self.emo_3_2.hidden = YES;
     }
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
     }];
     self.primary = self.imagesData[_imageIndex][@"primary"];
     if (self.imagesData[_imageIndex][@"secondary"] != [NSNull null]) {
         self.secondary = self.imagesData[_imageIndex][@"secondary"];
+        self.imageHasSecondaryEmotion = YES;
     } else {
         self.secondary = nil;
+        self.imageHasSecondaryEmotion = YES;
+    }
+    if (self.imagesData[_imageIndex][@"primary_nuanced"] != [NSNull null]) {
+        self.primaryNuanced = self.imagesData[_imageIndex][@"primary_nuanced"];
+        self.imageHasNuancedEmotion = YES;
+    } else {
+        self.secondary = nil;
+        self.imageHasNuancedEmotion = YES;
     }
     self.isSecondary = NO;
+    self.isNuanced = NO;
 }
 
 -(ChoiceCorrect)logCurrentResponse:(NSString *)choice
@@ -306,14 +348,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
                             };
     [self logEventToServer:event];
     return correct;
-}
-
--(void)setIsSecondary:(BOOL)isSecondary
-{
-    _isSecondary = isSecondary;
-    if (_isSecondary) {
-        // TODO: SETUP THE RIGHT THINGS
-    }
 }
 
 -(void)instantReplay

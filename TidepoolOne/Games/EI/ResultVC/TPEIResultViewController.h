@@ -12,7 +12,9 @@
 @interface TPEIResultViewController : TPResultViewController
 
 @property (nonatomic, strong) NSDictionary *result;
+@property (nonatomic, assign) int score;
 
+@property (weak, nonatomic) IBOutlet TPLabelBold *badgeTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
 @property (weak, nonatomic) IBOutlet TPTextView *blurbView;
 @property (weak, nonatomic) IBOutlet TPLabel *finishTimeLabel;

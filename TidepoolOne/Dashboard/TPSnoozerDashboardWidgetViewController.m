@@ -8,7 +8,6 @@
 
 #import "TPSnoozerDashboardWidgetViewController.h"
 #import "TPCircadianTooltipView.h"
-#import "TPSnoozerResultsDashboardWidget.h"
 #import "TPSnoozerResultCell.h"
 
 @interface TPSnoozerDashboardWidgetViewController ()

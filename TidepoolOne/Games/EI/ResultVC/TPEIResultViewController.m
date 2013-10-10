@@ -30,7 +30,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.title = @"Results";
-//    [[TPLocalNotificationManager sharedInstance] createNotification];
+    //    [[TPLocalNotificationManager sharedInstance] createNotification];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -40,7 +40,7 @@
     id tracker = [[GAI sharedInstance] defaultTracker];
     [tracker set:kGAIScreenName value:@"FaceOff Result Screen"];
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
-#endif 
+#endif
     
 }
 
@@ -56,14 +56,42 @@
     if (_result) {
         self.badgeImageView = nil;
         self.blurbView = nil;
-        self.scoreLabel.text = _result[@"eq_score"];
+        self.score = [_result[@"eq_score"] intValue];
         self.finishTimeLabel.text = [NSString stringWithFormat:@"%i",[_result[@"time_elapsed"] intValue] / 1000];
         self.instantReplaysLabel.text = _result[@"instant_replays"];
         self.correctLabel.text = _result[@"corrects"];
         self.incorrectLabel.text = _result[@"incorrects"];
-
     }
 }
+
+-(void)setScore:(int)score
+{
+    _score = score;
+    self.scoreLabel.text = [NSString stringWithFormat:@"%i", score];
+    NSString *character;
+    if (score < 1000) {
+        character = @"sheldon";
+    } else if (score < 2000) {
+        character = @"abe";
+    } else if (score < 3000) {
+        character = @"walt";
+    } else if (score < 4000) {
+        character = @"einstein";
+    } else {
+        character = @"oprah";
+    }
+    self.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@.png", character]];
+    NSDictionary *characterNames = @{
+                                     @"sheldon":@"Know It All.. Not",
+                                     @"abe":@"Honest Abe",
+                                     @"walt":@"Imagineer",
+                                     @"einstein":@"Genius",
+                                     @"oprah":@"Talk Show Diva",
+                                     };
+    self.badgeTitle.text = characterNames[character];
+}
+
+
 
 -(NSDictionary *)result
 {
