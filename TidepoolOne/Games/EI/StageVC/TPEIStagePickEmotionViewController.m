@@ -105,17 +105,18 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     ChoiceCorrect correct;
     correct = [self logCurrentResponse:button.titleLabel.text];
     [self updateButtonLooks:button forCorrect:correct];
+    [self showAnimationFromButton:button forCorrect:correct];
     if (self.imageHasSecondaryEmotion && !self.isSecondary) {
         self.instructionsLabel.text = @"There is another emotion on this face. Try to pick that now.";
     } else {
-        [self showAnimationFromButton:button forCorrect:correct];
+        [self animateDrawer];
         self.lastAnswerCorrect = correct;
         [UIView animateWithDuration:0.25 animations:^{
             self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
             [self.view layoutIfNeeded];
         }];
     }
-    [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(moveToNextPart) userInfo:nil repeats:NO]];
+    [self moveToNextPart];
 }
 
 -(void)updateButtonLooks:(UIButton *)button forCorrect:(ChoiceCorrect)correct
@@ -145,15 +146,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     label.text = [NSString stringWithFormat:@"%i", scoreDelta];
     
     [imageView addSubview:label];
-    [UIView animateWithDuration:0.2 delay:0.9 options:UIViewAnimationOptionAutoreverse animations:^{
-        CGAffineTransform t = CGAffineTransformMakeScale(1.1, 1.1);
-        self.scoreLabel.transform = t;
-        [self.scoreLabel layoutIfNeeded];
-        [self.view layoutIfNeeded];
-//        self.scoreLabel.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        self.scoreLabel.transform = CGAffineTransformIdentity;
-    }];
     [UIView animateWithDuration:1.0 animations:^{
         imageView.center = self.scoreLabel.center;
         imageView.alpha = 0.3;
@@ -161,6 +153,19 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         [imageView removeFromSuperview];
         self.view.userInteractionEnabled = YES;
         self.score += scoreDelta;
+    }];
+}
+
+
+-(void)animateDrawer
+{
+    [UIView animateWithDuration:0.2 delay:0.9 options:UIViewAnimationOptionAutoreverse animations:^{
+        CGAffineTransform t = CGAffineTransformMakeScale(1.1, 1.1);
+        self.scoreLabel.transform = t;
+        [self.scoreLabel layoutIfNeeded];
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        self.scoreLabel.transform = CGAffineTransformIdentity;
     }];
 }
 
@@ -196,19 +201,20 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     // not asking twice for same pic
     if (self.imageHasSecondaryEmotion) {
         if (self.isSecondary) {
-            [self showNextEmotion];
+            [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showNextEmotion) userInfo:nil repeats:NO]];
         } else {
             [self showSecondaryEmotion];
         }
     } else if (self.imageHasNuancedEmotion) {
         if (self.isNuanced || !self.lastAnswerCorrect) {
-            [self showNextEmotion];
+            [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showNextEmotion) userInfo:nil repeats:NO]];
         } else {
             [self showNuancedEmotion];
         }
     } else {
-        [self showNextEmotion];
+        [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showNextEmotion) userInfo:nil repeats:NO]];
     }
+
 }
 
 -(void)showSecondaryEmotion
@@ -272,6 +278,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         return;
     }
     self.imageIsHidden = NO;
+    NSLog([self.imagesData[_imageIndex] description]);
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
     [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"emotions"];
@@ -306,37 +313,32 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
     }];
     self.primary = self.imagesData[_imageIndex][@"primary"];
-    if (self.imagesData[_imageIndex][@"secondary"] != [NSNull null]) {
+    self.isSecondary = NO;
+    self.isNuanced = NO;
+    if (self.imagesData[_imageIndex][@"secondary"] != [NSNull null] && self.imagesData[_imageIndex][@"secondary"]) {
         self.secondary = self.imagesData[_imageIndex][@"secondary"];
         self.imageHasSecondaryEmotion = YES;
     } else {
         self.secondary = nil;
-        self.imageHasSecondaryEmotion = YES;
+        self.imageHasSecondaryEmotion = NO;
     }
-    if (self.imagesData[_imageIndex][@"primary_nuanced"] != [NSNull null]) {
+    if (self.imagesData[_imageIndex][@"primary_nuanced"] != [NSNull null] && self.imagesData[_imageIndex][@"primary_nuanced"]) {
         self.primaryNuanced = self.imagesData[_imageIndex][@"primary_nuanced"];
         self.imageHasNuancedEmotion = YES;
     } else {
-        self.secondary = nil;
-        self.imageHasNuancedEmotion = YES;
+        self.primaryNuanced = nil;
+        self.imageHasNuancedEmotion = NO;
     }
-    self.isSecondary = NO;
-    self.isNuanced = NO;
 }
 
 -(ChoiceCorrect)logCurrentResponse:(NSString *)choice
 {
     ChoiceCorrect correct;
     NSArray *correctString = @[@"incorrect", @"correct"];
-//    if (self.isSecondary) {
-//        correct = [choice isEqualToString:self.secondary];
-//    } else {
-//        correct = [choice isEqualToString:self.primary];
-//    }
     correct = ChoiceCorrectNo;
-    if ([choice isEqualToString:self.secondary]) {
-        correct = ChoiceCorrectSecondary;
-    } else if ([choice isEqualToString:self.primary]) {
+    if (self.isNuanced) {
+        correct = [choice isEqualToString:self.primaryNuanced];
+    } else if ([choice isEqualToString:self.primary] || [choice isEqualToString:self.secondary]) {
         correct = ChoiceCorrectPrimary;
     }
     NSArray *modes = @[@"", @"primary",@"secondary"];
