@@ -14,8 +14,9 @@
 @property (strong, nonatomic) TPGame *gameObject;
 @property NSString *type;
 @property (assign) int stage;
+@property (assign) int gameScore;
 @property (weak, nonatomic) IBOutlet UIView *gameStartView;
-@property (weak, nonatomic) IBOutlet TPButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;

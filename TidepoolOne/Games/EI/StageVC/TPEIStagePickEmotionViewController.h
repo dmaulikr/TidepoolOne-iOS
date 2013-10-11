@@ -16,14 +16,10 @@
 
 @property (weak, nonatomic) IBOutlet UIView *drawerView;
 
-@property (weak, nonatomic) IBOutlet TPButton *emo_3_0;
-@property (weak, nonatomic) IBOutlet TPButton *emo_3_1;
-@property (weak, nonatomic) IBOutlet TPButton *emo_3_2;
-
-@property (weak, nonatomic) IBOutlet TPButton *emo_4_0;
-@property (weak, nonatomic) IBOutlet TPButton *emo_4_1;
-@property (weak, nonatomic) IBOutlet TPButton *emo_4_2;
-@property (weak, nonatomic) IBOutlet TPButton *emo_4_3;
+@property (weak, nonatomic) IBOutlet UIButton *emo_4_0;
+@property (weak, nonatomic) IBOutlet UIButton *emo_4_1;
+@property (weak, nonatomic) IBOutlet UIButton *emo_4_2;
+@property (weak, nonatomic) IBOutlet UIButton *emo_4_3;
 @property (weak, nonatomic) IBOutlet TPLabel *instructionsLabel;
 
 

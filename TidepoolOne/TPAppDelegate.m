@@ -45,7 +45,6 @@ NSString *const FBSessionStateChangedNotification =
         [[TPLocalNotificationManager sharedInstance] handleNotification:localNotification];
     }
     
-    [[UINavigationBar appearance] setBackgroundColor:[UIColor yellowColor]];
     [self customizeAppearance];
     
     
@@ -71,8 +70,15 @@ NSString *const FBSessionStateChangedNotification =
 
 -(void)customizeAppearance
 {
+    UIFont *font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:font];
+    NSDictionary *barButtonAppearanceDict = @{UITextAttributeFont : [UIFont fontWithName:@"Karla-Regular" size:17.0],UITextAttributeTextColor : [UIColor blackColor],UITextAttributeTextShadowOffset : @0,
+                                              };
+    [[UIBarButtonItem appearance] setTitleTextAttributes:barButtonAppearanceDict forState:UIControlStateNormal];
+    
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // Load resources for iOS 6.1 or earlier
+        [[UIBarButtonItem appearance] setBackgroundImage:[UIImage imageNamed:@"btn-rect2.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
         [[UINavigationBar appearance] setTitleTextAttributes:
          [NSDictionary dictionaryWithObjectsAndKeys:
           [UIColor blackColor],

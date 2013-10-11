@@ -12,7 +12,7 @@
 @interface TPSnoozerGameViewController : TPGameViewController
 
 @property (strong, nonatomic) TPSnoozerGame *gameObject;
-@property (weak, nonatomic) IBOutlet TPButton *playButton;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UIView *gameStartView;
 
 @end

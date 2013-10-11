@@ -50,14 +50,14 @@
     _messageLabel.centered = YES;
     [self.view addSubview:_messageLabel];
     
-    TPButton *button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
     button.center = CGPointMake(self.view.bounds.size.width/4, 250);
     [button setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
     [button setTitle:@"Play again" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(startNewPersonalityGame) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
+    button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
     button.center = CGPointMake(1*self.view.bounds.size.width/2, 325);
     [button setTitle:@"Logout" forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:@"btn-blue.png"] forState:UIControlStateNormal];
@@ -65,7 +65,7 @@
     [self.view addSubview:button];
     
     
-    button = [[TPButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
+    button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width/3, 50)];
     button.center = CGPointMake(3*self.view.bounds.size.width/4, 250);
     [button setTitle:@"Play Later" forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];

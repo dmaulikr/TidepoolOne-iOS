@@ -7,6 +7,7 @@
 //
 
 #import "TPEIResultViewController.h"
+#import "TPEIGameViewController.h"
 
 @interface TPEIResultViewController ()
 {
@@ -56,7 +57,9 @@
     if (_result) {
         self.badgeImageView = nil;
         self.blurbView = nil;
-        self.score = [_result[@"eq_score"] intValue];
+        // TODO : debug - remove when server calculates
+//        self.score = [_result[@"eq_score"] intValue];
+        self.score = self.gameVC.gameScore;
         self.finishTimeLabel.text = [NSString stringWithFormat:@"%i",[_result[@"time_elapsed"] intValue] / 1000];
         self.instantReplaysLabel.text = _result[@"instant_replays"];
         self.correctLabel.text = _result[@"corrects"];
@@ -80,6 +83,8 @@
     } else {
         character = @"oprah";
     }
+    self.badgeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 265)];
+    [self.topView insertSubview:self.badgeImageView atIndex:0];
     self.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@.png", character]];
     NSDictionary *characterNames = @{
                                      @"sheldon":@"Know It All.. Not",
@@ -89,6 +94,20 @@
                                      @"oprah":@"Talk Show Diva",
                                      };
     self.badgeTitle.text = characterNames[character];
+    
+    NSDictionary *characterBlurbs = @{
+                                      @"sheldon":@"If you ever thought intellectual ability was all you needed to succeed, you are for a \"Big Bang\". Emotional intelligence is the ability to be aware of your own emotions, cope with change, understand the needs of others and maintain positive relationships with people.",
+                                      @"abe":@"Your ability to regulate your own emotions is key for your extraordinary levels of humility. Humility does not come easy to any leader, and you might achieve more due to your unique levels of EQ.",
+                                      @"walt":@"A person with such high emotional intelligence can be very pragmatic because of your skills to understand people around you. You can use this to steer groups for forming new ideas and inspiring to achieve dreams.",
+                                      @"einstein":@"You are good at combining your intelligence with understanding people around you. This unique combination will help you excel at work and in your relationships.",
+                                      @"oprah":@"You are powerful in the sense that lot of people look to you in times of need. Not only will you guide people with your intelligent advice but you can also express empathy very well. Your strength in emotional intelligence makes you a authentic leader in your field.",
+                                      };
+    
+    self.blurbView = [[UITextView alloc] initWithFrame:CGRectMake(10, 85, 188, 173)];
+    self.blurbView.backgroundColor = [UIColor clearColor];
+    [self.blurbView setFont:[UIFont fontWithName:@"Karla" size:17]];
+    [self.topView addSubview:self.blurbView];
+    [self.blurbView setText:characterBlurbs[character]];
 }
 
 

@@ -14,9 +14,10 @@
 @property (nonatomic, strong) NSDictionary *result;
 @property (nonatomic, assign) int score;
 
+@property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet TPLabelBold *badgeTitle;
-@property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
-@property (weak, nonatomic) IBOutlet TPTextView *blurbView;
+@property (strong, nonatomic) IBOutlet UIImageView *badgeImageView;
+@property (strong, nonatomic) IBOutlet TPTextView *blurbView;
 @property (weak, nonatomic) IBOutlet TPLabel *finishTimeLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *instantReplaysLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *correctLabel;

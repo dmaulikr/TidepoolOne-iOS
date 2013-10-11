@@ -195,7 +195,7 @@
         
         [self addFacebookLoginButtonToView:_loginView];
         
-        TPButton *loginButton = [TPButton buttonWithType:UIButtonTypeCustom];
+        UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [loginButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
         loginButton.frame = CGRectMake(0, 0, 300, 45);
         loginButton.center = CGPointMake(self.view.center.x, kVerticalOffset + 125);
@@ -259,7 +259,7 @@
         self.createAccountPassword = passwordField;
         self.createAccountPassword2 = passwordField2;
         
-        TPButton *createAccountButton = [TPButton buttonWithType:UIButtonTypeCustom];
+        UIButton *createAccountButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [createAccountButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
         createAccountButton.frame = CGRectMake(0, 0, 300, 45);
         createAccountButton.center = CGPointMake(self.view.center.x, kVerticalOffset + 165);
@@ -362,7 +362,7 @@
 
 -(void)addFacebookLoginButtonToView:(UIView *)view
 {
-    TPButton *facebookButton = [TPButton buttonWithType:UIButtonTypeCustom];
+    UIButton *facebookButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [facebookButton setBackgroundImage:[UIImage imageNamed:@"btn-facebook.png"] forState:UIControlStateNormal];
     facebookButton.frame = CGRectMake(0, 0, 300, 45);
     facebookButton.center = CGPointMake(self.view.center.x, kVerticalOffset - 95);

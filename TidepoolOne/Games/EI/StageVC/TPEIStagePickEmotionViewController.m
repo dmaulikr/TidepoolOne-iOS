@@ -55,6 +55,13 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.imageView addGestureRecognizer:tap];
     
     self.score = 0;
+    
+    
+    // TODO: hack - figure out why ixt ain't working, or not
+    self.emo_4_0.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    self.emo_4_1.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    self.emo_4_2.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    self.emo_4_3.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
 
 }
 
@@ -102,6 +109,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     UIButton *button = (UIButton *)sender;
     ChoiceCorrect correct;
     correct = [self logCurrentResponse:button.titleLabel.text];
+    self.lastAnswerCorrect = correct;
     [self updateButtonLooks:button forCorrect:correct];
     [self showAnimationFromButton:button forCorrect:correct];
     self.emo_4_0.userInteractionEnabled = self.emo_4_1.userInteractionEnabled = self.emo_4_2.userInteractionEnabled = self.emo_4_3.userInteractionEnabled = YES;
@@ -110,7 +118,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         button.userInteractionEnabled = NO;
     } else {
         [self animateDrawer];
-        self.lastAnswerCorrect = correct;
         [UIView animateWithDuration:0.25 animations:^{
             self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
             [self.view layoutIfNeeded];
@@ -122,37 +129,47 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(void)updateButtonLooks:(UIButton *)button forCorrect:(ChoiceCorrect)correct
 {
     if (correct) {
-        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-correct.png"];
         [button setBackgroundImage:_buttonImages[@"correct"] forState:UIControlStateNormal];
     } else {
-        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-wrong.png"];
         [button setBackgroundImage:_buttonImages[@"incorrect"] forState:UIControlStateNormal];
     }
     button.titleLabel.textColor = [UIColor colorWithWhite:36/255.0 alpha:1.0];
 }
 
+
+-(void)updatePictureForCorrectOrIncorrectforCorrect:(ChoiceCorrect)correct
+{
+    if (correct) {
+        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-correct.png"];
+    } else {
+        self.imageView.image = [UIImage imageNamed:@"faceoff-photo-wrong.png"];
+    }
+}
 -(void)showAnimationFromButton:(UIButton *)button forCorrect:(ChoiceCorrect)correct
 {
     NSArray *images = @[@"points-wrong.png", @"points-correct.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:images[(correct!=0)]]];
     imageView.center = [self.view convertPoint:button.center fromView:self.drawerView];
-        self.view.userInteractionEnabled = NO;
+//        self.view.userInteractionEnabled = NO;
     [self.view addSubview:imageView];
     TPLabel *label = [[TPLabel alloc] initWithFrame:imageView.bounds];
     label.fontSize = 20;
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
+
     int scoreDelta = [self getScoreDeltaForChoice:correct];
     label.text = [NSString stringWithFormat:@"%i", scoreDelta];
     
     [imageView addSubview:label];
-    [UIView animateWithDuration:1.0 animations:^{
+    [UIView animateWithDuration:0.75 animations:^{
         imageView.center = self.scoreLabel.center;
         imageView.alpha = 0.3;
     } completion:^(BOOL finished) {
         [imageView removeFromSuperview];
-        self.view.userInteractionEnabled = YES;
+//        self.view.userInteractionEnabled = YES;
+        NSLog(@"prev score %i", self.score);
         self.score += scoreDelta;
+        NSLog(@"new score %i", self.score);
     }];
 }
 
@@ -189,6 +206,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
             break;
     }
     scoreDelta += (_instantReplayBaseScore * _instantReplayCount);
+    NSLog(@"Score Delta: %i", scoreDelta);
     return scoreDelta;
 }
 
@@ -199,17 +217,20 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     // not asking twice for same pic
     if (self.imageHasSecondaryEmotion) {
         if (self.isSecondary) {
+            [self updatePictureForCorrectOrIncorrectforCorrect:self.lastAnswerCorrect];
             [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showNextEmotion) userInfo:nil repeats:NO]];
         } else {
             [self showSecondaryEmotion];
         }
     } else if (self.imageHasNuancedEmotion) {
         if (self.isNuanced || !self.lastAnswerCorrect) {
+            [self updatePictureForCorrectOrIncorrectforCorrect:self.lastAnswerCorrect];
             [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showNextEmotion) userInfo:nil repeats:NO]];
         } else {
             [self showNuancedEmotion];
         }
     } else {
+        [self updatePictureForCorrectOrIncorrectforCorrect:self.lastAnswerCorrect];
         [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(showNextEmotion) userInfo:nil repeats:NO]];
     }
 
@@ -238,7 +259,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
 
     [UIView animateWithDuration:0.25 animations:^{
-        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
+//        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
     }];
 }
 
@@ -280,39 +301,28 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         return;
     }
     self.imageIsHidden = NO;
-    NSLog([self.imagesData[_imageIndex] description]);
+//    NSLog([self.imagesData[_imageIndex] description]);
     self.imageView.image = [UIImage imageNamed:self.imagesData[_imageIndex][@"path"]];
-    [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
+    if (self.timeToShow/1000 < 10) {
+        [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
+    }
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"emotions"];
     if (emotionOptions.count == 3) {
-        [self.emo_3_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
-        [self.emo_3_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
-        [self.emo_3_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
-        
-        [self.emo_3_0 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-        [self.emo_3_1 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-        [self.emo_3_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-        self.emo_4_0.hidden = self.emo_4_1.hidden = self.emo_4_2.hidden = self.emo_4_3.hidden = YES;
-
-        self.emo_3_0.hidden = self.emo_3_1.hidden = self.emo_3_2.hidden = NO;
-        
-    } else if (emotionOptions.count == 4) {
-        [self.emo_4_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
-        [self.emo_4_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
-        [self.emo_4_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
-        [self.emo_4_3 setTitle:emotionOptions[3] forState:UIControlStateNormal];
-        
-        [self.emo_4_0 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-        [self.emo_4_1 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-        [self.emo_4_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-        [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
-
-        self.emo_4_0.hidden = self.emo_4_1.hidden = self.emo_4_2.hidden = self.emo_4_3.hidden = NO;
-
-        self.emo_3_0.hidden = self.emo_3_1.hidden = self.emo_3_2.hidden = YES;
+        NSMutableArray *newEmotionOptions = [emotionOptions mutableCopy];
+        [newEmotionOptions addObject:@"Nonchalant"];
+        emotionOptions = newEmotionOptions;
     }
+    [self.emo_4_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
+    [self.emo_4_1 setTitle:emotionOptions[1] forState:UIControlStateNormal];
+    [self.emo_4_2 setTitle:emotionOptions[2] forState:UIControlStateNormal];
+    [self.emo_4_3 setTitle:emotionOptions[3] forState:UIControlStateNormal];
+    
+    [self.emo_4_0 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+    [self.emo_4_1 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+    [self.emo_4_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
+    [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
     [UIView animateWithDuration:0.25 animations:^{
-        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
+//        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
     }];
     self.primary = self.imagesData[_imageIndex][@"primary"];
     self.isSecondary = NO;
@@ -338,7 +348,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     ChoiceCorrect correct;
     NSArray *correctString = @[@"incorrect", @"correct"];
     correct = ChoiceCorrectNo;
-    NSString *type;
+    NSString *type = @"primary";
     if (self.isNuanced) {
         if ([choice isEqualToString:self.primaryNuanced]) {
             correct = ChoiceCorrectNuanced;
@@ -374,7 +384,9 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(void)setScore:(int)score
 {
     _score = score;
+    NSLog(@"score updated to %i", score);
     self.scoreLabel.text = [NSString stringWithFormat:@"%i", score];
+   NSLog(@"showing score %@", self.scoreLabel.text);
 }
 
 -(int)score

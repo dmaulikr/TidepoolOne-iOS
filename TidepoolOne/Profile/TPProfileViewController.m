@@ -202,7 +202,7 @@
     _startNewGameView.image = [UIImage imageNamed:@"personality-placeholderbg.jpg"];
     _startNewGameView.contentMode = UIViewContentModeScaleAspectFill;
     _startNewGameView.userInteractionEnabled = YES;
-    UIButton *startPersonalityGameButton = [[TPButton alloc] initWithFrame:CGRectZero];
+    UIButton *startPersonalityGameButton = [[UIButton alloc] initWithFrame:CGRectZero];
 //    [startPersonalityGameButton.titleLabel setFont:[UIFont fontWithName:startPersonalityGameButton.titleLabel.font.fontName size:startPersonalityGameButton.titleLabel.font.pointSize + 10]];
     UIImage *buttonImage = [UIImage imageNamed:@"btn-red.png"];
     startPersonalityGameButton.bounds = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
