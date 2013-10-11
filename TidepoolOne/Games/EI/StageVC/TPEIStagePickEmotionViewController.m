@@ -16,6 +16,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     NSDictionary *_buttonImages;
     NSMutableArray *_timers;
     int _score;
+    TPBarButtonItem *_helpButton;
 }
 @end
 
@@ -54,15 +55,26 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     self.imageView.userInteractionEnabled = YES;
     [self.imageView addGestureRecognizer:tap];
     
+    self.stageLabel.text = [NSString stringWithFormat:@"%i", self.gameVC.stage];
+    
     self.score = 0;
     
-    
-    // TODO: hack - figure out why ixt ain't working, or not
-    self.emo_4_0.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
-    self.emo_4_1.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
-    self.emo_4_2.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
-    self.emo_4_3.titleLabel.font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    UIImage *image = [UIImage imageNamed:@"btn-faceoff-help.png"];
+    _helpButton = [[TPBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStylePlain target:self action:@selector(showHelp:)];
+    self.gameVC.navigationItem.rightBarButtonItem = _helpButton;
 
+    
+    if ([UIScreen mainScreen].bounds.size.height < 568) {
+        self.drawerView.center = CGPointMake(self.drawerView.center.x, self.drawerView.center.y - 50);
+    }
+    
+}
+
+-(void)showHelp:(id)sender
+{
+    NSArray *messages = @[@"Identify the emotion of the image shown. The image will only be shown for a short time, then hidden. You must identify the emotion based on your memory.You can request an \"instant replay\" but points will be deducted.",@"The image will only be shown for a short time, then hidden.Then you will be asked identify two different emotions that are present in the image. You can request an \"instant replay\" but points will be deducted.",@"The image will only be shown for a short time, then hidden. You will be asked identify the emotion, but then you'll have to \"dig a little deeper\" to determine a closer match of that emotion. You can request an \"instant replay\" but points will be deducted."];
+    
+    [[[UIAlertView alloc] initWithTitle:@"How to Play" message:messages[self.gameVC.stage] delegate:nil cancelButtonTitle:@"Ok, I got it!" otherButtonTitles:nil] show];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -114,7 +126,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self showAnimationFromButton:button forCorrect:correct];
     self.emo_4_0.userInteractionEnabled = self.emo_4_1.userInteractionEnabled = self.emo_4_2.userInteractionEnabled = self.emo_4_3.userInteractionEnabled = YES;
     if (self.imageHasSecondaryEmotion && !self.isSecondary) {
-        self.instructionsLabel.text = @"There is another emotion on this face. Try to pick that now.";
         button.userInteractionEnabled = NO;
     } else {
         [self animateDrawer];
@@ -213,7 +224,6 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 
 -(void)moveToNextPart
 {
-    self.instructionsLabel.text = @"";
     // not asking twice for same pic
     if (self.imageHasSecondaryEmotion) {
         if (self.isSecondary) {
@@ -239,13 +249,17 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(void)showSecondaryEmotion
 {
     self.isSecondary = YES;
-    self.instructionsLabel.text = @"There is another emotion in this picture. Try to find that.";
+    if (self.lastAnswerCorrect) {
+        self.instructionLabel.text = @"You're right. Pick another that is also a good match.";
+    } else {
+        self.instructionLabel.text = @"Not Quite, Try again.";
+    }
 }
 
 -(void)showNuancedEmotion
 {
+    self.instructionLabel.text = @"Yep! Now dig a little deeper and find a closer match.";
     self.isNuanced = YES;
-    self.instructionsLabel.text = @"Now, can you dig a little deeper?";
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"nuanced_emotions"];
     
     [self.emo_4_0 setTitle:emotionOptions[0] forState:UIControlStateNormal];
@@ -341,6 +355,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         self.primaryNuanced = nil;
         self.imageHasNuancedEmotion = NO;
     }
+    self.instructionLabel.text = @"Identify the emotion of the image shown.";
 }
 
 -(ChoiceCorrect)logCurrentResponse:(NSString *)choice

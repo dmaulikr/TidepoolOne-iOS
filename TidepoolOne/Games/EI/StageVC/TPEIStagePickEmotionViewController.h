@@ -20,7 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *emo_4_1;
 @property (weak, nonatomic) IBOutlet UIButton *emo_4_2;
 @property (weak, nonatomic) IBOutlet UIButton *emo_4_3;
-@property (weak, nonatomic) IBOutlet TPLabel *instructionsLabel;
+@property (weak, nonatomic) IBOutlet TPLabelBold *stageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *instructionLabel;
 
 
 @property (weak, nonatomic) IBOutlet TPLabel *scoreLabel;

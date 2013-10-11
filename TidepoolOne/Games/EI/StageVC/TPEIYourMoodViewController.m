@@ -36,9 +36,9 @@
     self.collectionView.dataSource = self;
     _selectedEmotionIndex = -1;
     _eventArray = [NSMutableArray array];    
-    _rightButton = [[TPBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(submitStage:)];
-    _rightButton.tintColor = [UIColor blueColor];
-    self.gameVC.navigationItem.rightBarButtonItem = _rightButton;
+//    _rightButton = [[TPBarButtonItem alloc] initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(submitStage:)];
+//    _rightButton.tintColor = [UIColor blueColor];
+//    self.gameVC.navigationItem.rightBarButtonItem = _rightButton;
     self.type = @"survey";
     [ self logLevelStarted];
 }
@@ -102,6 +102,7 @@
         [newlySelectedCell setEmotion:_emotions[selectedEmotionIndex] selected:YES];
     }
     _selectedEmotionIndex = selectedEmotionIndex;
+    [self submitStage:nil];
 }
 
 #pragma mark - UICollectionViewDelegate
