@@ -122,6 +122,10 @@
 
 - (IBAction)shareGame
 {
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"FaceOff"}];
+#endif
     NSString *message = [NSString stringWithFormat:@"I just played FaceOff"];
     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];
     

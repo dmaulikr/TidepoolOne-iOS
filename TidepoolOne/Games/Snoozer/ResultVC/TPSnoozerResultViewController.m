@@ -86,6 +86,10 @@
 }
 - (void)shareGame
 {
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"Snoozer"}];
+#endif
     NSString *message = [NSString stringWithFormat:@"I just scored %@ on Snoozer! Can you do better?", self.currentFastestTime.text];
     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];
     

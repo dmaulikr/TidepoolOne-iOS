@@ -317,6 +317,11 @@
 
 - (IBAction)sharePersonality:(id)sender
 {
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"Personality"}];
+#endif
+
     NSString *personalityTypeName;
     BOOL hasData = NO;
     NSDictionary *personality;
