@@ -27,7 +27,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
 }
 
 - (void)didReceiveMemoryWarning

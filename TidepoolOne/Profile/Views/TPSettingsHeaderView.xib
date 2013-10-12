@@ -15,34 +15,30 @@
                     <rect key="frame" x="123" y="11" width="73" height="73"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn-editphoto-masksize.png" translatesAutoresizingMaskIntoConstraints="NO" id="CKM-wy-9uG">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photomask.png" translatesAutoresizingMaskIntoConstraints="NO" id="8RP-FP-NgN">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cuo-oi-Haf">
-                    <rect key="frame" x="267" y="90" width="57" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cuo-oi-Haf">
+                    <rect key="frame" x="243" y="90" width="77" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="Log out ">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmy-hO-Tiu">
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmy-hO-Tiu">
                     <rect key="frame" x="124" y="9" width="73" height="73"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="CKM-wy-9uG" firstAttribute="top" secondItem="Nkk-wd-Ghv" secondAttribute="top" id="5eM-uh-mIk"/>
-                <constraint firstItem="CKM-wy-9uG" firstAttribute="leading" secondItem="Nkk-wd-Ghv" secondAttribute="leading" id="Djx-mU-NXa"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="logoutButton" destination="Cuo-oi-Haf" id="uyo-IY-Deu"/>
@@ -52,7 +48,6 @@
         </view>
     </objects>
     <resources>
-        <image name="btn-editphoto-masksize.png" width="320" height="120"/>
         <image name="photomask.png" width="320" height="120"/>
     </resources>
 </document>

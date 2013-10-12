@@ -45,9 +45,10 @@
     _buttons = [@[] mutableCopy];
     if (_buttonImages) {
         float buttonHeight = self.bounds.size.height;
-        float buttonWidth = self.bounds.size.width / _buttonImages.count;
+        float buttonOffset = 10;
+        float buttonWidth = (self.bounds.size.width - 20) / _buttonImages.count;
         for (int i=0;i<_buttonImages.count;i++) {
-            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i*buttonWidth, 0, buttonWidth, buttonHeight)];
+            UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i*buttonWidth + buttonOffset, 0, buttonWidth, buttonHeight)];
             [button addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
             id item = _buttonImages[i];
             if ([item isKindOfClass:[UIImage class]]) {
@@ -92,9 +93,11 @@
 {
     _currentValue = currentValue;
     if (currentValue) {
-        int index = [_values indexOfObject:currentValue];
-        UIButton *button = _buttons[index];
-        button.selected = YES;
+        if ([_values containsObject:currentValue]) {
+            int index = [_values indexOfObject:currentValue];
+            UIButton *button = _buttons[index];
+            button.selected = YES;
+        }
     }
 }
 

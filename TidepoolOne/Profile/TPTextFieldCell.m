@@ -21,9 +21,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        _textField = [[TPTextField alloc] initWithFrame:CGRectZero];
+        _textField = [[UITextField alloc] initWithFrame:CGRectZero];
         _textField.returnKeyType = UIReturnKeyDone;
         _textField.textColor = [UIColor blackColor];
+        _textField.font = [UIFont fontWithName:@"Karla" size:17.0];
         _textField.delegate = self;
         [self.contentView addSubview:_textField];
     }
@@ -49,7 +50,13 @@
 #pragma mark Laying out subviews
 
 - (void)layoutSubviews {
-    _textField.frame = CGRectOffset(self.bounds, 10, 0);
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        _textField.frame = CGRectMake(20, 10, 200, self.bounds.size.height);
+    } else {
+        // Load resources for iOS 7.0
+        _textField.frame = CGRectOffset(self.bounds, 10, 0);
+    }
 }
 
 -(void)forceTextFieldReturn

@@ -19,7 +19,7 @@
 
 @interface TPTextFieldCell : UITableViewCell
 
-@property (nonatomic, strong) TPTextField *textField;
+@property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, weak) id<TPTextFieldCellDelegate> delegate;
 

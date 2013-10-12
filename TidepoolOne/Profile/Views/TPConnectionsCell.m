@@ -26,6 +26,7 @@
         _switchIndicator = [[UISwitch alloc] initWithFrame:CGRectMake(250, 5, 40, 40)];
         [_switchIndicator addTarget:self action:@selector(connectionSwitched:) forControlEvents:UIControlEventTouchUpInside];
         _label = [[UILabel alloc] initWithFrame:CGRectZero];
+        _label.backgroundColor = [UIColor clearColor];
         [self addSubview:_imageView];
         [self addSubview:_switchIndicator];
         [self addSubview:_label];
@@ -47,6 +48,7 @@
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"connection-%@.png",provider]];
         _imageView.image = image;
         _imageView.frame = CGRectMake(10, (self.bounds.size.height - image.size.height) / 2, image.size.width, image.size.height);
+        _imageView.backgroundColor = [UIColor clearColor];
         _label.text = provider;
         _label.frame = CGRectMake(image.size.width + 20, 0, self.bounds.size.width - 100, self.bounds.size.height);
     }
