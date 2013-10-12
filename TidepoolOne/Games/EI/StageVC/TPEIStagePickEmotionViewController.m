@@ -130,7 +130,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     } else {
         [self animateDrawer];
         [UIView animateWithDuration:0.25 animations:^{
-            self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
+            self.drawerView.transform = CGAffineTransformMakeTranslation(0, self.drawerView.bounds.size.height);
             [self.view layoutIfNeeded];
         }];
     }
@@ -252,7 +252,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     if (self.lastAnswerCorrect) {
         self.instructionLabel.text = @"You're right. Pick another that is also a good match.";
     } else {
-        self.instructionLabel.text = @"Not Quite, Try again.";
+        self.instructionLabel.text = @"Not Quite, try again.";
     }
 }
 
@@ -273,7 +273,8 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
 
     [UIView animateWithDuration:0.25 animations:^{
-//        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
+        self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
+
     }];
 }
 
@@ -336,7 +337,8 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     [self.emo_4_2 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
     [self.emo_4_3 setBackgroundImage:_buttonImages[@"normal"] forState:UIControlStateNormal];
     [UIView animateWithDuration:0.25 animations:^{
-//        self.drawerView.transform = CGAffineTransformMakeTranslation(0, -400);
+        self.drawerView.transform = CGAffineTransformMakeTranslation(0, 0);
+
     }];
     self.primary = self.imagesData[_imageIndex][@"primary"];
     self.isSecondary = NO;

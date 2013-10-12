@@ -163,6 +163,8 @@
         NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
         NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
         NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+        NSDictionary *emoAggregateResult = [self getAggregateScoreOfType:@"EmoAggregateResult" fromArray:aggregateResults];
+
         if ([cell.name isEqualToString:@"snoozer"]) {
             NSDictionary *highScores = speedAggregateResult[@"high_scores"];
             cell.values = @[
@@ -173,7 +175,13 @@
 //            cell.images = @[@0,@0,@0,];
         }
         else if ([cell.name isEqualToString:@"faceoff"]) {
-//            cell.values = @[@"",highScores[@"daily_best"],highScores[@"all_time_best"] stringValue]];
+            NSDictionary *highScores = emoAggregateResult[@"high_scores"];
+            cell.values = @[
+                            @"",
+                            [NSString stringWithFormat:@"%@",highScores[@"daily_best"]],
+                            [NSString stringWithFormat:@"%@",highScores[@"all_time_best"]],
+                            ];
+
 //            cell.images = @[@0,@0,@0,];
         }
         else if ([cell.name isEqualToString:@"fitbit"]) {

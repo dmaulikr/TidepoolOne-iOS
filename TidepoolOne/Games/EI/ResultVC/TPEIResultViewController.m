@@ -32,6 +32,7 @@
 	// Do any additional setup after loading the view.
     self.title = @"Results";
     //    [[TPLocalNotificationManager sharedInstance] createNotification];
+    self.gameVC.navigationItem.rightBarButtonItem = nil;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -104,6 +105,8 @@
                                       };
     
     self.blurbView = [[UITextView alloc] initWithFrame:CGRectMake(10, 85, 188, 173)];
+    self.blurbView.editable = NO;
+    self.blurbView.selectable = NO;
     self.blurbView.backgroundColor = [UIColor clearColor];
     [self.blurbView setFont:[UIFont fontWithName:@"Karla" size:17]];
     [self.topView addSubview:self.blurbView];
