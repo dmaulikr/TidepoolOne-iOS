@@ -13,6 +13,7 @@
                 <outlet property="finishTimeLabel" destination="Ov1-JY-xWD" id="0lJ-NJ-yUK"/>
                 <outlet property="incorrectLabel" destination="7St-Ez-Wvh" id="F2T-7d-rsE"/>
                 <outlet property="instantReplaysLabel" destination="hox-fh-fEa" id="IND-ym-hHD"/>
+                <outlet property="moodChartContainerView" destination="jf8-Gn-hca" id="xCw-o9-Abw"/>
                 <outlet property="playAgainButton" destination="nUX-ue-oIq" id="bQI-we-QKl"/>
                 <outlet property="scoreLabel" destination="M3S-7G-wWP" id="QVG-aR-wxF"/>
                 <outlet property="shareButton" destination="2qh-mP-WlV" id="V3i-RH-7PX"/>
@@ -106,7 +107,7 @@
                             </constraints>
                         </view>
                         <view autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="u5i-Ys-6S8">
-                            <rect key="frame" x="0.0" y="292" width="320" height="184"/>
+                            <rect key="frame" x="0.0" y="496" width="320" height="184"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTe-AA-FZ1">
@@ -191,17 +192,22 @@
                                 <constraint firstAttribute="height" constant="184" id="OXW-Zq-Al0"/>
                             </constraints>
                         </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jf8-Gn-hca">
+                            <rect key="frame" x="0.0" y="313" width="320" height="197"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="0.47999999999999998" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="u5i-Ys-6S8" firstAttribute="trailing" secondItem="jde-5H-yWr" secondAttribute="trailing" id="AgQ-Vf-REt"/>
-                        <constraint firstItem="u5i-Ys-6S8" firstAttribute="top" secondItem="VEB-kb-V0R" secondAttribute="top" constant="292" id="BqA-3I-66Z"/>
+                        <constraint firstItem="u5i-Ys-6S8" firstAttribute="top" secondItem="VEB-kb-V0R" secondAttribute="top" constant="496" id="BqA-3I-66Z"/>
                         <constraint firstAttribute="trailing" secondItem="jde-5H-yWr" secondAttribute="trailing" id="CYJ-Id-MBZ"/>
                         <constraint firstAttribute="width" constant="320" id="Etb-Eb-TTa"/>
                         <constraint firstItem="u5i-Ys-6S8" firstAttribute="leading" secondItem="jde-5H-yWr" secondAttribute="leading" id="Rhe-E8-AcX"/>
                         <constraint firstItem="u5i-Ys-6S8" firstAttribute="leading" secondItem="VEB-kb-V0R" secondAttribute="leading" id="cb5-72-qfb"/>
                         <constraint firstItem="jde-5H-yWr" firstAttribute="top" secondItem="VEB-kb-V0R" secondAttribute="top" constant="20" symbolic="YES" id="pjF-Gw-UQp"/>
                         <constraint firstItem="jde-5H-yWr" firstAttribute="centerX" secondItem="VEB-kb-V0R" secondAttribute="centerX" id="w4R-2C-jcL"/>
-                        <constraint firstAttribute="bottom" secondItem="u5i-Ys-6S8" secondAttribute="bottom" constant="92" id="xuD-vD-4ki"/>
+                        <constraint firstAttribute="bottom" secondItem="u5i-Ys-6S8" secondAttribute="bottom" constant="-112" id="xuD-vD-4ki"/>
                     </constraints>
                 </scrollView>
                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ih-W2-DM5">

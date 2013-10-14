@@ -8,10 +8,12 @@
 
 #import "TPEIResultViewController.h"
 #import "TPEIGameViewController.h"
+#import "TPMoodChartView.h"
 
 @interface TPEIResultViewController ()
 {
     NSDictionary *_result;
+    TPMoodChartView *_moodChartView;
 }
 @end
 
@@ -33,6 +35,15 @@
     self.title = @"Results";
     //    [[TPLocalNotificationManager sharedInstance] createNotification];
     self.gameVC.navigationItem.rightBarButtonItem = nil;
+    NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPMoodChartView" owner:nil options:nil];
+    for (id item in nibItems) {
+        if ([item isKindOfClass:[TPMoodChartView class]]) {
+             _moodChartView = item;
+            [self.moodChartContainerView addSubview:_moodChartView];
+        }
+    }
+    _moodChartView.positiveFraction = 0.5;
+    _moodChartView.negativeFraction = 0.5;
 }
 -(void)viewDidAppear:(BOOL)animated
 {
