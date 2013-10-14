@@ -117,8 +117,8 @@
                 }
                 self.curveGraphView.data = scoresByHour;
                 self.densityData = timesPlayedArray;
-                self.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
-                self.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
+                self.allTimeBestLabel.text = speedAggregateResult[@"high_scores"][@"all_time_best"];
+                self.dailyBestLabel.text = speedAggregateResult[@"high_scores"][@"daily_best"];
             }
         }
         @catch (NSException *exception) {

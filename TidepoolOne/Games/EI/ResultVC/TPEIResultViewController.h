@@ -17,7 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet TPLabelBold *badgeTitle;
 @property (strong, nonatomic) IBOutlet UIImageView *badgeImageView;
-@property (strong, nonatomic) IBOutlet TPTextView *blurbView;
+@property (strong, nonatomic) IBOutlet UITextView *blurbView;
 @property (weak, nonatomic) IBOutlet TPLabel *finishTimeLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *instantReplaysLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *correctLabel;

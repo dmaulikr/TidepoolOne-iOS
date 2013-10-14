@@ -7,6 +7,7 @@
 //
 
 #import "TPFaceoffDashboardWidgetViewController.h"
+#import "TPSnoozerResultCell.h"
 
 @interface TPFaceoffDashboardWidgetViewController ()
 {
@@ -66,7 +67,7 @@
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 {
     _numServerCallsCompleted = 0;
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=EmoResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=EmoIntelligenceResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.results = responseObject[@"data"];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
@@ -95,18 +96,10 @@
         @try {
             NSArray *aggregateResults = _user[@"aggregate_results"];
             if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-                NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
-                NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];
-                NSMutableArray *timesPlayedArray = [NSMutableArray array];
-                NSMutableArray *scoresByHour = [NSMutableArray array];
-                for (int i=0;i<24;i++) {
-                    NSDictionary *hourlyDetail = circadianRhythm[[NSString stringWithFormat:@"%i",i]];
-                    [scoresByHour addObject:hourlyDetail[@"speed_score"]];
-                    [timesPlayedArray addObject:hourlyDetail[@"times_played"]];
-                }
-                self.densityData = timesPlayedArray;
-                self.allTimeBestLabel.text = aggregateResults[0][@"high_scores"][@"all_time_best"];
-                self.dailyBestLabel.text = aggregateResults[0][@"high_scores"][@"daily_best"];
+                NSDictionary *emoAggregateResult = [self getAggregateScoreOfType:@"EmoAggregateResult" fromArray:aggregateResults];
+                self.allTimeBestLabel.text = emoAggregateResult[@"high_scores"][@"all_time_best"];
+                self.dailyBestLabel.text = emoAggregateResult[@"high_scores"][@"daily_best"];
+                self.emoGroupFractions = emoAggregateResult[@"scores"];
             }
         }
         @catch (NSException *exception) {
@@ -134,22 +127,47 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"TPDashboardTableCell";
     //    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    [tableView registerNib:[UINib nibWithNibName:@"TPSnoozerResultCell" bundle:nil] forCellReuseIdentifier:CellIdentifier];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TPSnoozerResultCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ"];
+    NSLocale *locale = [[NSLocale alloc]
+                        initWithLocaleIdentifier:@"en_US_POSIX"];
+    [dateFormatter setLocale:locale];
+    // below is hack for pre-iOS 7
+    NSMutableString *dateString = [self.results[indexPath.row][@"time_played"] mutableCopy];
+    if ([dateString characterAtIndex:26] == ':') {
+        [dateString deleteCharactersInRange:NSMakeRange(26, 1)];
+    }
+    
+    NSDate *date = [dateFormatter dateFromString:dateString];
+    cell.date = date;
+    cell.fastestTime = self.results[indexPath.row][@"eq_score"];
+    cell.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
+//    if ([cell.animalLabel.text hasPrefix:@"PROGRESS"]) {
+//        cell.animalLabel.text = @"";
+//    }
+    
+//    cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
+//    cell.detailLabel.text = self.results[indexPath.row][@"description"];
+    [cell adjustScrollView];
+    
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.results.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 150;
 }
+
+
 
 @end

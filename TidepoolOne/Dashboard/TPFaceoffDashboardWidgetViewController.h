@@ -14,8 +14,9 @@
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UITextView *detailView;
 
-@property (strong, nonatomic) NSArray *densityData;
+@property (strong, nonatomic) NSDictionary *emoGroupFractions;
 @property (strong, nonatomic) NSArray *results;
 
 -(void)dismissPopovers;
