@@ -17,6 +17,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     NSMutableArray *_timers;
     int _score;
     TPBarButtonItem *_helpButton;
+    NSString *_emoGroup;
 }
 @end
 
@@ -321,6 +322,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     if (self.timeToShow/1000 < 10) {
         [_timers addObject:[NSTimer scheduledTimerWithTimeInterval:self.timeToShow/1000 target:self selector:@selector(flipImage) userInfo:nil repeats:NO]];
     }
+    _emoGroup = self.imagesData[_imageIndex][@"emo_group"];
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"emotions"];
     if (emotionOptions.count == 3) {
         NSMutableArray *newEmotionOptions = [emotionOptions mutableCopy];
@@ -384,6 +386,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
                             @"value":choice,
                             @"type":type,
                             @"instant_replay":[NSNumber numberWithInt:_instantReplayCount],
+                            @"emo_group": _emoGroup,
                             };
     [self logEventToServer:event];
     return correct;
