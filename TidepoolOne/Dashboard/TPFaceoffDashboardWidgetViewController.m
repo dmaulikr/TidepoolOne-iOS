@@ -36,6 +36,8 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     _emotions = @[@"happy",@"sad",@"afraid",@"surprised",@"disgusted",];
     
+    self.user=self.user;
+    [self setTextForEmotion:@"happy"];
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -87,6 +89,7 @@
                 self.allTimeBestLabel.text = emoAggregateResult[@"high_scores"][@"all_time_best"];
                 self.dailyBestLabel.text = emoAggregateResult[@"high_scores"][@"daily_best"];
                 self.emoGroupFractions = emoAggregateResult[@"scores"];
+                
             }
         }
         @catch (NSException *exception) {
