@@ -77,8 +77,8 @@
         [self addSubview:_negCircleLabel];
     }
     
-    float posTheta = M_PI * (1-_positiveFraction);
-    float negTheta = -M_PI * (1-_negativeFraction);
+    float posTheta = M_PI * (_positiveFraction);
+    float negTheta = -M_PI * (_negativeFraction);
     CGPoint posCenter = CGPointMake(center.x - radius*cosf(posTheta), center.y - radius*sinf(posTheta));
     CGPoint negCenter = CGPointMake(center.x - radius*cosf(negTheta), center.y - radius*sinf(negTheta));
     _posCircleImageView.center = _posCircleLabel.center = posCenter;

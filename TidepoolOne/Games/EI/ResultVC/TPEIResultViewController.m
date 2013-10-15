@@ -42,9 +42,6 @@
             [self.moodChartContainerView addSubview:_moodChartView];
         }
     }
-    _moodChartView.positiveFraction = 0.5;
-    _moodChartView.negativeFraction = 0.5;
-    
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -56,6 +53,11 @@
     [tracker send:[[GAIDictionaryBuilder createAppView]  build]];
 #endif
     
+}
+
+-(void)viewDidLayoutSubviews
+{
+    [self.scrollView setContentSize:CGSizeMake(320, 800)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -77,6 +79,38 @@
         self.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@.png", character]];
         self.badgeTitle.text = _result[@"badge"][@"title"];
         [self.blurbView setText:_result[@"badge"][@"description"]];
+        
+        int positiveCorrect = 0;
+        int positiveIncorrect = 0;
+        int negativeCorrect = 0;
+        int negativeIncorrect = 0;
+        
+        NSDictionary *emoGroups = _result[@"calculations"][@"emo_groups"];
+        for (NSString *emo in emoGroups) {
+            NSDictionary *stats = emoGroups[emo];
+            if ([emo isEqualToString:@"angry"] ||
+                [emo isEqualToString:@"disgust"] ||
+                [emo isEqualToString:@"fear"] ||
+                [emo isEqualToString:@"sad"] ||
+                [emo isEqualToString:@"shock"]) {
+                negativeCorrect += [stats[@"corrects"] intValue];
+                negativeIncorrect += [stats[@"incorrects"] intValue];
+            } else {
+                positiveCorrect += [stats[@"corrects"] intValue];
+                positiveIncorrect += [stats[@"incorrects"] intValue];
+            }
+        }
+        
+        float positiveFraction = (float)positiveCorrect/(positiveCorrect+positiveIncorrect);
+        float negativeFraction = (float)negativeCorrect/(negativeCorrect+negativeIncorrect);
+        self.moodLabel.text = [_result[@"reported_mood"] uppercaseString];
+        self.positivePercentageLabel.text = [NSString stringWithFormat:@"%i", (int)(100*positiveFraction)];
+        self.negativePercentageLabel.text = [NSString stringWithFormat:@"%i", (int)(100*negativeFraction)];
+        
+        _moodChartView.moodImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"howfeeling-%@-pressed.png", _result[@"reported_mood"]]];
+        _moodChartView.positiveFraction = positiveFraction;
+        _moodChartView.negativeFraction = negativeFraction;
+        
     }
 }
 

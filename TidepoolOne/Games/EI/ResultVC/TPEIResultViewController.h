@@ -24,6 +24,14 @@
 @property (weak, nonatomic) IBOutlet TPLabel *incorrectLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *scoreLabel;
 @property (weak, nonatomic) IBOutlet UIView *moodChartContainerView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UILabel *positivePercentageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *negativePercentageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *moodLabel;
+
+
+
 
 @property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;

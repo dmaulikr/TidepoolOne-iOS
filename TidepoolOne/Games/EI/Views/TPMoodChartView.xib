@@ -15,9 +15,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiM-qb-wrt">
+                    <rect key="frame" x="100" y="51" width="118" height="117"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="moodImageView" destination="iiM-qb-wrt" id="iBB-Ek-Sql"/>
+            </connections>
         </view>
     </objects>
     <resources>
