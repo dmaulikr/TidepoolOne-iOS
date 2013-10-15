@@ -200,7 +200,7 @@
     int negativeCorrect = 0;
     int negativeIncorrect = 0;
     
-    for (NSString *emo in _emotions) {
+    for (NSString *emo in currentEmoGroupFraction) {
         NSDictionary *stats = currentEmoGroupFraction[emo];
         if ([emo isEqualToString:@"angry"] ||
             [emo isEqualToString:@"disgust"] ||
