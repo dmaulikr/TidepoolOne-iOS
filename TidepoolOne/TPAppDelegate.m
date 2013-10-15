@@ -71,6 +71,7 @@ NSString *const FBSessionStateChangedNotification =
 -(void)customizeAppearance
 {
     UIFont *font = [UIFont fontWithName:@"Karla-Bold" size:15.0];
+    [[UITextView appearance] setFont:font];
     [[UIButton appearance] setFont:font];
     [[UILabel appearanceWhenContainedIn:[UIButton class], nil] setFont:font];
     NSDictionary *barButtonAppearanceDict = @{UITextAttributeFont : [UIFont fontWithName:@"Karla-Regular" size:17.0],UITextAttributeTextColor : [UIColor blackColor],UITextAttributeTextShadowOffset : @0,

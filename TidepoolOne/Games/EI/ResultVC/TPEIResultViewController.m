@@ -42,6 +42,7 @@
             [self.moodChartContainerView addSubview:_moodChartView];
         }
     }
+    [self.blurbView setFont:[UIFont fontWithName:@"Karla" size:17.0]];
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -57,7 +58,7 @@
 
 -(void)viewDidLayoutSubviews
 {
-    [self.scrollView setContentSize:CGSizeMake(320, 800)];
+    [self.scrollView setContentSize:CGSizeMake(320, 860)];
 }
 
 - (void)didReceiveMemoryWarning
