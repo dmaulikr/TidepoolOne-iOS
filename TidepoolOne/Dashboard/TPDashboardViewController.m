@@ -62,7 +62,7 @@
 
     
     self.tableView.tableHeaderView = _dashboardHeaderView;
-    
+
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // iOS 6.1 or earlier
     } else {

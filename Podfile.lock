@@ -32,7 +32,7 @@ SPEC CHECKSUMS:
   AFNetworking: 3cbae45f61a9f995cdbd56bd571223910d7f4e44
   AttributedMarkdown: c945530099b9e121129ca3a32a400b111c8e5825
   Facebook-iOS-SDK: 55a22fe8bcaacd638cde9014af6b3ee85f4d71fb
-  GoogleAnalytics-iOS-SDK: ea0118af32b97a92ac98b25ecc2aa2a286c835c7
+  GoogleAnalytics-iOS-SDK: 4a788a66154b395717a31bfec1050f8c47b6d122
   LAWalkthrough: 01dae086c1dd166b5afe9816763414e3512b3fea
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Mixpanel: 7829ba2cc58d251a4674520109e9bfead76acc98

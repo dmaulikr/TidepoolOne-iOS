@@ -35,6 +35,7 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
 //    imgView.frame = self.view.frame;
     self.tableView.backgroundView = imgView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;    
     [self addChildViewController:self.widget];
     self.tableView.tableHeaderView = self.widget.view;
     [self didMoveToParentViewController:self];
