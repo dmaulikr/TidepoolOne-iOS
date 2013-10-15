@@ -219,6 +219,8 @@
     float negativeFraction = (float)negativeCorrect/(negativeCorrect+negativeIncorrect);
     self.positivePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)positiveFraction)];
     self.negativePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)negativeFraction)];
+    self.percentageDrawView.positiveFraction = positiveFraction;
+    self.percentageDrawView.negativeFraction = negativeFraction;
 }
 
 

@@ -7,9 +7,11 @@
 //
 
 #import "TPDashboardWidgetViewController.h"
+#import "TPPercentageDrawView.h"
 
 @interface TPFaceoffDashboardWidgetViewController : TPDashboardWidgetViewController
 
+@property (weak, nonatomic) IBOutlet TPPercentageDrawView *percentageDrawView;
 @property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;

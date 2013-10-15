@@ -12,6 +12,7 @@
                 <outlet property="dailyBestLabel" destination="9AU-u8-TVM" id="FeX-yc-bHJ"/>
                 <outlet property="emotionLabel" destination="UDP-RE-yZy" id="Zoj-9J-Tap"/>
                 <outlet property="negativePercentage" destination="RO3-qp-4br" id="E7l-q7-Zoi"/>
+                <outlet property="percentageDrawView" destination="KAY-8D-Gcq" id="dtO-6q-dZF"/>
                 <outlet property="positivePercentage" destination="qHp-ed-5o6" id="7o6-oJ-9u9"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -21,10 +22,17 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dash-faceoffbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-jP-jmn">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KAY-8D-Gcq" customClass="TPPercentageDrawView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dash-faceoffbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="DoQ-jP-jmn">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="370"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="POINTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iuz-tB-8w4" customClass="TPLabelBold">
                     <rect key="frame" x="10" y="83" width="160" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
