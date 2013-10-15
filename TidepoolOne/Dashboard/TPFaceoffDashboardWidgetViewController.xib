@@ -10,6 +10,9 @@
                 <outlet property="allTimeBestLabel" destination="Rix-hc-hOn" id="lRy-bi-cVD"/>
                 <outlet property="collectionView" destination="bfG-UC-wcf" id="Igj-ew-AO1"/>
                 <outlet property="dailyBestLabel" destination="9AU-u8-TVM" id="FeX-yc-bHJ"/>
+                <outlet property="emotionLabel" destination="UDP-RE-yZy" id="Zoj-9J-Tap"/>
+                <outlet property="negativePercentage" destination="RO3-qp-4br" id="E7l-q7-Zoi"/>
+                <outlet property="positivePercentage" destination="qHp-ed-5o6" id="7o6-oJ-9u9"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -74,6 +77,102 @@
                     </collectionViewFlowLayout>
                     <cells/>
                 </collectionView>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5xR-wK-VyS">
+                    <rect key="frame" x="0.0" y="284" width="320" height="86"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently, you feel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cA-Fl-2LR" customClass="TPLabelBold">
+                            <rect key="frame" x="11" y="11" width="320" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You were able to detect" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIe-gp-Xib" customClass="TPLabelBold">
+                            <rect key="frame" x="11" y="33" width="320" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="emotions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toH-r5-Xnk" customClass="TPLabelBold">
+                            <rect key="frame" x="11" y="54" width="78" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXU-LT-t5y" customClass="TPLabelBold">
+                            <rect key="frame" x="87" y="54" width="36" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="36" id="Haz-4Q-Eeq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-qp-4br" customClass="TPLabelBold">
+                            <rect key="frame" x="119" y="54" width="29" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="29" id="Sgz-v6-NVE"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHp-ed-5o6" customClass="TPLabelBold">
+                            <rect key="frame" x="198" y="33" width="29" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% positive" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmZ-5v-cd8" customClass="TPLabelBold">
+                            <rect key="frame" x="230" y="33" width="82" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% negative emotions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-gB-qUY" customClass="TPLabelBold">
+                            <rect key="frame" x="149" y="54" width="163" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIDE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-RE-yZy" customClass="TPLabelBold">
+                            <rect key="frame" x="157" y="11" width="155" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="155" id="EtJ-Qb-o12"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.52000000000000002" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="UDP-RE-yZy" firstAttribute="trailing" secondItem="CmZ-5v-cd8" secondAttribute="trailing" id="7jp-A3-dxz"/>
+                        <constraint firstItem="BnO-gB-qUY" firstAttribute="top" secondItem="CmZ-5v-cd8" secondAttribute="bottom" id="APJ-Y2-WqF"/>
+                        <constraint firstItem="hXU-LT-t5y" firstAttribute="leading" secondItem="5xR-wK-VyS" secondAttribute="leading" constant="87" id="F03-kF-Tcx"/>
+                        <constraint firstItem="hXU-LT-t5y" firstAttribute="baseline" secondItem="toH-r5-Xnk" secondAttribute="baseline" id="Ine-dD-8Lf"/>
+                        <constraint firstAttribute="height" constant="86" id="O9F-2L-cMU"/>
+                        <constraint firstItem="RO3-qp-4br" firstAttribute="leading" secondItem="toH-r5-Xnk" secondAttribute="trailing" constant="30" id="OH8-tW-Fhg"/>
+                        <constraint firstItem="8cA-Fl-2LR" firstAttribute="leading" secondItem="5xR-wK-VyS" secondAttribute="leading" constant="11" id="OQl-3Q-B1c"/>
+                        <constraint firstItem="8cA-Fl-2LR" firstAttribute="baseline" secondItem="UDP-RE-yZy" secondAttribute="baseline" id="USZ-Ec-3lJ"/>
+                        <constraint firstAttribute="trailing" secondItem="UDP-RE-yZy" secondAttribute="trailing" constant="8" id="ZbA-So-IxI"/>
+                        <constraint firstItem="BnO-gB-qUY" firstAttribute="trailing" secondItem="CmZ-5v-cd8" secondAttribute="trailing" id="ZlY-ai-0f6"/>
+                        <constraint firstItem="qHp-ed-5o6" firstAttribute="baseline" secondItem="CmZ-5v-cd8" secondAttribute="baseline" id="bZ2-th-tSz"/>
+                        <constraint firstItem="qIe-gp-Xib" firstAttribute="leading" secondItem="toH-r5-Xnk" secondAttribute="leading" id="c5B-1g-d9X"/>
+                        <constraint firstItem="qHp-ed-5o6" firstAttribute="baseline" secondItem="qIe-gp-Xib" secondAttribute="baseline" id="cQ9-dY-edb"/>
+                        <constraint firstItem="CmZ-5v-cd8" firstAttribute="centerY" secondItem="5xR-wK-VyS" secondAttribute="centerY" id="ete-rX-0x8"/>
+                        <constraint firstItem="CmZ-5v-cd8" firstAttribute="leading" secondItem="qHp-ed-5o6" secondAttribute="trailing" constant="3" id="g97-OK-Jp7"/>
+                        <constraint firstItem="8cA-Fl-2LR" firstAttribute="leading" secondItem="qIe-gp-Xib" secondAttribute="leading" id="kVz-1M-983"/>
+                        <constraint firstItem="RO3-qp-4br" firstAttribute="baseline" secondItem="hXU-LT-t5y" secondAttribute="baseline" id="mWC-vU-eFg"/>
+                        <constraint firstItem="qHp-ed-5o6" firstAttribute="top" secondItem="UDP-RE-yZy" secondAttribute="bottom" constant="1" id="nVc-Fv-ppw"/>
+                        <constraint firstAttribute="trailing" secondItem="8cA-Fl-2LR" secondAttribute="trailing" constant="-11" id="pIg-Eb-ghN"/>
+                        <constraint firstItem="BnO-gB-qUY" firstAttribute="baseline" secondItem="RO3-qp-4br" secondAttribute="baseline" id="sdd-9d-ubQ"/>
+                        <constraint firstItem="8cA-Fl-2LR" firstAttribute="trailing" secondItem="qIe-gp-Xib" secondAttribute="trailing" id="tLR-19-jiD"/>
+                        <constraint firstItem="BnO-gB-qUY" firstAttribute="leading" secondItem="hXU-LT-t5y" secondAttribute="trailing" constant="26" id="ubt-hd-AVy"/>
+                        <constraint firstItem="BnO-gB-qUY" firstAttribute="leading" secondItem="RO3-qp-4br" secondAttribute="trailing" constant="1" id="zpY-Ga-KSM"/>
+                    </constraints>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

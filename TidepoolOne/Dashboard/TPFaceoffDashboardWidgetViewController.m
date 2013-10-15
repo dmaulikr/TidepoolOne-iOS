@@ -32,6 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     _emotions = @[@"happy",@"sad",@"afraid",@"surprised",@"disgusted",];
     
@@ -170,6 +171,54 @@
     [[cell subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell addSubview:imageView];
     return cell;
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self getCurrentPage];
+}
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        [self getCurrentPage];
+    }
+}
+
+-(void)getCurrentPage
+{
+    int page = (self.collectionView.contentOffset.x / self.collectionView.frame.size.width + 0.5);
+    NSString *emotion = _emotions[page];
+    [self setTextForEmotion:emotion];
+}
+
+-(void)setTextForEmotion:(NSString *)emotion
+{
+    self.emotionLabel.text = [emotion uppercaseString];
+    NSDictionary *currentEmoGroupFraction = _emoGroupFractions[emotion];
+    int positiveCorrect = 0;
+    int positiveIncorrect = 0;
+    int negativeCorrect = 0;
+    int negativeIncorrect = 0;
+    
+    for (NSString *emo in _emotions) {
+        NSDictionary *stats = currentEmoGroupFraction[emo];
+        if ([emo isEqualToString:@"angry"] ||
+            [emo isEqualToString:@"disgust"] ||
+            [emo isEqualToString:@"fear"] ||
+            [emo isEqualToString:@"sad"] ||
+            [emo isEqualToString:@"shock"]) {
+            negativeCorrect += [stats[@"corrects"] intValue];
+            negativeIncorrect += [stats[@"incorrects"] intValue];
+        } else {
+            positiveCorrect += [stats[@"corrects"] intValue];
+            positiveIncorrect += [stats[@"incorrects"] intValue];
+        }
+    }
+    
+    float positiveFraction = (float)positiveCorrect/(positiveCorrect+positiveIncorrect);
+    float negativeFraction = (float)negativeCorrect/(negativeCorrect+negativeIncorrect);
+    self.positivePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)positiveFraction)];
+    self.negativePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)negativeFraction)];
 }
 
 
