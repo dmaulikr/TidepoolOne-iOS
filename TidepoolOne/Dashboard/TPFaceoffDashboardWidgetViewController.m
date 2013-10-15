@@ -9,11 +9,10 @@
 #import "TPFaceoffDashboardWidgetViewController.h"
 #import "TPSnoozerResultCell.h"
 
-@interface TPFaceoffDashboardWidgetViewController ()
+@interface TPFaceoffDashboardWidgetViewController ()  <UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    NSDateFormatter *_hourFromDate;
     int _numServerCallsCompleted;
-    UIImageView *_legendView;
+    NSArray *_emotions;
 }
 @end
 
@@ -22,16 +21,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        _hourFromDate = [[NSDateFormatter alloc] init];
-        [_hourFromDate setDateFormat:@"HH"];
-        UIImage *image = [UIImage imageNamed:@"dash-densityflag2.png"];
-        _legendView = [[UIImageView alloc] initWithImage:image];
-        _legendView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-        _legendView.hidden = YES;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewWasTapped:)];
-        [self.view addGestureRecognizer:tap];
-        
+    if (self) {        
     }
     return self;
 }
@@ -40,21 +30,16 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
+    _emotions = @[@"happy",@"sad",@"afraid",@"surprised",@"disgusted",];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    self.scrollView.contentSize = CGSizeMake(790, 192);
-    NSDate *now = [NSDate date];
-    int hour = [[_hourFromDate stringFromDate:now] floatValue];
-    float offset = 790*hour/24;
-    if (offset > (790-320)) {
-        offset = 790-320;
-    }
-    self.scrollView.contentOffset = CGPointMake(offset, 0);
-    self.scrollView.scrollEnabled = YES;
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -170,6 +155,22 @@
     return 150;
 }
 
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return _emotions.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    NSString *emotion = _emotions[indexPath.row];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"howfeeling-%@-pressed.png", emotion]]];
+    imageView.transform = CGAffineTransformMakeScale(0.6, 0.6);
+    // TODO: efficiency
+    [[cell subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [cell addSubview:imageView];
+    return cell;
+}
 
 
 @end

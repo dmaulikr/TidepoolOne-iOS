@@ -1026,6 +1026,7 @@
 		A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */; };
 		A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */; };
 		A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */; };
+		A8D439A3180DF29B0086C223 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D439A2180DF29B0086C223 /* LineLayout.m */; };
 		A8F5B2F317F103290066E0BD /* TPEIGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B2F117F103290066E0BD /* TPEIGameViewController.m */; };
 		A8F5B2F417F103290066E0BD /* TPEIGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B2F217F103290066E0BD /* TPEIGameViewController.xib */; };
 		A8F5B2F817F103450066E0BD /* TPEIResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B2F617F103450066E0BD /* TPEIResultViewController.m */; };
@@ -2128,6 +2129,8 @@
 		A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A8BABAB317E26A1D00A3C95B /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
 		A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
+		A8D439A1180DF29B0086C223 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
+		A8D439A2180DF29B0086C223 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
 		A8F5B2F017F103290066E0BD /* TPEIGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEIGameViewController.h; path = EI/GameVC/TPEIGameViewController.h; sourceTree = "<group>"; };
 		A8F5B2F117F103290066E0BD /* TPEIGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIGameViewController.m; path = EI/GameVC/TPEIGameViewController.m; sourceTree = "<group>"; };
 		A8F5B2F217F103290066E0BD /* TPEIGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPEIGameViewController.xib; path = EI/GameVC/TPEIGameViewController.xib; sourceTree = "<group>"; };
@@ -3569,6 +3572,8 @@
 				A857D0181808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.h */,
 				A857D0191808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.m */,
 				A857D01A1808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.xib */,
+				A8D439A1180DF29B0086C223 /* LineLayout.h */,
+				A8D439A2180DF29B0086C223 /* LineLayout.m */,
 			);
 			name = Widget;
 			sourceTree = "<group>";
@@ -4985,6 +4990,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D439A3180DF29B0086C223 /* LineLayout.m in Sources */,
 				A82F6A3617947064003FC088 /* TPAppDelegate.m in Sources */,
 				A82F6A3217947064003FC088 /* main.m in Sources */,
 				A835951717F37A0300A99AE6 /* TPGamePickerCell.m in Sources */,
