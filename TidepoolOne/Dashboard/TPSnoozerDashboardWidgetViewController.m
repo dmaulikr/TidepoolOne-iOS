@@ -79,6 +79,7 @@
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=SpeedArchetypeResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.results = responseObject[@"data"];
+        self.results = [[self.results reverseObjectEnumerator] allObjects];        
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
             successBlock();

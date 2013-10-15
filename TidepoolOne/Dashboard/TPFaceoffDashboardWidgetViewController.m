@@ -69,6 +69,7 @@
     _numServerCallsCompleted = 0;
     [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=EmoIntelligenceResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.results = responseObject[@"data"];
+        self.results = [[self.results reverseObjectEnumerator] allObjects];
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {
             successBlock();
@@ -146,13 +147,14 @@
     NSDate *date = [dateFormatter dateFromString:dateString];
     cell.date = date;
     cell.fastestTime = self.results[indexPath.row][@"eq_score"];
-    cell.animalLabel.text = [self.results[indexPath.row][@"speed_archetype"] uppercaseString];
+    cell.animalLabel.text = [self.results[indexPath.row][@"badge"][@"title"] uppercaseString];
+    cell.detailLabel.text = self.results[indexPath.row][@"badge"][@"description"];
 //    if ([cell.animalLabel.text hasPrefix:@"PROGRESS"]) {
 //        cell.animalLabel.text = @"";
 //    }
     
-//    cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", self.results[indexPath.row][@"speed_archetype"]]];
-//    cell.detailLabel.text = self.results[indexPath.row][@"description"];
+    cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", self.results[indexPath.row][@"badge"][@"character"]]];
+
     [cell adjustScrollView];
     
     return cell;
