@@ -227,7 +227,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _widgets.count;
+    TPFitbitDashboardWidgetViewController *fitbitVC = (TPFitbitDashboardWidgetViewController *)_widgetVCs[@"fitbit"];
+    return _widgets.count - 1 + fitbitVC.isConnected;
 }
 
 -(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
