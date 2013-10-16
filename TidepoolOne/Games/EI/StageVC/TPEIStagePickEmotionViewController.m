@@ -68,7 +68,7 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
     if ([UIScreen mainScreen].bounds.size.height < 568) {
         self.drawerView.center = CGPointMake(self.drawerView.center.x, self.drawerView.center.y - 50);
     }
-    
+    self.instructionBubblle.alpha = 0;
 }
 
 -(void)showHelp:(id)sender
@@ -256,15 +256,15 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 {
     self.isSecondary = YES;
     if (self.lastAnswerCorrect) {
-        self.instructionLabel.text = @"You're right. Pick another that is also a good match.";
+        [self setCurrentInstruction:@"You're right. Pick another that is also a good match."];
     } else {
-        self.instructionLabel.text = @"Not Quite, try again.";
+        [self setCurrentInstruction:@"Not Quite, try again."];
     }
 }
 
 -(void)showNuancedEmotion
 {
-    self.instructionLabel.text = @"Yep! Now dig a little deeper and find a closer match.";
+    [self setCurrentInstruction:@"Yep! Now dig a little deeper and find a closer match."];
     self.isNuanced = YES;
     NSArray *emotionOptions = self.imagesData[_imageIndex][@"nuanced_emotions"];
     
@@ -364,7 +364,8 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
         self.primaryNuanced = nil;
         self.imageHasNuancedEmotion = NO;
     }
-    self.instructionLabel.text = @"Identify the emotion of the image shown.";
+    [self setCurrentInstruction:@"Identify the emotion of the image shown."];
+    
 }
 
 -(ChoiceCorrect)logCurrentResponse:(NSString *)choice
@@ -417,6 +418,22 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 -(int)score
 {
     return _score;
+}
+
+
+-(void)setCurrentInstruction:(NSString *)instruction
+{
+    self.instructionLabel.text = self.instructionBubbleLabel.text = instruction;
+    if ([UIScreen mainScreen].bounds.size.height < 568) {
+        self.instructionLabel.hidden = YES;
+        [UIView animateWithDuration:1.0 delay:1.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
+            self.instructionBubblle.alpha = 1;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:2.0 animations:^{
+                self.instructionBubblle.alpha = 0;
+            }];
+        }];
+    }
 }
 
 @end

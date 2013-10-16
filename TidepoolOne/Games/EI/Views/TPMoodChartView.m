@@ -52,7 +52,7 @@
     // Drawing code
     [CGHelper strokeArcAtPoint:center withRadius:radius startAngle:-M_PI endAngle:-(1-_positiveFraction)*M_PI color:[UIColor colorWithRed:251/255.0 green:187/255.0 blue:63/255.0 alpha:1.0]];
     [CGHelper strokeArcAtPoint:center withRadius:radius startAngle:(1-_negativeFraction)*M_PI endAngle:-M_PI color:[UIColor colorWithRed:91/255.0 green:207/255.0 blue:207/255.0 alpha:1.0]];
-    UIImage *posCircleImage = [UIImage imageNamed:@"fo-pos-orangcircle.png"];
+    UIImage *posCircleImage = [UIImage imageNamed:@"login.png"];
     UIImage *negCircleImage = [UIImage imageNamed:@"fo-neg-bluecircle.png"];
     
     UIFont *font = [UIFont fontWithName:@"Karla" size:13];

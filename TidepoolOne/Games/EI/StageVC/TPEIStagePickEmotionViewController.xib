@@ -13,6 +13,8 @@
                 <outlet property="emo_4_2" destination="AWo-Sa-Z5n" id="Og9-MH-1G3"/>
                 <outlet property="emo_4_3" destination="khf-rl-dpy" id="Lxx-RN-qc5"/>
                 <outlet property="imageView" destination="OAK-Uv-wEC" id="Dp3-Hx-jX8"/>
+                <outlet property="instructionBubbleLabel" destination="Vol-6g-Pcf" id="EaG-Rd-Xmw"/>
+                <outlet property="instructionBubblle" destination="FXr-wR-Yin" id="eiP-7m-KvM"/>
                 <outlet property="instructionLabel" destination="1Si-2q-zeb" id="EIE-jL-7Pg"/>
                 <outlet property="scoreLabel" destination="gcc-Tv-O82" id="czJ-dH-yOT"/>
                 <outlet property="stageLabel" destination="xqu-lv-mxe" id="wRx-VM-N3Q"/>
@@ -124,6 +126,25 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" id="FXr-wR-Yin">
+                    <rect key="frame" x="40" y="71" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceoff-instructionbg.png" id="xMq-7W-4HT">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vol-6g-Pcf" customClass="TPLabelBold">
+                            <rect key="frame" x="12" y="13" width="208" height="95"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -132,5 +153,6 @@
     </objects>
     <resources>
         <image name="faceoff-bg.png" width="320" height="568"/>
+        <image name="faceoff-instructionbg.png" width="255" height="75"/>
     </resources>
 </document>

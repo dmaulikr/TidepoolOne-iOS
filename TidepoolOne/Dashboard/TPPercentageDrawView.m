@@ -67,12 +67,14 @@
     }
     if (!_posCircleLabel) {
         _posCircleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        _posCircleLabel.backgroundColor = [UIColor clearColor];
         _posCircleLabel.font = font;
         _posCircleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_posCircleLabel];
     }
     if (!_negCircleLabel) {
         _negCircleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+        _negCircleLabel.backgroundColor = [UIColor clearColor];
         _negCircleLabel.font = font;
         _negCircleLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_negCircleLabel];

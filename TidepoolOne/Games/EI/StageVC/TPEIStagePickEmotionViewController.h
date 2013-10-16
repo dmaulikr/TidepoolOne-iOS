@@ -51,5 +51,7 @@
 @property (assign, nonatomic) float difficultyMultiplier;
 
 - (IBAction)emotionChosen:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *instructionBubblle;
+@property (weak, nonatomic) IBOutlet UILabel *instructionBubbleLabel;
 
 @end
