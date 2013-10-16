@@ -70,7 +70,6 @@
 - (BOOL)webView:(UIWebView *)webView2
 shouldStartLoadWithRequest:(NSURLRequest *)request
  navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog([request description]);
     NSString *requestString = [[[request URL] absoluteString] stringByReplacingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
     requestString = [requestString lowercaseString];
     if ([requestString hasSuffix:@"success"]) {

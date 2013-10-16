@@ -12,8 +12,10 @@
 
 @protocol TPImageButtonsCellDelegate <NSObject>
 
--(void)buttonWasChosenWithIndex:(int)index selected:(BOOL)selected inCell:(TPImageButtonsCell *)cell;
 -(void)valueWasChosen:(NSString *)value inCell:(TPImageButtonsCell *)cell;
+
+@optional
+-(void)buttonWasChosenWithIndex:(int)index selected:(BOOL)selected inCell:(TPImageButtonsCell *)cell;
 
 @end
 

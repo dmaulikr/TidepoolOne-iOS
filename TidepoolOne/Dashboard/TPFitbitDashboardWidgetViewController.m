@@ -155,7 +155,7 @@
             }
         }
         @catch (NSException *e) {
-            NSLog([e description]);
+            NSLog(@"%@", [e description]);
         }
         @finally {
         }

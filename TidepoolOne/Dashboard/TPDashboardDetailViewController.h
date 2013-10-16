@@ -11,7 +11,7 @@
 
 @interface TPDashboardDetailViewController : UIViewController
 
-@property (nonatomic, strong) TPDashboardDetailViewController *widget;
+@property (nonatomic, strong) TPDashboardWidgetViewController *widget;
 
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 ;

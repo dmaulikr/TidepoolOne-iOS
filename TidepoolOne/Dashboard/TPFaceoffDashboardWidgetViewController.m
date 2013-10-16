@@ -178,11 +178,14 @@
 {
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     NSString *emotion = _emotions[indexPath.row];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"howfeeling-%@-pressed.png", emotion]]];
-    imageView.transform = CGAffineTransformMakeScale(0.6, 0.6);
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"howfeeling-%@-pressed.png", emotion]];
+    float imageSize = image.size.width * 0.6;
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake((cell.bounds.size.width - imageSize)/2, (cell.bounds.size.height - imageSize)/2, imageSize, imageSize)];
+    imageView.image = image;
     // TODO: efficiency
     [[cell subviews] makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [cell addSubview:imageView];
+//    imageView.center = cell.center;
     return cell;
 }
 
