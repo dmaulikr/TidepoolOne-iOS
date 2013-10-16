@@ -171,29 +171,51 @@
 
         if ([cell.name isEqualToString:@"snoozer"]) {
             NSDictionary *highScores = speedAggregateResult[@"high_scores"];
+            NSString *dailyBest;
+            if (highScores[@"daily_best"] != [NSNull null]) {
+                dailyBest = highScores[@"daily_best"];
+            } else {
+                dailyBest = @"0";
+            }
+            NSString *allTimeBest;
+            if (highScores[@"all_time_best"] != [NSNull null]) {
+                allTimeBest = highScores[@"all_time_best"];
+            } else {
+                allTimeBest = @"0";
+            }
+
             cell.values = @[
                             @"",
-                            [NSString stringWithFormat:@"%@",highScores[@"daily_best"]],
-                            [NSString stringWithFormat:@"%@",highScores[@"all_time_best"]],
+                            dailyBest,
+                            allTimeBest,
                             ];
             UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", speedAggregateResult[@"badge"][@"character"]]];
             cell.imageView1.image = lastBadge;
             cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
-            cell.imageView1.frame = CGRectOffset(cell.imageView1.frame, 0, -30);
         }
         else if ([cell.name isEqualToString:@"faceoff"]) {
             NSDictionary *highScores = emoAggregateResult[@"high_scores"];
+            NSString *dailyBest;
+            if (highScores[@"daily_best"] != [NSNull null]) {
+                dailyBest = highScores[@"daily_best"];
+            } else {
+                dailyBest = @"0";
+            }
+            NSString *allTimeBest;
+            if (highScores[@"all_time_best"] != [NSNull null]) {
+                allTimeBest = highScores[@"all_time_best"];
+            } else {
+                allTimeBest = @"0";
+            }
+            
             cell.values = @[
                             @"",
-                            [NSString stringWithFormat:@"%@",highScores[@"daily_best"]],
-                            [NSString stringWithFormat:@"%@",highScores[@"all_time_best"]],
+                            dailyBest,
+                            allTimeBest,
                             ];
             UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", emoAggregateResult[@"badge"][@"character"]]];
             cell.imageView1.image = lastBadge;
             cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
-            cell.imageView1.frame = CGRectOffset(cell.imageView1.frame, 0, -30);
-
-//            cell.images = @[@0,@0,@0,];
         }
         else if ([cell.name isEqualToString:@"fitbit"]) {
             cell.values = @[

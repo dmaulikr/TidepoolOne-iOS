@@ -63,7 +63,7 @@
         _value1.fontSize = _value2.fontSize = _value3.fontSize = 30;
 
         float imageViewX = 0;
-        float imageViewY = 60;
+        float imageViewY = 30;
         float imageViewHeight = 100;
         float imageViewWidth = 320/3;
         

@@ -113,6 +113,16 @@
 
 -(void)reset
 {
+    self.allTimeBestLabel.text = @"";
+    self.dailyBestLabel.text = @"";
+    self.percentageDrawView.positiveFraction = 0.001;
+    self.percentageDrawView.negativeFraction = 0.001;
+    self.results = nil;
+    self.emotionLabel.text = @"";
+    self.positivePercentage.text = @"";;
+    self.negativePercentage.text = @"";
+
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -222,8 +232,16 @@
     float negativeFraction = (float)negativeCorrect/(negativeCorrect+negativeIncorrect);
     self.positivePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)positiveFraction)];
     self.negativePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)negativeFraction)];
-    self.percentageDrawView.positiveFraction = positiveFraction;
-    self.percentageDrawView.negativeFraction = negativeFraction;
+    if (positiveFraction == positiveFraction) {
+        self.percentageDrawView.positiveFraction = positiveFraction;
+    } else {
+        self.percentageDrawView.positiveFraction = 0.001;
+    }
+    if (negativeFraction == negativeFraction) {
+        self.percentageDrawView.negativeFraction = negativeFraction;
+    } else {
+        self.percentageDrawView.negativeFraction = 0.001;
+    }
 }
 
 
