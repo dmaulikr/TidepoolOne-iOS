@@ -22,9 +22,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 155, 137)];
+        float imageSize = 96;
+        _imgView = [[UIImageView alloc] initWithFrame:CGRectMake((frame.size.width - imageSize)/2, (frame.size.height - imageSize)/2 - 20, imageSize, imageSize)];
         [self addSubview:_imgView];
-        _label = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, 137, 155, 20)];
+        _label = [[TPLabelBold alloc] initWithFrame:CGRectMake(0, (frame.size.height - imageSize)/2 - 0 + imageSize, frame.size.width, 22)];
         _label.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_label];
     }
