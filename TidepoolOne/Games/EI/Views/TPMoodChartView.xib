@@ -15,8 +15,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="204"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iiM-qb-wrt">
-                    <rect key="frame" x="79" y="35" width="160" height="142"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howfeeling-afraid-pressed.png" translatesAutoresizingMaskIntoConstraints="NO" id="iiM-qb-wrt">
+                    <rect key="frame" x="108" y="56" width="101" height="102"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
@@ -29,5 +29,6 @@
     </objects>
     <resources>
         <image name="fo-negposchart-bg.png" width="320" height="204"/>
+        <image name="howfeeling-afraid-pressed.png" width="96" height="96"/>
     </resources>
 </document>
