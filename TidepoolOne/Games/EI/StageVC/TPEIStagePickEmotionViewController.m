@@ -73,7 +73,12 @@ typedef enum ChoiceCorrect {ChoiceCorrectNo, ChoiceCorrectPrimary, ChoiceCorrect
 
 -(void)showHelp:(id)sender
 {
-    NSArray *messages = @[@"Identify the emotion of the image shown. The image will only be shown for a short time, then hidden. You must identify the emotion based on your memory.You can request an \"instant replay\" but points will be deducted.",@"The image will only be shown for a short time, then hidden.Then you will be asked identify two different emotions that are present in the image. You can request an \"instant replay\" but points will be deducted.",@"The image will only be shown for a short time, then hidden. You will be asked identify the emotion, but then you'll have to \"dig a little deeper\" to determine a closer match of that emotion. You can request an \"instant replay\" but points will be deducted."];
+    NSArray *messages = @[
+                          @"",
+                          @"Identify the emotion of the image shown.",
+                          @"Identify the emotion of the image shown. The image will only be shown for a short time, then hidden. You must identify the emotion based on your memory.You can request an \"instant replay\" but points will be deducted.",
+                          @"The image will only be shown for a short time, then hidden.Then you will be asked identify two different emotions that are present in the image. You can request an \"instant replay\" but points will be deducted.",
+                          @"The image will only be shown for a short time, then hidden. You will be asked identify the emotion, but then you'll have to \"dig a little deeper\" to determine a closer match of that emotion. You can request an \"instant replay\" but points will be deducted."];
     
     [[[UIAlertView alloc] initWithTitle:@"How to Play" message:messages[self.gameVC.stage] delegate:nil cancelButtonTitle:@"Ok, I got it!" otherButtonTitles:nil] show];
 }
