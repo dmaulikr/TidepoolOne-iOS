@@ -222,6 +222,8 @@
 
 -(void)logEventToGoogleAnalytics:(NSString *)event ofType:(NSString *)type
 {
+    if (!event || !type)
+        return;
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     
     [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"personality_game"     // Event category (required)

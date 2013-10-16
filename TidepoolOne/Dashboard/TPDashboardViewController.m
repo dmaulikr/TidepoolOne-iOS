@@ -172,13 +172,13 @@
         if ([cell.name isEqualToString:@"snoozer"]) {
             NSDictionary *highScores = speedAggregateResult[@"high_scores"];
             NSString *dailyBest;
-            if (highScores[@"daily_best"] != [NSNull null]) {
+            if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
                 dailyBest = highScores[@"daily_best"];
             } else {
                 dailyBest = @"0";
             }
             NSString *allTimeBest;
-            if (highScores[@"all_time_best"] != [NSNull null]) {
+            if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
                 allTimeBest = highScores[@"all_time_best"];
             } else {
                 allTimeBest = @"0";
@@ -196,13 +196,13 @@
         else if ([cell.name isEqualToString:@"faceoff"]) {
             NSDictionary *highScores = emoAggregateResult[@"high_scores"];
             NSString *dailyBest;
-            if (highScores[@"daily_best"] != [NSNull null]) {
+            if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
                 dailyBest = highScores[@"daily_best"];
             } else {
                 dailyBest = @"0";
             }
             NSString *allTimeBest;
-            if (highScores[@"all_time_best"] != [NSNull null]) {
+            if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
                 allTimeBest = highScores[@"all_time_best"];
             } else {
                 allTimeBest = @"0";

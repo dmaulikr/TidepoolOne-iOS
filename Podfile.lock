@@ -6,6 +6,7 @@ PODS:
   - LAWalkthrough (1.0.0)
   - MBProgressHUD (0.8)
   - Mixpanel (2.0.2)
+  - NullSafe (1.2)
   - SBJson (3.2)
   - SSKeychain (1.2.1)
   - TestFlightSDK (2.0)
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - LAWalkthrough
   - MBProgressHUD
   - Mixpanel
+  - NullSafe
   - SBJson
   - SSKeychain
   - TestFlightSDK
@@ -36,6 +38,7 @@ SPEC CHECKSUMS:
   LAWalkthrough: 01dae086c1dd166b5afe9816763414e3512b3fea
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Mixpanel: 7829ba2cc58d251a4674520109e9bfead76acc98
+  NullSafe: ec359e864f3b8d9c2d81aaa2bdbac8280bba1be2
   SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
