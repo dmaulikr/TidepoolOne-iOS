@@ -90,10 +90,10 @@
         for (NSString *emo in emoGroups) {
             NSDictionary *stats = emoGroups[emo];
             if ([emo isEqualToString:@"angry"] ||
-                [emo isEqualToString:@"disgust"] ||
-                [emo isEqualToString:@"fear"] ||
+                [emo isEqualToString:@"disgusted"] ||
+                [emo isEqualToString:@"afraid"] ||
                 [emo isEqualToString:@"sad"] ||
-                [emo isEqualToString:@"shock"]) {
+                [emo isEqualToString:@"shocked"]) {
                 negativeCorrect += [stats[@"corrects"] intValue];
                 negativeIncorrect += [stats[@"incorrects"] intValue];
             } else {

@@ -34,7 +34,7 @@
     self.collectionView.dataSource = self;
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
-    _emotions = @[@"happy",@"sad",@"fear",@"surprised",@"disgust",@"surprised"];
+    _emotions = @[@"happy",@"sad",@"angry",@"surprised",@"disgust",@"afraid"];
     
     self.user=self.user;
     [self setTextForEmotion:@"happy"];
@@ -216,10 +216,10 @@
     for (NSString *emo in currentEmoGroupFraction) {
         NSDictionary *stats = currentEmoGroupFraction[emo];
         if ([emo isEqualToString:@"angry"] ||
-            [emo isEqualToString:@"disgust"] ||
-            [emo isEqualToString:@"fear"] ||
+            [emo isEqualToString:@"disgusted"] ||
+            [emo isEqualToString:@"afraid"] ||
             [emo isEqualToString:@"sad"] ||
-            [emo isEqualToString:@"shock"]) {
+            [emo isEqualToString:@"shocked"]) {
             negativeCorrect += [stats[@"corrects"] intValue];
             negativeIncorrect += [stats[@"incorrects"] intValue];
         } else {
