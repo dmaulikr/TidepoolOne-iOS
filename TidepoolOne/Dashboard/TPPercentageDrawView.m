@@ -47,9 +47,9 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 29.0);
+    CGContextSetLineWidth(context, 30.0);
     CGPoint center = CGPointMake(self.center.x, self.center.y + 11);
-    float radius = 65;
+    float radius = 69;
     // Drawing code
     [CGHelper strokeArcAtPoint:center withRadius:radius startAngle:-M_PI endAngle:-(1-_positiveFraction)*M_PI color:[UIColor colorWithRed:251/255.0 green:187/255.0 blue:63/255.0 alpha:1.0]];
     [CGHelper strokeArcAtPoint:center withRadius:radius startAngle:(1-_negativeFraction)*M_PI endAngle:-M_PI color:[UIColor colorWithRed:91/255.0 green:207/255.0 blue:207/255.0 alpha:1.0]];
