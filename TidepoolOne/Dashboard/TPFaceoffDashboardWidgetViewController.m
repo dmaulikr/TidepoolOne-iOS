@@ -199,7 +199,7 @@
 
 -(void)getCurrentPage
 {
-    int page = (self.collectionView.contentOffset.x / self.collectionView.frame.size.width + 0.5);
+    int page = 2*(self.collectionView.contentOffset.x / self.collectionView.frame.size.width);
     NSString *emotion = _emotions[page];
     [self setTextForEmotion:emotion];
 }
