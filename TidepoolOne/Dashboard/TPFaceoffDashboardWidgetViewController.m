@@ -38,11 +38,16 @@
     
     self.user=self.user;
     [self setTextForEmotion:@"happy"];
+    NSLog([self.view description]);
 }
 
--(void)viewDidAppear:(BOOL)animated
+
+
+-(void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    // TODO : This shouldn't need to be here...
+    [super viewWillAppear:animated];
+    self.view.bounds = CGRectMake(0, 0, 320, 395);
 }
 
 - (void)didReceiveMemoryWarning

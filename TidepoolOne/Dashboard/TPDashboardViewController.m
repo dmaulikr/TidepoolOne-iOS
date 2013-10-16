@@ -24,6 +24,7 @@
     NSDictionary *_labels;
     NSDictionary *_bottomLabels;
     BOOL _downloading;
+    TPDashboardDetailViewController *_detailVC;
 }
 @end
 
@@ -232,9 +233,9 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPDashboardWidgetViewController *widget = _widgetVCs[_widgets[indexPath.row]];
-    TPDashboardDetailViewController *detailVC = [[TPDashboardDetailViewController alloc] init];
-    detailVC.widget = widget;
-    [self.navigationController pushViewController:detailVC animated:YES];
+    _detailVC = [[TPDashboardDetailViewController alloc] init];
+    _detailVC.widget = widget;
+    [self.navigationController pushViewController:_detailVC animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

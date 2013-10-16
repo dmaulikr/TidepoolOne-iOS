@@ -35,7 +35,13 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"login.png"]];
 //    imgView.frame = self.view.frame;
     self.tableView.backgroundView = imgView;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.widget = self.widget;
+}
+
+-(void)setWidget:(TPDashboardWidgetViewController *)widget
+{
+    _widget = widget;
     [self addChildViewController:self.widget];
     self.tableView.tableHeaderView = self.widget.view;
     [self didMoveToParentViewController:self];
