@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cev-uR-PzS">
-                    <rect key="frame" x="0.0" y="79" width="320" height="489"/>
+                    <rect key="frame" x="0.0" y="43" width="320" height="525"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gys-wv-IGZ">
@@ -29,11 +29,11 @@
                     <cells/>
                 </collectionView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceoff-bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="VSD-T0-ldh">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="78"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How are you feeling right now?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld4-t8-IJV" customClass="TPLabelBold">
-                    <rect key="frame" x="43" y="28" width="238" height="21"/>
+                    <rect key="frame" x="41" y="7" width="238" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,14 +43,14 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="cev-uR-PzS" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="04d-NE-n8S"/>
-                <constraint firstItem="cev-uR-PzS" firstAttribute="top" secondItem="ld4-t8-IJV" secondAttribute="bottom" constant="30" id="A3y-MM-8Zx"/>
+                <constraint firstItem="cev-uR-PzS" firstAttribute="top" secondItem="ld4-t8-IJV" secondAttribute="bottom" constant="15" id="A3y-MM-8Zx"/>
                 <constraint firstItem="VSD-T0-ldh" firstAttribute="top" secondItem="1" secondAttribute="top" id="AFN-w9-Nbg"/>
                 <constraint firstItem="VSD-T0-ldh" firstAttribute="trailing" secondItem="cev-uR-PzS" secondAttribute="trailing" id="Avz-qQ-ROl"/>
                 <constraint firstAttribute="trailing" secondItem="cev-uR-PzS" secondAttribute="trailing" id="Ubz-Sm-rJC"/>
-                <constraint firstItem="cev-uR-PzS" firstAttribute="top" secondItem="1" secondAttribute="top" constant="79" id="Z9Q-kf-vzQ"/>
-                <constraint firstItem="ld4-t8-IJV" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="43" id="dAS-U6-pms"/>
+                <constraint firstItem="cev-uR-PzS" firstAttribute="top" secondItem="1" secondAttribute="top" constant="43" id="Z9Q-kf-vzQ"/>
+                <constraint firstItem="ld4-t8-IJV" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="41" id="dAS-U6-pms"/>
                 <constraint firstAttribute="bottom" secondItem="cev-uR-PzS" secondAttribute="bottom" id="fMK-1I-mzL"/>
-                <constraint firstItem="cev-uR-PzS" firstAttribute="top" secondItem="VSD-T0-ldh" secondAttribute="bottom" constant="1" id="ior-yq-v8H"/>
+                <constraint firstItem="cev-uR-PzS" firstAttribute="top" secondItem="VSD-T0-ldh" secondAttribute="bottom" constant="8" id="ior-yq-v8H"/>
                 <constraint firstItem="VSD-T0-ldh" firstAttribute="leading" secondItem="cev-uR-PzS" secondAttribute="leading" id="vMo-7a-6I4"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

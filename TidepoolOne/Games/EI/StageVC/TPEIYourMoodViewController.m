@@ -114,8 +114,6 @@
         self.selectedEmotionIndex = indexPath.row;
     }
 }
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-}
 
 #pragma mark – UICollectionViewDelegateFlowLayout
 
