@@ -46,13 +46,6 @@
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
     _groups = @[@"name",@"email",@"age",@"education",@"connections",@"handedness",@"gender"];
-    [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
-        _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
-        _connections = [@[] mutableCopy];
-        [self loadData];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, _groups.count)] withRowAnimation:UITableViewRowAnimationBottom];
-    } andFailure:^{
-    }];
     
     NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSettingsHeaderView" owner:nil options:nil];
     for (id item in nibItems) {
@@ -61,6 +54,14 @@
         }
     }
     self.tableView.tableHeaderView = _headerView;
+    
+    [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
+        _connections = [@[] mutableCopy];
+        [self loadData];
+    } andFailure:^{
+    }];
+    
     [_headerView.profilePictureButton addTarget:self action:@selector(changeProfilePicture) forControlEvents:UIControlEventTouchUpInside];
     [_headerView.logoutButton addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -162,6 +163,8 @@
     }
     if (user[@"image"] != [NSNull null]) {
         [_headerView.profilePicture setImageWithURL:[NSURL URLWithString:user[@"image"]]];
+    } else {
+        _headerView.profilePicture.image = [UIImage imageNamed:@"default-profile-pic.png"];
     }
     NSArray *authentications = user[@"authentications"];
     for (NSDictionary *authentication in authentications) {

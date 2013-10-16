@@ -34,7 +34,7 @@
     self.collectionView.dataSource = self;
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
-    _emotions = @[@"happy",@"sad",@"afraid",@"surprised",@"disgusted",];
+    _emotions = @[@"happy",@"sad",@"fear",@"surprised",@"disgust",@"surprised"];
     
     self.user=self.user;
     [self setTextForEmotion:@"happy"];
