@@ -33,5 +33,6 @@
     #define DEVELOPMENT
 #endif
 //#define NSLog TFLog
+#define NULLSAFE_ENABLED 0
 
 #endif
