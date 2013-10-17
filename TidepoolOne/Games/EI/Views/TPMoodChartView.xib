@@ -16,7 +16,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="howfeeling-afraid-pressed.png" translatesAutoresizingMaskIntoConstraints="NO" id="iiM-qb-wrt">
-                    <rect key="frame" x="108" y="56" width="101" height="102"/>
+                    <rect key="frame" x="108" y="57" width="101" height="102"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

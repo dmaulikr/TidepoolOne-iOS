@@ -34,7 +34,7 @@
     self.collectionView.dataSource = self;
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
-    _emotions = @[@"happy",@"sad",@"angry",@"surprised",@"disgust",@"afraid"];
+    _emotions = @[@"happy",@"sad",@"angry",@"surprised",@"disgusted",@"afraid",@"neutral"];
     
     self.user=self.user;
     [self setTextForEmotion:@"happy"];
@@ -238,17 +238,20 @@
     
     float positiveFraction = (float)positiveCorrect/(positiveCorrect+positiveIncorrect);
     float negativeFraction = (float)negativeCorrect/(negativeCorrect+negativeIncorrect);
-    self.positivePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)positiveFraction)];
-    self.negativePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)negativeFraction)];
-    if (positiveFraction == positiveFraction) {
+    if (positiveFraction == positiveFraction && positiveCorrect > 0) {
         self.percentageDrawView.positiveFraction = positiveFraction;
+        self.positivePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)positiveFraction)];
     } else {
         self.percentageDrawView.positiveFraction = 0.001;
+        self.positivePercentage.text = @"0";
     }
-    if (negativeFraction == negativeFraction) {
+    if (negativeFraction == negativeFraction && negativeCorrect > 0) {
         self.percentageDrawView.negativeFraction = negativeFraction;
+        self.negativePercentage.text = [NSString stringWithFormat:@"%i", (int)(100*(float)negativeFraction)];
+        
     } else {
         self.percentageDrawView.negativeFraction = 0.001;
+        self.negativePercentage.text = @"0";
     }
 }
 

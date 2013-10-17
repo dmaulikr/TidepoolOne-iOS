@@ -6,6 +6,7 @@
 @implementation LineLayout
 
 #define ACTIVE_DISTANCE 160
+#define ACTIVE_DISTANCE_IPHONE_4 160
 #define ZOOM_FACTOR 0.75
 
 -(id)init
@@ -15,7 +16,6 @@
         self.itemSize = CGSizeMake(ITEM_SIZE, ITEM_SIZE);
         self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         self.sectionInset = UIEdgeInsetsMake(160, 0.0, 160, 0.0);
-//        self.minimumLineSpacing = 50.0;
     }
     return self;
 }
@@ -35,11 +35,20 @@
     for (UICollectionViewLayoutAttributes* attributes in array) {
         if (CGRectIntersectsRect(attributes.frame, rect)) {
             CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;
-            CGFloat normalizedDistance = distance / ACTIVE_DISTANCE;
-            if (ABS(distance) < ACTIVE_DISTANCE) {
-                CGFloat zoom = 1 + ZOOM_FACTOR*(1 - ABS(normalizedDistance));
-                attributes.transform3D = CATransform3DMakeScale(zoom, zoom, 1.0);
-                attributes.zIndex = 1;
+            if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+                // Load resources for iOS 6.1 or earlier
+                CGFloat normalizedDistance = distance / ACTIVE_DISTANCE;
+                if (ABS(distance) < ACTIVE_DISTANCE) {
+                    CGFloat zoom = 1 + ZOOM_FACTOR*(1 - ABS(normalizedDistance));
+                }
+            } else {
+                //Default in iOS 7 is cool
+                CGFloat normalizedDistance = distance / ACTIVE_DISTANCE;
+                if (ABS(distance) < ACTIVE_DISTANCE) {
+                    CGFloat zoom = 1 + ZOOM_FACTOR*(1 - ABS(normalizedDistance));
+                    attributes.transform3D = CATransform3DMakeScale(zoom, zoom, 1.0);
+                    attributes.zIndex = 1;
+                }
             }
         }
     }
@@ -60,7 +69,7 @@
         if (ABS(itemHorizontalCenter - horizontalCenter) < ABS(offsetAdjustment)) {
             offsetAdjustment = itemHorizontalCenter - horizontalCenter;
         }
-    }    
+    }
     return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
 }
 

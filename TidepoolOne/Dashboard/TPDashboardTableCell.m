@@ -63,8 +63,8 @@
         _value1.fontSize = _value2.fontSize = _value3.fontSize = 30;
 
         float imageViewX = 0;
-        float imageViewY = 30;
-        float imageViewHeight = 100;
+        float imageViewY = 26;
+        float imageViewHeight = 106;
         float imageViewWidth = 320/3;
         
         _imageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(imageViewX + 0*imageViewWidth, imageViewY, imageViewWidth, imageViewHeight)];

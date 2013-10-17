@@ -91,6 +91,15 @@
                           @"College - Ph.D.",
                           @"Prefer not to answer",
                           ];
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(110, 10, 100, 30)];
+    [logoutButton setBackgroundImage:[UIImage imageNamed:@"btn-red.png"] forState:UIControlStateNormal];
+    [logoutButton setTitle:@"Log out" forState:UIControlStateNormal];
+    [logoutButton addTarget:self action:@selector(logoutButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:logoutButton];
+    self.tableView.tableFooterView = footerView;
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
