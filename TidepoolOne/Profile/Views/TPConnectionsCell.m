@@ -23,7 +23,12 @@
     if (self) {
         // Initialization code
         _imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _switchIndicator = [[UISwitch alloc] initWithFrame:CGRectMake(250, 5, 40, 40)];
+        if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+            _switchIndicator = [[UISwitch alloc] initWithFrame:CGRectMake(230, 10, 40, 40)];
+        } else {
+            _switchIndicator = [[UISwitch alloc] initWithFrame:CGRectMake(250, 5, 40, 40)];
+        }
+
         [_switchIndicator addTarget:self action:@selector(connectionSwitched:) forControlEvents:UIControlEventTouchUpInside];
         _label = [[UILabel alloc] initWithFrame:CGRectZero];
         _label.backgroundColor = [UIColor clearColor];
