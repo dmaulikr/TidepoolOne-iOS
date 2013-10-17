@@ -38,7 +38,6 @@
     
     self.user=self.user;
     [self setTextForEmotion:@"happy"];
-    NSLog([self.view description]);
 }
 
 
