@@ -7,8 +7,11 @@
 //
 
 #import "TPInviteFriendsViewController.h"
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
+#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface TPInviteFriendsViewController ()
+@interface TPInviteFriendsViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
     NSArray *_groups;
     NSArray *_fields;
@@ -29,13 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-        
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     _groups = @[@"Invite", @"Find"];
     _fields = @[
@@ -79,55 +82,108 @@
     return _groups[section];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    switch (indexPath.section) {
+        case 0:
+            //invite
+        {
+            switch (indexPath.row) {
+                case 0://email
+                {
+                    if ([MFMailComposeViewController canSendMail])
+                    {
+                        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+                        mailer.mailComposeDelegate = self;
+                        [mailer setSubject:@"A Message from MobileTuts+"];
+                        NSArray *toRecipients = [NSArray arrayWithObjects:@"fisrtMail@example.com", @"secondMail@example.com", nil];
+                        [mailer setToRecipients:toRecipients];
+                        UIImage *myImage = [UIImage imageNamed:@"mobiletuts-logo.png"];
+                        NSData *imageData = UIImagePNGRepresentation(myImage);
+                        [mailer addAttachmentData:imageData mimeType:@"image/png" fileName:@"mobiletutsImage"];
+                        NSString *emailBody = @"Have you seen the MobileTuts+ web site?";
+                        [mailer setMessageBody:emailBody isHTML:NO];
+                        [self presentViewController:mailer animated:YES completion:nil];
+                    }
+                    else
+                    {
+                        [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                    message:@"Your device doesn't support the composer sheet"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil] show];
+                    }
+                    
+                    
+                }
+                    break;
+                case 1://facebook
+                {
+                    
+                }
+                    break;
+                case 2://text
+                {
+                    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+                    if([MFMessageComposeViewController canSendText])
+                    {
+                        controller.body = @"The body of the SMS you want";
+                        controller.messageComposeDelegate = self;
+                        [self presentViewController:controller animated:YES completion:nil];
+                    } else {
+                        [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                    message:@"Your device doesn't support sending messages"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil] show];
+                    }
+                    
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+            //find
+        case 1:
+            {
+                switch (indexPath.row) {
+                    case 0://contacts
+                    {
+                        
+                    }
+                        break;
+                    case 1://facebook
+                    {
+                        
+                    }
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            break;
+            
+        default:
+            break;
+        }
+    }
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    [controller dismissViewControllerAnimated:YES completion:^{
+    }];
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
 {
+    [controller dismissViewControllerAnimated:YES completion:^{
+    }];
+    
 }
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

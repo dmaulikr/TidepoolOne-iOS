@@ -42,6 +42,7 @@
 		A84BBA931812095D007B1B77 /* TPDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA921812095D007B1B77 /* TPDrawerViewController.m */; };
 		A84BBA9618120FE0007B1B77 /* TPLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA9518120FE0007B1B77 /* TPLeaderboardViewController.m */; };
 		A84BBA9918121089007B1B77 /* TPInviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA9818121089007B1B77 /* TPInviteFriendsViewController.m */; };
+		A84BBA9B181214E1007B1B77 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A84BBA9A181214E1007B1B77 /* MessageUI.framework */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */; };
 		A857AEFD180609CA002C2E2A /* TPSnoozerResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A857AEFC180609CA002C2E2A /* TPSnoozerResultCell.xib */; };
@@ -1121,6 +1122,7 @@
 		A84BBA9518120FE0007B1B77 /* TPLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLeaderboardViewController.m; sourceTree = "<group>"; };
 		A84BBA9718121089007B1B77 /* TPInviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPInviteFriendsViewController.h; sourceTree = "<group>"; };
 		A84BBA9818121089007B1B77 /* TPInviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPInviteFriendsViewController.m; sourceTree = "<group>"; };
+		A84BBA9A181214E1007B1B77 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A857AEF9180609BA002C2E2A /* TPSnoozerResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultCell.h; sourceTree = "<group>"; };
 		A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultCell.m; sourceTree = "<group>"; };
@@ -2191,6 +2193,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A84BBA9B181214E1007B1B77 /* MessageUI.framework in Frameworks */,
 				A866655A17FE29AC001D1622 /* CoreTelephony.framework in Frameworks */,
 				A866655817FE29A4001D1622 /* AdSupport.framework in Frameworks */,
 				A866655617FE299F001D1622 /* Accelerate.framework in Frameworks */,
@@ -2285,6 +2288,7 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A84BBA9A181214E1007B1B77 /* MessageUI.framework */,
 				A866655917FE29AC001D1622 /* CoreTelephony.framework */,
 				A866655717FE29A4001D1622 /* AdSupport.framework */,
 				A866655517FE299F001D1622 /* Accelerate.framework */,
