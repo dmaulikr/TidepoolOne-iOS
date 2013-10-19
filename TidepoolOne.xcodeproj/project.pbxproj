@@ -37,6 +37,11 @@
 		A835B72E17E23DAD00775E38 /* TPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A835B72D17E23DAD00775E38 /* TPUser.m */; };
 		A83F74C917E38D5200612AA7 /* TPServiceLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */; };
 		A847A7D117EB78A0009E228F /* Personality Game in Resources */ = {isa = PBXBuildFile; fileRef = A847A7D017EB78A0009E228F /* Personality Game */; };
+		A84BBA7D18106697007B1B77 /* TPAddressBookInviteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA7B18106697007B1B77 /* TPAddressBookInviteViewController.m */; };
+		A84BBA7E18106697007B1B77 /* TPAddressBookInviteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A84BBA7C18106697007B1B77 /* TPAddressBookInviteViewController.xib */; };
+		A84BBA931812095D007B1B77 /* TPDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA921812095D007B1B77 /* TPDrawerViewController.m */; };
+		A84BBA9618120FE0007B1B77 /* TPLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA9518120FE0007B1B77 /* TPLeaderboardViewController.m */; };
+		A84BBA9918121089007B1B77 /* TPInviteFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A84BBA9818121089007B1B77 /* TPInviteFriendsViewController.m */; };
 		A8528A1317CDA2BC005DE9F2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */; };
 		A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */; };
 		A857AEFD180609CA002C2E2A /* TPSnoozerResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A857AEFC180609CA002C2E2A /* TPSnoozerResultCell.xib */; };
@@ -1107,6 +1112,15 @@
 		A835B72D17E23DAD00775E38 /* TPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUser.m; sourceTree = "<group>"; };
 		A83F74C817E38D5200612AA7 /* TPServiceLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPServiceLoginViewController.xib; sourceTree = "<group>"; };
 		A847A7D017EB78A0009E228F /* Personality Game */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Personality Game"; sourceTree = "<group>"; };
+		A84BBA7A18106697007B1B77 /* TPAddressBookInviteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPAddressBookInviteViewController.h; sourceTree = "<group>"; };
+		A84BBA7B18106697007B1B77 /* TPAddressBookInviteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPAddressBookInviteViewController.m; sourceTree = "<group>"; };
+		A84BBA7C18106697007B1B77 /* TPAddressBookInviteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPAddressBookInviteViewController.xib; sourceTree = "<group>"; };
+		A84BBA911812095D007B1B77 /* TPDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDrawerViewController.h; sourceTree = "<group>"; };
+		A84BBA921812095D007B1B77 /* TPDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDrawerViewController.m; sourceTree = "<group>"; };
+		A84BBA9418120FE0007B1B77 /* TPLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPLeaderboardViewController.h; sourceTree = "<group>"; };
+		A84BBA9518120FE0007B1B77 /* TPLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLeaderboardViewController.m; sourceTree = "<group>"; };
+		A84BBA9718121089007B1B77 /* TPInviteFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPInviteFriendsViewController.h; sourceTree = "<group>"; };
+		A84BBA9818121089007B1B77 /* TPInviteFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPInviteFriendsViewController.m; sourceTree = "<group>"; };
 		A8528A1217CDA2BC005DE9F2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		A857AEF9180609BA002C2E2A /* TPSnoozerResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSnoozerResultCell.h; sourceTree = "<group>"; };
 		A857AEFA180609BA002C2E2A /* TPSnoozerResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPSnoozerResultCell.m; sourceTree = "<group>"; };
@@ -2241,6 +2255,15 @@
 				A825EFC617E2373B00DCAAF2 /* UIKit Customization */,
 				A879A6A017A888C20082A455 /* TPLibrary */,
 				A80F7C361794E07500C08D9C /* Main_iPhone.storyboard */,
+				A84BBA911812095D007B1B77 /* TPDrawerViewController.h */,
+				A84BBA921812095D007B1B77 /* TPDrawerViewController.m */,
+				A84BBA9718121089007B1B77 /* TPInviteFriendsViewController.h */,
+				A84BBA9818121089007B1B77 /* TPInviteFriendsViewController.m */,
+				A84BBA9418120FE0007B1B77 /* TPLeaderboardViewController.h */,
+				A84BBA9518120FE0007B1B77 /* TPLeaderboardViewController.m */,
+				A84BBA7A18106697007B1B77 /* TPAddressBookInviteViewController.h */,
+				A84BBA7B18106697007B1B77 /* TPAddressBookInviteViewController.m */,
+				A84BBA7C18106697007B1B77 /* TPAddressBookInviteViewController.xib */,
 				A8BABA2F17E2605F00A3C95B /* Helper */,
 				A82F6A2B17947064003FC088 /* TidepoolOne */,
 				A82F6A4D17947064003FC088 /* TidepoolOneTests */,
@@ -4378,6 +4401,7 @@
 				A85FB86E180F4A410053E390 /* btn-faceoff-bg@2x~iphone.png in Resources */,
 				A85FB8CA180F4A410053E390 /* happy10@2x.jpg in Resources */,
 				A85FBAA1180F4A410053E390 /* bg-the-trendsetter@2x~iphone.jpg in Resources */,
+				A84BBA7E18106697007B1B77 /* TPAddressBookInviteViewController.xib in Resources */,
 				A85FB813180F4A410053E390 /* dash-fitbit-greenarrow~iphone.png in Resources */,
 				A85FBA5E180F4A410053E390 /* bg-the-entrepreneur~iphone.jpg in Resources */,
 				A85FB997180F4A410053E390 /* btn-createaccount@2x~iphone.png in Resources */,
@@ -5067,8 +5091,10 @@
 				A8BABA5017E2615A00A3C95B /* TPProfileTableViewCell.m in Sources */,
 				A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */,
 				A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */,
+				A84BBA9618120FE0007B1B77 /* TPLeaderboardViewController.m in Sources */,
 				A8B5A23218038C3E00399FDD /* TPSettingsHeaderView.m in Sources */,
 				A8B5A7FA1804C6DA00399FDD /* TPDashboardTableCell.m in Sources */,
+				A84BBA9918121089007B1B77 /* TPInviteFriendsViewController.m in Sources */,
 				A830EFC317E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m in Sources */,
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
 				A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */,
@@ -5094,8 +5120,10 @@
 				A8BABA8417E2625C00A3C95B /* TPSurveyStageViewController.m in Sources */,
 				A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */,
 				A808BF85180C7BB0006D4CE0 /* TPMoodChartView.m in Sources */,
+				A84BBA931812095D007B1B77 /* TPDrawerViewController.m in Sources */,
 				A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */,
 				A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */,
+				A84BBA7D18106697007B1B77 /* TPAddressBookInviteViewController.m in Sources */,
 				A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */,
 				A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */,
 				A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */,

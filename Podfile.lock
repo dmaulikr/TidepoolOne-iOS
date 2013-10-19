@@ -3,10 +3,12 @@ PODS:
   - AttributedMarkdown (0.9.1)
   - Facebook-iOS-SDK (3.8.0)
   - GoogleAnalytics-iOS-SDK (3.0.1)
+  - JASidePanels (1.3.2)
   - LAWalkthrough (1.0.0)
   - MBProgressHUD (0.8)
   - Mixpanel (2.0.2)
   - NullSafe (1.2)
+  - RHAddressBook (1.0.2)
   - SBJson (3.2)
   - SSKeychain (1.2.1)
   - TestFlightSDK (2.0)
@@ -17,10 +19,12 @@ DEPENDENCIES:
   - AttributedMarkdown (from `https://github.com/dreamwieber/AttributedMarkdown.git`)
   - Facebook-iOS-SDK
   - GoogleAnalytics-iOS-SDK
+  - JASidePanels
   - LAWalkthrough
   - MBProgressHUD
   - Mixpanel
   - NullSafe
+  - RHAddressBook
   - SBJson
   - SSKeychain
   - TestFlightSDK
@@ -35,10 +39,12 @@ SPEC CHECKSUMS:
   AttributedMarkdown: c945530099b9e121129ca3a32a400b111c8e5825
   Facebook-iOS-SDK: 55a22fe8bcaacd638cde9014af6b3ee85f4d71fb
   GoogleAnalytics-iOS-SDK: 4a788a66154b395717a31bfec1050f8c47b6d122
+  JASidePanels: c0e642a7311ec9cc9adfa616fa4a795e4e169f20
   LAWalkthrough: 01dae086c1dd166b5afe9816763414e3512b3fea
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Mixpanel: 7829ba2cc58d251a4674520109e9bfead76acc98
   NullSafe: ec359e864f3b8d9c2d81aaa2bdbac8280bba1be2
+  RHAddressBook: 64f78a4058e0a7849275c970bf19fe195edf94d0
   SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858

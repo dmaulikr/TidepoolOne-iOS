@@ -13,6 +13,7 @@
 
 #ifdef DEBUG
 NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"https://api.tidepool.co";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
