@@ -10,11 +10,15 @@
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
+#import "TPOAuthClient.h"
+#import <RHAddressBook/RHAddressBook.h>
+#import <RHAddressBook/RHPerson.h>
 
 @interface TPInviteFriendsViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
     NSArray *_groups;
     NSArray *_fields;
+    RHAddressBook *_ab;
 }
 @end
 
@@ -150,7 +154,7 @@
                 switch (indexPath.row) {
                     case 0://contacts
                     {
-                        
+                        [self inviteContacts];
                     }
                         break;
                     case 1://facebook
@@ -184,6 +188,34 @@
     [controller dismissViewControllerAnimated:YES completion:^{
     }];
     
+}
+
+-(void)inviteContacts
+{
+    _ab = [[RHAddressBook alloc] init];
+    if ([RHAddressBook authorizationStatus] == RHAuthorizationStatusNotDetermined){
+        //request authorization
+        [_ab requestAuthorizationWithCompletion:^(bool granted, NSError *error) {
+            NSArray *emailList = [self getAllContacts];
+            [[TPOAuthClient sharedClient] findFriendsWithEmail:emailList];
+        }];
+    } else {
+        NSArray *emailList = [self getAllContacts];
+        [[TPOAuthClient sharedClient] findFriendsWithEmail:emailList];
+    }
+}
+
+-(NSArray *)getAllContacts
+{
+    NSArray *contacts = [_ab peopleOrderedByUsersPreference];
+    NSMutableArray *emailList = [@[] mutableCopy];
+    for (RHPerson *contact in contacts) {
+        NSArray *emails = contact.emails.values;
+        for (NSString *email in emails) {
+            [emailList addObject:email];
+        }
+    }
+    return emailList;
 }
 
 @end

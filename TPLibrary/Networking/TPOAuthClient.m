@@ -327,6 +327,26 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
+
+#pragma mark API methods - friends
+-(void)findFriendsWithEmail:(NSArray *)emailList
+{
+    [self postPath:@"api/v1/users/-/invite_friends" parameters:@{@"emails":emailList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog([responseObject description]);        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not find friends"];
+    }];
+}
+-(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList
+{
+    [self postPath:@"api/v1/users/-/invite_friends" parameters:@{@"facebook_ids":facebookIdList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog([responseObject description]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not find friends"];
+    }];
+}
+
+
 -(void)deleteConnectionForProvider:(NSString *)provider
 {
     [self deletePath:[NSString stringWithFormat:@"api/v1/users/-/connections/%@", provider] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

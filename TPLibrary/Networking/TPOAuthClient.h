@@ -35,10 +35,15 @@
 -(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 -(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 
-#pragma mark API methods - users
+#pragma mark API methods - games
 -(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
 -(void)postGameEvents:(NSDictionary *)events withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+
+#pragma mark API methods - friends
+-(void)findFriendsWithEmail:(NSArray *)emailList;
+-(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList;
+
 
 #pragma mark API methods - connections
 -(void)deleteConnectionForProvider:(NSString *)provider;
