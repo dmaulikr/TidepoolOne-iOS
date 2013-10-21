@@ -13,6 +13,7 @@
 #import "TPOAuthClient.h"
 #import <RHAddressBook/RHAddressBook.h>
 #import <RHAddressBook/RHPerson.h>
+#import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
 
 @interface TPInviteFriendsViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
@@ -159,7 +160,7 @@
                         break;
                     case 1://facebook
                     {
-                        
+                        [self inviteFacebookFriends];
                     }
                         break;
                     default:
@@ -189,6 +190,23 @@
     }];
     
 }
+
+-(void)inviteFacebookFriends
+{
+    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
+    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
+                                                  NSDictionary* result,
+                                                  NSError *error) {
+        NSArray* friends = [result objectForKey:@"data"];
+        NSMutableArray *facebookIds = [@[] mutableCopy];
+        NSLog(@"Found: %i friends", friends.count);
+        for (NSDictionary<FBGraphUser>* friend in friends) {
+            [facebookIds addObject:friend.id];
+        }
+        [[TPOAuthClient sharedClient] findFriendsWithFacebookIds:facebookIds];
+    }];
+}
+
 
 -(void)inviteContacts
 {
