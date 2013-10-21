@@ -36,12 +36,12 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
+    CGContextRef context = UIGraphicsGetCurrentContext();    
     CGMutablePathRef path = CGPathCreateMutable();
     float distBetweenPoints = rect.size.width / _data.count;
     float yMin = [[self.data valueForKeyPath:@"@min.floatValue"] floatValue];
     float yMax = [[self.data valueForKeyPath:@"@max.floatValue"] floatValue];
+    NSLog(@"min:%f,max:%f",yMin, yMax);
     if (!yMin && !yMax) {
         return;
     }
@@ -50,7 +50,8 @@
     
     for (int i=0;i<_data.count;i++) {
         float x = (i+0.5)*distBetweenPoints;
-        float y = rect.size.height - (yScale * [_data[i] floatValue] - yMin);
+        float y = rect.size.height - (yScale * ([_data[i] floatValue] - yMin));
+        NSLog(@"%f,%f",y, [_data[i] floatValue]);
         if (i==0) {
             CGPathMoveToPoint(path, NULL, x, y);
         } else {
