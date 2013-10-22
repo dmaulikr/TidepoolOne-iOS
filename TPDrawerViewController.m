@@ -31,9 +31,14 @@
     [self setCenterPanel:[[TPLeaderboardViewController alloc] init]];
     [self setRightPanel:[[TPInviteFriendsViewController alloc] init] ];
     self.pushesSidePanels = YES;
-//    self.allowRightSwipe = NO;
-    [self showRightPanelAnimated:YES];
+    self.allowRightSwipe = NO;
+    _rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-leader-email.png"] style:UIBarButtonItemStylePlain target:self action:@selector(swipeInRightPanel)];
+    [self.navigationItem setRightBarButtonItem:_rightButton];
+}
 
+-(void)swipeInRightPanel
+{
+    [self showRightPanelAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning

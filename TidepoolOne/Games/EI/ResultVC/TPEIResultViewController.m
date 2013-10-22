@@ -135,7 +135,7 @@
     [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"FaceOff"}];
 #endif
     NSString *message = [NSString stringWithFormat:@"I just played FaceOff"];
-    NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];
+    NSURL *url = [NSURL URLWithString:APP_LINK];
     
     NSArray *postItems = @[message, url];
     

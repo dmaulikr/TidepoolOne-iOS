@@ -336,7 +336,7 @@
     }
 
     NSString *message = [NSString stringWithFormat:@"I'm %@! Find out your personality with TidePool!", personalityTypeName];
-     NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"];
+     NSURL *url = [NSURL URLWithString:APP_LINK];
                          
     NSArray *postItems = @[message, url];
     

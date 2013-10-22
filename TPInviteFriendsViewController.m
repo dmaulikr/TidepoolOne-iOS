@@ -56,7 +56,7 @@
                      @[@"ic-leader-email.png", @"ic-leader-fb.png", @"ic-leader-sms.png"],
                      @[@"ic-leader-contacts.png", @"ic-leader-fb.png"],
                      ];
-
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -135,7 +135,13 @@
                     break;
                 case 1://facebook
                 {
-                    
+                    [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:APP_LINK] name:@"TidePool on iOS" caption:@"Download TidePool!" description:@"Get the TidePool app here!" picture:nil clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                        if (error) {
+                            NSLog([error description]);
+                        } else {
+                            NSLog([results description]);
+                        }
+                    }];
                 }
                     break;
                 case 2://text
@@ -161,6 +167,7 @@
                     break;
             }
             //find
+            break;
         case 1:
             {
                 switch (indexPath.row) {
@@ -184,6 +191,7 @@
         default:
             break;
         }
+            break;
     }
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];

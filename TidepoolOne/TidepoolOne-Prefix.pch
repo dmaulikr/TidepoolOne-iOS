@@ -29,6 +29,8 @@
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
 #import <Mixpanel/Mixpanel.h>
 
+#define APP_LINK @"https://itunes.apple.com/us/app/tidepool/id691052387?mt=8"
+
 #ifndef DEVELOPMENT
     #define DEVELOPMENT
 #endif

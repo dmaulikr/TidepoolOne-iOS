@@ -11,4 +11,6 @@
 
 @interface TPDrawerViewController : JASidePanelController
 
+@property (strong, nonatomic) UIBarButtonItem *rightButton;
+
 @end
