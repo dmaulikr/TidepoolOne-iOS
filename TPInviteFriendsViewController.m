@@ -19,6 +19,7 @@
 {
     NSArray *_groups;
     NSArray *_fields;
+    NSArray *_fieldImages;
     RHAddressBook *_ab;
 }
 @end
@@ -45,11 +46,17 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    _groups = @[@"Invite", @"Find"];
+    self.tableView.backgroundColor = [UIColor colorWithRed:76/255.0 green:87/255.0 blue:106/255.0 alpha:1.0];
+    _groups = @[@"Invite Friends", @"Find Friends"];
     _fields = @[
                 @[@"Email", @"Facebook", @"Text"],
                 @[@"Contacts", @"Facebook"],
                 ];
+    _fieldImages = @[
+                     @[@"ic-leader-email.png", @"ic-leader-fb.png", @"ic-leader-sms.png"],
+                     @[@"ic-leader-contacts.png", @"ic-leader-fb.png"],
+                     ];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,6 +86,10 @@
     
     // Configure the cell...
     cell.textLabel.text = _fields[indexPath.section][indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Karla" size:17];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.imageView.image = [UIImage imageNamed:_fieldImages[indexPath.section][indexPath.row]];
     return cell;
 }
 
@@ -234,6 +245,18 @@
         }
     }
     return emailList;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 22)];
+    view.backgroundColor = [UIColor colorWithRed:54/255.0 green:45/255.0 blue:54/255.0 alpha:1.0];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 320, 22)];
+    label.text = [_groups[section] uppercaseString];
+    label.font = [UIFont fontWithName:@"Karla" size:14];
+    label.textColor = [UIColor whiteColor];
+    [view addSubview:label];
+    return view;
 }
 
 @end

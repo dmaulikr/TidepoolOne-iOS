@@ -81,4 +81,17 @@
     return 82;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"leader-header-%@.png", _games[section]]];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 136)];
+    imageView.image = image;
+    return imageView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 36;
+}
+
 @end
