@@ -32,13 +32,13 @@
     [self setRightPanel:[[TPInviteFriendsViewController alloc] init] ];
     self.pushesSidePanels = YES;
     self.allowRightSwipe = NO;
-    _rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-leader-email.png"] style:UIBarButtonItemStylePlain target:self action:@selector(swipeInRightPanel)];
+    _rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ic-addfriends.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleRightPanel:)];
     [self.navigationItem setRightBarButtonItem:_rightButton];
 }
 
 -(void)swipeInRightPanel
 {
-    [self showRightPanelAnimated:YES];
+    [self toggleRightPanel:nil];
 }
 
 - (void)didReceiveMemoryWarning
