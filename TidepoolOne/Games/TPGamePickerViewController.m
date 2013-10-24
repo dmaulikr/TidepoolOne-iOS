@@ -10,6 +10,7 @@
 #import "TPSnoozerGameViewController.h"
 #import "TPEIGameViewController.h"
 #import "TPGamePickerCell.h"
+#import "TPEchoGameViewController.h"
 
 @interface TPGamePickerViewController () <UITableViewDelegate>
 {

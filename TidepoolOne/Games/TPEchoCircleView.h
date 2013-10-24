@@ -8,6 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class TPEchoCircle;
+
+@protocol TPEchoCircleViewDelegate <NSObject>
+
+-(void)tappedCircle:(TPEchoCircle *)circle;
+
+@end
+
 @interface TPEchoCircleView : UIView
+
+@property (assign, nonatomic) BOOL filled;
+@property (assign, nonatomic) BOOL radius;
+@property (assign, nonatomic) BOOL strokeWidth;
+@property (strong, nonatomic) UIColor *color;
+@property (weak, nonatomic) id delegate;
+
+-(void)play;
 
 @end

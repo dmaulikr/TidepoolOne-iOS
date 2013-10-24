@@ -21,6 +21,9 @@
 #import "TPEIYourMoodViewController.h"
 #import "TPEIResultViewController.h"
 
+#import "TPEchoStageViewController.h"
+#import "TPEchoResultViewController.h"
+
 #import <UAPush.h>
 
 @interface TPGameViewController ()
@@ -116,10 +119,13 @@
     _userId = self.gameObject[@"user_id"];
     NSString *viewName = self.gameObject[@"stages"][_stage][@"client_view_name"];
     NSDictionary *classDictionary = @{
-                                      @"Snoozer":[TPSnoozerStageViewController class],
+//                                      @"Snoozer":[TPSnoozerStageViewController class],
                                       @"Survey":[TPSnoozerSurveyStageViewController class],
                                       @"FaceOff":[TPEIStagePickEmotionViewController class],
                                       @"EmotionsSurvey":[TPEIYourMoodViewController class],
+//                                      @"Echo":[TPEchoStageViewController class],
+                                      // TODO: debug
+                                      @"Snoozer":[TPEchoStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] initWithNibName:nil bundle:nil];
