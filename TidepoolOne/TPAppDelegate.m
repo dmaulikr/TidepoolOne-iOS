@@ -249,4 +249,16 @@ NSString *const FBSessionStateChangedNotification =
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    const char* data = [deviceToken bytes];
+    NSMutableString* token = [NSMutableString string];
+    for (int i = 0; i < [deviceToken length]; i++) {
+        [token appendFormat:@"%02.2hhX", data[i]];
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:token forKey:@"PushToken"];
+}
+
+
 @end

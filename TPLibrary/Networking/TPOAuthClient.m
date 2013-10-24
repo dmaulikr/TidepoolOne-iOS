@@ -79,6 +79,14 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)setUser:(NSDictionary *)user
 {
     _user = user;
+    if (user) {
+        NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
+        if (![user[@"ios_device_token"] isEqualToString:pushToken]) {
+            [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
+            } andFailure:^{
+            }];
+    }
+    }
 }
 
 #pragma mark OAuth methods
@@ -296,6 +304,19 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         }];
     }
 }
+
+-(void)updateUserWithParameters:(NSDictionary *)parameters withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self putPath:@"api/v1/users/-/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.user = responseObject[@"data"];
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failureBlock();
+        [self handleError:error withOptionalMessage:@"There was an error saving data. Please try again."];
+    }];
+
+}
+
 
 -(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
 {

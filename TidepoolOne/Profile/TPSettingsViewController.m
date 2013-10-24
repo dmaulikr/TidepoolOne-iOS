@@ -202,16 +202,13 @@
     [params setValue:@1 forKey:@"is_dob_by_age"];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Saving...";
-    [_oauthClient putPath:@"api/v1/users/-/" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [_oauthClient updateUserWithParameters:params withCompletionHandlersSuccess:^(NSDictionary *user) {
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"Done";
         [hud hide:YES afterDelay:2.0];
-        [_oauthClient forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
-        } andFailure:^{}];
         [self.navigationController popViewControllerAnimated:YES];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } andFailure:^{
         [hud hide:YES];
-        [_oauthClient handleError:error withOptionalMessage:@"There was an error saving data. Please try again."];
     }];
 }
 
