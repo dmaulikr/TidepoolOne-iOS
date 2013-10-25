@@ -8,6 +8,7 @@
 
 #import "TPEchoStageViewController.h"
 #import "TPEchoCircleView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TPEchoStageViewController () <TPEchoCircleViewDelegate>
 {
@@ -25,6 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.reverseMode = arc4random()%2;
     }
     return self;
 }
@@ -32,6 +34,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    self.numberContainerView.layer.cornerRadius = self.numberContainerView.bounds.size.width/2;
+    self.countdownLabel.font = [UIFont fontWithName:@"Elephant" size:35.0];
+}
+
+-(void)setReverseMode:(BOOL)reverseMode
+{
+    _reverseMode = reverseMode;
+    if (reverseMode) {
+        self.view.backgroundColor = [UIColor blackColor];
+        self.numberContainerView.backgroundColor = [UIColor whiteColor];
+        self.countdownLabel.textColor = [UIColor blackColor];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+        self.numberContainerView.backgroundColor = [UIColor blackColor];
+        self.countdownLabel.textColor = [UIColor whiteColor];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     // Do any additional setup after loading the view from its nib.
     _circles = [@[] mutableCopy];
     _currentIndex = 0;
@@ -61,15 +86,15 @@
         [_circles addObject:circle];
     }
     [self generatePattern];
-    [self moveMaxIndex];
+    [self moveMaxIndex];    
 }
 
 -(void)generatePattern
 {
-    int patternLength = 10;
+    int patternLength = 100;
     NSMutableArray *pattern = [@[] mutableCopy];
     for (int i=0; i<patternLength;i++) {
-        [pattern addObject:[NSNumber numberWithInt:rand()%7]];
+        [pattern addObject:[NSNumber numberWithInt:arc4random()%7]];
     }
     _pattern = pattern;
 }
@@ -79,25 +104,40 @@
     _currentMaxIndex++;
     _currentIndex = 0;
     NSLog(@"move index to : %i", _currentMaxIndex);
-    [self playPattern:_pattern tillIndex:_currentMaxIndex];
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 1.0 * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self playPattern:_pattern tillIndex:_currentMaxIndex];
+        self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex];
+    });
 }
 
 
 -(void)playPattern:(NSArray *)pattern tillIndex:(int) index
 {
+    self.view.userInteractionEnabled = NO;
     for (int i=0;i<index;i++) {
         [NSTimer scheduledTimerWithTimeInterval:0.75*i target:_circles[[pattern[i] intValue]] selector:@selector(play) userInfo:nil repeats:NO];
     }
+    double delayInSeconds = 0.75*(index-1);
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        self.view.userInteractionEnabled = YES;
+    });
 }
 
 -(void)tappedCircle:(TPEchoCircle *)circle
 {
     int circleIndex = [_circles indexOfObject:circle];
-    if (circleIndex == [_pattern[_currentIndex] intValue]) {
+    int targetCircle = [_pattern[_currentIndex] intValue];
+    if (_reverseMode) {
+        targetCircle = [_pattern[_currentMaxIndex - _currentIndex - 1] intValue];
+    }
+    if (circleIndex == targetCircle) {
         _currentIndex++;
     } else {
         [[[UIAlertView alloc] initWithTitle:@"Wrong" message:@"You suck!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     }
+    self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex - _currentIndex];
     if (_currentIndex == _currentMaxIndex) {
         [self moveMaxIndex];
     }

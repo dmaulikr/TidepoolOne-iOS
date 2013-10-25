@@ -114,6 +114,7 @@
 {
     self.filled = YES;
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(setNotFilled) userInfo:nil repeats:NO];
+    
 }
 
 -(void)setNotFilled

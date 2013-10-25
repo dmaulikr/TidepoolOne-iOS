@@ -27,7 +27,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor colorWithRed:248/255.0 green:186/255.0 blue:60/255.0 alpha:1.0];
     self.type = @"snoozer";
     //    self.type = @"snoozers"; //For debugging
 }

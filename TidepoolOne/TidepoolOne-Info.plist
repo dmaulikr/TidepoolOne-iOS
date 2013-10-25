@@ -46,10 +46,11 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Karla-Regular.ttf</string>
-		<string>Karla-Bold.ttf</string>
-		<string>Karla-Italic.ttf</string>
-		<string>Karla-BoldItalic.ttf</string>
+		<string>ElephantItalic.otf</string>
+		<string>Karla-Regular.otf</string>
+		<string>Karla-Bold.otf</string>
+		<string>Karla-Italic.otf</string>
+		<string>Karla-BoldItalic.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main_iPhone</string>

@@ -16,16 +16,13 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" image="snoozer-clock.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ucw-Zf-HUd">
-                    <rect key="frame" x="103" y="208" width="113" height="117"/>
-                </imageView>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" ambiguous="YES" misplaced="YES" text="Play to track your brain speed and attention." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-2t-85o" customClass="TPLabelBold">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Play this game because blahblahblahblah" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-2t-85o" customClass="TPLabelBold">
                     <rect key="frame" x="20" y="159" width="280" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-u4-PMJ" customClass="TPButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-u4-PMJ" customClass="TPButton">
                     <rect key="frame" x="112" y="375" width="97" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="HaQ-lK-qcb"/>
@@ -37,16 +34,18 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" image="snoozer-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="rBZ-Hv-NaM">
-                    <rect key="frame" x="60" y="96" width="201" height="55"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="echo-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="rBZ-Hv-NaM">
+                    <rect key="frame" x="52" y="61" width="216" height="95"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="rBZ-Hv-NaM" firstAttribute="top" secondItem="1" secondAttribute="top" constant="61" id="7x3-ar-yZn"/>
                 <constraint firstItem="rBZ-Hv-NaM" firstAttribute="centerX" secondItem="dhe-2t-85o" secondAttribute="centerX" id="9GZ-rp-Egg"/>
-                <constraint firstItem="7hW-u4-PMJ" firstAttribute="top" secondItem="Ucw-Zf-HUd" secondAttribute="bottom" constant="50" id="BMf-go-mab"/>
+                <constraint firstAttribute="trailing" secondItem="dhe-2t-85o" secondAttribute="trailing" constant="20" symbolic="YES" id="EzN-3H-wq1"/>
                 <constraint firstItem="dhe-2t-85o" firstAttribute="centerX" secondItem="7hW-u4-PMJ" secondAttribute="centerX" id="HkM-u9-f4T"/>
-                <constraint firstItem="Ucw-Zf-HUd" firstAttribute="top" secondItem="dhe-2t-85o" secondAttribute="bottom" constant="8" symbolic="YES" id="V1v-Lk-RGB"/>
+                <constraint firstItem="dhe-2t-85o" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="20" symbolic="YES" id="OGd-Fx-ZI8"/>
+                <constraint firstAttribute="bottom" secondItem="7hW-u4-PMJ" secondAttribute="bottom" constant="149" id="gh2-CX-rkf"/>
                 <constraint firstItem="dhe-2t-85o" firstAttribute="top" secondItem="rBZ-Hv-NaM" secondAttribute="bottom" constant="8" symbolic="YES" id="lGz-NS-Y8b"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -55,7 +54,6 @@
     </objects>
     <resources>
         <image name="btn-red.png" width="126" height="45"/>
-        <image name="snoozer-clock.png" width="113" height="117"/>
-        <image name="snoozer-logo.png" width="201" height="55"/>
+        <image name="echo-logo.png" width="216" height="95"/>
     </resources>
 </document>

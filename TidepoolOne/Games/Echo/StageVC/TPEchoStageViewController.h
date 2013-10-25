@@ -10,4 +10,8 @@
 
 @interface TPEchoStageViewController : TPStageViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
+@property (assign, nonatomic) BOOL reverseMode;
+@property (weak, nonatomic) IBOutlet UIView *numberContainerView;
+
 @end

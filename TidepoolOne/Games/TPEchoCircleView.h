@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class TPEchoCircle;
+@class TPEchoCircleView;
 
 @protocol TPEchoCircleViewDelegate <NSObject>
 
--(void)tappedCircle:(TPEchoCircle *)circle;
+-(void)tappedCircle:(TPEchoCircleView *)circle;
 
 @end
 

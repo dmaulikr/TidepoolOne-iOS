@@ -37,15 +37,17 @@
     self.title = @"Games";
     self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"games-bg.png"]];
-    self.games = @[@"Snoozer", @"EI"];
+    self.games = @[@"Snoozer", @"EI", @"Echo"];
     self.tableView.delegate = self;
     _gameClasses = @{
                      @"Snoozer":[TPSnoozerGameViewController class],
                      @"EI":[TPEIGameViewController class],
+                     @"Echo":[TPEchoGameViewController class],
                      };
     _gameCellImages = @{
                      @"Snoozer":[UIImage imageNamed:@"cell-snoozer.png"],
                      @"EI":[UIImage imageNamed:@"cell-faceoff.png"],
+                     @"Echo":[UIImage imageNamed:@"cell-echo.png"],
                      };
     if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
         // iOS 6.1 or earlier
