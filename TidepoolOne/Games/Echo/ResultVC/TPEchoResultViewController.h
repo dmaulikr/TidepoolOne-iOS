@@ -10,4 +10,19 @@
 
 @interface TPEchoResultViewController : TPResultViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
+@property (weak, nonatomic) IBOutlet TPLabelBold *scoreLabel;
+@property (weak, nonatomic) IBOutlet UITextView *blurbView;
+@property (weak, nonatomic) IBOutlet TPLabelBold *badgeTitleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *longestSequence_1;
+@property (weak, nonatomic) IBOutlet UILabel *longestSequence_2;
+
+@property (weak, nonatomic) IBOutlet TPLabelBold *points_1;
+
+@property (weak, nonatomic) IBOutlet TPLabelBold *points_2;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+
 @end

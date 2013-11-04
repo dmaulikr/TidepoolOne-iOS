@@ -8,6 +8,7 @@
 
 #import "TPEchoCircleView.h"
 #import "CGHelper.h"
+#import <AVFoundation/AVFoundation.h>
 
 #define NUM_GHOST_CIRCLES 3
 
@@ -95,9 +96,10 @@
                 self.filled = NO;
             }];
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
-            animation.duration = 0.2;
-            animation.toValue = (id)[CGHelper newCirclePathAtPoint:_center withRadius:radius+((i + 1)*strokeWidth)];
-            animation.autoreverses = YES;
+            animation.duration = 0.75;
+            animation.fromValue = (id)[CGHelper newCirclePathAtPoint:_center withRadius:radius+((i)*strokeWidth)];
+            animation.toValue = (id)[CGHelper newCirclePathAtPoint:_center withRadius:radius+((i + 2)*strokeWidth)];
+            animation.autoreverses = NO;
             [ghostLayers[i] addAnimation:animation forKey:@"path"];
         } [CATransaction commit];
     }
@@ -114,7 +116,23 @@
 {
     self.filled = YES;
     [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(setNotFilled) userInfo:nil repeats:NO];
-    
+    [self playSoundCorrect:YES];
+}
+
+-(void)playSoundCorrect:(BOOL)correct
+{
+    NSString *filename;
+    if (correct) {
+        filename = [NSString stringWithFormat:@"%@", _pitch];
+    } else {
+        filename = [NSString stringWithFormat:@"%@e", _pitch];
+    }
+    NSString *pewPewPath = [[NSBundle mainBundle]
+                            pathForResource:filename ofType:@"wav"];
+    NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
+    SystemSoundID _pewPewSound;
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &_pewPewSound);
+    AudioServicesPlaySystemSound(_pewPewSound);
 }
 
 -(void)setNotFilled

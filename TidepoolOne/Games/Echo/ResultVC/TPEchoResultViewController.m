@@ -9,7 +9,9 @@
 #import "TPEchoResultViewController.h"
 
 @interface TPEchoResultViewController ()
-
+{
+    NSDictionary *_result;
+}
 @end
 
 @implementation TPEchoResultViewController
@@ -34,5 +36,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewDidLayoutSubviews
+{
+    [self.scrollView setContentSize:CGSizeMake(320, 710)];
+}
+
+
+-(void)setResult:(NSDictionary *)result
+{
+    _result = result;
+    if (result) {
+        self.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@.png", result[@"badge"][@"character"]]];
+        self.badgeTitleLabel.text = result[@"badge"][@"character"];
+        self.blurbView.text = result[@"badge"][@"description"];
+        self.scoreLabel.text = [NSString stringWithFormat:@"%@", result[@"attention_score"]];
+        
+        self.points_1.text = [NSString stringWithFormat:@"%@", result[@"calculations"][@"stage_scores"][0][@"score"]];
+        self.longestSequence_1.text = [NSString stringWithFormat:@"%@", result[@"calculations"][@"stage_scores"][0][@"highest"]];
+        
+        self.points_2.text = [NSString stringWithFormat:@"%@", result[@"calculations"][@"stage_scores"][1][@"score"]];
+        self.longestSequence_2.text = [NSString stringWithFormat:@"%@", result[@"calculations"][@"stage_scores"][1][@"highest"]];
+
+    }
+}
+
 
 @end

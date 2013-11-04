@@ -119,13 +119,11 @@
     _userId = self.gameObject[@"user_id"];
     NSString *viewName = self.gameObject[@"stages"][_stage][@"client_view_name"];
     NSDictionary *classDictionary = @{
-//                                      @"Snoozer":[TPSnoozerStageViewController class],
+                                      @"Snoozer":[TPSnoozerStageViewController class],
                                       @"Survey":[TPSnoozerSurveyStageViewController class],
                                       @"FaceOff":[TPEIStagePickEmotionViewController class],
                                       @"EmotionsSurvey":[TPEIYourMoodViewController class],
-//                                      @"Echo":[TPEchoStageViewController class],
-                                      // TODO: debug
-                                      @"Snoozer":[TPEchoStageViewController class],
+                                      @"Echo":[TPEchoStageViewController class],
                                       };
     Class stageClass = classDictionary[viewName];
     TPStageViewController *stageVC = [[stageClass alloc] initWithNibName:nil bundle:nil];
@@ -186,6 +184,7 @@
     NSDictionary *classDictionary = @{
                                       @"SpeedArchetypeResult":[TPSnoozerResultViewController class],
                                       @"EmoIntelligenceResult":[TPEIResultViewController class],
+                                      @"AttentionResult":[TPEchoResultViewController class],
                                       };
     BOOL hasResultsToShow = NO;
     for (NSDictionary *result in _results) {

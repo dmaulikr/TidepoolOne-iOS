@@ -27,8 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.type = @"snoozer";
-    //    self.type = @"snoozers"; //For debugging
+    self.type = @"echo";
 }
 
 -(void)viewDidAppear:(BOOL)animated

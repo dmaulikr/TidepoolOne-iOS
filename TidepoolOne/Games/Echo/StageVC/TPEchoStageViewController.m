@@ -26,7 +26,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.reverseMode = arc4random()%2;
     }
     return self;
 }
@@ -39,6 +38,7 @@
     }
     self.numberContainerView.layer.cornerRadius = self.numberContainerView.bounds.size.width/2;
     self.countdownLabel.font = [UIFont fontWithName:@"Elephant" size:35.0];
+    self.type = @"echo";
 }
 
 -(void)setReverseMode:(BOOL)reverseMode
@@ -57,7 +57,9 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     // Do any additional setup after loading the view from its nib.
+    self.reverseMode = ([self.data[@"stage_type"] isEqualToString:@"reverse"]);
     _circles = [@[] mutableCopy];
     _currentIndex = 0;
     _currentMaxIndex = 0;
@@ -74,11 +76,16 @@
                         [UIColor colorWithRed:240/255.0 green:148/255.0 blue:32/255.0 alpha:1],
                         
     ];
+    NSArray *pitches = @[@0,@1,@2,@3,@4,@5,@6];
+    colors = [self shuffleArray:colors];
+    pitches = [self shuffleArray:pitches];
+    
     for (int i = 0; i< numCircles; i++) {
         TPEchoCircleView *circle = [[TPEchoCircleView alloc] initWithFrame:CGRectMake(0, 0, viewDimensions, viewDimensions)];
         circle.delegate = self;
         circle.backgroundColor = [UIColor clearColor];
         circle.color = colors[i];
+        circle.pitch = pitches[i];
         float theta = 2.0*M_PI * i / numCircles;
         CGPoint point = CGPointMake(self.view.center.x + radius*cosf(theta), self.view.center.y + radius*sinf(theta));
         circle.center = point;
@@ -86,7 +93,12 @@
         [_circles addObject:circle];
     }
     [self generatePattern];
-    [self moveMaxIndex];    
+    [self moveMaxIndex];
+    [self logLevelStartedWithAdditionalData:@{
+                                              @"stage_type":self.data[@"stage_type"],
+//                                              @"score_multiplier":self.data[@"score_multiplier"],
+                                              @"score_multiplier":@1,
+                                              }];
 }
 
 -(void)generatePattern
@@ -125,7 +137,7 @@
     });
 }
 
--(void)tappedCircle:(TPEchoCircle *)circle
+-(void)tappedCircle:(TPEchoCircleView *)circle
 {
     int circleIndex = [_circles indexOfObject:circle];
     int targetCircle = [_pattern[_currentIndex] intValue];
@@ -134,8 +146,11 @@
     }
     if (circleIndex == targetCircle) {
         _currentIndex++;
+        [circle playSoundCorrect:YES];
     } else {
-        [[[UIAlertView alloc] initWithTitle:@"Wrong" message:@"You suck!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        [circle playSoundCorrect:NO];
+        [self stageOver];
+//        [[[UIAlertView alloc] initWithTitle:@"Wrong" message:@"You suck!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     }
     self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex - _currentIndex];
     if (_currentIndex == _currentMaxIndex) {
@@ -143,11 +158,29 @@
     }
 }
 
+-(void)stageOver
+{
+    [self logLevelCompletedWithAdditionalData:nil summary:@{@"highest":[NSNumber numberWithInt:_currentMaxIndex]}];
+    [super stageOver];
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(NSArray *)shuffleArray:(NSArray *)arrayToShuffle
+{
+    NSMutableArray *array = [arrayToShuffle mutableCopy];
+    NSUInteger count = [array count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = arc4random_uniform(nElements) + i;
+        [array exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    return [array copy];
 }
 
 @end

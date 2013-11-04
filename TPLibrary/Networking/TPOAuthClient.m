@@ -345,6 +345,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         successBlock(dataObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Unable to get game results"];
+        failureBlock();
     }];
 }
 

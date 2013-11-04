@@ -19,11 +19,14 @@
 @interface TPEchoCircleView : UIView
 
 @property (assign, nonatomic) BOOL filled;
+
 @property (assign, nonatomic) BOOL radius;
 @property (assign, nonatomic) BOOL strokeWidth;
 @property (strong, nonatomic) UIColor *color;
+@property (strong, nonatomic) NSNumber *pitch;
 @property (weak, nonatomic) id delegate;
 
--(void)play;
 
+-(void)play;
+-(void)playSoundCorrect:(BOOL)correct;
 @end
