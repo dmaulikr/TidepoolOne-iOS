@@ -160,7 +160,7 @@
 
 -(void)stageOver
 {
-    [self logLevelCompletedWithAdditionalData:nil summary:@{@"highest":[NSNumber numberWithInt:_currentMaxIndex]}];
+    [self logLevelCompletedWithAdditionalData:nil summary:@{@"highest":[NSNumber numberWithInt:_currentMaxIndex - 1]}];
     [super stageOver];
 }
 
