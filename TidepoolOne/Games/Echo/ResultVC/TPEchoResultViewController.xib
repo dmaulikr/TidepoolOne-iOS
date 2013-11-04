@@ -13,9 +13,9 @@
                 <outlet property="longestSequence_1" destination="aua-uo-2r4" id="utG-5y-7Vo"/>
                 <outlet property="longestSequence_2" destination="pVm-aD-Ftp" id="qlT-qk-y8T"/>
                 <outlet property="points_1" destination="Wv1-NP-afx" id="LTx-Aq-flA"/>
-                <outlet property="points_2" destination="Y8l-8Z-YzV" id="Hsd-85-KqZ"/>
+                <outlet property="points_2" destination="Y8l-8Z-YzV" id="J7t-i8-tcE"/>
                 <outlet property="scoreLabel" destination="SVE-aH-aJN" id="PCn-aJ-YO2"/>
-                <outlet property="scrollView" destination="MNX-X3-PIn" id="4GM-5C-k99"/>
+                <outlet property="scrollView" destination="MNX-X3-PIn" id="cwI-fa-odc"/>
                 <outlet property="view" destination="R1y-Rl-nYI" id="hNi-p7-Rww"/>
             </connections>
         </placeholder>
