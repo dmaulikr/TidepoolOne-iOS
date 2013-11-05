@@ -1432,6 +1432,8 @@
 		A8DDB45218282F5B00589642 /* tp-appwalkthrough3~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8DDAF4D18282F5B00589642 /* tp-appwalkthrough3~iphone.jpg */; };
 		A8DDB45318282F5B00589642 /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8DDAF4E18282F5B00589642 /* tp-appwalkthrough4@2x~iphone.jpg */; };
 		A8DDB45418282F5B00589642 /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8DDAF4F18282F5B00589642 /* tp-appwalkthrough4~iphone.jpg */; };
+		A8DDB45818284FBE00589642 /* TPFindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DDB45618284FBE00589642 /* TPFindFriendsViewController.m */; };
+		A8DDB45918284FBE00589642 /* TPFindFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DDB45718284FBE00589642 /* TPFindFriendsViewController.xib */; };
 		A8F5B2F317F103290066E0BD /* TPEIGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B2F117F103290066E0BD /* TPEIGameViewController.m */; };
 		A8F5B2F417F103290066E0BD /* TPEIGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B2F217F103290066E0BD /* TPEIGameViewController.xib */; };
 		A8F5B2F817F103450066E0BD /* TPEIResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B2F617F103450066E0BD /* TPEIResultViewController.m */; };
@@ -2951,6 +2953,9 @@
 		A8DDAF4D18282F5B00589642 /* tp-appwalkthrough3~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3~iphone.jpg"; sourceTree = "<group>"; };
 		A8DDAF4E18282F5B00589642 /* tp-appwalkthrough4@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A8DDAF4F18282F5B00589642 /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
+		A8DDB45518284FBE00589642 /* TPFindFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPFindFriendsViewController.h; sourceTree = "<group>"; };
+		A8DDB45618284FBE00589642 /* TPFindFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPFindFriendsViewController.m; sourceTree = "<group>"; };
+		A8DDB45718284FBE00589642 /* TPFindFriendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPFindFriendsViewController.xib; sourceTree = "<group>"; };
 		A8F5B2F017F103290066E0BD /* TPEIGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEIGameViewController.h; path = EI/GameVC/TPEIGameViewController.h; sourceTree = "<group>"; };
 		A8F5B2F117F103290066E0BD /* TPEIGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEIGameViewController.m; path = EI/GameVC/TPEIGameViewController.m; sourceTree = "<group>"; };
 		A8F5B2F217F103290066E0BD /* TPEIGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPEIGameViewController.xib; path = EI/GameVC/TPEIGameViewController.xib; sourceTree = "<group>"; };
@@ -3173,6 +3178,9 @@
 				A84BBA921812095D007B1B77 /* TPDrawerViewController.m */,
 				A84BBA9718121089007B1B77 /* TPInviteFriendsViewController.h */,
 				A84BBA9818121089007B1B77 /* TPInviteFriendsViewController.m */,
+				A8DDB45518284FBE00589642 /* TPFindFriendsViewController.h */,
+				A8DDB45618284FBE00589642 /* TPFindFriendsViewController.m */,
+				A8DDB45718284FBE00589642 /* TPFindFriendsViewController.xib */,
 			);
 			name = LEADERBOARD;
 			sourceTree = "<group>";
@@ -5603,6 +5611,7 @@
 				A8DDB44C18282F5B00589642 /* tp-appwalkthrough0~iphone.jpg in Resources */,
 				A8DDB06718282F5B00589642 /* echo-lev2-18@2x.png in Resources */,
 				A8DDB0B518282F5B00589642 /* faceoff-photo-correct~iphone.png in Resources */,
+				A8DDB45918284FBE00589642 /* TPFindFriendsViewController.xib in Resources */,
 				A8DDB10E18282F5B00589642 /* bored6@2x.jpg in Resources */,
 				A8DDAF9C18282F5B00589642 /* dash-anim-badge-falcon@2x.png in Resources */,
 				A8DDB24618282F5B00589642 /* leader-badge-crow@2x.png in Resources */,
@@ -6781,6 +6790,7 @@
 				A8BABA6017E2616700A3C95B /* TPGameViewController.m in Sources */,
 				A857D01B1808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.m in Sources */,
 				A866655417FCE70D001D1622 /* TPEmotionCellView.m in Sources */,
+				A8DDB45818284FBE00589642 /* TPFindFriendsViewController.m in Sources */,
 				A8BABA6317E2616700A3C95B /* TPResultViewController.m in Sources */,
 				A8BABA6417E2616700A3C95B /* TPStageViewController.m in Sources */,
 				A8BABA6A17E261C500A3C95B /* TPSnoozerClockView.m in Sources */,

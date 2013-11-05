@@ -42,8 +42,12 @@
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
 
 #pragma mark API methods - friends
--(void)findFriendsWithEmail:(NSArray *)emailList;
--(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList;
+-(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock;
+-(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock;
+
+#pragma mark API methods - leaderboards
+-(void)getLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock;
+-(void)getFriendsLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock;
 
 
 #pragma mark API methods - connections

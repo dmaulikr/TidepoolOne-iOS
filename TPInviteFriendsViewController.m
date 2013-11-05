@@ -11,8 +11,7 @@
 #import <MessageUI/MFMailComposeViewController.h>
 #import <MessageUI/MFMessageComposeViewController.h>
 #import "TPOAuthClient.h"
-#import <RHAddressBook/RHAddressBook.h>
-#import <RHAddressBook/RHPerson.h>
+#import "TPFindFriendsViewController.h"
 #import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
 
 @interface TPInviteFriendsViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
@@ -20,7 +19,6 @@
     NSArray *_groups;
     NSArray *_fields;
     NSArray *_fieldImages;
-    RHAddressBook *_ab;
 }
 @end
 
@@ -212,47 +210,21 @@
 
 -(void)inviteFacebookFriends
 {
-    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                  NSDictionary* result,
-                                                  NSError *error) {
-        NSArray* friends = [result objectForKey:@"data"];
-        NSMutableArray *facebookIds = [@[] mutableCopy];
-        NSLog(@"Found: %i friends", friends.count);
-        for (NSDictionary<FBGraphUser>* friend in friends) {
-            [facebookIds addObject:friend.id];
-        }
-        [[TPOAuthClient sharedClient] findFriendsWithFacebookIds:facebookIds];
-    }];
+    [self findFriends];
 }
 
 
 -(void)inviteContacts
 {
-    _ab = [[RHAddressBook alloc] init];
-    if ([RHAddressBook authorizationStatus] == RHAuthorizationStatusNotDetermined){
-        //request authorization
-        [_ab requestAuthorizationWithCompletion:^(bool granted, NSError *error) {
-            NSArray *emailList = [self getAllContacts];
-            [[TPOAuthClient sharedClient] findFriendsWithEmail:emailList];
-        }];
-    } else {
-        NSArray *emailList = [self getAllContacts];
-        [[TPOAuthClient sharedClient] findFriendsWithEmail:emailList];
-    }
+    [self findFriends];
 }
 
--(NSArray *)getAllContacts
+-(void)findFriends
 {
-    NSArray *contacts = [_ab peopleOrderedByUsersPreference];
-    NSMutableArray *emailList = [@[] mutableCopy];
-    for (RHPerson *contact in contacts) {
-        NSArray *emails = contact.emails.values;
-        for (NSString *email in emails) {
-            [emailList addObject:email];
-        }
-    }
-    return emailList;
+    TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
+    [self presentViewController:findFriendsVC animated:YES completion:^{
+    }];
+    
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

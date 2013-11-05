@@ -351,22 +351,65 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 
 #pragma mark API methods - friends
--(void)findFriendsWithEmail:(NSArray *)emailList
+-(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {
-    [self postPath:@"api/v1/users/-/invite_friends" parameters:@{@"emails":emailList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableURLRequest *request = [self requestWithMethod:@"get" path:@"api/v1/users/-/friends/find" parameters:nil];
+    
+    NSDictionary *jsonDic = @{
+                                     @"friend_list":@{@"emails":@[
+                                                              @"mayank.ot@gmail.com",
+                                                              ],
+                                                          },
+                                     };
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDic options:NSJSONWritingPrettyPrinted error:nil];
+    [request setHTTPBody:jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog([responseObject description]);        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not find friends"];
+        failureBlock();
     }];
+//    [self enqueueHTTPRequestOperation:operation];
+    [operation start];
+//    [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"emails":emailList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog([responseObject description]);        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [self handleError:error withOptionalMessage:@"Could not find friends"];
+//        failureBlock();
+//    }];
 }
--(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList
+-(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {
-    [self postPath:@"api/v1/users/-/invite_friends" parameters:@{@"facebook_ids":facebookIdList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"facebook_ids":facebookIdList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog([responseObject description]);
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not find friends"];
+        failureBlock();
     }];
 }
+
+#pragma mark API methods - leaderboards
+-(void)getLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:[NSString stringWithFormat:@"api/v1/games/%@/leaderboard?offset=0&limit=10", game] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to download leaderboard"];
+    }];
+}
+-(void)getFriendsLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:[NSString stringWithFormat:@"api/v1/users/-/games/%@/leaderboard?offset=0&limit=10", game] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to download leaderboard"];
+    }];
+    
+}
+
 
 
 -(void)deleteConnectionForProvider:(NSString *)provider
