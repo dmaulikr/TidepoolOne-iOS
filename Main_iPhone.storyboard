@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pwW-tx-6Ai">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pwW-tx-6Ai">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Profile-->
@@ -177,11 +177,11 @@
             </objects>
             <point key="canvasLocation" x="-4202" y="-17"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Leaderboard-->
         <scene sceneID="agf-HB-Iaz">
             <objects>
                 <navigationController definesPresentationContext="YES" id="ygb-6m-bqe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7c1-iL-7PC"/>
+                    <tabBarItem key="tabBarItem" title="Leaderboard" image="tabicon-leaderboard.png" id="7c1-iL-7PC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="SEM-fk-SeJ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -225,8 +225,8 @@
                     <connections>
                         <segue destination="ar3-Jo-39R" kind="relationship" relationship="viewControllers" id="ZeZ-Sd-Wgr"/>
                         <segue destination="gzV-xg-QCH" kind="relationship" relationship="viewControllers" id="Ixq-Pb-DwU"/>
-                        <segue destination="60S-k1-RCy" kind="relationship" relationship="viewControllers" id="zLu-Lk-BtJ"/>
                         <segue destination="ygb-6m-bqe" kind="relationship" relationship="viewControllers" id="RtP-w0-Nii"/>
+                        <segue destination="60S-k1-RCy" kind="relationship" relationship="viewControllers" id="zLu-Lk-BtJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qj2-At-ZTO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -237,6 +237,7 @@
     <resources>
         <image name="btn-settings.png" width="24" height="24"/>
         <image name="tabicon-game.png" width="33" height="23"/>
+        <image name="tabicon-leaderboard.png" width="33" height="23"/>
         <image name="tabicon-profile2.png" width="33" height="23"/>
         <image name="tabicon-results.png" width="33" height="23"/>
     </resources>

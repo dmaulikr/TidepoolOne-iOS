@@ -84,7 +84,9 @@
     // Configure the cell...
     NSDictionary *item = _gameHighScores[_games[indexPath.section]][indexPath.row];
     cell.scoreLabel.text = [NSString stringWithFormat:@"%@", item[@"score"]];
-    cell.usernameLabel.text = item[@"email"];
+    NSString *email = item[@"email"];
+    cell.usernameLabel.text = [email componentsSeparatedByString:@"@"][0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -95,15 +97,17 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 46)];
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"leader-header-%@.png", _games[section]]];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 136)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 36)];
     imageView.image = image;
-    return imageView;
+    [view addSubview:imageView];
+    return view;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 36;
+    return 46;
 }
 
 @end
