@@ -13,5 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (assign, nonatomic) BOOL reverseMode;
 @property (weak, nonatomic) IBOutlet UIView *numberContainerView;
+@property (weak, nonatomic) IBOutlet UIImageView *handImageView;
+@property (weak, nonatomic) IBOutlet TPLabel *instructionLabel;
+@property (weak, nonatomic) IBOutlet UIView *instructionContainerView;
 
 @end

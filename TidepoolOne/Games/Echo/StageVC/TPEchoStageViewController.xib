@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPEchoStageViewController">
             <connections>
                 <outlet property="countdownLabel" destination="9BN-o2-IUb" id="Ag9-Df-84Z"/>
+                <outlet property="handImageView" destination="bpV-fu-rdc" id="rOn-Fp-6NE"/>
+                <outlet property="instructionContainerView" destination="0ia-O0-MEv" id="Akf-yf-AuI"/>
+                <outlet property="instructionLabel" destination="ULT-VL-4zZ" id="Gly-77-fQW"/>
                 <outlet property="numberContainerView" destination="xbY-WJ-Obf" id="WaG-ko-Dkb"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -41,9 +44,37 @@
                         <constraint firstAttribute="centerX" secondItem="9BN-o2-IUb" secondAttribute="centerX" id="vYm-0V-tNo"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-fu-rdc">
+                    <rect key="frame" x="145" y="259" width="30" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="MNG-sj-QEC"/>
+                        <constraint firstAttribute="width" constant="30" id="fHy-x6-m80"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-O0-MEv">
+                    <rect key="frame" x="8" y="20" width="305" height="54"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walkthrough-banner.png" translatesAutoresizingMaskIntoConstraints="NO" id="uZq-J4-gWY">
+                            <rect key="frame" x="0.0" y="0.0" width="305" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Watch for the circle that lights up" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ULT-VL-4zZ" customClass="TPLabel">
+                            <rect key="frame" x="12" y="5" width="280" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="bpV-fu-rdc" firstAttribute="centerX" secondItem="xbY-WJ-Obf" secondAttribute="centerX" id="aWX-U5-FpW"/>
+                <constraint firstItem="bpV-fu-rdc" firstAttribute="centerY" secondItem="xbY-WJ-Obf" secondAttribute="centerY" id="b1C-iF-2vw"/>
                 <constraint firstAttribute="centerX" secondItem="xbY-WJ-Obf" secondAttribute="centerX" id="plK-Xz-xKQ"/>
                 <constraint firstAttribute="centerY" secondItem="xbY-WJ-Obf" secondAttribute="centerY" id="svS-aE-h7g"/>
             </constraints>
@@ -51,4 +82,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="walkthrough-banner.png" width="305" height="54"/>
+    </resources>
 </document>

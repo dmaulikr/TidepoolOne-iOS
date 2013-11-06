@@ -18,8 +18,8 @@ NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
 #else
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
-NSString * const kBaseURLString = @"https://api.tidepool.co";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"https://api.tidepool.co";
 #endif
 
 
@@ -81,7 +81,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     _user = user;
     if (user) {
         NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
-        if (![user[@"ios_device_token"] isEqualToString:pushToken]) {
+        if (pushToken && ![user[@"ios_device_token"] isEqualToString:pushToken]) {
             [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
             } andFailure:^{
             }];

@@ -39,6 +39,9 @@
     self.numberContainerView.layer.cornerRadius = self.numberContainerView.bounds.size.width/2;
     self.countdownLabel.font = [UIFont fontWithName:@"Elephant" size:35.0];
     self.type = @"echo";
+    self.handImageView.image = [UIImage imageNamed:@"ic-stophand-white.png"];
+    self.countdownLabel.hidden = YES;
+//    self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 300);
 }
 
 -(void)setReverseMode:(BOOL)reverseMode
@@ -48,10 +51,13 @@
         self.view.backgroundColor = [UIColor blackColor];
         self.numberContainerView.backgroundColor = [UIColor whiteColor];
         self.countdownLabel.textColor = [UIColor blackColor];
+        self.handImageView.image = [UIImage imageNamed:@"ic-stophand-black.png"];
+        self.instructionLabel.text = @"Now let's go backwards.";
     } else {
         self.view.backgroundColor = [UIColor whiteColor];
         self.numberContainerView.backgroundColor = [UIColor blackColor];
         self.countdownLabel.textColor = [UIColor whiteColor];
+        self.handImageView.image = [UIImage imageNamed:@"ic-stophand-white.png"];
     }
 }
 
@@ -75,7 +81,7 @@
                         [UIColor colorWithRed:240/255.0 green:94/255.0 blue:116/255.0 alpha:1],
                         [UIColor colorWithRed:240/255.0 green:148/255.0 blue:32/255.0 alpha:1],
                         
-    ];
+                        ];
     NSArray *pitches = @[@0,@1,@2,@3,@4,@5,@6];
     colors = [self shuffleArray:colors];
     pitches = [self shuffleArray:pitches];
@@ -96,7 +102,7 @@
     [self moveMaxIndex];
     [self logLevelStartedWithAdditionalData:@{
                                               @"stage_type":self.data[@"stage_type"],
-//                                              @"score_multiplier":self.data[@"score_multiplier"],
+                                              //                                              @"score_multiplier":self.data[@"score_multiplier"],
                                               @"score_multiplier":@1,
                                               }];
 }
@@ -126,14 +132,39 @@
 
 -(void)playPattern:(NSArray *)pattern tillIndex:(int) index
 {
+    self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 0);
+    self.instructionContainerView.hidden = self.instructionLabel.hidden = (index > 3);
+    if (self.reverseMode) {
+        self.instructionLabel.text = @"Watch the patterns of the circles.";
+    } else {
+        if (index == 1) {
+            self.instructionLabel.text = @"Watch for the circle that lights up";
+        } else {
+            self.instructionLabel.text = @"Now the pattern increases by one circle.";
+        }
+    }
     self.view.userInteractionEnabled = NO;
+    self.handImageView.hidden = NO;
+    self.countdownLabel.hidden = YES;
     for (int i=0;i<index;i++) {
         [NSTimer scheduledTimerWithTimeInterval:0.75*i target:_circles[[pattern[i] intValue]] selector:@selector(play) userInfo:nil repeats:NO];
     }
-    double delayInSeconds = 0.75*(index-1);
+    double delayInSeconds = 0.75*(index);
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
         self.view.userInteractionEnabled = YES;
+        self.handImageView.hidden = YES;
+        self.countdownLabel.hidden = NO;
+        if (self.reverseMode) {
+            self.instructionLabel.text = @"Repeat the pattern backwards, starting with the last circle.";
+        } else {
+
+        if (index == 1) {
+            self.instructionLabel.text = @"Repeat the pattern by tapping the same circle.";
+        } else {
+            self.instructionLabel.text = @"Repeat the pattern by tapping the same circles in the same order.";
+        }
+        }
     });
 }
 
@@ -147,14 +178,24 @@
     if (circleIndex == targetCircle) {
         _currentIndex++;
         [circle playSoundCorrect:YES];
+        if (_currentIndex == _currentMaxIndex) {
+            [self moveMaxIndex];
+        }
+        self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex - _currentIndex];
     } else {
+        self.instructionContainerView.hidden = self.instructionLabel.hidden = NO;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
+        [self.view addGestureRecognizer:tap];
+//        [self.instructionLabel addGestureRecognizer:tap];
+        if (self.reverseMode) {
+            self.instructionLabel.text = @"Oops, you hit the wrong circle. Game over.";
+        } else {
+            self.instructionLabel.text = @"Oops, you hit the wrong circle. Let's go to the next stage.";
+//            self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 300);
+        }
         [circle playSoundCorrect:NO];
-        [self stageOver];
-//        [[[UIAlertView alloc] initWithTitle:@"Wrong" message:@"You suck!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-    }
-    self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex - _currentIndex];
-    if (_currentIndex == _currentMaxIndex) {
-        [self moveMaxIndex];
+//        [self stageOver];
+        //        [[[UIAlertView alloc] initWithTitle:@"Wrong" message:@"You suck!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     }
 }
 
