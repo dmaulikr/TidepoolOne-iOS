@@ -178,24 +178,31 @@
     if (circleIndex == targetCircle) {
         _currentIndex++;
         [circle playSoundCorrect:YES];
+        self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex - _currentIndex];
         if (_currentIndex == _currentMaxIndex) {
             [self moveMaxIndex];
         }
-        self.countdownLabel.text = [NSString stringWithFormat:@"%i", _currentMaxIndex - _currentIndex];
     } else {
         self.instructionContainerView.hidden = self.instructionLabel.hidden = NO;
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
-        [self.view addGestureRecognizer:tap];
-//        [self.instructionLabel addGestureRecognizer:tap];
         if (self.reverseMode) {
             self.instructionLabel.text = @"Oops, you hit the wrong circle. Game over.";
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
+            UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"echo-gameover2.png"]];
+            imgView.center = self.view.center;
+            imgView.userInteractionEnabled = YES;
+            [self.view addSubview:imgView];
+            [imgView addGestureRecognizer:tap];
+
         } else {
             self.instructionLabel.text = @"Oops, you hit the wrong circle. Let's go to the next stage.";
-//            self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 300);
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
+            UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"echo-gameover1.png"]];
+            imgView.center = self.view.center;
+            imgView.userInteractionEnabled = YES;
+            [self.view addSubview:imgView];
+            [imgView addGestureRecognizer:tap];
         }
         [circle playSoundCorrect:NO];
-//        [self stageOver];
-        //        [[[UIAlertView alloc] initWithTitle:@"Wrong" message:@"You suck!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     }
 }
 
