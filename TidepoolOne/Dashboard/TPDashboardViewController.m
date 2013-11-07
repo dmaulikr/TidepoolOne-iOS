@@ -14,6 +14,7 @@
 #import "TPSnoozerDashboardWidgetViewController.h"
 #import "TPFitbitDashboardWidgetViewController.h"
 #import "TPFaceoffDashboardWidgetViewController.h"
+#import "TPEchoDashboardWidgetViewController.h"
 
 @interface TPDashboardViewController ()
 {
@@ -48,13 +49,14 @@
     _dashboardHeaderView = [[UIView alloc] initWithFrame:CGRectZero];
     [self constructHeaderView];
     
-    _widgets = @[@"snoozer",@"faceoff",@"fitbit"];
+    _widgets = @[@"snoozer",@"faceoff",@"echo",@"fitbit",];
     _widgetVCs = @{@"snoozer":[[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    @"faceoff":[[TPFaceoffDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    @"fitbit":[[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
+                   @"echo":[[TPEchoDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    };
-    _labels = @{@"snoozer":@[@"",@"Best of the day", @"All time best"],@"faceoff":@[@"",@"Best of the day", @"All time best"],@"fitbit":@[@"Speed",@"Activity",@"Sleep"]};
-    _bottomLabels = @{@"snoozer":@[@"",@"POINTS", @"POINTS"],@"faceoff":@[@"",@"POINTS", @"POINTS"],@"fitbit":@[@"",@"",@""]};
+    _labels = @{@"snoozer":@[@"",@"Best of the day", @"All time best"],@"faceoff":@[@"",@"Best of the day", @"All time best"],@"echo":@[@"",@"Best of the day", @"All time best"],@"fitbit":@[@"Speed",@"Activity",@"Sleep"],};
+    _bottomLabels = @{@"snoozer":@[@"",@"POINTS", @"POINTS"],@"faceoff":@[@"",@"POINTS", @"POINTS"],@"echo":@[@"",@"POINTS", @"POINTS"],@"fitbit":@[@"",@"",@""],};
     self.title = @"Dashboard";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerClass:[TPDashboardTableCell class] forCellReuseIdentifier:@"TPDashboardTableCell"];
@@ -169,6 +171,7 @@
         NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
         NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
         NSDictionary *emoAggregateResult = [self getAggregateScoreOfType:@"EmoAggregateResult" fromArray:aggregateResults];
+        NSDictionary *attentionAggregateResult = [self getAggregateScoreOfType:@"AttentionAggregateResult" fromArray:aggregateResults];
 
         if ([cell.name isEqualToString:@"snoozer"]) {
             NSDictionary *highScores = speedAggregateResult[@"high_scores"];
@@ -196,6 +199,30 @@
         }
         else if ([cell.name isEqualToString:@"faceoff"]) {
             NSDictionary *highScores = emoAggregateResult[@"high_scores"];
+            NSString *dailyBest;
+            if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
+                dailyBest = highScores[@"daily_best"];
+            } else {
+                dailyBest = @"0";
+            }
+            NSString *allTimeBest;
+            if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
+                allTimeBest = highScores[@"all_time_best"];
+            } else {
+                allTimeBest = @"0";
+            }
+            
+            cell.values = @[
+                            @"",
+                            dailyBest,
+                            allTimeBest,
+                            ];
+            UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", emoAggregateResult[@"badge"][@"character"]]];
+            cell.imageView1.image = lastBadge;
+            cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
+        }
+        else if ([cell.name isEqualToString:@"echo"]) {
+            NSDictionary *highScores = attentionAggregateResult[@"high_scores"];
             NSString *dailyBest;
             if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
                 dailyBest = highScores[@"daily_best"];
