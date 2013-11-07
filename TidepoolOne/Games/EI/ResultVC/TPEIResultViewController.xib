@@ -117,7 +117,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jf8-Gn-hca">
-                            <rect key="frame" x="0.0" y="281" width="320" height="197"/>
+                            <rect key="frame" x="0.0" y="269" width="320" height="197"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="YOUR PERFORMANCE" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mtS-I3-I58" customClass="TPLabelBold">
@@ -138,7 +138,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ntm-gR-tD3">
-                            <rect key="frame" x="0.0" y="486" width="320" height="86"/>
+                            <rect key="frame" x="0.0" y="477" width="320" height="86"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currently, you feel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJl-F6-R4c" customClass="TPLabelBold">
@@ -232,7 +232,7 @@
                             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                         </view>
                         <view autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="u5i-Ys-6S8">
-                            <rect key="frame" x="0.0" y="580" width="320" height="184"/>
+                            <rect key="frame" x="0.0" y="571" width="320" height="184"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RTe-AA-FZ1">
@@ -275,7 +275,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hox-fh-fEa" customClass="TPLabelBold">
-                                            <rect key="frame" x="61" y="14" width="33" height="71"/>
+                                            <rect key="frame" x="11" y="19" width="133" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="59"/>
                                             <color key="textColor" red="0.094117647060000004" green="0.56078431370000004" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -296,7 +296,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAs-re-Myn" customClass="TPLabelBold">
-                                            <rect key="frame" x="61" y="7" width="33" height="71"/>
+                                            <rect key="frame" x="20" y="12" width="115" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="59"/>
                                             <color key="textColor" red="0.094117647060000004" green="0.56078431370000004" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -317,7 +317,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7St-Ez-Wvh" customClass="TPLabelBold">
-                                            <rect key="frame" x="61" y="7" width="33" height="71"/>
+                                            <rect key="frame" x="14" y="12" width="127" height="71"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="59"/>
                                             <color key="textColor" red="0.094117647060000004" green="0.56078431370000004" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -334,7 +334,7 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="ntm-gR-tD3" firstAttribute="top" secondItem="jf8-Gn-hca" secondAttribute="bottom" constant="8" id="5zO-9d-V2S"/>
+                        <constraint firstItem="ntm-gR-tD3" firstAttribute="top" secondItem="jf8-Gn-hca" secondAttribute="bottom" constant="11" id="5zO-9d-V2S"/>
                         <constraint firstAttribute="trailing" secondItem="jde-5H-yWr" secondAttribute="trailing" id="CYJ-Id-MBZ"/>
                         <constraint firstAttribute="width" constant="320" id="Etb-Eb-TTa"/>
                         <constraint firstItem="ntm-gR-tD3" firstAttribute="trailing" secondItem="jf8-Gn-hca" secondAttribute="trailing" id="GeO-gD-ajz"/>
@@ -344,7 +344,7 @@
                         <constraint firstItem="ntm-gR-tD3" firstAttribute="leading" secondItem="jf8-Gn-hca" secondAttribute="leading" id="Mrh-BR-N5S"/>
                         <constraint firstItem="jf8-Gn-hca" firstAttribute="trailing" secondItem="jde-5H-yWr" secondAttribute="trailing" id="Z0A-Gm-jt0"/>
                         <constraint firstItem="jf8-Gn-hca" firstAttribute="leading" secondItem="jde-5H-yWr" secondAttribute="leading" id="bIe-j0-NhQ"/>
-                        <constraint firstItem="jf8-Gn-hca" firstAttribute="top" secondItem="jde-5H-yWr" secondAttribute="bottom" constant="6" id="cqi-7P-L6b"/>
+                        <constraint firstItem="jf8-Gn-hca" firstAttribute="top" secondItem="jde-5H-yWr" secondAttribute="bottom" constant="-6" id="cqi-7P-L6b"/>
                         <constraint firstItem="u5i-Ys-6S8" firstAttribute="top" secondItem="ntm-gR-tD3" secondAttribute="bottom" constant="8" id="hz7-Y1-mCd"/>
                         <constraint firstItem="jde-5H-yWr" firstAttribute="top" secondItem="VEB-kb-V0R" secondAttribute="top" id="pjF-Gw-UQp"/>
                         <constraint firstItem="jde-5H-yWr" firstAttribute="centerX" secondItem="VEB-kb-V0R" secondAttribute="centerX" id="w4R-2C-jcL"/>
