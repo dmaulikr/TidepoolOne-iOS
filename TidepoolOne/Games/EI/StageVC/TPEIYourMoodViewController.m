@@ -115,4 +115,27 @@
     }
 }
 
+
+-(void)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TPEmotionCellView *cell = (TPEmotionCellView *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.isHighlighted = YES;
+}
+
+
+
+-(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TPEmotionCellView *cell = (TPEmotionCellView *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.isHighlighted = YES;
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TPEmotionCellView *cell = (TPEmotionCellView *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.isHighlighted = NO;
+}
+
+
 @end

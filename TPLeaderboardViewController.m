@@ -13,6 +13,7 @@
 {
     NSArray *_games;
     NSMutableDictionary *_gameHighScores;
+    __block int _refreshCount;
 }
 @end
 
@@ -30,8 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _games = @[@"faceoff", @"snoozer"];
-    _gameHighScores = [@{@"faceoff":@[], @"snoozer":@[]} mutableCopy];
+    _games = @[@"faceoff", @"snoozer", @"echo"];
+    _gameHighScores = [@{@"faceoff":@[], @"snoozer":@[], @"echo":@[]} mutableCopy];
     
     [self refreshAllScores];
     
@@ -43,6 +44,12 @@
     UIImageView *imgView = [[UIImageView alloc] initWithImage:img];
     imgView.center = self.tableView.tableHeaderView.center;
     [self.tableView.tableHeaderView addSubview:imgView];
+    
+    self.refreshControl = [[UIRefreshControl alloc]
+                           init];
+    [self.refreshControl addTarget:self action:@selector(refreshAllScores) forControlEvents:UIControlEventValueChanged];
+    self.refreshControl = self.refreshControl;
+    self.tableView.backgroundView.layer.zPosition -= 1;
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,10 +60,16 @@
 
 -(void)refreshAllScores
 {
+    _refreshCount = 0;
+    [self.refreshControl beginRefreshing];
     for (NSString *game in _games) {
         [[TPOAuthClient sharedClient] getLeaderboardsForGame:game WithCompletionHandlersSuccess:^(NSArray *leaders) {
             [_gameHighScores setObject:leaders forKey:game];
             [self.tableView reloadData];
+            _refreshCount++;
+            if (_refreshCount == _games.count) {
+                [self.refreshControl endRefreshing];
+            }
         } andFailure:^{
         }];
     }

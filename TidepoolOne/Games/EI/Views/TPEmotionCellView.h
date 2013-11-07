@@ -12,4 +12,6 @@
 
 -(void)setEmotion:(NSString *)emotion selected:(BOOL)selected;
 
+@property (assign, nonatomic) BOOL isHighlighted;
+
 @end
