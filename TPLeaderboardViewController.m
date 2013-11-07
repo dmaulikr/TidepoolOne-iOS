@@ -87,27 +87,29 @@
     NSString *email = item[@"email"];
     cell.usernameLabel.text = [email componentsSeparatedByString:@"@"][0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.userProfilePicture.image = [UIImage imageNamed:@"leader-defaultuser.png"];
     return cell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == [_gameHighScores[_games[indexPath.section]] count] - 1) {
+        return 92;
+    }
     return 82;
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 46)];
     UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"leader-header-%@.png", _games[section]]];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 10, 320, 36)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 36)];
     imageView.image = image;
-    [view addSubview:imageView];
-    return view;
+    return imageView;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 46;
+    return 36;
 }
 
 @end
