@@ -14,6 +14,7 @@
 #import <UAirship.h>
 #import <UAConfig.h>
 #import <UAPush.h>
+#import "TPDeepLinkManager.h"
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
@@ -244,6 +245,10 @@ NSString *const FBSessionStateChangedNotification =
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     // attempt to extract a token from the url
+    NSString *urlString = [url absoluteString];
+    if ([urlString hasPrefix:@"tidepool:"]) {
+        return [[TPDeepLinkManager sharedInstance] handleUrl:url];
+    }
     return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
 }
 

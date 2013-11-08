@@ -31,10 +31,14 @@
 -(void)authenticateWithFacebookToken:(NSDictionary *)facebookInfo;
 -(void)logout;
 
-#pragma mark API methods - users
+#pragma mark API methods - self user
 -(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 -(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 -(void)updateUserWithParameters:(NSDictionary *)parameters withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
+#pragma mark API methods - self user
+-(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
+
 
 #pragma mark API methods - games
 -(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;

@@ -318,6 +318,19 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 }
 
 
+#pragma mark API methods - self user
+-(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:[NSString stringWithFormat:@"api/v1/users/%@/", userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failureBlock();
+        [self handleError:error withOptionalMessage:@"An error occured while getting other user info from Tidepool."];
+    }];
+}
+
+
+
 -(void)getNewGameOfType:(NSString *)type WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
 {
     [self postPath:[NSString stringWithFormat:@"api/v1/users/-/games?def_id=%@", type] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {

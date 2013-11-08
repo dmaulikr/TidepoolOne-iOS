@@ -175,73 +175,22 @@
 
         if ([cell.name isEqualToString:@"snoozer"]) {
             NSDictionary *highScores = speedAggregateResult[@"high_scores"];
-            NSString *dailyBest;
-            if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
-                dailyBest = highScores[@"daily_best"];
-            } else {
-                dailyBest = @"0";
-            }
-            NSString *allTimeBest;
-            if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
-                allTimeBest = highScores[@"all_time_best"];
-            } else {
-                allTimeBest = @"0";
-            }
-
-            cell.values = @[
-                            @"",
-                            dailyBest,
-                            allTimeBest,
-                            ];
+            [self setScoreStats:highScores onCell:cell];
             UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"anim-badge-%@.png", speedAggregateResult[@"badge"][@"character"]]];
             cell.imageView1.image = lastBadge;
             cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
         }
         else if ([cell.name isEqualToString:@"faceoff"]) {
             NSDictionary *highScores = emoAggregateResult[@"high_scores"];
-            NSString *dailyBest;
-            if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
-                dailyBest = highScores[@"daily_best"];
-            } else {
-                dailyBest = @"0";
-            }
-            NSString *allTimeBest;
-            if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
-                allTimeBest = highScores[@"all_time_best"];
-            } else {
-                allTimeBest = @"0";
-            }
-            
-            cell.values = @[
-                            @"",
-                            dailyBest,
-                            allTimeBest,
-                            ];
+            [self setScoreStats:highScores onCell:cell];
             UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", emoAggregateResult[@"badge"][@"character"]]];
             cell.imageView1.image = lastBadge;
             cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
         }
         else if ([cell.name isEqualToString:@"echo"]) {
             NSDictionary *highScores = attentionAggregateResult[@"high_scores"];
-            NSString *dailyBest;
-            if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
-                dailyBest = highScores[@"daily_best"];
-            } else {
-                dailyBest = @"0";
-            }
-            NSString *allTimeBest;
-            if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
-                allTimeBest = highScores[@"all_time_best"];
-            } else {
-                allTimeBest = @"0";
-            }
-            
-            cell.values = @[
-                            @"",
-                            dailyBest,
-                            allTimeBest,
-                            ];
-            UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", emoAggregateResult[@"badge"][@"character"]]];
+            [self setScoreStats:highScores onCell:cell];
+            UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", attentionAggregateResult[@"badge"][@"character"]]];
             cell.imageView1.image = lastBadge;
             cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
         }
@@ -255,6 +204,28 @@
         }
     }
     return cell;
+}
+
+-(void)setScoreStats:(NSDictionary *)highScores onCell:(TPDashboardTableCell *)cell
+{
+    NSString *dailyBest;
+    if (highScores[@"daily_best"] && highScores[@"daily_best"] != [NSNull null]) {
+        dailyBest = highScores[@"daily_best"];
+    } else {
+        dailyBest = @"0";
+    }
+    NSString *allTimeBest;
+    if (highScores[@"all_time_best"] && highScores[@"all_time_best"] != [NSNull null]) {
+        allTimeBest = highScores[@"all_time_best"];
+    } else {
+        allTimeBest = @"0";
+    }
+    
+    cell.values = @[
+                    @"",
+                    dailyBest,
+                    allTimeBest,
+                    ];    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
