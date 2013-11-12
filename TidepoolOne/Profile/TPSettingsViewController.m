@@ -80,6 +80,7 @@
     _ageChanged = NO;
     _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:_tap];
+    _tap.cancelsTouchesInView = NO;
     self.view.backgroundColor = [UIColor colorWithWhite:245.0/255.0 alpha:1.0];
     
     _educationOptions = @[
@@ -326,22 +327,22 @@
     return 44;
 }
 
--(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([_groups[indexPath.section] isEqualToString:@"about"]){
         NSArray *fields = _fieldValues[_groups[indexPath.section]];
         NSString *field = fields[indexPath.row];
         if ([field isEqualToString:@"Privacy Policy"]) {
             TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
-            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.e7mac.com"]];
+            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.tidepool.co/privacy.html"]];
             [self.navigationController pushViewController:webViewVC animated:YES];
         } else if ([field isEqualToString:@"Terms & Conditions"]) {
             TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
-            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.e7mac.com"]];
+            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.tidepool.co/toc.html"]];
             [self.navigationController pushViewController:webViewVC animated:YES];
         } else if ([field isEqualToString:@"Atttibution"]) {
             TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
-            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.e7mac.com"]];
+            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.tidepool.co/attribution.html"]];
             [self.navigationController pushViewController:webViewVC animated:YES];
         }
     }
