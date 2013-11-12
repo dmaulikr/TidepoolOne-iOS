@@ -8,6 +8,8 @@
 
 #import "TPLeaderboardViewController.h"
 #import "TPLeaderBoardCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface TPLeaderboardViewController ()
 {
@@ -98,9 +100,16 @@
     NSDictionary *item = _gameHighScores[_games[indexPath.section]][indexPath.row];
     cell.scoreLabel.text = [NSString stringWithFormat:@"%@", item[@"score"]];
     NSString *email = item[@"email"];
+    NSString *pictureUrlString = item[@"image"];
     cell.usernameLabel.text = [email componentsSeparatedByString:@"@"][0];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.userProfilePicture.image = [UIImage imageNamed:@"leader-defaultuser.png"];
+    if (pictureUrlString && pictureUrlString != (NSString *)[NSNull null]) {
+        [cell.userProfilePicture setImageWithURL:[NSURL URLWithString:pictureUrlString]];
+    } else {
+        cell.userProfilePicture.image = [UIImage imageNamed:@"leader-defaultuser.png"];
+    }
+    cell.userProfilePicture.layer.cornerRadius = cell.userProfilePicture.bounds.size.width / 2;
+    cell.userProfilePicture.layer.masksToBounds = YES;
     return cell;
 }
 

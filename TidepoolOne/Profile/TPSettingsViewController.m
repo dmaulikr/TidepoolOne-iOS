@@ -15,6 +15,8 @@
 #import "TPConnectionsCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "TPServiceLoginViewController.h"
+#import "TPWebViewController.h"
+
 
 @interface TPSettingsViewController () <UIPickerViewDelegate, UIPickerViewDataSource, TPImageButtonsCellDelegate, TPTextFieldCellDelegate, TPConnectionsCellDelegate>
 {
@@ -26,6 +28,7 @@
     NSMutableDictionary *_fieldValues;
     TPSettingsHeaderView *_headerView;
     NSMutableArray *_connections;
+    UITapGestureRecognizer *_tap;
 }
 @end
 
@@ -45,7 +48,7 @@
     [super viewDidLoad];
     _oauthClient = [TPOAuthClient sharedClient];
 	// Do any additional setup after loading the view.
-    _groups = @[@"name",@"email",@"age",@"education",@"connections",@"handedness",@"gender"];
+    _groups = @[@"name",@"email",@"age",@"education",@"connections",@"handedness",@"gender",@"about"];
     
     NSArray *nibItems = [[NSBundle mainBundle] loadNibNamed:@"TPSettingsHeaderView" owner:nil options:nil];
     for (id item in nibItems) {
@@ -54,9 +57,8 @@
         }
     }
     self.tableView.tableHeaderView = _headerView;
-    
     [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
-        _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",} mutableCopy];
+        _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",@"about":@[@"Terms & Conditions",@"Privacy Policy",@"Attribution"]} mutableCopy];
         _connections = [@[] mutableCopy];
         [self loadData];
     } andFailure:^{
@@ -70,13 +72,14 @@
     _pickerView.delegate = self;
 
 
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"DisclosureCell"];
     [self.tableView registerClass:[TPTextFieldCell class] forCellReuseIdentifier:@"SettingsCell"];
     [self.tableView registerClass:[TPImageButtonsCell class] forCellReuseIdentifier:@"ButtonImageCell"];
     [self.tableView registerClass:[TPConnectionsCell class] forCellReuseIdentifier:@"ConnectionsCell"];
     
     _ageChanged = NO;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:tap];
+    _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:_tap];
     self.view.backgroundColor = [UIColor colorWithWhite:245.0/255.0 alpha:1.0];
     
     _educationOptions = @[
@@ -253,6 +256,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if ([_fieldValues[_groups[section]] isKindOfClass:[NSArray class]]) {
+        return [_fieldValues[_groups[section]] count];
+    }
     return 1;
 }
 
@@ -285,6 +291,12 @@
         }
         cell.delegate = self;
         return cell;
+    } else if ([_groups[indexPath.section] isEqualToString:@"about"]){
+        static NSString *CellIdentifier = @"DisclosureCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.textLabel.text = _fieldValues[_groups[indexPath.section]][indexPath.row];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
     } else {
         static NSString *CellIdentifier = @"SettingsCell";
         TPTextFieldCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -312,6 +324,28 @@
         return 150;
     }
     return 44;
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_groups[indexPath.section] isEqualToString:@"about"]){
+        NSArray *fields = _fieldValues[_groups[indexPath.section]];
+        NSString *field = fields[indexPath.row];
+        if ([field isEqualToString:@"Privacy Policy"]) {
+            TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
+            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.e7mac.com"]];
+            [self.navigationController pushViewController:webViewVC animated:YES];
+        } else if ([field isEqualToString:@"Terms & Conditions"]) {
+            TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
+            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.e7mac.com"]];
+            [self.navigationController pushViewController:webViewVC animated:YES];
+        } else if ([field isEqualToString:@"Atttibution"]) {
+            TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
+            webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.e7mac.com"]];
+            [self.navigationController pushViewController:webViewVC animated:YES];
+        }
+    }
+
 }
 
 #pragma mark TPImageButtonsCellDelegate methods

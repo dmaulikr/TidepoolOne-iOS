@@ -1383,6 +1383,8 @@
 		A8A411F6181885E0006D2AE7 /* TPEchoStageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A411F4181885E0006D2AE7 /* TPEchoStageViewController.xib */; };
 		A8A411F918188604006D2AE7 /* TPEchoCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A411F818188604006D2AE7 /* TPEchoCircleView.m */; };
 		A8A887F717F0F15D0043EA76 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A887F617F0F15D0043EA76 /* CoreData.framework */; };
+		A8ACB19E182DA97700284049 /* TPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8ACB19C182DA97700284049 /* TPWebViewController.m */; };
+		A8ACB19F182DA97700284049 /* TPWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8ACB19D182DA97700284049 /* TPWebViewController.xib */; };
 		A8AF12D417BD7FF6005AB5A2 /* TPTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */; };
 		A8B5A22518034F3C00399FDD /* TPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */; };
 		A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B5A227180355CD00399FDD /* TPTextFieldCell.m */; };
@@ -2877,9 +2879,9 @@
 		A89E993A182C5899006736F5 /* TPLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPLeaderBoardCell.xib; path = TidepoolOne/Leaderboard/TPLeaderBoardCell.xib; sourceTree = "<group>"; };
 		A89E993B182C5899006736F5 /* TPLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPLeaderboardViewController.h; path = TidepoolOne/Leaderboard/TPLeaderboardViewController.h; sourceTree = "<group>"; };
 		A89E993C182C5899006736F5 /* TPLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPLeaderboardViewController.m; path = TidepoolOne/Leaderboard/TPLeaderboardViewController.m; sourceTree = "<group>"; };
-		A89E9944182C58B9006736F5 /* TPUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = file; name = TPUserProfileViewController.h; path = ../TPUserProfileViewController.h; sourceTree = "<group>"; };
-		A89E9945182C58B9006736F5 /* TPUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = file; name = TPUserProfileViewController.m; path = ../TPUserProfileViewController.m; sourceTree = "<group>"; };
-		A89E9946182C58B9006736F5 /* TPUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file; name = TPUserProfileViewController.xib; path = ../TPUserProfileViewController.xib; sourceTree = "<group>"; };
+		A89E9944182C58B9006736F5 /* TPUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TPUserProfileViewController.h; path = ../TPUserProfileViewController.h; sourceTree = "<group>"; };
+		A89E9945182C58B9006736F5 /* TPUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TPUserProfileViewController.m; path = ../TPUserProfileViewController.m; sourceTree = "<group>"; };
+		A89E9946182C58B9006736F5 /* TPUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TPUserProfileViewController.xib; path = ../TPUserProfileViewController.xib; sourceTree = "<group>"; };
 		A89E994B182C5975006736F5 /* TPDeepLinkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDeepLinkManager.h; sourceTree = "<group>"; };
 		A89E994C182C5975006736F5 /* TPDeepLinkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDeepLinkManager.m; sourceTree = "<group>"; };
 		A8A411E518188388006D2AE7 /* TPEchoGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEchoGameViewController.h; path = Echo/TPEchoGameViewController.h; sourceTree = "<group>"; };
@@ -2896,6 +2898,9 @@
 		A8A411F718188604006D2AE7 /* TPEchoCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEchoCircleView.h; sourceTree = "<group>"; };
 		A8A411F818188604006D2AE7 /* TPEchoCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEchoCircleView.m; sourceTree = "<group>"; };
 		A8A887F617F0F15D0043EA76 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A8ACB19B182DA97700284049 /* TPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPWebViewController.h; sourceTree = "<group>"; };
+		A8ACB19C182DA97700284049 /* TPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPWebViewController.m; sourceTree = "<group>"; };
+		A8ACB19D182DA97700284049 /* TPWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPWebViewController.xib; sourceTree = "<group>"; };
 		A8AF12D217BD7FF6005AB5A2 /* TPTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPTabBarController.h; sourceTree = "<group>"; };
 		A8AF12D317BD7FF6005AB5A2 /* TPTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPTabBarController.m; sourceTree = "<group>"; };
 		A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPSettingsViewController.h; sourceTree = "<group>"; };
@@ -5154,6 +5159,9 @@
 				A8B5A22F18038C1D00399FDD /* Views */,
 				A8B5A22318034F3C00399FDD /* TPSettingsViewController.h */,
 				A8B5A22418034F3C00399FDD /* TPSettingsViewController.m */,
+				A8ACB19B182DA97700284049 /* TPWebViewController.h */,
+				A8ACB19C182DA97700284049 /* TPWebViewController.m */,
+				A8ACB19D182DA97700284049 /* TPWebViewController.xib */,
 				A8BABA4517E2615A00A3C95B /* TPProfileTableViewCell.h */,
 				A8BABA4617E2615A00A3C95B /* TPProfileTableViewCell.m */,
 				A8BABA4717E2615A00A3C95B /* TPProfileTableViewCell.xib */,
@@ -6275,6 +6283,7 @@
 				A89E98C0182B2A15006736F5 /* btn-graph@2x~iphone.png in Resources */,
 				A89E94EA182B2A15006736F5 /* fo-happy@2x~iphone.png in Resources */,
 				A89E9619182B2A15006736F5 /* fear10.jpg in Resources */,
+				A8ACB19F182DA97700284049 /* TPWebViewController.xib in Resources */,
 				A89E98C5182B2A15006736F5 /* btn-red~iphone.png in Resources */,
 				A89E9543182B2A15006736F5 /* echo-gameover1.png in Resources */,
 				A89E992B182B2A15006736F5 /* tp-appwalkthrough4~iphone.jpg in Resources */,
@@ -6934,6 +6943,7 @@
 				A8BABAAA17E2631400A3C95B /* TPGraphTooltipView.m in Sources */,
 				A8F5B2F817F103450066E0BD /* TPEIResultViewController.m in Sources */,
 				A8D439A9180DF69C0086C223 /* TPPercentageDrawView.m in Sources */,
+				A8ACB19E182DA97700284049 /* TPWebViewController.m in Sources */,
 				A8BABAAE17E263DE00A3C95B /* TPWalkthroughViewController.m in Sources */,
 				A89E994D182C5975006736F5 /* TPDeepLinkManager.m in Sources */,
 				A8B5A8041805DEA100399FDD /* TPDashboardDetailViewController.m in Sources */,
