@@ -100,10 +100,9 @@
     }
     [self generatePattern];
     [self moveMaxIndex];
-    NSArray *scoreMultipliers = @[@1,@1.5];
     [self logLevelStartedWithAdditionalData:@{
                                               @"stage_type":self.data[@"stage_type"],
-                                              @"score_multiplier":scoreMultipliers[self.gameVC.stage],
+                                              @"score_multiplier":self.data[@"score_multiplier"],
                                               }];
 }
 
