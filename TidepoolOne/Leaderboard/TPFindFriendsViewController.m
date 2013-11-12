@@ -13,9 +13,10 @@
 
 #define PAGING 20
 
-@interface TPFindFriendsViewController ()
+@interface TPFindFriendsViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     RHAddressBook *_ab;
+    NSMutableArray *_foundFriends;
 }
 @end
 
@@ -35,7 +36,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.sourceSelector addTarget:self action:@selector(sourceChanged:) forControlEvents:UIControlEventValueChanged];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
+    [[TPOAuthClient sharedClient] getPendingFriendListWithOffset:@0 Limit:@20 WithCompletionHandlersSuccess:^(NSArray *pendingList) {
+        NSLog([pendingList description]);
+    } andFailure:^{
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,12 +113,18 @@
 
 -(void)startPagingEmailList:(NSArray *)emailList startingAtIndex:(int)index
 {
+    NSLog(@"doing %i", index);
     if (index > emailList.count) {
         return;
+    } else if (!index) {
+        _foundFriends = [@[] mutableCopy];
     }
-    NSArray *subList = [emailList subarrayWithRange:NSMakeRange(index, PAGING)];
+    int numItems = MIN(index + PAGING, emailList.count) - index;
+    NSArray *subList = [emailList subarrayWithRange:NSMakeRange(index, numItems)];
     [[TPOAuthClient sharedClient] findFriendsWithEmail:subList WithCompletionHandlersSuccess:^(NSArray *newUsers) {
         [self startPagingEmailList:emailList startingAtIndex:index + PAGING];
+        [_foundFriends addObjectsFromArray:newUsers];
+        [self.tableView reloadData];
     } andFailure:^{
     }];
 }
@@ -119,12 +133,42 @@
 {
     if (index > fbList.count) {
         return;
+    } else if (!index) {
+        _foundFriends = [@[] mutableCopy];
     }
-    NSArray *subList = [fbList subarrayWithRange:NSMakeRange(index, PAGING)];
+    int numItems = MIN(index + PAGING, fbList.count) - index;
+    NSArray *subList = [fbList subarrayWithRange:NSMakeRange(index, numItems)];
     [[TPOAuthClient sharedClient] findFriendsWithFacebookIds:subList WithCompletionHandlersSuccess:^(NSArray *newUsers) {
         [self startPagingFacebookList:fbList startingAtIndex:index + PAGING];
+        [_foundFriends addObjectsFromArray:newUsers];
+        [self.tableView reloadData];
     } andFailure:^{
     }];
 }
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_foundFriends count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    cell.textLabel.text = _foundFriends[indexPath.row][@"email"];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *friend = _foundFriends[indexPath.row];
+    [[TPOAuthClient sharedClient] inviteFriends:@[friend] WithCompletionHandlersSuccess:^{
+        NSLog(@"added");
+    } andFailure:^{
+    }];
+}
+
+- (IBAction)dismissView:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
+}
 @end

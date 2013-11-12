@@ -11,5 +11,7 @@
 @interface TPFindFriendsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sourceSelector;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+- (IBAction)dismissView:(id)sender;
 @end

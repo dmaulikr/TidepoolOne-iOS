@@ -11,9 +11,9 @@
 #import <SSKeychain/SSKeychain.h>
 #import "TPLoginViewController.h"
 
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 //NSString * const kBaseURLString = @"https://api.tidepool.co";
-NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
+//NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
 
@@ -360,43 +360,43 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 #pragma mark API methods - friends
 -(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {
-    NSMutableURLRequest *request = [self requestWithMethod:@"get" path:@"api/v1/users/-/friends/find" parameters:nil];
-    
-    NSDictionary *jsonDic = @{
-                                     @"friend_list":@{@"emails":@[
-                                                              @"mayank.ot@gmail.com",
-                                                              ],
-                                                          },
-                                     };
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonDic options:NSJSONWritingPrettyPrinted error:nil];
-    [request setHTTPBody:jsonData];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog([responseObject description]);        
+    [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"email":emailList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not find friends"];
         failureBlock();
     }];
-//    [self enqueueHTTPRequestOperation:operation];
-    [operation start];
-//    [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"emails":emailList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog([responseObject description]);        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [self handleError:error withOptionalMessage:@"Could not find friends"];
-//        failureBlock();
-//    }];
 }
 -(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {
-    [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"facebook_ids":facebookIdList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog([responseObject description]);
-        
+    [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"fbid":facebookIdList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not find friends"];
         failureBlock();
     }];
 }
+
+-(void)inviteFriends:(NSArray *)friends WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:@"api/v1/users/-/friends/invite" parameters:@{@"friend_list":friends} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not invite friends"];
+        failureBlock();
+    }];
+}
+
+-(void)getPendingFriendListWithOffset:(NSNumber *)offset Limit:(NSNumber *)limit WithCompletionHandlersSuccess:(void(^)(NSArray *pendingList))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:@"api/v1/users/-/friends/pending" parameters:@{@"offset":offset,@"limit":limit} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not invite friends"];
+        failureBlock();
+    }];
+}
+
 
 #pragma mark API methods - leaderboards
 -(void)getLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock

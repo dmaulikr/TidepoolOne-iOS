@@ -36,7 +36,7 @@
 -(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 -(void)updateUserWithParameters:(NSDictionary *)parameters withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
-#pragma mark API methods - self user
+#pragma mark API methods - other users
 -(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
 
 
@@ -48,6 +48,9 @@
 #pragma mark API methods - friends
 -(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock;
 -(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock;
+
+-(void)inviteFriends:(NSArray *)friends WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+-(void)getPendingFriendListWithOffset:(NSNumber *)offset Limit:(NSNumber *)limit WithCompletionHandlersSuccess:(void(^)(NSArray *pendingList))successBlock andFailure:(void(^)())failureBlock;
 
 #pragma mark API methods - leaderboards
 -(void)getLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock;
