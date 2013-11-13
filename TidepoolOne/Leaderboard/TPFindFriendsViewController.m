@@ -10,13 +10,20 @@
 #import <RHAddressBook/RHAddressBook.h>
 #import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
 #import <RHPerson.h>
+#import "TPFindFriendsCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 #define PAGING 20
+#define TAG_OFFSET 666
 
 @interface TPFindFriendsViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     RHAddressBook *_ab;
-    NSMutableArray *_foundFriends;
+    NSMutableArray *_foundEmailFriends;
+    NSMutableArray *_foundFacebookFriends;
+    NSMutableArray *_selectedEmailFriends;
+    NSMutableArray *_selectedFacebookFriends;
+    
 }
 @end
 
@@ -34,16 +41,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _selectedEmailFriends = [@[] mutableCopy];
+    _selectedFacebookFriends = [@[] mutableCopy];
     // Do any additional setup after loading the view from its nib.
     [self.sourceSelector addTarget:self action:@selector(sourceChanged:) forControlEvents:UIControlEventValueChanged];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
-    
-    [[TPOAuthClient sharedClient] getPendingFriendListWithOffset:@0 Limit:@20 WithCompletionHandlersSuccess:^(NSArray *pendingList) {
-        NSLog([pendingList description]);
-    } andFailure:^{
-    }];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TPFindFriendsCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:76/255. green:87/255. blue:105/255. alpha:1.0]];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ff-btn-x-close.png"] style:UIBarButtonSystemItemCancel target:self action:@selector(dismissSelf)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add all" style:UIBarButtonSystemItemCancel target:self action:@selector(addAllFriends)];
+    self.title = @"Find Friends";
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,17 +67,41 @@
 {
     if (!sender.selectedSegmentIndex) {
         //contacts
-        [self findContacts];
+        self.findFriendsMode = TPFindFriendsViewModeContacts;
     } else {
         //facebook
-        [self findFacebookFriends];
+        self.findFriendsMode = TPFindFriendsViewModeFacebook;
+    }
+}
+
+-(void)setFindFriendsMode:(TPFindFriendsViewMode)findFriendsMode
+{
+    _findFriendsMode = findFriendsMode;
+    switch (findFriendsMode) {
+        case TPFindFriendsViewModeContacts:
+        {
+            [self findContacts];
+        }
+            break;
+        case TPFindFriendsViewModeFacebook:
+        {
+            [self findFacebookFriends];
+        }
+            break;
+            
+        default:
+            break;
     }
 }
 
 
-
 -(void)findFacebookFriends
 {
+    if (_foundFacebookFriends) {
+        return;
+    }
+    _foundFacebookFriends = [@[] mutableCopy];
+    
     FBRequest* friendsRequest = [FBRequest requestForMyFriends];
     [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
                                                   NSDictionary* result,
@@ -84,6 +119,10 @@
 
 -(void)findContacts
 {
+    if (_foundEmailFriends) {
+        return;
+    }
+    _foundEmailFriends = [@[] mutableCopy];
     _ab = [[RHAddressBook alloc] init];
     if ([RHAddressBook authorizationStatus] == RHAuthorizationStatusNotDetermined){
         //request authorization
@@ -116,14 +155,12 @@
     NSLog(@"doing %i", index);
     if (index > emailList.count) {
         return;
-    } else if (!index) {
-        _foundFriends = [@[] mutableCopy];
     }
     int numItems = MIN(index + PAGING, emailList.count) - index;
     NSArray *subList = [emailList subarrayWithRange:NSMakeRange(index, numItems)];
     [[TPOAuthClient sharedClient] findFriendsWithEmail:subList WithCompletionHandlersSuccess:^(NSArray *newUsers) {
         [self startPagingEmailList:emailList startingAtIndex:index + PAGING];
-        [_foundFriends addObjectsFromArray:newUsers];
+        [_foundEmailFriends addObjectsFromArray:newUsers];
         [self.tableView reloadData];
     } andFailure:^{
     }];
@@ -133,14 +170,12 @@
 {
     if (index > fbList.count) {
         return;
-    } else if (!index) {
-        _foundFriends = [@[] mutableCopy];
     }
     int numItems = MIN(index + PAGING, fbList.count) - index;
     NSArray *subList = [fbList subarrayWithRange:NSMakeRange(index, numItems)];
     [[TPOAuthClient sharedClient] findFriendsWithFacebookIds:subList WithCompletionHandlersSuccess:^(NSArray *newUsers) {
         [self startPagingFacebookList:fbList startingAtIndex:index + PAGING];
-        [_foundFriends addObjectsFromArray:newUsers];
+        [_foundFacebookFriends addObjectsFromArray:newUsers];
         [self.tableView reloadData];
     } andFailure:^{
     }];
@@ -148,27 +183,131 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_foundFriends count];
+    switch (self.findFriendsMode) {
+        case TPFindFriendsViewModeContacts:
+        {
+            return [_foundEmailFriends count];
+        }
+            break;
+        case TPFindFriendsViewModeFacebook:
+        {
+            return [_foundFacebookFriends count];
+        }
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = _foundFriends[indexPath.row][@"email"];
+    TPFindFriendsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    NSDictionary *friend;
+    switch (self.findFriendsMode) {
+        case TPFindFriendsViewModeContacts:
+        {
+            friend = _foundEmailFriends[indexPath.row];
+            cell.addButton.selected = [_selectedEmailFriends containsObject:friend];
+        }
+            break;
+        case TPFindFriendsViewModeFacebook:
+        {
+            friend = _foundFacebookFriends[indexPath.row];
+            cell.addButton.selected = [_selectedFacebookFriends containsObject:friend];
+        }
+            break;
+        default:
+            break;
+    }
+    cell.usernameLabelView.text = friend[@"email"];
+    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    [cell.addButton addTarget:self action:@selector(addFriend:) forControlEvents:UIControlEventTouchUpInside];
+    cell.addButton.tag = TAG_OFFSET + indexPath.row;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+-(void)addFriend:(UIButton *)sender
 {
-    NSDictionary *friend = _foundFriends[indexPath.row];
-    [[TPOAuthClient sharedClient] inviteFriends:@[friend] WithCompletionHandlersSuccess:^{
-        NSLog(@"added");
-    } andFailure:^{
-    }];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag - TAG_OFFSET inSection:0];
+
+    switch (self.findFriendsMode) {
+        case TPFindFriendsViewModeContacts:
+        {
+            NSDictionary *friend = _foundEmailFriends[indexPath.row];
+            if ([_selectedEmailFriends containsObject:friend]) {
+                [_selectedEmailFriends removeObject:friend];
+            } else {
+                [_selectedEmailFriends addObject:friend];
+            }
+        }
+            break;
+        case TPFindFriendsViewModeFacebook:
+        {
+            NSDictionary *friend = _foundFacebookFriends[indexPath.row];
+            if ([_selectedFacebookFriends containsObject:friend]) {
+                [_selectedFacebookFriends removeObject:friend];
+            } else {
+                [_selectedFacebookFriends addObject:friend];
+            }
+
+        }
+            break;
+        default:
+            break;
+    }
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (IBAction)dismissView:(id)sender {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+}
+
+
+- (IBAction)addButtonPressed:(id)sender {
+    [self addAllFriends];
+}
+
+- (void)dismissSelf
+{
+    [self addSelectedFriends];
     [self dismissViewControllerAnimated:YES completion:^{
     }];
 }
+
+-(void)addSelectedFriends
+{
+    NSMutableArray *friendsToAdd = [@[] mutableCopy];
+    [friendsToAdd addObjectsFromArray:_selectedFacebookFriends];
+    [friendsToAdd addObjectsFromArray:_selectedEmailFriends];
+    if (friendsToAdd.count) {
+        [[TPOAuthClient sharedClient] inviteFriends:friendsToAdd WithCompletionHandlersSuccess:^{
+            NSLog(@"added");
+        } andFailure:^{
+        }];
+    }
+}
+
+-(void)addAllFriends
+{
+    switch (self.findFriendsMode) {
+    case TPFindFriendsViewModeContacts:
+    {
+        _selectedEmailFriends = [_foundEmailFriends mutableCopy];
+    }
+        break;
+    case TPFindFriendsViewModeFacebook:
+    {
+        _selectedFacebookFriends = [_foundFacebookFriends mutableCopy];
+    }
+        break;
+    default:
+        break;
+    }
+    [self.tableView reloadData];
+}
+    
+
 @end

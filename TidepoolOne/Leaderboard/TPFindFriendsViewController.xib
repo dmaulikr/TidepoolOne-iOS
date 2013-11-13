@@ -17,40 +17,48 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mIS-X9-EU6">
-                    <rect key="frame" x="0.0" y="80" width="320" height="488"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="mIS-X9-EU6">
+                    <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9SZ-xe-4Wj">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9SZ-xe-4Wj">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iFs-30-ay4">
-                            <rect key="frame" x="86" y="30" width="149" height="29"/>
+                        <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iFs-30-ay4">
+                            <rect key="frame" x="71" y="8" width="149" height="29"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.29803921570000003" green="0.3411764706" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="149" id="6pO-fw-knt"/>
+                                <constraint firstAttribute="height" constant="28" id="tc4-mP-arZ"/>
+                            </constraints>
                             <segments>
                                 <segment title="Contacts"/>
                                 <segment title="Facebook"/>
                             </segments>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </segmentedControl>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJm-cZ-JL3">
-                            <rect key="frame" x="12" y="28" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="dismissView:" destination="-1" eventType="touchUpInside" id="mxg-Kd-mj6"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.29803921570000003" green="0.3411764706" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="IZY-mj-BJJ"/>
+                        <constraint firstAttribute="centerX" secondItem="iFs-30-ay4" secondAttribute="centerX" id="opo-QJ-I7d"/>
+                        <constraint firstAttribute="centerY" secondItem="iFs-30-ay4" secondAttribute="centerY" id="wCS-nZ-RXR"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mIS-X9-EU6" secondAttribute="trailing" id="2N6-hw-q3V"/>
+                <constraint firstItem="mIS-X9-EU6" firstAttribute="top" secondItem="9SZ-xe-4Wj" secondAttribute="bottom" id="5j1-QH-x58"/>
+                <constraint firstAttribute="trailing" secondItem="9SZ-xe-4Wj" secondAttribute="trailing" id="7Hc-I5-FEw"/>
+                <constraint firstItem="mIS-X9-EU6" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="8Ag-JQ-KYW"/>
+                <constraint firstAttribute="bottom" secondItem="mIS-X9-EU6" secondAttribute="bottom" id="OZb-BH-hzZ"/>
+                <constraint firstItem="9SZ-xe-4Wj" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="SO6-g2-Vvn"/>
+                <constraint firstItem="9SZ-xe-4Wj" firstAttribute="top" secondItem="1" secondAttribute="top" id="ocZ-Mk-VG8"/>
+            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

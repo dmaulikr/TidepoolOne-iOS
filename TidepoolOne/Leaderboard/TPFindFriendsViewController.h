@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum TPFindFriendsViewMode {TPFindFriendsViewModeContacts, TPFindFriendsViewModeFacebook} TPFindFriendsViewMode;
+
 @interface TPFindFriendsViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *sourceSelector;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-- (IBAction)dismissView:(id)sender;
+@property (assign, nonatomic) TPFindFriendsViewMode findFriendsMode;
+
+- (IBAction)addButtonPressed:(id)sender;
+
 @end

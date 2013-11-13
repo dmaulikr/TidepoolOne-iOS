@@ -397,6 +397,49 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
+-(void)acceptPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:@"api/v1/users/-/friends/accept" parameters:@{@"friend_list":friendList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not accept friends"];
+        failureBlock();
+    }];
+}
+
+-(void)rejectPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:@"api/v1/users/-/friends/reject" parameters:@{@"friend_list":friendList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not accept friends"];
+        failureBlock();
+    }];
+}
+
+
+-(void)getFriendListWithOffset:(NSNumber *)offset Limit:(NSNumber *)limit WithCompletionHandlersSuccess:(void(^)(NSArray *pendingList))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:@"api/v1/users/-/friends" parameters:@{@"offset":offset,@"limit":limit} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not invite friends"];
+        failureBlock();
+    }];
+}
+
+
+-(void)deleteFriends:(NSArray *)friends withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    //TODO
+//    [self deletePath:@"api/v1/users/-/friends/delete" parameters:@{@"friend_list":friends} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        successBlock();
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        [self handleError:error withOptionalMessage:@"Could not accept friends"];
+//        failureBlock();
+//    }];
+}
+
 
 #pragma mark API methods - leaderboards
 -(void)getLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock

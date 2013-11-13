@@ -12,6 +12,8 @@
 #import <MessageUI/MFMessageComposeViewController.h>
 #import "TPOAuthClient.h"
 #import "TPFindFriendsViewController.h"
+#import "TPFriendsListViewController.h"
+#import "TPPendingFriendsViewController.h"
 #import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
 
 @interface TPInviteFriendsViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
@@ -45,16 +47,17 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.backgroundColor = [UIColor colorWithRed:76/255.0 green:87/255.0 blue:106/255.0 alpha:1.0];
-    _groups = @[@"Invite Friends", @"Find Friends"];
+    _groups = @[@"Invite Friends", @"Find Friends", @"Friends"];
     _fields = @[
                 @[@"Email", @"Facebook", @"Text"],
                 @[@"Contacts", @"Facebook"],
+                @[@"Friends", @"Friend Requests"],
                 ];
     _fieldImages = @[
                      @[@"ic-leader-email.png", @"ic-leader-fb.png", @"ic-leader-sms.png"],
                      @[@"ic-leader-contacts.png", @"ic-leader-fb.png"],
+                     @[@"ic-leader-friends.png", @"ic-leader-pendingfriends.png"],
                      ];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -185,6 +188,33 @@
                 
             }
             break;
+        case 2:
+            {
+                switch (indexPath.row) {
+                    case 0://friends
+                    {
+                        TPFriendsListViewController *friendListVC = [[TPFriendsListViewController alloc] init];
+                        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:friendListVC];
+                        [navController.navigationBar setBarTintColor:[UIColor colorWithRed:76/255. green:87/255. blue:105/255. alpha:1.0]];
+                        [self presentViewController:navController animated:YES completion:^{
+                        }];
+                    }
+                        break;
+                    case 1://pending friends
+                    {
+                        TPPendingFriendsViewController *pendingFriendsVC = [[TPPendingFriendsViewController alloc] init];
+                        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:pendingFriendsVC];
+                        [navController.navigationBar setBarTintColor:[UIColor colorWithRed:76/255. green:87/255. blue:105/255. alpha:1.0]];                        
+                        [self presentViewController:navController animated:YES completion:^{
+                        }];
+                    }
+                        break;
+                    default:
+                        break;
+                }
+                
+            }
+            break;
             
         default:
             break;
@@ -222,7 +252,8 @@
 -(void)findFriends
 {
     TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
-    [self presentViewController:findFriendsVC animated:YES completion:^{
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:findFriendsVC];
+    [self presentViewController:navController animated:YES completion:^{
     }];
     
 }
