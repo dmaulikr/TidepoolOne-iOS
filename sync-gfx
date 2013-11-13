@@ -1,0 +1,1 @@
+rsync ~/Dropbox/Tidepool/UEX/mobile/production Resources/production -r --verbose

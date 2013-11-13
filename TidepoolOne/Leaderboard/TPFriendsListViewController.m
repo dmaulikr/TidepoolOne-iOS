@@ -9,6 +9,7 @@
 #import "TPFriendsListViewController.h"
 #import "TPOAuthClient.h"
 #import "TPFriendListCell.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface TPFriendsListViewController ()
 {
@@ -85,7 +86,9 @@
     TPFriendListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.nameLabel.text = _friends[indexPath.row][@"name"];
+    NSDictionary *friend = _friends[indexPath.row];
+    cell.nameLabel.text = friend[@"name"];
+    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
     return cell;
 }
 
