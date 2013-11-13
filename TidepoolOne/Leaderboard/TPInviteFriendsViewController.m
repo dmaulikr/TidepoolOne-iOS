@@ -240,23 +240,24 @@
 
 -(void)inviteFacebookFriends
 {
-    [self findFriends];
+    TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:findFriendsVC];
+    [self presentViewController:navController animated:YES completion:^{
+        findFriendsVC.findFriendsMode = TPFindFriendsViewModeFacebook;
+        findFriendsVC.sourceSelector.selectedSegmentIndex = 1;
+    }];
 }
 
 
 -(void)inviteContacts
 {
-    [self findFriends];
-}
-
--(void)findFriends
-{
     TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:findFriendsVC];
     [self presentViewController:navController animated:YES completion:^{
+        findFriendsVC.findFriendsMode = TPFindFriendsViewModeContacts;
     }];
-    
 }
+
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

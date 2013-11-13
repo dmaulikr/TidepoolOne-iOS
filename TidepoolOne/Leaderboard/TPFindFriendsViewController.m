@@ -101,11 +101,7 @@
         return;
     }
     _foundFacebookFriends = [@[] mutableCopy];
-    
-    FBRequest* friendsRequest = [FBRequest requestForMyFriends];
-    [friendsRequest startWithCompletionHandler: ^(FBRequestConnection *connection,
-                                                  NSDictionary* result,
-                                                  NSError *error) {
+    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         NSArray* friends = [result objectForKey:@"data"];
         NSMutableArray *facebookIds = [@[] mutableCopy];
         NSLog(@"Found: %i friends", friends.count);

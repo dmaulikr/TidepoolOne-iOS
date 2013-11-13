@@ -103,6 +103,21 @@
     [cell.declineButton addTarget:self action:@selector(rejectFriend:) forControlEvents:UIControlEventTouchUpInside];
     cell.acceptButton.selected = [_acceptedFriends containsObject:friend];
     cell.declineButton.selected = [_rejectedFriends containsObject:friend];
+    if (cell.acceptButton.selected) {
+        cell.declineButton.hidden = YES;
+        cell.acceptButton.hidden = NO;
+//        [UIView animateWithDuration:1.0 animations:^{
+            cell.acceptButton.transform = CGAffineTransformMakeTranslation(75, 0);
+//        }];
+    } else {
+//        [UIView animateWithDuration:1.0 animations:^{
+            cell.acceptButton.transform = CGAffineTransformMakeTranslation(0, 0);
+//        }];
+    }
+    if (cell.declineButton.selected) {
+        cell.acceptButton.hidden = YES;
+        cell.declineButton.hidden = NO;
+    }
     return cell;
 }
 
