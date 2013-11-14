@@ -57,6 +57,16 @@
     _personalityBadgeView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",_user[@"personality"][@"profile_description"][@"display_id"]]];
     _blurbView.text = _user[@"personality"][@"profile_description"][@"one_liner"];
     _personalityLabelView.text = [_user[@"personality"][@"profile_description"][@"name"] uppercaseString];
+    if ([_user[@"friend_status"] isEqualToString:@"friend"]) {
+        self.friendsButton.hidden = self.blurbView.hidden = YES;
+    } else if ([_user[@"friend_status"] isEqualToString:@"not_friend"]) {
+        self.friendsButton.hidden = self.blurbView.hidden = YES;
+    } else if ([_user[@"friend_status"] isEqualToString:@"pending"]) {
+        self.friendsButton.hidden = self.blurbView.hidden = YES;
+        self.addToFriendButton.selected = YES;
+    } else if ([_user[@"friend_status"] isEqualToString:@"invited_by"]) {
+        self.friendsButton.hidden = self.blurbView.hidden = YES;
+    }
 }
 
 #pragma mark - Table view data source
@@ -109,8 +119,9 @@
 }
 
 
-- (IBAction)addToFriendsButtonPressed:(UIButton *)sender {
-    
+- (IBAction)addToFriendsButtonPressed:(UIButton *)sender
+{
+    [self.addToFriendButton setImage:[UIImage imageNamed:@"pubprofile-pendfriend.png"] forState:UIControlStateNormal];
     //Todo: implement
     [[TPOAuthClient sharedClient] inviteFriends:@[] WithCompletionHandlersSuccess:^{
     } andFailure:^{

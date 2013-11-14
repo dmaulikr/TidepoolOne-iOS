@@ -12,6 +12,7 @@
 #import <RHPerson.h>
 #import "TPFindFriendsCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import "TPUserProfileViewController.h"
 
 #define PAGING 20
 #define TAG_OFFSET 666
@@ -258,7 +259,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSDictionary *friend;
+    switch (self.findFriendsMode) {
+        case TPFindFriendsViewModeContacts:
+        {
+            friend = _foundEmailFriends[indexPath.row];
+        }
+            break;
+        case TPFindFriendsViewModeFacebook:
+        {
+            friend = _foundFacebookFriends[indexPath.row];
+        }
+            break;
+        default:
+            break;
+    }
+    TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
+    [[TPOAuthClient sharedClient] getUserInfoWithId:friend[@"id"]withCompletionHandlersSuccess:^(NSDictionary *user) {
+        vc.user = user;
+        [self.navigationController pushViewController:vc animated:YES];
+    } andFailure:^{
+    }];
 }
 
 
