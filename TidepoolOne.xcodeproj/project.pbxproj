@@ -59,8 +59,6 @@
 		A879A6C317A888C20082A455 /* TPLocalNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */; };
 		A897427017971BAE000CFD4F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897426F17971BAE000CFD4F /* AVFoundation.framework */; };
 		A897427217971BB7000CFD4F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A897427117971BB7000CFD4F /* QuartzCore.framework */; };
-		A89E992F182C135B006736F5 /* TPEchoDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E992D182C135B006736F5 /* TPEchoDashboardWidgetViewController.m */; };
-		A89E9930182C135B006736F5 /* TPEchoDashboardWidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89E992E182C135B006736F5 /* TPEchoDashboardWidgetViewController.xib */; };
 		A89E993D182C5899006736F5 /* TPDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E9932182C5899006736F5 /* TPDrawerViewController.m */; };
 		A89E993E182C5899006736F5 /* TPFindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E9934182C5899006736F5 /* TPFindFriendsViewController.m */; };
 		A89E993F182C5899006736F5 /* TPFindFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89E9935182C5899006736F5 /* TPFindFriendsViewController.xib */; };
@@ -1498,6 +1496,8 @@
 		A8FAAA2918346612003F572A /* tp-appwalkthrough3~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8FA9F6018346612003F572A /* tp-appwalkthrough3~iphone.jpg */; };
 		A8FAAA2A18346612003F572A /* tp-appwalkthrough4@2x~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8FA9F6118346612003F572A /* tp-appwalkthrough4@2x~iphone.jpg */; };
 		A8FAAA2B18346612003F572A /* tp-appwalkthrough4~iphone.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A8FA9F6218346612003F572A /* tp-appwalkthrough4~iphone.jpg */; };
+		A8FAAA2F18358914003F572A /* TPEchoDashboardWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FAAA2D18358914003F572A /* TPEchoDashboardWidgetViewController.m */; };
+		A8FAAA3018358914003F572A /* TPEchoDashboardWidgetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8FAAA2E18358914003F572A /* TPEchoDashboardWidgetViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1591,9 +1591,6 @@
 		A879A6B117A888C20082A455 /* TPLocalNotificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPLocalNotificationManager.m; sourceTree = "<group>"; };
 		A897426F17971BAE000CFD4F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A897427117971BB7000CFD4F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		A89E992C182C135B006736F5 /* TPEchoDashboardWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPEchoDashboardWidgetViewController.h; sourceTree = "<group>"; };
-		A89E992D182C135B006736F5 /* TPEchoDashboardWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPEchoDashboardWidgetViewController.m; sourceTree = "<group>"; };
-		A89E992E182C135B006736F5 /* TPEchoDashboardWidgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPEchoDashboardWidgetViewController.xib; sourceTree = "<group>"; };
 		A89E9931182C5899006736F5 /* TPDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPDrawerViewController.h; path = TidepoolOne/Leaderboard/TPDrawerViewController.h; sourceTree = "<group>"; };
 		A89E9932182C5899006736F5 /* TPDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPDrawerViewController.m; path = TidepoolOne/Leaderboard/TPDrawerViewController.m; sourceTree = "<group>"; };
 		A89E9933182C5899006736F5 /* TPFindFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPFindFriendsViewController.h; path = TidepoolOne/Leaderboard/TPFindFriendsViewController.h; sourceTree = "<group>"; };
@@ -3089,6 +3086,9 @@
 		A8FA9F6018346612003F572A /* tp-appwalkthrough3~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough3~iphone.jpg"; sourceTree = "<group>"; };
 		A8FA9F6118346612003F572A /* tp-appwalkthrough4@2x~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4@2x~iphone.jpg"; sourceTree = "<group>"; };
 		A8FA9F6218346612003F572A /* tp-appwalkthrough4~iphone.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tp-appwalkthrough4~iphone.jpg"; sourceTree = "<group>"; };
+		A8FAAA2C18358914003F572A /* TPEchoDashboardWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEchoDashboardWidgetViewController.h; path = TidepoolOne/TPEchoDashboardWidgetViewController.h; sourceTree = SOURCE_ROOT; };
+		A8FAAA2D18358914003F572A /* TPEchoDashboardWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPEchoDashboardWidgetViewController.m; path = TidepoolOne/TPEchoDashboardWidgetViewController.m; sourceTree = SOURCE_ROOT; };
+		A8FAAA2E18358914003F572A /* TPEchoDashboardWidgetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPEchoDashboardWidgetViewController.xib; path = TidepoolOne/TPEchoDashboardWidgetViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3265,9 +3265,9 @@
 				A857D0181808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.h */,
 				A857D0191808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.m */,
 				A857D01A1808BE88002C2E2A /* TPFaceoffDashboardWidgetViewController.xib */,
-				A89E992C182C135B006736F5 /* TPEchoDashboardWidgetViewController.h */,
-				A89E992D182C135B006736F5 /* TPEchoDashboardWidgetViewController.m */,
-				A89E992E182C135B006736F5 /* TPEchoDashboardWidgetViewController.xib */,
+				A8FAAA2C18358914003F572A /* TPEchoDashboardWidgetViewController.h */,
+				A8FAAA2D18358914003F572A /* TPEchoDashboardWidgetViewController.m */,
+				A8FAAA2E18358914003F572A /* TPEchoDashboardWidgetViewController.xib */,
 				A8D439A7180DF69C0086C223 /* TPPercentageDrawView.h */,
 				A8D439A8180DF69C0086C223 /* TPPercentageDrawView.m */,
 				A8D439A1180DF29B0086C223 /* LineLayout.h */,
@@ -6121,7 +6121,6 @@
 				A8FAA0EC18346612003F572A /* howfeeling-sad-pressed~iphone.png in Resources */,
 				A8FAA28A18346612003F572A /* leader-badge-trump@2x.png in Resources */,
 				A8FAA20518346612003F572A /* resultsbadge-einstein.png in Resources */,
-				A89E9930182C135B006736F5 /* TPEchoDashboardWidgetViewController.xib in Resources */,
 				A8FAA23318346612003F572A /* emo-amused-off~iphone.png in Resources */,
 				A8FAA18318346612003F572A /* happy12@2x.jpg in Resources */,
 				A8FAA13518346612003F572A /* confused4.jpg in Resources */,
@@ -6391,6 +6390,7 @@
 				A8FAA27718346612003F572A /* leader-badge-dog.png in Resources */,
 				A8FAA9EC18346612003F572A /* snoozer-clockb@2x~iphone.png in Resources */,
 				A8FA9FA318346612003F572A /* dash-anim-badge-antelope@2x.png in Resources */,
+				A8FAAA3018358914003F572A /* TPEchoDashboardWidgetViewController.xib in Resources */,
 				A8FAA23E18346612003F572A /* emo-content-off@2x~iphone.png in Resources */,
 				A8FAA25418346612003F572A /* ff-checkmark@2x.png in Resources */,
 				A8ACB19F182DA97700284049 /* TPWebViewController.xib in Resources */,
@@ -7039,7 +7039,6 @@
 				A8A411F5181885E0006D2AE7 /* TPEchoStageViewController.m in Sources */,
 				A8B5A7FA1804C6DA00399FDD /* TPDashboardTableCell.m in Sources */,
 				A830EFC317E3F1390035DCD0 /* TPSnoozerDashboardWidgetViewController.m in Sources */,
-				A89E992F182C135B006736F5 /* TPEchoDashboardWidgetViewController.m in Sources */,
 				A8B08F9E183327BF008E7293 /* TPFriendListCell.m in Sources */,
 				A8BABA5217E2615A00A3C95B /* TPProfileViewController.m in Sources */,
 				A8BABA5317E2615A00A3C95B /* TPProfileHeaderView.m in Sources */,
@@ -7067,6 +7066,7 @@
 				A8BABA8217E2625C00A3C95B /* TPSnoozerSurveyStageViewController.m in Sources */,
 				A8BABA8417E2625C00A3C95B /* TPSurveyStageViewController.m in Sources */,
 				A8BABA8917E2629A00A3C95B /* TPSnoozerResultViewController.m in Sources */,
+				A8FAAA2F18358914003F572A /* TPEchoDashboardWidgetViewController.m in Sources */,
 				A808BF85180C7BB0006D4CE0 /* TPMoodChartView.m in Sources */,
 				A857AEFB180609BA002C2E2A /* TPSnoozerResultCell.m in Sources */,
 				A8BABA9617E262CC00A3C95B /* TPDashboardViewController.m in Sources */,

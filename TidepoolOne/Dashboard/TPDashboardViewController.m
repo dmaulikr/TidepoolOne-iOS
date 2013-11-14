@@ -53,7 +53,7 @@
     _widgetVCs = @{@"snoozer":[[TPSnoozerDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    @"faceoff":[[TPFaceoffDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    @"fitbit":[[TPFitbitDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
-                   @"echo":[[TPFaceoffDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
+                   @"echo":[[TPEchoDashboardWidgetViewController alloc] initWithNibName:nil bundle:nil],
                    };
     _labels = @{@"snoozer":@[@"",@"Best of the day", @"All time best"],@"faceoff":@[@"",@"Best of the day", @"All time best"],@"echo":@[@"",@"Best of the day", @"All time best"],@"fitbit":@[@"Speed",@"Activity",@"Sleep"],};
     _bottomLabels = @{@"snoozer":@[@"",@"POINTS", @"POINTS"],@"faceoff":@[@"",@"POINTS", @"POINTS"],@"echo":@[@"",@"POINTS", @"POINTS"],@"fitbit":@[@"",@"",@""],};
