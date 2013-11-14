@@ -15,6 +15,8 @@
 #import "TPProfileTableViewCell.h"
 #import "TPTabBarController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "TPUserProfileViewController.h"
+
 
 @interface TPProfileViewController ()
 {
@@ -60,7 +62,9 @@
     //Analytics
     [[Mixpanel sharedInstance] track:@"Profile Screen"];
 #endif
-
+    TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
+    vc.user = self.user;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

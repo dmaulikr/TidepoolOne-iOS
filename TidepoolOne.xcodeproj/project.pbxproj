@@ -68,9 +68,6 @@
 		A89E9941182C5899006736F5 /* TPLeaderBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E9939182C5899006736F5 /* TPLeaderBoardCell.m */; };
 		A89E9942182C5899006736F5 /* TPLeaderBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89E993A182C5899006736F5 /* TPLeaderBoardCell.xib */; };
 		A89E9943182C5899006736F5 /* TPLeaderboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E993C182C5899006736F5 /* TPLeaderboardViewController.m */; };
-		A89E9947182C58B9006736F5 /* TPUserProfileViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = A89E9944182C58B9006736F5 /* TPUserProfileViewController.h */; };
-		A89E9948182C58B9006736F5 /* TPUserProfileViewController.m in Resources */ = {isa = PBXBuildFile; fileRef = A89E9945182C58B9006736F5 /* TPUserProfileViewController.m */; };
-		A89E9949182C58B9006736F5 /* TPUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A89E9946182C58B9006736F5 /* TPUserProfileViewController.xib */; };
 		A89E994D182C5975006736F5 /* TPDeepLinkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A89E994C182C5975006736F5 /* TPDeepLinkManager.m */; };
 		A8A411E818188388006D2AE7 /* TPEchoGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A411E618188388006D2AE7 /* TPEchoGameViewController.m */; };
 		A8A411E918188388006D2AE7 /* TPEchoGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8A411E718188388006D2AE7 /* TPEchoGameViewController.xib */; };
@@ -1499,6 +1496,8 @@
 		A8F5B30517F1060B0066E0BD /* TPGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30417F1060B0066E0BD /* TPGame.m */; };
 		A8F5B30717F1120C0066E0BD /* TPSnoozerGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8F5B30617F1120C0066E0BD /* TPSnoozerGameViewController.xib */; };
 		A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F5B30C17F1130C0066E0BD /* TPGamePickerViewController.m */; };
+		A8FA942E183449A6003F572A /* TPUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8FA942C183449A6003F572A /* TPUserProfileViewController.m */; };
+		A8FA942F183449A6003F572A /* TPUserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8FA942D183449A6003F572A /* TPUserProfileViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1607,9 +1606,6 @@
 		A89E993A182C5899006736F5 /* TPLeaderBoardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TPLeaderBoardCell.xib; path = TidepoolOne/Leaderboard/TPLeaderBoardCell.xib; sourceTree = "<group>"; };
 		A89E993B182C5899006736F5 /* TPLeaderboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPLeaderboardViewController.h; path = TidepoolOne/Leaderboard/TPLeaderboardViewController.h; sourceTree = "<group>"; };
 		A89E993C182C5899006736F5 /* TPLeaderboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPLeaderboardViewController.m; path = TidepoolOne/Leaderboard/TPLeaderboardViewController.m; sourceTree = "<group>"; };
-		A89E9944182C58B9006736F5 /* TPUserProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TPUserProfileViewController.h; path = ../TPUserProfileViewController.h; sourceTree = "<group>"; };
-		A89E9945182C58B9006736F5 /* TPUserProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TPUserProfileViewController.m; path = ../TPUserProfileViewController.m; sourceTree = "<group>"; };
-		A89E9946182C58B9006736F5 /* TPUserProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TPUserProfileViewController.xib; path = ../TPUserProfileViewController.xib; sourceTree = "<group>"; };
 		A89E994B182C5975006736F5 /* TPDeepLinkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDeepLinkManager.h; sourceTree = "<group>"; };
 		A89E994C182C5975006736F5 /* TPDeepLinkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDeepLinkManager.m; sourceTree = "<group>"; };
 		A8A411E518188388006D2AE7 /* TPEchoGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPEchoGameViewController.h; path = Echo/TPEchoGameViewController.h; sourceTree = "<group>"; };
@@ -3090,6 +3086,9 @@
 		A8F5B30617F1120C0066E0BD /* TPSnoozerGameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPSnoozerGameViewController.xib; sourceTree = "<group>"; };
 		A8F5B30B17F1130C0066E0BD /* TPGamePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPGamePickerViewController.h; sourceTree = "<group>"; };
 		A8F5B30C17F1130C0066E0BD /* TPGamePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPGamePickerViewController.m; sourceTree = "<group>"; };
+		A8FA942B183449A6003F572A /* TPUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPUserProfileViewController.h; sourceTree = "<group>"; };
+		A8FA942C183449A6003F572A /* TPUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUserProfileViewController.m; sourceTree = "<group>"; };
+		A8FA942D183449A6003F572A /* TPUserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPUserProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -3374,9 +3373,9 @@
 		A89E994A182C58C7006736F5 /* User Profile */ = {
 			isa = PBXGroup;
 			children = (
-				A89E9944182C58B9006736F5 /* TPUserProfileViewController.h */,
-				A89E9945182C58B9006736F5 /* TPUserProfileViewController.m */,
-				A89E9946182C58B9006736F5 /* TPUserProfileViewController.xib */,
+				A8FA942B183449A6003F572A /* TPUserProfileViewController.h */,
+				A8FA942C183449A6003F572A /* TPUserProfileViewController.m */,
+				A8FA942D183449A6003F572A /* TPUserProfileViewController.xib */,
 			);
 			name = "User Profile";
 			sourceTree = "<group>";
@@ -5706,7 +5705,6 @@
 				A8B9ED1018343EBB0089C0F4 /* faceoff-instructionbg~iphone.png in Resources */,
 				A8B9EEA618343EBB0089C0F4 /* ic-leader-email@2x.png in Resources */,
 				A8B9EE3C18343EBB0089C0F4 /* points-correct~iphone.png in Resources */,
-				A89E9948182C58B9006736F5 /* TPUserProfileViewController.m in Resources */,
 				A8B9EEED18343EBB0089C0F4 /* btn-editphoto~iphone.png in Resources */,
 				A8B9F49B18343EBB0089C0F4 /* btn-back-pressed@2x~iphone.png in Resources */,
 				A8B9F62218343EBB0089C0F4 /* icon-missed@2x~iphone.png in Resources */,
@@ -5801,7 +5799,6 @@
 				A8B9ED6B18343EBB0089C0F4 /* bored5@2x.jpg in Resources */,
 				A8B9EEC818343EBB0089C0F4 /* leader-badge-progress1@2x.png in Resources */,
 				A8B9ED8818343EBB0089C0F4 /* disgust11.jpg in Resources */,
-				A89E9947182C58B9006736F5 /* TPUserProfileViewController.h in Resources */,
 				A8B9EE0518343EBB0089C0F4 /* sad5@2x.jpg in Resources */,
 				A8B9EBD218343EBB0089C0F4 /* celeb-badge-trump.png in Resources */,
 				A8B9F5F918343EBB0089C0F4 /* anim-badge-progress1@2x.png in Resources */,
@@ -5886,7 +5883,6 @@
 				A8B9F58F18343EBB0089C0F4 /* bg-the-microwave@2x~iphone.jpg in Resources */,
 				A8B9EDF518343EBB0089C0F4 /* pride7.jpg in Resources */,
 				A8B9F54918343EBB0089C0F4 /* bg-the-analyst@2x~iphone.jpg in Resources */,
-				A89E9949182C58B9006736F5 /* TPUserProfileViewController.xib in Resources */,
 				A8B9ED4D18343EBB0089C0F4 /* angry5.jpg in Resources */,
 				A8B9F5A518343EBB0089C0F4 /* bg-the-shelter@2x~iphone.jpg in Resources */,
 				A8B9EC6418343EBB0089C0F4 /* fitbit-bluearrow~iphone.png in Resources */,
@@ -6351,6 +6347,7 @@
 				A8B9EDAF18343EBB0089C0F4 /* fear10@2x.jpg in Resources */,
 				A8B9ED1D18343EBB0089C0F4 /* howfeeling-afraid@2x~iphone.png in Resources */,
 				A8B9ED6218343EBB0089C0F4 /* bored12@2x.jpg in Resources */,
+				A8FA942F183449A6003F572A /* TPUserProfileViewController.xib in Resources */,
 				A8B9EDCC18343EBB0089C0F4 /* happy14.jpg in Resources */,
 				A8B9F51418343EBB0089C0F4 /* badge-the-scrutinizer@2x~iphone.png in Resources */,
 				A8B9EE2718343EBB0089C0F4 /* surprise8.jpg in Resources */,
@@ -7037,6 +7034,7 @@
 				A8F5B30117F104950066E0BD /* TPEIGame.m in Sources */,
 				A8A411E818188388006D2AE7 /* TPEchoGameViewController.m in Sources */,
 				A8F5B30D17F1130C0066E0BD /* TPGamePickerViewController.m in Sources */,
+				A8FA942E183449A6003F572A /* TPUserProfileViewController.m in Sources */,
 				A8B5A23218038C3E00399FDD /* TPSettingsHeaderView.m in Sources */,
 				A8A411F5181885E0006D2AE7 /* TPEchoStageViewController.m in Sources */,
 				A8B5A7FA1804C6DA00399FDD /* TPDashboardTableCell.m in Sources */,

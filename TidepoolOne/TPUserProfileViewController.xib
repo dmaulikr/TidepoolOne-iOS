@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPUserProfileViewController">
+            <connections>
+                <outlet property="addToFriendButton" destination="ELd-Hd-66Q" id="vJB-zb-Dse"/>
+                <outlet property="blurbView" destination="mBS-in-ZS2" id="wbQ-g0-nSy"/>
+                <outlet property="friendsButton" destination="cv1-f0-GtF" id="O4g-Kg-RWN"/>
+                <outlet property="imageView" destination="pCr-IZ-TS5" id="asd-3J-n3e"/>
+                <outlet property="personalityBadgeView" destination="eMx-7s-Bbv" id="crH-Wa-E5S"/>
+                <outlet property="personalityLabelView" destination="nNt-eO-C2c" id="sPj-BE-lkY"/>
+                <outlet property="profilePictureView" destination="Ntm-aa-ZSF" id="CM3-UU-okf"/>
+                <outlet property="profileView" destination="Jzo-Vu-Fui" id="uW8-QD-BOs"/>
+                <outlet property="tableView" destination="NVJ-yq-idg" id="hKx-hk-Nek"/>
+                <outlet property="usernameView" destination="gnY-IC-VTg" id="D92-ni-FwZ"/>
+                <outlet property="view" destination="1" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-IZ-TS5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NVJ-yq-idg">
+                    <rect key="frame" x="0.0" y="153" width="320" height="415"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzo-Vu-Fui">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pubprofile-userbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="hoD-iL-h23">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ntm-aa-ZSF">
+                            <rect key="frame" x="21" y="25" width="77" height="77"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="77" id="CxL-Oh-ltt"/>
+                                <constraint firstAttribute="height" constant="77" id="JGa-bg-x3O"/>
+                            </constraints>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMx-7s-Bbv">
+                            <rect key="frame" x="73" y="83" width="44" height="53"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="53" id="Is3-dl-I54"/>
+                                <constraint firstAttribute="width" constant="44" id="jDj-oF-q9h"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IC-VTg" customClass="TPLabel">
+                            <rect key="frame" x="106" y="21" width="204" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-eO-C2c" customClass="TPLabelBold">
+                            <rect key="frame" x="106" y="40" width="204" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="SEr-Ce-s3x"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBS-in-ZS2" customClass="TPTextView">
+                            <rect key="frame" x="125" y="65" width="160" height="73"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cv1-f0-GtF">
+                            <rect key="frame" x="258" y="0.0" width="62" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="7dE-0o-zIb"/>
+                                <constraint firstAttribute="width" constant="62" id="scm-0J-Vcs"/>
+                            </constraints>
+                            <state key="normal" image="pubprofile-friend.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELd-Hd-66Q">
+                            <rect key="frame" x="168" y="88" width="132" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="pubprofile-addfriend.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addToFriendsButtonPressed:" destination="-1" eventType="touchUpInside" id="erk-pf-c1t"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="nNt-eO-C2c" firstAttribute="centerY" secondItem="gnY-IC-VTg" secondAttribute="centerY" constant="16" id="5Zz-kv-lvf"/>
+                        <constraint firstItem="eMx-7s-Bbv" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" constant="83" id="5lo-FU-Ka4"/>
+                        <constraint firstAttribute="trailing" secondItem="hoD-iL-h23" secondAttribute="trailing" id="8sd-RM-vLs"/>
+                        <constraint firstItem="cv1-f0-GtF" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" id="9Wl-Fc-zyt"/>
+                        <constraint firstItem="Ntm-aa-ZSF" firstAttribute="leading" secondItem="Jzo-Vu-Fui" secondAttribute="leading" constant="21" id="FRa-0v-jPu"/>
+                        <constraint firstItem="hoD-iL-h23" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" id="Rvg-jV-Fne"/>
+                        <constraint firstItem="nNt-eO-C2c" firstAttribute="top" secondItem="gnY-IC-VTg" secondAttribute="bottom" constant="-8" id="T1h-yx-xSf"/>
+                        <constraint firstItem="Ntm-aa-ZSF" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" constant="25" id="XoE-tm-gqK"/>
+                        <constraint firstItem="eMx-7s-Bbv" firstAttribute="leading" secondItem="Jzo-Vu-Fui" secondAttribute="leading" constant="73" id="aJW-zr-baq"/>
+                        <constraint firstAttribute="bottom" secondItem="hoD-iL-h23" secondAttribute="bottom" id="c4v-GO-Xuy"/>
+                        <constraint firstItem="nNt-eO-C2c" firstAttribute="leading" secondItem="Ntm-aa-ZSF" secondAttribute="trailing" constant="8" id="db3-vc-JrW"/>
+                        <constraint firstItem="gnY-IC-VTg" firstAttribute="leading" secondItem="Ntm-aa-ZSF" secondAttribute="trailing" constant="8" id="dhb-9Z-aiD"/>
+                        <constraint firstAttribute="trailing" secondItem="cv1-f0-GtF" secondAttribute="trailing" id="jsK-GK-B9u"/>
+                        <constraint firstItem="nNt-eO-C2c" firstAttribute="width" secondItem="gnY-IC-VTg" secondAttribute="width" id="pF2-Bb-33f"/>
+                        <constraint firstAttribute="height" constant="145" id="sdg-r0-J7o"/>
+                        <constraint firstItem="hoD-iL-h23" firstAttribute="leading" secondItem="Jzo-Vu-Fui" secondAttribute="leading" id="vVT-wj-dk2"/>
+                        <constraint firstItem="gnY-IC-VTg" firstAttribute="top" secondItem="hoD-iL-h23" secondAttribute="bottom" constant="-124" id="yBS-IB-lLd"/>
+                        <constraint firstAttribute="trailing" secondItem="gnY-IC-VTg" secondAttribute="trailing" constant="10" id="z8w-L8-sJl"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pCr-IZ-TS5" firstAttribute="top" secondItem="1" secondAttribute="top" id="7Zr-BR-EPp"/>
+                <constraint firstAttribute="bottom" secondItem="NVJ-yq-idg" secondAttribute="bottom" id="H4G-Dc-sqr"/>
+                <constraint firstAttribute="trailing" secondItem="NVJ-yq-idg" secondAttribute="trailing" id="JPe-Lr-Qjd"/>
+                <constraint firstItem="NVJ-yq-idg" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="bottom" constant="8" id="Mqt-L8-wYC"/>
+                <constraint firstAttribute="bottom" secondItem="pCr-IZ-TS5" secondAttribute="bottom" id="Oqi-zt-AZe"/>
+                <constraint firstAttribute="trailing" secondItem="pCr-IZ-TS5" secondAttribute="trailing" id="VSU-yp-gBQ"/>
+                <constraint firstItem="NVJ-yq-idg" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Xj2-4R-JZV"/>
+                <constraint firstAttribute="trailing" secondItem="Jzo-Vu-Fui" secondAttribute="trailing" id="lIi-uG-0bR"/>
+                <constraint firstItem="Jzo-Vu-Fui" firstAttribute="top" secondItem="1" secondAttribute="top" id="lxn-04-4ux"/>
+                <constraint firstItem="Jzo-Vu-Fui" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="xVJ-JE-KU9"/>
+                <constraint firstItem="pCr-IZ-TS5" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="zAe-nw-8u8"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pubprofile-addfriend.png" width="132" height="27"/>
+        <image name="pubprofile-friend.png" width="62" height="16"/>
+        <image name="pubprofile-userbg.png" width="320" height="150"/>
+    </resources>
+</document>
