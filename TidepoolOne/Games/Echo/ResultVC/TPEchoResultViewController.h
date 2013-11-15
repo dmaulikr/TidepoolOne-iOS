@@ -24,5 +24,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (weak, nonatomic) IBOutlet UIButton *playAgainButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @end

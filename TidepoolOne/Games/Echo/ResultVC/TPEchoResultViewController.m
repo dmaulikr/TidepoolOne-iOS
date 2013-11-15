@@ -61,5 +61,29 @@
     }
 }
 
+- (void)shareGame
+{
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"Echo"}];
+#endif
+    NSString *message = [NSString stringWithFormat:@"I just scored %@ on Echo! Can you do better?", self.scoreLabel.text];
+    NSURL *url = [NSURL URLWithString:APP_LINK];
+    
+    NSArray *postItems = @[message, url];
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]
+                                            initWithActivityItems:postItems
+                                            applicationActivities:nil];
+    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1) {
+        // Load resources for iOS 6.1 or earlier
+        activityVC.excludedActivityTypes = @[UIActivityTypeCopyToPasteboard];
+    } else {
+        // Load resources for iOS 7 or later
+        [activityVC setExcludedActivityTypes:@[UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeAirDrop, UIActivityTypeAddToReadingList, UIActivityTypeAssignToContact]];
+    }
+    
+    [self presentViewController:activityVC animated:YES completion:nil];
+}
 
 @end
