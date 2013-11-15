@@ -356,7 +356,20 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
+-(void)getGameResultsForGameType:(NSString *)type limit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results" parameters:@{
+                                                                                 @"type":type,
+                                                                                 @"limit":limit,
+                                                                                 @"offset":offset,
+                                                                                 } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
+        failureBlock();
+    }];
 
+}
 #pragma mark API methods - friends
 -(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {

@@ -7,14 +7,11 @@
 //
 
 #import "TPDashboardWidgetViewController.h"
-//#import "TPCurveGraphView.h"
 
 @class TPCurveGraphView;
 
 @interface TPEchoDashboardWidgetViewController : TPDashboardWidgetViewController
 
-@property (strong, nonatomic) NSDictionary *user;
-@property (strong, nonatomic) NSArray *results;
 @property (strong, nonatomic) NSArray *densityData;
 
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;

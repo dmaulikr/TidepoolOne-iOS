@@ -12,7 +12,6 @@
 @interface TPFaceoffDashboardWidgetViewController : TPDashboardWidgetViewController
 
 @property (weak, nonatomic) IBOutlet TPPercentageDrawView *percentageDrawView;
-@property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet TPLabelBold *dailyBestLabel;
 @property (weak, nonatomic) IBOutlet TPLabelBold *allTimeBestLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -21,6 +20,5 @@
 @property (weak, nonatomic) IBOutlet TPLabelBold *negativePercentage;
 
 @property (strong, nonatomic) NSDictionary *emoGroupFractions;
-@property (strong, nonatomic) NSArray *results;
 
 @end

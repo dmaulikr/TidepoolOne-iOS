@@ -140,14 +140,5 @@
     }];
 }
 
--(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
-{
-    for (NSDictionary *item in array) {
-        if ([item[@"type"] isEqualToString:type]) {
-            return item;
-        }
-    }
-    return nil;
-}
 
 @end

@@ -33,6 +33,4 @@
 @property (weak, nonatomic) IBOutlet TPLabelBold *sleepNumberLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *sleepArrowImage;
 
-@property (strong, nonatomic) NSDictionary *user;
-
 @end

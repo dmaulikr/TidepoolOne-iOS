@@ -13,6 +13,7 @@
 {
     int _numServerCallsCompleted;
     NSArray *_emotions;
+    NSDictionary *_user;    
 }
 @end
 
@@ -21,7 +22,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {        
+    if (self) {
+        self.type = @"EmoIntelligenceResult";
     }
     return self;
 }
@@ -55,33 +57,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
-{
-    _numServerCallsCompleted = 0;
-    [[TPOAuthClient sharedClient] getPath:@"api/v1/users/-/results?type=EmoIntelligenceResult"parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.results = responseObject[@"data"];
-        self.results = [[self.results reverseObjectEnumerator] allObjects];
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 2) {
-            successBlock();
-        }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Fail: %@", [error description]);
-        [[TPOAuthClient sharedClient] handleError:error withOptionalMessage:@"Could not download results"];
-        failureBlock();
-    }];
-    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
-        self.user = user;
-        _numServerCallsCompleted++;
-        if (_numServerCallsCompleted == 2) {
-            successBlock();
-        }
-    } andFailure:^{
-        failureBlock();
-    }];
-}
-
 -(void)setUser:(NSDictionary *)user
 {
     _user = user;
@@ -104,16 +79,10 @@
     }
 }
 
--(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
+-(NSDictionary *)user
 {
-    for (NSDictionary *item in array) {
-        if ([item[@"type"] isEqualToString:type]) {
-            return item;
-        }
-    }
-    return nil;
+    return _user;
 }
-
 
 -(void)reset
 {
@@ -159,18 +128,11 @@
     cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", self.results[indexPath.row][@"badge"][@"character"]]];
 
     [cell adjustScrollView];
+    if (indexPath.row > self.results.count - 3) {
+        [self getMoreResults];
+    }
     
     return cell;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return self.results.count;
-}
-
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 150;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section

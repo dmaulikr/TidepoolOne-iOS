@@ -47,6 +47,7 @@
     [self didMoveToParentViewController:self];
     self.tableView.dataSource = self.widget;
     self.tableView.delegate = self.widget;
+    self.widget.tableView = self.tableView;
 }
 
 - (void)didReceiveMemoryWarning

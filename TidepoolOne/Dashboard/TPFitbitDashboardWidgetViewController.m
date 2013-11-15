@@ -12,6 +12,7 @@
 
 @interface TPFitbitDashboardWidgetViewController()
 {
+    NSDictionary *_user;
     int _numServerCallsCompleted;
     TPOAuthClient *_oauthClient;
     __block NSTimer *_pollTimeoutTimer;
@@ -162,14 +163,9 @@
     }
 }
 
--(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
+-(NSDictionary *)user
 {
-    for (NSDictionary *item in array) {
-        if ([item[@"type"] isEqualToString:type]) {
-            return item;
-        }
-    }
-    return nil;
+    return _user;
 }
 
 -(void)downloadResultswithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock

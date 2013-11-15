@@ -45,6 +45,8 @@
 -(void)postGameEvents:(NSDictionary *)events withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 -(void)getGameResultsForGameId:(NSNumber *)gameId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
 
+-(void)getGameResultsForGameType:(NSString *)type limit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+
 #pragma mark API methods - friends
 -(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock;
 -(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock;
