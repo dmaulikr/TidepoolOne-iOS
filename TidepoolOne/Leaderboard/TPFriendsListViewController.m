@@ -11,6 +11,7 @@
 #import "TPFriendListCell.h"
 #import "TPUserProfileViewController.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface TPFriendsListViewController ()
 {
@@ -45,6 +46,7 @@
         [self.tableView reloadData];
     } andFailure:^{
     }];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithRed:76/255. green:87/255. blue:105/255. alpha:1.0]];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ff-btn-x-close.png"] style:UIBarButtonSystemItemCancel target:self action:@selector(dismissSelf)];
     self.title = @"Friends";
@@ -90,6 +92,8 @@
     NSDictionary *friend = _friends[indexPath.row];
     cell.nameLabel.text = friend[@"name"];
     [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    cell.profilePictureView.layer.cornerRadius = cell.profilePictureView.bounds.size.height  / 2;
+    cell.profilePictureView.clipsToBounds = YES;
     return cell;
 }
 
@@ -120,6 +124,11 @@
     } andFailure:^{
     }];
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 54.0;
 }
 
 @end
