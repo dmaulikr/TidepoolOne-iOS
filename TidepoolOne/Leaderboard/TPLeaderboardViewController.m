@@ -102,7 +102,7 @@
     cell.scoreLabel.text = [NSString stringWithFormat:@"%@", item[@"score"]];
     NSString *email = item[@"email"];
     NSString *pictureUrlString = item[@"image"];
-    cell.usernameLabel.text = [email componentsSeparatedByString:@"@"][0];
+    cell.usernameLabel.text = [[email componentsSeparatedByString:@"@"][0] uppercaseString];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (pictureUrlString && pictureUrlString != (NSString *)[NSNull null]) {
         [cell.userProfilePicture setImageWithURL:[NSURL URLWithString:pictureUrlString]];
@@ -111,6 +111,10 @@
     }
     cell.userProfilePicture.layer.cornerRadius = cell.userProfilePicture.bounds.size.width / 2;
     cell.userProfilePicture.layer.masksToBounds = YES;
+    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        cell.isSelf = ([[item[@"id"] description] isEqualToString:[user[@"id"] description]]);
+    } andFailure:^{
+    }];
     return cell;
 }
 

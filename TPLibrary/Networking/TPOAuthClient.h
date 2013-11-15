@@ -57,7 +57,7 @@
 -(void)acceptPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 -(void)rejectPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 -(void)getFriendListWithOffset:(NSNumber *)offset Limit:(NSNumber *)limit WithCompletionHandlersSuccess:(void(^)(NSArray *pendingList))successBlock andFailure:(void(^)())failureBlock;
--(void)deleteFriends:(NSArray *)friends withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+-(void)unfriendFriends:(NSArray *)friends withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
 #pragma mark API methods - leaderboards
 -(void)getLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock;

@@ -12,7 +12,10 @@
 @property (weak, nonatomic) IBOutlet TPLabelBold *scoreLabel;
 @property (weak, nonatomic) IBOutlet TPLabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *userProfilePicture;
-@property (weak, nonatomic) IBOutlet UIImageView *badgeImageView;
-@property (weak, nonatomic) IBOutlet TPLabelBold *badgeTitleLabel;
+@property (weak, nonatomic) IBOutlet TPLabelBold *pointsLabel;
+@property (weak, nonatomic) IBOutlet UIView *pointsContainerView;
+@property (weak, nonatomic) IBOutlet UIView *userContainerView;
+
+@property (assign, nonatomic) BOOL isSelf;
 
 @end

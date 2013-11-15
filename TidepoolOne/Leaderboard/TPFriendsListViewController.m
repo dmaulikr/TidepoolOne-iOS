@@ -59,7 +59,7 @@
 -(void)dismissSelf
 {
     if (_deletedFriends.count) {
-        [[TPOAuthClient sharedClient] deleteFriends:_deletedFriends withCompletionHandlersSuccess:^{
+        [[TPOAuthClient sharedClient] unfriendFriends:_deletedFriends withCompletionHandlersSuccess:^{
         } andFailure:^{
         }];
     }

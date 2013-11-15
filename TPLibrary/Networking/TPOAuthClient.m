@@ -442,15 +442,14 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 }
 
 
--(void)deleteFriends:(NSArray *)friends withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+-(void)unfriendFriends:(NSArray *)friends withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    //TODO
-//    [self deletePath:@"api/v1/users/-/friends/delete" parameters:@{@"friend_list":friends} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        successBlock();
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [self handleError:error withOptionalMessage:@"Could not accept friends"];
-//        failureBlock();
-//    }];
+    [self postPath:@"api/v1/users/-/friends/unfriend" parameters:@{@"friend_list":friends} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Could not accept friends"];
+        failureBlock();
+    }];
 }
 
 
