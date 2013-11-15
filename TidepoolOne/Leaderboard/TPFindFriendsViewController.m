@@ -13,6 +13,7 @@
 #import "TPFindFriendsCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "TPUserProfileViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define PAGING 20
 #define TAG_OFFSET 666
@@ -49,6 +50,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"TPFindFriendsCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
@@ -219,6 +221,8 @@
     }
     cell.usernameLabelView.text = friend[@"email"];
     [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    cell.profilePictureView.layer.cornerRadius = cell.profilePictureView.bounds.size.height / 2;
+    cell.profilePictureView.clipsToBounds = YES;
     [cell.addButton addTarget:self action:@selector(addFriend:) forControlEvents:UIControlEventTouchUpInside];
     cell.addButton.tag = TAG_OFFSET + indexPath.row;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -326,5 +330,8 @@
     [self.tableView reloadData];
 }
     
-
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 54.0;
+}
 @end
