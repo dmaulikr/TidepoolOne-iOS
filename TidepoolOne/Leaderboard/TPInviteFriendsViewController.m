@@ -110,17 +110,15 @@
                 {
                     if ([MFMailComposeViewController canSendMail])
                     {
-                        MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
-                        mailer.mailComposeDelegate = self;
-                        [mailer setSubject:@"A Message from MobileTuts+"];
-                        NSArray *toRecipients = [NSArray arrayWithObjects:@"fisrtMail@example.com", @"secondMail@example.com", nil];
-                        [mailer setToRecipients:toRecipients];
-                        UIImage *myImage = [UIImage imageNamed:@"mobiletuts-logo.png"];
-                        NSData *imageData = UIImagePNGRepresentation(myImage);
-                        [mailer addAttachmentData:imageData mimeType:@"image/png" fileName:@"mobiletutsImage"];
-                        NSString *emailBody = @"Have you seen the MobileTuts+ web site?";
-                        [mailer setMessageBody:emailBody isHTML:NO];
-                        [self presentViewController:mailer animated:YES completion:nil];
+                        [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+                            NSString *body = [NSString stringWithFormat:@"Join me as a friend on TidePool! Click this link - tidepool://user/%@. Don't have TidePool? Get TidePool from the App Store at %@", user[@"id"], APP_LINK];
+                            MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
+                            mailer.mailComposeDelegate = self;
+                            [mailer setSubject:@"Join me on TidePool!"];
+                            [mailer setMessageBody:body isHTML:NO];
+                            [self presentViewController:mailer animated:YES completion:nil];
+                        } andFailure:^{
+                        }];
                     }
                     else
                     {
@@ -147,21 +145,23 @@
                     break;
                 case 2://text
                 {
-                    MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
-                    if([MFMessageComposeViewController canSendText])
-                    {
-                        controller.body = @"The body of the SMS you want";
-                        controller.messageComposeDelegate = self;
-                        [self presentViewController:controller animated:YES completion:nil];
-                    } else {
-                        [[[UIAlertView alloc] initWithTitle:@"Failure"
-                                                    message:@"Your device doesn't support sending messages"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil] show];
-                    }
-                    
-                    
+                    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+                        NSString *body = [NSString stringWithFormat:@"Join me as a friend on TidePool! Click this link - tidepool://user/%@. Don't have TidePool? Get TidePool from the App Store at %@", user[@"id"], APP_LINK];
+                        MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
+                        if([MFMessageComposeViewController canSendText])
+                        {
+                            controller.body = body;
+                            controller.messageComposeDelegate = self;
+                            [self presentViewController:controller animated:YES completion:nil];
+                        } else {
+                            [[[UIAlertView alloc] initWithTitle:@"Failure"
+                                                        message:@"Your device doesn't support sending messages"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil] show];
+                        }
+                    } andFailure:^{
+                    }];
                 }
                     break;
                 default:

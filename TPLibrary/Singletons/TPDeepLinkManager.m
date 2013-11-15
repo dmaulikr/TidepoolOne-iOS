@@ -7,6 +7,7 @@
 //
 
 #import "TPDeepLinkManager.h"
+#import "TPUserProfileViewController.h"
 
 @implementation TPDeepLinkManager
 
@@ -48,7 +49,12 @@
 {
     NSString *userId = [users objectAtIndex:0];
     [[TPOAuthClient sharedClient] getUserInfoWithId:userId withCompletionHandlersSuccess:^(NSDictionary *user) {
-        NSLog([user description]);
+        UITabBarController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+        rootViewController.selectedIndex = 2;
+        UINavigationController *navController = [rootViewController.childViewControllers objectAtIndex:2];
+        TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
+        vc.user = user;
+        [navController pushViewController:vc animated:YES];
     } andFailure:^{
     }];
 }

@@ -10,6 +10,7 @@
 #import "TPLeaderBoardCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import <QuartzCore/QuartzCore.h>
+#import "TPUserProfileViewController.h"
 
 @interface TPLeaderboardViewController ()
 {
@@ -133,5 +134,18 @@
 {
     return 36;
 }
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary *item = _gameHighScores[_games[indexPath.section]][indexPath.row];
+    TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
+    [[TPOAuthClient sharedClient] getUserInfoWithId:item[@"id"]withCompletionHandlersSuccess:^(NSDictionary *user) {
+        vc.user = user;
+        [self.navigationController pushViewController:vc animated:YES];
+    } andFailure:^{
+    }];
+    
+}
+
 
 @end

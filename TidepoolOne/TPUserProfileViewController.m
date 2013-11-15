@@ -12,7 +12,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface TPUserProfileViewController () <UITableViewDataSource, UITableViewDelegate>
-
+{
+    NSArray *_gameAggregateResults;
+}
 @end
 
 @implementation TPUserProfileViewController
@@ -57,8 +59,19 @@
     _personalityBadgeView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",_user[@"personality"][@"profile_description"][@"display_id"]]];
     _blurbView.text = _user[@"personality"][@"profile_description"][@"one_liner"];
     _personalityLabelView.text = [_user[@"personality"][@"profile_description"][@"name"] uppercaseString];
+    
+    NSArray *invalidTypes = @[@"SleepAggregateResult", @"ActivityAggregateResult"];
+    NSMutableArray *validAggregateResults = [@[] mutableCopy];
+    
+    for (NSDictionary *result in _user[@"aggregate_results"]) {
+        if (![invalidTypes containsObject:result[@"type"]]) {
+            [validAggregateResults addObject:result];
+        }
+    }
+    _gameAggregateResults = validAggregateResults;
+    
     if ([_user[@"friend_status"] isEqualToString:@"friend"]) {
-        self.friendsButton.hidden = self.blurbView.hidden = YES;
+        self.addToFriendButton.hidden = YES;
     } else if ([_user[@"friend_status"] isEqualToString:@"not_friend"]) {
         self.friendsButton.hidden = self.blurbView.hidden = YES;
     } else if ([_user[@"friend_status"] isEqualToString:@"pending"]) {
@@ -74,7 +87,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [_user[@"aggregate_results"] count];
+    return [_gameAggregateResults count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -88,7 +101,7 @@
     static NSString *CellIdentifier = @"Cell";
     TPLeaderBoardCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     // Configure the cell...
-    NSDictionary *item = _user[@"aggregate_results"][indexPath.section];
+    NSDictionary *item = _gameAggregateResults[indexPath.section];
     cell.scoreLabel.text = [NSString stringWithFormat:@"%@", item[@"high_scores"][@"all_time_best"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -104,10 +117,9 @@
     NSDictionary *headerChoice = @{
                                    @"EmoAggregateResult": @"echo",
                                    @"SpeedAggregateResult": @"snoozer",
-//                                   @"EmoAggregateResult": @"",
-//                                   @"EmoAggregateResult": @"",
+                                   @"AttentionAggregateResult": @"echo",
                                    };
-    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"leader-header-%@.png", headerChoice[_user[@"aggregate_results"][section][@"type"]]]];
+    UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"leader-header-%@.png", headerChoice[_gameAggregateResults[section][@"type"]]]];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 36)];
     imageView.image = image;
     return imageView;
@@ -127,4 +139,15 @@
     } andFailure:^{
     }];
 }
+
+-(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
+{
+    for (NSDictionary *item in array) {
+        if ([item[@"type"] isEqualToString:type]) {
+            return item;
+        }
+    }
+    return nil;
+}
+
 @end
