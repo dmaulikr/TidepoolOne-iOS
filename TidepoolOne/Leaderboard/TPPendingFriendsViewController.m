@@ -10,6 +10,7 @@
 #import "TPPendingFriendListCell.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "TPUserProfileViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define TAG_OFFSET 666
 
@@ -43,6 +44,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [self.tableView registerNib:[UINib nibWithNibName:@"TPPendingFriendListCell" bundle:nil] forCellReuseIdentifier:@"Cell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [[TPOAuthClient sharedClient] getPendingFriendListWithOffset:@0 Limit:@20 WithCompletionHandlersSuccess:^(NSArray *pendingList) {
         _friends = [pendingList mutableCopy];
         [self.tableView reloadData];
@@ -98,7 +100,9 @@
     // Configure the cell...
     NSDictionary *friend = _friends[indexPath.row];
     cell.nameLabel.text = friend[@"email"];
-    [cell.imageView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    cell.profilePictureView.layer.cornerRadius = cell.profilePictureView.bounds.size.height / 2;
+    cell.profilePictureView.clipsToBounds = YES;
     cell.acceptButton.tag = cell.declineButton.tag = TAG_OFFSET + indexPath.row;
     [cell.acceptButton addTarget:self action:@selector(acceptFriend:) forControlEvents:UIControlEventTouchUpInside];
     [cell.declineButton addTarget:self action:@selector(rejectFriend:) forControlEvents:UIControlEventTouchUpInside];
@@ -107,13 +111,9 @@
     if (cell.acceptButton.selected) {
         cell.declineButton.hidden = YES;
         cell.acceptButton.hidden = NO;
-//        [UIView animateWithDuration:1.0 animations:^{
-            cell.acceptButton.transform = CGAffineTransformMakeTranslation(75, 0);
-//        }];
+            cell.acceptButton.transform = CGAffineTransformMakeTranslation(92, 0);
     } else {
-//        [UIView animateWithDuration:1.0 animations:^{
             cell.acceptButton.transform = CGAffineTransformMakeTranslation(0, 0);
-//        }];
     }
     if (cell.declineButton.selected) {
         cell.acceptButton.hidden = YES;
@@ -159,6 +159,11 @@
     } andFailure:^{
     }];
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 54;
 }
 
 @end
