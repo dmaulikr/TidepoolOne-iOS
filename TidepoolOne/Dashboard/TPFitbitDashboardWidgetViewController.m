@@ -143,7 +143,7 @@
                 NSArray *speedRhythm = speedAggregateResult[@"scores"][@"weekly"];
                 NSMutableArray *speedWeekly = [NSMutableArray array];
                 for (int i=0; i < speedRhythm.count; i++) {
-                    [speedWeekly addObject:speedRhythm[i][@"average_speed_score"]];
+                    [speedWeekly addObject:speedRhythm[i][@"speed_score"]];
                 }
 
                 
