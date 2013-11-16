@@ -14,6 +14,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "TPUserProfileViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "TPAppDelegate.h"
 
 #define PAGING 20
 #define TAG_OFFSET 666
@@ -110,15 +111,20 @@
     if (_foundFacebookFriends) {
         return;
     }
-    _foundFacebookFriends = [@[] mutableCopy];
-    [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-        NSArray* friends = [result objectForKey:@"data"];
-        NSMutableArray *facebookIds = [@[] mutableCopy];
-        NSLog(@"Found: %i friends", friends.count);
-        for (NSDictionary<FBGraphUser>* friend in friends) {
-            [facebookIds addObject:friend.id];
-        }
-        [self startPagingFacebookList:facebookIds startingAtIndex:0];
+    TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate openSessionWithAllowLoginUI:YES completionHandlersSuccess:^{
+        _foundFacebookFriends = [@[] mutableCopy];
+        [FBRequestConnection startForMyFriendsWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+            NSArray* friends = [result objectForKey:@"data"];
+            NSMutableArray *facebookIds = [@[] mutableCopy];
+            NSLog(@"Found: %i friends", friends.count);
+            for (NSDictionary<FBGraphUser>* friend in friends) {
+                [facebookIds addObject:friend.id];
+            }
+            [self startPagingFacebookList:facebookIds startingAtIndex:0];
+        }];
+    } andFailure:^{
+        [[[UIAlertView alloc] initWithTitle:@"Facebook login failed" message:@"Facebook login failed for a unknown reason. Please try again later." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
     }];
 }
 

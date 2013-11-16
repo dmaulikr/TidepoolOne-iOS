@@ -15,6 +15,7 @@
 #import "TPFriendsListViewController.h"
 #import "TPPendingFriendsViewController.h"
 #import <Facebook-iOS-SDK/FacebookSDK/Facebook.h>
+#import "TPAppDelegate.h"
 
 @interface TPInviteFriendsViewController () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 {
@@ -134,12 +135,17 @@
                     break;
                 case 1://facebook
                 {
-                    [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:APP_LINK] name:@"TidePool on iOS" caption:@"Download TidePool!" description:@"Get the TidePool app here!" picture:nil clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-                        if (error) {
-                            NSLog([error description]);
-                        } else {
-                            NSLog([results description]);
-                        }
+                    TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+                    [delegate openSessionWithAllowLoginUI:YES completionHandlersSuccess:^{
+                        [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:APP_LINK] name:@"TidePool on iOS" caption:@"Download TidePool!" description:@"Get the TidePool app here!" picture:nil clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                            if (error) {
+                                NSLog([error description]);
+                            } else {
+                                NSLog([results description]);
+                            }
+                        }];
+                    } andFailure:^{
+                        [[[UIAlertView alloc] initWithTitle:@"Facebook login failed" message:@"Facebook login failed for a unknown reason. Please try again later." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
                     }];
                 }
                     break;
@@ -258,7 +264,7 @@
 {
     TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:findFriendsVC];
-        [navController.navigationBar setTintColor:[UIColor whiteColor]];
+    [navController.navigationBar setTintColor:[UIColor whiteColor]];
     NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [UIColor whiteColor],
                                 UITextAttributeTextColor,
