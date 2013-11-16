@@ -103,6 +103,7 @@
                             <state key="normal" image="pubprofile-addfriend.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" image="pubprofile-pendfriend.png"/>
                             <connections>
                                 <action selector="addToFriendsButtonPressed:" destination="-1" eventType="touchUpInside" id="erk-pf-c1t"/>
                             </connections>
@@ -199,6 +200,7 @@
         <image name="pubprofile-addfriend.png" width="132" height="27"/>
         <image name="pubprofile-defaultuser.png" width="77" height="77"/>
         <image name="pubprofile-friend.png" width="62" height="16"/>
+        <image name="pubprofile-pendfriend.png" width="132" height="27"/>
         <image name="pubprofile-userbg.png" width="320" height="150"/>
     </resources>
 </document>

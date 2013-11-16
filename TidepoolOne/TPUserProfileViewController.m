@@ -145,9 +145,8 @@
 
 - (IBAction)addToFriendsButtonPressed:(UIButton *)sender
 {
-    [self.addToFriendButton setImage:[UIImage imageNamed:@"pubprofile-pendfriend.png"] forState:UIControlStateNormal];
-    //Todo: implement
     [[TPOAuthClient sharedClient] inviteFriends:@[self.user] WithCompletionHandlersSuccess:^{
+        self.addToFriendButton.selected = YES;
     } andFailure:^{
     }];
 }
