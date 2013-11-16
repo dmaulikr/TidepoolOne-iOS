@@ -41,7 +41,8 @@
     self.type = @"echo";
     self.handImageView.image = [UIImage imageNamed:@"ic-stophand-white.png"];
     self.countdownLabel.hidden = YES;
-//    self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 300);
+    
+    self.instructionContainerView.hidden = !self.gameVC.instructionMode;
 }
 
 -(void)setReverseMode:(BOOL)reverseMode
@@ -132,7 +133,9 @@
 -(void)playPattern:(NSArray *)pattern tillIndex:(int) index
 {
     self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 0);
-    self.instructionContainerView.hidden = self.instructionLabel.hidden = (index > 3);
+    if (self.gameVC.instructionMode) {
+        self.instructionContainerView.hidden = self.instructionLabel.hidden = (index > 3);
+    }
     if (self.reverseMode) {
         self.instructionLabel.text = @"Watch the patterns of the circles.";
     } else {
@@ -182,7 +185,7 @@
             [self moveMaxIndex];
         }
     } else {
-        self.instructionContainerView.hidden = self.instructionLabel.hidden = NO;
+        self.instructionContainerView.hidden = self.instructionLabel.hidden = NO & self.gameVC.instructionMode;
         if (self.reverseMode) {
             self.instructionLabel.text = @"Oops, you hit the wrong circle. Game over.";
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];

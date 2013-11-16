@@ -17,6 +17,7 @@
 @property (assign) int gameScore;
 @property (weak, nonatomic) IBOutlet UIView *gameStartView;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (assign, nonatomic) BOOL instructionMode;
 
 -(void)currentStageDoneWithEvents:(NSArray *)events;
 -(void)logEvent:(NSDictionary *)event;

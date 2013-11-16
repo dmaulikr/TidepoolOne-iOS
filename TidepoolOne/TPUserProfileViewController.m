@@ -58,7 +58,7 @@
 {
     if (!_user) return;
     NSDictionary *personality = _user[@"personality"];
-    if (personality && personality != (NSDictionary *)[NSNull null]) {
+    if (personality && personality != (NSDictionary *)[NSNull null] && [personality allKeys].count > 1) { // hack - why is personality returning a dictionary at all?
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         _personalityBadgeView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
         _blurbView.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
@@ -124,7 +124,7 @@
     cell.scoreLabel.text = [NSString stringWithFormat:@"%@", item[@"high_scores"][@"all_time_best"]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSDictionary *pictureChoice = @{
-                                   @"EmoAggregateResult": @"echo",
+                                   @"EmoAggregateResult": @"faceoff",
                                    @"SpeedAggregateResult": @"snoozer",
                                    @"AttentionAggregateResult": @"echo",
                                    };
@@ -142,7 +142,7 @@
 {
     [self.addToFriendButton setImage:[UIImage imageNamed:@"pubprofile-pendfriend.png"] forState:UIControlStateNormal];
     //Todo: implement
-    [[TPOAuthClient sharedClient] inviteFriends:@[] WithCompletionHandlersSuccess:^{
+    [[TPOAuthClient sharedClient] inviteFriends:@[self.user] WithCompletionHandlersSuccess:^{
     } andFailure:^{
     }];
 }

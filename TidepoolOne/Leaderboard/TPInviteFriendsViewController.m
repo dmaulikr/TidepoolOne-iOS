@@ -197,6 +197,13 @@
                         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:friendListVC];
                         [navController.navigationBar setBarTintColor:[UIColor colorWithRed:76/255. green:87/255. blue:105/255. alpha:1.0]];
                         [navController.navigationBar setTintColor:[UIColor whiteColor]];
+                        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [UIColor whiteColor],
+                                                    UITextAttributeTextColor,
+                                                    [UIColor clearColor],
+                                                    UITextAttributeTextShadowColor, nil];
+                        navController.navigationBar.titleTextAttributes = attributes;
+
                         [self presentViewController:navController animated:YES completion:^{
                         }];
                     }
@@ -207,6 +214,13 @@
                         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:pendingFriendsVC];
                         [navController.navigationBar setBarTintColor:[UIColor colorWithRed:76/255. green:87/255. blue:105/255. alpha:1.0]];
                        [navController.navigationBar setTintColor:[UIColor whiteColor]];
+                        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                    [UIColor whiteColor],
+                                                    UITextAttributeTextColor,
+                                                    [UIColor clearColor],
+                                                    UITextAttributeTextShadowColor, nil];
+                        navController.navigationBar.titleTextAttributes = attributes;
+
                         [self presentViewController:navController animated:YES completion:^{
                         }];
                     }
@@ -245,6 +259,12 @@
     TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:findFriendsVC];
         [navController.navigationBar setTintColor:[UIColor whiteColor]];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor],
+                                UITextAttributeTextColor,
+                                [UIColor clearColor],
+                                UITextAttributeTextShadowColor, nil];
+    navController.navigationBar.titleTextAttributes = attributes;
     [self presentViewController:navController animated:YES completion:^{
         findFriendsVC.findFriendsMode = TPFindFriendsViewModeFacebook;
         findFriendsVC.sourceSelector.selectedSegmentIndex = 1;
@@ -257,6 +277,14 @@
     TPFindFriendsViewController *findFriendsVC = [[TPFindFriendsViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:findFriendsVC];
     [navController.navigationBar setTintColor:[UIColor whiteColor]];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor],
+                                UITextAttributeTextColor,
+                                [UIColor clearColor],
+                                UITextAttributeTextShadowColor, nil];
+    navController.navigationBar.titleTextAttributes = attributes;
+
+    
     [self presentViewController:navController animated:YES completion:^{
         findFriendsVC.findFriendsMode = TPFindFriendsViewModeContacts;
     }];

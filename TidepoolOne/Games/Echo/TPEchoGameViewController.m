@@ -28,6 +28,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.type = @"echo";
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"EchoInstructionShown"]) {
+        // Delete values from keychain here
+        self.instructionMode = YES;
+        [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"EchoInstructionShown"];
+    } else {
+        self.instructionMode = NO;
+    }
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
