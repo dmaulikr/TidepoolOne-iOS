@@ -292,11 +292,8 @@
             break;
     }
     TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
-    [[TPOAuthClient sharedClient] getUserInfoWithId:friend[@"id"]withCompletionHandlersSuccess:^(NSDictionary *user) {
-        vc.user = user;
-        [self.navigationController pushViewController:vc animated:YES];
-    } andFailure:^{
-    }];
+    vc.userId = friend[@"id"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 

@@ -22,6 +22,7 @@
     NSArray *_groups;
     NSArray *_fields;
     NSArray *_fieldImages;
+    int _pendingFriendCount;
 }
 @end
 
@@ -59,6 +60,23 @@
                      @[@"ic-leader-contacts.png", @"ic-leader-fb.png"],
                      @[@"ic-leader-friends.png", @"ic-leader-pendingfriends.png"],
                      ];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[TPOAuthClient sharedClient] getPendingFriendListWithOffset:@0 Limit:@20 WithCompletionHandlersSuccess:^(NSArray *pendingList) {
+        _pendingFriendCount = [pendingList count];
+        _fields = @[
+                    @[@"Email", @"Facebook", @"Text"],
+                    @[@"Contacts", @"Facebook"],
+                    @[@"Friends", [NSString stringWithFormat:@"Friend Requests (%i)", _pendingFriendCount]],
+                    ];
+        [self.tableView reloadData];
+    } andFailure:^{
+        
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning

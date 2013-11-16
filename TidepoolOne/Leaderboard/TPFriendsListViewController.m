@@ -118,12 +118,8 @@
 {
     NSDictionary *friend = _friends[indexPath.row];
     TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
-    [[TPOAuthClient sharedClient] getUserInfoWithId:friend[@"id"]withCompletionHandlersSuccess:^(NSDictionary *user) {
-        vc.user = user;
-        [self.navigationController pushViewController:vc animated:YES];
-    } andFailure:^{
-    }];
-    
+    vc.userId = friend[@"id"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

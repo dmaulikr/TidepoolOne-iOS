@@ -46,7 +46,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="320" height="145"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ntm-aa-ZSF">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pubprofile-defaultuser.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ntm-aa-ZSF">
                             <rect key="frame" x="21" y="25" width="77" height="77"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <constraints>
@@ -62,7 +62,7 @@
                                 <constraint firstAttribute="width" constant="44" id="jDj-oF-q9h"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IC-VTg" customClass="TPLabel">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IC-VTg" customClass="TPLabel">
                             <rect key="frame" x="106" y="11" width="204" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -197,6 +197,7 @@
         <image name="btn-yesfriend-pressed.png" width="36" height="27"/>
         <image name="btn-yesfriend.png" width="36" height="27"/>
         <image name="pubprofile-addfriend.png" width="132" height="27"/>
+        <image name="pubprofile-defaultuser.png" width="77" height="77"/>
         <image name="pubprofile-friend.png" width="62" height="16"/>
         <image name="pubprofile-userbg.png" width="320" height="150"/>
     </resources>

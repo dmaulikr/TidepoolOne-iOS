@@ -10,6 +10,8 @@
 
 @interface TPUserProfileViewController : UIViewController
 
+@property (strong, nonatomic) NSString *userId;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) NSDictionary *user;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

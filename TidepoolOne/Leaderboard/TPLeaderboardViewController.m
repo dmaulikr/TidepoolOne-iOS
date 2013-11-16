@@ -143,11 +143,8 @@
 {
     NSDictionary *item = _gameHighScores[_games[indexPath.section]][indexPath.row];
     TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
-    [[TPOAuthClient sharedClient] getUserInfoWithId:item[@"id"]withCompletionHandlersSuccess:^(NSDictionary *user) {
-        vc.user = user;
-        [self.navigationController pushViewController:vc animated:YES];
-    } andFailure:^{
-    }];
+    vc.userId = item[@"id"];
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

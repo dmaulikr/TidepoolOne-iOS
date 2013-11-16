@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AttributedMarkdown/markdown_lib.h>
 #import <AttributedMarkdown/markdown_peg.h>
-
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TPUserProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 {
@@ -45,6 +45,10 @@
     [self applyUserToView];
     _profilePictureView.layer.cornerRadius = _profilePictureView.bounds.size.width / 2;
     _profilePictureView.clipsToBounds = YES;
+    [self refreshUser];
+    
+    self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.blurbView.hidden = self.friendsButton.hidden = self.addToFriendButton.hidden = self.pendingFriendLabel.hidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,7 +68,9 @@
         _blurbView.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
         _personalityLabelView.text = [personality[@"profile_description"][@"name"] uppercaseString];        
     }
-    [_profilePictureView setImageWithURL:[NSURL URLWithString:_user[@"image"]]];
+    if (_user[@"image"] && _user[@"image"] != [NSNull null]) {
+        [_profilePictureView setImageWithURL:[NSURL URLWithString:_user[@"image"]]];
+    }
     _usernameView.text = _user[@"name"];
     
     NSArray *invalidTypes = @[@"SleepAggregateResult", @"ActivityAggregateResult"];
@@ -77,7 +83,7 @@
     }
     _gameAggregateResults = validAggregateResults;
 
-    self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.pendingFriendLabel.hidden = YES;
+    self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.blurbView.hidden = self.friendsButton.hidden = self.addToFriendButton.hidden = self.pendingFriendLabel.hidden = YES;
     
     [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
         if ([[user[@"id"] description] isEqualToString:[self.user[@"id"] description]]) {
@@ -88,17 +94,16 @@
     
     
     if ([_user[@"friend_status"] isEqualToString:@"friend"]) {
-        self.addToFriendButton.hidden = YES;
+        self.blurbView.hidden = self.friendsButton.hidden = NO;
     } else if ([_user[@"friend_status"] isEqualToString:@"not_friend"]) {
-        self.friendsButton.hidden = self.blurbView.hidden = YES;
+        self.addToFriendButton.hidden = NO;
     } else if ([_user[@"friend_status"] isEqualToString:@"pending"]) {
-        self.friendsButton.hidden = self.blurbView.hidden = YES;
+        self.addToFriendButton.hidden = NO;
         self.addToFriendButton.selected = YES;
     } else if ([_user[@"friend_status"] isEqualToString:@"invited_by"]) {
-        self.friendsButton.hidden = self.blurbView.hidden = YES;
-        self.addToFriendButton.hidden = YES;
         self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.pendingFriendLabel.hidden = NO;
     }
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -163,7 +168,15 @@
 
 -(void)refreshUser
 {
-    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    [[TPOAuthClient sharedClient] getUserInfoWithId:self.userId withCompletionHandlersSuccess:^(NSDictionary *user) {
+        self.user = user;
+        [self applyUserToView];
+        [hud hide:YES];
+    } andFailure:^{
+        [hud hide:YES];
+    }];
 }
 
 -(NSAttributedString *)parsedFromMarkdown:(NSString *)rawText
