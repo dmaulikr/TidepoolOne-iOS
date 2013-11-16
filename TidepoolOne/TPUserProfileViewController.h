@@ -24,4 +24,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *friendsButton;
 - (IBAction)addToFriendsButtonPressed:(UIButton *)sender;
 
+- (IBAction)acceptFriendPressed:(id)sender;
+- (IBAction)rejectFriendPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *pendingFriendLabel;
+@property (weak, nonatomic) IBOutlet UIButton *acceptFriendButton;
+@property (weak, nonatomic) IBOutlet UIButton *rejectFriendButton;
 @end

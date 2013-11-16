@@ -7,10 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPUserProfileViewController">
             <connections>
+                <outlet property="acceptFriendButton" destination="EmY-9y-uYB" id="1wf-VW-j4B"/>
                 <outlet property="addToFriendButton" destination="ELd-Hd-66Q" id="vJB-zb-Dse"/>
                 <outlet property="blurbView" destination="mBS-in-ZS2" id="wbQ-g0-nSy"/>
                 <outlet property="friendsButton" destination="cv1-f0-GtF" id="O4g-Kg-RWN"/>
                 <outlet property="imageView" destination="pCr-IZ-TS5" id="asd-3J-n3e"/>
+                <outlet property="pendingFriendLabel" destination="8We-A4-lbu" id="tim-dg-qB9"/>
                 <outlet property="personalityBadgeView" destination="eMx-7s-Bbv" id="crH-Wa-E5S"/>
                 <outlet property="personalityLabelView" destination="nNt-eO-C2c" id="sPj-BE-lkY"/>
                 <outlet property="profilePictureView" destination="Ntm-aa-ZSF" id="CM3-UU-okf"/>
@@ -25,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-IZ-TS5">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-no-personality.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pCr-IZ-TS5">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -51,7 +53,7 @@
                                 <constraint firstAttribute="height" constant="77" id="JGa-bg-x3O"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMx-7s-Bbv">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badge-no-personality.png" translatesAutoresizingMaskIntoConstraints="NO" id="eMx-7s-Bbv">
                             <rect key="frame" x="73" y="83" width="44" height="53"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
@@ -60,14 +62,14 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnY-IC-VTg" customClass="TPLabel">
-                            <rect key="frame" x="106" y="21" width="204" height="27"/>
+                            <rect key="frame" x="106" y="11" width="204" height="27"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-eO-C2c" customClass="TPLabelBold">
-                            <rect key="frame" x="106" y="40" width="204" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNt-eO-C2c" customClass="TPLabelBold">
+                            <rect key="frame" x="106" y="30" width="204" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="21" id="SEr-Ce-s3x"/>
@@ -76,8 +78,8 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBS-in-ZS2" customClass="TPTextView">
-                            <rect key="frame" x="125" y="65" width="160" height="73"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBS-in-ZS2" customClass="TPTextView">
+                            <rect key="frame" x="125" y="65" width="185" height="73"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -105,6 +107,40 @@
                                 <action selector="addToFriendsButtonPressed:" destination="-1" eventType="touchUpInside" id="erk-pf-c1t"/>
                             </connections>
                         </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have a pending friend request. Add as friend?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="179" translatesAutoresizingMaskIntoConstraints="NO" id="8We-A4-lbu" customClass="TPLabel">
+                            <rect key="frame" x="128" y="65" width="179" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="PRb-gP-nfR"/>
+                                <constraint firstAttribute="width" constant="179" id="bdE-h7-f04"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-9y-uYB">
+                            <rect key="frame" x="159" y="109" width="36" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="btn-yesfriend.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="btn-yesfriend-pressed.png"/>
+                            <state key="highlighted" image="btn-yesfriend-pressed.png"/>
+                            <connections>
+                                <action selector="acceptFriendPressed:" destination="-1" eventType="touchUpInside" id="MKY-YM-gW2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWv-d6-5JC">
+                            <rect key="frame" x="225" y="109" width="36" height="27"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="btn-nofriend.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="selected" image="btn-nofriend-pressed.png"/>
+                            <state key="highlighted" image="btn-nofriend-pressed.png"/>
+                            <connections>
+                                <action selector="rejectFriendPressed:" destination="-1" eventType="touchUpInside" id="77F-cY-ASd"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -112,19 +148,25 @@
                         <constraint firstItem="eMx-7s-Bbv" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" constant="83" id="5lo-FU-Ka4"/>
                         <constraint firstAttribute="trailing" secondItem="hoD-iL-h23" secondAttribute="trailing" id="8sd-RM-vLs"/>
                         <constraint firstItem="cv1-f0-GtF" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" id="9Wl-Fc-zyt"/>
+                        <constraint firstItem="EmY-9y-uYB" firstAttribute="bottom" secondItem="eMx-7s-Bbv" secondAttribute="bottom" id="FQC-TQ-nJ6"/>
                         <constraint firstItem="Ntm-aa-ZSF" firstAttribute="leading" secondItem="Jzo-Vu-Fui" secondAttribute="leading" constant="21" id="FRa-0v-jPu"/>
                         <constraint firstItem="hoD-iL-h23" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" id="Rvg-jV-Fne"/>
                         <constraint firstItem="nNt-eO-C2c" firstAttribute="top" secondItem="gnY-IC-VTg" secondAttribute="bottom" constant="-8" id="T1h-yx-xSf"/>
+                        <constraint firstItem="iWv-d6-5JC" firstAttribute="leading" secondItem="EmY-9y-uYB" secondAttribute="trailing" constant="30" id="X5N-Zb-vZW"/>
                         <constraint firstItem="Ntm-aa-ZSF" firstAttribute="top" secondItem="Jzo-Vu-Fui" secondAttribute="top" constant="25" id="XoE-tm-gqK"/>
+                        <constraint firstItem="EmY-9y-uYB" firstAttribute="top" secondItem="iWv-d6-5JC" secondAttribute="top" id="ZRa-ur-k6I"/>
                         <constraint firstItem="eMx-7s-Bbv" firstAttribute="leading" secondItem="Jzo-Vu-Fui" secondAttribute="leading" constant="73" id="aJW-zr-baq"/>
                         <constraint firstAttribute="bottom" secondItem="hoD-iL-h23" secondAttribute="bottom" id="c4v-GO-Xuy"/>
                         <constraint firstItem="nNt-eO-C2c" firstAttribute="leading" secondItem="Ntm-aa-ZSF" secondAttribute="trailing" constant="8" id="db3-vc-JrW"/>
                         <constraint firstItem="gnY-IC-VTg" firstAttribute="leading" secondItem="Ntm-aa-ZSF" secondAttribute="trailing" constant="8" id="dhb-9Z-aiD"/>
+                        <constraint firstItem="EmY-9y-uYB" firstAttribute="leading" secondItem="eMx-7s-Bbv" secondAttribute="trailing" constant="42" id="hza-JW-V7W"/>
                         <constraint firstAttribute="trailing" secondItem="cv1-f0-GtF" secondAttribute="trailing" id="jsK-GK-B9u"/>
+                        <constraint firstAttribute="trailing" secondItem="8We-A4-lbu" secondAttribute="trailing" constant="13" id="nvc-gn-cIu"/>
                         <constraint firstItem="nNt-eO-C2c" firstAttribute="width" secondItem="gnY-IC-VTg" secondAttribute="width" id="pF2-Bb-33f"/>
                         <constraint firstAttribute="height" constant="145" id="sdg-r0-J7o"/>
+                        <constraint firstItem="8We-A4-lbu" firstAttribute="top" secondItem="nNt-eO-C2c" secondAttribute="bottom" constant="14" id="tBh-gp-PfL"/>
                         <constraint firstItem="hoD-iL-h23" firstAttribute="leading" secondItem="Jzo-Vu-Fui" secondAttribute="leading" id="vVT-wj-dk2"/>
-                        <constraint firstItem="gnY-IC-VTg" firstAttribute="top" secondItem="hoD-iL-h23" secondAttribute="bottom" constant="-124" id="yBS-IB-lLd"/>
+                        <constraint firstItem="gnY-IC-VTg" firstAttribute="top" secondItem="hoD-iL-h23" secondAttribute="bottom" constant="-134" id="yBS-IB-lLd"/>
                         <constraint firstAttribute="trailing" secondItem="gnY-IC-VTg" secondAttribute="trailing" constant="10" id="z8w-L8-sJl"/>
                     </constraints>
                 </view>
@@ -148,6 +190,12 @@
         </view>
     </objects>
     <resources>
+        <image name="badge-no-personality.png" width="125" height="150"/>
+        <image name="bg-no-personality.jpg" width="320" height="568"/>
+        <image name="btn-nofriend-pressed.png" width="36" height="27"/>
+        <image name="btn-nofriend.png" width="36" height="27"/>
+        <image name="btn-yesfriend-pressed.png" width="36" height="27"/>
+        <image name="btn-yesfriend.png" width="36" height="27"/>
         <image name="pubprofile-addfriend.png" width="132" height="27"/>
         <image name="pubprofile-friend.png" width="62" height="16"/>
         <image name="pubprofile-userbg.png" width="320" height="150"/>
