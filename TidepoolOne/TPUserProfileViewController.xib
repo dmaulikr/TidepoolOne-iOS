@@ -17,6 +17,7 @@
                 <outlet property="personalityLabelView" destination="nNt-eO-C2c" id="sPj-BE-lkY"/>
                 <outlet property="profilePictureView" destination="Ntm-aa-ZSF" id="CM3-UU-okf"/>
                 <outlet property="profileView" destination="Jzo-Vu-Fui" id="uW8-QD-BOs"/>
+                <outlet property="rejectFriendButton" destination="iWv-d6-5JC" id="5b4-hb-Y01"/>
                 <outlet property="tableView" destination="NVJ-yq-idg" id="hKx-hk-Nek"/>
                 <outlet property="usernameView" destination="gnY-IC-VTg" id="D92-ni-FwZ"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -78,11 +79,10 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBS-in-ZS2" customClass="TPTextView">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Aww shucks, this person has not discovered their personality type through TidePool's Personality Game yet." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBS-in-ZS2" customClass="TPTextView">
                             <rect key="frame" x="125" y="65" width="185" height="73"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>

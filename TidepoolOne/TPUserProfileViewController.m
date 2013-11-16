@@ -58,7 +58,7 @@
 {
     if (!_user) return;
     NSDictionary *personality = _user[@"personality"];
-    if (personality) {
+    if (personality && personality != (NSDictionary *)[NSNull null]) {
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         _personalityBadgeView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
         _blurbView.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
