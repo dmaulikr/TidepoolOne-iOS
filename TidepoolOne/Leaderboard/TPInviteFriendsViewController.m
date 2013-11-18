@@ -49,16 +49,16 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.backgroundColor = [UIColor colorWithRed:76/255.0 green:87/255.0 blue:106/255.0 alpha:1.0];
-    _groups = @[@"Invite Friends", @"Find Friends", @"Friends"];
+    _groups = @[@"Friends", @"Find Friends", @"Invite Friends"];
     _fields = @[
-                @[@"Email", @"Facebook", @"Text"],
-                @[@"Contacts", @"Facebook"],
                 @[@"Friends", @"Friend Requests"],
+                @[@"Contacts", @"Facebook"],
+                @[@"Email", @"Facebook", @"Text"],
                 ];
     _fieldImages = @[
-                     @[@"ic-leader-email.png", @"ic-leader-fb.png", @"ic-leader-sms.png"],
-                     @[@"ic-leader-contacts.png", @"ic-leader-fb.png"],
                      @[@"ic-leader-friends.png", @"ic-leader-pendingfriends.png"],
+                     @[@"ic-leader-contacts.png", @"ic-leader-fb.png"],                     
+                     @[@"ic-leader-email.png", @"ic-leader-fb.png", @"ic-leader-sms.png"],
                      ];
 }
 
@@ -68,9 +68,9 @@
     [[TPOAuthClient sharedClient] getPendingFriendListWithOffset:@0 Limit:@20 WithCompletionHandlersSuccess:^(NSArray *pendingList) {
         _pendingFriendCount = [pendingList count];
         _fields = @[
-                    @[@"Email", @"Facebook", @"Text"],
-                    @[@"Contacts", @"Facebook"],
                     @[@"Friends", [NSString stringWithFormat:@"Friend Requests (%i)", _pendingFriendCount]],
+                    @[@"Contacts", @"Facebook"],                    
+                    @[@"Email", @"Facebook", @"Text"],
                     ];
         [self.tableView reloadData];
     } andFailure:^{

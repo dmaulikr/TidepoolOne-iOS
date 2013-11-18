@@ -88,6 +88,7 @@
     [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
         if ([[user[@"id"] description] isEqualToString:[self.user[@"id"] description]]) {
             self.addToFriendButton.hidden = self.friendsButton.hidden = YES;
+            self.blurbView.hidden = NO;
         }
     } andFailure:^{
     }];

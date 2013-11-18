@@ -64,7 +64,6 @@
                                 [UIColor clearColor],
                                 UITextAttributeTextShadowColor, nil];
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
-
     self.title = @"Find Friends";
 }
 
@@ -166,7 +165,14 @@
 {
     NSLog(@"doing %i", index);
     if (index > emailList.count) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        if (!emailList.count) {
+            [[[UIAlertView alloc] initWithTitle:@"No friends found!" message:@"None of your contacts are on TidePool yet!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        }
         return;
+    }
+    if (!index) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     }
     int numItems = MIN(index + PAGING, emailList.count) - index;
     NSArray *subList = [emailList subarrayWithRange:NSMakeRange(index, numItems)];
@@ -181,7 +187,14 @@
 -(void)startPagingFacebookList:(NSArray *)fbList startingAtIndex:(int)index
 {
     if (index > fbList.count) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        if (!fbList.count) {
+            [[[UIAlertView alloc] initWithTitle:@"No friends found!" message:@"None of your Facebook friends are on TidePool yet!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        }
         return;
+    }
+    if (!index) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     }
     int numItems = MIN(index + PAGING, fbList.count) - index;
     NSArray *subList = [fbList subarrayWithRange:NSMakeRange(index, numItems)];
@@ -344,4 +357,5 @@
 {
     return 54.0;
 }
+
 @end
