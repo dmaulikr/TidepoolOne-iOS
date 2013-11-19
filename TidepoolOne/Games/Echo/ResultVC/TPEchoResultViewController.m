@@ -48,7 +48,7 @@
     _result = result;
     if (result) {
         self.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"resultsbadge-%@.png", result[@"badge"][@"character"]]];
-        self.badgeTitleLabel.text = result[@"badge"][@"character"];
+        self.badgeTitleLabel.text = result[@"badge"][@"title"];
         self.blurbView.text = result[@"badge"][@"description"];
         self.scoreLabel.text = [NSString stringWithFormat:@"%@", result[@"attention_score"]];
         

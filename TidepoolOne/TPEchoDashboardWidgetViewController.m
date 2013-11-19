@@ -98,7 +98,7 @@
     NSDate *date = [dateFormatter dateFromString:dateString];
     cell.date = date;
     cell.fastestTime = self.results[indexPath.row][@"attention_score"];
-    cell.animalLabel.text = [self.results[indexPath.row][@"badge"][@"character"] uppercaseString];
+    cell.animalLabel.text = [self.results[indexPath.row][@"badge"][@"title"] uppercaseString];
     if ([cell.animalLabel.text hasPrefix:@"PROGRESS"]) {
         cell.animalLabel.text = @"";
     }

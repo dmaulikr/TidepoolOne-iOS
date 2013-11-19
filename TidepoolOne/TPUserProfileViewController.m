@@ -71,7 +71,12 @@
     if (_user[@"image"] && _user[@"image"] != [NSNull null]) {
         [_profilePictureView setImageWithURL:[NSURL URLWithString:_user[@"image"]]];
     }
-    _usernameView.text = _user[@"name"];
+    if (_user[@"name"] && _user[@"name"] != [NSNull null]) {
+        _usernameView.text = _user[@"name"];
+    } else {
+        _usernameView.text = _user[@"email"];
+    }
+
     
     NSArray *invalidTypes = @[@"SleepAggregateResult", @"ActivityAggregateResult"];
     NSMutableArray *validAggregateResults = [@[] mutableCopy];

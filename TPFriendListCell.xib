@@ -14,8 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="53"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-Tc-OVD">
-                        <rect key="frame" x="60" y="16" width="42" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hO7-Tc-OVD">
+                        <rect key="frame" x="60" y="16" width="250" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.2196078431372549" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
@@ -44,6 +44,7 @@
                     <constraint firstItem="hO7-Tc-OVD" firstAttribute="centerY" secondItem="e2n-ov-cbQ" secondAttribute="centerY" constant="-0.5" id="Cfm-EE-Nb4"/>
                     <constraint firstItem="e2n-ov-cbQ" firstAttribute="leading" secondItem="HUk-dx-65L" secondAttribute="leading" constant="10" id="ENO-hk-3Xs"/>
                     <constraint firstItem="89Y-4I-ewL" firstAttribute="leading" secondItem="HUk-dx-65L" secondAttribute="leading" id="Hsj-Kp-HjN"/>
+                    <constraint firstAttribute="trailing" secondItem="hO7-Tc-OVD" secondAttribute="trailing" constant="10" id="JDo-Cn-XxD"/>
                     <constraint firstAttribute="centerY" secondItem="e2n-ov-cbQ" secondAttribute="centerY" id="O5K-jd-31d"/>
                     <constraint firstAttribute="bottom" secondItem="89Y-4I-ewL" secondAttribute="bottom" id="c1G-mQ-7pr"/>
                 </constraints>

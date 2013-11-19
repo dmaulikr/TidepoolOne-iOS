@@ -190,7 +190,7 @@
         else if ([cell.name isEqualToString:@"echo"]) {
             NSDictionary *highScores = attentionAggregateResult[@"high_scores"];
             [self setScoreStats:highScores onCell:cell];
-            UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", attentionAggregateResult[@"badge"][@"character"]]];
+            UIImage *lastBadge = [UIImage imageNamed:[NSString stringWithFormat:@"echo-badge-%@.png", attentionAggregateResult[@"badge"][@"character"]]];
             cell.imageView1.image = lastBadge;
             cell.imageView1.transform = CGAffineTransformMakeScale(0.6, 0.6);
         }
