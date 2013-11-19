@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AppStoreFileSize</key>
+	<integer>33566289</integer>
+	<key>AppStoreFileSizeValid</key>
+	<true/>
+	<key>ApplicationProperties</key>
+	<dict>
+		<key>ApplicationPath</key>
+		<string>Applications/TidePool.app</string>
+		<key>CFBundleIdentifier</key>
+		<string>com.TidePool.TidePool</string>
+		<key>CFBundleShortVersionString</key>
+		<string>1.3</string>
+		<key>CFBundleVersion</key>
+		<string>41</string>
+		<key>SigningIdentity</key>
+		<string>iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)</string>
+	</dict>
+	<key>ArchiveVersion</key>
+	<integer>2</integer>
+	<key>CreationDate</key>
+	<date>2013-11-19T01:24:45Z</date>
+	<key>Name</key>
+	<string>TidepoolOne</string>
+	<key>SchemeName</key>
+	<string>TidepoolOne</string>
+	<key>Status</key>
+	<string>Submitted with Validation Warnings</string>
+</dict>
+</plist>
