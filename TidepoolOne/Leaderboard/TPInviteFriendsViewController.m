@@ -153,8 +153,7 @@
                     break;
                 case 1://facebook
                 {
-                    TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
-                    [delegate openSessionWithAllowLoginUI:YES completionHandlersSuccess:^{
+                    if ([FBDialogs canPresentShareDialogWithParams:nil]) {
                         [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:APP_LINK] name:@"TidePool on iOS" caption:@"Download TidePool!" description:@"Get the TidePool app here!" picture:nil clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                             if (error) {
                                 NSLog([error description]);
@@ -162,9 +161,9 @@
                                 NSLog([results description]);
                             }
                         }];
-                    } andFailure:^{
-                        [[[UIAlertView alloc] initWithTitle:@"Facebook login failed" message:@"Facebook login failed for a unknown reason. Please try again later." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
-                    }];
+                    } else {
+                        [[[UIAlertView alloc] initWithTitle:@"Facebook App required" message:@"You need the Facebook app installed to invite friends on Facebook." delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+                    }
                 }
                     break;
                 case 2://text
