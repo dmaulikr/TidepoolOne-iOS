@@ -83,6 +83,7 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     self.filled = YES;
+    NSLog(@"it's now set to yes");
     [self.delegate tappedCircle:self];
 }
 
@@ -90,19 +91,20 @@
 {
     float radius = 30;
     float strokeWidth = 5;
+    [CATransaction begin]; {
     for (int i=0;i<NUM_GHOST_CIRCLES;i++) {
-        [CATransaction begin]; {
             [CATransaction setCompletionBlock:^{
                 self.filled = NO;
+                NSLog(@"it's now set to no");
             }];
             CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"path"];
-            animation.duration = 0.75;
+            animation.duration = 0.5;
             animation.fromValue = (id)[CGHelper newCirclePathAtPoint:_center withRadius:radius+((i)*strokeWidth)];
             animation.toValue = (id)[CGHelper newCirclePathAtPoint:_center withRadius:radius+((i + 2)*strokeWidth)];
             animation.autoreverses = NO;
             [ghostLayers[i] addAnimation:animation forKey:@"path"];
-        } [CATransaction commit];
-    }
+        }
+    } [CATransaction commit];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

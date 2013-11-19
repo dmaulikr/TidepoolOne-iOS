@@ -15,6 +15,7 @@
 #import "TPUserProfileViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "TPAppDelegate.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #define PAGING 20
 #define TAG_OFFSET 666
@@ -102,12 +103,18 @@
         default:
             break;
     }
+    [self.tableView reloadData];
 }
 
 
 -(void)findFacebookFriends
 {
     if (_foundFacebookFriends) {
+        if (_foundFacebookFriends.count) {
+            self.tableView.tableFooterView = nil;
+        } else {
+            self.tableView.tableFooterView = [self noFriendsFooter];
+        }
         return;
     }
     TPAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
@@ -131,6 +138,11 @@
 -(void)findContacts
 {
     if (_foundEmailFriends) {
+        if (_foundEmailFriends.count) {
+            self.tableView.tableFooterView = nil;
+        } else {
+            self.tableView.tableFooterView = [self noFriendsFooter];
+        }
         return;
     }
     _foundEmailFriends = [@[] mutableCopy];
@@ -163,11 +175,10 @@
 
 -(void)startPagingEmailList:(NSArray *)emailList startingAtIndex:(int)index
 {
-    NSLog(@"doing %i", index);
-    if (index > emailList.count) {
+    if (index >= emailList.count) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        if (!emailList.count) {
-            [[[UIAlertView alloc] initWithTitle:@"No friends found!" message:@"None of your contacts are on TidePool yet!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        if (!_foundEmailFriends.count) {
+            self.tableView.tableFooterView = [self noFriendsFooter];
         }
         return;
     }
@@ -186,10 +197,10 @@
 
 -(void)startPagingFacebookList:(NSArray *)fbList startingAtIndex:(int)index
 {
-    if (index > fbList.count) {
+    if (index >= fbList.count) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        if (!fbList.count) {
-            [[[UIAlertView alloc] initWithTitle:@"No friends found!" message:@"None of your Facebook friends are on TidePool yet!" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil] show];
+        if (!_foundFacebookFriends.count) {
+            self.tableView.tableFooterView = [self noFriendsFooter];
         }
         return;
     }
@@ -356,6 +367,17 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 54.0;
+}
+
+-(UIView *)noFriendsFooter
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 300)];
+    UIImage *image = [UIImage imageNamed:@"blank-nofriends.png"];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((view.bounds.size.width - image.size.width) / 2, (view.bounds.size.height - image.size.height) / 2, image.size.width, image.size.height)];
+    [button setImage:image forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(dismissSelf) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+    return view;
 }
 
 @end

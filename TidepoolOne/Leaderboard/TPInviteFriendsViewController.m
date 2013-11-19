@@ -121,7 +121,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
-        case 0:
+        case 2:
             //invite
         {
             switch (indexPath.row) {
@@ -212,7 +212,7 @@
                 
             }
             break;
-        case 2:
+        case 0:
             {
                 switch (indexPath.row) {
                     case 0://friends
