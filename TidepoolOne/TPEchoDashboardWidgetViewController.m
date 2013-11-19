@@ -103,7 +103,7 @@
         cell.animalLabel.text = @"";
     }
     
-    cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"celeb-badge-%@.png", self.results[indexPath.row][@"badge"][@"character"]]];
+    cell.animalBadgeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"echo-badge-%@.png", self.results[indexPath.row][@"badge"][@"character"]]];
     cell.detailLabel.text = self.results[indexPath.row][@"badge"][@"description"];
     [cell adjustScrollView];
     
