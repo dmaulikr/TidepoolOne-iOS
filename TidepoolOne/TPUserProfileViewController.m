@@ -71,10 +71,11 @@
     if (_user[@"image"] && _user[@"image"] != [NSNull null]) {
         [_profilePictureView setImageWithURL:[NSURL URLWithString:_user[@"image"]]];
     }
+    
     if (_user[@"name"] && _user[@"name"] != [NSNull null]) {
         _usernameView.text = _user[@"name"];
     } else {
-        _usernameView.text = _user[@"email"];
+        _usernameView.text = [[_user[@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0];
     }
 
     

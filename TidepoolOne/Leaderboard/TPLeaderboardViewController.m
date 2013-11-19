@@ -100,9 +100,13 @@
     // Configure the cell...
     NSDictionary *item = _gameHighScores[_games[indexPath.section]][indexPath.row];
     cell.scoreLabel.text = [NSString stringWithFormat:@"%@", item[@"score"]];
-    NSString *email = item[@"email"];
     NSString *pictureUrlString = item[@"image"];
-    cell.usernameLabel.text = [[email componentsSeparatedByString:@"@"][0] uppercaseString];
+    if (item[@"name"] && item[@"name"] != [NSNull null]) {
+        cell.usernameLabel.text = item[@"name"];
+    } else {
+        cell.usernameLabel.text = [[item[@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0];
+    }
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     if (pictureUrlString && pictureUrlString != (NSString *)[NSNull null]) {
         [cell.userProfilePicture setImageWithURL:[NSURL URLWithString:pictureUrlString]];
