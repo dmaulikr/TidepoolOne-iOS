@@ -4962,7 +4962,7 @@
 				ORGANIZATIONNAME = "Mayank Sanganeria";
 				TargetAttributes = {
 					A82F6A2117947064003FC088 = {
-						DevelopmentTeam = 232HCB982K;
+						DevelopmentTeam = WJF827NGCC;
 					};
 					A82F6A4517947064003FC088 = {
 						TestTargetID = A82F6A2117947064003FC088;
@@ -6455,7 +6455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Vamsee Nalamothu (7N5U35L94Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
@@ -6469,6 +6469,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E3ABEAEF-38ED-40BE-B10E-4BA96218ED3D";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -6480,8 +6481,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
