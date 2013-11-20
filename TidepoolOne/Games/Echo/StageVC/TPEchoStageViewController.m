@@ -42,7 +42,16 @@
     self.handImageView.image = [UIImage imageNamed:@"ic-stophand-white.png"];
     self.countdownLabel.hidden = YES;
     
+//    //TODO: DEBUG
+//    self.gameVC.instructionMode = YES;
+    
     self.instructionContainerView.hidden = !self.gameVC.instructionMode;
+    
+    if (self.instructionContainerView.hidden) {
+        self.instructionContainerView.transform = CGAffineTransformMakeScale(1, 0);
+    }
+    
+    
 }
 
 -(void)setReverseMode:(BOOL)reverseMode
@@ -94,9 +103,9 @@
         circle.color = colors[i];
         circle.pitch = pitches[i];
         float theta = 2.0*M_PI * i / numCircles;
-        CGPoint point = CGPointMake(self.view.center.x + radius*cosf(theta), self.view.center.y + radius*sinf(theta));
+        CGPoint point = CGPointMake(self.circlesContainerView.bounds.size.width/2 + radius*cosf(theta), self.circlesContainerView.bounds.size.height/2 + radius*sinf(theta));
         circle.center = point;
-        [self.view addSubview:circle];
+        [self.circlesContainerView addSubview:circle];
         [_circles addObject:circle];
     }
     [self generatePattern];
@@ -132,7 +141,6 @@
 
 -(void)playPattern:(NSArray *)pattern tillIndex:(int) index
 {
-    self.instructionContainerView.transform = CGAffineTransformMakeTranslation(0, 0);
     if (self.gameVC.instructionMode) {
         self.instructionContainerView.hidden = self.instructionLabel.hidden = (index > 3);
     }
@@ -190,7 +198,7 @@
             self.instructionLabel.text = @"Oops, you hit the wrong circle. Game over.";
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
             UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"echo-gameover2.png"]];
-            imgView.center = self.view.center;
+            imgView.center = self.circlesContainerView.center;
             imgView.userInteractionEnabled = YES;
             [self.view addSubview:imgView];
             [imgView addGestureRecognizer:tap];
@@ -199,7 +207,7 @@
             self.instructionLabel.text = @"Oops, you hit the wrong circle. Let's go to the next stage.";
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
             UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"echo-gameover1.png"]];
-            imgView.center = self.view.center;
+            imgView.center = self.circlesContainerView.center;
             imgView.userInteractionEnabled = YES;
             [self.view addSubview:imgView];
             [imgView addGestureRecognizer:tap];

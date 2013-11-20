@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *handImageView;
 @property (weak, nonatomic) IBOutlet TPLabel *instructionLabel;
 @property (weak, nonatomic) IBOutlet UIView *instructionContainerView;
+@property (weak, nonatomic) IBOutlet UIView *circlesContainerView;
 
 @end

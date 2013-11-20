@@ -134,7 +134,7 @@
     //Analytics
     [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"FaceOff"}];
 #endif
-    NSString *message = [NSString stringWithFormat:@"I am the %@, scoring %i. Play FaceOff and find what you are!", self.badgeTitle.text, self.score];
+    NSString *message = [NSString stringWithFormat:@"I just played FaceOff and I'm %@, scoring %i! Can you do better?", self.badgeTitle.text, self.score];
     NSURL *url = [NSURL URLWithString:APP_LINK];
     
     NSArray *postItems = @[message, url];

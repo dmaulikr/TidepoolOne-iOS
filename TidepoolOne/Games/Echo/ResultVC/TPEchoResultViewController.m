@@ -67,7 +67,7 @@
     //Analytics
     [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"Echo"}];
 #endif
-    NSString *message = [NSString stringWithFormat:@"I just scored %@ on Echo! Can you do better?", self.scoreLabel.text];
+    NSString *message = [NSString stringWithFormat:@"I just played Echo and I'm a %@, scoring %@! Can you do better?", self.badgeTitleLabel.text, self.scoreLabel.text];
     NSURL *url = [NSURL URLWithString:APP_LINK];
     
     NSArray *postItems = @[message, url];

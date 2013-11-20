@@ -90,7 +90,7 @@
     //Analytics
     [[Mixpanel sharedInstance] track:@"Share" properties:@{@"item": @"Snoozer"}];
 #endif
-    NSString *message = [NSString stringWithFormat:@"I just scored %@ on Snoozer! Can you do better?", self.currentFastestTime.text];
+    NSString *message = [NSString stringWithFormat:@"I just played Snoozer and I'm a %@, scoring %@! Can you do better?", self.animalLabel.text, self.currentFastestTime.text];
     NSURL *url = [NSURL URLWithString:APP_LINK];
     
     NSArray *postItems = @[message, url];
