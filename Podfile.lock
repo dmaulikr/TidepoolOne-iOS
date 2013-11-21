@@ -7,6 +7,7 @@ PODS:
   - LAWalkthrough (1.0.0)
   - MBProgressHUD (0.8)
   - Mixpanel (2.0.2)
+  - NewRelicAgent (1.376)
   - NullSafe (1.2)
   - RHAddressBook (1.0.2)
   - SBJson (3.2)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - LAWalkthrough
   - MBProgressHUD
   - Mixpanel
+  - NewRelicAgent
   - NullSafe
   - RHAddressBook
   - SBJson
@@ -43,9 +45,10 @@ SPEC CHECKSUMS:
   LAWalkthrough: 01dae086c1dd166b5afe9816763414e3512b3fea
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
   Mixpanel: 7829ba2cc58d251a4674520109e9bfead76acc98
+  NewRelicAgent: 10ee6cd70c8b58d1abb9d6cc09862f1abe5db8b0
   NullSafe: ec359e864f3b8d9c2d81aaa2bdbac8280bba1be2
   RHAddressBook: 64f78a4058e0a7849275c970bf19fe195edf94d0
-  SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
+  SBJson: abc2bf2baef456d5dae213f9826fe2b6fdf19861
   SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
   TestFlightSDK: 940906d4b2550cf397c6f2d2fcc4ebfdcd8ae858
   UrbanAirship-iOS-SDK: 2c57f0162d51520cf3181d15825fbd04f6283b25
