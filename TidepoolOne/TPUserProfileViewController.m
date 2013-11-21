@@ -104,6 +104,7 @@
         self.blurbView.hidden = self.friendsButton.hidden = NO;
     } else if ([_user[@"friend_status"] isEqualToString:@"not_friend"]) {
         self.addToFriendButton.hidden = NO;
+        self.personalityBadgeView.image = [UIImage imageNamed:@"badge-private.png"];
     } else if ([_user[@"friend_status"] isEqualToString:@"pending"]) {
         self.addToFriendButton.hidden = NO;
         self.addToFriendButton.selected = YES;
