@@ -61,28 +61,28 @@
 -(void)applyUserToView
 {
     if (!_user) return;
-    NSDictionary *personality = _user[@"personality"];
+    NSDictionary *personality = _user.personality;
     if (personality && personality != (NSDictionary *)[NSNull null] && [personality allKeys].count > 1) { // hack - why is personality returning a dictionary at all?
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         _personalityBadgeView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
         _blurbView.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
         _personalityLabelView.text = [personality[@"profile_description"][@"name"] uppercaseString];        
     }
-    if (_user[@"image"] && _user[@"image"] != [NSNull null]) {
-        [_profilePictureView setImageWithURL:[NSURL URLWithString:_user[@"image"]]];
+    if (_user.image && _user.image != [NSNull null]) {
+        [_profilePictureView setImageWithURL:[NSURL URLWithString:_user.image]];
     }
     
-    if (_user[@"name"] && _user[@"name"] != [NSNull null]) {
-        _usernameView.text = _user[@"name"];
+    if (_user.name && _user.name != [NSNull null]) {
+        _usernameView.text = _user.name;
     } else {
-        _usernameView.text = [[_user[@"email"] componentsSeparatedByString:@"@"] objectAtIndex:0];
+        _usernameView.text = [[_user.email componentsSeparatedByString:@"@"] objectAtIndex:0];
     }
 
     
     NSArray *invalidTypes = @[@"SleepAggregateResult", @"ActivityAggregateResult"];
     NSMutableArray *validAggregateResults = [@[] mutableCopy];
     
-    for (NSDictionary *result in _user[@"aggregate_results"]) {
+    for (NSDictionary *result in _user.aggregateResults) {
         if (![invalidTypes containsObject:result[@"type"]]) {
             [validAggregateResults addObject:result];
         }
@@ -91,8 +91,8 @@
 
     self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.blurbView.hidden = self.friendsButton.hidden = self.addToFriendButton.hidden = self.pendingFriendLabel.hidden = YES;
     
-    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
-        if ([[user[@"id"] description] isEqualToString:[self.user[@"id"] description]]) {
+    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
+        if ([[user.id description] isEqualToString:[self.user.id description]]) {
             self.addToFriendButton.hidden = self.friendsButton.hidden = YES;
             self.blurbView.hidden = NO;
         }
@@ -100,15 +100,15 @@
     }];
     
     
-    if ([_user[@"friend_status"] isEqualToString:@"friend"]) {
+    if ([_user.friendStatus isEqualToString:@"friend"]) {
         self.blurbView.hidden = self.friendsButton.hidden = NO;
-    } else if ([_user[@"friend_status"] isEqualToString:@"not_friend"]) {
+    } else if ([_user.friendStatus isEqualToString:@"not_friend"]) {
         self.addToFriendButton.hidden = NO;
         self.personalityBadgeView.image = [UIImage imageNamed:@"badge-private.png"];
-    } else if ([_user[@"friend_status"] isEqualToString:@"pending"]) {
+    } else if ([_user.friendStatus isEqualToString:@"pending"]) {
         self.addToFriendButton.hidden = NO;
         self.addToFriendButton.selected = YES;
-    } else if ([_user[@"friend_status"] isEqualToString:@"invited_by"]) {
+    } else if ([_user.friendStatus isEqualToString:@"invited_by"]) {
         self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.pendingFriendLabel.hidden = NO;
     }
     [self.tableView reloadData];
@@ -177,7 +177,7 @@
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading...";
-    [[TPOAuthClient sharedClient] getUserInfoWithId:self.userId withCompletionHandlersSuccess:^(NSDictionary *user) {
+    [[TPOAuthClient sharedClient] getUserInfoWithId:self.userId withCompletionHandlersSuccess:^(TPUser *user) {
         self.user = user;
         [self applyUserToView];
         [hud hide:YES];

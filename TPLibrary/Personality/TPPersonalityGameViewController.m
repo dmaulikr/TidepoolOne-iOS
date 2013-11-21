@@ -192,7 +192,7 @@
     [[Mixpanel sharedInstance] track:@"Personality Game Success"];
 #endif
     _messageLabel.text = @"Personality Game finished successfully";
-    [_oauthClient forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
+    [_oauthClient forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(TPUser *user) {
     } andFailure:^{
     }];
     [self.delegate personalityGameIsDone:self successfully:YES];

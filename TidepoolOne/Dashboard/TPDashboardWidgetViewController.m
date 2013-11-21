@@ -54,7 +54,7 @@
     } andFailure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failureBlock();
     }];
-    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
+    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(TPUser *user) {
         self.user = user;
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 2) {

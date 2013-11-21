@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSString *path = [NSString stringWithFormat:@"/auth/new?user_id=%@&provider=fitbit", _oauthClient.user[@"id"]];
+    NSString *path = [NSString stringWithFormat:@"/auth/new?user_id=%@&provider=fitbit", _oauthClient.user.id];
     NSURLRequest *request = [_oauthClient requestWithMethod:@"get" path:path parameters:nil];
     [_webView loadRequest:request];
     _webView.delegate = self;

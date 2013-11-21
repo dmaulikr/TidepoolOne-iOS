@@ -72,9 +72,9 @@
 {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading...";
-    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
         [hud hide:YES];
-        NSDictionary *personality = user[@"personality"];
+        NSDictionary *personality = user.personality;
         if (!personality || personality == (NSDictionary *)[NSNull null]) {
             [self showPersonalityGame];
         }

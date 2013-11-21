@@ -16,7 +16,7 @@
     int _numServerCallsCompleted;
     UIImageView *_legendView;
     TPCircadianTooltipView *_tooltipView;
-    NSDictionary *_user;
+    TPUser *_user;
 }
 @end
 
@@ -76,12 +76,12 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(TPUser *)user
 {
     _user = user;
     if (_user) {
         @try {
-            NSArray *aggregateResults = _user[@"aggregate_results"];
+            NSArray *aggregateResults = _user.aggregateResults;
             if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
                 NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
                 NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];

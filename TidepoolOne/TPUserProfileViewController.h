@@ -13,7 +13,7 @@
 @property (strong, nonatomic) NSString *userId;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) NSDictionary *user;
+@property (strong, nonatomic) TPUser *user;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *profileView;
 

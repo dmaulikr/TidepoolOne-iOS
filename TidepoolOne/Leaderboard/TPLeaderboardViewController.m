@@ -115,8 +115,8 @@
     }
     cell.userProfilePicture.layer.cornerRadius = cell.userProfilePicture.bounds.size.width / 2;
     cell.userProfilePicture.layer.masksToBounds = YES;
-    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
-        cell.isSelf = ([[item[@"id"] description] isEqualToString:[user[@"id"] description]]);
+    [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
+        cell.isSelf = ([[item[@"id"] description] isEqualToString:[user.id description]]);
     } andFailure:^{
     }];
     return cell;

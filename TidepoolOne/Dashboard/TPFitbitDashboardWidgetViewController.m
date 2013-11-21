@@ -12,7 +12,7 @@
 
 @interface TPFitbitDashboardWidgetViewController()
 {
-    NSDictionary *_user;
+    TPUser *_user;
     int _numServerCallsCompleted;
     TPOAuthClient *_oauthClient;
     __block NSTimer *_pollTimeoutTimer;
@@ -71,8 +71,8 @@
 -(void)refreshFitbitConnectedness
 {
     // TODO: create method on oauthclient that will get used and run code
-    NSDictionary *user = [TPOAuthClient sharedClient].user;
-    NSArray *authentications = user[@"authentications"];
+    TPUser *user = [TPOAuthClient sharedClient].user;
+    NSArray *authentications = user.authentications;
     self.isConnected = NO;
     for (NSDictionary *item in authentications) {
         if ([item[@"provider"] isEqualToString:@"fitbit"]) {
@@ -116,13 +116,13 @@
 }
 
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(TPUser *)user
 {
     _user = user;
     if (_user) {
         [self refreshFitbitConnectedness];
         @try {
-            NSArray *aggregateResults = _user[@"aggregate_results"];
+            NSArray *aggregateResults = _user.aggregateResults;
             if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
                 NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
                 NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
@@ -163,7 +163,7 @@
     }
 }
 
--(NSDictionary *)user
+-(TPUser *)user
 {
     return _user;
 }
@@ -181,7 +181,7 @@
     _numServerCallsCompleted = 0;    
     NSLog(@"refresh weekly data - start");
     // NEW WAY - DOESNT WORK - INFINITELY CALLED.. PROBABLY AN ISSUE WITH BLOCK VARIABLES//
-    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(NSDictionary *user) {
+    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(TPUser *user) {
         self.user = user;
         _numServerCallsCompleted++;
         if (_numServerCallsCompleted == 1) {

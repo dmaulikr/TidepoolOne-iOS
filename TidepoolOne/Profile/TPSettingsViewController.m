@@ -57,7 +57,7 @@
         }
     }
     self.tableView.tableHeaderView = _headerView;
-    [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+    [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
         _fieldValues = [@{@"name":@"",@"email":@"",@"age":@"",@"education":@"",@"connections":@[@"fitbit"],@"handedness":@"",@"gender":@"",@"about":@[@"Terms & Conditions",@"Privacy Policy",@"Attribution"]} mutableCopy];
         _connections = [@[] mutableCopy];
         [self loadData];
@@ -159,27 +159,27 @@
 
 -(void)loadData
 {
-    NSDictionary *user = _oauthClient.user;
-    if (user[@"date_of_birth"] != [NSNull null]) {
+    TPUser *user = _oauthClient.user;
+    if (user.dateOfBirth != [NSNull null]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy-mm-dd"];
-        NSDate *dob = [dateFormatter dateFromString:user[@"date_of_birth"]];
+        NSDate *dob = [dateFormatter dateFromString:user.dateOfBirth];
         long long age = [[NSDate date] timeIntervalSinceDate:dob] / 3.15569e7;
         [_fieldValues setObject:[NSString stringWithFormat:@"%lld",age] forKey:@"age"];
     }
     
     NSArray *keys = @[@"name",@"email",@"education",@"handedness",@"gender",];
     for (NSString *key in keys) {
-        if (user[key] != [NSNull null]) {
-            [_fieldValues setObject:user[key] forKey:key];
+        if (user.userDictionary[key] != [NSNull null]) {
+            [_fieldValues setObject:user.userDictionary[key] forKey:key];
         }
     }
-    if (user[@"image"] != [NSNull null]) {
-        [_headerView.profilePicture setImageWithURL:[NSURL URLWithString:user[@"image"]]];
+    if (user.image != [NSNull null]) {
+        [_headerView.profilePicture setImageWithURL:[NSURL URLWithString:user.image]];
     } else {
         _headerView.profilePicture.image = [UIImage imageNamed:@"default-profile-pic.png"];
     }
-    NSArray *authentications = user[@"authentications"];
+    NSArray *authentications = user.authentications;
     for (NSDictionary *authentication in authentications) {
         [_connections addObject:authentication[@"provider"]];
     }
@@ -206,7 +206,7 @@
     [params setValue:@1 forKey:@"is_dob_by_age"];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Saving...";
-    [_oauthClient updateUserWithParameters:params withCompletionHandlersSuccess:^(NSDictionary *user) {
+    [_oauthClient updateUserWithParameters:params withCompletionHandlersSuccess:^(TPUser *user) {
         hud.mode = MBProgressHUDModeText;
         hud.labelText = @"Done";
         [hud hide:YES afterDelay:2.0];
@@ -340,7 +340,7 @@
             TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
             webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.tidepool.co/toc.html"]];
             [self.navigationController pushViewController:webViewVC animated:YES];
-        } else if ([field isEqualToString:@"Atttibution"]) {
+        } else if ([field isEqualToString:@"Attribution"]) {
             TPWebViewController *webViewVC = [[TPWebViewController alloc] init];
             webViewVC.request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:@"http://www.tidepool.co/attribution.html"]];
             [self.navigationController pushViewController:webViewVC animated:YES];

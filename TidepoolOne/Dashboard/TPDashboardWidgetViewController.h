@@ -10,7 +10,7 @@
 
 @interface TPDashboardWidgetViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, nonatomic) NSDictionary *user;
+@property (strong, nonatomic) TPUser *user;
 @property (strong, nonatomic) NSString *type;
 @property (strong, nonatomic) NSMutableArray *results;
 @property (strong, nonatomic) NSString *badgePrefix;

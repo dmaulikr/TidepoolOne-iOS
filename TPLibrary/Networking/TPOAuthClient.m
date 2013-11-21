@@ -70,16 +70,17 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     return self;
 }
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(NSDictionary *)userDictionary
 {
-    _user = user;
-    if (user) {
+    _user = [[TPUser alloc] init];
+    _user.userDictionary = userDictionary;
+    if (userDictionary) {
         NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
-        if (pushToken && ![user[@"ios_device_token"] isEqualToString:pushToken]) {
+        if (pushToken && ![_user.iosDeviceToken isEqualToString:pushToken]) {
             [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
             } andFailure:^{
             }];
-    }
+        }
     }
 }
 
@@ -263,7 +264,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 #pragma mark API methods
 
--(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
+-(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock;
 {
     if (self.user) {
         successBlock(self.user);
@@ -271,7 +272,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         [self forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:successBlock andFailure:failureBlock];
     }
 }
--(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
+-(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock;
 {
     NSLog(@"GET USER INFO");
     // TODO: add failure Blocks
@@ -286,7 +287,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
             _isGettingUser = NO;
             for (id item in _userCompletionBlocks) {
                 NSLog(@"running item off array");
-                void (^block)(NSDictionary *user);
+                void (^block)(TPUser *user);
                 block = item;
                 block(self.user);
             }
@@ -313,7 +314,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 
 #pragma mark API methods - self user
--(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock
+-(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:[NSString stringWithFormat:@"api/v1/users/%@/", userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock(responseObject[@"data"]);

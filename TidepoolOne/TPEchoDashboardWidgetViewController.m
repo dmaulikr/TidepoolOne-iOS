@@ -18,7 +18,7 @@
     UIImageView *_legendView;
     TPCircadianTooltipView *_tooltipView;
     BOOL _gettingMoreResults;
-    NSDictionary *_user;    
+    TPUser *_user;
 }
 @end
 
@@ -114,12 +114,12 @@
     return cell;
 }
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(TPUser *)user
 {
     _user = user;
     if (_user) {
         @try {
-            NSArray *aggregateResults = _user[@"aggregate_results"];
+            NSArray *aggregateResults = _user.aggregateResults;
             if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
                 NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"AttentionAggregateResult" fromArray:aggregateResults];
                 NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];
@@ -144,7 +144,7 @@
     }
 }
 
--(NSDictionary *)user
+-(TPUser *)user
 {
     return _user;
 }

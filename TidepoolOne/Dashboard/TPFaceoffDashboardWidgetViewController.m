@@ -13,7 +13,7 @@
 {
     int _numServerCallsCompleted;
     NSArray *_emotions;
-    NSDictionary *_user;    
+    TPUser *_user;
 }
 @end
 
@@ -38,7 +38,7 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     _emotions = @[@"happy",@"sad",@"angry",@"surprised",@"disgusted",@"afraid",@"neutral"];
     
-    self.user=self.user;
+    self.user = self.user;
     [self setTextForEmotion:@"happy"];
 }
 
@@ -57,12 +57,12 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(TPUser *)user
 {
     _user = user;
     if (_user) {
         @try {
-            NSArray *aggregateResults = _user[@"aggregate_results"];
+            NSArray *aggregateResults = _user.aggregateResults;
             if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
                 NSDictionary *emoAggregateResult = [self getAggregateScoreOfType:@"EmoAggregateResult" fromArray:aggregateResults];
                 self.allTimeBestLabel.text = emoAggregateResult[@"high_scores"][@"all_time_best"];
@@ -79,7 +79,7 @@
     }
 }
 
--(NSDictionary *)user
+-(TPUser *)user
 {
     return _user;
 }

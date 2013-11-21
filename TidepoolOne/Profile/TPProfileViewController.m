@@ -138,13 +138,13 @@
     return 0;
 }
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(TPUser *)user
 {
     BOOL hasData = NO;
     NSDictionary *personality;
     _user = user;
     if (_user) {
-        personality = _user[@"personality"];
+        personality = _user.personality;
         if (personality && (personality != (NSDictionary *)[NSNull null])) {
             hasData = YES;
         }
@@ -161,11 +161,11 @@
         [paragraphs removeObject:@""];
         self.paragraphs = paragraphs;
         
-        NSString *name = [_user valueForKey:@"name"];
+        NSString *name = _user.name;
         if (name != (NSString *)[NSNull null] && [name length] != 0 && name) {
-            profileHeaderView.nameLabel.text = _user[@"name"];
+            profileHeaderView.nameLabel.text = _user.name;
         } else {
-            profileHeaderView.nameLabel.text = _user[@"email"];
+            profileHeaderView.nameLabel.text = _user.email;
         }
         profileHeaderView.badgeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
         profileHeaderView.personalityTypeLabel.text = [personality[@"profile_description"][@"name"] uppercaseString];
@@ -259,7 +259,7 @@
     if (!self.user) { //for cases when oauthclient is still loading user data
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.labelText = @"Loading...";
-        [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(NSDictionary *user) {
+        [_oauthClient getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
             self.user = user;
             [hud hide:YES];            
         } andFailure:^{
@@ -325,7 +325,7 @@
     BOOL hasData = NO;
     NSDictionary *personality;
     if (_user) {
-        personality = _user[@"personality"];
+        personality = _user.personality;
         if (personality && (personality != (NSDictionary *)[NSNull null])) {
             hasData = YES;
         }

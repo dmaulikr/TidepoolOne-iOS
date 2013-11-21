@@ -10,7 +10,7 @@
 
 @interface TPOAuthClient : AFHTTPClient
 
-@property (strong, nonatomic) NSDictionary *user;
+@property (strong, nonatomic) TPUser *user;
 @property (assign, nonatomic) BOOL isLoggedIn;
 @property (assign, nonatomic) BOOL hasOauthToken;
 
@@ -32,12 +32,12 @@
 -(void)logout;
 
 #pragma mark API methods - self user
--(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
--(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
+-(void)getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock;
+-(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock;
 -(void)updateUserWithParameters:(NSDictionary *)parameters withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
 
 #pragma mark API methods - other users
--(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(NSDictionary *user))successBlock andFailure:(void(^)())failureBlock;
+-(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock;
 
 
 #pragma mark API methods - games

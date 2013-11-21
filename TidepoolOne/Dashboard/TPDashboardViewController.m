@@ -163,10 +163,10 @@
     cell.labels = _labels[cell.name];
     cell.bottomLabels = _bottomLabels[cell.name];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    NSDictionary *user = [TPOAuthClient sharedClient].user;
+    TPUser *user = [TPOAuthClient sharedClient].user;
     
     if (user) {
-        NSArray *aggregateResults = user[@"aggregate_results"];
+        NSArray *aggregateResults = user.aggregateResults;
         NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
         NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
         NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
