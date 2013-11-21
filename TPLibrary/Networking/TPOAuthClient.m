@@ -507,6 +507,10 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     _errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:message delegate:nil cancelButtonTitle:nil otherButtonTitles:@"Ok", nil];
     _errorAlert.delegate = self;
     [_errorAlert show];
+#ifndef DEBUG
+    //Analytics
+    [[Mixpanel sharedInstance] track:@"Error" properties:@{@"message": message}];
+#endif
     [[NSNotificationCenter defaultCenter] postNotificationName:@"OAuthClient error" object:nil];
 }
 
