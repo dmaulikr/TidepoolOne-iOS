@@ -15,6 +15,7 @@
 #import <UAConfig.h>
 #import <UAPush.h>
 #import "TPDeepLinkManager.h"
+#import <Crashlytics/Crashlytics.h>
 
 NSString *const FBSessionStateChangedNotification =
 @"com.TidePool.TidepoolOne:FBSessionStateChangedNotification";
@@ -25,7 +26,7 @@ NSString *const FBSessionStateChangedNotification =
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [Mixpanel sharedInstanceWithToken:@"d66bffcec658e942b00c61da53593578"];
-    
+    [Crashlytics startWithAPIKey:@"9f8541995b58309d5b2b3052d5446a21c880f2eb"];
     id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-43075789-1"];
     NSLog(@"%@", [tracker description]);
     

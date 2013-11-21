@@ -1266,6 +1266,7 @@
 		A8BABAB017E2645900A3C95B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAAF17E2645900A3C95B /* MobileCoreServices.framework */; };
 		A8BABAB217E2645F00A3C95B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */; };
 		A8BABAB517E26A1D00A3C95B /* TPPersonalityGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */; };
+		A8C2946A183EAB13002235DF /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C29469183EAB13002235DF /* Crashlytics.framework */; };
 		A8D439A3180DF29B0086C223 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D439A2180DF29B0086C223 /* LineLayout.m */; };
 		A8D439A9180DF69C0086C223 /* TPPercentageDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D439A8180DF69C0086C223 /* TPPercentageDrawView.m */; };
 		A8DDA9FA181B0F7900589642 /* 0.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8DDA9DA181B0F7900589642 /* 0.wav */; };
@@ -2665,6 +2666,7 @@
 		A8BABAB117E2645F00A3C95B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A8BABAB317E26A1D00A3C95B /* TPPersonalityGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPersonalityGameViewController.h; sourceTree = "<group>"; };
 		A8BABAB417E26A1D00A3C95B /* TPPersonalityGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPersonalityGameViewController.m; sourceTree = "<group>"; };
+		A8C29469183EAB13002235DF /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A8D439A1180DF29B0086C223 /* LineLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLayout.h; sourceTree = "<group>"; };
 		A8D439A2180DF29B0086C223 /* LineLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLayout.m; sourceTree = "<group>"; };
 		A8D439A7180DF69C0086C223 /* TPPercentageDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPPercentageDrawView.h; sourceTree = "<group>"; };
@@ -2734,6 +2736,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A84BBA9B181214E1007B1B77 /* MessageUI.framework in Frameworks */,
+				A8C2946A183EAB13002235DF /* Crashlytics.framework in Frameworks */,
 				A866655A17FE29AC001D1622 /* CoreTelephony.framework in Frameworks */,
 				A866655817FE29A4001D1622 /* AdSupport.framework in Frameworks */,
 				A866655617FE299F001D1622 /* Accelerate.framework in Frameworks */,
@@ -2820,6 +2823,7 @@
 		A82F6A2417947064003FC088 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A8C29469183EAB13002235DF /* Crashlytics.framework */,
 				A84BBA9A181214E1007B1B77 /* MessageUI.framework */,
 				A866655917FE29AC001D1622 /* CoreTelephony.framework */,
 				A866655717FE29A4001D1622 /* AdSupport.framework */,
@@ -4923,6 +4927,7 @@
 				A82F6A1F17947064003FC088 /* Frameworks */,
 				A82F6A2017947064003FC088 /* Resources */,
 				B5B2ED9206A24E47A923BF65 /* Copy Pods Resources */,
+				A8C29468183EAAB8002235DF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -6228,6 +6233,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		A8C29468183EAAB8002235DF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run 9f8541995b58309d5b2b3052d5446a21c880f2eb";
+		};
 		B5B2ED9206A24E47A923BF65 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -6457,6 +6475,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Vamsee Nalamothu (7N5U35L94Y)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mayank/Developer/TidepoolOne-iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -6483,6 +6505,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Vamsee Nalamothu (WJF827NGCC)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/mayank/Developer/TidepoolOne-iOS",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TidepoolOne/TidepoolOne-Prefix.pch";
 				INFOPLIST_FILE = "TidepoolOne/TidepoolOne-Info.plist";
