@@ -153,7 +153,9 @@
                     break;
                 case 1://facebook
                 {
-                    if ([FBDialogs canPresentShareDialogWithParams:nil]) {
+                    FBShareDialogParams *p = [[FBShareDialogParams alloc] init];
+                    p.link = [NSURL URLWithString:@"http://developers.facebook.com/ios"];
+                    if ([FBDialogs canPresentShareDialogWithParams:p]) {
                         [FBDialogs presentShareDialogWithLink:[NSURL URLWithString:APP_LINK] name:@"TidePool on iOS" caption:@"Download TidePool!" description:@"Get the TidePool app here!" picture:nil clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
                             if (error) {
                                 NSLog([error description]);
