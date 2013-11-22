@@ -239,17 +239,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPFindFriendsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    TPUser *friend = [[TPUser alloc] init];
+    TPUser *friend;
     switch (self.findFriendsMode) {
         case TPFindFriendsViewModeContacts:
         {
-            friend.userDictionary = _foundEmailFriends[indexPath.row];
+            friend = _foundEmailFriends[indexPath.row];
             cell.addButton.selected = [_selectedEmailFriends containsObject:friend];
         }
             break;
         case TPFindFriendsViewModeFacebook:
         {
-            friend.userDictionary = _foundFacebookFriends[indexPath.row];
+            friend = _foundFacebookFriends[indexPath.row];
             cell.addButton.selected = [_selectedFacebookFriends containsObject:friend];
         }
             break;
@@ -273,8 +273,7 @@
     switch (self.findFriendsMode) {
         case TPFindFriendsViewModeContacts:
         {
-            TPUser *friend = [[TPUser alloc] init];
-            friend.userDictionary = _foundEmailFriends[indexPath.row];
+            TPUser *friend = _foundEmailFriends[indexPath.row];
             if ([_selectedEmailFriends containsObject:friend]) {
                 [_selectedEmailFriends removeObject:friend];
             } else {
@@ -284,8 +283,7 @@
             break;
         case TPFindFriendsViewModeFacebook:
         {
-            TPUser *friend = [[TPUser alloc] init];
-            friend.userDictionary = _foundEmailFriends[indexPath.row];
+            TPUser *friend = _foundFacebookFriends[indexPath.row];
             if ([_selectedFacebookFriends containsObject:friend]) {
                 [_selectedFacebookFriends removeObject:friend];
             } else {
@@ -302,16 +300,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TPUser *friend = [[TPUser alloc] init];
+    TPUser *friend;
     switch (self.findFriendsMode) {
         case TPFindFriendsViewModeContacts:
         {
-            friend.userDictionary = _foundEmailFriends[indexPath.row];
+            friend = _foundEmailFriends[indexPath.row];
         }
             break;
         case TPFindFriendsViewModeFacebook:
         {
-            friend.userDictionary = _foundFacebookFriends[indexPath.row];
+            friend = _foundFacebookFriends[indexPath.row];
         }
             break;
         default:

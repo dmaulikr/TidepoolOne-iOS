@@ -89,9 +89,9 @@
     TPFriendListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *friend = _friends[indexPath.row];
-    cell.nameLabel.text = friend[@"name"];
-    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    TPUser *friend = _friends[indexPath.row];
+    cell.nameLabel.text = friend.name;
+    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend.image]];
     cell.profilePictureView.layer.cornerRadius = cell.profilePictureView.bounds.size.height  / 2;
     cell.profilePictureView.clipsToBounds = YES;
     return cell;
@@ -107,7 +107,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        NSDictionary *friend = _friends[indexPath.row];
+        TPUser *friend = _friends[indexPath.row];
         [_friends removeObjectAtIndex:indexPath.row];
         [_deletedFriends addObject:friend];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -116,9 +116,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *friend = _friends[indexPath.row];
+    TPUser *friend = _friends[indexPath.row];
     TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
-    vc.userId = friend[@"id"];
+    vc.userId = friend.id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

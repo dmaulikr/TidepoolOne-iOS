@@ -98,9 +98,9 @@
     TPPendingFriendListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    NSDictionary *friend = _friends[indexPath.row];
-    cell.nameLabel.text = friend[@"email"];
-    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    TPUser *friend = _friends[indexPath.row];
+    cell.nameLabel.text = friend.email;
+    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend.image]];
     cell.profilePictureView.layer.cornerRadius = cell.profilePictureView.bounds.size.height / 2;
     cell.profilePictureView.clipsToBounds = YES;
     cell.acceptButton.tag = cell.declineButton.tag = TAG_OFFSET + indexPath.row;
@@ -125,7 +125,7 @@
 -(void)acceptFriend:(UIButton *)sender
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag - TAG_OFFSET inSection:0];
-    NSDictionary *friend = _friends[indexPath.row];
+    TPUser *friend = _friends[indexPath.row];
     [_rejectedFriends removeObject:friend];
     if ([_acceptedFriends containsObject:friend]) {
         [_acceptedFriends removeObject:friend];
@@ -139,7 +139,7 @@
 -(void)rejectFriend:(UIButton *)sender
 {
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:sender.tag - TAG_OFFSET inSection:0];
-    NSDictionary *friend = _friends[indexPath.row];
+    TPUser *friend = _friends[indexPath.row];
     [_acceptedFriends removeObject:friend];
     if ([_rejectedFriends containsObject:friend]) {
         [_rejectedFriends removeObject:friend];
@@ -151,9 +151,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *friend = _friends[indexPath.row];
+    TPUser *friend = _friends[indexPath.row];
     TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
-    vc.userId = friend[@"id"];
+    vc.userId = friend.id;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

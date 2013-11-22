@@ -11,8 +11,8 @@
 #import <SSKeychain/SSKeychain.h>
 #import "TPLoginViewController.h"
 
-NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
-//NSString * const kBaseURLString = @"https://api.tidepool.co";
+//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+NSString * const kBaseURLString = @"https://api.tidepool.co";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
@@ -375,7 +375,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)findFriendsWithEmail:(NSArray *)emailList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"email":emailList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successBlock(responseObject[@"data"]);
+        successBlock([self arrayOfUsersFromArrayOfDictionaries:responseObject[@"data"]]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not find friends"];
         failureBlock();
@@ -384,7 +384,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)findFriendsWithFacebookIds:(NSArray *)facebookIdList WithCompletionHandlersSuccess:(void(^)(NSArray *newUsers))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:@"api/v1/users/-/friends/find" parameters:@{@"fbid":facebookIdList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successBlock(responseObject[@"data"]);
+        successBlock([self arrayOfUsersFromArrayOfDictionaries:responseObject[@"data"]]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not find friends"];
         failureBlock();
@@ -393,15 +393,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)inviteFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
-    for (id friend in friendList) {
-        if ([friend isKindOfClass:[TPUser class]]) {
-            TPUser *user = (TPUser *)friend;
-            [friendListOfDictionaries addObject:user.userDictionary];
-        } else if ([friend isKindOfClass:[NSDictionary class]]) {
-            [friendListOfDictionaries addObject:friend];
-        }
-    }
+    NSArray *friendListOfDictionaries = [self arrayOfDictionariesFromArrayOfUsers:friendList];
     [self postPath:@"api/v1/users/-/friends/invite" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -413,7 +405,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)getPendingFriendListWithOffset:(NSNumber *)offset Limit:(NSNumber *)limit WithCompletionHandlersSuccess:(void(^)(NSArray *pendingList))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:@"api/v1/users/-/friends/pending" parameters:@{@"offset":offset,@"limit":limit} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successBlock(responseObject[@"data"]);
+        successBlock([self arrayOfUsersFromArrayOfDictionaries:responseObject[@"data"]]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not invite friends"];
         failureBlock();
@@ -422,15 +414,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)acceptPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
-    for (id friend in friendList) {
-        if ([friend isKindOfClass:[TPUser class]]) {
-            TPUser *user = (TPUser *)friend;
-            [friendListOfDictionaries addObject:user.userDictionary];
-        } else if ([friend isKindOfClass:[NSDictionary class]]) {
-            [friendListOfDictionaries addObject:friend];
-        }
-    }
+    NSArray *friendListOfDictionaries = [self arrayOfDictionariesFromArrayOfUsers:friendList];
     [self postPath:@"api/v1/users/-/friends/accept" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -441,15 +425,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)rejectPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
-    for (id friend in friendList) {
-        if ([friend isKindOfClass:[TPUser class]]) {
-            TPUser *user = (TPUser *)friend;
-            [friendListOfDictionaries addObject:user.userDictionary];
-        } else if ([friend isKindOfClass:[NSDictionary class]]) {
-            [friendListOfDictionaries addObject:friend];
-        }
-    }
+    NSArray *friendListOfDictionaries = [self arrayOfDictionariesFromArrayOfUsers:friendList];
     [self postPath:@"api/v1/users/-/friends/reject" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -462,7 +438,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)getFriendListWithOffset:(NSNumber *)offset Limit:(NSNumber *)limit WithCompletionHandlersSuccess:(void(^)(NSArray *pendingList))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:@"api/v1/users/-/friends" parameters:@{@"offset":offset,@"limit":limit} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successBlock(responseObject[@"data"]);
+        successBlock([self arrayOfUsersFromArrayOfDictionaries:responseObject[@"data"]]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not invite friends"];
         failureBlock();
@@ -472,16 +448,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)unfriendFriends:(NSArray *)friendList withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
-    for (id friend in friendList) {
-        if ([friend isKindOfClass:[TPUser class]]) {
-            TPUser *user = (TPUser *)friend;
-            [friendListOfDictionaries addObject:user.userDictionary];
-        } else if ([friend isKindOfClass:[NSDictionary class]]) {
-            [friendListOfDictionaries addObject:friend];
-        }
-    }
-    [self postPath:@"api/v1/users/-/friends/unfriend" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSArray *friendListOfDictionaries = [self arrayOfDictionariesFromArrayOfUsers:friendList];    [self postPath:@"api/v1/users/-/friends/unfriend" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not accept friends"];
@@ -570,6 +537,31 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     _errorAlert = nil;
+}
+
+-(NSArray *)arrayOfDictionariesFromArrayOfUsers:(NSArray *)userArray
+{
+    NSMutableArray *arrayOfDictionaries = [@[] mutableCopy];
+    for (id friend in userArray) {
+//        if ([friend isKindOfClass:[TPUser class]]) {
+            TPUser *user = (TPUser *)friend;
+            [arrayOfDictionaries addObject:user.userDictionary];
+        }
+//    }
+    return arrayOfDictionaries;
+}
+
+-(NSArray *)arrayOfUsersFromArrayOfDictionaries:(NSArray *)dictionaryArray
+{
+    NSMutableArray *arrayOfUsers = [@[] mutableCopy];
+    for (id dictionary in dictionaryArray) {
+        //        if ([friend isKindOfClass:[TPUser class]]) {
+        TPUser *user = [[TPUser alloc] init];
+        user.userDictionary = dictionary;
+        [arrayOfUsers addObject:user];
+    }
+    //    }
+    return arrayOfUsers;
 }
 
 @end
