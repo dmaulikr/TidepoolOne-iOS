@@ -166,12 +166,12 @@
     TPUser *user = [TPOAuthClient sharedClient].user;
     
     if (user) {
-        NSArray *aggregateResults = user.aggregateResults;
-        NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
-        NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
-        NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
-        NSDictionary *emoAggregateResult = [self getAggregateScoreOfType:@"EmoAggregateResult" fromArray:aggregateResults];
-        NSDictionary *attentionAggregateResult = [self getAggregateScoreOfType:@"AttentionAggregateResult" fromArray:aggregateResults];
+        NSDictionary *activityAggregateResult = [user aggregateResultOfType:@"ActivityAggregateResult"];
+        NSDictionary *sleepAggregateResult =
+        [user aggregateResultOfType:@"SleepAggregateResult"];
+        NSDictionary *speedAggregateResult = [user aggregateResultOfType:@"SpeedAggregateResult"];
+        NSDictionary *emoAggregateResult = [user aggregateResultOfType:@"EmoAggregateResult"];
+        NSDictionary *attentionAggregateResult = [user aggregateResultOfType:@"AttentionAggregateResult"];
 
         if ([cell.name isEqualToString:@"snoozer"]) {
             NSDictionary *highScores = speedAggregateResult[@"high_scores"];
@@ -257,16 +257,6 @@
 {
     TPFitbitDashboardWidgetViewController *fitbitVC = (TPFitbitDashboardWidgetViewController *)_widgetVCs[@"fitbit"];
     return _widgets.count - 1 + fitbitVC.isConnected;
-}
-
--(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array
-{
-    for (NSDictionary *item in array) {
-        if ([item[@"type"] isEqualToString:type]) {
-            return item;
-        }
-    }
-    return nil;
 }
 
 @end

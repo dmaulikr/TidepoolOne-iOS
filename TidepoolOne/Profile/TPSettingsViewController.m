@@ -160,13 +160,11 @@
 -(void)loadData
 {
     TPUser *user = _oauthClient.user;
-    if (user.dateOfBirth != [NSNull null]) {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-mm-dd"];
-        NSDate *dob = [dateFormatter dateFromString:user.dateOfBirth];
-        long long age = [[NSDate date] timeIntervalSinceDate:dob] / 3.15569e7;
-        [_fieldValues setObject:[NSString stringWithFormat:@"%lld",age] forKey:@"age"];
-    }
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-mm-dd"];
+    NSDate *dob = [dateFormatter dateFromString:user.dateOfBirth];
+    long long age = [[NSDate date] timeIntervalSinceDate:dob] / 3.15569e7;
+    [_fieldValues setObject:[NSString stringWithFormat:@"%lld",age] forKey:@"age"];
     
     NSArray *keys = @[@"name",@"email",@"education",@"handedness",@"gender",];
     for (NSString *key in keys) {
@@ -174,7 +172,7 @@
             [_fieldValues setObject:user.userDictionary[key] forKey:key];
         }
     }
-    if (user.image != [NSNull null]) {
+    if (user.image) {
         [_headerView.profilePicture setImageWithURL:[NSURL URLWithString:user.image]];
     } else {
         _headerView.profilePicture.image = [UIImage imageNamed:@"default-profile-pic.png"];

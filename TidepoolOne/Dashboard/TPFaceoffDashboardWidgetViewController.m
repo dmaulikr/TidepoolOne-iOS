@@ -63,8 +63,8 @@
     if (_user) {
         @try {
             NSArray *aggregateResults = _user.aggregateResults;
-            if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-                NSDictionary *emoAggregateResult = [self getAggregateScoreOfType:@"EmoAggregateResult" fromArray:aggregateResults];
+            if (aggregateResults.count) {
+                NSDictionary *emoAggregateResult = [_user aggregateResultOfType:@"EmoAggregateResult"];
                 self.allTimeBestLabel.text = emoAggregateResult[@"high_scores"][@"all_time_best"];
                 self.dailyBestLabel.text = emoAggregateResult[@"high_scores"][@"daily_best"];
                 self.emoGroupFractions = emoAggregateResult[@"scores"];

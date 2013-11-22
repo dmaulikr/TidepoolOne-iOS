@@ -11,8 +11,8 @@
 #import <SSKeychain/SSKeychain.h>
 #import "TPLoginViewController.h"
 
-//NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
-NSString * const kBaseURLString = @"https://api.tidepool.co";
+NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
+//NSString * const kBaseURLString = @"https://api.tidepool.co";
 //NSString * const kBaseURLString = @"http://Kerems-iMac.local:7004";
 //NSString * const kBaseURLString = @"https://tide-stage.herokuapp.com";
 //NSString * const kBaseURLString = @"http://Mayanks-MacBook-Pro.local:7004";
@@ -391,9 +391,18 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     }];
 }
 
--(void)inviteFriends:(NSArray *)friends WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+-(void)inviteFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    [self postPath:@"api/v1/users/-/friends/invite" parameters:@{@"friend_list":friends} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
+    for (id friend in friendList) {
+        if ([friend isKindOfClass:[TPUser class]]) {
+            TPUser *user = (TPUser *)friend;
+            [friendListOfDictionaries addObject:user.userDictionary];
+        } else if ([friend isKindOfClass:[NSDictionary class]]) {
+            [friendListOfDictionaries addObject:friend];
+        }
+    }
+    [self postPath:@"api/v1/users/-/friends/invite" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not invite friends"];
@@ -413,7 +422,16 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)acceptPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    [self postPath:@"api/v1/users/-/friends/accept" parameters:@{@"friend_list":friendList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
+    for (id friend in friendList) {
+        if ([friend isKindOfClass:[TPUser class]]) {
+            TPUser *user = (TPUser *)friend;
+            [friendListOfDictionaries addObject:user.userDictionary];
+        } else if ([friend isKindOfClass:[NSDictionary class]]) {
+            [friendListOfDictionaries addObject:friend];
+        }
+    }
+    [self postPath:@"api/v1/users/-/friends/accept" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not accept friends"];
@@ -423,7 +441,16 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)rejectPendingFriends:(NSArray *)friendList WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    [self postPath:@"api/v1/users/-/friends/reject" parameters:@{@"friend_list":friendList} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
+    for (id friend in friendList) {
+        if ([friend isKindOfClass:[TPUser class]]) {
+            TPUser *user = (TPUser *)friend;
+            [friendListOfDictionaries addObject:user.userDictionary];
+        } else if ([friend isKindOfClass:[NSDictionary class]]) {
+            [friendListOfDictionaries addObject:friend];
+        }
+    }
+    [self postPath:@"api/v1/users/-/friends/reject" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not accept friends"];
@@ -443,9 +470,18 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 }
 
 
--(void)unfriendFriends:(NSArray *)friends withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+-(void)unfriendFriends:(NSArray *)friendList withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
-    [self postPath:@"api/v1/users/-/friends/unfriend" parameters:@{@"friend_list":friends} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableArray *friendListOfDictionaries = [@[] mutableCopy];
+    for (id friend in friendList) {
+        if ([friend isKindOfClass:[TPUser class]]) {
+            TPUser *user = (TPUser *)friend;
+            [friendListOfDictionaries addObject:user.userDictionary];
+        } else if ([friend isKindOfClass:[NSDictionary class]]) {
+            [friendListOfDictionaries addObject:friend];
+        }
+    }
+    [self postPath:@"api/v1/users/-/friends/unfriend" parameters:@{@"friend_list":friendListOfDictionaries} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Could not accept friends"];

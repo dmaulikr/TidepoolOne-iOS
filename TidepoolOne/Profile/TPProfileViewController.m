@@ -145,7 +145,7 @@
     _user = user;
     if (_user) {
         personality = _user.personality;
-        if (personality && (personality != (NSDictionary *)[NSNull null])) {
+        if (personality) {
             hasData = YES;
         }
     }
@@ -162,7 +162,7 @@
         self.paragraphs = paragraphs;
         
         NSString *name = _user.name;
-        if (name != (NSString *)[NSNull null] && [name length] != 0 && name) {
+        if ([name length] != 0 && name) {
             profileHeaderView.nameLabel.text = _user.name;
         } else {
             profileHeaderView.nameLabel.text = _user.email;
@@ -326,7 +326,7 @@
     NSDictionary *personality;
     if (_user) {
         personality = _user.personality;
-        if (personality && (personality != (NSDictionary *)[NSNull null])) {
+        if (personality) {
             hasData = YES;
         }
     }

@@ -28,4 +28,6 @@
 @property (strong, nonatomic) NSString *friendStatus;
 @property (strong, nonatomic) NSDictionary *userDictionary;
 
+-(NSDictionary *)aggregateResultOfType:(NSString *)resultType;
+
 @end

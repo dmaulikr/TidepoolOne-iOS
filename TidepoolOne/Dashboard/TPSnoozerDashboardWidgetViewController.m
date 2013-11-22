@@ -82,8 +82,8 @@
     if (_user) {
         @try {
             NSArray *aggregateResults = _user.aggregateResults;
-            if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-                NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+            if (aggregateResults.count) {
+                NSDictionary *speedAggregateResult = [_user aggregateResultOfType:@"SpeedAggregateResult"];
                 NSDictionary *circadianRhythm = speedAggregateResult[@"scores"][@"circadian"];
                 NSMutableArray *timesPlayedArray = [NSMutableArray array];
                 NSMutableArray *scoresByHour = [NSMutableArray array];

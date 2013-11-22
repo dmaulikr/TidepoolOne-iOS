@@ -12,81 +12,101 @@
 
 -(NSString *)id
 {
-    return _userDictionary[@"id"];
+    return [self nilForNSNullOrObject:_userDictionary[@"id"]];
 }
 
 -(NSArray *)authentications
 {
-    return _userDictionary[@"authentications"];
+    return [self nilForNSNullOrObject:_userDictionary[@"authentications"]];
 }
 
 -(NSString *)city
 {
-    return _userDictionary[@"city"];
+    return [self nilForNSNullOrObject:_userDictionary[@"city"]];
 }
 
 -(NSString *)country
 {
-    return _userDictionary[@"country"];
+    return [self nilForNSNullOrObject:_userDictionary[@"country"]];
 }
 
 -(NSString *)dateOfBirth
 {
-    return _userDictionary[@"date_of_birth"];
+    return [self nilForNSNullOrObject:_userDictionary[@"date_of_birth"]];
 }
 
 -(NSString *)description
 {
-    return _userDictionary[@"description"];
+    return [self nilForNSNullOrObject:_userDictionary[@"description"]];
 }
 
 -(NSString *)displayName
 {
-    return _userDictionary[@"displayName"];
+    return [self nilForNSNullOrObject:_userDictionary[@"displayName"]];
 }
 
 -(NSString *)education
 {
-    return _userDictionary[@"education"];
+    return [self nilForNSNullOrObject:_userDictionary[@"education"]];
 }
 
 -(NSString *)email
 {
-    return _userDictionary[@"email"];
+    return [self nilForNSNullOrObject:_userDictionary[@"email"]];
 }
 
 -(NSString *)gender
 {
-    return _userDictionary[@"gender"];
+    return [self nilForNSNullOrObject:_userDictionary[@"gender"]];
 }
 
 -(NSString *)name
 {
-    return _userDictionary[@"name"];
+    return [self nilForNSNullOrObject:_userDictionary[@"name"]];
 }
 
 -(NSString *)image
 {
-    return _userDictionary[@"image"];
+    return [self nilForNSNullOrObject:_userDictionary[@"image"]];
 }
 
 
 -(NSDictionary *)personality{
-    return _userDictionary[@"personality"];
+    return [self nilForNSNullOrObject:_userDictionary[@"personality"]];
 }
 
 -(NSArray *)aggregateResults
 {
-    return _userDictionary[@"aggregate_results"];
+    return [self nilForNSNullOrObject:_userDictionary[@"aggregate_results"]];
 }
 
 -(NSString *)iosDeviceToken
 {
-    return _userDictionary[@"ios_device_token"];
+    return [self nilForNSNullOrObject:_userDictionary[@"ios_device_token"]];
 }
 
 -(NSString *)friendStatus
 {
-    return _userDictionary[@"friend_status"];
+    return [self nilForNSNullOrObject:_userDictionary[@"friend_status"]];
 }
+
+-(NSDictionary *)aggregateResultOfType:(NSString *)resultType
+{
+    NSArray *array = self.aggregateResults;
+    for (NSDictionary *item in array) {
+        if ([item[@"type"] isEqualToString:resultType]) {
+            return item;
+        }
+    }
+    return nil;
+}
+
+-(id)nilForNSNullOrObject:(id)object
+{
+    if (object == [NSNull null]) {
+        return nil;
+    }
+    return object;
+}
+
 @end

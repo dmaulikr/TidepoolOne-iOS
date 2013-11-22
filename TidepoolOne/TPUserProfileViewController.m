@@ -57,22 +57,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)setUser:(NSDictionary *)user
+{
+    _user = [[TPUser alloc] init];
+    if (user) {
+        _user.userDictionary = user;
+    }
+}
+
 
 -(void)applyUserToView
 {
     if (!_user) return;
     NSDictionary *personality = _user.personality;
-    if (personality && personality != (NSDictionary *)[NSNull null] && [personality allKeys].count > 1) { // hack - why is personality returning a dictionary at all?
+    if (personality && [personality allKeys].count > 1) { // hack - why is personality returning a dictionary at all?
         _imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"bg-%@.jpg",personality[@"profile_description"][@"display_id"]]];
         _personalityBadgeView.image = [UIImage imageNamed:[NSString stringWithFormat:@"badge-%@.png",personality[@"profile_description"][@"display_id"]]];
         _blurbView.attributedText = [self parsedFromMarkdown:personality[@"profile_description"][@"one_liner"]];
         _personalityLabelView.text = [personality[@"profile_description"][@"name"] uppercaseString];        
     }
-    if (_user.image && _user.image != [NSNull null]) {
-        [_profilePictureView setImageWithURL:[NSURL URLWithString:_user.image]];
-    }
+    [_profilePictureView setImageWithURL:[NSURL URLWithString:_user.image]];
     
-    if (_user.name && _user.name != [NSNull null]) {
+    if (_user.name) {
         _usernameView.text = _user.name;
     } else {
         _usernameView.text = [[_user.email componentsSeparatedByString:@"@"] objectAtIndex:0];

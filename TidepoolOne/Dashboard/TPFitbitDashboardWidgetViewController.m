@@ -116,17 +116,18 @@
 }
 
 
--(void)setUser:(TPUser *)user
+-(void)setUser:(NSDictionary *)user
 {
-    _user = user;
+    _user = [[TPUser alloc] init];
+    _user.userDictionary = user;
     if (_user) {
         [self refreshFitbitConnectedness];
         @try {
             NSArray *aggregateResults = _user.aggregateResults;
-            if (aggregateResults.count && (aggregateResults != (NSArray *)[NSNull null])) {
-                NSDictionary *activityAggregateResult = [self getAggregateScoreOfType:@"ActivityAggregateResult" fromArray:aggregateResults];
-                NSDictionary *sleepAggregateResult = [self getAggregateScoreOfType:@"SleepAggregateResult" fromArray:aggregateResults];
-                NSDictionary *speedAggregateResult = [self getAggregateScoreOfType:@"SpeedAggregateResult" fromArray:aggregateResults];
+            if (aggregateResults.count) {
+                NSDictionary *activityAggregateResult = [_user aggregateResultOfType:@"ActivityAggregateResult"];
+                NSDictionary *sleepAggregateResult = [_user aggregateResultOfType:@"SleepAggregateResult"];
+                NSDictionary *speedAggregateResult = [_user aggregateResultOfType:@"SpeedAggregateResult"];
                 
                 NSArray *stepsRhythm = activityAggregateResult[@"scores"][@"weekly"];
                 NSMutableArray *stepsWeekly = [NSMutableArray array];

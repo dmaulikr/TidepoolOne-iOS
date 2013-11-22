@@ -239,25 +239,25 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPFindFriendsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    NSDictionary *friend;
+    TPUser *friend = [[TPUser alloc] init];
     switch (self.findFriendsMode) {
         case TPFindFriendsViewModeContacts:
         {
-            friend = _foundEmailFriends[indexPath.row];
+            friend.userDictionary = _foundEmailFriends[indexPath.row];
             cell.addButton.selected = [_selectedEmailFriends containsObject:friend];
         }
             break;
         case TPFindFriendsViewModeFacebook:
         {
-            friend = _foundFacebookFriends[indexPath.row];
+            friend.userDictionary = _foundFacebookFriends[indexPath.row];
             cell.addButton.selected = [_selectedFacebookFriends containsObject:friend];
         }
             break;
         default:
             break;
     }
-    cell.usernameLabelView.text = friend[@"email"];
-    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend[@"image"]]];
+    cell.usernameLabelView.text = friend.email;
+    [cell.profilePictureView setImageWithURL:[NSURL URLWithString:friend.image]];
     cell.profilePictureView.layer.cornerRadius = cell.profilePictureView.bounds.size.height / 2;
     cell.profilePictureView.clipsToBounds = YES;
     [cell.addButton addTarget:self action:@selector(addFriend:) forControlEvents:UIControlEventTouchUpInside];
@@ -273,7 +273,8 @@
     switch (self.findFriendsMode) {
         case TPFindFriendsViewModeContacts:
         {
-            NSDictionary *friend = _foundEmailFriends[indexPath.row];
+            TPUser *friend = [[TPUser alloc] init];
+            friend.userDictionary = _foundEmailFriends[indexPath.row];
             if ([_selectedEmailFriends containsObject:friend]) {
                 [_selectedEmailFriends removeObject:friend];
             } else {
@@ -283,7 +284,8 @@
             break;
         case TPFindFriendsViewModeFacebook:
         {
-            NSDictionary *friend = _foundFacebookFriends[indexPath.row];
+            TPUser *friend = [[TPUser alloc] init];
+            friend.userDictionary = _foundEmailFriends[indexPath.row];
             if ([_selectedFacebookFriends containsObject:friend]) {
                 [_selectedFacebookFriends removeObject:friend];
             } else {
@@ -300,23 +302,23 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDictionary *friend;
+    TPUser *friend = [[TPUser alloc] init];
     switch (self.findFriendsMode) {
         case TPFindFriendsViewModeContacts:
         {
-            friend = _foundEmailFriends[indexPath.row];
+            friend.userDictionary = _foundEmailFriends[indexPath.row];
         }
             break;
         case TPFindFriendsViewModeFacebook:
         {
-            friend = _foundFacebookFriends[indexPath.row];
+            friend.userDictionary = _foundFacebookFriends[indexPath.row];
         }
             break;
         default:
             break;
     }
     TPUserProfileViewController *vc = [[TPUserProfileViewController alloc] init];
-    vc.userId = friend[@"id"];
+    vc.userId = friend.id;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

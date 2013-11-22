@@ -75,7 +75,7 @@
     [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
         [hud hide:YES];
         NSDictionary *personality = user.personality;
-        if (!personality || personality == (NSDictionary *)[NSNull null]) {
+        if (!personality) {
             [self showPersonalityGame];
         }
     } andFailure:^{

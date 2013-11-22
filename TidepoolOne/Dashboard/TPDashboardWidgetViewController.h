@@ -22,5 +22,5 @@
 ;
 -(void)reset;
 -(void)getMoreResults;
--(NSDictionary *)getAggregateScoreOfType:(NSString *)type fromArray:(NSArray *)array;
+
 @end
