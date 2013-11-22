@@ -10,6 +10,15 @@
 
 @implementation TPUser
 
+-(id)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        self.userDictionary = dictionary;
+    }
+    return self;
+}
+
 -(NSString *)id
 {
     return [self nilForNSNullOrObject:_userDictionary[@"id"]];

@@ -70,11 +70,10 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     return self;
 }
 
--(void)setUser:(NSDictionary *)userDictionary
+-(void)setUser:(TPUser *)user
 {
-    _user = [[TPUser alloc] init];
-    _user.userDictionary = userDictionary;
-    if (userDictionary) {
+    _user = user;
+    if (user) {
         NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
         if (pushToken && ![_user.iosDeviceToken isEqualToString:pushToken]) {
             [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
@@ -143,7 +142,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self postPath:@"oauth/authorize" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *token = [responseObject valueForKey:@"access_token"];
         [self saveAndUseOauthToken:token];
-        self.user = responseObject[@"user"];
+        self.user = [[TPUser alloc] initWithDictionary:responseObject[@"user"]];
         self.isLoggedIn = 1;
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -235,7 +234,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     [self postPath:@"/oauth/authorize" parameters:facebookInfo success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self saveAndUseOauthToken:responseObject[@"access_token"]];
-        self.user = responseObject[@"user"];
+        self.user = [[TPUser alloc] initWithDictionary:responseObject[@"user"]];
         self.isLoggedIn = YES;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Unable to get facebook auth working with Tidepool"];
@@ -274,19 +273,16 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 }
 -(void)forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock;
 {
-    NSLog(@"GET USER INFO");
-    // TODO: add failure Blocks
     [_userCompletionBlocks addObject:[successBlock copy]];
     if (!_isGettingUser) {
         NSLog(@"MAKE REQUEST");
         _isGettingUser = YES;
         [self getPath:@"api/v1/users/-/" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            self.user = responseObject[@"data"];
+        self.user = [[TPUser alloc] initWithDictionary:responseObject[@"data"]];
             if (!self.isLoggedIn)
                 self.isLoggedIn = 1;
             _isGettingUser = NO;
             for (id item in _userCompletionBlocks) {
-                NSLog(@"running item off array");
                 void (^block)(TPUser *user);
                 block = item;
                 block(self.user);
@@ -303,7 +299,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)updateUserWithParameters:(NSDictionary *)parameters withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     [self putPath:@"api/v1/users/-/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.user = responseObject[@"data"];
+        self.user = [[TPUser alloc] initWithDictionary:responseObject[@"user"]];
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failureBlock();
@@ -317,7 +313,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)getUserInfoWithId:(NSString *)userId withCompletionHandlersSuccess:(void(^)(TPUser *user))successBlock andFailure:(void(^)())failureBlock
 {
     [self getPath:[NSString stringWithFormat:@"api/v1/users/%@/", userId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        successBlock(responseObject[@"data"]);
+        successBlock([[TPUser alloc] initWithDictionary:responseObject[@"data"]]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failureBlock();
         [self handleError:error withOptionalMessage:@"An error occured while getting other user info from Tidepool."];
@@ -542,12 +538,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(NSArray *)arrayOfDictionariesFromArrayOfUsers:(NSArray *)userArray
 {
     NSMutableArray *arrayOfDictionaries = [@[] mutableCopy];
-    for (id friend in userArray) {
-//        if ([friend isKindOfClass:[TPUser class]]) {
-            TPUser *user = (TPUser *)friend;
-            [arrayOfDictionaries addObject:user.userDictionary];
-        }
-//    }
+    for (TPUser *friend in userArray) {
+        [arrayOfDictionaries addObject:friend.userDictionary];
+    }
     return arrayOfDictionaries;
 }
 
@@ -560,7 +553,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
         user.userDictionary = dictionary;
         [arrayOfUsers addObject:user];
     }
-    //    }
     return arrayOfUsers;
 }
 

@@ -57,15 +57,6 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setUser:(NSDictionary *)user
-{
-    _user = [[TPUser alloc] init];
-    if (user) {
-        _user.userDictionary = user;
-    }
-}
-
-
 -(void)applyUserToView
 {
     if (!_user) return;

@@ -116,10 +116,9 @@
 }
 
 
--(void)setUser:(NSDictionary *)user
+-(void)setUser:(TPUser *)user
 {
-    _user = [[TPUser alloc] init];
-    _user.userDictionary = user;
+    _user = user;
     if (_user) {
         [self refreshFitbitConnectedness];
         @try {

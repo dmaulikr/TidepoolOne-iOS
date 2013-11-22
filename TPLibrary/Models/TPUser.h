@@ -10,6 +10,8 @@
 
 @interface TPUser : NSObject
 
+-(id)initWithDictionary:(NSDictionary *)dictionary;
+
 @property (strong, nonatomic) NSArray *authentications;
 @property (strong, nonatomic) NSString *id;
 @property (strong, nonatomic) NSString *city;
