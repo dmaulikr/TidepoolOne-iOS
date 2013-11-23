@@ -11,7 +11,6 @@
 @interface TPLocalNotificationManager : Singleton
 
 -(void)handleNotification:(UILocalNotification *)notification;
-
--(void)refreshNotificationsForGame:(NSString *)gameName;
+-(void)refreshNotificationsForUser:(TPUser *)user;
 
 @end

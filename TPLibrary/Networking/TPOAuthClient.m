@@ -10,6 +10,7 @@
 #import <AFNetworking/AFJSONRequestOperation.h>
 #import <SSKeychain/SSKeychain.h>
 #import "TPLoginViewController.h"
+#import "TPLocalNotificationManager.h"
 
 //NSString * const kBaseURLString = @"https://tide-dev.herokuapp.com";
 NSString * const kBaseURLString = @"https://api.tidepool.co";
@@ -74,12 +75,14 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     _user = user;
     if (user) {
+        // update push token
         NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
         if (pushToken && ![_user.iosDeviceToken isEqualToString:pushToken]) {
             [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
             } andFailure:^{
             }];
         }
+        [[TPLocalNotificationManager sharedInstance] refreshNotificationsForUser:user];
     }
 }
 
