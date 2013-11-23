@@ -33,7 +33,6 @@
     self.title = @"Results";
     self.history = @[@220, @270, @230, @250];
     self.gameLevelHistoryView.results = self.history;
-    [[TPLocalNotificationManager sharedInstance] createNotification];
 }
 -(void)viewDidAppear:(BOOL)animated
 {

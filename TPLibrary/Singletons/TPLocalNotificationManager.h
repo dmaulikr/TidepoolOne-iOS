@@ -12,6 +12,6 @@
 
 -(void)handleNotification:(UILocalNotification *)notification;
 
--(void)createNotification;
+-(void)refreshNotificationsForGame:(NSString *)gameName;
 
 @end
