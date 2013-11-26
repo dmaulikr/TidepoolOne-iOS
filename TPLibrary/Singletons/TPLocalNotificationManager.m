@@ -178,7 +178,6 @@
             }
         }
     }
-    NSLog([[[UIApplication sharedApplication] scheduledLocalNotifications] description]);
 }
 
 @end
