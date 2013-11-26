@@ -8,6 +8,8 @@
 
 #import "TPLocalNotificationManager.h"
 
+#define NOTIFICATIONS_PER_GAME 2
+
 @implementation TPLocalNotificationManager
 
 -(void)handleNotification:(UILocalNotification *)notification
@@ -47,7 +49,7 @@
 {
     NSMutableSet *idealTimesSet = [NSMutableSet setWithArray:@[@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20"]];
     [idealTimesSet minusSet:playedHours];
-    int numChoicesNeeded = (3 < idealTimesSet.count) ? 3 : idealTimesSet.count;
+    int numChoicesNeeded = (NOTIFICATIONS_PER_GAME < idealTimesSet.count) ? NOTIFICATIONS_PER_GAME : idealTimesSet.count;
     
     for (int i=0; i<numChoicesNeeded; i++) {
         NSString *choice = [idealTimesSet anyObject];
@@ -79,7 +81,7 @@
 {
     NSMutableSet *idealDaysSet = [NSMutableSet setWithArray:@[@"0",@"1",@"2",@"3",@"4",@"5",@"6",]];
     [idealDaysSet minusSet:playedDays];
-    int numChoicesNeeded = (3 < idealDaysSet.count) ? 3 : idealDaysSet.count;
+    int numChoicesNeeded = (NOTIFICATIONS_PER_GAME < idealDaysSet.count) ? NOTIFICATIONS_PER_GAME : idealDaysSet.count;
     
     for (int i=0; i<numChoicesNeeded; i++) {
         NSString *choice = [idealDaysSet anyObject];

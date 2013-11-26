@@ -49,6 +49,13 @@
     
     self.acceptFriendButton.hidden = self.rejectFriendButton.hidden = self.blurbView.hidden = self.friendsButton.hidden = self.addToFriendButton.hidden = self.pendingFriendLabel.hidden = YES;
     
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [UIColor whiteColor],
+                                UITextAttributeTextColor,
+                                [UIColor clearColor],
+                                UITextAttributeTextShadowColor, nil];
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    
 }
 
 - (void)didReceiveMemoryWarning

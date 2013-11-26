@@ -44,7 +44,7 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" image="echo-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="rBZ-Hv-NaM">
                             <rect key="frame" x="68" y="20" width="185" height="80"/>
                         </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Echo is a memory game to test your concentration and memory retention by following an increasing pattern sequence." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-2t-85o" customClass="TPLabelBold">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="Echo is a game to test your concentration and recollection by following an increasing pattern sequence." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="dhe-2t-85o" customClass="TPLabelBold">
                             <rect key="frame" x="20" y="101" width="280" height="82"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

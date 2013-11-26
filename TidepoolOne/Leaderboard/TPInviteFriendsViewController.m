@@ -130,7 +130,7 @@
                     if ([MFMailComposeViewController canSendMail])
                     {
                         [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
-                            NSString *body = [NSString stringWithFormat:@"Join me as a friend on TidePool! Click this link - tidepool://user/%@. Don't have TidePool? Get TidePool from the App Store at %@", user.id, APP_LINK];
+                            NSString *body = [NSString stringWithFormat:@"Join me as a friend on TidePool! Click this link on your iPhone - tidepool://user/%@. Don't have TidePool? Get TidePool from the App Store at %@", user.id, APP_LINK];
                             MFMailComposeViewController *mailer = [[MFMailComposeViewController alloc] init];
                             mailer.mailComposeDelegate = self;
                             [mailer setSubject:@"Join me on TidePool!"];
@@ -171,7 +171,7 @@
                 case 2://text
                 {
                     [[TPOAuthClient sharedClient] getUserInfoLocallyIfPossibleWithCompletionHandlersSuccess:^(TPUser *user) {
-                        NSString *body = [NSString stringWithFormat:@"Join me as a friend on TidePool! Click this link - tidepool://user/%@. Don't have TidePool? Get TidePool from the App Store at %@", user.id, APP_LINK];
+                        NSString *body = [NSString stringWithFormat:@"Join me as a friend on TidePool! Click this link on your iPhone - tidepool://user/%@. Don't have TidePool? Get TidePool from the App Store at %@", user.id, APP_LINK];
                         MFMessageComposeViewController *controller = [[MFMessageComposeViewController alloc] init];
                         if([MFMessageComposeViewController canSendText])
                         {
