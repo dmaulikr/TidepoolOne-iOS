@@ -75,14 +75,18 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 {
     _user = user;
     if (user) {
-        // update push token
-        NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
-        if (pushToken && ![_user.iosDeviceToken isEqualToString:pushToken]) {
-            [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
-            } andFailure:^{
-            }];
-        }
         [[TPLocalNotificationManager sharedInstance] refreshNotificationsForUser:user];
+    }
+}
+
+-(void)registerDeviceToken
+{
+    // update push token
+    NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
+    if (pushToken && ![_user.iosDeviceToken isEqualToString:pushToken]) {
+        [self updateUserWithParameters:@{@"ios_device_token":pushToken} withCompletionHandlersSuccess:^{
+        } andFailure:^{
+        }];
     }
 }
 
@@ -98,6 +102,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
+    [self registerDeviceToken];
 }
 
 
