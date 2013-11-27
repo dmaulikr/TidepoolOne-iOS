@@ -70,15 +70,16 @@
 
 -(void)refreshFitbitConnectedness
 {
-    // TODO: create method on oauthclient that will get used and run code
-    TPUser *user = [TPOAuthClient sharedClient].user;
-    NSArray *authentications = user.authentications;
-    self.isConnected = NO;
-    for (NSDictionary *item in authentications) {
-        if ([item[@"provider"] isEqualToString:@"fitbit"]) {
-            self.isConnected = YES;
+    [[TPOAuthClient sharedClient] forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(TPUser *user) {
+        NSArray *authentications = user.authentications;
+        self.isConnected = NO;
+        for (NSDictionary *item in authentications) {
+            if ([item[@"provider"] isEqualToString:@"fitbit"]) {
+                self.isConnected = YES;
+            }
         }
-    }
+    } andFailure:^{
+    }];
 }
 
 -(void)pollTimedOut
