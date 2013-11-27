@@ -375,7 +375,7 @@
         TPServiceLoginViewController *serviceVC = [[TPServiceLoginViewController alloc] init];
         [serviceVC setCompletionHandlersSuccess:^{
             cell.switchIndicator.on = YES;
-            [_oauthClient forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:nil andFailure:nil];
+            [_oauthClient forceRefreshOfUserInfoFromServerWithCompletionHandlersSuccess:^(TPUser *user) {} andFailure:^{}];
         } andFailure:^{
             cell.switchIndicator.on = NO;
         }];

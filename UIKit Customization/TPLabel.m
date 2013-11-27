@@ -42,7 +42,7 @@
 
 -(void)setCorrectFont
 {
-    NSArray *fonts = @[@"Karla-Regular", @"Karla-Bold",@"Karla-Italic", @"dummy", @"Karla-BoldItalic"];
+    NSArray *fonts = @[@"Karla-Regular", @"Karla-Bold",@"Karla-Italic", @"Karla-BoldItalic"];
     int fontChoice = _bold + 2*_italic;
     self.font = [UIFont fontWithName:fonts[fontChoice] size:_fontSize];
 }
