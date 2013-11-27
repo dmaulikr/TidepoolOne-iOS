@@ -302,7 +302,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 -(void)updateUserWithParameters:(NSDictionary *)parameters withCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
 {
     [self putPath:@"api/v1/users/-/" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.user = [[TPUser alloc] initWithDictionary:responseObject[@"user"]];
+        self.user = [[TPUser alloc] initWithDictionary:responseObject[@"data"]];
         successBlock();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failureBlock();
