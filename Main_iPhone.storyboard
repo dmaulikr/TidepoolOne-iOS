@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="pwW-tx-6Ai">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller - Profile-->
@@ -94,31 +94,6 @@
             </objects>
             <point key="canvasLocation" x="-2848" y="1333"/>
         </scene>
-        <!--Dashboard View Controller - Root View Controller-->
-        <scene sceneID="EVK-1R-mTt">
-            <objects>
-                <tableViewController id="OUZ-Yh-hbZ" customClass="TPDashboardViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" id="9Or-bw-rTh">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="SnoozerResultCell" rowHeight="150" id="11i-xO-MWe">
-                                <rect key="frame" x="0.0" y="86" width="320" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="11i-xO-MWe" id="uJu-Wn-Z0U">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Yh7-ZA-Tgd"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2Fb-Ly-Wec" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2875" y="595"/>
-        </scene>
         <!--Navigation Controller - Dashboard-->
         <scene sceneID="umU-0m-Jde">
             <objects>
@@ -128,12 +103,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="OUZ-Yh-hbZ" kind="relationship" relationship="rootViewController" id="hD2-KQ-lK4"/>
+                        <segue destination="qSf-8W-NFV" kind="relationship" relationship="rootViewController" id="5sT-Pw-u4H"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zro-9e-Gu8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3372" y="595"/>
+        </scene>
+        <!--Dashboard Drawer View Controller-->
+        <scene sceneID="ldC-ob-GV1">
+            <objects>
+                <viewController id="qSf-8W-NFV" customClass="TPDashboardDrawerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IDp-Cf-DcD"/>
+                        <viewControllerLayoutGuide type="bottom" id="IGt-j5-Wgq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ahh-rb-aQ9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4vH-KY-OoR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNg-YC-tAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2868" y="595"/>
         </scene>
         <!--Game Picker View Controller - Root View Controller-->
         <scene sceneID="kSC-Xr-O0u">
