@@ -73,7 +73,10 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)setUser:(TPUser *)user
 {
-    _user = user;
+#ifdef DEBUG
+    NSLog(@"setUser called");
+#endif
+   _user = user;
     if (user) {
         [[TPLocalNotificationManager sharedInstance] refreshNotificationsForUser:user];
         [self registerDeviceToken];
@@ -82,6 +85,9 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 
 -(void)registerDeviceToken
 {
+#ifdef DEBUG
+    NSLog(@"registerDeviceToken called");
+#endif
     // update push token
     NSString *pushToken = [[NSUserDefaults standardUserDefaults] valueForKey:@"PushToken"];
     if (pushToken && ![_user.iosDeviceToken isEqualToString:pushToken]) {

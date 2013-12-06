@@ -16,6 +16,7 @@
     NSMutableArray *_circles;
     int _currentIndex;
     int _currentMaxIndex;
+    NSTimer *_stageOverTimer;
 }
 @end
 
@@ -197,6 +198,7 @@
         if (self.reverseMode) {
             self.instructionLabel.text = @"Oops, you hit the wrong circle. Game over.";
             UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(stageOver)];
+            _stageOverTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(stageOver) userInfo:nil repeats:NO];
             UIImageView *imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"echo-gameover2.png"]];
             imgView.center = self.circlesContainerView.center;
             imgView.userInteractionEnabled = YES;
@@ -218,8 +220,9 @@
 
 -(void)stageOver
 {
-    [self logLevelCompletedWithAdditionalData:nil summary:@{@"highest":[NSNumber numberWithInt:_currentMaxIndex - 1]
-                                                            }];
+    [_stageOverTimer invalidate];
+    _stageOverTimer = nil;
+    [self logLevelCompletedWithAdditionalData:nil summary:@{@"highest":[NSNumber numberWithInt:_currentMaxIndex - 1]}];
     [super stageOver];
 }
 
