@@ -155,7 +155,7 @@
     UIViewController *vc = sender;
     [vc dismissViewControllerAnimated:YES completion:^{
         if (success) {
-            self.selectedIndex = 2;
+            self.selectedIndex = 3;
             [self showTooltip];
         }
     }];
