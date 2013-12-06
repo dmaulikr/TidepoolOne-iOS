@@ -64,6 +64,21 @@
 -(void)getFriendsLeaderboardsForGame:(NSString *)game WithCompletionHandlersSuccess:(void(^)(NSArray *leaders))successBlock andFailure:(void(^)())failureBlock;
 
 
+#pragma mark API methods - activity streams
+-(void)getActivityStreamWithLimit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+
+#pragma mark API methods - comments
+-(void)getCommentsForActivityRecord:(NSString *) activityRecordId limit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+-(void)postCommentForActivityRecord:(NSString *) activityRecordId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+-(void)changeComment:(NSString *)commentText ForActivityRecord:(NSString *) activityRecordId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+-(void)deleteCommentId:(NSString *) commentId WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
+#pragma mark API methods - highfives
+-(void)getHighfivesForActivityRecord:(NSString *) activityRecordId limit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+-(void)postHighfivesForActivityRecord:(NSString *) activityRecordId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock;
+-(void)deleteHighfivesId:(NSString *) highfiveId WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock;
+
+
 #pragma mark API methods - connections
 -(void)deleteConnectionForProvider:(NSString *)provider;
 

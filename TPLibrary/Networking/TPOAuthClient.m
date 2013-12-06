@@ -486,6 +486,79 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     
 }
 
+#pragma mark API methods - activity streams
+-(void)getActivityStreamWithLimit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:@"api/v1/users/-/activity_stream" parameters:@{@"limit":limit, @"offset":offset} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get activity stream"];
+    }];
+}
+
+#pragma mark API methods - comments
+-(void)getCommentsForActivityRecord:(NSString *) activityRecordId limit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:[NSString stringWithFormat:@"api/v1/feeds/%@/comments", activityRecordId] parameters:@{@"limit":limit, @"offset":offset} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get comments"];
+    }];
+}
+
+-(void)postComment:(NSString *)commentText ForActivityRecord:(NSString *) activityRecordId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:[NSString stringWithFormat:@"api/v1/feeds/%@/comments", activityRecordId] parameters:@{@"comment":@{@"text":commentText}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to post comment"];
+    }];
+}
+
+-(void)changeComment:(NSString *)commentText forCommentId:(NSString *) commentId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self putPath:[NSString stringWithFormat:@"api/v1/comments/%@/", commentId] parameters:@{@"comment":@{@"text":commentText}} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to edit comment"];
+    }];
+}
+-(void)deleteCommentId:(NSString *) commentId WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self deletePath:[NSString stringWithFormat:@"api/v1/comments/%@/", commentId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to delete comment"];
+    }];
+}
+
+
+#pragma mark API methods - highfives
+-(void)getHighfivesForActivityRecord:(NSString *) activityRecordId limit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self getPath:[NSString stringWithFormat:@"api/v1/feeds/%@/highfives", activityRecordId] parameters:@{@"limit":limit, @"offset":offset} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to get comments"];
+    }];
+}
+-(void)postHighfivesForActivityRecord:(NSString *) activityRecordId WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
+{
+    [self postPath:[NSString stringWithFormat:@"api/v1/feeds/%@/highfives", activityRecordId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock(responseObject[@"data"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to post comment"];
+    }];
+}
+-(void)deleteHighfivesId:(NSString *) highfiveId WithCompletionHandlersSuccess:(void(^)())successBlock andFailure:(void(^)())failureBlock
+{
+    [self deletePath:[NSString stringWithFormat:@"api/v1/highfives/%@/", highfiveId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        successBlock();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [self handleError:error withOptionalMessage:@"Unable to delete comment"];
+    }];
+}
+
 
 
 -(void)deleteConnectionForProvider:(NSString *)provider
