@@ -76,6 +76,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     _user = user;
     if (user) {
         [[TPLocalNotificationManager sharedInstance] refreshNotificationsForUser:user];
+        [self registerDeviceToken];
     }
 }
 
@@ -102,7 +103,6 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
     [self deleteAllPasswords];
     [SSKeychain setPassword:token forService:kSSKeychainServiceName account:kSSKeychainServiceName];
     [self setDefaultHeader:@"Authorization" value:[NSString stringWithFormat:@"Bearer %@",token]];
-    [self registerDeviceToken];
 }
 
 

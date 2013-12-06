@@ -15,7 +15,6 @@
 -(void)handleNotification:(UILocalNotification *)notification
 {
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-    NSLog(@"Message recd");
 }
 
 
