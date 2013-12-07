@@ -489,7 +489,7 @@ static NSString* kDateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSSZZZ";
 #pragma mark API methods - activity streams
 -(void)getActivityStreamWithLimit:(NSNumber *)limit offset:(NSNumber *)offset WithCompletionHandlersSuccess:(void(^)(id dataObject))successBlock andFailure:(void(^)())failureBlock
 {
-    [self getPath:@"api/v1/users/-/activity_stream" parameters:@{@"limit":limit, @"offset":offset} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self getPath:@"api/v1/users/-/feeds" parameters:@{@"limit":limit, @"offset":offset} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         successBlock(responseObject[@"data"]);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [self handleError:error withOptionalMessage:@"Unable to get activity stream"];

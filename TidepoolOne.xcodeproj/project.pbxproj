@@ -1270,6 +1270,7 @@
 		A8D439A3180DF29B0086C223 /* LineLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D439A2180DF29B0086C223 /* LineLayout.m */; };
 		A8D439A9180DF69C0086C223 /* TPPercentageDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D439A8180DF69C0086C223 /* TPPercentageDrawView.m */; };
 		A8D4B54018528E5000FB886B /* TPDashboardDrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D4B53F18528E5000FB886B /* TPDashboardDrawerViewController.m */; };
+		A8D4B5441852905600FB886B /* TPActivityStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D4B5431852905600FB886B /* TPActivityStreamViewController.m */; };
 		A8DDA9FA181B0F7900589642 /* 0.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8DDA9DA181B0F7900589642 /* 0.wav */; };
 		A8DDA9FB181B0F7900589642 /* 0e.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8DDA9DB181B0F7900589642 /* 0e.wav */; };
 		A8DDA9FC181B0F7900589642 /* 0r.wav in Resources */ = {isa = PBXBuildFile; fileRef = A8DDA9DC181B0F7900589642 /* 0r.wav */; };
@@ -2674,6 +2675,8 @@
 		A8D439A8180DF69C0086C223 /* TPPercentageDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPPercentageDrawView.m; sourceTree = "<group>"; };
 		A8D4B53E18528E5000FB886B /* TPDashboardDrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDashboardDrawerViewController.h; sourceTree = "<group>"; };
 		A8D4B53F18528E5000FB886B /* TPDashboardDrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDashboardDrawerViewController.m; sourceTree = "<group>"; };
+		A8D4B5421852905600FB886B /* TPActivityStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPActivityStreamViewController.h; sourceTree = "<group>"; };
+		A8D4B5431852905600FB886B /* TPActivityStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPActivityStreamViewController.m; sourceTree = "<group>"; };
 		A8DDA9DA181B0F7900589642 /* 0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0.wav; sourceTree = "<group>"; };
 		A8DDA9DB181B0F7900589642 /* 0e.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0e.wav; sourceTree = "<group>"; };
 		A8DDA9DC181B0F7900589642 /* 0r.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = 0r.wav; sourceTree = "<group>"; };
@@ -4807,6 +4810,7 @@
 		A8BABA8B17E262CC00A3C95B /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				A8D4B5411852904300FB886B /* Activity Stream */,
 				A8D4B53E18528E5000FB886B /* TPDashboardDrawerViewController.h */,
 				A8D4B53F18528E5000FB886B /* TPDashboardDrawerViewController.m */,
 				A8BABA8F17E262CC00A3C95B /* TPDashboardViewController.h */,
@@ -4862,6 +4866,15 @@
 				A8BABAAD17E263DE00A3C95B /* TPWalkthroughViewController.m */,
 			);
 			path = Walkthrough;
+			sourceTree = "<group>";
+		};
+		A8D4B5411852904300FB886B /* Activity Stream */ = {
+			isa = PBXGroup;
+			children = (
+				A8D4B5421852905600FB886B /* TPActivityStreamViewController.h */,
+				A8D4B5431852905600FB886B /* TPActivityStreamViewController.m */,
+			);
+			name = "Activity Stream";
 			sourceTree = "<group>";
 		};
 		A8F5B2EC17F0F7580066E0BD /* EI */ = {
@@ -6347,6 +6360,7 @@
 				A8BABAA617E2631400A3C95B /* TPBarGraphView.m in Sources */,
 				A8B5A228180355CD00399FDD /* TPTextFieldCell.m in Sources */,
 				A8BABAA717E2631400A3C95B /* TPCurveGraphView.m in Sources */,
+				A8D4B5441852905600FB886B /* TPActivityStreamViewController.m in Sources */,
 				A89E993D182C5899006736F5 /* TPDrawerViewController.m in Sources */,
 				A8BABAA817E2631400A3C95B /* TPPolarChartView.m in Sources */,
 				A8BABAA917E2631400A3C95B /* TPCircadianTooltipView.m in Sources */,

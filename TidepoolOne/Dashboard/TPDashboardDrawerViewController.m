@@ -8,7 +8,7 @@
 
 #import "TPDashboardDrawerViewController.h"
 #import "TPDashboardViewController.h"
-#import "TPInviteFriendsViewController.h"
+#import "TPActivityStreamViewController.h"
 
 
 @interface TPDashboardDrawerViewController ()
@@ -34,7 +34,7 @@
     }
     
     [self setCenterPanel:[[TPDashboardViewController alloc] init]];
-    [self setRightPanel:[[TPInviteFriendsViewController alloc] init] ];
+    [self setRightPanel:[[TPActivityStreamViewController alloc] init] ];
     self.pushesSidePanels = YES;
     self.allowRightSwipe = YES;
     _rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"activity-ic-bell.png"] style:UIBarButtonItemStylePlain target:self action:@selector(toggleRightPanel:)];
